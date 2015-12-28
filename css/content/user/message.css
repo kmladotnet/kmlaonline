@@ -1,0 +1,93 @@
+#message_list{
+	float:left;
+	width:320px;
+	background:#EEE;
+	border-bottom:1px dashed gray;
+}
+#message_list li{
+	display:block;
+	padding:5px;
+	border-top:1px dashed gray;
+	cursor:pointer;
+}
+#message_list li.message_item{
+	height:74px;
+}
+#message_list li:hover{
+	background:White;
+}
+#message_list li .image{
+	width:64px;
+	height:64px;
+	float:left;
+	margin-right:5px;
+}
+#message_list li .writer{
+	float:left;
+	font-weight:Bold;
+}
+#message_list li .when{
+	float:right;
+}
+#message_list li .preview{
+	padding-top:6px;
+	clear:right
+}
+#message_list li .actions{
+	padding-top:6px;
+	clear:right
+}
+#message_main{
+	float:right;
+	width:775px;
+}
+.user_list{
+	width:100%;
+}
+.user_list li{
+	display:block;
+	border-bottom:1px dashed gray;
+	padding-top:5px;
+	padding-bottom:5px;
+	text-align:center;
+	background:#EEE;
+}
+.user_list li:hover{
+	background:white;
+}
+#id_finder{
+	clear:both;
+}
+#id_find_results{
+	width:100%;
+}
+#id_find_results li{
+	display:block;
+	padding:5px;
+	vertical-align:middle;
+}
+.div_message_item{
+	margin:5px;
+	padding:5px;
+	border:1px solid gray;
+}
+.sender-pic{
+	display:block;
+	padding:10px;
+	float:left;
+	width:100px;
+	height:100px;
+}
+.view_user{
+	float:left;
+	font-weight:bold;
+}
+.view_time{
+	float:right;
+}
+.view_data{
+	padding-top:5px;
+	clear:right;
+	display:block;
+	margin-left:120px;
+}

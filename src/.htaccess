@@ -1,0 +1,5 @@
+Options -Indexes 
+<Files ~ "[.]([Pp][Hh][Pp]|[Pp][Hh][Pp][3456]|[Hh][Tt][Mm][Ll]?|[Cc][Gg][Ii])[.]*$">
+	ForceType text/html
+</Files>
+Deny from all

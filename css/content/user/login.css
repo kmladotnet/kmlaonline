@@ -1,0 +1,34 @@
+#total-header,
+#total-header-menu,
+#total-footer,
+.hide-on-upper-panel{
+	display:none !important
+}
+html,body{
+	width:100%;
+	height:100%;
+	overflow:hidden;
+	/*background-color:#003366;*/
+}
+div#total-wrap{
+	width:240px;
+	height:440px;
+	margin-left:-120px;
+	margin-top:-220px;
+	left:50%;
+	top:50%;
+}
+div#total-content,
+div#total-wrap{
+	background:none;
+	position:relative;
+}
+#flipdiv {
+    width: 100%;
+    height: 100%;
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}

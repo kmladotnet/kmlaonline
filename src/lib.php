@@ -1,0 +1,419 @@
+<?php
+date_default_timezone_set("Asia/Seoul");
+include "src/soreeengine/SoreeTools.php"; // DB Manager
+include "src/range.php"; // HTTP Range Tools
+include "src/zipstream.php"; // ZIP Streaming Tools
+
+$max_level=20; // 현재 19기까지
+
+/********************** START INITIALIZATION SESSION ************************/
+if (isset($_POST["_CUSTOM_PHPSESSID"])) { // For Flash Upload Plugin
+	if(strlen($_POST["_CUSTOM_PHPSESSID"])<64)
+		session_id($_POST["_CUSTOM_PHPSESSID"]);
+}
+session_start();
+require "src/Mobile_Detect.php";
+$detect = new Mobile_Detect();
+$is_mobile = isset($_SESSION['forceMode'])?$_SESSION['forceMode']:$detect->isMobile();
+if(isset($_GET['force_mobile'])){
+	if($detect->isMobile()) unset($_SESSION['forceMode']);
+	else $_SESSION['forceMode']=true;
+	$is_mobile = true;
+}else if(isset($_GET['force_desktop'])){
+	if(!$detect->isMobile()) unset($_SESSION['forceMode']);
+	else $_SESSION['forceMode']=false;
+	$is_mobile = false;
+}
+include "theme/theme.php"; // Theme Definition
+include "lang/ko-kr.php"; // Language Definition
+$title="KMLA Online"; // Page Title
+$bDoInit=false; /* DO NOT INITIALIZE - YOU'VE BEEN WARNED */
+require(__DIR__."/db-config.php"); /* LOAD DATABASE - DO NOT REMOVE */
+
+if(isset($_COOKIE['remember_user'])){ // 자동 로그인
+	$rem=preg_replace('[^A-Za-z0-9]','',$_COOKIE['remember_user']);
+	if(file_exists($rempath="data/session/$rem")){
+		$_SESSION['user']=file_get_contents($rempath);
+		$me=$member->getMember($_SESSION['user']);
+		if($me===false){
+			unlink($rempath);
+			unset($_SESSION['user']);
+			setcookie("remember_user", "", time()-3600, "/");
+		}
+	}
+}
+session_write_close();
+/********************** END INITIALIZATION SESSION ************************/
+
+if(isset($_SESSION['user'])){
+	$me=$member->getMember($_SESSION['user']);
+	if($me===false){
+		session_destroy();
+		session_start();
+	}else{
+		if($me['n_access_date']+60<=time())
+			$member->recordMemberAccess($me['n_id']);
+	}
+}else{
+	$me=$member->getMember(1);
+}
+if(!function_exists("header_remove")){
+	function header_remove($header){ header($header.':'); }
+}
+$hr=date("G");
+$is_morning = $is_afternoon = $is_night = false;
+if($hr < 8 || $hr >= 22) $is_morning = true; // 혼정빵은 10시 이후에 끝
+elseif($hr >= 8 && $hr < 13) $is_afternoon = true;
+else $is_night = true;
+function redirectAlert($lnk=false,$alert=false){
+	?><!doctype html><html><head><meta charset="utf-8" /><meta http-equiv="content-type" content="text/html; charset=utf-8" /><title>Redirecting...</title><base href="/" /><script type="text/javascript" src="/js/jquery-1.8.2.min.js" charset="utf-8"></script><script type="text/javascript" src="/js/script.js" charset="utf-8"></script></head><body><script type="text/javascript"><?php
+	if($alert!==false) echo "alert('".addslashes($alert)."');";
+	if($lnk===false){
+		echo "history.go(-1);setTimeout(\"location.href='/';\",1000);";
+	}else{
+		$lnk=addslashes($lnk);
+		echo "location.href='$lnk';";
+	}
+	?></script></body></html><?php
+	die();
+}
+function redirectTo($link){
+	if(isAjax()){
+		die("redirect:$link");
+	}/*
+	header("Location: $link");
+	header("Status: 302 Moved");
+	header("HTTP/1.1 302 Moved");
+	*/
+	header("HTTP/1.1 200 OK");
+	header("Status: 200 OK");
+	?><!doctype html><html><head><meta http-equiv="refresh" content="0; url=<?php echo htmlspecialchars($link)?>" /><script type="text/javascript">location.href='<?php echo addslashes($link)?>';</script></head></html><?php
+	die();
+}
+function redirectWith($str,$dat=""){
+	?><!doctype html><html><head><meta charset="utf-8" /><meta http-equiv="content-type" content="text/html; charset=utf-8" /><title>Redirecting...</title><base href="/" /><script type="text/javascript" src="/js/jquery-1.8.2.min.js" charset="utf-8"></script><script type="text/javascript" src="/js/script.js" charset="utf-8"></script></head><body><?php
+	call_user_func($str,$dat);
+	?></body></html><?php
+	die();
+}
+function redirectLoginIfRequired(){
+	if(isset($_SESSION['user'])) return;
+	if(isAjax()){
+		die("redirect:/user/login/required?returnto=".urlencode($_SERVER['REQUEST_URI']));
+	}
+	?><!doctype html><html><head><meta charset="utf-8" /><meta http-equiv="content-type" content="text/html; charset=utf-8" /><title>Redirecting...</title><base href="/" /><script type="text/javascript" src="/js/jquery-1.8.2.min.js" charset="utf-8"></script><script type="text/javascript" src="/js/script.js" charset="utf-8"></script></head><body>
+	<form method="post" action="user/login/required" id="poster">
+		<input type="hidden" name="returnto" value="<?php echo htmlspecialchars($_SERVER['REQUEST_URI']) ?>" />
+		<input type="submit" id="submitter" value="Click here if the page doesn't continue" />
+	</form>
+	<script type="text/javascript">$('#poster').submit();$('#submitter').css("visibility", "hidden");</script></body></html><?php
+	die();
+}
+
+function isAjax(){
+	return isset($_POST['ajax']) || (isset($_SERVER['HTTP_X_CONTENT_ONLY']) && $_SERVER['HTTP_X_CONTENT_ONLY']);
+}
+function ajaxDie($arr=array(), $message=false){
+	global $overriden;
+	if($message!==false) 
+		$arr['__other']=$message;
+	$arr['error']=1;
+	if(isset($overriden)) $arr['__overriden']=$overriden;
+	die(json_encode($arr));
+}
+function ajaxOk($arr=array(), $redir_to=false, $alert_message=false, $confirm_message=false){
+	global $overriden;
+	if($redir_to!==false) $arr['redirect_to']=$redir_to;
+	if($alert_message!==false) $arr["alert_message"]=$alert_message;
+	if($confirm_message!==false) $arr["confirm_message"]=$confirm_message;
+	$arr['error']=0;
+	if(isset($overriden)) $arr['__overriden']=$overriden;
+	die(json_encode($arr));
+}
+function putUserCard($m,$mode=0, $putNow=true){
+	$str="";
+	if($m['s_icon']) $str.="<img src='".htmlspecialchars($m['s_icon'])."' style='width:12pt;height:12pt;vertical-align:middle;' />";
+	// else $str.="<img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' style='width:12pt;height:12pt;vertical-align:middle;' />";
+	if($m['n_level']>0 && $m['n_level']<10000){
+		switch($mode){
+			case 0: $str.= $m['n_level'] . "기 " . htmlspecialchars($m['s_name']); break;
+			case 1: $str.= htmlspecialchars($m['s_name']) . " (" . $m['n_level'] . "기)"; break;
+		}
+	}else
+		$str.=htmlspecialchars($m['s_name']);
+	if($putNow) echo $str;
+	return $str;
+}
+function die404(){
+	global $fn; $fn="404"; return;
+	header("HTTP/1.1 404 Not Found");
+	header("Status: 404 Not Found");
+	die("<h1>404 Not Found</h1>");
+}
+function die403(){
+	global $fn; $fn="403"; return;
+	header("HTTP/1.1 403 Access Denied");
+	header("Status: 403 Access Denied");
+	die("<h1>403 Access Denied</h1>");
+}
+function filterContent($s, $print=true){
+	global $member;
+	$s = preg_replace(
+			array(
+				'~(?![^"\']|^)(www\.[^<]+?)(\s|\r|\n|$)~im', 
+				'%(?<=[^="\'])(https?://)([^<]+?)(?=[\s"\'><]|$)%im',
+				'/(\s)on([a-zA-Z0-9_]+)([^a-zA-Z0-9_])/sim', 
+			),
+			array(
+				'http://$1$2', 
+				'<a href="$1$2" target="_blank">$2</a>', 
+				'$1on<span></span>$2$3', 
+			),
+			$s
+		);
+	if(preg_match_all('/@(((찾기)\\{[^}]*\\}|[^\\s`~!@#$%^&*\\(\\)\\-=_+\\[\\]\\\\{}\\|;\':\",.\\/\\<\\>\\?]*))/i',strip_tags($s),$tagged)>0){
+		$triggered=array();
+		foreach($tagged[1] as $val){
+			if(substr($val,0,6)==="찾기"){
+				$search=substr($val,7); $search=substr($search,0,strlen($search)-1); $search=html_entity_decode($search);
+				$triggered["@".$val]="@<a href=\"/searchall?search=".urlencode($search)."\">$val</a>";
+			}else{
+				if(preg_match("/([0-9]+)(.*)/i",$val,$tmp)>0){
+					if($tmp[2]==="기"){
+						$triggered["@".$val]="@<a href=\"/contacts?wave={$tmp[1]}\">{$tmp[1]}기</a>";
+					}else{
+						$trigger_temp=array();
+						foreach($member->listMembers(0,0,false, $tmp[2],true,true, false, true) as $usr){
+							if($usr['s_name']==$tmp[2] && $usr['n_level']==$tmp[1]){
+								$trigger_temp[]=$usr;
+							}
+						}
+						if(count($trigger_temp)==1){
+							$usr=$trigger_temp[0];
+							if($usr['s_icon'])
+								$triggered["@".$val]="<a href=\"/user/view/{$usr['n_id']}/{$usr['s_id']}\"><img src='".htmlspecialchars($usr['s_icon'])."' style='width:12pt;height:12pt;' alt='@' />{$usr['n_level']}{$usr['s_name']}</a>";
+							else
+								$triggered["@".$val]="@<a href=\"/user/view/{$usr['n_id']}/{$usr['s_id']}\">{$usr['n_level']}{$usr['s_name']}</a>";
+						}else if(count($trigger_temp)>1){
+							foreach($trigger_temp as $key=>$usr){
+								$trigger_temp[$key]="<a href=\"/user/view/{$usr['n_id']}/{$usr['s_id']}\">{$usr['s_id']}</a>";
+							}
+							$triggered["@".$val]="@$val <span style='font-size:9pt;'>(".implode(", ",$trigger_temp).")</span>";
+						}
+					}
+				}
+			}
+		}
+		foreach($triggered as $from=>$to){
+			$s=str_replace($from, $to, $s);
+		}
+	}
+	//*
+	$dom = new DOMDocument('1.0', 'utf-8');
+	$dom->recover=true;
+	$dom->substituteEntities=false;
+	$dom->preserveWhiteSpace=false;
+	@$dom->loadHTML('<?xml encoding="UTF-8">'.$s);
+	$s=$dom->saveHTML();
+	//*/
+	$s=strip_tags($s,"<input><form><button><u><span><iframe><embed><object><param><audio><video><div><hr><strong><br><h1><h2><h3><h4><h5><h6><p><blockquote><pre><a><abbr><acronym><address><big><cite><code><del><dfn><font><img><ins><kbd><q><s><samp><small><strike><sub><sup><tt><dl><dt><dd><ol><ul><li><fieldset><form><label><legend><table><caption><tbody><tfoot><thead><tr><th><td>");
+	if($print)echo $s;
+	return $s;
+}
+function doesAdminBypassEverythingAndIsAdmin($prev=false){
+	global $me;
+	if(!isset($_SESSION['admin_override'])) return $prev; // NO
+	if(!$prev && $me['n_admin']!=0) $overriden[]=array("?", "?");
+	return $prev || ($me['n_admin']!=0); // YES
+}
+function checkCategoryAccess($category, $action, $redirectIfDenied=false){
+	global $board, $me, $overriden;
+	if(!isset($_SESSION['user'])){
+		switch(str_replace(" ","",$action)){
+			case "write":
+			case "edit":
+			case "delete":
+			case "commentwrite":
+			case "commentedit":
+			case "commentdelete":
+			case "attachupload":
+			case "managemodify":
+			case "managepermission":
+				return false;
+		}
+	}
+	$res=$board->isUserAllowed($category, isset($_SESSION['user'])?$me:false, $action, isset($_SESSION['admin_override']));
+	if($res==-1)
+		$overriden[]=array($category, $action);
+	if(!$res && $redirectIfDenied) redirectAlert(false, lang("user","permission","error","lack"));
+	return $res?true:false;
+}
+function getLinkDescription($lnk){
+	global $board;
+	if(strstr($lnk,"?")) $lnk=substr($lnk,0,strpos($lnk,"?"));
+	$fnc=substr($lnk,1); if(strpos($fnc, "/")!==false) $fnc=substr($fnc,0,strpos($fnc, "/"));
+	$sub=substr($lnk,strlen($fnc)+2); if(strpos($sub, "/")!==false) $sub=substr($sub,0,strpos($sub, "/"));
+	switch($fnc){
+		case "board":
+			$b=$board->getCategory(false, $sub);
+			if($b===false) return false;
+			return str_replace("%1%",$b['s_name'],lang("link titles","board","main"));
+		case "util":
+			return lang("link titles","util",$sub);
+		case "user":
+			return lang("link titles","user",$sub);
+		case "":
+			return lang("link titles","");
+	}
+	return $lnk;
+}
+function getUserMenuBar($user){
+	global $board;
+	$file="data/user/menu_bar/{$user['n_id']}.txt";
+	if(file_exists($file)){
+		$current_setting=unserialize(file_get_contents($file));
+	}else{
+		$current_setting=array(
+			lang("layout","menu","personalization","")=>array(
+				array("url","/user/settings?display=2",lang("layout","menu","personalization","settings"))
+			)
+		);
+	}
+	return $current_setting;
+}
+function getUserMainBoards($user){
+	global $board;
+	$file="data/user/board_on_main/{$user['n_id']}.txt";
+	if(file_exists($file)){
+		$current_setting=unserialize(file_get_contents($file));
+		foreach($current_setting as $key=>$val){
+			if(!checkCategoryAccess($key, "list"))
+				unset($current_setting[$key]);
+		}
+	}else{
+		$current_setting=array();
+		foreach($board->getCategoryList(0,0) as $val){
+			if(checkCategoryAccess($val['n_id'], "list")){
+				if(strpos($val['s_id'],"announce")!==false)
+					$current_setting[$val['n_id']]=$val['n_id'];
+				if(strpos($val['s_id'],"forum")!==false)
+					$current_setting[$val['n_id']]=$val['n_id'];
+				if(strpos($val['s_id'],"all_")!==false)
+					$current_setting[$val['n_id']]=$val['n_id'];
+				if(strpos($val['s_id'],"wave".$user['n_level']."_")!==false)
+					$current_setting[$val['n_id']]=$val['n_id'];
+			}
+		}
+	}
+	return $current_setting;
+}
+function getCategoriesWithFixes($prefix="", $postfix=""){
+	global $me, $board, $member;
+	$accessible_categories=array();
+	foreach($board->getCategoryList(0,0) as $val){
+		if(checkCategoryAccess($val['n_id'], "list")){
+			if($prefix==="" || strcmp(substr($val['s_id'],0,strlen($prefix)),$prefix)==0){
+				if($postfix==="" || strcmp(substr($val['s_id'],-strlen($postfix)),$postfix)==0)
+					$accessible_categories[$val['n_id']]=$val['n_id'];
+			}
+		}
+	}
+	return $accessible_categories;
+}
+function putAlert($s){
+	?><script type="text/javascript">alert("<?php echo str_replace("<", "\"+\"<", addslashes($s)) ?>");</script><?php
+}
+function insertOnLoadScript($sc){
+	global $_scripts;
+	$_scripts.=$sc;
+}
+function isUserPermitted($user, $actName){
+	global $mysqli;
+	$actName=$mysqli->real_escape_string($actName);
+	if(!is_numeric($user)) return false;
+	if(doesAdminBypassEverythingAndIsAdmin()) return true;
+	if(false!==$res=$mysqli->query("SELECT n_permission FROM kmlaonline_special_permissions_table WHERE n_user=$user AND s_type='$actName'"))
+		while ($row = $res->fetch_array(MYSQLI_ASSOC)){
+			return $row['n_permission'];
+		}
+	return false;
+}
+function permitUser($user, $actName, $access){
+	global $mysqli;
+	$actName=$mysqli->real_escape_string($actName);
+	if(!is_numeric($user)) return false;
+	if(!is_numeric($access)) return false;
+	$mysqli->query("DELETE FROM kmlaonline_special_permissions_table WHERE n_user=$user AND s_type='$actName'");
+	if($access==0) return false;
+	return (false!==$res=$mysqli->query("INSERT INTO kmlaonline_special_permissions_table (n_user, s_type, n_permission) VALUES ($user, '$actName', $access)"));
+}
+function convertFromBytes($value){
+	if($value<1024) return $value . " B";
+	if($value/1024<1024) return round($value/1024,2) . " KB";
+	if($value/1048576<1024) return round($value/1048576,2) . " MB";
+	return round($value/1048576/1024,2) . " GB";
+}
+function sanitizeFileName($fn){
+	$fn=preg_replace("%([\\\/\\:\\*\\?\\\"\\<\\>\\|]+)%i", "-", $fn);
+	return $fn;
+}
+function convertToBytes( $value ) {
+	if ( is_numeric( $value ) ) {
+		return $value;
+	} else {
+		$value_length = strlen( $value );
+		$qty = substr( $value, 0, $value_length - 1 );
+		$unit = strtolower( substr( $value, $value_length - 1 ) );
+		switch ( $unit ) {
+			case 'k': $qty *= 1024; break;
+			case 'm': $qty *= 1048576; break;
+			case 'g': $qty *= 1073741824; break;
+		}
+		return $qty;
+	}
+}
+function resizeImage($path, $thumb_name, $sizex, $sizey){
+	if(($source_image=@imagecreatefromstring(@file_get_contents($path)))!==false){
+		$angle=0;
+		if(($exif = exif_read_data($path))!==FALSE){
+			switch ($exif['Orientation']) {
+				case 3: $angle = 180; break;
+				case 6: $angle = -90; break;
+				case 8: $angle = 90; break;
+			}
+		}
+		$width = imagesx($source_image);
+		$height = imagesy($source_image);
+
+		/* find the "desired height" of this thumbnail, relative to the desired width  */
+		$desired_height = floor($height * (($sizex==0?$sizey:$sizex) / $width));
+		$desired_width = floor($width * (($sizey==0?$sizex:$sizey) / $height));
+
+		/* create a new, "virtual" image */
+		if($sizex!=0 && $sizey!=0){
+			$virtual_image = imagecreatetruecolor($sizex, $sizey);
+			if($desired_height>$sizey) // Cut vertically
+				imagecopyresampled($virtual_image, $source_image, 0, -(($desired_height-$sizey)/2), 0, 0, $sizex, $desired_height, $width, $height);
+			else // Cut horizontally
+				imagecopyresampled($virtual_image, $source_image, -(($desired_width-$sizex)/2), 0, 0, 0, $desired_width, $sizey, $width, $height);
+		}else if($sizey==0){
+			if($desired_height>$height){
+				$virtual_image = imagecreatetruecolor($width, $height);
+				imagecopyresampled($virtual_image, $source_image, 0, 0, 0, 0, $width, $height, $width, $height);
+			}else{
+				$virtual_image = imagecreatetruecolor($sizex, $desired_height);
+				imagecopyresampled($virtual_image, $source_image, 0, 0, 0, 0, $sizex, $desired_height, $width, $height);
+			}
+		}
+		if($angle==180)
+			imageflip($virtual_image,IMG_FLIP_BOTH);
+		else if($angle==90 || $angle==-90){
+			imagesetinterpolation($virtual_image, IMG_HERMITE);			
+			$virtual_image = imagerotate($virtual_image, $angle, 0);
+		}
+		imagejpeg($virtual_image,$thumb_name,100);
+		return $thumb_name;
+	}
+	return;
+}
+$maxUploadFileSize = convertToBytes( ini_get( 'upload_max_filesize' ) );

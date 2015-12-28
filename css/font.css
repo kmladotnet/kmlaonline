@@ -1,0 +1,54 @@
+@font-face{
+	font-family:'Sansation';
+	src:local('Sensation'), url('./fonts/sansation_regular.eot');src:url('./fonts/sansation_regular.eot?#iefix') format('embedded-opentype'),url('./fonts/sansation_regular.woff') format('woff'),url('./fonts/sansation_regular.ttf') format('truetype'),url('./fonts/sansation_regular.svg#sansation_regular') format('svg');
+	font-weight:normal;
+	font-style:normal
+}
+@font-face{
+	font-family:'RegisterDemi';
+	src:local('RegisterDemi'), url('./fonts/register-demibold.eot');src:url('./fonts/register-demibold.eot?#iefix') format('embedded-opentype'),url('./fonts/register-demibold.woff') format('woff'),url('./fonts/register-demibold.ttf') format('truetype'),url('./fonts/register-demibold.svg#register-demibold') format('svg');
+	font-weight:normal;
+	font-style:normal
+}
+@font-face{
+	font-family:'Register';
+	src:local('Register'), url('./fonts/register-light.eot');src:url('./fonts/register-light.eot?#iefix') format('embedded-opentype'),url('./fonts/register-light.woff') format('woff'),url('./fonts/register-light.ttf') format('truetype'),url('./fonts/register-light.svg#register-light') format('svg');
+	font-weight:normal;
+	font-style:normal
+}
+@font-face {
+    font-family: 'NanumGothic', '나눔고딕';
+    font-style: normal;
+    font-weight: normal;
+    src: local('NanumGothic'), local('나눔고딕'), url('http://commondatastorage.googleapis.com/fontfacekr-fonts/NanumGothic.woff') format('woff'), url('http://commondatastorage.googleapis.com/fontfacekr-fonts/NanumGothic.eot') format('eot'), url('http://commondatastorage.googleapis.com/fontfacekr-fonts/NanumGothic.ttf') format('ttf');
+}
+@font-face {
+    font-family: 'NanumGothic', '나눔고딕';
+    font-style: normal;
+    font-weight: bold;
+    src: local('NanumGothicBold'), url('http://commondatastorage.googleapis.com/fontfacekr-fonts/NanumGothicBold.woff') format('woff'), url('http://commondatastorage.googleapis.com/fontfacekr-fonts/NanumGothicBold.eot') format('eot'), url('http://commondatastorage.googleapis.com/fontfacekr-fonts/NanumGothicBold.ttf') format('ttf');
+}
+@font-face {
+    font-family: 'NanumMyeongjo', '나눔명조';
+    font-style: normal;
+    font-weight: normal;
+    src: local('NanumMyeongjo'), local('나눔명조'), url('http://commondatastorage.googleapis.com/fontfacekr-fonts/NanumMyeongjo.woff') format('woff'), url('http://commondatastorage.googleapis.com/fontfacekr-fonts/NanumMyeongjo.eot') format('eot'), url('http://commondatastorage.googleapis.com/fontfacekr-fonts/NanumMyeongjo.ttf') format('ttf');
+}
+@font-face {
+    font-family: 'NanumMyeongjo', '나눔명조';
+    font-style: normal;
+    font-weight: bold;
+    src: local('NanumMyeongjoBold'), url('http://commondatastorage.googleapis.com/fontfacekr-fonts/NanumMyeongjoBold.woff') format('woff'), url('http://commondatastorage.googleapis.com/fontfacekr-fonts/NanumMyeongjoBold.eot') format('eot'), url('http://commondatastorage.googleapis.com/fontfacekr-fonts/NanumMyeongjoBold.ttf') format('ttf');
+}
+@font-face {
+    font-family: 'NanumPen', '나눔펜';
+    font-style: normal;
+    font-weight: normal;
+    src: local('NanumPen'), local('나눔펜'), url('http://commondatastorage.googleapis.com/fontfacekr-fonts/NanumPen.woff') format('woff'), url('http://commondatastorage.googleapis.com/fontfacekr-fonts/NanumPen.eot') format('eot'), url('http://commondatastorage.googleapis.com/fontfacekr-fonts/NanumPen.ttf') format('ttf');
+}
+@font-face {
+    font-family: 'NanumPen', '나눔펜';
+    font-style: normal;
+    font-weight: bold;
+    src: local('NanumPenBold'), url('http://commondatastorage.googleapis.com/fontfacekr-fonts/NanumPenBold.woff') format('woff'), url('http://commondatastorage.googleapis.com/fontfacekr-fonts/NanumPenBold.eot') format('eot'), url('http://commondatastorage.googleapis.com/fontfacekr-fonts/NanumPenBold.ttf') format('ttf');
+}

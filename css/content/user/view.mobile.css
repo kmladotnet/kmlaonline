@@ -1,0 +1,37 @@
+.userinfo_table{
+	border:2px solid gray !important;
+	border-bottom:1px solid gray !important;
+}
+.userinfo_table th,
+.userinfo_table td{
+	padding:5px;
+	border-bottom:1px solid gray;
+}
+.userinfo_table th{
+	width:240px;
+	text-align:right;
+	border-right:1px solid gray;
+}
+.userinfo_table td{
+	text-align:left;
+}
+.user_pic{
+	float:left;
+	width:100px;
+	height:100px;
+	margin:
+}
+.user_action{
+	margin-left:112px;
+}
+.user_basics{
+	margin-left:112px;
+}
+.user_info{
+	padding-top:12px;
+	clear:both;
+}
+.userinfo_table{
+	width:100%;
+	box-sizing:border-box;
+}

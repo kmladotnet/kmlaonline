@@ -1,0 +1,23 @@
+.big_notification{
+	display:block;
+	width:100%;
+	border-top:1px solid #EEE;
+}
+.big_notification li{
+	display:block;
+	padding:5px;
+	border-bottom:1px solid #EEE;
+	cursor:pointer;
+}
+.big_notification li.new{
+	background:#DDF;
+}
+.big_notification li:hover{
+	background:#EEF;
+}
+.big_notification li a{
+	width:100%;
+	height:100%;
+	color:black;
+	display:block;
+}

@@ -1,0 +1,347 @@
+div.forum_article_list{
+	display:block;
+	margin:0;
+	padding:10px;
+}
+div.forum_article_list ul li{
+	display:block;
+	border-left:1px solid #DDD;
+	border-right:1px solid #DDD;
+	background:white;
+}
+div.forum_article_list ul li.head{
+}
+div.forum_article_list ul li.items{
+	border-top:1px solid #DDD;
+	border-bottom:1px solid #DDD;
+	margin-bottom:10px;
+}
+div.forum_article_list .total_title{
+	display:block;
+	border-top:1px solid #DDD;
+	background:#333;
+	color:white;
+	padding:10px;
+}
+div.forum_article_list .item_head{
+	display:block;
+	border-bottom:1px solid #DDD;
+}
+div.forum_article_list .forum_comment_area{
+	margin-left:0;
+	padding-left:20px;
+	padding-right:20px;
+	padding-bottom:20px;
+	border-top:1px solid #DDD;
+	margin-top:25px;
+}
+div.forum_article_list .forum_comment_area_info{
+	padding:25px;
+	display:block;
+}
+div.forum_article_list .item_left{
+	display:block;
+	float:left;
+	width:100px;
+	padding:10px;
+    position: absolute;
+	box-sizing:border-box;
+    white-space: nowrap;
+    overflow: hidden;
+}
+div.forum_article_list .item_right{
+	display:block;
+	margin-left:100px;
+	padding:10px;
+	word-wrap:break-word;
+	word-break:break-all;
+}
+div.attach_container{
+	padding:25px;
+	display:block;
+	background:#FCFCFC;
+	border-bottom:1px solid #DDD;
+	border-left:1px solid #DDD;
+	border-right:1px solid #DDD;
+	text-align:center;
+}
+div.each_attachment_0{
+	float:left;
+	width:128px;
+	min-height:148px;
+	word-break:break-all;
+	white-space:pre-wrap;
+	display:block;
+	margin:5px;
+}
+div.each_attachment_1{
+}
+tr.board_list_item{
+	height:32px;
+	cursor:pointer;
+}
+tr.forum_list_item{
+	height:64px;
+}
+div.board_gallery_list_item{
+	cursor:pointer;
+	background:#EEF;
+	display:block;
+	width:240px;
+	height:180px;
+	border:1px solid #CCF;
+	position:relative;
+	overflow:hidden;
+	margin:1px;
+	float:left;
+}
+div.board_gallery_list_item .title{
+	z-index:2;
+	position:absolute;
+	padding:5px;
+	width:100%;
+	box-sizing: border-box;
+	top:0;
+	text-align:center;
+	background:white;
+	filter:alpha(opacity=70);
+	opacity:0.70;
+}
+div.board_gallery_list_item .info{
+	z-index:2;
+	position:absolute;
+	padding:5px;
+	width:100%;
+	box-sizing: border-box;
+	bottom:0;
+	text-align:center;
+	background:white;
+	filter:alpha(opacity=0);
+	opacity:0;
+}
+div.article_header{
+	padding:25px;
+	display:block;
+	background:#FCFCFC;
+	border-bottom:1px solid #DDD;
+	border-left:1px solid #DDD;
+	border-right:1px solid #DDD;
+}
+div.article_data{
+	word-wrap:break-word;
+	display:block;
+	padding:25px;
+	border-bottom:1px solid #DDD;
+}
+div.article_data img{
+	max-width:100% !important;
+}
+div.comment_area_info{
+	padding:25px;
+	display:block;
+	background:#FCFCFC;
+	border-bottom:1px solid #DDD;
+	border-left:1px solid #DDD;
+	border-right:1px solid #DDD;
+}
+div.comment_area{ }
+div.article_comment .acomment{
+	margin-left:8px;
+	margin-top:8px;
+	margin-right:8px;
+	padding-bottom:5px;
+	border-bottom:1px dotted #DDD;
+}
+li.placeHolder div { background-color:white !important; border:dashed 1px #DDD !important; }
+#fsUploadedFiles li{
+	width:100px;
+	height:100px;
+	display:block;
+	float:left;
+	margin:5px;
+	opacity:0.50;
+	filter:alpha(opacity=50);
+}
+#fsUploadedFiles li div.uploaded_item{
+	width:100px;
+	height:100px;
+	display:block;
+	position:relative;
+	overflow:hidden;
+	background:#EEE;
+}
+#fsUploadedFiles li div.uploaded_item div.info{
+	position:absolute;
+	top:0px;
+	text-align:center;
+	width:100px;
+	background:white;
+	opacity:0.50;
+	filter:alpha(opacity=50);
+	font-size:8pt;
+	z-index:2;
+}
+#fsUploadedFiles li div.uploaded_item div.act{
+	position:absolute;
+	top:68px;
+	height:32px;
+	text-align:center;
+	width:100px;
+	background:white;
+	opacity:0;
+	filter:alpha(opacity=0);
+	font-size:12px;
+	z-index:2;
+}
+div.fieldset {
+	border:  1px solid #afe14c;
+	padding-top: 20px;
+	padding-bottom: 10px;
+}
+div.fieldset span.legend {
+	position: relative;
+	background-color: #FFF;
+	padding: 3px;
+	margin-left:15px;
+	top: -30px;
+	color: #236304;
+}
+div.flash {
+	width: 375px;
+	margin-top: 20px;
+	margin-left: 5px;
+	margin-right:5px;
+	margin-bottom:5px;
+	border-color: #D9E4FF;
+
+	-moz-border-radius-topleft : 5px;
+	-webkit-border-top-left-radius : 5px;
+    -moz-border-radius-topright : 5px;
+    -webkit-border-top-right-radius : 5px;
+    -moz-border-radius-bottomleft : 5px;
+    -webkit-border-bottom-left-radius : 5px;
+    -moz-border-radius-bottomright : 5px;
+    -webkit-border-bottom-right-radius : 5px;
+
+}
+
+.progressWrapper {
+	width: 357px;
+	overflow: hidden;
+}
+
+.progressContainer {
+	margin: 5px;
+	padding: 4px;
+	border: solid 1px #E8E8E8;
+	background-color: #F7F7F7;
+	overflow: hidden;
+}
+/* Message */
+.message {
+	margin: 1em 0;
+	padding: 10px 20px;
+	border: solid 1px #FFDD99;
+	background-color: #FFFFCC;
+	overflow: hidden;
+}
+/* Error */
+.red {
+	border: solid 1px #B50000;
+	background-color: #FFEBEB;
+}
+
+/* Current */
+.green {
+	border: solid 1px #DDF0DD;
+	background-color: #EBFFEB;
+}
+
+/* Complete */
+.blue {
+	border: solid 1px #CEE2F2;
+	background-color: #F0F5FF;
+}
+
+.progressName {
+	font-weight: 700;
+	color: #555;
+	width: 323px;
+	height: 14px;
+	text-align: left;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.progressBarInProgress,
+.progressBarComplete,
+.progressBarError {
+	font-size: 0;
+	width: 0%;
+	height: 2px;
+	background-color: blue;
+	margin-top: 2px;
+}
+
+.progressBarComplete {
+	width: 100%;
+	background-color: green;
+	visibility: hidden;
+}
+
+.progressBarError {
+	width: 100%;
+	background-color: red;
+	visibility: hidden;
+}
+
+.progressBarStatus {
+	margin-top: 2px;
+	width: 337px;
+	font-size: 9pt;
+	text-align: left;
+	white-space: nowrap;
+}
+
+a.progressCancel {
+	font-size: 0;
+	display: block;
+	height: 14px;
+	width: 14px;
+	background-image: url(/images/cancelbutton.gif);
+	background-repeat: no-repeat;
+	background-position: -14px 0px;
+	float: right;
+}
+
+a.progressCancel:hover {
+	background-position: 0px 0px;
+}
+
+
+/* -- SWFUpload Object Styles ------------------------------- */
+.swfupload {
+	vertical-align: top;
+}
+div.upload-file-list{
+	margin: -28px 8px 0 8px;
+	position:relative;
+}
+div#div_search_method{
+	display:none;position:absolute;right:210px;bottom:32px;background:white;border:1px solid gray;padding:5px;width:150px;
+}
+div#div_search_from{
+	display:none;position:absolute;right:325px;bottom:32px;background:white;border:1px solid gray;padding:5px;width:79px;
+}
+
+
+
+#flipdiv {
+    width: 100%;
+    height: 100%;
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}

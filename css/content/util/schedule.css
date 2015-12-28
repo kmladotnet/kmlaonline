@@ -1,0 +1,71 @@
+.side-navigation{
+	float:left;
+	display:block;
+	width:80px;
+	overflow:hidden;
+}
+a.nav-year{
+	display:block;
+	padding:3px;
+	color:#555;
+	background:#DDF;
+	text-align:center;
+}
+a.nav-year:hover{
+	background:white;
+	color:black;
+}
+a.nav-month{
+	display:block;
+	padding:3px;
+	color:#555;
+	background:#EEE;
+	text-align:center;
+}
+a.nav-month:hover{
+	background:white;
+	color:black;
+}
+.schedule-content{
+	margin-left:84px;
+	border-left:1px solid gray;
+}
+table#calender{
+	width:100%;
+}
+table#calender th{
+	padding:12px;
+}
+table#calender td{
+	padding:3px;
+	height:120px;
+	vertical-align:top;
+}
+table#calender td span.datename{
+	font-size:12pt;
+	font-weight:bold;
+	float:left;
+}
+table#calender td a.edit{
+	float:right;
+	display:block;
+	padding:2px;
+	color:black;
+}
+table#calender td a.food{
+	float:right;
+	display:block;
+	padding:2px;
+	color:black;
+}
+table#calender td div.divider{
+	height:1px;
+	display:block;
+	width:100%;
+	clear:both;
+	border-top:1px dashed #EEE;
+}
+table#calender th,
+table#calender td{
+	width:14.285714285714285714285714285714%;
+}

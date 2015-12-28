@@ -1,0 +1,56 @@
+ul#menusorter{
+	padding-left:15px;
+	padding-top:6px;
+	clear:both;
+}
+ul#menusorter li{
+	display:block;
+	height:36px;
+	position:relative;
+	margin:0;padding:0;
+	border:1px solid gray;
+	background:white;
+}
+ul#menusorter li:not(:first-child){
+	border-top:none;
+}
+ul#menusorter div.handle{
+	display:block;
+	position:absolute;
+	left:0;top:0;
+	width:24px;
+	height:100%;
+	cursor: grab;
+	cursor: -moz-grab;
+	cursor: -webkit-grab;
+}
+ul#menusorter div.handle:active{
+	cursor: grabbing;
+	cursor: -moz-grabbing;
+	cursor: -webkit-grabbing;
+}
+ul#menusorter div.remove{
+	display:block;
+	position:absolute;
+	right:0;top:0;
+	width:24px;
+	height:100%;
+	line-height:36px;
+	text-align:center;
+	font-size:12pt;
+	font-weight:bold;
+	color:red;
+	cursor: pointer;
+}
+ul#menusorter div.assigned{
+	position:absolute;
+	left:32px;top:0;
+	right:32px;
+	height:100%;
+}
+ul#menusorter div.assigned-2{
+	position:absolute;
+	left:64px;top:0;
+	right:32px;
+	height:100%;
+}
