@@ -430,7 +430,12 @@ function prepareHeader() {
             $("div.total-header-menu-extend").slideDown(200, "easeOutCubic");
             $("div.menu-shadow").slideDown(200, "easeOutCubic");
             $("#total-header-menu").slideDown(200, "easeOutCubic");
-            $("div.menu1").slideDown(200, "easeOutCubic");
+            var n = 0;
+            var f = function() {
+                $($("div.menu1")[n++]).slideDown(200, "easeOutCubic");
+                if(n < $("div.menu1").length) setTimeout(f, 20);
+            }
+            f();
             $("#menu-logo").animate({
                 left: "0",
                 opacity: "1"
