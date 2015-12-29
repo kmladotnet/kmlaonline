@@ -397,7 +397,7 @@ function prepareHeader() {
                     $("div.menu1").animate({
                         top: -40
                     }, 200, "easeOutCubic");
-                    $("#menu-logo").animate({
+                    $("#menu-logo").stop().animate({
                         left: "-40",
                         opacity: "0"
                     }, 200, "easeOutCubic", function () {});
