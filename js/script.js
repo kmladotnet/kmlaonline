@@ -394,7 +394,7 @@ function prepareHeader() {
                     $("div.total-header-menu-extend").slideUp(200, "easeOutCubic");
                     $("div.menu-shadow").slideUp(200, "easeOutCubic");
                     $("#total-header-menu").slideUp(200, "easeOutCubic");
-                    $("div.menu1").animate({
+                    $("div.menu1_text").animate({
                         top: -40
                     }, 200, "easeOutCubic");
                     $("#menu-logo").stop().animate({
@@ -414,10 +414,10 @@ function prepareHeader() {
                     $("#total-header-menu").slideDown(200, "easeOutCubic");
                     var n = 0;
                     var f = function () {
-                        $($("div.menu1")[n++]).animate({
+                        $($("div.menu1_text")[n++]).animate({
                             top: 0
                         }, 200, "easeOutCubic");
-                        if (n < $("div.menu1").length) setTimeout(f, 20);
+                        if (n < $("div.menu1_text").length) setTimeout(f, 20);
                     }
                     f();
                     $("#menu-logo").animate({
@@ -442,10 +442,10 @@ function prepareHeader() {
             $("#total-header-menu").slideDown(200, "easeOutCubic");
             var n = 0;
             var f = function () {
-                $($("div.menu1")[n++]).animate({
+                $($("div.menu1_text")[n++]).animate({
                     top: 0
                 }, 200, "easeOutCubic");
-                if (n < $("div.menu1").length) setTimeout(f, 20);
+                if (n < $("div.menu1_text").length) setTimeout(f, 20);
             }
             f();
             $("#menu-logo").animate({
