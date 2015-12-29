@@ -347,6 +347,7 @@ var closeTimer;
 var hovering;
 var previousScroll = 0;
 var menuShown = true;
+
 function prepareHeader() {
     $("div.menu1").off("mouseenter").mouseenter(function () {
         var t = $(this);
@@ -393,7 +394,9 @@ function prepareHeader() {
                     $("div.total-header-menu-extend").slideUp(200, "easeOutCubic");
                     $("div.menu-shadow").slideUp(200, "easeOutCubic");
                     $("#total-header-menu").slideUp(200, "easeOutCubic");
-                    $("div.menu1").slideUp(200, "easeOutCubic");
+                    $("div.menu1").animate({
+                        top: -40
+                    }, 200, "easeOutCubic");
                     $("#menu-logo").animate({
                         left: "-40",
                         opacity: "0"
@@ -409,7 +412,14 @@ function prepareHeader() {
                     $("div.total-header-menu-extend").slideDown(200, "easeOutCubic");
                     $("div.menu-shadow").slideDown(200, "easeOutCubic");
                     $("#total-header-menu").slideDown(200, "easeOutCubic");
-                    $("div.menu1").slideDown(200, "easeOutCubic");
+                    var n = 0;
+                    var f = function () {
+                        $($("div.menu1")[n++]).animate({
+                            top: 0
+                        }, 200, "easeOutCubic");
+                        if (n < $("div.menu1").length) setTimeout(f, 20);
+                    }
+                    f();
                     $("#menu-logo").animate({
                         left: "0",
                         opacity: "1"
@@ -431,9 +441,11 @@ function prepareHeader() {
             $("div.menu-shadow").slideDown(200, "easeOutCubic");
             $("#total-header-menu").slideDown(200, "easeOutCubic");
             var n = 0;
-            var f = function() {
-                $($("div.menu1")[n++]).slideDown(200, "easeOutCubic");
-                if(n < $("div.menu1").length) setTimeout(f, 20);
+            var f = function () {
+                $($("div.menu1")[n++]).animate({
+                    top: 0
+                }, 200, "easeOutCubic");
+                if (n < $("div.menu1").length) setTimeout(f, 20);
             }
             f();
             $("#menu-logo").animate({
