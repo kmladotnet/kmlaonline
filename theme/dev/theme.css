@@ -183,6 +183,7 @@ div#total-header-menu .menu1 .widthholder{
 div#total-header-menu .menu1_text{
 	width:80px;
 	float:left;
+    position:relative;
 }
 div#total-header-menu .menu1_sub{
 	display:block;
