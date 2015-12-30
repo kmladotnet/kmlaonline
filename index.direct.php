@@ -8,10 +8,10 @@
     <base href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/" />
     <!--[if lte IE 7]><script type="text/javascript" src="/js/json2.js" charset="utf-8"></script><![endif]-->
     <!--[if gte IE 9]><style type="text/css">.gradient{filter: none;}</style><![endif]-->
-    <script type="text/javascript" src="/js/jquery-1.11.0.min.js" charset="utf-8"></script>
-    <script type="text/javascript" src="/js/jquery-ui-1.10.4.custom.min.js" charset="utf-8"></script>
-    <script type="text/javascript" src="/js/jquery.smooth-scroll.min.js" charset="utf-8"></script>
-    <script type="text/javascript" src="/js/jquery.color.js" charset="utf-8"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/1.6.1/jquery.smooth-scroll.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-color/2.1.2/jquery.color.min.js"></script>
     <script type="text/javascript" src="/js/jquery.autoresize.js" charset="utf-8"></script>
     <script type="text/javascript" src="/js/jquery.animate-shadow-min.js" charset="utf-8"></script>
     <script type="text/javascript" src="/js/lightbox.js" charset="utf-8"></script>
@@ -26,7 +26,7 @@
         snowStorm.snowColor = '#99ccff';
         snowStorm.freezeOnBlur = true;
     </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
     <link rel="stylesheet" href="/css/lightbox.css" charset="utf-8" type="text/css" media="screen" />
     <link rel="stylesheet" href="/css/font.css" charset="utf-8" type="text/css" media="screen" />
     <title>
