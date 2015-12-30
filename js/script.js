@@ -405,7 +405,7 @@ function prepareHeader() {
             } else {
                 if (!menuShown) {
                     menuShown = true;
-                    showMenu();
+                    showHeader();
                 }
             }
         }
@@ -415,7 +415,7 @@ function prepareHeader() {
     $("#menu-logo-2").hover(function () {
         if (!menuShown) {
             menuShown = true;
-            showMenu();
+            showHeader();
         }
     }, function () {});
 
