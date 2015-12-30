@@ -5,16 +5,17 @@ String.prototype.endsWith = function (suffix) {
 String.prototype.replaceAll = function (from, to) {
     return this.split(from).join(to);
 };
-//Object.prototype.getAttribute=Element.prototype.getAttribute;
+
 function unixtime() {
-    return (new Date().valueOf() * 0.001) | 0;
+    return Math.floor(new Date().valueOf() * 0.001);
 }
 
 function timeToString(d) {
-    return parseInt(d / 3600) + ":" + parseInt((d % 3600) / 60) + ":" + (d % 60);
+    return Math.floor(d / 3600) + ":" + Math.floor((d % 3600) / 60) + ":" + (d % 60);
 }
 
 function getURLParameter(name) {
+    //https://stackoverflow.com/questions/11582512/how-to-get-url-parameters-with-javascript/11582513#11582513
     return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [, ""])[1].replace(/\+/g, '%20')) || null;
 }
 
@@ -29,16 +30,6 @@ function randstring(len) {
     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     for (var i = 0; i < len; i++) text += possible.charAt(Math.floor(Math.random() * possible.length));
     return text;
-}
-if (!Array.prototype.forEach) {
-    Array.prototype.forEach = function (fun /*, thisp*/ ) {
-        var len = this.length;
-        if (typeof fun != "function") throw new TypeError();
-        var thisp = arguments[1];
-        for (var i = 0; i < len; i++) {
-            if (i in this) fun.call(thisp, this[i], i, this);
-        }
-    };
 }
 
 function putAlertOnLeave() {
@@ -252,7 +243,6 @@ function showUpperHeader(itm) {
         height: ($("#upper-header-menu-kept-visible").find(".menu2").length * 81) + "px"
     }, 500);
 
-
     $("#upper-header-menu").stop(true, true).animate({
         opacity: 1,
         height: ($(window).height() - $("#total-header-menu").height()) + "px"
@@ -263,7 +253,6 @@ function showUpperHeader(itm) {
         $("#total-wrap").css("height", "100%");
         $("#total-wrap").css("background", "white");
     });
-
 
     $("#below-header-menu").animate({
         height: 0,
@@ -323,49 +312,56 @@ function hideUpperHeader() {
 function closeMenu(ths, force) {
     var t = $(ths);
     var obj = t.find(".menu1_sub");
-    var obj2 = t.find(".menu1_text");
     var obj3 = t.find(".widthholder");
-    if (obj2.height() < 80 || force)
-        if (obj.length) {
-            t.stop(true, false).animate({
-                height: "40px",
-            }, 200, "easeOutCubic");
-            /*
-            obj2.stop(true, false).animate({
-                height: "40px",
-                opacity: 1
-            }, 200);
-            */
-            obj3.stop(true, false).animate({}, 200, function () {
-                $(this).css("height", "40px");
-                $(this).css("height", "1000px");
-            });
-            obj.stop(true, false).fadeTo(200, 0);
-        }
+    if (obj.length) {
+        t.stop(true, false).animate({
+            height: "40px",
+        }, 200, "easeOutCubic");
+        obj3.stop(true, false).animate({}, 200, function () {
+            $(this).css("height", "40px");
+            $(this).css("height", "1000px");
+        });
+        obj.stop(true, false).fadeTo(200, 0);
+    }
 }
+
+function showHeader() {
+    $("div.total-header-menu-extend").slideDown(200, "easeOutCubic");
+    $("div.menu-shadow").slideDown(200, "easeOutCubic");
+    $("#total-header-menu").slideDown(200, "easeOutCubic");
+    var n = 0;
+    var f = function () {
+        $($("div.menu1_text")[n++]).animate({
+            top: 0
+        }, 200, "easeOutCubic");
+        if (n < $("div.menu1_text").length) setTimeout(f, 20);
+    }
+    f();
+    $("#menu-logo").animate({
+        left: "0",
+        opacity: "1"
+    }, 200, "easeOutCubic", function () {});
+    $("#menu-logo-2").animate({
+        left: "0",
+        opacity: "0"
+    }, 200, "easeOutCubic", function () {});
+}
+
 var closeTimer;
 var hovering;
-var previousScroll = 0;
 var menuShown = true;
 
 function prepareHeader() {
     $("div.menu1").off("mouseenter").mouseenter(function () {
         var t = $(this);
         var obj = t.find(".menu1_sub");
-        var obj2 = t.find(".menu1_text");
         var obj3 = t.find(".widthholder");
         if (obj.length) {
             clearTimeout(closeTimer);
             t.stop(true, false).animate({
                 height: obj.height() + 40 + "px",
             }, 200, "easeOutCubic");
-            /*
-            obj2.stop(true, false).animate({
-                height: "0px",
-                opacity: 0
-            }, 200);
-            */
-            obj3.stop(true, true).animate({
+            obj2.stop(true, true).animate({
                 height: "600px",
             }, 200);
             obj.stop(true, true).fadeTo(200, 1);
@@ -409,25 +405,7 @@ function prepareHeader() {
             } else {
                 if (!menuShown) {
                     menuShown = true;
-                    $("div.total-header-menu-extend").slideDown(200, "easeOutCubic");
-                    $("div.menu-shadow").slideDown(200, "easeOutCubic");
-                    $("#total-header-menu").slideDown(200, "easeOutCubic");
-                    var n = 0;
-                    var f = function () {
-                        $($("div.menu1_text")[n++]).animate({
-                            top: 0
-                        }, 200, "easeOutCubic");
-                        if (n < $("div.menu1_text").length) setTimeout(f, 20);
-                    }
-                    f();
-                    $("#menu-logo").animate({
-                        left: "0",
-                        opacity: "1"
-                    }, 200, "easeOutCubic", function () {});
-                    $("#menu-logo-2").animate({
-                        left: "0",
-                        opacity: "0"
-                    }, 200, "easeOutCubic", function () {});
+                    showMenu();
                 }
             }
         }
@@ -437,25 +415,7 @@ function prepareHeader() {
     $("#menu-logo-2").hover(function () {
         if (!menuShown) {
             menuShown = true;
-            $("div.total-header-menu-extend").slideDown(200, "easeOutCubic");
-            $("div.menu-shadow").slideDown(200, "easeOutCubic");
-            $("#total-header-menu").slideDown(200, "easeOutCubic");
-            var n = 0;
-            var f = function () {
-                $($("div.menu1_text")[n++]).animate({
-                    top: 0
-                }, 200, "easeOutCubic");
-                if (n < $("div.menu1_text").length) setTimeout(f, 20);
-            }
-            f();
-            $("#menu-logo").animate({
-                left: "0",
-                opacity: "1"
-            }, 200, "easeOutCubic", function () {});
-            $("#menu-logo-2").animate({
-                left: "0",
-                opacity: "0"
-            }, 200, "easeOutCubic", function () {});
+            showMenu();
         }
     }, function () {});
 
