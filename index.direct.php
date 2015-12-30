@@ -8,15 +8,10 @@
     <base href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/" />
     <!--[if lte IE 7]><script type="text/javascript" src="/js/json2.js" charset="utf-8"></script><![endif]-->
     <!--[if gte IE 9]><style type="text/css">.gradient{filter: none;}</style><![endif]-->
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" charset="utf-8"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/1.6.1/jquery.smooth-scroll.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/g/jquery@2.1.4,jquery.ui@1.11.4,jquery.smooth-scroll@1.6.1,jquery.autosize@3.0.14,jquery.shadow-animation@1.11.0,ckeditor@4.3.1"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-color/2.1.2/jquery.color.min.js"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/autosize.js/3.0.14/autosize.min.js" charset="utf-8"></script>
-    <script type="text/javascript" src="/js/jquery.animate-shadow-min.js" charset="utf-8"></script>
     <script type="text/javascript" src="/js/lightbox.js" charset="utf-8"></script>
     <script type="text/javascript" src="/js/ba-debug.min.js" charset="utf-8"></script>
-    <script type="text/javascript" src="/ckeditor/ckeditor.js" charset="utf-8"></script>
     <script type="text/javascript" src="/swfupload/swfupload.js" charset="utf-8"></script>
     <script type="text/javascript" src="/swfupload/swfupload.queue.js" charset="utf-8"></script>
     <script type="text/javascript" src="/js/script.js?v=1.01" charset="utf-8"></script>
