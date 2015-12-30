@@ -541,6 +541,7 @@ div#total-header #back-to-main{
 }
 div#total-header-menu, div.total-header-menu-extend{
 	background: rgb(21, 70, 107);
+    width: inherit;
 	/* menubar-base.backup.png for original background */
 }
 div#total-header-menu .menu1{
