@@ -225,6 +225,7 @@ function putEditorForm($form_action, $prev_info, $comment_mode=false){
 	insertOnLoadScript("$( '#fsUploadedFiles' ).sortable();");
 	insertOnLoadScript("board_prepareSwfUploadBoardWrite(\"".session_id()."\");");
 	insertOnLoadScript("CKEDITOR.replace('s_data_ckeditor', {
-        language: 'kr';
+        language: 'kr',
+        font_names : '맑은 고딕;나눔고딕;나눔명조;나눔펜;굴림;바탕;돋움;궁서;Register;Sensation;Arial;Times New Roman;Verdana;Trebuchet MS;'
     });");
 }
