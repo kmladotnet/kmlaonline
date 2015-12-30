@@ -29,7 +29,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
     <link rel="stylesheet" href="/css/lightbox.css" charset="utf-8" type="text/css" media="screen" />
     <link rel="stylesheet" href="/css/font.css" charset="utf-8" type="text/css" media="screen" />
-    <link rel="shortcut icon" href="/fav.ico" />
     <title>
         <?php echo htmlspecialchars($title); ?>
     </title>
