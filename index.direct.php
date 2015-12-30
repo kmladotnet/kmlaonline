@@ -12,7 +12,7 @@
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/1.6.1/jquery.smooth-scroll.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-color/2.1.2/jquery.color.min.js"></script>
-    <script type="text/javascript" src="/js/jquery.autoresize.js" charset="utf-8"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/autosize.js/3.0.14/autosize.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="/js/jquery.animate-shadow-min.js" charset="utf-8"></script>
     <script type="text/javascript" src="/js/lightbox.js" charset="utf-8"></script>
     <script type="text/javascript" src="/js/ba-debug.min.js" charset="utf-8"></script>

@@ -985,7 +985,7 @@ addLoadEvent(function () {
         scrollToMiddle(elem.offset().top);
         flashObject(elem);
     }
-    $('.textareaautoresize').autoresize();
+    autosize($('.textareaautoresize'));
 
     window.notificationCountGetter = function () {
         getNotificationCount();
