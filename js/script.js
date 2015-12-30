@@ -249,6 +249,7 @@ function showUpperHeader(itm) {
     }, 500, "swing", function () {
         $("#upper-header-menu").css("height", "auto");
         $("#total-header-menu").css("position", "fixed");
+        $("#total-header-menu").css("width", "inherit");
         $("#total-header-menu").css("bottom", "0");
         $("#total-wrap").css("height", "100%");
         $("#total-wrap").css("background", "white");
