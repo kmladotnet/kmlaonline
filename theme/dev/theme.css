@@ -204,12 +204,14 @@ div#total-header-menu a.menu2{
 }
 i.slidedown-icon{
     color: lightsteelblue;
+    cursor:pointer;
 }
 i.slidedown-icon:hover{
     color:white;
 }
 i.slidedown-icon-pressed{
     color:black;
+    cursor:pointer;
 }
 i.slidedown-icon-pressed:hover{
     color:black;
