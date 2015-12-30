@@ -355,7 +355,7 @@ function prepareHeader() {
     $("div.menu1").off("mouseenter").mouseenter(function () {
         var t = $(this);
         var obj = t.find(".menu1_sub");
-        var obj3 = t.find(".widthholder");
+        var obj2 = t.find(".widthholder");
         if (obj.length) {
             clearTimeout(closeTimer);
             t.stop(true, false).animate({
