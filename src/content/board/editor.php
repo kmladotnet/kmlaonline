@@ -224,5 +224,7 @@ function putEditorForm($form_action, $prev_info, $comment_mode=false){
 	}
 	insertOnLoadScript("$( '#fsUploadedFiles' ).sortable();");
 	insertOnLoadScript("board_prepareSwfUploadBoardWrite(\"".session_id()."\");");
-	insertOnLoadScript("CKEDITOR.replace('s_data_ckeditor');");
+	insertOnLoadScript("CKEDITOR.replace('s_data_ckeditor', {
+        language: 'kr';
+    });");
 }
