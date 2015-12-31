@@ -2,10 +2,10 @@
 function printContent(){
 	global $board;
 	?>
-	<div style="padding:10px;">
-		<?php if(!isset($_GET['linkSelector'])){ ?>
-			<h1><span class="sitemap-icon" style="vertical-align:middle"></span> <span style="vertical-align:middle">사이트맵</span></h1>
-			<?php
+    <div style="padding:10px;">
+        <?php if(!isset($_GET['linkSelector'])){ ?>
+            <h1><i class="zmdi zmdi-compass zmdi-hc-2x" style="color: rgb(21, 70, 107);"></i> <span style="vertical-align:super">사이트맵</span></h1>
+            <?php
 		}
 		$cat=array(
 			""=>array("전체",array()),
@@ -46,19 +46,31 @@ function printContent(){
 				echo "<div style='padding:3px;margin:2px;float:left;display:block;width:120px;line-height:140%'>";
 			if($j==1){
 				$i--;
-			?><h2 style='padding-bottom:5px;'>기능</h2>
-				<a rel='closenow' style='font-size:12pt' href="/contacts">연락망</a><br />
-				<a rel='closenow' style='font-size:12pt' href="/util/lectureroom">공동강의실 신청</a><br />
-				<a rel='closenow' style='font-size:12pt' href="/util/important">필수 공지</a><br />
-				<a rel='closenow' style='font-size:12pt' href="/util/schedule">일정</a><br />
-				<a rel='closenow' style='font-size:12pt' href="/util/kmlaboard">큼라보드</a><br />
-				<a rel='closenow' style='font-size:12pt' href="/searchall">전체에서 찾기</a><br />
-				<a rel='closenow' style='font-size:12pt' href="/board/special:list-mine">내 게시판</a><br />
-				<a rel='closenow' style='font-size:12pt' href="/board/special:list-all">모든 게시판</a><br />
-				<a rel='closenow' style='font-size:12pt' href="/user/notification">내 알림</a><br />
-				<a rel='closenow' style='font-size:12pt' href="/user/settings">사용자 설정</a><br />
-				<a rel='closenow' style='font-size:12pt' href="/user/manage">게시판 등 관리</a><br />
-				<?php
+			?>
+                <h2 style='padding-bottom:5px;'>기능</h2>
+                <a rel='closenow' style='font-size:12pt' href="/contacts">연락망</a>
+                <br />
+                <a rel='closenow' style='font-size:12pt' href="/util/lectureroom">공동강의실 신청</a>
+                <br />
+                <a rel='closenow' style='font-size:12pt' href="/util/important">필수 공지</a>
+                <br />
+                <a rel='closenow' style='font-size:12pt' href="/util/schedule">일정</a>
+                <br />
+                <a rel='closenow' style='font-size:12pt' href="/util/kmlaboard">큼라보드</a>
+                <br />
+                <a rel='closenow' style='font-size:12pt' href="/searchall">전체에서 찾기</a>
+                <br />
+                <a rel='closenow' style='font-size:12pt' href="/board/special:list-mine">내 게시판</a>
+                <br />
+                <a rel='closenow' style='font-size:12pt' href="/board/special:list-all">모든 게시판</a>
+                <br />
+                <a rel='closenow' style='font-size:12pt' href="/user/notification">내 알림</a>
+                <br />
+                <a rel='closenow' style='font-size:12pt' href="/user/settings">사용자 설정</a>
+                <br />
+                <a rel='closenow' style='font-size:12pt' href="/user/manage">게시판 등 관리</a>
+                <br />
+                <?php
 			}else{
 				echo "<h2 style='padding-bottom:5px;'>".$c[0]."</h2>";
 				foreach($c[1] as $b){
@@ -66,10 +78,8 @@ function printContent(){
 				}
 			}
 			echo "</div>";
-			if((++$j)%5==0) echo "<div style='clear:both'></div>";
 		}
-		echo "<div style='clear:both'></div>";
 		?>
-	</div>
-	<?php
+    </div>
+    <?php
 }
