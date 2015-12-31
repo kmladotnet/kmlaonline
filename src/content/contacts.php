@@ -45,7 +45,7 @@ function printContentPc(){
                                 <th>상태 메시지</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="userlist-body">
                             <?php foreach($arr as $m){
 						?>
                                 <tr style="height:32px;">

@@ -628,11 +628,11 @@ thead th{
 	background:#e1eef0;
 	color:black;
 }
-tbody > tr:nth-child(odd) {
+tbody.userlist-body > tr:nth-child(odd) {
     background: rgb(240,245,250);
 }
 
-tbody > tr:nth-child(even) {
+tbody.userlist-body > tr:nth-child(even) {
     background: white;
 }
 .contact-finder a.wavebutton:hover{
