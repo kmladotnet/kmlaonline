@@ -84,7 +84,7 @@ function printContentPc(){
                                                 <?php } ?>
                                     </td>
                                     <td style="text-align:center">
-                                        <?php echo $m['n_birth_date_yr']."-".$m['n_birth_date_month']."-".$m['n_birth_date_day'];?>
+                                        <?php echo $m['n_birth_date_yr']."&#8209;".$m['n_birth_date_month']."&#8209;".$m['n_birth_date_day'];?>
                                     </td>
                                     <td style="text-align:center">
                                         <a href="mailto:<?php echo rawurlencode($m['s_email'])?>">
@@ -182,7 +182,7 @@ function printContentMobile(){
 							?>
                                     </td>
                                     <td style="text-align:center">
-                                        <?php echo $m['n_birth_date_yr']."-".$m['n_birth_date_month']."-".$m['n_birth_date_day'];?>
+                                        <?php echo $m['n_birth_date_yr']."&#8209;".$m['n_birth_date_month']."&#8209;".$m['n_birth_date_day'];?>
                                     </td>
                                     <td style="text-align:center">
                                         <a href="mailto:<?php echo rawurlencode($m['s_email'])?>">
