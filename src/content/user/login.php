@@ -20,14 +20,15 @@ function printContent(){
 	}
 	
 	?>
-	
-	<form method="post" action="./check" id="downform_login" onsubmit="return true;">
-		<input type="hidden" id="downform_login_action" name="action" value="login" />
-		<input type="hidden" name="returnto" value="<?php echo ((isset($_REQUEST['returnto']) && $_REQUEST['returnto']!="")?$_REQUEST['returnto']:"/")?>" />
-		<div style="text-align:center;width:100%">
-			<a href="http://kmlaonline.net"><h1 id="login_title" style="color:white">KMLAONLINE</h1></a>
-			<?php if(isset($_GET['p1']) && $_GET['p1']=='bad'){ ?>
-				<div style="color:red;font-weight:bold;size:15pt;text-align:center;">ID 또는 패스워드가 잘못되었습니다.<br /><b>E-Mail이 아니라 ID로 로그인하세요.</div>
+
+    <form method="post" action="./check" id="downform_login" onsubmit="return true;">
+        <input type="hidden" id="downform_login_action" name="action" value="login" />
+        <input type="hidden" name="returnto" value="<?php echo ((isset($_REQUEST['returnto']) && $_REQUEST['returnto']!=" ")?$_REQUEST['returnto']:"/ ")?>" />
+        <div style="text-align:center;width:100%">
+            <a href="http://kmlaonline.net"><h1 id="login_title" style="color:white">KMLAONLINE</h1></a>
+            <?php if(isset($_GET['p1']) && $_GET['p1']=='bad'){ ?>
+                <div style="color:red;font-weight:bold;size:15pt;text-align:center;">ID 또는 패스워드가 잘못되었습니다.
+                    <br /><b>E-Mail이 아니라 ID로 로그인하세요.</div>
 				<br />
 			<?php }else if(isset($_GET['p1']) && $_GET['p1']=='required'){ ?>
 				<div style="color:red;font-weight:bold;size:15pt;text-align:center;">로그인해야 볼 수 있는 페이지입니다.</div>
@@ -63,14 +64,18 @@ function printContent(){
 				<div style="text-align:center">
 					<?php
 					$curYear=date("Y"); $curMonth=date("n"); $curDay=date("j");
-					if($is_morning && date("H")>=22) $curDay++;
+				    if ($is_morning && date("H")>=22) {
+				    	$curYear = date("Y", strtotime("+1 day"));
+				    	$curMonth = date("m", strtotime("+1 day"));
+				    	$curDay = date("d", strtotime("+1 day"));
+				    }
 					$query="SELECT s_mode, s_data FROM kmlaonline_schedule_table WHERE n_year=$curYear AND n_month=$curMonth AND n_day=$curDay";
-					if($res=$mysqli->query($query)){
-						while ($row = $res->fetch_array(MYSQLI_ASSOC)){
+					if ($res=$mysqli->query($query)) {
+						while ($row = $res->fetch_array(MYSQLI_ASSOC)) {
 							$scheduleData[$row['s_mode']]=$row['s_data'];
 						}
 						$res->close();
-						if($mysqli->more_results())$mysqli->next_result();
+						if ($mysqli->more_results()) $mysqli->next_result();
 					}
 					echo "<div style='font-weight:bold;font-size:11pt;padding:4px;'>{$curYear}년 {$curMonth}월 {$curDay}일</div>";
 					?>
