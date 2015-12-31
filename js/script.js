@@ -20,7 +20,7 @@ function getURLParameter(name) {
 }
 
 function htmlspecialchars(d) {
-    o = $("<div></div>");
+    var o = $("<div></div>");
     o.text(d);
     return o.html();
 }
@@ -40,7 +40,7 @@ function putAlertOnLeave() {
 
 function cancelAjaxSave() {
     if (window.ajax_write) window.ajax_write.abort();
-    if (window.noAlertOnLeave) {} else {
+    if (!window.noAlertOnLeave) {
         putAlertOnLeave();
     }
     hideLoading();
