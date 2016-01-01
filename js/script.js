@@ -137,7 +137,7 @@ function saveAjax(obj, opername, ckeditor, callafter) {
                         doit = confirm(ret["confirm_message"]);
                     if (doit) {
                         window.onbeforeunload = null;
-                        changeLinkTo(ret["redirect_to"]);
+                        location.href= ret["redirect_to"];
                         $(window).unload(function () {
                             if (window.leaving) clearTimeout(window.leaving);
                             window.leaving = null;
@@ -200,7 +200,6 @@ function loadUpperHeader(theurl, placeTo, immediate) {
                     return false;
                 }
                 if (this.rel == "closenow") hideUpperHeader();
-                return changeLinkTo(this.href);
             });
         });
         if (immediate) {
@@ -771,7 +770,7 @@ function changeLinkTo(href, ajaxData) {
         if (msg.indexOf(":") != -1) {
             var action = msg.substring(0, msg.indexOf(":"));
             if (action == "redirect") {
-                changeLinkTo(msg.substring(action.length + 1));
+                location.href = msg.substring(action.length + 1);
                 return;
             }
         } else if (msg.indexOf("<html>") != -1 && msg.indexOf("<head>") != -1 && msg.indexOf("<body>") != -1) {
@@ -929,7 +928,6 @@ addLoadEvent(function () {
                 return false;
             }
             if (this.rel == "closenow") hideUpperHeader();
-            return changeLinkTo(this.href);
         });
     });
     $('form').each(function () {
