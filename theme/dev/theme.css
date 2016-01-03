@@ -25,11 +25,11 @@ body.cke_contents_ltr{
 	width:auto;
 	height:auto;
 }
-#circle {
+div#circle {
     border-radius: 100%;
 }
 
-#anonymous-bubble {
+div#anonymous-bubble {
     color: rgba(255,255,255,0.5);
     font-size: xx-large;
     text-align: center;

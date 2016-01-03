@@ -107,12 +107,18 @@ function putCommentTree($parent,$root){
 				<?php
 				$b_comment_anonymous=$comment['n_flag']&0x4;
 				$b_comment_anonymous=$b_comment_anonymous && checkCategoryAccess($board_cat['n_id'], "flag anonymous");
+
+                if($b_comment_anonymous)
+                    $hash_val = hash_hmac("md2",$comment['n_writer'],$root);
+
 				$pic_sz=50;//$is_mobile?50:100;
 				if($m['s_pic'] && !$b_comment_anonymous)
 					echo '<a href="'.htmlspecialchars(str_replace("picture/","picture_full/",$m['s_pic'])).'" rel="lightbox"><img style="float:left;width:'.$pic_sz.'px;height:'.$pic_sz.'px;margin-right:7px;" src="'.htmlspecialchars($m['s_pic']).'" /></a>';
 				else if(!$m['s_pic'] && !$b_comment_anonymous)
 					echo '<img src="/images/no-image.png" style="float:left;width:'.$pic_sz.'px;height:'.$pic_sz.'px;margin-right:7px;" />';
 				else{
+                    $hue = ((hexdec($hash_val) / 1234) % 361 + 361) % 361; //positive int from 0 to 360
+                    echo '<div class="circle anonymous-bubble" style="color:rgb('.hsvToRgb($hue,50,50).');">'.substr(base_convert($hash_val, 16, 36),2,1).'</div>';
 				}
 				?>
 				<div style="display:block;margin-left:<?php echo $pic_sz*1.1 ?>px;">
