@@ -391,12 +391,7 @@ function getCategoriesWithFixes($prefix="", $postfix=""){
 	return $accessible_categories;
 }
 function putAlert($s){
-	?>
-                    <script type="text/javascript">
-                        alert("<?php echo str_replace(" < ", "\
-                            "+\"<", addslashes($s)) ? > ");
-                    </script>
-                    <?php
+	?><script type="text/javascript">alert("<?php echo str_replace("<", "\"+\"<", addslashes($s)) ?>");</script><?php
 }
 function insertOnLoadScript($sc){
 	global $_scripts;
