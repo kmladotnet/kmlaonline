@@ -66,7 +66,22 @@ if($hr < 8 || $hr >= 22) $is_morning = true; // 혼정빵은 10시 이후에 끝
 elseif($hr >= 8 && $hr < 13) $is_afternoon = true;
 else $is_night = true;
 function redirectAlert($lnk=false,$alert=false){
-	?><!doctype html><html><head><meta charset="utf-8" /><meta http-equiv="content-type" content="text/html; charset=utf-8" /><title>Redirecting...</title><base href="/" /><script type="text/javascript" src="/js/jquery-1.8.2.min.js" charset="utf-8"></script><script type="text/javascript" src="/js/script.js" charset="utf-8"></script></head><body><script type="text/javascript"><?php
+	?>
+    <!doctype html>
+    <html>
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>Redirecting...</title>
+        <base href="/" />
+        <script type="text/javascript" src="/js/jquery-1.8.2.min.js" charset="utf-8"></script>
+        <script type="text/javascript" src="/js/script.js" charset="utf-8"></script>
+    </head>
+
+    <body>
+        <script type="text/javascript">
+            <?php
 	if($alert!==false) echo "alert('".addslashes($alert)."');";
 	if($lnk===false){
 		echo "history.go(-1);setTimeout(\"location.href='/';\",1000);";
@@ -74,7 +89,12 @@ function redirectAlert($lnk=false,$alert=false){
 		$lnk=addslashes($lnk);
 		echo "location.href='$lnk';";
 	}
-	?></script></body></html><?php
+	?>
+        </script>
+    </body>
+
+    </html>
+    <?php
 	die();
 }
 function redirectTo($link){
@@ -87,13 +107,43 @@ function redirectTo($link){
 	*/
 	header("HTTP/1.1 200 OK");
 	header("Status: 200 OK");
-	?><!doctype html><html><head><meta http-equiv="refresh" content="0; url=<?php echo htmlspecialchars($link)?>" /><script type="text/javascript">location.href='<?php echo addslashes($link)?>';</script></head></html><?php
+	?>
+        <!doctype html>
+        <html>
+
+        <head>
+            <meta http-equiv="refresh" content="0; url=<?php echo htmlspecialchars($link)?>" />
+            <script type="text/javascript">
+                location.href = '<?php echo addslashes($link)?>';
+            </script>
+        </head>
+
+        </html>
+        <?php
 	die();
 }
 function redirectWith($str,$dat=""){
-	?><!doctype html><html><head><meta charset="utf-8" /><meta http-equiv="content-type" content="text/html; charset=utf-8" /><title>Redirecting...</title><base href="/" /><script type="text/javascript" src="/js/jquery-1.8.2.min.js" charset="utf-8"></script><script type="text/javascript" src="/js/script.js" charset="utf-8"></script></head><body><?php
+	?>
+            <!doctype html>
+            <html>
+
+            <head>
+                <meta charset="utf-8" />
+                <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+                <title>Redirecting...</title>
+                <base href="/" />
+                <script type="text/javascript" src="/js/jquery-1.8.2.min.js" charset="utf-8"></script>
+                <script type="text/javascript" src="/js/script.js" charset="utf-8"></script>
+            </head>
+
+            <body>
+                <?php
 	call_user_func($str,$dat);
-	?></body></html><?php
+	?>
+            </body>
+
+            </html>
+            <?php
 	die();
 }
 function redirectLoginIfRequired(){
@@ -101,12 +151,32 @@ function redirectLoginIfRequired(){
 	if(isAjax()){
 		die("redirect:/user/login/required?returnto=".urlencode($_SERVER['REQUEST_URI']));
 	}
-	?><!doctype html><html><head><meta charset="utf-8" /><meta http-equiv="content-type" content="text/html; charset=utf-8" /><title>Redirecting...</title><base href="/" /><script type="text/javascript" src="/js/jquery-1.8.2.min.js" charset="utf-8"></script><script type="text/javascript" src="/js/script.js" charset="utf-8"></script></head><body>
-	<form method="post" action="user/login/required" id="poster">
-		<input type="hidden" name="returnto" value="<?php echo htmlspecialchars($_SERVER['REQUEST_URI']) ?>" />
-		<input type="submit" id="submitter" value="Click here if the page doesn't continue" />
-	</form>
-	<script type="text/javascript">$('#poster').submit();$('#submitter').css("visibility", "hidden");</script></body></html><?php
+	?>
+                <!doctype html>
+                <html>
+
+                <head>
+                    <meta charset="utf-8" />
+                    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+                    <title>Redirecting...</title>
+                    <base href="/" />
+                    <script type="text/javascript" src="/js/jquery-1.8.2.min.js" charset="utf-8"></script>
+                    <script type="text/javascript" src="/js/script.js" charset="utf-8"></script>
+                </head>
+
+                <body>
+                    <form method="post" action="user/login/required" id="poster">
+                        <input type="hidden" name="returnto" value="<?php echo htmlspecialchars($_SERVER['REQUEST_URI']) ?>" />
+                        <input type="submit" id="submitter" value="Click here if the page doesn't continue" />
+                    </form>
+                    <script type="text/javascript">
+                        $('#poster').submit();
+                        $('#submitter').css("visibility", "hidden");
+                    </script>
+                </body>
+
+                </html>
+                <?php
 	die();
 }
 
@@ -321,7 +391,12 @@ function getCategoriesWithFixes($prefix="", $postfix=""){
 	return $accessible_categories;
 }
 function putAlert($s){
-	?><script type="text/javascript">alert("<?php echo str_replace("<", "\"+\"<", addslashes($s)) ?>");</script><?php
+	?>
+                    <script type="text/javascript">
+                        alert("<?php echo str_replace(" < ", "\
+                            "+\"<", addslashes($s)) ? > ");
+                    </script>
+                    <?php
 }
 function insertOnLoadScript($sc){
 	global $_scripts;
@@ -415,5 +490,35 @@ function resizeImage($path, $thumb_name, $sizex, $sizey){
 		return $thumb_name;
 	}
 	return;
+}
+function clamp($val, $min, $max) {
+    return $val > $min ? ($val < $max ? $val : $max) : $min;
+}
+function hsvToRgb($iH, $iS, $iV) {
+    $dV = clamp($iV, 0, 100) / 100.0;
+    $dC = $dV * clamp($iS, 0, 100) / 100.0;
+    $dH = clamp($iH, 0, 360) / 60.0;
+    $dT = fmod($dH, 2.0);
+    $dX = $dC * (1 - abs($dT - 1));
+    switch(floor($dH)) {
+        case 0:
+            $dR = $dC; $dG = $dX; $dB = 0.0; break;
+        case 1:
+            $dR = $dX; $dG = $dC; $dB = 0.0; break;
+        case 2:
+            $dR = 0.0; $dG = $dC; $dB = $dX; break;
+        case 3:
+            $dR = 0.0; $dG = $dX; $dB = $dC; break;
+        case 4:
+            $dR = $dX; $dG = 0.0; $dB = $dC; break;
+        case 5:
+            $dR = $dC; $dG = 0.0; $dB = $dX; break;
+        default:
+            $dR = 0.0; $dG = 0.0; $dB = 0.0; break;
+    }
+    $dM = $dV - $dC;
+    $dR += $dM; $dG += $dM; $dB += $dM;
+    $dR *= 255; $dG *= 255; $dB *= 255;
+    return round($dR).",".round($dG).",".round($dB);
 }
 $maxUploadFileSize = convertToBytes( ini_get( 'upload_max_filesize' ) );
