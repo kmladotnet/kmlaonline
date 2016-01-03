@@ -118,7 +118,7 @@ function putCommentTree($parent,$root){
 					echo '<img src="/images/no-image.png" style="float:left;width:'.$pic_sz.'px;height:'.$pic_sz.'px;margin-right:7px;" />';
 				else{
                     $hue = ((hexdec($hash_val) / 1234) % 361 + 361) % 361; //positive int from 0 to 360
-                    echo '<div class="circle anonymous-bubble" style="width:'.$pic_sz.'; height:'.$pic_sz.'; background:rgb('.hsvToRgb($hue,50,50).');">'.substr(base_convert($hash_val, 16, 36),2,1).'</div>';
+                    echo '<div class="circle anonymous-bubble" style="width:'.$pic_sz.'px; height:'.$pic_sz.'px; background:rgb('.hsvToRgb($hue,50,50).');">'.substr(base_convert($hash_val, 16, 36),2,1).'</div>';
 				}
 				?>
 				<div style="display:block;margin-left:<?php echo $pic_sz*1.1 ?>px;">
