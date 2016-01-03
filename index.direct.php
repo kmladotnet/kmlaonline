@@ -15,7 +15,7 @@
     <script type="text/javascript" src="/js/ba-debug.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="/swfupload/swfupload.js" charset="utf-8"></script>
     <script type="text/javascript" src="/swfupload/swfupload.queue.js" charset="utf-8"></script>
-    <script type="text/javascript" src="/js/script.js?v=1.01" charset="utf-8"></script>
+    <script type="text/javascript" src="/js/script.js?v=1.1" charset="utf-8"></script>
     <script type="text/javascript" src="/js/content/combined.js" charset="utf-8"></script>
     <script type="text/javascript" src="/js/snowstorm.js"></script>
     <script type="text/javascript">
