@@ -313,6 +313,8 @@ function printOneForumItem($article,$root,$suppress_comments=false){
 	$b_anonymous=$b_anonymous && checkCategoryAccess($board_cat['n_id'], "flag anonymous");
 	$b_bold_title=$b_bold_title && checkCategoryAccess($board_cat['n_id'], "flag bold title");
 	$m=$member->getMember($article['n_writer']);
+    if($b_anonymous)
+        $hash_val = hash_hmac("md2",$comment['n_writer'],$root);
 	?>
 	<li class="items" id="article_comment_sub_<?php echo $article['n_id']?>">
 		<?php if($is_mobile){ ?>
@@ -320,6 +322,8 @@ function printOneForumItem($article,$root,$suppress_comments=false){
 				<?php
 				if($b_anonymous){
 					echo "익명 ".substr(base_convert(hash_hmac("md2",$article['n_writer'],$suppress_comments?$article['n_id']:$article['n_parent']), 16, 36),2,4);
+                    $hue = ((hexdec($hash_val) / 1234567890.1) % 361 + 361) % 361; //positive int from 0 to 360
+                    echo '<div class="circle anonymous-bubble" style="float:left; width:'.$pic_sz.'px; height:'.$pic_sz.'px; background:rgb('.hsvToRgb($hue,50,80).');">'.substr(base_convert($hash_val, 16, 36),2,1).'</div>';
 				}else{
 					echo "<a href=\"/user/view/{$m['n_id']}/{$m['s_id']}\" style='vertical-align:middle;line-height:48px;'>";
 					if($m['s_pic'])
@@ -394,6 +398,8 @@ function printOneForumItem($article,$root,$suppress_comments=false){
 						echo '<img src="/images/no-image.png" style="width:50px;height:50px;" />';
 					echo htmlspecialchars($m['s_status_message']) . "<br />";
 				}else{
+                    $hue = ((hexdec($hash_val) / 1234567890.1) % 361 + 361) % 361; //positive int from 0 to 360
+                    echo '<div class="circle anonymous-bubble" style="float:left; width:'.$pic_sz.'px; height:'.$pic_sz.'px; background:rgb('.hsvToRgb($hue,50,80).');">'.substr(base_convert($hash_val, 16, 36),2,1).'</div>';
 				}
 				?>
 			</div>
