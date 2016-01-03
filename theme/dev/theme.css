@@ -25,6 +25,18 @@ body.cke_contents_ltr{
 	width:auto;
 	height:auto;
 }
+#circle {
+    border-radius: 100%;
+}
+
+#anonymous-bubble {
+    color: rgba(255,255,255,0.5);
+    font-size: xx-large;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+}
+
 a{
 	text-decoration: none;
 	cursor:pointer;
