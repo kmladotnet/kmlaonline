@@ -30,7 +30,7 @@ body.cke_contents_ltr{
 }
 
 .anonymous-bubble {
-    color: rgba(255,255,255,0.5);
+    color: rgba(255,255,255,0.8);
     font-size: xx-large;
     text-align: center;
     display: inline-block;
