@@ -399,7 +399,7 @@ function printOneForumItem($article,$root,$suppress_comments=false){
 					echo htmlspecialchars($m['s_status_message']) . "<br />";
 				}else{
                     $hue = ((hexdec($hash_val) / 1234567890.1) % 361 + 361) % 361; //positive int from 0 to 360
-                    echo '<div class="circle anonymous-bubble" style="float:left; width:50px; height:50px; background:rgb('.hsvToRgb($hue,50,80).');">'.substr(base_convert($hash_val, 16, 36),2,1).'</div>';
+                    echo '<div class="circle anonymous-bubble" style="width:50px; height:50px; background:rgb('.hsvToRgb($hue,50,80).');">'.substr(base_convert($hash_val, 16, 36),2,1).'</div>';
 				}
 				?>
 			</div>
