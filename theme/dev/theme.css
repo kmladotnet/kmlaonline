@@ -3,7 +3,7 @@ h1,h2,h3,h4,h5,h6,th,strong,b{font-weight:bold}
 h1 { font-size: 2em; }
 h2 { font-size: 1.5em; }
 h3 { font-size: 1.17em; }
-h4 { font-size: 1em; }
+h4 { font-size: 1.1em; }
 h5 { font-size: .83em; }
 h6 { font-size: .75em; }
 pre, p{ margin:0; padding:0 }
@@ -15,7 +15,7 @@ html, body{
 	background: url('woosang.jpg') repeat-x center bottom;
 	height:100%; width:100%;
 	font-family: 'Malgun Gothic', NanumGothic, AppleGothic, Gulim;
-	font-size:10pt;
+    line-height:1.5em;
 }
 div, img,body,h1,h2,h3,h4,h5,h6,ul{
 	border:0; margin:0; padding:0;
