@@ -7,6 +7,7 @@ function printContent(){
 function printContentPc(){
 	global $member, $me, $is_morning, $is_afternoon, $is_night, $mysqli, $board;
 	?>
+    <h6>공사중!!!!!</h6>
 	<div style="padding:5px;">
 		<table style="width:100%;" class="notableborder-direct">
 			<tr>
