@@ -6,10 +6,10 @@ function mainBigBoard($i1=true, $i2=true, $i3=true, $i4=true, $height=20, $nextl
 	?>
 	<table style="width:100%">
 		<tr style="height:<?php echo $height?>px;">
-			<?php if($i1){ ?><th style="width:140px;">ë¶„ë¥˜</th><?php } ?>
-			<?php if($i2){ ?><th>ì œëª©</th><?php } ?>
-			<?php if($i3){ ?><th style="width:100px;">ì´ë¦„</th><?php } ?>
-			<?php if($i4){ ?><th style="width:60px;">ë‚ ì§œ</th><?php } ?>
+			<?php if($i1){ ?><th style="width:140px;">분류</th><?php } ?>
+			<?php if($i2){ ?><th>제목</th><?php } ?>
+			<?php if($i3){ ?><th style="width:100px;">이름</th><?php } ?>
+			<?php if($i4){ ?><th style="width:60px;">날짜</th><?php } ?>
 		</tr>
 		<?php foreach($alist as $a){
 			$b_bold_title=($a['n_flag']&0x8) && checkCategoryAccess($a['n_cat'], "flag bold title");
@@ -40,7 +40,7 @@ function mainBigBoard($i1=true, $i2=true, $i3=true, $i4=true, $height=20, $nextl
 					<td style="text-align:center;">
 						<?php
 						if($b_anonymous)
-							echo "ìµëª…";
+							echo "익명";
 						else{
 							$m=$member->getMember($a['n_writer']);
 							echo "<a href='/user/view/{$m['n_id']}/{$m['s_id']}' style='color:black'>";
@@ -64,10 +64,10 @@ function printImportantBoard($i1=true, $i2=true, $i3=true, $i4=true, $height=18)
 	?>
 	<table style="width:100%">
 		<tr style="height:<?php echo $height?>px;">
-			<?php if($i1){ ?><th style="width:140px;">ë¶„ë¥˜</th><?php } ?>
-			<?php if($i2){ ?><th>ì œëª©</th><?php } ?>
-			<?php if($i3){ ?><th style="width:120px;">ì´ë¦„</th><?php } ?>
-			<?php if($i4){ ?><th style="width:60px;">ë‚ ì§œ</th><?php } ?>
+			<?php if($i1){ ?><th style="width:140px;">분류</th><?php } ?>
+			<?php if($i2){ ?><th>제목</th><?php } ?>
+			<?php if($i3){ ?><th style="width:120px;">이름</th><?php } ?>
+			<?php if($i4){ ?><th style="width:60px;">날짜</th><?php } ?>
 		</tr>
 		<?php
 		while ($row = $res->fetch_array(MYSQLI_ASSOC)){
@@ -99,7 +99,7 @@ function printImportantBoard($i1=true, $i2=true, $i3=true, $i4=true, $height=18)
 					<td style="text-align:center;">
 						<?php
 						if($b_anonymous)
-							echo "ìµëª…";
+							echo "익명";
 						else{
 							$m=$member->getMember($a['n_writer']);
 							echo "<a href='/user/view/{$m['n_id']}/{$m['s_id']}' style='color:black'>";
@@ -125,10 +125,10 @@ function printFreeBoard($i1=true, $i2=true, $i3=true, $i4=true, $height=7){
 	?>
 	<table style="width:100%">
 		<tr style="height:<?php echo $height?>px;">
-			<?php if($i1){ ?><th style="width:140px;">ë¶„ë¥˜</th><?php } ?>
-			<?php if($i2){ ?><th>ì œëª©</th><?php } ?>
-			<?php if($i3){ ?><th style="width:120px;">ì´ë¦„</th><?php } ?>
-			<?php if($i4){ ?><th style="width:60px;">ë‚ ì§œ</th><?php } ?>
+			<?php if($i1){ ?><th style="width:140px;">분류</th><?php } ?>
+			<?php if($i2){ ?><th>제목</th><?php } ?>
+			<?php if($i3){ ?><th style="width:120px;">이름</th><?php } ?>
+			<?php if($i4){ ?><th style="width:60px;">날짜</th><?php } ?>
 		</tr>
 		<?php
 		while ($row = $res->fetch_array(MYSQLI_ASSOC)){
@@ -160,7 +160,7 @@ function printFreeBoard($i1=true, $i2=true, $i3=true, $i4=true, $height=7){
 					<td style="text-align:center;">
 						<?php
 						if($b_anonymous)
-							echo "ìµëª…";
+							echo "익명";
 						else{
 							$m=$member->getMember($a['n_writer']);
 							echo "<a href='/user/view/{$m['n_id']}' style='color:black'>";
@@ -190,8 +190,8 @@ function printCategorySmall($prefix="", $postfix="", $height=18){
 	?>
 	<table style="width:100%">
 		<tr style="height:<?php echo $height?>px;">
-			<th style="width:140px;">ë¶„ë¥˜</th>
-			<th>ì œëª©</th>
+			<th style="width:140px;">분류</th>
+			<th>제목</th>
 		</tr>
 		<?php foreach($alist as $a){
 			$b_bold_title=($a['n_flag']&0x8) && checkCategoryAccess($a['n_cat'], "flag bold title");
@@ -242,10 +242,10 @@ function printContentPc(){
 				<td>
 					<div class="main-block autoheight-0" style="min-height:388px;overflow:auto;">
 						<div class="main-block-title">
-							ê¼­ ë³´ì„¸ìš”
+							꼭 보세요
 							<div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;">
 								<a href="/util/important">
-									ì‹ ì²­ëª©ë¡ ë³´ê¸°
+									신청목록 보기
 									<?php
 									$res=$mysqli->query("SELECT count(*) FROM kmlaonline_important_notices_table WHERE n_state=0");
 									$res=$res->fetch_array();
@@ -260,7 +260,7 @@ function printContentPc(){
 				<td style="width:240px;">
 					<div class="main-block" style="height:120px;margin-bottom:6px;">
 						<div class="main-block-title">
-							<img src="/theme/dev/birthday.png" style="width:32px;" /> ìƒì¼!
+							<img src="/theme/dev/birthday.png" style="width:32px;" /> 생일!
 						</div>
 						<div style="display:block;height:7px;"></div>
 						<div style="overflow:auto;display:block;height:80px;">
@@ -278,18 +278,18 @@ function printContentPc(){
 								}
 							}
 							if($births==0){
-								echo "ìƒì¼ì¸ ìž¬í•™ìƒì´ ì—†ìŠµë‹ˆë‹¤.";
+								echo "생일인 재학생이 없습니다.";
 							}
 							?>
 						</div>
 					</div>
 					<div class="main-block gradient autoheight-0" style="position:relative;">
 						<div class="main-block-title">
-							<img src="/theme/dev/food.png" style="width:32px;" /> ì‹ë‹¨!
+							<img src="/theme/dev/food.png" style="width:32px;" /> 식단!
 							<div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;">
-								<a <?php if($is_morning) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-breakfast');">ì•„ì¹¨</a> |
-								<a <?php if($is_afternoon) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-lunch');">ì ì‹¬</a> |
-								<a <?php if($is_night) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-dinner');">ì €ë…</a>
+								<a <?php if($is_morning) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-breakfast');">아침</a> |
+								<a <?php if($is_afternoon) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-lunch');">점심</a> |
+								<a <?php if($is_night) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-dinner');">저녁</a>
 							</div>
 						</div>
 						<div style="clear:right;display:block;height:7px;"></div>
@@ -309,14 +309,14 @@ function printContentPc(){
 								$res->close();
 								if($mysqli->more_results())$mysqli->next_result();
 							}
-							echo "<div style='font-weight:bold;font-size:11pt;padding:4px;'>{$curYear}ë…„ {$curMonth}ì›” {$curDay}ì¼</div>";
+							echo "<div style='font-weight:bold;font-size:11pt;padding:4px;'>{$curYear}년 {$curMonth}월 {$curDay}일</div>";
 							?>
-							<div id="food-breakfast" class="morning"><?php echo isset($scheduleData['food:0'])?nl2br($scheduleData['food:0']):"<span style='color:#DDD'>(ìž…ë ¥ë˜ì§€ ì•ŠìŒ)</span>"; ?></div>
-							<div id="food-lunch" class="afternoon"><?php echo isset($scheduleData['food:1'])?nl2br($scheduleData['food:1']):"<span style='color:#DDD'>(ìž…ë ¥ë˜ì§€ ì•ŠìŒ)</span>"; ?></div>
-							<div id="food-dinner" class="night"><?php echo isset($scheduleData['food:2'])?nl2br($scheduleData['food:2']):"<span style='color:#DDD'>(ìž…ë ¥ë˜ì§€ ì•ŠìŒ)</span>"; ?></div>
+							<div id="food-breakfast" class="morning"><?php echo isset($scheduleData['food:0'])?nl2br($scheduleData['food:0']):"<span style='color:#DDD'>(입력되지 않음)</span>"; ?></div>
+							<div id="food-lunch" class="afternoon"><?php echo isset($scheduleData['food:1'])?nl2br($scheduleData['food:1']):"<span style='color:#DDD'>(입력되지 않음)</span>"; ?></div>
+							<div id="food-dinner" class="night"><?php echo isset($scheduleData['food:2'])?nl2br($scheduleData['food:2']):"<span style='color:#DDD'>(입력되지 않음)</span>"; ?></div>
 						</div>
 						<div style="position:absolute;right:0;bottom:0;text-align:right;padding:3pt;">
-							<a href="/util/schedule?<?php echo "year=$curYear&amp;month=$curMonth&amp;mode=food:0"?>">ëª¨ë‘ ë³´ê¸°</a>
+							<a href="/util/schedule?<?php echo "year=$curYear&amp;month=$curMonth&amp;mode=food:0"?>">모두 보기</a>
 						</div>
 						<div style="clear:both"></div>
 					</div>
@@ -327,11 +327,11 @@ function printContentPc(){
 			<td>
 				<div class="main-block">
 					<div class="main-block-title">
-						í¼ë¼ë³´ë“œ
+						큼라보드
 
 						<?php if(isUserPermitted($me['n_id'], "kmlaboard_changer")){ ?>
 							<div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;">
-								<a href="/util/kmlaboard">ìˆ˜ì •í•˜ê¸°</a>
+								<a href="/util/kmlaboard">수정하기</a>
 							</div>
 						<?php } ?>
 					</div>
@@ -351,9 +351,9 @@ function printContentPc(){
 			<td>
 				<div class="main-block">
 					<div class="main-block-title">
-						ìžìœ ê²Œì‹œíŒ
+						자유게시판
 							<div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;">
-								<a href="/board/commu">ë”ë³´ê¸°</a>
+								<a href="/board/commu">더보기</a>
 							</div>
 					</div>
 					<?php printFreeBoard(true,true,true,true); ?>
@@ -365,8 +365,8 @@ function printContentPc(){
 				<td style="width:56%;">
 					<div class="main-block gradient autoheight-1" style="overflow:auto">
 						<div class="main-block-title">
-							ë‚´ ê²Œì‹œíŒ
-							<div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;"><a href="/board/special:list-mine">ëª¨ë‘ ë³´ê¸°</a> | <a href="/user/settings?display=1">í•­ëª© ë°”ê¾¸ê¸°</a></div>
+							내 게시판
+							<div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;"><a href="/board/special:list-mine">모두 보기</a> | <a href="/user/settings?display=1">항목 바꾸기</a></div>
 						</div>
 						<?php mainBigBoard(true, true, true, false); ?>
 					</div>
@@ -374,8 +374,8 @@ function printContentPc(){
 				<td>
 					<div class="main-block gradient autoheight-1" style="overflow:auto">
 						<div class="main-block-title">
-							<img src="/theme/dev/kmlacafe.png" style="width:24px;vertical-align:bottom;margin-bottom:2px;" /> í¼ë¼ ì¹´íŽ˜
-							<div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;"><a href="/board/site_kmlacafe">ëª¨ë‘ ë³´ê¸°</a></div>
+							<img src="/theme/dev/kmlacafe.png" style="width:24px;vertical-align:bottom;margin-bottom:2px;" /> 큼라 카페
+							<div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;"><a href="/board/site_kmlacafe">모두 보기</a></div>
 						</div>
 						<?php
 						$att=array();
@@ -431,7 +431,7 @@ function printContentPc(){
 								-
 								<?php
 								if($b_anonymous)
-									echo "ìµëª…";
+									echo "익명";
 								else{
 									$m=$member->getMember($a['n_writer']);
 									echo "<a href='/user/view/{$m['n_id']}/{$m['s_id']}' style='color:black'>";
@@ -447,8 +447,8 @@ function printContentPc(){
 		</table>
 		<div class="main-block">
 			<div class="main-block-title">
-				ê°¤ëŸ¬ë¦¬
-				<div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;"><a href="/board/all_gallery">ëª¨ë‘ ë³´ê¸°</a></div>
+				갤러리
+				<div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;"><a href="/board/all_gallery">모두 보기</a></div>
 			</div>
 			<?php printGallery(); ?>
 		</div>
@@ -498,34 +498,34 @@ function printGallery($cnt=24){
 function printEverydayLinks($lay1="display:block;padding:3px;float:left;", $lay2="display:block;padding:3px;float:right;text-align:right", $lay3="display:none"){
 	global $board;
 	echo "<div style=\"$lay1\">";
-	// ê·¸ë‚ ê·¸ë‚ : íƒë°°, ì„ ë„, í˜¼ì •, ìž”ë°˜
+	// 그날그날: 택배, 선도, 혼정, 잔반
 	$i=0;
-	foreach(array("everyday_parcel"=>"íƒë°°", "everyday_guidance"=>"ì„ ë„", /*"everyday_honjung"=>"í˜¼ì •", */"leftover"=>"ìž”ë°˜") as $k=>$v){
+	foreach(array("everyday_parcel"=>"택배", "everyday_guidance"=>"선도", /*"everyday_honjung"=>"혼정", */"leftover"=>"잔반") as $k=>$v){
 		echo $i++>0?" | ":"";
 		$cat=$board->getCategory(false,$k);
 		$a=$board->getArticleList(array($cat['n_id']), false, false, 0, 1);
 		if(count($a)==0){
-			echo "<a href='/board/$k' id='nav_everyday' style='color:gray'>$v ì—†ìŒ</a>";
+			echo "<a href='/board/$k' id='nav_everyday' style='color:gray'>$v 없음</a>";
 		}else{
 			$a=$a[0];
 			$bold=(time()-$a['n_writedate']<43200)?"font-weight:bold;":"";
-			echo "<a href=\"/board/$k/view/{$a['n_id']}\">{$v} <span style=\"$bold\">(".date("mì›” dì¼", $a['n_writedate']).")</span></a>";
+			echo "<a href=\"/board/$k/view/{$a['n_id']}\">{$v} <span style=\"$bold\">(".date("m월 d일", $a['n_writedate']).")</span></a>";
 		}
 	}
 	echo "</div>";
 	echo "<div style=\"$lay2\">";
-	echo "<a href=\"/board/commu\">ìžìœ ê²Œì‹œíŒ </a> | ";
-	echo "<a href=\"/board/student_legislative/view/433333\">í•™êµìžë£Œì‹¤</a> | ";
-	echo "<a href=\"/board/department_environment\">í™˜ê²½ë¶€</a>";
+	echo "<a href=\"/board/commu\">자유게시판 </a> | ";
+	echo "<a href=\"/board/student_legislative/view/433333\">학교자료실</a> | ";
+	echo "<a href=\"/board/department_environment\">환경부</a>";
     echo "<br>";
 	echo "<a href=\"/board/student_mpt\">MPT</a> | ";
-	echo "<a href=\"/board/student_ambassador\">ëŒ€ì™¸í™ë³´ë‹¨</a>  | ";
-	echo "<a href=\"/util/lectureroom\">ê³µë™ê°•ì˜ì‹¤ ì‹ ì²­ </a>";
+	echo "<a href=\"/board/student_ambassador\">대외홍보단</a>  | ";
+	echo "<a href=\"/util/lectureroom\">공동강의실 신청 </a>";
 	echo "</div>";
 	echo "<div style=\"$lay3\">";
-	echo "<a href=\"http://www.minjok.hs.kr/\">í•™êµ í™ˆíŽ˜ì´ì§€</a> | ";
-	echo "<a href=\"http://www.minjok.hs.kr/members/\">ì¸íŠ¸ë¼ë„·</a> | ";
-	echo "<a href=\"/user/message?compose_to=3\">ì˜¤ë¥˜ ì‹ ê³  ë° ë¬¸ì˜</a>";
+	echo "<a href=\"http://www.minjok.hs.kr/\">학교 홈페이지</a> | ";
+	echo "<a href=\"http://www.minjok.hs.kr/members/\">인트라넷</a> | ";
+	echo "<a href=\"/user/message?compose_to=3\">오류 신고 및 문의</a>";
 	echo "</div>";
 	echo "<div style='clear:both'></div>";
 }
@@ -539,10 +539,10 @@ function printContentMobile(){
 		</div>
 		<div class="main-block gradient">
 			<div class="main-block-title">
-				ê¼­ ë³´ì„¸ìš”
+				꼭 보세요
 				<div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;">
 					<a href="/util/important">
-						ì‹ ì²­ëª©ë¡ ë³´ê¸°
+						신청목록 보기
 						<?php
 						$res=$mysqli->query("SELECT count(*) FROM kmlaonline_important_notices_table WHERE n_state=0");
 						$res=$res->fetch_array();
@@ -555,18 +555,18 @@ function printContentMobile(){
 		</div>
 		<div class="main-block">
 			<div class="main-block-title">
-				ë‚´ ê²Œì‹œíŒ
-				<div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;"><a href="/board/special:list-mine">ëª¨ë‘ ë³´ê¸°</a> | <a href="/user/settings">í•­ëª© ë°”ê¾¸ê¸°</a></div>
+				내 게시판
+				<div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;"><a href="/board/special:list-mine">모두 보기</a> | <a href="/user/settings">항목 바꾸기</a></div>
 			</div>
 			<?php mainBigBoard(false,true,true,false, 24, true); ?>
 		</div>
 		<div class="main-block gradient" style="margin-top:6px;position:relative;">
 			<div class="main-block-title">
-				<img src="/theme/dev/food.png" style="width:32px;" /> ì‹ë‹¨!
+				<img src="/theme/dev/food.png" style="width:32px;" /> 식단!
 				<div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;">
-					<a <?php if($is_morning) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-breakfast');">ì•„ì¹¨</a> |
-					<a <?php if($is_afternoon) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-lunch');">ì ì‹¬</a> |
-					<a <?php if($is_night) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-dinner');">ì €ë…</a>
+					<a <?php if($is_morning) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-breakfast');">아침</a> |
+					<a <?php if($is_afternoon) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-lunch');">점심</a> |
+					<a <?php if($is_night) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-dinner');">저녁</a>
 				</div>
 			</div>
 			<div style="clear:both;display:block;height:7px;"></div>
@@ -587,20 +587,20 @@ function printContentMobile(){
 					if($mysqli->more_results())$mysqli->next_result();
 				}
 				?>
-				<div id="food-breakfast" class="morning"><?php echo isset($scheduleData['food:0'])?nl2br($scheduleData['food:0']):"<span style='color:#DDD'>(ìž…ë ¥ë˜ì§€ ì•ŠìŒ)</span>"; ?></div>
-				<div id="food-lunch" class="afternoon"><?php echo isset($scheduleData['food:1'])?nl2br($scheduleData['food:1']):"<span style='color:#DDD'>(ìž…ë ¥ë˜ì§€ ì•ŠìŒ)</span>"; ?></div>
-				<div id="food-dinner" class="night"><?php echo isset($scheduleData['food:2'])?nl2br($scheduleData['food:2']):"<span style='color:#DDD'>(ìž…ë ¥ë˜ì§€ ì•ŠìŒ)</span>"; ?></div>
+				<div id="food-breakfast" class="morning"><?php echo isset($scheduleData['food:0'])?nl2br($scheduleData['food:0']):"<span style='color:#DDD'>(입력되지 않음)</span>"; ?></div>
+				<div id="food-lunch" class="afternoon"><?php echo isset($scheduleData['food:1'])?nl2br($scheduleData['food:1']):"<span style='color:#DDD'>(입력되지 않음)</span>"; ?></div>
+				<div id="food-dinner" class="night"><?php echo isset($scheduleData['food:2'])?nl2br($scheduleData['food:2']):"<span style='color:#DDD'>(입력되지 않음)</span>"; ?></div>
 			</div>
 			<div style="position:absolute;right:0;bottom:0;text-align:right;padding:3pt;">
-				<a href="/util/schedule?<?php echo "year=$curYear&amp;month=$curMonth&amp;mode=food:0"?>">ëª¨ë‘ ë³´ê¸°</a>
+				<a href="/util/schedule?<?php echo "year=$curYear&amp;month=$curMonth&amp;mode=food:0"?>">모두 보기</a>
 			</div>
 		</div>
 		<div class="main-block">
 			<div class="main-block-title">
-				í¼ë¼ë³´ë“œ
+				큼라보드
 				<?php if(isUserPermitted($me['n_id'], "kmlaboard_changer")){ ?>
 					<div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;">
-						<a href="/util/kmlaboard">ìˆ˜ì •í•˜ê¸°</a>
+						<a href="/util/kmlaboard">수정하기</a>
 					</div>
 				<?php } ?>
 			</div>
@@ -616,7 +616,7 @@ function printContentMobile(){
 		</div>
 		<div class="main-block">
 			<div class="main-block-title">
-				<img src="/theme/dev/birthday.png" style="width:32px;" /> ìƒì¼!
+				<img src="/theme/dev/birthday.png" style="width:32px;" /> 생일!
 			</div>
 			<div style="clear:both;display:block;height:7px;"></div>
 			<div style="overflow:auto;display:block;height:80px;">
@@ -634,7 +634,7 @@ function printContentMobile(){
 					}
 				}
 				if($births==0){
-					echo "ìƒì¼ì¸ ìž¬í•™ìƒì´ ì—†ìŠµë‹ˆë‹¤.";
+					echo "생일인 재학생이 없습니다.";
 				}
 				?>
 				<div style="clear:both;"></div>
@@ -642,15 +642,15 @@ function printContentMobile(){
 		</div>
 		<div class="main-block">
 			<div class="main-block-title">
-				ê°¤ëŸ¬ë¦¬
-				<div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;"><a href="/board/all_gallery">ëª¨ë‘ ë³´ê¸°</a></div>
+				갤러리
+				<div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;"><a href="/board/all_gallery">모두 보기</a></div>
 			</div>
 			<?php printGallery(16); ?>
 		</div>
 		<div class="main-block gradient">
 			<div class="main-block-title">
-				<img src="/theme/dev/kmlacafe.png" style="width:24px;vertical-align:bottom;margin-bottom:2px;" /> í¼ë¼ ì¹´íŽ˜
-				<div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;"><a href="/board/site_kmlacafe">ëª¨ë‘ ë³´ê¸°</a></div>
+				<img src="/theme/dev/kmlacafe.png" style="width:24px;vertical-align:bottom;margin-bottom:2px;" /> 큼라 카페
+				<div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;"><a href="/board/site_kmlacafe">모두 보기</a></div>
 			</div>
 			<?php
 			$att=array();
@@ -694,7 +694,7 @@ function printContentMobile(){
 					-
 					<?php
 					if($b_anonymous)
-						echo "ìµëª…";
+						echo "익명";
 					else{
 						$m=$member->getMember($a['n_writer']);
 						echo "<a href='/user/view/{$m['n_id']}/{$m['s_id']}' style='color:black'>";
