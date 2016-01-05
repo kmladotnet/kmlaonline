@@ -11,7 +11,11 @@ function articleList($article_list, $category=true, $title=true, $name=true, $da
 		</tr>
 		<?php foreach($article_list as $a){
             if(!array_key_exists("cat", $a)) {
-                $a=$board->getArticle($a['n_article']);
+                if(!array_key_exists("n_id", $a)) {
+                    $a=$board->getArticle($a['n_article']);=
+                } else if(!array_key_exists("n_article", $a)) {
+                    $a=$board->getArticle($a['n_id']);
+                }
                 $a['cat']=$board->getCategory($a['n_cat']);
             }
 			$b_bold_title=($a['n_flag']&0x8) && checkCategoryAccess($a['n_cat'], "flag bold title");
