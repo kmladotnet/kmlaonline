@@ -173,7 +173,7 @@ function printContentPc(){
 						<div style="padding:5px;">
 						<?php
                             require_once("modules/article-list.php");
-                            $articles=$board->getArticleList(array($board->getCategory(false,"site_kmlacafe")['n_id']), false, 0);
+                            $articles=$board->getArticleList(array($board->getCategory(false,"site_kmlacafe")['n_id']), false, 0 0, 16);
                             articleList($articles, false, true, true, false);
                         ?>
 					</div>
