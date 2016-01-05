@@ -1,4 +1,4 @@
-<div style="overflow:auto;display:block;height:80px;">
+<div style="overflow:auto;display:block;">
 <?php
 $minWave=date("Y")-1997;
 $births=0;

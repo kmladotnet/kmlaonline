@@ -1,4 +1,3 @@
-<div style="clear:right;display:block;height:7px;"></div>
 <div style="text-align:center">
     <?php
     $curYear=date("Y"); $curMonth=date("n"); $curDay=date("j");
