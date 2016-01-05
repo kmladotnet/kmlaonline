@@ -76,39 +76,45 @@
 		<th style="width:60px;">날짜</th>
 		<?php } ?>
 	</tr>
-	<?php while ($row=$ res->fetch_array(MYSQLI_ASSOC)){ $a=$board->getArticle($row['n_article']); $a['cat']=$board->getCategory($a['n_cat']); $writer=$member->getMember($a['n_writer']); $b_bold_title=($a['n_flag']&0x8) && checkCategoryAccess($a['n_cat'], "flag bold title"); $b_no_comment=($a['n_flag']&0x2) && checkCategoryAccess($a['n_cat'], "flag no comment"); $b_anonymous=($a['n_flag']&0x4) && checkCategoryAccess($a['n_cat'], "flag anonymous"); ?>
-	<tr style="height:<?php echo $height?>px;">
+	<?php while ($row=$res->fetch_array(MYSQLI_ASSOC)){
+        $a=$board->getArticle($row['n_article']);
+        $a['cat']=$board->getCategory($a['n_cat']);
+        $writer=$member->getMember($a['n_writer']);
+        $b_bold_title=($a['n_flag']&0x8) && checkCategoryAccess($a['n_cat'], "flag bold title");
+        $b_no_comment=($a['n_flag']&0x2) && checkCategoryAccess($a['n_cat'], "flag no comment");
+        $b_anonymous=($a['n_flag']&0x4) && checkCategoryAccess($a['n_cat'], "flag anonymous"); ?>
+	   <tr style="height:<?php echo $height?>px;">
 		<?php if($i1){ ?>
-		<td style="text-align:center;">
-			<a href="<?php echo htmlspecialchars(" /board/{$a[ 'cat'][ 's_id']} ");?>" style="color:black;">
-				<?php echo htmlspecialchars($a[ 'cat'][ 's_name']) ?>
-			</a>
-		</td>
+            <td style="text-align:center;">
+                <a href="<?php echo htmlspecialchars(" /board/{$a[ 'cat'][ 's_id']} ");?>" style="color:black;">
+                    <?php echo htmlspecialchars($a[ 'cat'][ 's_name']) ?>
+                </a>
+            </td>
 		<?php } ?>
 		<?php if($i2){ ?>
-		<td>
-			<div style="width:100%;display:block;overflow:hidden">
-				<a href="<?php echo htmlspecialchars(" /board/{$a[ 'cat'][ 's_id']}/view/ " . $a['n_id'])?>" style="color:black; <?php echo $b_bold_title?"font-weight:bold; ":"";?>">
-                    <?php
-                    echo htmlspecialchars($a['s_title']);
-                    if(($a['n_comments']!=0 && doesAdminBypassEverythingAndIsAdmin(!$b_no_comment)))
-                        echo " <span style='font-size:9pt;color:#008800'>[{$a['n_comments']}]</span>";
-                    ?>
-                </a>
-			</div>
-		</td>
+            <td>
+                <div style="width:100%;display:block;overflow:hidden">
+                    <a href="<?php echo htmlspecialchars(" /board/{$a[ 'cat'][ 's_id']}/view/ " . $a['n_id'])?>" style="color:black; <?php echo $b_bold_title?"font-weight:bold; ":"";?>">
+                        <?php
+                        echo htmlspecialchars($a['s_title']);
+                        if(($a['n_comments']!=0 && doesAdminBypassEverythingAndIsAdmin(!$b_no_comment)))
+                            echo " <span style='font-size:9pt;color:#008800'>[{$a['n_comments']}]</span>";
+                        ?>
+                    </a>
+                </div>
+            </td>
 		<?php } ?>
 		<?php if($i3){ ?>
-		<td style="text-align:center;">
-			<?php if($b_anonymous) echo "익명"; else{ $m=$member->getMember($a['n_writer']); echo "<a href='/user/view/{$m[' n_id ']}/{$m['s_id ']}' style='color:black'>";
-            putUserCard($m);
-            echo "</a>"; } ?>
-		</td>
+            <td style="text-align:center;">
+                <?php if($b_anonymous) echo "익명"; else{ $m=$member->getMember($a['n_writer']); echo "<a href='/user/view/{$m[' n_id ']}/{$m['s_id ']}' style='color:black'>";
+                putUserCard($m);
+                echo "</a>"; } ?>
+            </td>
 		<?php } ?>
 		<?php if($i4){ ?>
-		<td style="text-align:center;">
-			<?php echo date((time()-$a[ 'n_editdate']>=86400)?"y-m-d":"H:i:s", $a['n_editdate'])?>
-		</td>
+            <td style="text-align:center;">
+                <?php echo date((time()-$a[ 'n_editdate']>=86400)?"y-m-d":"H:i:s", $a['n_editdate'])?>
+            </td>
 		<?php } ?>
 	</tr>
 	<?php } ?>
@@ -129,39 +135,45 @@
 		<th style="width:60px;">날짜</th>
 		<?php } ?>
 	</tr>
-	<?php while ($row=$ res->fetch_array(MYSQLI_ASSOC)){ $a=$board->getArticle($row['n_id']); $a['cat']=$board->getCategory($a['n_cat']); $writer=$member->getMember($a['n_writer']); $b_bold_title=($a['n_flag']&0x8) && checkCategoryAccess($a['n_cat'], "flag bold title"); $b_no_comment=($a['n_flag']&0x2) && checkCategoryAccess($a['n_cat'], "flag no comment"); $b_anonymous=($a['n_flag']&0x4) && checkCategoryAccess($a['n_cat'], "flag anonymous"); ?>
-	<tr style="height:<?php echo $height?>px;">
+	<?php while ($row=$res->fetch_array(MYSQLI_ASSOC)){
+        $a=$board->getArticle($row['n_id']);
+        $a['cat']=$board->getCategory($a['n_cat']);
+        $writer=$member->getMember($a['n_writer']);
+        $b_bold_title=($a['n_flag']&0x8) && checkCategoryAccess($a['n_cat'], "flag bold title");
+        $b_no_comment=($a['n_flag']&0x2) && checkCategoryAccess($a['n_cat'], "flag no comment");
+        $b_anonymous=($a['n_flag']&0x4) && checkCategoryAccess($a['n_cat'], "flag anonymous"); ?>
+	   <tr style="height:<?php echo $height?>px;">
 		<?php if($i1){ ?>
-		<td style="text-align:center;">
-			<a href="<?php echo htmlspecialchars(" /board/{$a[ 'cat'][ 's_id']} ");?>" style="color:black;">
-				<?php echo htmlspecialchars($a[ 'cat'][ 's_name']) ?>
-			</a>
-		</td>
+            <td style="text-align:center;">
+                <a href="<?php echo htmlspecialchars(" /board/{$a[ 'cat'][ 's_id']} ");?>" style="color:black;">
+                    <?php echo htmlspecialchars($a[ 'cat'][ 's_name']) ?>
+                </a>
+            </td>
 		<?php } ?>
 		<?php if($i2){ ?>
-		<td>
-			<div style="width:100%;display:block;overflow:hidden">
-				<a href="<?php echo htmlspecialchars(" /board/{$a[ 'cat'][ 's_id']}/view/ " . $a['n_id'])?>" style="color:black;<?php echo $b_bold_title?" font-weight:bold; ":" ";?>">
-                    <?php
-                    echo htmlspecialchars($a['s_title']);
-                    if(($a['n_comments']!=0 && doesAdminBypassEverythingAndIsAdmin(!$b_no_comment)))
-                        echo " <span style='font-size:9pt;color:#008800'>[{$a['n_comments']}]</span>";
-                    ?>
-                </a>
-			</div>
-		</td>
+            <td>
+                <div style="width:100%;display:block;overflow:hidden">
+                    <a href="<?php echo htmlspecialchars(" /board/{$a[ 'cat'][ 's_id']}/view/ " . $a['n_id'])?>" style="color:black;<?php echo $b_bold_title?" font-weight:bold; ":" ";?>">
+                        <?php
+                        echo htmlspecialchars($a['s_title']);
+                        if(($a['n_comments']!=0 && doesAdminBypassEverythingAndIsAdmin(!$b_no_comment)))
+                            echo " <span style='font-size:9pt;color:#008800'>[{$a['n_comments']}]</span>";
+                        ?>
+                    </a>
+                </div>
+            </td>
 		<?php } ?>
 		<?php if($i3){ ?>
-		<td style="text-align:center;">
-			<?php if($b_anonymous) echo "익명"; else{ $m=$member->getMember($a['n_writer']); echo "<a href='/user/view/{$m[' n_id ']}' style='color:black'>";
-            putUserCard($m);
-            echo "</a>"; } ?>
-		</td>
+            <td style="text-align:center;">
+                <?php if($b_anonymous) echo "익명"; else{ $m=$member->getMember($a['n_writer']); echo "<a href='/user/view/{$m[' n_id ']}' style='color:black'>";
+                putUserCard($m);
+                echo "</a>"; } ?>
+            </td>
 		<?php } ?>
 		<?php if($i4){ ?>
-		<td style="text-align:center;">
-			<?php echo date((time()-$a[ 'n_editdate']>=86400)?"y-m-d":"H:i:s", $a['n_editdate'])?>
-		</td>
+            <td style="text-align:center;">
+                <?php echo date((time()-$a[ 'n_editdate']>=86400)?"y-m-d":"H:i:s", $a['n_editdate'])?>
+            </td>
 		<?php } ?>
 	</tr>
 	<?php } ?>
