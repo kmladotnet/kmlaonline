@@ -170,46 +170,10 @@ function printContentPc(){
 							<img src="/theme/dev/kmlacafe.png" style="width:24px;vertical-align:bottom;margin-bottom:2px;" /> 큼라 카페
 							<div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;"><a href="/board/site_kmlacafe">모두 보기</a></div>
 						</div>
-						<?php
-						$att=array();
-						$cat=$board->getCategory(false,"site_kmlacafe");
-						$dir="./data/article_thumbs/";
-						if ($dh = opendir($dir)) {
-							$arrrr=array();
-							while (($file = readdir($dh)) !== false) {
-								$arrrr[]=$file;
-							}
-							sort($arrrr);
-							$arrrr=array_reverse($arrrr);
-							closedir($dh);
-						}
-						for($i=0;$i<2;$i++){
-							$aaaaaa=intval($arrrr[$i]);
-							$ar=$board->getArticle($aaaaaa);
-							$a=array();
-							$a['s_ort']=htmlspecialchars($ar['s_title']) . ($ar['n_comments']>0?" <span style='font-size:9pt;color:#008800'>[" . $ar['n_comments'] . "]</span>":"");
-							$a['n_ort']=0;
-							$a['path']="/data/article_thumbs/$aaaaaa.png";
-							$a['n_parent']=$aaaaaa;
-							$att[]=$a;
-						}
-
-						$articles=$board->getArticleList(array($cat['n_id']), false, 0, 15);
-
-						$width=160;
-						$i=0;
-						?>
-						<div style="width:160px;float:left">
-							<?php for($i=0;$i<2 && $i<count($att);$i++){ $v=$att[$i]; ?>
-								<a href="/board/<?php echo $cat['s_id'] ?>/view/<?php echo $v['n_parent']?>">
-									<img src="<?php echo $v['path'] ?>" style="width:160px;height:160px;" />
-									<div style="text-align:center;width:160px;"><?php echo $v['s_ort']; ?></div>
-								</a>
-							<?php } ?>
-						</div>
-						<div style="margin-left:160px;padding:5px;">
+						<div style="padding:5px;">
 						<?php
                             require_once("modules/article-list.php");
+                            $articles=$board->getArticleList(array($cat['n_id']), false, 0);
                             articleList($articles, false, true, true, false);
                         ?>
 					</div>
