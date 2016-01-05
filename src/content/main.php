@@ -368,7 +368,11 @@ function printContentPc(){
 							내 게시판
 							<div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;"><a href="/board/special:list-mine">모두 보기</a> | <a href="/user/settings?display=1">항목 바꾸기</a></div>
 						</div>
-						<?php mainBigBoard(true, true, true, false); ?>
+						<?php
+                            require_once("modules/article-list.php");
+                            $accessible_categories=getUserMainBoards($me);
+                            articleList($board->getArticleList($accessible_categories, false, 0, 0, 16), true, true, true, false);
+                        ?>
 					</div>
 				</td>
 				<td>
@@ -558,7 +562,11 @@ function printContentMobile(){
 				내 게시판
 				<div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;"><a href="/board/special:list-mine">모두 보기</a> | <a href="/user/settings">항목 바꾸기</a></div>
 			</div>
-			<?php mainBigBoard(false,true,true,false, 24, true); ?>
+			<?php
+                require_once("modules/article-list.php");
+                $accessible_categories=getUserMainBoards($me);
+                articleList($board->getArticleList($accessible_categories, false, 0, 0, 16), false, true, true, false, 24, true);
+            ?>
 		</div>
 		<div class="main-block gradient" style="margin-top:6px;position:relative;">
 			<div class="main-block-title">
