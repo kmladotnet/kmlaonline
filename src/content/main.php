@@ -181,6 +181,7 @@ function printContentPc(){
 					<?php
                         require_once("modules/article-list.php");
                         articleList($mysqli->query("SELECT * FROM kmlaonline_board_data WHERE n_cat=139 and n_parent is null ORDER BY n_id DESC LIMIT 7"), true, true, true, true);
+                    ?>
 				</div>
 			</td>
 		</table>
