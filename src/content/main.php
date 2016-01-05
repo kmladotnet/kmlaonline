@@ -194,7 +194,7 @@ function printContentPc(){
 							$att[]=$a;
 						}
 
-						$articles=$board->getArticleList(array($cat['n_id']), false, 0);
+						$articles=$board->getArticleList(array($cat['n_id']), false, 0, 15);
 
 						$width=160;
 						$i=0;
@@ -210,7 +210,7 @@ function printContentPc(){
 						<div style="margin-left:160px;padding:5px;">
 						<?php
                             require_once("modules/article-list.php");
-                            articleList($articles, false, true, true, false, 15);
+                            articleList($articles, false, true, true, false);
                         ?>
 					</div>
 				</td>
