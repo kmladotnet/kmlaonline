@@ -1,15 +1,13 @@
 <?php
-function articleList($article_list, $category=true, $title=true, name=true, date=true, $height=20, $nextline=false){
+function articleList($article_list, $category=true, $title=true, $name=true, $date=true, $height=20, $nextline=false){
 	global $me, $board, $member;
-	$accessible_categories=getUserMainBoards($me);
-	$article_list=$board->getArticleList($accessible_categories, false, 0, 0, 16);
 	?>
 	<table style="width:100%">
 		<tr style="height:<?php echo $height?>px;">
 			<?php if($category){ ?><th style="width:140px;">분류</th><?php } ?>
 			<?php if($title){ ?><th>제목</th><?php } ?>
-			<?php if(name){ ?><th style="width:100px;">이름</th><?php } ?>
-			<?php if(date){ ?><th style="width:60px;">날짜</th><?php } ?>
+			<?php if($name){ ?><th style="width:100px;">이름</th><?php } ?>
+			<?php if($date){ ?><th style="width:60px;">날짜</th><?php } ?>
 		</tr>
 		<?php foreach($article_list as $a){
 			$b_bold_title=($a['n_flag']&0x8) && checkCategoryAccess($a['n_cat'], "flag bold title");
@@ -36,7 +34,7 @@ function articleList($article_list, $category=true, $title=true, name=true, date
 						<?php } ?>
 					</td>
 				<?php } ?>
-				<?php if(name){ ?>
+				<?php if($name){ ?>
 					<td style="text-align:center;">
 						<?php
 						if($b_anonymous)
@@ -50,7 +48,7 @@ function articleList($article_list, $category=true, $title=true, name=true, date
 						?>
 					</td>
 				<?php } ?>
-				<?php if(date){ ?>
+				<?php if($date){ ?>
 					<td style="text-align:center;"><?php echo  date((time()-$a['n_editdate']>=86400)?"y-m-d":"H:i:s", $a['n_editdate'])?></td>
 				<?php } ?>
 			</tr>
