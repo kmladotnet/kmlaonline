@@ -1,40 +1,4 @@
 <?php
-function printCategorySmall($prefix="", $postfix="", $height=18){
-	global $me, $board, $member;
-	$accessible_categories=getCategoriesWithFixes($prefix,$postfix);
-	if(count($accessible_categories)==0)
-		$alist=array();
-	else
-		$alist=$board->getArticleList($accessible_categories, false, 0, 0, 20);
-	?>
-	<table style="width:100%">
-		<tr style="height:<?php echo $height?>px;">
-			<th style="width:140px;">분류</th>
-			<th>제목</th>
-		</tr>
-		<?php foreach($alist as $a){
-			$b_bold_title=($a['n_flag']&0x8) && checkCategoryAccess($a['n_cat'], "flag bold title");
-			$b_no_comment=($a['n_flag']&0x2) && checkCategoryAccess($a['n_cat'], "flag no comment");
-			$b_anonymous=($a['n_flag']&0x4) && checkCategoryAccess($a['n_cat'], "flag anonymous");
-			?>
-			<tr style="height:<?php echo $height?>px;">
-				<td><a href="<?php echo htmlspecialchars("/board/{$a['cat']['s_id']}");?>" style="color:black;"><?php echo htmlspecialchars($a['cat']['s_name']) ?></a></td>
-				<td>
-					<div style="width:100%;display:block;overflow:hidden">
-						<a href="<?php echo htmlspecialchars("/board/{$a['cat']['s_id']}/view/" . $a['n_id'])?>" style="color:black;<?php echo $b_bold_title?"font-weight:bold;":"";?>">
-							<?php
-							echo htmlspecialchars($a['s_title']);
-							if(($a['n_comments']!=0 && doesAdminBypassEverythingAndIsAdmin(!$b_no_comment)))
-								echo " <span style='font-size:9pt;color:#008800'>[{$a['n_comments']}]</span>";
-							?>
-						</a>
-					</div>
-				</td>
-			</tr>
-		<?php } ?>
-	</table>
-	<?php
-}
 function printContent(){
 	global $is_mobile;
 	if($is_mobile) printContentMobile();
@@ -244,32 +208,10 @@ function printContentPc(){
 							<?php } ?>
 						</div>
 						<div style="margin-left:160px;padding:5px;">
-						<?php foreach($articles as $a){
-							$b_bold_title=($a['n_flag']&0x8) && checkCategoryAccess($a['n_cat'], "flag bold title");
-							$b_no_comment=($a['n_flag']&0x2) && checkCategoryAccess($a['n_cat'], "flag no comment");
-							$b_anonymous=($a['n_flag']&0x4) && checkCategoryAccess($a['n_cat'], "flag anonymous");
-							?>
-							<div style="height:18px;overflow:hidden;">
-								<a href="<?php echo htmlspecialchars("/board/{$a['cat']['s_id']}/view/" . $a['n_id'])?>" style="color:black;<?php echo $b_bold_title?"font-weight:bold;":"";?>">
-									<?php
-									echo htmlspecialchars($a['s_title']);
-									if(($a['n_comments']!=0 && doesAdminBypassEverythingAndIsAdmin(!$b_no_comment)))
-										echo " <span style='font-size:9pt;color:#008800'>[{$a['n_comments']}]</span>";
-									?>
-								</a>
-								-
-								<?php
-								if($b_anonymous)
-									echo "익명";
-								else{
-									$m=$member->getMember($a['n_writer']);
-									echo "<a href='/user/view/{$m['n_id']}/{$m['s_id']}' style='color:black'>";
-									putUserCard($m);
-									echo "</a>";
-								}
-								?>
-							</div>
-						<?php } ?>
+						<?php
+                            require_once("modules/article-list.php");
+                            articleList($articles, false, true, true, false);
+                        ?>
 					</div>
 				</td>
 			</tr>
