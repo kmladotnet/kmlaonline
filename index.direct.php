@@ -8,7 +8,8 @@
     <base href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/" />
     <!--[if lte IE 7]><script type="text/javascript" src="/js/json2.js" charset="utf-8"></script><![endif]-->
     <!--[if gte IE 9]><style type="text/css">.gradient{filter: none;}</style><![endif]-->
-    <script src="https://cdn.jsdelivr.net/g/jquery@2.1.4,jquery.ui@1.11.4,jquery.smooth-scroll@1.6.1,jquery.autosize@3.0.14,jquery.shadow-animation@1.11.0"></script>
+    <script src="https://cdn.jsdelivr.net/g/jquery@2.1.4,jquery.ui@1.11.4,jquery.smooth-scroll@1.6.1,jquery.autosize@3.0.14,jquery.shadow-animation@1.11.0,ckeditor@4.3.1,lodash@3.10.1"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.3/gridstack.min.js"></script>
     <script src="//cdn.ckeditor.com/4.5.6/full/ckeditor.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-color/2.1.2/jquery.color.min.js"></script>
     <script type="text/javascript" src="/js/lightbox.js" charset="utf-8"></script>
@@ -22,7 +23,8 @@
         snowStorm.snowColor = '#99ccff';
         snowStorm.freezeOnBlur = true;
     </script>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.3/gridstack.min.css" />
     <link rel="stylesheet" href="/css/lightbox.css" charset="utf-8" type="text/css" media="screen" />
     <link rel="stylesheet" href="/css/font.css" charset="utf-8" type="text/css" media="screen" />
     <title>
