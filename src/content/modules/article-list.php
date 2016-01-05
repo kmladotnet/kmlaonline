@@ -10,6 +10,10 @@ function articleList($article_list, $category=true, $title=true, $name=true, $da
 			<?php if($date){ ?><th style="width:60px;">날짜</th><?php } ?>
 		</tr>
 		<?php foreach($article_list as $a){
+            if(get_class($a)!=="mysqli_result") {
+                $a=$board->getArticle($row['n_article']);
+                $a['cat']=$board->getCategory($a['n_cat']);
+            }
 			$b_bold_title=($a['n_flag']&0x8) && checkCategoryAccess($a['n_cat'], "flag bold title");
 			$b_no_comment=($a['n_flag']&0x2) && checkCategoryAccess($a['n_cat'], "flag no comment");
 			$b_anonymous=($a['n_flag']&0x4) && checkCategoryAccess($a['n_cat'], "flag anonymous");
