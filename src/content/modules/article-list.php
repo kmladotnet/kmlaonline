@@ -11,7 +11,7 @@ function articleList($article_list, $category=true, $title=true, $name=true, $da
 		</tr>
 		<?php foreach($article_list as $a){
             if(is_object($a) && get_class($a)!=="mysqli_result") {
-                $a=$board->getArticle($row['n_article']);
+                $a=$board->getArticle($a['n_article']);
                 $a['cat']=$board->getCategory($a['n_cat']);
             }
 			$b_bold_title=($a['n_flag']&0x8) && checkCategoryAccess($a['n_cat'], "flag bold title");
