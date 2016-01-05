@@ -163,8 +163,9 @@ function printContentPc(){
     <script type="text/javascript">
     $(function () {
         var options = {
-            cell_height: 80,
-            vertical_margin: 10
+            animate: true,
+            float: true,
+            min_width: 720
         };
         $('.grid-stack').gridstack(options);
     });
