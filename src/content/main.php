@@ -49,25 +49,7 @@ function printContentPc(){
 						<div class="main-block-title">
 							<img src="/theme/dev/birthday.png" style="width:32px;" /> 생일!
 						</div>
-						<div style="display:block;height:7px;"></div>
-						<div style="overflow:auto;display:block;height:80px;">
-							<?php
-							$minWave=date("Y")-1997;
-							$births=0;
-							foreach($member->listMembersBirth(date("n"), date("j")) as $val){
-								if($val['n_level']>=$minWave){
-									$births++;
-									echo "<a href='/user/view/{$val['n_id']}/{$val['s_id']}'>";
-									echo "<div style=\"float:left;display:block;padding:3px;\">";
-									putUserCard($val);
-									echo "</div>";
-									echo "</a>";
-								}
-							}
-							if($births==0){
-								echo "생일인 재학생이 없습니다.";
-							}
-							?>
+						<?php include("modules/birthday.php"); ?>
 						</div>
 					</div>
 					<div class="main-block gradient" style="position:relative;">
@@ -350,26 +332,7 @@ function printContentMobile(){
 			<div class="main-block-title">
 				<img src="/theme/dev/birthday.png" style="width:32px;" /> 생일!
 			</div>
-			<div style="clear:both;display:block;height:7px;"></div>
-			<div style="overflow:auto;display:block;height:80px;">
-				<?php
-				$minWave=date("Y")-1997;
-				$births=0;
-				foreach($member->listMembersBirth(date("n"), date("j")) as $val){
-					if($val['n_level']>=$minWave){
-						$births++;
-						echo "<a href='/user/view/{$val['n_id']}/{$val['s_id']}'>";
-						echo "<div style=\"float:left;display:block;padding:3px;\">";
-						putUserCard($val);
-						echo "</div>";
-						echo "</a>";
-					}
-				}
-				if($births==0){
-					echo "생일인 재학생이 없습니다.";
-				}
-				?>
-				<div style="clear:both;"></div>
+			<?php include("modules/birthday.php"); ?>
 			</div>
 		</div>
 		<div class="main-block">
