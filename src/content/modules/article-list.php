@@ -10,6 +10,9 @@ function articleList($article_list, $category=true, $title=true, $name=true, $da
 			<?php if($date){ ?><th style="width:60px;">날짜</th><?php } ?>
 		</tr>
 		<?php foreach($article_list as $a){
+            if(is_object($a)) {
+                echo get_class($a);
+            }
             if(is_object($a) && get_class($a)==="mysqli_result") {
                 $a=$board->getArticle($a['n_article']);
                 $a['cat']=$board->getCategory($a['n_cat']);
