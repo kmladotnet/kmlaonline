@@ -210,7 +210,7 @@ function printContentPc(){
 						<div style="margin-left:160px;padding:5px;">
 						<?php
                             require_once("modules/article-list.php");
-                            articleList($articles, false, true, true, false);
+                            articleList($articles, false, true, true, false, 15);
                         ?>
 					</div>
 				</td>
