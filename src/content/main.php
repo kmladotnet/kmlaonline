@@ -106,7 +106,7 @@
 		<?php } ?>
 		<?php if($i3){ ?>
             <td style="text-align:center;">
-                <?php if($b_anonymous) echo "익명"; else{ $m=$member->getMember($a['n_writer']); echo "<a href='/user/view/{$m['n_id']}/{$m['s_id ']}' style='color:black'>";
+                <?php if($b_anonymous) echo "익명"; else{ $m=$member->getMember($a['n_writer']); echo "<a href='/user/view/{$m['n_id']}/{$m['s_id']}' style='color:black'>";
                 putUserCard($m);
                 echo "</a>"; } ?>
             </td>
