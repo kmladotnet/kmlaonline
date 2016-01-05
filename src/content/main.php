@@ -23,7 +23,7 @@ function printContentPc(){
 		<table style="width:100%" class="notableborder-direct">
 			<tr style="vertical-align:top">
 				<td>
-					<div class="main-block autoheight-0" style="min-height:388px;overflow:auto;">
+					<div class="main-block" style="min-height:388px;overflow:auto;">
 						<div class="main-block-title">
 							꼭 보세요
 							<div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;">
@@ -69,7 +69,7 @@ function printContentPc(){
 							?>
 						</div>
 					</div>
-					<div class="main-block gradient autoheight-0" style="position:relative;">
+					<div class="main-block gradient" style="position:relative;">
 						<div class="main-block-title">
 							<img src="/theme/dev/food.png" style="width:32px;" /> 식단!
 							<div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;">
@@ -152,7 +152,7 @@ function printContentPc(){
 		<table style="width:100%" class="notableborder-direct">
 			<tr style="vertical-align:top">
 				<td style="width:56%;">
-					<div class="main-block gradient autoheight-1" style="overflow:auto">
+					<div class="main-block gradient" style="overflow:auto">
 						<div class="main-block-title">
 							내 게시판
 							<div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;"><a href="/board/special:list-mine">모두 보기</a> | <a href="/user/settings?display=1">항목 바꾸기</a></div>
@@ -165,7 +165,7 @@ function printContentPc(){
 					</div>
 				</td>
 				<td>
-					<div class="main-block gradient autoheight-1" style="overflow:auto">
+					<div class="main-block gradient" style="overflow:auto">
 						<div class="main-block-title">
 							<img src="/theme/dev/kmlacafe.png" style="width:24px;vertical-align:bottom;margin-bottom:2px;" /> 큼라 카페
 							<div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;"><a href="/board/site_kmlacafe">모두 보기</a></div>
@@ -176,6 +176,7 @@ function printContentPc(){
                             $articles=$board->getArticleList(array($board->getCategory(false,"site_kmlacafe")['n_id']), false, 0, 0, 16);
                             articleList($articles, false, true, true, false);
                         ?>
+                        </div>
 					</div>
 				</td>
 			</tr>
@@ -189,18 +190,6 @@ function printContentPc(){
 		</div>
 	</div>
 	<?php
-	insertOnLoadScript('
-		var minHeight=0;
-		$(".autoheight-0").each(function(i){
-			if($(this).height()>minHeight) minHeight=$(this).height()+$(this).position().top;
-		}).each(function(i){
-			$(this).height(minHeight-$(this).position().top);
-		})
-		minHeight=0;
-		$(".autoheight-1").each(function(i){
-			if($(this).height()>minHeight) minHeight=$(this).height();
-		}).height(minHeight);
-	');
 }
 function printGallery($cnt=24){
 	global $board;
