@@ -12,7 +12,7 @@ function articleList($article_list, $category=true, $title=true, $name=true, $da
 		<?php foreach($article_list as $a){
             if(!array_key_exists("cat", $a)) {
                 if(!array_key_exists("n_id", $a)) {
-                    $a=$board->getArticle($a['n_article']);=
+                    $a=$board->getArticle($a['n_article']);
                 } else if(!array_key_exists("n_article", $a)) {
                     $a=$board->getArticle($a['n_id']);
                 }
