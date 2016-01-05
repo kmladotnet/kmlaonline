@@ -253,7 +253,7 @@ function printContentMobile(){
 					<a <?php if($is_night) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-dinner');">저녁</a>
 				</div>
 			</div>
-            <?php include("modules/menu.php"); >
+            <?php include("modules/menu.php"); ?>
 		</div>
 		<div class="main-block">
 			<div class="main-block-title">
