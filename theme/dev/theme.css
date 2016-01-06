@@ -563,6 +563,7 @@ div#upper-header-holder{
 }
 .main-block-content{
     height: calc(100% - 51px);
+    padding: 5px;
 }
 
 .main-block-old{
