@@ -47,5 +47,6 @@ function getModule($module_name, $options) {
                 </div>
             </div>
     </div>
+<?php
 }
 ?>
