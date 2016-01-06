@@ -49,7 +49,7 @@ function printContentPc(){
             </div>
             <div class="grid-stack-item"
                 data-gs-x="10" data-gs-y="0"
-                data-gs-width="2" data-gs-height="2">
+                data-gs-width="2" data-gs-height="3">
                     <div class="grid-stack-item-content">
                         <div class="main-block">
 						<div class="main-block-title">
@@ -61,10 +61,10 @@ function printContentPc(){
                 </div>
 
             <div class="grid-stack-item"
-                data-gs-x="10" data-gs-y="0"
-                data-gs-width="2" data-gs-height="2">
+                data-gs-x="10" data-gs-y="3"
+                data-gs-width="2" data-gs-height="3">
                     <div class="grid-stack-item-content">
-                        <div class="main-block gradient" style="position:relative;">
+                        <div class="main-block gradient">
                             <div class="main-block-title">
                                 <img src="/theme/dev/food.png" style="width:32px;" /> 식단!
                                 <div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;">

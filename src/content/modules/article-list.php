@@ -2,7 +2,7 @@
 function articleList($article_list, $category=true, $title=true, $name=true, $date=true, $height=20, $nextline=false){
 	global $me, $board, $member;
 	?>
-	<table style="width:100% overflow:auto;">
+	<table style="width:100%;overflow:auto;">
 		<tr style="height:<?php echo $height?>px;">
 			<?php if($category){ ?><th style="width:140px;">분류</th><?php } ?>
 			<?php if($title){ ?><th>제목</th><?php } ?>
