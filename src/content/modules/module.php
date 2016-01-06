@@ -38,7 +38,7 @@ function getModule($module_name, $options) {
         echo 'data-gs-x="',getOrDefault($options['x'], 0),'" data-gs-y="',getOrDefault($options['y'], 0),'"';
         echo 'data-gs-width="',getOrDefault($options['w'], 1),'" data-gs-height="',getOrDefault($options['h'], 1),'"';
         ?>
-            <div class="grid-stack-item-content">
+            ><div class="grid-stack-item-content">
                 <div class="main-block">
                     <div class="main-block-title">
                         <?php
