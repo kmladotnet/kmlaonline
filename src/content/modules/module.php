@@ -38,11 +38,15 @@ function getModule($module_name, $options) {
             <div class="grid-stack-item-content">
                 <div class="main-block">
                     <div class="main-block-title">
+                        <?php
                         moduleTitle($module_name, $options);
+                        ?>
                     </div>
 
                     <div class="main-block-content">
+                        <?php
                         moduleContent($module_name, $options);
+                        ?>
                     </div>
                 </div>
             </div>
