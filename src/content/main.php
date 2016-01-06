@@ -31,97 +31,33 @@ function printContentPc(){
                     'h' => 6,
                 ));
             ?>
-            <div class="grid-stack-item"
-                data-gs-x="0" data-gs-y="0"
-                data-gs-width="10" data-gs-height="6">
-                    <div class="grid-stack-item-content">
-                        <div class="main-block">
-                            <div class="main-block-title">
-                                꼭 보세요
-                                <div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;">
-                                    <a href="/util/important">
-                                        신청목록 보기
-                                        <?php
-                                        $res=$mysqli->query("SELECT count(*) FROM kmlaonline_important_notices_table WHERE n_state=0");
-                                        $res=$res->fetch_array();
-                                        if($res[0]>0) echo " ({$res[0]})";
-                                        ?>
-                                    </a>
-                                </div>
-                            </div>
 
-                            <div class="main-block-content">
-                                <?php
-                                    require_once("modules/article-list.php");
-                                    articleList($mysqli->query("SELECT * FROM kmlaonline_important_notices_table WHERE n_state=1 ORDER BY n_id DESC"), true,true,true,true);
-                                ?>
-                            </div>
-                        </div>
-                    </div>
-            </div>
+            <?php
+                getModule('birthday', array(
+                    'x' => 10,
+                    'y' => 0,
+                    'w' => 2,
+                    'h' => 2,
+                ));
+            ?>
 
-            <div class="grid-stack-item"
-                data-gs-x="10" data-gs-y="0"
-                data-gs-width="2" data-gs-height="2">
-                    <div class="grid-stack-item-content">
-                        <div class="main-block">
-                            <div class="main-block-title">
-                                <img src="/theme/dev/birthday.png" style="width:32px;" /> 생일!
-                            </div>
-                            <div class="main-block-content">
-                                <?php include("modules/birthday.php"); ?>
-                            </div>
-						</div>
-					</div>
-            </div>
+            <?php
+                getModule('menu', array(
+                    'x' => 10,
+                    'y' => 2,
+                    'w' => 2,
+                    'h' => 4,
+                ));
+            ?>
 
-            <div class="grid-stack-item"
-                data-gs-x="10" data-gs-y="2"
-                data-gs-width="2" data-gs-height="4">
-                    <div class="grid-stack-item-content">
-                        <div class="main-block gradient">
-                            <div class="main-block-title">
-                                <img src="/theme/dev/food.png" style="width:32px;" /> 식단!
-                                <div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;">
-                                    <a <?php if($is_morning) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-breakfast');">아침</a> |
-                                    <a <?php if($is_afternoon) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-lunch');">점심</a> |
-                                    <a <?php if($is_night) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-dinner');">저녁</a>
-                                </div>
-                            </div>
-
-                            <div class="main-block-content">
-                                <?php include("modules/menu.php"); ?>
-                            </div>
-					   </div>
-					</div>
-            </div>
-
-            <div class="grid-stack-item"
-                data-gs-x="0" data-gs-y="6"
-                data-gs-width="12" data-gs-height="6">
-                    <div class="grid-stack-item-content">
-                        <div class="main-block">
-                            <div class="main-block-title">
-                                큼라보드
-
-                                <?php if(isUserPermitted($me['n_id'], "kmlaboard_changer")){ ?>
-                                    <div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;">
-                                        <a href="/util/kmlaboard">수정하기</a>
-                                    </div>
-                                <?php } ?>
-                            </div>
-                            <div class="main-block-content">
-                                <?php
-                                    $dat="";
-                                    if(file_exists("data/kmlaboard.txt") && filesize("data/kmlaboard.txt")>0){
-                                        $dat=file_get_contents("data/kmlaboard.txt");
-                                    }
-                                    filterContent(nl2br(strip_tags($dat,"<b><big><small><i><u><strong><strike><a><font><img><q><s><sub><sup>")));
-                                ?>
-                            </div>
-                        </div>
-					</div>
-            </div>
+            <?php
+                getModule('kmlaboard', array(
+                    'x' => 0,
+                    'y' => 6,
+                    'w' => 12,
+                    'h' => 6,
+                ));
+            ?>
 
             <div class="grid-stack-item"
                 data-gs-x="0" data-gs-y="12"

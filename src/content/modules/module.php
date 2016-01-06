@@ -18,6 +18,28 @@ function moduleTitle($module_name, $options) {
             </div>
             <?php
             break;
+        case 'birthday':
+            ?> <img src="/theme/dev/birthday.png" style="width:32px;" /> 생일! <?php
+            break;
+        case 'menu':
+            ?>
+            <img src="/theme/dev/food.png" style="width:32px;" /> 식단!
+            <div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;">
+                <a <?php if($is_morning) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-breakfast');">아침</a> |
+                <a <?php if($is_afternoon) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-lunch');">점심</a> |
+                <a <?php if($is_night) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-dinner');">저녁</a>
+            </div>
+            <?php
+            break;
+        case 'kmlaboard':
+            ?>
+            큼라보드
+            <?php if(isUserPermitted($me['n_id'], "kmlaboard_changer")){ ?>
+                <div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;">
+                    <a href="/util/kmlaboard">수정하기</a>
+                </div>
+            <?php }
+            break;
     }
 }
 
@@ -26,6 +48,19 @@ function moduleContent($module_name, $options) {
     switch($module_name) {
         case 'important':
             articleList($mysqli->query("SELECT * FROM kmlaonline_important_notices_table WHERE n_state=1 ORDER BY n_id DESC"), true,true,true,true);
+            break;
+        case 'birthday':
+            include("modules/birthday.php");
+            break;
+        case 'menu':
+            include("modules/menu.php");
+            break;
+        case 'kmlaboard':
+            $dat="";
+            if(file_exists("data/kmlaboard.txt") && filesize("data/kmlaboard.txt")>0){
+                $dat=file_get_contents("data/kmlaboard.txt");
+            }
+            filterContent(nl2br(strip_tags($dat,"<b><big><small><i><u><strong><strike><a><font><img><q><s><sub><sup>")));
             break;
     }
 }
