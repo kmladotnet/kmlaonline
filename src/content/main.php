@@ -24,25 +24,27 @@ function printContentPc(){
         <div class="grid-stack">
             <div class="grid-stack-item"
                 data-gs-x="0" data-gs-y="0"
-                data-gs-width="4" data-gs-height="2">
+                data-gs-width="10" data-gs-height="6">
                     <div class="grid-stack-item-content">
-						<div class="main-block-title">
-							꼭 보세요
-							<div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;">
-								<a href="/util/important">
-									신청목록 보기
-									<?php
-									$res=$mysqli->query("SELECT count(*) FROM kmlaonline_important_notices_table WHERE n_state=0");
-									$res=$res->fetch_array();
-									if($res[0]>0) echo " ({$res[0]})";
-									?>
-								</a>
-							</div>
-						</div>
-						<?php
-                            require_once("modules/article-list.php");
-                            articleList($mysqli->query("SELECT * FROM kmlaonline_important_notices_table WHERE n_state=1 ORDER BY n_id DESC"), true,true,true,true);
-                        ?>
+                        <div class="main-block">
+                            <div class="main-block-title">
+                                꼭 보세요
+                                <div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;">
+                                    <a href="/util/important">
+                                        신청목록 보기
+                                        <?php
+                                        $res=$mysqli->query("SELECT count(*) FROM kmlaonline_important_notices_table WHERE n_state=0");
+                                        $res=$res->fetch_array();
+                                        if($res[0]>0) echo " ({$res[0]})";
+                                        ?>
+                                    </a>
+                                </div>
+                            </div>
+                            <?php
+                                require_once("modules/article-list.php");
+                                articleList($mysqli->query("SELECT * FROM kmlaonline_important_notices_table WHERE n_state=1 ORDER BY n_id DESC"), true,true,true,true);
+                            ?>
+                        </div>
                     </div>
             </div>
             <div class="grid-stack-item"
@@ -51,25 +53,6 @@ function printContentPc(){
                     <div class="grid-stack-item-content"></div>
             </div>
         </div>
-					<div class="main-block" style="min-height:388px;overflow:auto;">
-						<div class="main-block-title">
-							꼭 보세요
-							<div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;">
-								<a href="/util/important">
-									신청목록 보기
-									<?php
-									$res=$mysqli->query("SELECT count(*) FROM kmlaonline_important_notices_table WHERE n_state=0");
-									$res=$res->fetch_array();
-									if($res[0]>0) echo " ({$res[0]})";
-									?>
-								</a>
-							</div>
-						</div>
-						<?php
-                            require_once("modules/article-list.php");
-                            articleList($mysqli->query("SELECT * FROM kmlaonline_important_notices_table WHERE n_state=1 ORDER BY n_id DESC"), true,true,true,true);
-                        ?>
-					</div>
 
 
 					<div class="main-block" style="height:120px;margin-bottom:6px;">
