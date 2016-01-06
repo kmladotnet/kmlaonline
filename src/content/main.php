@@ -171,11 +171,11 @@ function printContentPc(){
     <script type="text/javascript">
     $(function () {
         var options = {
-            draggable: {
-                handle_class: "main-block-title"
-            },
             vertical_margin: 4,
-            min_width: 720
+            min_width: 720,
+            draggable: {
+                handle: '.main-block-title',
+            }
         };
         $('.grid-stack').gridstack(options);
     });
