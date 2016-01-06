@@ -563,6 +563,7 @@ div#upper-header-holder{
 }
 .main-block-content{
     height: calc(100% - 51px);
+    overflow: auto;
     padding: 5px;
 }
 
@@ -651,4 +652,5 @@ div.hide-on-upper-panel{
 .grid-stack .grid-stack-item .placeholder-content {
     left: 2px;
     right: 2px;
+    overflow: hidden;
 }
