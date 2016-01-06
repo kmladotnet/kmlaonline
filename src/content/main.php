@@ -77,31 +77,39 @@ function printContentPc(){
 					   </div>
 					</div>
                 </div>
+
+            <div class="grid-stack-item"
+                data-gs-x="0" data-gs-y="6"
+                data-gs-width="12">
+                    <div class="grid-stack-item-content">
+                        <div class="main-block">
+                            <div class="main-block-title">
+                                큼라보드
+
+                                <?php if(isUserPermitted($me['n_id'], "kmlaboard_changer")){ ?>
+                                    <div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;">
+                                        <a href="/util/kmlaboard">수정하기</a>
+                                    </div>
+                                <?php } ?>
+                            </div>
+                            <div style="padding:5px;">
+                                <?php
+                                $dat="";
+                                if(file_exists("data/kmlaboard.txt") && filesize("data/kmlaboard.txt")>0){
+                                    $dat=file_get_contents("data/kmlaboard.txt");
+                                }
+                                filterContent(nl2br(strip_tags($dat,"<b><big><small><i><u><strong><strike><a><font><img><q><s><sub><sup>")));
+                                ?>
+                            </div>
+                        </div>
+					</div>
+                </div>
             </div>
         </div>
 
 		<table style="width:100%" class="notableborder-direct">
 			<td>
-				<div class="main-block">
-					<div class="main-block-title">
-						큼라보드
 
-						<?php if(isUserPermitted($me['n_id'], "kmlaboard_changer")){ ?>
-							<div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;">
-								<a href="/util/kmlaboard">수정하기</a>
-							</div>
-						<?php } ?>
-					</div>
-					<div style="padding:5px;">
-						<?php
-						$dat="";
-						if(file_exists("data/kmlaboard.txt") && filesize("data/kmlaboard.txt")>0){
-							$dat=file_get_contents("data/kmlaboard.txt");
-						}
-						filterContent(nl2br(strip_tags($dat,"<b><big><small><i><u><strong><strike><a><font><img><q><s><sub><sup>")));
-						?>
-					</div>
-				</div>
 			</td>
 		</table>
 		<table style="width:100%" class="notableborder-direct">
@@ -163,8 +171,8 @@ function printContentPc(){
     <script type="text/javascript">
     $(function () {
         var options = {
-            animate: true,
-            float: true,
+            handle_class: "main-block-title",
+            vertical_margin: 4,
             min_width: 720
         };
         $('.grid-stack').gridstack(options);

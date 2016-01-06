@@ -640,3 +640,9 @@ div.hide-on-upper-panel{
     z-index: 1;
     position: fixed;
 }
+
+.grid-stack .grid-stack-item .grid-stack-item-content,
+.grid-stack .grid-stack-item .placeholder-content {
+    left: 2px;
+    right: 2px;
+}
