@@ -49,7 +49,7 @@ function printContentPc(){
             </div>
             <div class="grid-stack-item"
                 data-gs-x="10" data-gs-y="0"
-                data-gs-width="2" data-gs-height="3">
+                data-gs-width="2" data-gs-height="2">
                     <div class="grid-stack-item-content">
                         <div class="main-block">
 						<div class="main-block-title">
@@ -61,8 +61,8 @@ function printContentPc(){
                 </div>
 
             <div class="grid-stack-item"
-                data-gs-x="10" data-gs-y="3"
-                data-gs-width="2" data-gs-height="3">
+                data-gs-x="10" data-gs-y="2"
+                data-gs-width="2" data-gs-height="4">
                     <div class="grid-stack-item-content">
                         <div class="main-block gradient">
                             <div class="main-block-title">
@@ -80,7 +80,7 @@ function printContentPc(){
 
             <div class="grid-stack-item"
                 data-gs-x="0" data-gs-y="6"
-                data-gs-width="12">
+                data-gs-width="12" data-gs-height="6">
                     <div class="grid-stack-item-content">
                         <div class="main-block">
                             <div class="main-block-title">
@@ -171,7 +171,9 @@ function printContentPc(){
     <script type="text/javascript">
     $(function () {
         var options = {
-            handle_class: "main-block-title",
+            draggable: {
+                handle_class: "main-block-title"
+            },
             vertical_margin: 4,
             min_width: 720
         };

@@ -256,6 +256,7 @@ div#total-footer{
 	display:block;
     height:100%;
     box-sizing: border-box;
+    cursor:move;
 }
 div.tab_global_wrap{
 	margin:12px;
