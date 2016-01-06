@@ -127,7 +127,7 @@ function printContentPc(){
 
             <div class="grid-stack-item"
                 data-gs-x="0" data-gs-y="16"
-                data-gs-width="7" data-gs-height="5">
+                data-gs-width="7" data-gs-height="6">
                     <div class="grid-stack-item-content">
                         <div class="main-block gradient" style="overflow:auto">
                             <div class="main-block-title">
@@ -144,8 +144,8 @@ function printContentPc(){
             </div>
 
             <div class="grid-stack-item"
-                data-gs-x="0" data-gs-y="16"
-                data-gs-width="5" data-gs-height="5">
+                data-gs-x="7" data-gs-y="16"
+                data-gs-width="5" data-gs-height="6">
                     <div class="grid-stack-item-content">
                         <div class="main-block gradient" style="overflow:auto">
                             <div class="main-block-title">
@@ -164,7 +164,7 @@ function printContentPc(){
             </div>
 
             <div class="grid-stack-item"
-                data-gs-x="0" data-gs-y="21"
+                data-gs-x="0" data-gs-y="22"
                 data-gs-width="12" data-gs-height="4">
                     <div class="grid-stack-item-content">
                         <div class="main-block">
