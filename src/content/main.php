@@ -25,7 +25,7 @@ function printContentPc(){
             <div class="grid-stack-item"
                 data-gs-x="0" data-gs-y="0"
                 data-gs-width="10" data-gs-height="6">
-                    <div class="grid-stack-item-content">
+                    <div class="grid-stack-item-content main-block-content">
                         <div class="main-block">
                             <div class="main-block-title">
                                 꼭 보세요
@@ -51,7 +51,7 @@ function printContentPc(){
             <div class="grid-stack-item"
                 data-gs-x="10" data-gs-y="0"
                 data-gs-width="2" data-gs-height="2">
-                    <div class="grid-stack-item-content">
+                    <div class="grid-stack-item-content main-block-content">
                         <div class="main-block">
 						<div class="main-block-title">
 							<img src="/theme/dev/birthday.png" style="width:32px;" /> 생일!
@@ -64,7 +64,7 @@ function printContentPc(){
             <div class="grid-stack-item"
                 data-gs-x="10" data-gs-y="2"
                 data-gs-width="2" data-gs-height="4">
-                    <div class="grid-stack-item-content">
+                    <div class="grid-stack-item-content main-block-content">
                         <div class="main-block gradient">
                             <div class="main-block-title">
                                 <img src="/theme/dev/food.png" style="width:32px;" /> 식단!
@@ -82,7 +82,7 @@ function printContentPc(){
             <div class="grid-stack-item"
                 data-gs-x="0" data-gs-y="6"
                 data-gs-width="12" data-gs-height="6">
-                    <div class="grid-stack-item-content">
+                    <div class="grid-stack-item-content main-block-content">
                         <div class="main-block">
                             <div class="main-block-title">
                                 큼라보드
@@ -109,7 +109,7 @@ function printContentPc(){
             <div class="grid-stack-item"
                 data-gs-x="0" data-gs-y="12"
                 data-gs-width="12" data-gs-height="4">
-                    <div class="grid-stack-item-content">
+                    <div class="grid-stack-item-content main-block-content">
                         <div class="main-block">
                             <div class="main-block-title">
                                 자유게시판
@@ -128,7 +128,7 @@ function printContentPc(){
             <div class="grid-stack-item"
                 data-gs-x="0" data-gs-y="16"
                 data-gs-width="7" data-gs-height="6">
-                    <div class="grid-stack-item-content">
+                    <div class="grid-stack-item-content main-block-content">
                         <div class="main-block gradient" style="overflow:auto">
                             <div class="main-block-title">
                                 내 게시판
@@ -146,7 +146,7 @@ function printContentPc(){
             <div class="grid-stack-item"
                 data-gs-x="7" data-gs-y="16"
                 data-gs-width="5" data-gs-height="6">
-                    <div class="grid-stack-item-content">
+                    <div class="grid-stack-item-content main-block-content">
                         <div class="main-block gradient" style="overflow:auto">
                             <div class="main-block-title">
                                 <img src="/theme/dev/kmlacafe.png" style="width:24px;vertical-align:bottom;margin-bottom:2px;" /> 큼라 카페
@@ -166,7 +166,7 @@ function printContentPc(){
             <div class="grid-stack-item"
                 data-gs-x="0" data-gs-y="22"
                 data-gs-width="12" data-gs-height="4">
-                    <div class="grid-stack-item-content">
+                    <div class="grid-stack-item-content main-block-content">
                         <div class="main-block">
                             <div class="main-block-title">
                                 갤러리

@@ -561,6 +561,10 @@ div#upper-header-holder{
 	background: #FCFCFC;
 	text-align: left;
 }
+.main-block-content{
+    height: calc(100% - 51px);
+}
+
 .main-block-old{
 	border:1px solid gray;
 }
