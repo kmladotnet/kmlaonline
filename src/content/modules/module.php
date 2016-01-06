@@ -50,10 +50,10 @@ function moduleContent($module_name, $options) {
             articleList($mysqli->query("SELECT * FROM kmlaonline_important_notices_table WHERE n_state=1 ORDER BY n_id DESC"), true,true,true,true);
             break;
         case 'birthday':
-            include("modules/birthday.php");
+            include("birthday.php");
             break;
         case 'menu':
-            include("modules/menu.php");
+            include("menu.php");
             break;
         case 'kmlaboard':
             $dat="";
