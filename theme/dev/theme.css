@@ -256,7 +256,6 @@ div#total-footer{
 	display:block;
     height:100%;
     box-sizing: border-box;
-    cursor:move;
 }
 div.tab_global_wrap{
 	margin:12px;
@@ -556,6 +555,7 @@ div#upper-header-holder{
 .main-block-title{
 	font-size:15pt;
 	font-weight:bold;
+    cursor:move;
 	padding:5px 15px 10px 15px;
 	border-bottom:1px solid #EEE;
 	background: #FCFCFC;
