@@ -59,26 +59,19 @@ function printContentPc(){
                 ));
             ?>
 
-            <div class="grid-stack-item"
-                data-gs-x="0" data-gs-y="12"
-                data-gs-width="12" data-gs-height="4">
-                    <div class="grid-stack-item-content">
-                        <div class="main-block">
-                            <div class="main-block-title">
-                                자유게시판
-                                    <div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;">
-                                        <a href="/board/commu">더보기</a>
-                                    </div>
-                            </div>
-                            <div class="main-block-content">
-                                <?php
-                                    require_once("modules/article-list.php");
-                                    articleList($mysqli->query("SELECT * FROM kmlaonline_board_data WHERE n_cat=139 and n_parent is null ORDER BY n_id DESC LIMIT 7"), true, true, true, true);
-                                ?>
-                            </div>
-                        </div>
-					</div>
-            </div>
+            <?php
+                getModule('article-list', array(
+                    'x' => 0,
+                    'y' => 6,
+                    'w' => 12,
+                    'h' => 6,
+                    'category' => 139,
+                ));
+            ?>
+
+
+
+
 
             <div class="grid-stack-item"
                 data-gs-x="0" data-gs-y="16"

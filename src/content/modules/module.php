@@ -40,6 +40,15 @@ function moduleTitle($module_name, $options) {
                 </div>
             <?php }
             break;
+        case 'article-list':
+            $cat = $board->getCategory(getOrDefault($options['category'], 139));
+            echo htmlspecialchars($cat['s_name']);
+            ?>
+            <div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;">
+                <a href="<?php echo htmlspecialchars("/board/{cat['s_id']}");?>">더보기</a>
+            </div>
+            <?php
+            break;
     }
 }
 
@@ -61,6 +70,9 @@ function moduleContent($module_name, $options) {
                 $dat=file_get_contents("data/kmlaboard.txt");
             }
             filterContent(nl2br(strip_tags($dat,"<b><big><small><i><u><strong><strike><a><font><img><q><s><sub><sup>")));
+            break;
+        case 'article-list':
+            articleList($mysqli->query("SELECT * FROM kmlaonline_board_data WHERE n_cat=".$board->getCategory(getOrDefault($options['category'], 139))." and n_parent is null ORDER BY n_id DESC LIMIT 7"), true, true, true, true);
             break;
     }
 }
