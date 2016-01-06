@@ -48,3 +48,4 @@ function getModule($module_name, $options) {
             </div>
     </div>
 }
+?>
