@@ -120,7 +120,7 @@ function putCommentTree($parent,$root){
                     $hue = ((hexdec($hash_val) / 1234567890.1) % 361 + 361) % 361; //positive int from 0 to 360
                     echo '<div style="float:left">';
                     echo '<div class="circle anonymous-bubble" style="width:'.$pic_sz.'px; height:'.$pic_sz.'px; background:rgb('.hsvToRgb($hue,50,80).');">'.substr(base_convert($hash_val, 16, 36),2,1).'</div>';
-                    echo '</div>'
+                    echo '</div>';
 				}
 				?>
 				<div style="display:block;margin-left:<?php echo $pic_sz*1.1 ?>px;">
