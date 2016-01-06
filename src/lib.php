@@ -516,4 +516,8 @@ function hsvToRgb($iH, $iS, $iV) {
     $dR *= 255; $dG *= 255; $dB *= 255;
     return round($dR).",".round($dG).",".round($dB);
 }
+function getOrDefault(&$var, $default=null) {
+    return isset($var) ? $var : $default;
+}
+
 $maxUploadFileSize = convertToBytes( ini_get( 'upload_max_filesize' ) );

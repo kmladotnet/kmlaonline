@@ -1,4 +1,5 @@
 <?php
+require_once('modules/module.php');
 function printContent(){
 	global $is_mobile;
 	if($is_mobile) printContentMobile();
@@ -22,6 +23,14 @@ function printContentPc(){
 			</tr>
 		</table>
         <div class="grid-stack">
+            <?php
+                getModule('important', array(
+                    x => 0,
+                    y => 0,
+                    w => 10,
+                    h => 6,
+                ));
+            ?>
             <div class="grid-stack-item"
                 data-gs-x="0" data-gs-y="0"
                 data-gs-width="10" data-gs-height="6">
