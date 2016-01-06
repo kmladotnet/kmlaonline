@@ -48,33 +48,38 @@ function printContentPc(){
                     </div>
             </div>
             <div class="grid-stack-item"
-                data-gs-x="4" data-gs-y="0"
-                data-gs-width="4" data-gs-height="4">
-                    <div class="grid-stack-item-content"></div>
-            </div>
-        </div>
-
-
-					<div class="main-block" style="height:120px;margin-bottom:6px;">
+                data-gs-x="10" data-gs-y="0"
+                data-gs-width="2" data-gs-height="2">
+                    <div class="grid-stack-item-content">
+                        <div class="main-block">
 						<div class="main-block-title">
 							<img src="/theme/dev/birthday.png" style="width:32px;" /> 생일!
 						</div>
 						<?php include("modules/birthday.php"); ?>
 						</div>
 					</div>
+                </div>
 
-
-					<div class="main-block gradient" style="position:relative;">
-						<div class="main-block-title">
-							<img src="/theme/dev/food.png" style="width:32px;" /> 식단!
-							<div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;">
-								<a <?php if($is_morning) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-breakfast');">아침</a> |
-								<a <?php if($is_afternoon) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-lunch');">점심</a> |
-								<a <?php if($is_night) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-dinner');">저녁</a>
-							</div>
-						</div>
+            <div class="grid-stack-item"
+                data-gs-x="10" data-gs-y="0"
+                data-gs-width="2" data-gs-height="2">
+                    <div class="grid-stack-item-content">
+                        <div class="main-block gradient" style="position:relative;">
+                            <div class="main-block-title">
+                                <img src="/theme/dev/food.png" style="width:32px;" /> 식단!
+                                <div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;">
+                                    <a <?php if($is_morning) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-breakfast');">아침</a> |
+                                    <a <?php if($is_afternoon) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-lunch');">점심</a> |
+                                    <a <?php if($is_night) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-dinner');">저녁</a>
+                                </div>
+                            </div>
                         <?php include("modules/menu.php"); ?>
+					   </div>
 					</div>
+                </div>
+            </div>
+        </div>
+
 		<table style="width:100%" class="notableborder-direct">
 			<td>
 				<div class="main-block">
