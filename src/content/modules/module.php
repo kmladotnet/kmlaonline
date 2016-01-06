@@ -1,6 +1,7 @@
 <?php
 require_once("article-list.php");
 function moduleTitle($module_name, $options) {
+	global $member, $me, $is_morning, $is_afternoon, $is_night, $mysqli, $board;
     switch($module_name) {
         case 'important':
             ?>
@@ -21,6 +22,7 @@ function moduleTitle($module_name, $options) {
 }
 
 function moduleContent($module_name, $options) {
+	global $member, $me, $is_morning, $is_afternoon, $is_night, $mysqli, $board;
     switch($module_name) {
         case 'important':
             articleList($mysqli->query("SELECT * FROM kmlaonline_important_notices_table WHERE n_state=1 ORDER BY n_id DESC"), true,true,true,true);
@@ -29,6 +31,7 @@ function moduleContent($module_name, $options) {
 }
 
 function getModule($module_name, $options) {
+	global $member, $me, $is_morning, $is_afternoon, $is_night, $mysqli, $board;
     ?>
     <div class="grid-stack-item"
         <?php

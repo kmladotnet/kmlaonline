@@ -25,10 +25,10 @@ function printContentPc(){
         <div class="grid-stack">
             <?php
                 getModule('important', array(
-                    x => 0,
-                    y => 0,
-                    w => 10,
-                    h => 6,
+                    'x' => 0,
+                    'y' => 0,
+                    'w' => 10,
+                    'h' => 6,
                 ));
             ?>
             <div class="grid-stack-item"
