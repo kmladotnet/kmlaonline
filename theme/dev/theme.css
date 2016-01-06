@@ -33,7 +33,7 @@ body.cke_contents_ltr{
     color: rgba(255,255,255,0.8);
     font-size: xx-large;
     text-align: center;
-    display: inline-block;
+    display: table-cell;
     vertical-align: middle;
 }
 
