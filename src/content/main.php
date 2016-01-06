@@ -181,7 +181,7 @@ function printContentPc(){
     <script type="text/javascript">
     $(function () {
         var options = {
-            animated: true,
+            animate: true,
             vertical_margin: 4,
             min_width: 720,
             draggable: {
