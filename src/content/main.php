@@ -47,6 +47,7 @@ function printContentPc(){
                         </div>
                     </div>
             </div>
+
             <div class="grid-stack-item"
                 data-gs-x="10" data-gs-y="0"
                 data-gs-width="2" data-gs-height="2">
@@ -58,7 +59,7 @@ function printContentPc(){
 						<?php include("modules/birthday.php"); ?>
 						</div>
 					</div>
-                </div>
+            </div>
 
             <div class="grid-stack-item"
                 data-gs-x="10" data-gs-y="2"
@@ -76,7 +77,7 @@ function printContentPc(){
                         <?php include("modules/menu.php"); ?>
 					   </div>
 					</div>
-                </div>
+            </div>
 
             <div class="grid-stack-item"
                 data-gs-x="0" data-gs-y="6"
@@ -103,71 +104,80 @@ function printContentPc(){
                             </div>
                         </div>
 					</div>
-                </div>
             </div>
-        </div>
 
-		<table style="width:100%" class="notableborder-direct">
-			<td>
-
-			</td>
-		</table>
-		<table style="width:100%" class="notableborder-direct">
-			<td>
-				<div class="main-block">
-					<div class="main-block-title">
-						자유게시판
-							<div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;">
-								<a href="/board/commu">더보기</a>
-							</div>
-					</div>
-					<?php
-                        require_once("modules/article-list.php");
-                        articleList($mysqli->query("SELECT * FROM kmlaonline_board_data WHERE n_cat=139 and n_parent is null ORDER BY n_id DESC LIMIT 7"), true, true, true, true);
-                    ?>
-				</div>
-			</td>
-		</table>
-		<table style="width:100%" class="notableborder-direct">
-			<tr style="vertical-align:top">
-				<td style="width:56%;">
-					<div class="main-block gradient" style="overflow:auto">
-						<div class="main-block-title">
-							내 게시판
-							<div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;"><a href="/board/special:list-mine">모두 보기</a> | <a href="/user/settings?display=1">항목 바꾸기</a></div>
-						</div>
-						<?php
-                            require_once("modules/article-list.php");
-                            $accessible_categories=getUserMainBoards($me);
-                            articleList($board->getArticleList($accessible_categories, false, 0, 0, 16), true, true, true, false);
-                        ?>
-					</div>
-				</td>
-				<td>
-					<div class="main-block gradient" style="overflow:auto">
-						<div class="main-block-title">
-							<img src="/theme/dev/kmlacafe.png" style="width:24px;vertical-align:bottom;margin-bottom:2px;" /> 큼라 카페
-							<div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;"><a href="/board/site_kmlacafe">모두 보기</a></div>
-						</div>
-						<div style="padding:5px;">
-						<?php
-                            require_once("modules/article-list.php");
-                            $articles=$board->getArticleList(array($board->getCategory(false,"site_kmlacafe")['n_id']), false, 0, 0, 16);
-                            articleList($articles, false, true, true, false);
-                        ?>
+            <div class="grid-stack-item"
+                data-gs-x="0" data-gs-y="12"
+                data-gs-width="12" data-gs-height="4">
+                    <div class="grid-stack-item-content">
+                        <div class="main-block">
+                            <div class="main-block-title">
+                                자유게시판
+                                    <div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;">
+                                        <a href="/board/commu">더보기</a>
+                                    </div>
+                            </div>
+                            <?php
+                                require_once("modules/article-list.php");
+                                articleList($mysqli->query("SELECT * FROM kmlaonline_board_data WHERE n_cat=139 and n_parent is null ORDER BY n_id DESC LIMIT 7"), true, true, true, true);
+                            ?>
                         </div>
 					</div>
-				</td>
-			</tr>
-		</table>
-		<div class="main-block">
-			<div class="main-block-title">
-				갤러리
-				<div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;"><a href="/board/all_gallery">모두 보기</a></div>
-			</div>
-			<?php printGallery(); ?>
-		</div>
-	</div>
+            </div>
+
+            <div class="grid-stack-item"
+                data-gs-x="0" data-gs-y="16"
+                data-gs-width="7" data-gs-height="5">
+                    <div class="grid-stack-item-content">
+                        <div class="main-block gradient" style="overflow:auto">
+                            <div class="main-block-title">
+                                내 게시판
+                                <div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;"><a href="/board/special:list-mine">모두 보기</a> | <a href="/user/settings?display=1">항목 바꾸기</a></div>
+                            </div>
+                            <?php
+                                require_once("modules/article-list.php");
+                                $accessible_categories=getUserMainBoards($me);
+                                articleList($board->getArticleList($accessible_categories, false, 0, 0, 16), true, true, true, false);
+                            ?>
+					   </div>
+					</div>
+            </div>
+
+            <div class="grid-stack-item"
+                data-gs-x="0" data-gs-y="16"
+                data-gs-width="5" data-gs-height="5">
+                    <div class="grid-stack-item-content">
+                        <div class="main-block gradient" style="overflow:auto">
+                            <div class="main-block-title">
+                                <img src="/theme/dev/kmlacafe.png" style="width:24px;vertical-align:bottom;margin-bottom:2px;" /> 큼라 카페
+                                <div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;"><a href="/board/site_kmlacafe">모두 보기</a></div>
+                            </div>
+                            <div style="padding:5px;">
+                            <?php
+                                require_once("modules/article-list.php");
+                                $articles=$board->getArticleList(array($board->getCategory(false,"site_kmlacafe")['n_id']), false, 0, 0, 16);
+                                articleList($articles, false, true, true, false);
+                            ?>
+                            </div>
+                        </div>
+					</div>
+            </div>
+
+            <div class="grid-stack-item"
+                data-gs-x="0" data-gs-y="21"
+                data-gs-width="12" data-gs-height="4">
+                    <div class="grid-stack-item-content">
+                        <div class="main-block">
+                            <div class="main-block-title">
+                                갤러리
+                                <div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;"><a href="/board/all_gallery">모두 보기</a></div>
+                            </div>
+                            <?php printGallery(); ?>
+                        </div>
+					</div>
+            </div>
+        </div>
+    </div>
     <script type="text/javascript">
     $(function () {
         var options = {
