@@ -30,36 +30,24 @@ function printContentPc(){
                     'w' => 10,
                     'h' => 6,
                 ));
-            ?>
-
-            <?php
                 getModule('birthday', array(
                     'x' => 10,
                     'y' => 0,
                     'w' => 2,
                     'h' => 2,
                 ));
-            ?>
-
-            <?php
                 getModule('menu', array(
                     'x' => 10,
                     'y' => 2,
                     'w' => 2,
                     'h' => 4,
                 ));
-            ?>
-
-            <?php
                 getModule('kmlaboard', array(
                     'x' => 0,
                     'y' => 6,
                     'w' => 12,
                     'h' => 6,
                 ));
-            ?>
-
-            <?php
                 getModule('article-list', array(
                     'x' => 0,
                     'y' => 6,
@@ -68,11 +56,6 @@ function printContentPc(){
                     'category' => 139,
                 ));
             ?>
-
-
-
-
-
             <div class="grid-stack-item"
                 data-gs-x="0" data-gs-y="16"
                 data-gs-width="7" data-gs-height="6">
