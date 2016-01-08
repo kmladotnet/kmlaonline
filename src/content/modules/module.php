@@ -41,8 +41,8 @@ function moduleTitle($module_name, $options) {
             <?php }
             break;
         case 'article-list':
-            $cat = $board->getCategory(getOrDefault($options['category'], 139));
-            echo htmlspecialchars($cat['s_name']);
+            $cat = $board->getCategory(getOrDefault($options['cat'], 139));
+            echo htmlspecialchars(getOrDefault($options['title'], $cat['s_name']));
             ?>
             <div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;">
                 <a href="<?php echo htmlspecialchars("/board/{$cat['s_id']}");?>">더보기</a>
@@ -72,18 +72,18 @@ function moduleContent($module_name, $options) {
             filterContent(nl2br(strip_tags($dat,"<b><big><small><i><u><strong><strike><a><font><img><q><s><sub><sup>")));
             break;
         case 'article-list':
-            articleList($mysqli->query("SELECT * FROM kmlaonline_board_data WHERE n_cat=".getOrDefault($options['category'], 139)." and n_parent is null ORDER BY n_id DESC LIMIT ".getOrDefault($options['article-num'], 7)), true, true, true, true);
+            articleList($board->getArticleList(arrayToCategories($options['cat']), false, 0, 0, 10), true, true, true, true);
             break;
     }
 }
 
-function getModule($module_name, $options) {
+function getModule($module_name, $options, $x, $y, $w, $h) {
 	global $member, $me, $is_morning, $is_afternoon, $is_night, $mysqli, $board;
     ?>
     <div class="grid-stack-item module-<?php echo $module_name; ?>"
         <?php
-        echo 'data-gs-x="',getOrDefault($options['x'], 0),'" data-gs-y="',getOrDefault($options['y'], 0),'"';
-        echo 'data-gs-width="',getOrDefault($options['w'], 1),'" data-gs-height="',getOrDefault($options['h'], 1),'"';
+        echo 'data-gs-x="',$x,'" data-gs-y="',$y,'"';
+        echo 'data-gs-width="',$w,'" data-gs-height="',$h,'"';
         echo 'data-module-options=\'',htmlspecialchars(json_encode($options)),'\'';
         ?>
             ><div class="grid-stack-item-content">
@@ -107,7 +107,7 @@ function getModule($module_name, $options) {
 
 function allModules($modules) {
     foreach($modules as $module) {
-        getModule($module['name'], $module['options']);
+        getModule($module['name'], $module['options']['options'], $module['x'], $module['y'], $module['w'], $module['h']);
     }
 }
 ?>
