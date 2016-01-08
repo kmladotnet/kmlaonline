@@ -72,7 +72,7 @@ function moduleContent($module_name, $options) {
             filterContent(nl2br(strip_tags($dat,"<b><big><small><i><u><strong><strike><a><font><img><q><s><sub><sup>")));
             break;
         case 'article-list':
-            articleList($mysqli->query("SELECT * FROM kmlaonline_board_data WHERE n_cat=".getOrDefault($options['category'], 139)." and n_parent is null ORDER BY n_id DESC LIMIT 7"), true, true, true, true);
+            articleList($mysqli->query("SELECT * FROM kmlaonline_board_data WHERE n_cat=".getOrDefault($options['category'], 139)." and n_parent is null ORDER BY n_id DESC LIMIT ".getOrDefault($options['article-num'], 7)), true, true, true, true);
             break;
     }
 }

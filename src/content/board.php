@@ -16,10 +16,10 @@ if($board_id=="special:list-all"){
 	$board_act="list";
 	$title="내 게시판 - $title";
 }else if(is_array($board_id)) {
-    $board_id = arrayToCategories($board_id);
+	$title=getOrDefault($board_id["title"], "여러가지");
+    $board_id = arrayToCategories($board_id["cat"]);
 	include "src/content/board/list-multi.php";
 	$board_act="list";
-	$title="내 게시판 - $title";
 }else{
 	include "src/content/board/list.php";
 	if(($board_cat=$board->getCategory(false,$board_id))===false)

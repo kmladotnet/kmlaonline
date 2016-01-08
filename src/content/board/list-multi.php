@@ -75,7 +75,7 @@ function printArticleListTypeForum($board_data, $additional_query_string){}
 function printArticleListTypeGallery($board_data, $additional_query_string){}
 function printArticleList(){
 	//http://soree-kmla.com/board/all_announce?search_title=true&search_data=true&search_tag=true&search_writer=true&search=asdf
-	global $board_id, $board_act, $board, $board_cat, $member, $is_mobile, $me;
+	global $board_id, $board_act, $board, $board_cat, $member, $is_mobile, $me, $title;
 	$articleperpage=20;
 	$orderby_name="n_id";
 	$orderby_desc=true;
@@ -103,8 +103,7 @@ function printArticleList(){
 	$additional_query_string=implode("&",$additional_query_string);
 	if($additional_query_string)$additional_query_string="?$additional_query_string";
 	?>
-	<div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;"><a href="/user/settings">항목 바꾸기</a></div>
-	<h1 style="padding:9px;text-align:left;">내 게시판</h1>
+	<h1 style="padding:9px;text-align:left;"><?php echo $title;?></h1>
 	<?php
 	printArticleListTypeBoard($board_data, $additional_query_string);
 	?>

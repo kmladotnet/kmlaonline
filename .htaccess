@@ -12,10 +12,8 @@ RewriteRule ^user/([A-Za-z0-9_]+)/([A-Za-z0-9_]+)/([A-Za-z@._0-9]+)$ index.php?a
 
 RewriteRule ^searchall/([0-9]+)$ index.php?action=searchall&page=$1 [QSA,L]
 RewriteRule ^searchall$ index.php?action=searchall [QSA,L]
-RewriteRule ^board/([A-Za-z0-9@:_\-]+)$ index.php?action=board&bid=$1&bact=list [QSA,L]
-RewriteRule ^board/(\[[A-Za-z0-9,\"@:_\-]+\])$ index.php?action=board&bid=$1&bact=list [QSA,L]
-RewriteRule ^board/([A-Za-z0-9@:_\-]+)/page/([0-9]+)$ index.php?action=board&bid=$1&bact=list&page=$2 [QSA,L]
-RewriteRule ^board/(\[[A-Za-z0-9,\"@:_\-]+\])/page/([0-9]+)$ index.php?action=board&bid=$1&bact=list&page=$2 [QSA,L]
+RewriteRule ^board/^(.*?)$ index.php?action=board&bid=$1&bact=list [QSA,L]
+RewriteRule ^board/^(.*?)/page/([0-9]+)$ index.php?action=board&bid=$1&bact=list&page=$2 [QSA,L]
 RewriteRule ^board/([A-Za-z0-9@:_\-]+)/([A-Za-z0-9_\-]+)$ index.php?action=board&bid=$1&bact=$2 [QSA,L]
 RewriteRule ^board/([A-Za-z0-9@:_\-]+)/([A-Za-z0-9_\-]+)/([0-9]+)$ index.php?action=board&bid=$1&bact=$2&bitm=$3 [QSA,L]
 RewriteRule ^board/([A-Za-z0-9@:_\-]+)/([A-Za-z0-9_\-]+)/([0-9]+)/([0-9]+)$ index.php?action=board&bid=$1&bact=$2&bitm=$3&bcmt=$4 [QSA,L]
