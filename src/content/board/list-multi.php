@@ -93,6 +93,7 @@ function printArticleList(){
 	if($search!==false){
 		foreach($board_data as $key=>$val){
 			if($val['n_flag']&0x4) unset($board_data[$key]);
+            echo $val['s_title'];
 		}
 	}
 	$pagenumber++;
