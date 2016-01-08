@@ -1,7 +1,8 @@
 <?php
 include "src/content/board/editor.php";
 include "src/content/board/view.php";
-$board_id=json_decode($_GET['bid']);
+$board_id=$_GET['bid'];
+echo "wtf",$board_id;
 $board_act=isset($_GET['bact'])?$_GET['bact']:"";
 $board_item=isset($_GET['bitm'])?$_GET['bitm']:"";
 if($board_id=="special:list-all"){
