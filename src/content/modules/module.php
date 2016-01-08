@@ -107,7 +107,7 @@ function getModule($module_name, $options, $x, $y, $w, $h) {
 
 function allModules($modules) {
     foreach($modules as $module) {
-        getModule($module['name'], $module['options']['options'], $module['x'], $module['y'], $module['w'], $module['h']);
+        getModule($module['name'], $module['options']['options'], $module['options']['x'], $module['options']['y'], $module['options']['w'], $module['options']['h']);
     }
 }
 ?>
