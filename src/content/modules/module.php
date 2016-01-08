@@ -83,10 +83,11 @@ function moduleContent($module_name, $options) {
 function getModule($module_name, $options, $x, $y, $w, $h) {
 	global $member, $me, $is_morning, $is_afternoon, $is_night, $mysqli, $board;
     ?>
-    <div class="grid-stack-item module-<?php echo $module_name; ?>"
+    <div class="grid-stack-item"
         <?php
         echo 'data-gs-x="',$x,'" data-gs-y="',$y,'"';
         echo 'data-gs-width="',$w,'" data-gs-height="',$h,'"';
+        echo 'data-module-name="',$module_name,'"';
         echo 'data-module-options=\'',htmlspecialchars(json_encode($options)),'\'';
         ?>
             ><div class="grid-stack-item-content">

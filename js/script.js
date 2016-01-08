@@ -465,12 +465,12 @@ function mainGridToJSON() {
     var result = [];
     $(".grid-stack-item").each(function(index){
         result[index] = new Object();
-        result[index].name = "";
+        result[index].name = $(this).data("module-name");
         result[index].options = new Object();
-        result[index].options.x = $(this).attr("data-gs-x");
-        result[index].options.y = $(this).attr("data-gs-y");
-        result[index].options.w = $(this).attr("data-gs-width");
-        result[index].options.h = $(this).attr("data-gs-height");
+        result[index].options.x = $(this).data("gs-x");
+        result[index].options.y = $(this).data("gs-y");
+        result[index].options.w = $(this).data("gs-width");
+        result[index].options.h = $(this).data("gs-height");
         result[index].options.options = $(this).data("module-options");
     });
     return JSON.stringify(result);
