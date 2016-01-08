@@ -72,7 +72,8 @@ function printContentPc(){
                                 'article' => array(
                                     'title' => '테스트',
                                     'cat' => array(
-                                        139
+                                        139,
+                                        563
                                     )
                                 )
                             )
