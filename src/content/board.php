@@ -1,7 +1,7 @@
 <?php
 include "src/content/board/editor.php";
 include "src/content/board/view.php";
-$board_id=json_decode($_GET['bid']);
+$board_id=json_decode($_GET['bid'], true);
 if($board_id===null) {
     $board_id=$_GET['bid'];
 }
@@ -15,16 +15,10 @@ if($board_id=="special:list-all"){
 	include "src/content/board/list-mine.php";
 	$board_act="list";
 	$title="내 게시판 - $title";
-}else if(true) {
-    print_r($board_id);
+}else if(is_array($board_id)) {
 	$title=getOrDefault($board_id["title"], "여러가지");
     $board_id = arrayToCategories($board_id["cat"]);
-    echo $title;
-    echo $board_id;
-    echo "123";
-	//include "src/content/board/list-multi.php";
-
-	//include "src/content/board/list-mine.php";
+	include "src/content/board/list-multi.php";
 	$board_act="list";
 }else{
 	include "src/content/board/list.php";
