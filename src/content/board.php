@@ -22,7 +22,7 @@ if($board_id=="special:list-all"){
 }else{
 	include "src/content/board/list.php";
 	if(($board_cat=$board->getCategory(false,$board_id))===false)
-		redirectAlert(false,lang("board","category","nonexist"));
+		redirectAlert(false,lang("board","category","nonexist").$board_id);
 	switch($board_act){
 		case "write":
 			redirectLoginIfRequired();
