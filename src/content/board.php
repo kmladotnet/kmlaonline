@@ -18,7 +18,12 @@ if($board_id=="special:list-all"){
 }else if(is_array($board_id)) {
 	$title=getOrDefault($board_id["title"], "여러가지");
     $board_id = arrayToCategories($board_id["cat"]);
-	include "src/content/board/list-multi.php";
+    echo $title;
+    echo $board_id;
+    echo "123";
+	//include "src/content/board/list-multi.php";
+
+	include "src/content/board/list-mine.php";
 	$board_act="list";
 }else{
 	include "src/content/board/list.php";
