@@ -23,6 +23,7 @@ function printContentPc(){
 		</table>
         <div class="grid-stack">
             <?php
+                mkdir("data/user/main_layout");
                 if(!file_exists("data/user/main_layout/{$me['n_id']}.txt")) {
                     file_put_contents("data/user/main_layout/{$me['n_id']}.txt", <<<JSON
                     [
