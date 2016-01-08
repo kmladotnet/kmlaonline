@@ -23,6 +23,8 @@ function printContentPc(){
 		</table>
         <div class="grid-stack">
             <?php
+                if(!file_exists("data/main_layout/{$me['n_id']}")) {
+                }
                 $modules = array(
                     array(
                         'name' => 'important',

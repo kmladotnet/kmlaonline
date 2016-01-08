@@ -465,11 +465,13 @@ function mainGridToJSON() {
     var result = [];
     $(".grid-stack-item").each(function(index){
         result[index] = new Object();
-        result[index].x = $(this).attr("data-gs-x");
-        result[index].y = $(this).attr("data-gs-y");
-        result[index].w = $(this).attr("data-gs-width");
-        result[index].h = $(this).attr("data-gs-height");
-        result[index].options = $(this).data("module-options");
+        result[index].name = "";
+        result[index].options = new Object();
+        result[index].options.x = $(this).attr("data-gs-x");
+        result[index].options.y = $(this).attr("data-gs-y");
+        result[index].options.w = $(this).attr("data-gs-width");
+        result[index].options.h = $(this).attr("data-gs-height");
+        result[index].options.options = $(this).data("module-options");
     });
     return JSON.stringify(result);
 }
