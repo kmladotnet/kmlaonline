@@ -84,7 +84,7 @@ function printContentPc(){
                             'h' => 6,
                             'options' => array(
                                 'article' => array(
-                                    'title' => '내 게시판'
+                                    'title' => '내 게시판',
                                     'cat' => array(2, 3, 4, 6, 63, 64, 65, 78, 203)
                                 )
                             )
