@@ -169,6 +169,9 @@ JSON
             }
         };
         $('.grid-stack').gridstack(options);
+        $('.grid-stack').on('change', function (e, items) {
+            $.post("ajax/user/updatelayout.php", {"json": mainGridToJSON()});
+        };
     });
     </script>
 	<?php
