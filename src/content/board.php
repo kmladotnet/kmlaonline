@@ -1,7 +1,7 @@
 <?php
 include "src/content/board/editor.php";
 include "src/content/board/view.php";
-$board_id=$_GET['bid'];
+$board_id=json_decode($_GET['bid']);
 $board_act=isset($_GET['bact'])?$_GET['bact']:"";
 $board_item=isset($_GET['bitm'])?$_GET['bitm']:"";
 if($board_id=="special:list-all"){
@@ -10,6 +10,14 @@ if($board_id=="special:list-all"){
 	$title="모든 게시판 - $title";
 }else if($board_id=="special:list-mine"){
 	include "src/content/board/list-mine.php";
+	$board_act="list";
+	$title="내 게시판 - $title";
+}else if(is_array($board_id)) {
+    $multi_id = array();
+    foreach($board_id as $i)
+        $multi_id[$i] = $i;
+    $board_id = $multi_id;
+	include "src/content/board/list-multi.php";
 	$board_act="list";
 	$title="내 게시판 - $title";
 }else{
