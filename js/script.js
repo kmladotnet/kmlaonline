@@ -467,10 +467,11 @@ function mainGridToJSON() {
         result[index] = new Object();
         result[index].name = $(this).data("module-name");
         result[index].options = new Object();
-        result[index].options.x = $(this).data("gs-x");
-        result[index].options.y = $(this).data("gs-y");
-        result[index].options.w = $(this).data("gs-width");
-        result[index].options.h = $(this).data("gs-height");
+        var node = $(this).data('_gridstack_node');
+        result[index].options.x = node.x;
+        result[index].options.y = node.y;
+        result[index].options.w = node.width;
+        result[index].options.h = node.height;
         result[index].options.options = $(this).data("module-options");
     });
     return JSON.stringify(result);
