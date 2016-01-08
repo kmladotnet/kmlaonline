@@ -72,9 +72,38 @@ function printContentPc(){
                                 'article' => array(
                                     'title' => '테스트',
                                     'cat' => array(
-                                        139,
-                                        563
+                                        139
                                     )
+                                )
+                            )
+                        )
+                    ), array(
+                        'name' => 'article-list',
+                        'options' => array(
+                            'x' => 0,
+                            'y' => 18,
+                            'w' => 7,
+                            'h' => 6,
+                            'options' => array(
+                                'article' => array(
+                                    'title' => '내 게시판',
+                                    'cat' => array(2, 3, 4, 6, 63, 64, 65, 78, 203)
+                                )
+                            )
+                        )
+                    )
+                ), array(
+                        'name' => 'article-list',
+                        'options' => array(
+                            'x' => 7,
+                            'y' => 18,
+                            'w' => 5,
+                            'h' => 6,
+                            'options' => array(
+                                'show-cat' => false,
+                                'article' => array(
+                                    'title' => '큼라 카페',
+                                    'cat' => array(77)
                                 )
                             )
                         )
@@ -82,45 +111,6 @@ function printContentPc(){
                 );
                 allModules($modules);
             ?>
-            <div class="grid-stack-item"
-                data-gs-x="0" data-gs-y="16"
-                data-gs-width="7" data-gs-height="6">
-                    <div class="grid-stack-item-content">
-                        <div class="main-block gradient" style="overflow:auto">
-                            <div class="main-block-title">
-                                내 게시판
-                                <div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;"><a href="/board/special:list-mine">모두 보기</a> | <a href="/user/settings?display=1">항목 바꾸기</a></div>
-                            </div>
-                            <div class="main-block-content">
-                                <?php
-                                    require_once("modules/article-list.php");
-                                    $accessible_categories=getUserMainBoards($me);
-                                    articleList($board->getArticleList($accessible_categories, false, 0, 0, 16), true, true, true, false);
-                                ?>
-                            </div>
-					   </div>
-					</div>
-            </div>
-
-            <div class="grid-stack-item"
-                data-gs-x="7" data-gs-y="16"
-                data-gs-width="5" data-gs-height="6">
-                    <div class="grid-stack-item-content">
-                        <div class="main-block gradient" style="overflow:auto">
-                            <div class="main-block-title">
-                                <img src="/theme/dev/kmlacafe.png" style="width:24px;vertical-align:bottom;margin-bottom:2px;" /> 큼라 카페
-                                <div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;"><a href="/board/site_kmlacafe">모두 보기</a></div>
-                            </div>
-                            <div class="main-block-content">
-                            <?php
-                                require_once("modules/article-list.php");
-                                $articles=$board->getArticleList(array($board->getCategory(false,"site_kmlacafe")['n_id']), false, 0, 0, 16);
-                                articleList($articles, false, true, true, false);
-                            ?>
-                            </div>
-                        </div>
-					</div>
-            </div>
 
             <div class="grid-stack-item"
                 data-gs-x="0" data-gs-y="22"

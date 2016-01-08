@@ -73,7 +73,9 @@ function moduleContent($module_name, $options) {
             filterContent(nl2br(strip_tags($dat,"<b><big><small><i><u><strong><strike><a><font><img><q><s><sub><sup>")));
             break;
         case 'article-list':
-            articleList($board->getArticleList(arrayToCategories($options['article']['cat']), false, 0, 0, 10), true, true, true, true);
+            articleList($board->getArticleList(arrayToCategories($options['article']['cat']), false, 0, 0, 10),
+                        getOrDefault($options['show-cat'], true), getOrDefault($options['show-title'], true),
+                        getOrDefault($options['show-name'], true), getOrDefault($options['show-date'], true));
             break;
     }
 }
