@@ -64,6 +64,12 @@ function printContentPc(){
                             'y' => 12,
                             'w' => 12,
                             'h' => 6,
+                            'article-options' => array(
+                                'title' => '테스트',
+                                'cat' => array(
+                                    139
+                                )
+                            )
                         )
                     )
                 );

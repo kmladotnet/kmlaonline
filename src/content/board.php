@@ -9,7 +9,7 @@ $board_act=isset($_GET['bact'])?$_GET['bact']:"";
 $board_item=isset($_GET['bitm'])?$_GET['bitm']:"";
 if(is_array($board_id)) {
     if(count($board_id["cat"]) === 1) {
-        $board_id = $board_id["cat"][0];
+        $board_id = $board->getCategory($board_id["cat"][0]);
     }
 }
 if($board_id=="special:list-all"){
