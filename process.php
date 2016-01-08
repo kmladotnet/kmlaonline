@@ -4,6 +4,7 @@ $fn="src/process/".basename($_REQUEST['actiontype'])."/".basename($_REQUEST['act
 if(file_exists($fn)){
 	include($fn);
 }else{
-	redirectTo("./"); // Change to 404
+    echo $fn;
+	//redirectTo("./"); // Change to 404
 }
 ?>
