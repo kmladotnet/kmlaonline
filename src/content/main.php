@@ -23,8 +23,7 @@ function printContentPc(){
 		</table>
         <div class="grid-stack">
             <?php
-                mkdir("data/user/main_layout");
-                if(!file_exists("data/user/main_layout/{$me['n_id']}.txt")) {
+                //if(!file_exists("data/user/main_layout/{$me['n_id']}.txt")) {
                     file_put_contents("data/user/main_layout/{$me['n_id']}.txt", <<<JSON
                     [
                        {
@@ -133,19 +132,11 @@ function printContentPc(){
                                 }
                              }
                           }
-                       },
-                       {
-                          "options":{
-                             "x":0,
-                             "y":24,
-                             "w":12,
-                             "h":4
-                          }
                        }
                     ]
 JSON
                                     );
-                }
+                //}
                 $modules = json_decode(file_get_contents("data/user/main_layout/{$me['n_id']}.txt"), true);
                 allModules($modules);
             ?>
