@@ -32,6 +32,7 @@ function printContentPc(){
                             'y' => 0,
                             'w' => 10,
                             'h' => 6,
+                            'options' => array()
                         )
                     ), array(
                         'name' => 'birthday',
@@ -40,6 +41,7 @@ function printContentPc(){
                             'y' => 0,
                             'w' => 2,
                             'h' => 2,
+                            'options' => array()
                         )
                     ), array(
                         'name' => 'menu',
@@ -48,6 +50,7 @@ function printContentPc(){
                             'y' => 2,
                             'w' => 2,
                             'h' => 4,
+                            'options' => array()
                         )
                     ), array(
                         'name' => 'kmlaboard',
@@ -56,6 +59,7 @@ function printContentPc(){
                             'y' => 6,
                             'w' => 12,
                             'h' => 6,
+                            'options' => array()
                         )
                     ), array(
                         'name' => 'article-list',
@@ -65,9 +69,11 @@ function printContentPc(){
                             'w' => 12,
                             'h' => 6,
                             'options' => array(
-                                'title' => '테스트',
-                                'cat' => array(
-                                    139
+                                'article' => array(
+                                    'title' => '테스트',
+                                    'cat' => array(
+                                        139
+                                    )
                                 )
                             )
                         )

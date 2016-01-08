@@ -41,11 +41,12 @@ function moduleTitle($module_name, $options) {
             <?php }
             break;
         case 'article-list':
-            $cat = $board->getCategory(getOrDefault($options['cat'], 139));
-            echo htmlspecialchars(getOrDefault($options['title'], $cat['s_name']));
+            $one_cat = count($options['article']['cat']) === 1;
+            $cat = $board->getCategory(getOrDefault($options['article']['cat'], 139));
+            echo htmlspecialchars(getOrDefault($options['article']['title'], $cat['s_name']));
             ?>
             <div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;">
-                <a href="<?php echo htmlspecialchars("/board/{$cat['s_id']}");?>">더보기</a>
+                <a href="<?php echo htmlspecialchars('/board/'.($one_cat ? $cat['s_id'] : json_encode($options['article'])).')');?>">더보기</a>
             </div>
             <?php
             break;
@@ -72,7 +73,7 @@ function moduleContent($module_name, $options) {
             filterContent(nl2br(strip_tags($dat,"<b><big><small><i><u><strong><strike><a><font><img><q><s><sub><sup>")));
             break;
         case 'article-list':
-            articleList($board->getArticleList(arrayToCategories($options['cat']), false, 0, 0, 10), true, true, true, true);
+            articleList($board->getArticleList(arrayToCategories($options['article']['cat']), false, 0, 0, 10), true, true, true, true);
             break;
     }
 }
