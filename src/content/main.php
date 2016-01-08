@@ -142,8 +142,8 @@ function printContentPc(){
                           }
                        }
                     ]
-                    JSON
-                                     );
+JSON;
+                                    );
                 }
                 $modules = json_decode(file_get_contents("data/main_layout/{$me['n_id']}"), true);
                 allModules($modules);
