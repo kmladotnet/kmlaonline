@@ -24,7 +24,7 @@ if($board_id=="special:list-all"){
     echo "123";
 	//include "src/content/board/list-multi.php";
 
-	include "src/content/board/list-mine.php";
+	//include "src/content/board/list-mine.php";
 	$board_act="list";
 }else{
 	include "src/content/board/list.php";
