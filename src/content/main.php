@@ -91,8 +91,7 @@ function printContentPc(){
                                 )
                             )
                         )
-                    )
-                ), array(
+                    ), array(
                         'name' => 'article-list',
                         'options' => array(
                             'x' => 7,
