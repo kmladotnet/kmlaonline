@@ -20,7 +20,6 @@ if($board_id=="special:list-all"){
     foreach($board_id as $i)
         $multi_id[$i] = $i;
     $board_id = $multi_id;
-    print_r($board_id);
 	include "src/content/board/list-multi.php";
 	$board_act="list";
 	$title="내 게시판 - $title";

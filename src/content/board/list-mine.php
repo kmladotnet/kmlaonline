@@ -77,7 +77,6 @@ function printArticleList(){
 	//http://soree-kmla.com/board/all_announce?search_title=true&search_data=true&search_tag=true&search_writer=true&search=asdf
 	global $board_id, $board_act, $board, $board_cat, $member, $is_mobile, $me;
 	$accessible_categories=getUserMainBoards($me);
-    print_r($accessible_categories);
 	$articleperpage=20;
 	$orderby_name="n_id";
 	$orderby_desc=true;
