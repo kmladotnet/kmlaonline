@@ -16,10 +16,7 @@ if($board_id=="special:list-all"){
 	$board_act="list";
 	$title="내 게시판 - $title";
 }else if(is_array($board_id)) {
-    $multi_id = array();
-    foreach($board_id as $i)
-        $multi_id[$i] = $i;
-    $board_id = $multi_id;
+    $board_id = arrayToCategories($board_id);
 	include "src/content/board/list-multi.php";
 	$board_act="list";
 	$title="내 게시판 - $title";

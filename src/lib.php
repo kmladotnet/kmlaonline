@@ -351,6 +351,20 @@ function getUserMenuBar($user){
 	}
 	return $current_setting;
 }
+function arrayToCategories($array) {
+	global $board;
+
+    $multi_id = array();
+
+    foreach($array as $i) {
+        if(checkCategoryAccess($i, "list")) {
+            $multi_id[$i] = $i;
+        }
+    }
+
+    return $multi_id;
+}
+
 function getUserMainBoards($user){
 	global $board;
 	$file="data/user/board_on_main/{$user['n_id']}.txt";
