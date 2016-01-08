@@ -2,9 +2,6 @@
 include "src/content/board/editor.php";
 include "src/content/board/view.php";
 $board_id=json_decode($_GET['bid']);
-if($board_id === null)
-    $board_id = $_GET['bid'];
-echo $board_id;
 $board_act=isset($_GET['bact'])?$_GET['bact']:"";
 $board_item=isset($_GET['bitm'])?$_GET['bitm']:"";
 if($board_id=="special:list-all"){
@@ -20,6 +17,7 @@ if($board_id=="special:list-all"){
     foreach($board_id as $i)
         $multi_id[$i] = $i;
     $board_id = $multi_id;
+    print_r($board_id);
 	include "src/content/board/list-multi.php";
 	$board_act="list";
 	$title="내 게시판 - $title";
