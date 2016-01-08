@@ -116,7 +116,7 @@ function printArticleList(){
 	<?php } ?>
 	<div style="text-align:center">
 		<?php $disp=array(1=>true); ?>
-		<a href="<?php echo "/board/$board_id/page/1$additional_query_string" ;?>" <?php if($pagenumber==1) echo "style='color:black'" ?>>[1]</a>
+		<a href="<?php echo "/board/",urlencode(json_encode(array_values($board_id))),"/page/1$additional_query_string" ;?>" <?php if($pagenumber==1) echo "style='color:black'" ?>>[1]</a>
 		<?php if(2<$pagenumber-10) echo "..."; ?>
 		<?php for($i=max(2,$pagenumber-10); $i<=min($page_count-1, $pagenumber+10); $i++){ ?>
 			<a href="<?php echo "/board/",urlencode(json_encode(array_values($board_id))),"/page/$i$additional_query_string" ;?>" <?php if($pagenumber==$i) echo "style='color:black'" ?>>[<?php echo $i; $disp[$i]=true;?>]</a>
@@ -129,7 +129,7 @@ function printArticleList(){
 		<div style="clear:both;"></div>
 	<?php } ?>
 	<div style="float:right;position:relative;">
-		<form method="get" action="/board/<?php echo htmlspecialchars($board_id)?>">
+		<form method="get" action="/board/<?php echo htmlspecialchars(urlencode(json_encode(array_values($board_id))))?>">
 			<div id="div_search_method">
 				<input type="radio" onclick="board_checkSearchMethod();" id="chk_search_mode_and" name="search_mode" value="and" <?php echo $search_mode_and?"checked='checked'":""?> /> <label for="chk_search_mode_and">모든 조건 만족　　</label><br />
 				<input type="radio" onclick="board_checkSearchMethod();" id="chk_search_mode_or" name="search_mode" value="or" <?php echo !$search_mode_and?"checked='checked'":""?> /> <label for="chk_search_mode_or">한 조건이라도 만족</label><br />
