@@ -24,90 +24,127 @@ function printContentPc(){
         <div class="grid-stack">
             <?php
                 if(!file_exists("data/main_layout/{$me['n_id']}")) {
+                    file_put_contents("data/main_layout/{$me['n_id']}", <<<JSON
+                    [
+                       {
+                          "name":"important",
+                          "options":{
+                             "x":0,
+                             "y":0,
+                             "w":10,
+                             "h":6,
+                             "options":[
+
+                             ]
+                          }
+                       },
+                       {
+                          "name":"birthday",
+                          "options":{
+                             "x":10,
+                             "y":0,
+                             "w":2,
+                             "h":2,
+                             "options":[
+
+                             ]
+                          }
+                       },
+                       {
+                          "name":"menu",
+                          "options":{
+                             "x":10,
+                             "y":2,
+                             "w":2,
+                             "h":4,
+                             "options":[
+
+                             ]
+                          }
+                       },
+                       {
+                          "name":"kmlaboard",
+                          "options":{
+                             "x":0,
+                             "y":6,
+                             "w":12,
+                             "h":6,
+                             "options":[
+
+                             ]
+                          }
+                       },
+                       {
+                          "name":"article-list",
+                          "options":{
+                             "x":0,
+                             "y":12,
+                             "w":12,
+                             "h":6,
+                             "options":{
+                                "article":{
+                                   "cat":[
+                                      139
+                                   ]
+                                }
+                             }
+                          }
+                       },
+                       {
+                          "name":"article-list",
+                          "options":{
+                             "x":0,
+                             "y":18,
+                             "w":7,
+                             "h":6,
+                             "options":{
+                                "article":{
+                                   "title":"내 게시판",
+                                   "cat":[
+                                      2,
+                                      3,
+                                      4,
+                                      6,
+                                      63,
+                                      64,
+                                      65,
+                                      78,
+                                      203
+                                   ]
+                                }
+                             }
+                          }
+                       },
+                       {
+                          "name":"article-list",
+                          "options":{
+                             "x":7,
+                             "y":18,
+                             "w":5,
+                             "h":6,
+                             "options":{
+                                "show-cat":false,
+                                "article":{
+                                   "title":"큼라 카페",
+                                   "cat":[
+                                      77
+                                   ]
+                                }
+                             }
+                          }
+                       },
+                       {
+                          "options":{
+                             "x":0,
+                             "y":24,
+                             "w":12,
+                             "h":4
+                          }
+                       }
+                    ]
+                    JSON);
                 }
-                $modules = array(
-                    array(
-                        'name' => 'important',
-                        'options' => array(
-                            'x' => 0,
-                            'y' => 0,
-                            'w' => 10,
-                            'h' => 6,
-                            'options' => array()
-                        )
-                    ), array(
-                        'name' => 'birthday',
-                        'options' => array(
-                            'x' => 10,
-                            'y' => 0,
-                            'w' => 2,
-                            'h' => 2,
-                            'options' => array()
-                        )
-                    ), array(
-                        'name' => 'menu',
-                        'options' => array(
-                            'x' => 10,
-                            'y' => 2,
-                            'w' => 2,
-                            'h' => 4,
-                            'options' => array()
-                        )
-                    ), array(
-                        'name' => 'kmlaboard',
-                        'options' => array(
-                            'x' => 0,
-                            'y' => 6,
-                            'w' => 12,
-                            'h' => 6,
-                            'options' => array()
-                        )
-                    ), array(
-                        'name' => 'article-list',
-                        'options' => array(
-                            'x' => 0,
-                            'y' => 12,
-                            'w' => 12,
-                            'h' => 6,
-                            'options' => array(
-                                'article' => array(
-                                    'cat' => array(
-                                        139
-                                    )
-                                )
-                            )
-                        )
-                    ), array(
-                        'name' => 'article-list',
-                        'options' => array(
-                            'x' => 0,
-                            'y' => 18,
-                            'w' => 7,
-                            'h' => 6,
-                            'options' => array(
-                                'article' => array(
-                                    'title' => '내 게시판',
-                                    'cat' => array(2, 3, 4, 6, 63, 64, 65, 78, 203)
-                                )
-                            )
-                        )
-                    ), array(
-                        'name' => 'article-list',
-                        'options' => array(
-                            'x' => 7,
-                            'y' => 18,
-                            'w' => 5,
-                            'h' => 6,
-                            'options' => array(
-                                'show-cat' => false,
-                                'article' => array(
-                                    'title' => '큼라 카페',
-                                    'cat' => array(77)
-                                )
-                            )
-                        )
-                    )
-                );
+                $modules = json_decode(file_get_contents("data/main_layout/{$me['n_id']}"), true);
                 allModules($modules);
             ?>
 
