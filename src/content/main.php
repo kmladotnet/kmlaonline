@@ -152,20 +152,6 @@ JSON
                 $modules = json_decode(file_get_contents("data/user/main_layout/{$me['n_id']}.txt"), true);
                 allModules($modules);
             ?>
-
-            <div class="grid-stack-item"
-                data-gs-x="0" data-gs-y="24"
-                data-gs-width="12" data-gs-height="4">
-                    <div class="grid-stack-item-content">
-                        <div class="main-block">
-                            <div class="main-block-title">
-                            </div>
-                            <div class="main-block-content">
-                                <?php printGallery(); ?>
-                            </div>
-                        </div>
-					</div>
-            </div>
         </div>
     </div>
     <script type="text/javascript">
