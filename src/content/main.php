@@ -23,8 +23,8 @@ function printContentPc(){
 		</table>
         <div class="grid-stack">
             <?php
-                if(!file_exists("data/main_layout/{$me['n_id']}")) {
-                    file_put_contents("data/main_layout/{$me['n_id']}", <<<JSON
+                if(!file_exists("data/user/main_layout/{$me['n_id']}.txt")) {
+                    file_put_contents("data/user/main_layout/{$me['n_id']}.txt", <<<JSON
                     [
                        {
                           "name":"important",
@@ -145,7 +145,7 @@ function printContentPc(){
 JSON
                                     );
                 }
-                $modules = json_decode(file_get_contents("data/main_layout/{$me['n_id']}"), true);
+                $modules = json_decode(file_get_contents("data/user/main_layout/{$me['n_id']}.txt"), true);
                 allModules($modules);
             ?>
 
