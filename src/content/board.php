@@ -17,7 +17,6 @@ if($board_id=="special:list-all"){
 	$title="내 게시판 - $title";
 }else if(is_array($board_id)) {
 	$title=getOrDefault($board_id["title"], "여러가지");
-    $board_id = arrayToCategories($board_id["cat"]);
 	include "src/content/board/list-multi.php";
 	$board_act="list";
 }else{
