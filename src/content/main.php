@@ -8,7 +8,6 @@ function printContent(){
 function printContentPc(){
 	global $member, $me, $is_morning, $is_afternoon, $is_night, $mysqli, $board;
 	?>
-    <h1>공사중!!!!!</h1>
 	<div style="padding:5px;">
 		<table style="width:100%;" class="notableborder-direct">
 			<tr>
@@ -70,7 +69,6 @@ function printContentPc(){
                             'h' => 6,
                             'options' => array(
                                 'article' => array(
-                                    'title' => '테스트',
                                     'cat' => array(
                                         139
                                     )
@@ -86,6 +84,7 @@ function printContentPc(){
                             'h' => 6,
                             'options' => array(
                                 'article' => array(
+                                    'title' => '내 게시판'
                                     'cat' => array(2, 3, 4, 6, 63, 64, 65, 78, 203)
                                 )
                             )
