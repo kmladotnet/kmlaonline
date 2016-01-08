@@ -461,6 +461,19 @@ function prepareHeader() {
     }
 }
 
+function mainGridToJSON() {
+    var result = [];
+    $(".grid-stack-item").each(function(index){
+        result[index] = new Object();
+        result[index].x = $(this).attr("data-gs-x");
+        result[index].y = $(this).attr("data-gs-y");
+        result[index].w = $(this).attr("data-gs-width");
+        result[index].h = $(this).attr("data-gs-height");
+        result[index].options = $(this).data("module-options");
+    });
+    return JSON.stringify(result);
+}
+
 function editStatusMessageShow() {
     $("#status_message").css("display", "none");
     $("#status_message_edit").css("display", "block");
