@@ -42,11 +42,11 @@ function moduleTitle($module_name, $options) {
             break;
         case 'article-list':
             $one_cat = count($options['article']['cat']) === 1;
-            $cat = $board->getCategory(getOrDefault($options['article']['cat'], 139));
+            $cat = $board->getCategory(getOrDefault($options['article']['cat'][0], 139));
             echo htmlspecialchars(getOrDefault($options['article']['title'], $cat['s_name']));
             ?>
             <div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;">
-                <a href="<?php echo htmlspecialchars('/board/'.($one_cat ? $cat['s_id'] : json_encode($options['article'])).')');?>">더보기</a>
+                <a href="<?php echo htmlspecialchars('/board/'.($one_cat ? $cat['s_id'] : json_encode($options['article'])));?>">더보기</a>
             </div>
             <?php
             break;
