@@ -86,7 +86,6 @@ function printContentPc(){
                             'h' => 6,
                             'options' => array(
                                 'article' => array(
-                                    'title' => '내 게시판',
                                     'cat' => array(2, 3, 4, 6, 63, 64, 65, 78, 203)
                                 )
                             )
@@ -112,7 +111,7 @@ function printContentPc(){
             ?>
 
             <div class="grid-stack-item"
-                data-gs-x="0" data-gs-y="22"
+                data-gs-x="0" data-gs-y="24"
                 data-gs-width="12" data-gs-height="4">
                     <div class="grid-stack-item-content">
                         <div class="main-block">
