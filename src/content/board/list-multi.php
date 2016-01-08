@@ -119,10 +119,10 @@ function printArticleList(){
 		<a href="<?php echo "/board/$board_id/page/1$additional_query_string" ;?>" <?php if($pagenumber==1) echo "style='color:black'" ?>>[1]</a>
 		<?php if(2<$pagenumber-10) echo "..."; ?>
 		<?php for($i=max(2,$pagenumber-10); $i<=min($page_count-1, $pagenumber+10); $i++){ ?>
-			<a href="<?php echo "/board/",urlencode(json_encode($board_id)),"/page/$i$additional_query_string" ;?>" <?php if($pagenumber==$i) echo "style='color:black'" ?>>[<?php echo $i; $disp[$i]=true;?>]</a>
+			<a href="<?php echo "/board/",urlencode(json_encode(array_values($board_id))),"/page/$i$additional_query_string" ;?>" <?php if($pagenumber==$i) echo "style='color:black'" ?>>[<?php echo $i; $disp[$i]=true;?>]</a>
 		<?php } ?>
 		<?php if($i<$page_count && $i!=max(2,$pagenumber-10)) echo "..."; ?>
-		<?php if(!isset($disp[$page_count]) && $page_count>1){ ?><a href="<?php echo "/board/", urlencode(json_encode($board_id)), "/page/$page_count$additional_query_string" ;?>" <?php if($pagenumber==$page_count) echo "style='color:black'" ?>>[<?php echo $page_count?>]</a><?php } ?>
+		<?php if(!isset($disp[$page_count]) && $page_count>1){ ?><a href="<?php echo "/board/", urlencode(json_encode(array_values($board_id))), "/page/$page_count$additional_query_string" ;?>" <?php if($pagenumber==$page_count) echo "style='color:black'" ?>>[<?php echo $page_count?>]</a><?php } ?>
 	</div>
 	<div style="margin:0 auto;width:120px;text-align:center;">총 <?php echo $article_count?>개</div>
 	<?php if($is_mobile){ ?>
