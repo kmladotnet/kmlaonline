@@ -46,7 +46,7 @@ function moduleTitle($module_name, $options) {
             echo htmlspecialchars(getOrDefault($options['article']['title'], $cat['s_name']));
             ?>
             <div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;">
-                <a href="<?php echo urlencode('/board/'.($one_cat ? $cat['s_id'] : json_encode($options['article'])));?>">더보기</a>
+                <a href="<?php echo '/board/'.($one_cat ? $cat['s_id'] : urlencode(json_encode($options['article'])));?>">더보기</a>
             </div>
             <?php
             break;
