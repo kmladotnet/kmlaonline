@@ -170,7 +170,7 @@ JSON
         };
         $('.grid-stack').gridstack(options);
         $('.grid-stack').on('change', function (e, items) {
-            $.post("ajax/user/updatelayout.php", {"json": mainGridToJSON()});
+            $.post("ajax/user/updatelayout.php", {"json": mainGridToJSON(), "ajax": "1"});
         });
     });
     </script>
