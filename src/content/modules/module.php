@@ -50,6 +50,12 @@ function moduleTitle($module_name, $options) {
             </div>
             <?php
             break;
+        case 'gallery':
+            ?>
+            갤러리
+            <div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;"><a href="/board/all_gallery">모두 보기</a></div>
+            <?php
+            break;
     }
 }
 
@@ -76,6 +82,9 @@ function moduleContent($module_name, $options) {
             articleList($board->getArticleList(arrayToCategories($options['article']['cat']), false, 0, 0, 10),
                         getOrDefault($options['show-cat'], true), getOrDefault($options['show-title'], true),
                         getOrDefault($options['show-name'], true), getOrDefault($options['show-date'], true));
+            break;
+        case 'gallery':
+            include('gallery.php');
             break;
     }
 }

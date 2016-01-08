@@ -23,7 +23,7 @@ function printContentPc(){
 		</table>
         <div class="grid-stack">
             <?php
-                if(!file_exists("data/user/main_layout/{$me['n_id']}.txt")) {
+                //if(!file_exists("data/user/main_layout/{$me['n_id']}.txt")) {
                     file_put_contents("data/user/main_layout/{$me['n_id']}.txt", <<<JSON
                     [
                        {
@@ -132,11 +132,23 @@ function printContentPc(){
                                 }
                              }
                           }
+                       },
+                       {
+                          "name":"gallery",
+                          "options":{
+                             "x":0,
+                             "y":24,
+                             "w"12,
+                             "h":4,
+                             "options":[
+
+                             ]
+                          }
                        }
                     ]
 JSON
                                     );
-                }
+                //}
                 $modules = json_decode(file_get_contents("data/user/main_layout/{$me['n_id']}.txt"), true);
                 allModules($modules);
             ?>
@@ -147,8 +159,6 @@ JSON
                     <div class="grid-stack-item-content">
                         <div class="main-block">
                             <div class="main-block-title">
-                                갤러리
-                                <div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;"><a href="/board/all_gallery">모두 보기</a></div>
                             </div>
                             <div class="main-block-content">
                                 <?php printGallery(); ?>
@@ -176,34 +186,7 @@ JSON
     </script>
 	<?php
 }
-function printGallery($cnt=24){
-	global $board;
-	$att=array();
-	$cat=$board->getCategory(false,"all_gallery");
-	foreach($board->getArticleList(array($cat['n_id'])) as $ar){
-		foreach($board->getAttachments(false, $ar['n_id']) as $a){
-			$att[]=$a;
-		}
-	}
-	$width=160;
-	$i=0;
-	?>
-	<div style="padding:3px;">
-		<div style="height:<?php echo $width?>px;position:relative;overflow:hidden;display:block;">
-			<div style="width:<?php echo ($width+3)*count($att)?>px;height:<?php echo $width?>px;position:absolute;display:block;left:0;overflow:hidden;" id="main_scrollpreviewcont">
-				<?php foreach($att as $v){ if($i++>=$cnt) break; ?>
-					<div style="width:<?php echo $width?>px;height:<?php echo $width?>px;display:block;float:left;padding-right:3px;">
-						<a href="/board/<?php echo $cat['s_id'] ?>/view/<?php echo $v['n_parent']?>">
-							<img src="<?php echo "/files/bbs/{$cat['n_id']}/{$v['n_parent']}/{$v['n_id']}/{$v['s_key']}/sizemode_160/{$v['s_name']}" ?>" style="width:160px;height:160px;" />
-						</a>
-					</div>
-				<?php } ?>
-			</div>
-		</div>
-	</div>
-	<?php
-	insertOnLoadScript("main_scrollAdInit();");
-}
+
 function printEverydayLinks($lay1="display:block;padding:3px;float:left;", $lay2="display:block;padding:3px;float:right;text-align:right", $lay3="display:none"){
 	global $board;
 	echo "<div style=\"$lay1\">";
