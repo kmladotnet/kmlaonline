@@ -24,37 +24,50 @@ function printContentPc(){
 		</table>
         <div class="grid-stack">
             <?php
-                getModule('important', array(
-                    'x' => 0,
-                    'y' => 0,
-                    'w' => 10,
-                    'h' => 6,
-                ));
-                getModule('birthday', array(
-                    'x' => 10,
-                    'y' => 0,
-                    'w' => 2,
-                    'h' => 2,
-                ));
-                getModule('menu', array(
-                    'x' => 10,
-                    'y' => 2,
-                    'w' => 2,
-                    'h' => 4,
-                ));
-                getModule('kmlaboard', array(
-                    'x' => 0,
-                    'y' => 6,
-                    'w' => 12,
-                    'h' => 6,
-                ));
-                getModule('article-list', array(
-                    'x' => 0,
-                    'y' => 6,
-                    'w' => 12,
-                    'h' => 6,
-                    'category' => 139,
-                ));
+                $modules = array(
+                    array(
+                        'name' => 'important',
+                        'options' => array(
+                            'x' => 0,
+                            'y' => 0,
+                            'w' => 10,
+                            'h' => 6,
+                        )
+                    ), array(
+                        'name' => 'birthday',
+                        'options' => array(
+                            'x' => 10,
+                            'y' => 0,
+                            'w' => 2,
+                            'h' => 2,
+                        )
+                    ), array(
+                        'name' => 'menu',
+                        'options' => array(
+                            'x' => 10,
+                            'y' => 2,
+                            'w' => 2,
+                            'h' => 4,
+                        )
+                    ), array(
+                        'name' => 'kmlaboard',
+                        'options' => array(
+                            'x' => 0,
+                            'y' => 6,
+                            'w' => 12,
+                            'h' => 6,
+                        )
+                    ), array(
+                        'name' => 'article-list',
+                        'options' => array(
+                            'x' => 0,
+                            'y' => 12,
+                            'w' => 12,
+                            'h' => 6,
+                        )
+                    )
+                );
+                allModules($modules);
             ?>
             <div class="grid-stack-item"
                 data-gs-x="0" data-gs-y="16"

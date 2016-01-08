@@ -104,4 +104,10 @@ function getModule($module_name, $options) {
     </div>
 <?php
 }
+
+function allModules($modules) {
+    foreach($modules as $module) {
+        getModule($module['name'], $module['options']);
+    }
+}
 ?>
