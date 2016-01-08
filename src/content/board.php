@@ -1,7 +1,7 @@
 <?php
 include "src/content/board/editor.php";
 include "src/content/board/view.php";
-$board_id=json_decode(urldecode($_GET['bid']));
+$board_id=json_decode($_GET['bid']);
 if($board_id === null)
     $board_id = $_GET['bid'];
 echo $board_id;
