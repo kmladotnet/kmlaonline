@@ -556,7 +556,8 @@ div#upper-header-holder{
 	font-size:15pt;
 	font-weight:bold;
     cursor:move;
-	padding:5px 15px 10px 15px;
+    height:24px;
+	padding:10px;
 	border-bottom:1px solid #EEE;
 	background: #FCFCFC;
 	text-align: left;
@@ -571,6 +572,8 @@ div#upper-header-holder{
 }
 .main-block-close{
     float:right;
+    padding:0px;
+    border-radius: 50%;
 }
 
 .main-block-old{
