@@ -477,6 +477,16 @@ function mainGridToJSON() {
     return JSON.stringify(result);
 }
 
+function addModule(json) {
+    $.post("ajax/user/getmodule", {"json": json, "ajax": 1}, function(data) {
+        var grid = $('.grid-stack').data('gridstack');
+        grid.add_widget($(data), 3, 3, 3, 3);
+        $(".main-block-close").click(function() {
+            $('.grid-stack').data('gridstack').remove_widget($(this).closest(".grid-stack-item"));
+        });
+    });
+}
+
 function editStatusMessageShow() {
     $("#status_message").css("display", "none");
     $("#status_message_edit").css("display", "block");
