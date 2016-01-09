@@ -167,32 +167,7 @@ JSON
         };
         $('.grid-stack').gridstack(options);
         $('.grid-stack').on('change', function (e, items) {
-            $.post("ajax/user/updatelayout", {"json": mainGridToJSON(), "ajax": "1"})
-                .done(function() {
-                    var notice = new PNotify({
-                        text: '레이아웃이 저장되었습니다!',
-                        type: 'success',
-                        buttons: {
-                            closer: false,
-                            sticker: false
-                        }
-                    });
-                    notice.get().click(function() {
-                        notice.remove();
-                    });
-                }).fail(function() {
-                    var notice = new PNotify({
-                        text: '레이아웃을 저장하지 못했습니다.',
-                        type: 'error',
-                        buttons: {
-                            closer: false,
-                            sticker: false
-                        }
-                    });
-                    notice.get().click(function() {
-                        notice.remove();
-                    });
-                });
+            updateModules();
         });
     });
     $(".main-block-close").click(function() {

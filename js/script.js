@@ -477,6 +477,35 @@ function mainGridToJSON() {
     return JSON.stringify(result);
 }
 
+function updateModules() {
+    $.post("ajax/user/updatelayout", {"json": mainGridToJSON(), "ajax": "1"})
+    .done(function() {
+        var notice = new PNotify({
+            text: '레이아웃이 저장되었습니다!',
+            type: 'success',
+            buttons: {
+                closer: false,
+                sticker: false
+            }
+        });
+        notice.get().click(function() {
+            notice.remove();
+        });
+    }).fail(function() {
+        var notice = new PNotify({
+            text: '레이아웃을 저장하지 못했습니다.',
+            type: 'error',
+            buttons: {
+                closer: false,
+                sticker: false
+            }
+        });
+        notice.get().click(function() {
+            notice.remove();
+        });
+    });
+}
+
 function addModule(json) {
     $.post("ajax/user/getmodule", {"json": json, "ajax": 1}, function(data) {
         var grid = $('.grid-stack').data('gridstack');
@@ -486,6 +515,7 @@ function addModule(json) {
             $('.grid-stack').data('gridstack').remove_widget($(this).closest(".grid-stack-item"));
         });
         $(".grid-stack-item:not([data-module-name])").attr("data-module-name", dat["name"]).attr("data-module-options", JSON.stringify(dat["options"]["options"]));
+        updateModules();
     });
 }
 
