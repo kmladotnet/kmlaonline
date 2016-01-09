@@ -167,8 +167,19 @@ JSON
         $('.grid-stack').gridstack(options);
         $('.grid-stack').on('change', function (e, items) {
             $.post("ajax/user/updatelayout", {"json": mainGridToJSON(), "ajax": "1"});
-        });
-    });
+            var notice = new PNotify({
+                text: '레이아웃이 저장되었습니다!',
+                type: 'success',
+                buttons: {
+                    closer: false,
+                    sticker: false
+                }
+            });
+            notice.get().click(function() {
+                notice.remove();
+            });
+                });
+            });
     </script>
 	<?php
 }
