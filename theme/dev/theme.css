@@ -566,6 +566,9 @@ div#upper-header-holder{
     overflow: auto;
     padding: 5px;
 }
+.main-block-close{
+    float:right;
+}
 
 .main-block-old{
 	border:1px solid gray;
