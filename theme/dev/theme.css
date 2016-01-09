@@ -561,6 +561,9 @@ div#upper-header-holder{
 	background: #FCFCFC;
 	text-align: left;
 }
+.main-block-title-content {
+	overflow: hidden;
+}
 .main-block-content{
     height: calc(100% - 51px);
     overflow: auto;

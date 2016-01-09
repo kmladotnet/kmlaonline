@@ -94,14 +94,14 @@ function moduleContents($module_name, $options) {
     <div class="grid-stack-item-content">
         <div class="main-block">
             <div class="main-block-title">
+                <button class="main-block-close" type="button">
+                    <i class="zmdi zmdi-close mdc-text-red"></i>
+                </button>
                 <div class="main-block-title-content">
                     <?php
                     moduleTitle($module_name, $options);
                     ?>
                 </div>
-                <button class="main-block-close" type="button">
-                    <i class="zmdi zmdi-close mdc-text-red"></i>
-                </button>
             </div>
 
             <div class="main-block-content">
