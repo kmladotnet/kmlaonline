@@ -480,10 +480,12 @@ function mainGridToJSON() {
 function addModule(json) {
     $.post("ajax/user/getmodule", {"json": json, "ajax": 1}, function(data) {
         var grid = $('.grid-stack').data('gridstack');
-        grid.add_widget($(data), 3, 3, 3, 3);
+        var data = JSON.parse(json);
+        grid.add_widget($(data), 0, 0, 4, 4);
         $(".main-block-close").click(function() {
             $('.grid-stack').data('gridstack').remove_widget($(this).closest(".grid-stack-item"));
         });
+        $(".grid-stack-item:not([data-module-name])").attr("data-module-name", data["name"]).attr("data-module-options", JSON.stringify(data["options"]["options"]));
     });
 }
 
