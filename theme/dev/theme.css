@@ -574,6 +574,8 @@ div#upper-header-holder{
     float:right;
     padding:0px;
     border-radius: 50%;
+    width: 24px;
+    height: 24px;
 }
 
 .main-block-old{
