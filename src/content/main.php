@@ -178,8 +178,8 @@ JSON
             notice.get().click(function() {
                 notice.remove();
             });
-                });
-            });
+        });
+    });
     </script>
 	<?php
 }

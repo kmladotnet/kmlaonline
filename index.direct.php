@@ -26,6 +26,7 @@
     </script>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.3/gridstack.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pnotify/3.0.0/pnotify.min.css" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pnotify/3.0.0/pnotify.brighttheme.min.css" />
     <link rel="stylesheet" href="/css/lightbox.css" charset="utf-8" type="text/css" media="screen" />
     <link rel="stylesheet" href="/css/font.css" charset="utf-8" type="text/css" media="screen" />
