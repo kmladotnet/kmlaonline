@@ -170,9 +170,7 @@ JSON
             updateModules();
         });
     });
-    $(".main-block-close").click(function() {
-        $('.grid-stack').data('gridstack').remove_widget($(this).closest(".grid-stack-item"));
-    });
+    bindModuleCloseButton();
     </script>
 	<?php
 }

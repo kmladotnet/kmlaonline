@@ -477,6 +477,13 @@ function mainGridToJSON() {
     return JSON.stringify(result);
 }
 
+function bindModuleCloseButton() {
+    $(".main-block-close").click(function() {
+        $('.grid-stack').data('gridstack').remove_widget($(this).closest(".grid-stack-item"));
+        updateModules();
+    });
+}
+
 function updateModules() {
     $.post("ajax/user/updatelayout", {"json": mainGridToJSON(), "ajax": "1"})
     .done(function() {
@@ -511,9 +518,7 @@ function addModule(json) {
         var grid = $('.grid-stack').data('gridstack');
         var dat = JSON.parse(json);
         grid.add_widget($(data), 0, 0, 4, 4);
-        $(".main-block-close").click(function() {
-            $('.grid-stack').data('gridstack').remove_widget($(this).closest(".grid-stack-item"));
-        });
+        bindModuleCloseButton();
         $(".grid-stack-item:not([data-module-name])").attr("data-module-name", dat["name"]).attr("data-module-options", JSON.stringify(dat["options"]["options"]));
         updateModules();
     });
