@@ -89,6 +89,26 @@ function moduleContent($module_name, $options) {
     }
 }
 
+function moduleContents($module_name, $options) {
+    ?>
+    <div class="grid-stack-item-content">
+        <div class="main-block">
+            <div class="main-block-title">
+                <?php
+                moduleTitle($module_name, $options);
+                ?>
+            </div>
+
+            <div class="main-block-content">
+                <?php
+                moduleContent($module_name, $options);
+                ?>
+            </div>
+        </div>
+    </div>
+    <?php
+}
+
 function getModule($module_name, $options, $x, $y, $w, $h) {
 	global $member, $me, $is_morning, $is_afternoon, $is_night, $mysqli, $board;
     ?>
@@ -99,21 +119,8 @@ function getModule($module_name, $options, $x, $y, $w, $h) {
         echo 'data-module-name="',$module_name,'"';
         echo 'data-module-options=\'',htmlspecialchars(json_encode($options)),'\'';
         ?>
-            ><div class="grid-stack-item-content">
-                <div class="main-block">
-                    <div class="main-block-title">
-                        <?php
-                        moduleTitle($module_name, $options);
-                        ?>
-                    </div>
-
-                    <div class="main-block-content">
-                        <?php
-                        moduleContent($module_name, $options);
-                        ?>
-                    </div>
-                </div>
-            </div>
+            >
+        <?php moduleContents($module_name, $options); ?>
     </div>
 <?php
 }
