@@ -168,14 +168,12 @@ function showSlidedown(i, visib) {
         if ($("#slidedown" + i + "_sub").is(":visible")) return;
         showSlidedown(2, false);
         showSlidedown(3, false);
-        $("#slidedown" + i + "_button").css("background-color", "white");
+        $("#slidedown" + i + "_button").addClass("slidedown_button_pressed");
         $("#slidedown" + i + "_sub").stop(true, true).slideDown(200, "easeOutCubic");
-        $("i.slidedown-icon-" + i).addClass("slidedown-icon-pressed");
     } else {
         if (!$("#slidedown" + i + "_sub").is(":visible")) return;
-        $("#slidedown" + i + "_button").css("background", "transparent");
+        $("#slidedown" + i + "_button").removeClass("slidedown_button_pressed");
         $("#slidedown" + i + "_sub").stop(true, true).slideUp(200, "easeOutCubic");
-        $("i.slidedown-icon-" + i).removeClass("slidedown-icon-pressed");
     }
 }
 var upperHeaderVisible = false;

@@ -218,23 +218,20 @@ div#total-header-menu a.menu2{
 	text-align:center;
 	line-height:40px;
 }
-i.slidedown-icon{
-    color: lightsteelblue;
-    cursor:pointer;
-}
-i.slidedown-icon:hover{
-    color:white;
-}
-i.slidedown-icon-pressed{
-    color:black;
-    cursor:pointer;
-}
-i.slidedown-icon-pressed:hover{
-    color:black;
-}
 div#total-header-menu .slidedown_holder{
 	position:relative;
     z-index:5;
+}
+div#total-header-menu .slidedown_button{
+    color:lightsteelblue;
+    background: transparent;
+}
+div#total-header-menu .slidedown_button:hover{
+    color:white;
+}
+.slidedown_button_pressed{
+    color:black;
+    background-color: white;
 }
 div#total-header-menu .slidedown{
 	border-bottom-left-radius: 5px;
@@ -543,22 +540,6 @@ div#upper-header-holder{
 }
 .userinfo_border{
 	border:1px solid #EEE;
-}
-
-#slidedown1_button span{
-	width:40px;height:40px;display:block;
-    cursor:pointer;
-	background:url('./ic_menu_moreoverflow_normal_holo_light.png') no-repeat center center;
-}
-#slidedown2_button span{
-	width:40px;height:40px;display:block;
-    cursor:pointer;
-	background:url('./ic_location_web_site.png') no-repeat center center;
-}
-#slidedown3_button span{
-	width:40px;height:40px;display:block;
-    cursor:pointer;
-	background:url('./ic_menu_search_holo_light.png') no-repeat center center;
 }
 span.sitemap-icon{
 	width:90px;

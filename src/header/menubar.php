@@ -101,8 +101,8 @@
 -->
     <div id="slidedown2" class="slidedown_holder">
         <!--<a href="/user/notification">-->
-        <div class="button" id="slidedown2_button" style="z-index:1;">
-            <i class="zmdi zmdi-globe slidedown-icon-2 slidedown-icon" style="font-size: 30px;top: 5px;position: relative;"></i>
+        <div class="button slidedown_button" id="slidedown2_button" style="z-index:1;">
+            <span class="glyphicon glyphicon-globe"></span>
         </div>
         <!--</a>-->
         <div class="slidedown" id="slidedown2_sub" style="right:0px;">
@@ -114,8 +114,8 @@
     </div>
     <div id="slidedown3" class="slidedown_holder">
         <!--<a href="/searchall">-->
-        <div class="button" id="slidedown3_button" style="z-index:1">
-            <i class="zmdi zmdi-search slidedown-icon-3 slidedown-icon" style="font-size: 30px;top: 5px;position: relative;"></i>
+        <div class="button slidedown_button" id="slidedown3_button" style="z-index:1">
+            <span class="glyphicon glyphicon-search"></span>
         </div>
         <!--</a>-->
         <div class="slidedown" id="slidedown3_sub" style="right:40px;" tabindex="0">
