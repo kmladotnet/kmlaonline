@@ -431,54 +431,7 @@ input[type=password]:focus{
 	direction: ltr;
 	cursor: default;
 }
-a.likebutton{
-	cursor: default;
-	padding:6px 7px 6px 7px
-}
-input[type=button],
-input[type=submit],
-input[type=reset],
-.upper-file,
-a.likebutton,
-button{
-	cursor:default;
-	color:black;
-	padding-top: 6px;
-	padding-bottom: 6px;
-	background: linear-gradient(to bottom,  rgba(238,238,238,1) 0%,rgba(234,234,234,1) 50%,rgba(231,231,231,1) 51%,rgba(227,227,227,1) 100%);
-	border:1px solid gray;
-}
-input[type=button]:disabled,
-input[type=submit]:disabled,
-input[type=reset]:disabled,
-a.likebutton:disabled,
-button:disabled{
-	cursor:default;
-	color:gray;
-	padding-top: 6px;
-	padding-bottom: 6px;
-	background: linear-gradient(to bottom,  #f5f5f5 0%,#f3f3f3 50%,#f1f1f1 51%,#efefef 100%);
-	border:1px solid gray;
-}
-input[type=button]:hover,
-input[type=submit]:hover,
-input[type=reset]:hover,
-.upper-file:hover,
-a.likebutton:hover,
-button:hover{
-	cursor:default;
-	text-decoration:none;
-	background: linear-gradient(to bottom,  rgba(221,239,255,1) 0%,rgba(213,235,255,1) 50%,rgba(207,230,255,1) 51%,rgba(199,220,255,1) 100%);
-}
-input[type=button]:active,
-input[type=submit]:active,
-input[type=et]:active,
-.upper-file:active,
-a.likebutton:active,
-button:active{
-	cursor:default;
-	background: linear-gradient(to bottom,  rgba(172,214,250,1) 0%,rgba(155,204,249,1) 50%,rgba(140,193,250,1) 51%,rgba(122,169,244,1) 100%);
-}
+
 select{
 	margin: 6px 0 6px 0;
 }
