@@ -94,7 +94,7 @@ function moduleContents($module_name, $options) {
     <div class="grid-stack-item-content">
         <div class="main-block">
             <div class="main-block-title">
-                <button class="main-block-close btn btn-danger" type="button">
+                <button class="main-block-close btn btn-default" type="button">
                     <span class="glyphicon glyphicon-remove"></span>
                 </button>
                 <div class="main-block-title-content">
