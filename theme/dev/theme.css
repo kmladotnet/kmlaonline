@@ -556,7 +556,7 @@ div#upper-header-holder{
 	font-size:15pt;
 	font-weight:bold;
     cursor:move;
-    height:24px;
+    height:40px;
 	padding:10px;
 	border-bottom:1px solid #EEE;
 	background: #FCFCFC;
@@ -566,7 +566,7 @@ div#upper-header-holder{
 	overflow: hidden;
 }
 .main-block-content{
-    height: calc(100% - 51px);
+    height: calc(100% - 40px);
     overflow: auto;
     padding: 5px;
 }

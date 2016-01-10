@@ -84,10 +84,10 @@
         </div>
         <div id="total-header-menu-outer">
             <div id="menu-logo" style="width:40px;padding-left:10px;float:left;position:absolute;z-index:9999999">
-                <a href="http://kmlaonline.net" style="border-"><img id="menu-logo-image" src="/images/logo.png" alt="KMLAONLINE" style="width:20px;height:20px;padding-top:10px"></a>
+                <a href="http://kmlaonline.net" style="border-"><img id="menu-logo-image" src="/images/logo.png" alt="KMLAONLINE" style="width:20px;height:20px;margin-top:10px"></a>
             </div>
             <div id="menu-logo-2" style="width:40px;padding-left:10px;float:left;position:absolute;opacity:0;z-index:9999999">
-                <a href="http://kmlaonline.net" style="border-"><img id="menu-logo-image-2" src="/images/logo-inverse.png" alt="KMLAONLINE" style="width:20px;height:20px;padding-top:10px"></a>
+                <a href="http://kmlaonline.net" style="border-"><img id="menu-logo-image-2" src="/images/logo-inverse.png" alt="KMLAONLINE" style="width:20px;height:20px;margin-top:10px"></a>
             </div>
             <div id="total-header-menu" ondragstart="return false" onselectstart="return false">
                 <?php include "src/header/menubar.php";?>
