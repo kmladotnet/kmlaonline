@@ -479,6 +479,7 @@ function mainGridToJSON() {
 
 function bindModuleCloseButton() {
     $(".main-block-close").click(function() {
+        var toDelete = this;
         (new PNotify({
             text: '정말로 패널을 지울까요?',
             icon: 'glyphicon glyphicon-question-sign',
@@ -494,7 +495,7 @@ function bindModuleCloseButton() {
                 history: false
             }
         })).get().on('pnotify.confirm', function() {
-            $('.grid-stack').data('gridstack').remove_widget($(this).closest(".grid-stack-item"));
+            $('.grid-stack').data('gridstack').remove_widget($(toDelete).closest(".grid-stack-item"));
             updateModules();
         }).on('pnotify.cancel', function() {
                 new PNotify({
