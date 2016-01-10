@@ -481,7 +481,7 @@ function bindModuleCloseButton() {
     $(".main-block-close").click(function() {
         var toDelete = this;
         (new PNotify({
-            text: '정말로 패널을 지울까요?',
+            title: '정말로 패널을 지울까요?',
             icon: 'glyphicon glyphicon-question-sign',
             hide: false,
             confirm: {
