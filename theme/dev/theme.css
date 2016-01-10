@@ -224,12 +224,15 @@ div#total-header-menu .slidedown_holder{
 }
 div#total-header-menu .slidedown_button{
     color:lightsteelblue;
+    cursor: pointer;
+    font-size: 24px;
+    padding: 6px;
     background: transparent;
 }
 div#total-header-menu .slidedown_button:hover{
     color:white;
 }
-.slidedown_button_pressed{
+div#total-header-menu .slidedown_button_pressed{
     color:black;
     background-color: white;
 }
