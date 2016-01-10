@@ -25,9 +25,9 @@
 		<tr style="height:100px">
 			<td style="width:100px;">
 				<?php if($me['s_pic']){ ?>
-					<a target="_blank" href="<?php echo htmlspecialchars(str_replace("picture/","picture_full/",$me['s_pic']))?>" rel="lightbox"><img src="<?php echo htmlspecialchars($me['s_pic'])?>" style="width:80px;height:80px;padding-left:20px;padding-top:10px;" /></a>
+					<a target="_blank" href="<?php echo htmlspecialchars(str_replace("picture/","picture_full/",$me['s_pic']))?>" rel="lightbox"><img src="<?php echo htmlspecialchars($me['s_pic'])?>" class="userarea-image" /></a>
 				<?php }else{ ?>
-					<img src="/images/no-image.png" style="width:80px;height:80px;padding-left:20px;padding-top:10px;" />
+					<img class="userarea-image" src="/images/no-image.png" />
 				<?php } ?>
 			</td>
 			<td style="text-align:center" id="profile_nav">

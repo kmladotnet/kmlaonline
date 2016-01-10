@@ -165,6 +165,12 @@ div#total-header #userarea #status_message_edit{
 	padding-left:2px;
 	width:218px;
 }
+.userarea-image{
+    width: 80px;
+    height: 80px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
 div#total-header #back-to-main{
 	display:block;
 	height:100%;
