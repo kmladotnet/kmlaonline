@@ -13,7 +13,7 @@ function printContent(){
 		}
 		if(isUserPermitted($me['n_id'], "kmlaboard_changer")){
 			?>
-			<form action="/proc/util/kmlaboard" method="post" onsubmit="return saveAjax(this,'처리 중...');">
+			<form action="/proc/util/kmlaboard" method="post" onsubmit="for(var instanceName in CKEDITOR.instances) CKEDITOR.instances[instanceName].updateElement(); return saveAjax(this,'처리 중...');">
 				<textarea name="data" id="s_data_ckeditor" style="width:98%;box-sizing:border-box"><?php echo htmlspecialchars($dat); ?></textarea>
 				<input type="submit" value="저장" style="width:80px;height:32px;" />
 			</form>
