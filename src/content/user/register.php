@@ -143,7 +143,7 @@ function printContent(){ ?>
 					</td>
 				</tr>
 			</table>
-			<input type="submit" value="<?php echo lang("user","register","ok")?>" style="height:30px;width:60px;" />
+			<input type="submit" class="btn btn-primary" value="<?php echo lang("user","register","ok")?>" style="height:30px;width:60px;" />
 		</div>
 	</form>
 	<?php
