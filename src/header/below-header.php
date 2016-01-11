@@ -25,7 +25,9 @@
 		</div>
 	<?php }else{ ?>
 		<div id="total-header">
-			<div id="userarea"><?php include "src/header/userarea.php" ?></div>
+            <?php if(isset($_SESSION['user'])) { ?>
+			<div id="userarea"><?php include "src/header/userarea.php"; ?></div>
+            <?php }?>
 			<a id="back-to-main" href="./"></a><br />
 		</div>
 		<script type="text/javascript">prepareHeader();</script>
