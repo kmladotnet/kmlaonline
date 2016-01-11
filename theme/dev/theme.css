@@ -236,6 +236,9 @@ div#total-header-menu .slidedown_button_pressed{
     color:black;
     background-color: white;
 }
+div#total-header-menu .slidedown_button_pressed:hover{
+    color:black;
+}
 div#total-header-menu .slidedown{
 	border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;

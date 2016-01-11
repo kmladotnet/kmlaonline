@@ -508,6 +508,45 @@ function bindModuleCloseButton() {
     });
 }
 
+function resetMainLayout() {
+    (new PNotify({
+        title: '정말로 레이아웃을 초기화하겠습니까?',
+        icon: 'glyphicon glyphicon-question-sign',
+        hide: false,
+        confirm: {
+            confirm: true
+        },
+        buttons: {
+            closer: false,
+            sticker: false
+        },
+        history: {
+            history: false
+        }
+    })).get().on('pnotify.confirm', function() {
+         $.post("ajax/user/resetlayout", {"ajax": "1"})
+            .done(function() {
+                new PNotify({
+                    text: '초기화했습니다. F5를 눌러서 새로고침해주세요.',
+                    type: 'info',
+                    buttons: {
+                        closer: false,
+                        sticker: false
+                    }
+                });
+            });
+    }).on('pnotify.cancel', function() {
+            new PNotify({
+            text: '취소했습니다.',
+            type: 'info',
+            buttons: {
+                closer: false,
+                sticker: false
+            }
+        });
+    });
+}
+
 function updateModules() {
     $.post("ajax/user/updatelayout", {"json": mainGridToJSON(), "ajax": "1"})
     .done(function() {

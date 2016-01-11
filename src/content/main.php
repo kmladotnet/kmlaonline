@@ -21,6 +21,7 @@ function printContentPc(){
 				</td>
 			</tr>
 		</table>
+        <button type="button" class="btn btn-danger" onclick="resetMainLayout()">초기화</button>
         <div class="grid-stack">
             <?php
                 if(!file_exists("data/user/main_layout/{$me['n_id']}.txt")) {
