@@ -76,7 +76,7 @@ function moduleContent($module_name, $options) {
             if(file_exists("data/kmlaboard.txt") && filesize("data/kmlaboard.txt")>0){
                 $dat=file_get_contents("data/kmlaboard.txt");
             }
-            filterContent(nl2br(strip_tags($dat,"<b><big><small><i><u><strong><strike><a><font><img><q><s><sub><sup>")));
+            filterContent($dat);
             break;
         case 'article-list':
             articleList($board->getArticleList(arrayToCategories($options['article']['cat']), false, 0, 0, 10),
