@@ -62,9 +62,9 @@ function printContent(){ ?>
 							<tr>
 								<th style="width:120px;"><?php echo lang("generic","birthday"); ?></th>
 								<td style="text-align:left">
-									<input class="form-control" type="number" style="width:80px; display=inline-block" name="n_birth_date_yr" <?php echo isset($_POST['n_birth_date_yr'])?"value='".htmlspecialchars($_POST['n_birth_date_yr'])."'":""?> /><?php echo lang("generic","year"); ?>
-									<input class="form-control" type="number" style="width:60px; display=inline-block" name="n_birth_date_month" <?php echo isset($_POST['n_birth_date_month'])?"value='".htmlspecialchars($_POST['n_birth_date_month'])."'":""?> /><?php echo lang("generic","month"); ?>
-									<input class="form-control" type="number" style="width:60px; display=inline-block" name="n_birth_date_day" <?php echo isset($_POST['n_birth_date_day'])?"value='".htmlspecialchars($_POST['n_birth_date_day'])."'":""?> /><?php echo lang("generic","day"); ?>
+									<input class="form-control" type="number" style="width:80px; display:inline-block" name="n_birth_date_yr" <?php echo isset($_POST['n_birth_date_yr'])?"value='".htmlspecialchars($_POST['n_birth_date_yr'])."'":""?> /><?php echo lang("generic","year"); ?>
+									<input class="form-control" type="number" style="width:60px; display:inline-block" name="n_birth_date_month" <?php echo isset($_POST['n_birth_date_month'])?"value='".htmlspecialchars($_POST['n_birth_date_month'])."'":""?> /><?php echo lang("generic","month"); ?>
+									<input class="form-control" type="number" style="width:60px; display:inline-block" name="n_birth_date_day" <?php echo isset($_POST['n_birth_date_day'])?"value='".htmlspecialchars($_POST['n_birth_date_day'])."'":""?> /><?php echo lang("generic","day"); ?>
 								</td>
 							</tr>
 							<tr>
@@ -103,8 +103,8 @@ function printContent(){ ?>
 							<tr>
 								<th style="width:120px;">학번 방</th>
 								<td style="text-align:left">
-									학번: <input class="form-control" type="text" name="n_student_id" style="width:80px; display=inline-block" <?php echo isset($_POST['n_student_id'])?"value='".htmlspecialchars($_POST['n_student_id'])."'":""?> />
-									방: <input class="form-control" type="text" name="s_room" style="width:80px; display=inline-block" <?php echo isset($_POST['s_room'])?"value='".htmlspecialchars($_POST['s_room'])."'":""?> />
+									학번: <input class="form-control" type="text" name="n_student_id" style="width:80px; display:inline-block" <?php echo isset($_POST['n_student_id'])?"value='".htmlspecialchars($_POST['n_student_id'])."'":""?> />
+									방: <input class="form-control" type="text" name="s_room" style="width:80px; display:inline-block" <?php echo isset($_POST['s_room'])?"value='".htmlspecialchars($_POST['s_room'])."'":""?> />
 								</td>
 							</tr>
 							<tr>
@@ -118,7 +118,7 @@ function printContent(){ ?>
 										}
 										?>
 									</select>
-									반: <input class="form-control" type="text" name="s_class" style="width:80px; display=inline-block" <?php echo isset($_POST['s_class'])?"value='".htmlspecialchars($_POST['s_class'])."'":""?> />
+									반: <input class="form-control" type="text" name="s_class" style="width:80px; display:inline-block" <?php echo isset($_POST['s_class'])?"value='".htmlspecialchars($_POST['s_class'])."'":""?> />
 								</td>
 							</tr>
 							<tr>
