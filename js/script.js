@@ -526,8 +526,9 @@ function resetMainLayout() {
     })).get().on('pnotify.confirm', function() {
          $.post("ajax/user/resetlayout", {"ajax": "1"})
             .done(function() {
+             location.reload(true);
                 new PNotify({
-                    text: '초기화했습니다. F5를 눌러서 새로고침해주세요.',
+                    text: '초기화했습니다.',
                     type: 'info',
                     buttons: {
                         closer: false,
