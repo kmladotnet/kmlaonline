@@ -17,9 +17,6 @@ html, body{
 	font-family: 'Malgun Gothic', NanumGothic, AppleGothic, Gulim;
     line-height:1.5em;
 }
-div, img,body,h1,h2,h3,h4,h5,h6,ul{
-	border:0; margin:0; padding:0;
-}
 body.cke_contents_ltr{
 	margin:5px;
 	width:auto;
