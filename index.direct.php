@@ -8,7 +8,7 @@
     <base href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/" />
     <!--[if lte IE 7]><script type="text/javascript" src="/js/json2.js" charset="utf-8"></script><![endif]-->
     <!--[if gte IE 9]><style type="text/css">.gradient{filter: none;}</style><![endif]-->
-    <script src="//cdn.jsdelivr.net/g/jquery@2.1.4,jquery.ui@1.11.4,jquery.smooth-scroll@1.6.1,jquery.autosize@3.0.14,lodash@3.10.1,pnotify@2.0.0,bootstrap@3.3.6,jquery.datatables@1.10.10(js/jquery.dataTables.min.js+js/dataTables.bootstrap.min.js)"></script>
+    <script src="//cdn.jsdelivr.net/g/jquery@2.1.4,jquery.ui@1.11.4,jquery.smooth-scroll@1.6.1,jquery.autosize@3.0.14,lodash@3.10.1,pnotify@2.0.0,bootstrap@3.3.6,jquery.datatables@1.10.10(js/jquery.dataTables.min.js+js/dataTables.bootstrap.min.js),bootstrap.select@2.0.0-beta1"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.3/gridstack.min.js"></script>
     <script src="//cdn.ckeditor.com/4.5.6/full/ckeditor.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-color/2.1.2/jquery.color.min.js"></script>
@@ -27,6 +27,7 @@
     </script>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/2.0.0-beta1/css/bootstrap-select.min.css" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.10.10/css/dataTables.bootstrap.min.css" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.3/gridstack.css" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pnotify/3.0.0/pnotify.min.css" />
