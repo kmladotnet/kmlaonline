@@ -64,13 +64,6 @@ function moduleContent($module_name, $options) {
             include("birthday.php");
             break;
         case 'menu':
-            ?>
-            <div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;">
-                <a <?php if($is_morning) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-breakfast');">아침</a> |
-                <a <?php if($is_afternoon) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-lunch');">점심</a> |
-                <a <?php if($is_night) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-dinner');">저녁</a>
-            </div>
-            <?php
             include("menu.php");
             break;
         case 'kmlaboard':
