@@ -14,6 +14,7 @@
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-color/2.1.2/jquery.color.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/pnotify/3.0.0/pnotify.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/pnotify/3.0.0/pnotify.confirm.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.9.0/validator.min.js"></script>
     <script type="text/javascript" src="/js/lightbox.js" charset="utf-8"></script>
     <script type="text/javascript" src="/js/ba-debug.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="/swfupload/swfupload.js" charset="utf-8"></script>

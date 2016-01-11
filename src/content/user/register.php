@@ -14,7 +14,7 @@ function printContent(){ ?>
 			<div style="width:640px;height:240px;overflow:auto;margin:0 auto;text-align:left;border:1px solid gray;padding:5px;">
 				<?php echo lang("user","register","tos"); ?>
 				<hr />
-				<input type="checkbox" id="chk_n_tos_agree" name="n_tos_agree" value="yes" <?php echo (isset($_POST['n_tos_agree']) && $_POST['n_tos_agree']=="yes")?"checked='checked'":""?> /> <label for="chk_n_tos_agree"><?php echo lang("user","register","accept tos"); ?></label>
+				<input type="checkbox" id="chk_n_tos_agree" name="n_tos_agree" value="yes" <?php echo (isset($_POST['n_tos_agree']) && $_POST['n_tos_agree']=="yes")?"checked='checked'":""?> data-error="동의해주세요." required/> <label for="chk_n_tos_agree"><?php echo lang("user","register","accept tos"); ?></label>
 			</div>
 			<table style="margin:20px auto;width:800px;" class="notableborder">
 				<tr>
@@ -27,19 +27,19 @@ function printContent(){ ?>
 						<table style="width:100%" class="table-register-data">
 							<tr>
 								<th style="width:120px;"><?php echo lang("generic","id"); ?></th>
-								<td style="width:240px;"><input class="form-control" autocomplete="off" type="text" name="s_id" style="width:100%" <?php echo isset($_POST['s_id'])?"value='".htmlspecialchars($_POST['s_id'])."'":""?> /></td>
+								<td style="width:240px;"><input class="form-control" autocomplete="off" type="text" name="s_id" style="width:100%" <?php echo isset($_POST['s_id'])?"value='".htmlspecialchars($_POST['s_id'])."'":""?> required/></td>
 							</tr>
 							<tr>
 								<th style="width:120px;"><?php echo lang("generic","password"); ?></th>
-								<td><input class="form-control" type="password" autocomplete="off" name="s_pw" style="width:100%" /></td>
+								<td><input class="form-control" id="input-password" type="password" autocomplete="off" name="s_pw" style="width:100%" required/></td>
 							</tr>
 							<tr>
 								<th style="width:120px;"><?php echo lang("user","register","password check"); ?></th>
-								<td><input class="form-control" type="password" autocomplete="off" name="s_pw_check" style="width:100%" /></td>
+								<td><input class="form-control" type="password" autocomplete="off" name="s_pw_check" style="width:100%" data-match="#input-password" data-match-error="패스워드가 다릅니다." required/></td>
 							</tr>
 							<tr>
 								<th style="width:120px;"><?php echo lang("generic","email"); ?></th>
-								<td><input class="form-control" type="email" name="s_email" style="width:100%" <?php echo isset($_POST['s_email'])?"value='".htmlspecialchars($_POST['s_email'])."'":""?> /></td>
+								<td><input class="form-control" type="email" name="s_email" style="width:100%" <?php echo isset($_POST['s_email'])?"value='".htmlspecialchars($_POST['s_email'])."'":""?> required/></td>
 							</tr>
 							<tr>
 								<th style="width:120px;"><?php echo lang("generic","level"); ?></th>
@@ -53,18 +53,18 @@ function printContent(){ ?>
 							</tr>
 							<tr>
 								<th style="width:120px;"><?php echo lang("generic","name"); ?></th>
-								<td><input class="form-control" type="text" name="s_kor_name" style="width:100%" <?php echo isset($_POST['s_kor_name'])?"value='".htmlspecialchars($_POST['s_kor_name'])."'":""?> /></td>
+								<td><input class="form-control" type="text" name="s_kor_name" style="width:100%" <?php echo isset($_POST['s_kor_name'])?"value='".htmlspecialchars($_POST['s_kor_name'])."'":""?> required/></td>
 							</tr>
 							<tr>
 								<th style="width:120px;"><?php echo lang("generic","nick"); ?></th>
-								<td><input class="form-control" type="text" name="s_eng_name" style="width:100%" <?php echo isset($_POST['s_eng_name'])?"value='".htmlspecialchars($_POST['s_eng_name'])."'":""?> /></td>
+								<td><input class="form-control" type="text" name="s_eng_name" style="width:100%" <?php echo isset($_POST['s_eng_name'])?"value='".htmlspecialchars($_POST['s_eng_name'])."'":""?> required/></td>
 							</tr>
 							<tr>
 								<th style="width:120px;"><?php echo lang("generic","birthday"); ?></th>
 								<td style="text-align:left">
-									<input class="form-control" type="number" style="width:80px; display:inline-block" name="n_birth_date_yr" <?php echo isset($_POST['n_birth_date_yr'])?"value='".htmlspecialchars($_POST['n_birth_date_yr'])."'":""?> /><?php echo lang("generic","year"); ?>
-									<input class="form-control" type="number" style="width:60px; display:inline-block" name="n_birth_date_month" <?php echo isset($_POST['n_birth_date_month'])?"value='".htmlspecialchars($_POST['n_birth_date_month'])."'":""?> /><?php echo lang("generic","month"); ?>
-									<input class="form-control" type="number" style="width:60px; display:inline-block" name="n_birth_date_day" <?php echo isset($_POST['n_birth_date_day'])?"value='".htmlspecialchars($_POST['n_birth_date_day'])."'":""?> /><?php echo lang("generic","day"); ?>
+									<input class="form-control" type="number" style="width:80px; display:inline-block" name="n_birth_date_yr" <?php echo isset($_POST['n_birth_date_yr'])?"value='".htmlspecialchars($_POST['n_birth_date_yr'])."'":""?> required/><?php echo lang("generic","year"); ?>
+									<input class="form-control" type="number" style="width:60px; display:inline-block" name="n_birth_date_month" <?php echo isset($_POST['n_birth_date_month'])?"value='".htmlspecialchars($_POST['n_birth_date_month'])."'":""?> required/><?php echo lang("generic","month"); ?>
+									<input class="form-control" type="number" style="width:60px; display:inline-block" name="n_birth_date_day" <?php echo isset($_POST['n_birth_date_day'])?"value='".htmlspecialchars($_POST['n_birth_date_day'])."'":""?> required/><?php echo lang("generic","day"); ?>
 								</td>
 							</tr>
 							<tr>
@@ -84,11 +84,12 @@ function printContent(){ ?>
 								<th><?php echo lang("user","register","captcha")?></th>
 								<td>
 									<a onclick="return false"><img id="img_captcha" src="/files/captcha/0.png" onclick="return refreshCaptcha();" /></a>
-									<input class="form-control" type="text" autocomplete="off" name="s_captcha" style="width:100%" />
+									<input class="form-control" type="text" autocomplete="off" name="s_captcha" style="width:100%" required/>
 								</td>
 							</tr>
 						</table>
 					</td>
+
 					<td></td>
 					<td style="vertical-align:top">
 						<table style="width:100%" class="table-register-data">
