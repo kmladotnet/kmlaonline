@@ -110,14 +110,16 @@ function printContent(){ ?>
 							<tr>
 								<th style="width:120px;">학년 반</th>
 								<td style="text-align:left">
-									<select name="n_grade" class="selectpicker" data-width="90px" data-style="top:-3px;">
-										<?php
-										$opt_list=array(10=>"10학년", 11=>"11학년", 12=>"12학년");
-										foreach($opt_list as $key=>$val){
-											?><option value="<?php echo $key?>" <?php echo (isset($_POST['n_grade']) && $_POST['n_grade']==$key)?"selected='selected'":""?>><?php echo htmlspecialchars($val)?></option><?php
-										}
-										?>
-									</select>
+                                    <div style="top:-3px;display:inline-block;position:relative;">
+                                        <select name="n_grade" class="selectpicker" data-width="90px">
+                                            <?php
+                                            $opt_list=array(10=>"10학년", 11=>"11학년", 12=>"12학년");
+                                            foreach($opt_list as $key=>$val){
+                                                ?><option value="<?php echo $key?>" <?php echo (isset($_POST['n_grade']) && $_POST['n_grade']==$key)?"selected='selected'":""?>><?php echo htmlspecialchars($val)?></option><?php
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
 									반: <input class="form-control" type="text" name="s_class" style="width:80px; display:inline-block" <?php echo isset($_POST['s_class'])?"value='".htmlspecialchars($_POST['s_class'])."'":""?> />
 								</td>
 							</tr>
