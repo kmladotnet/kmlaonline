@@ -1,6 +1,5 @@
-<div style="clear:right;display:block;height:7px;"></div>
 <div style="text-align:center">
-    <div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;">
+    <div style="font-size:9pt;height:15pt;">
         <a <?php if($is_morning) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-breakfast');">아침</a> |
         <a <?php if($is_afternoon) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-lunch');">점심</a> |
         <a <?php if($is_night) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-dinner');">저녁</a> |
