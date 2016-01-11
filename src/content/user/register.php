@@ -16,7 +16,7 @@ function printContent(){ ?>
 				<hr />
 				<input type="checkbox" id="chk_n_tos_agree" name="n_tos_agree" value="yes" <?php echo (isset($_POST['n_tos_agree']) && $_POST['n_tos_agree']=="yes")?"checked='checked'":""?> /> <label for="chk_n_tos_agree"><?php echo lang("user","register","accept tos"); ?></label>
 			</div>
-			<table style="margin:0 auto;width:800px;" class="notableborder">
+			<table style="margin:20px auto;width:800px;" class="notableborder">
 				<tr>
 					<th style="width:400px;"><h2><?php echo lang("user","register","required"); ?></h2></th>
 					<th style="width:20px;"></th>
@@ -143,7 +143,7 @@ function printContent(){ ?>
 					</td>
 				</tr>
 			</table>
-			<input type="submit" class="btn btn-primary" value="<?php echo lang("user","register","ok")?>" style="height:30px;width:60px;" />
+			<input type="submit" class="btn btn-primary btn-lg" value="<?php echo lang("user","register","ok")?>" style="margin: 10px" />
 		</div>
 	</form>
 	<?php
