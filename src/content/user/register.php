@@ -44,7 +44,7 @@ function printContent(){ ?>
 							<tr>
 								<th style="width:120px;"><?php echo lang("generic","level"); ?></th>
 								<td>
-									<select name="n_wave" class="selectpicker" data-size="5" style="width:100%">
+									<select name="n_wave" class="selectpicker" data-size="5" data-width="100%" style="width:100%">
 										<?php for($i=$max_level,$j=0;$i>=1;$i--,$j++){ ?>
 											<option value="<?php echo $i?>" <?php echo (isset($_POST['n_wave']) && $_POST['n_wave']==$i)?"selected='selected'":""?>><?php echo $i . "기 " . ($j>=3?"졸업생":"학생") ?></option>
 										<?php } ?>
@@ -70,7 +70,7 @@ function printContent(){ ?>
 							<tr>
 								<th style="width:120px;"><?php echo lang("generic","gender"); ?></th>
 								<td>
-									<select name="n_gender" class="selectpicker" style="width:100%">
+									<select name="n_gender" class="selectpicker" data-width="100%" style="width:100%">
 										<?php
 										$opt_list=array(lang("generic","unspecified"), lang("generic","male"), lang("generic","female"), lang("generic","other"));
 										foreach($opt_list as $key=>$val){
@@ -110,7 +110,7 @@ function printContent(){ ?>
 							<tr>
 								<th style="width:120px;">학년 반</th>
 								<td style="text-align:left">
-									<select name="n_grade" class="selectpicker" style="width:80px">
+									<select name="n_grade" class="selectpicker" data-width="80px" style="width:80px">
 										<?php
 										$opt_list=array(10=>"10학년", 11=>"11학년", 12=>"12학년");
 										foreach($opt_list as $key=>$val){
