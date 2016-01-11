@@ -25,7 +25,6 @@ function printContent(){
             </script>
 			<?php
 		}else{
-			$dat=nl2br(strip_tags($dat,"<b><big><small><i><u><strong><strike><a><font><img><q><s><sub><sup>"));
 			echo filterContent($dat);
 		}
 		?>
