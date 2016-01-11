@@ -527,14 +527,6 @@ function resetMainLayout() {
          $.post("ajax/user/resetlayout", {"ajax": "1"})
             .done(function() {
              location.reload(true);
-                new PNotify({
-                    text: '초기화했습니다.',
-                    type: 'info',
-                    buttons: {
-                        closer: false,
-                        sticker: false
-                    }
-                });
             });
     }).on('pnotify.cancel', function() {
             new PNotify({
