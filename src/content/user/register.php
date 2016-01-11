@@ -110,7 +110,7 @@ function printContent(){ ?>
 							<tr>
 								<th style="width:120px;">학년 반</th>
 								<td style="text-align:left">
-									<select name="n_grade" class="selectpicker" data-width="80px" style="width:80px">
+									<select name="n_grade" class="selectpicker" data-width="90px" style="width:80px">
 										<?php
 										$opt_list=array(10=>"10학년", 11=>"11학년", 12=>"12학년");
 										foreach($opt_list as $key=>$val){
