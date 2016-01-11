@@ -510,7 +510,7 @@ function bindModuleCloseButton() {
 
 function resetMainLayout() {
     (new PNotify({
-        title: '정말로 레이아웃을 초기화하겠습니까?',
+        title: '정말로 레이아웃을 초기화할까요?',
         icon: 'glyphicon glyphicon-question-sign',
         hide: false,
         confirm: {
