@@ -6,7 +6,7 @@ function printContent(){ ?>
 	global $max_level;
 	insertOnLoadScript("putAlertOnLeave();");
 	?>
-	<form action="/ajax/user/register" method="post" enctype="multipart/form-data" onsubmit="window.onbeforeunload=null;">
+	<form id="register-form" action="/ajax/user/register" method="post" enctype="multipart/form-data" onsubmit="window.onbeforeunload=null;">
 		<input type="hidden" name="prev_url" value="<?php echo htmlspecialchars($_SERVER['REQUEST_URI'])?>" />
 		<div style="text-align:center;width:100%">
 			<h1><?php echo lang("user","register","title"); ?></h1>
@@ -147,5 +147,8 @@ function printContent(){ ?>
 			<input type="submit" class="btn btn-primary btn-lg" value="<?php echo lang("user","register","ok")?>" style="margin: 10px" />
 		</div>
 	</form>
+<script>
+    $("#register-form").validator();
+</script>
 	<?php
 }
