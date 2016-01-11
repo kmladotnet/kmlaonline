@@ -6,7 +6,6 @@ h3 { font-size: 1.17em; }
 h4 { font-size: 1.1em; }
 h5 { font-size: .83em; }
 h6 { font-size: .75em; }
-pre, p{ margin:0; padding:0 }
 
 html{
 	overflow-y: scroll;
@@ -394,20 +393,6 @@ div#backgrounds{
 input, button, select{
 	font-family: 'Malgun Gothic';
 }
-input[type=text],
-input[type=password]{
-	border: 1px solid gray;
-	box-shadow: 0 0 5px #333333;
-	border-radius: 3px;
-	padding:6px 3px 6px 3px;
-	margin: 4px 0 4px 0;
-	font-size: 12px;
-	box-sizing: border-box;
-}
-input[type=text]:focus,
-input[type=password]:focus{
-	box-shadow: 0 0 15px #4889b3;
-}
 .upper-file{
 	display: inline-block;
 	margin:0;
@@ -550,10 +535,7 @@ span.sitemap-icon{
 	display:inline-block;
 	background:url('./sitemap.png');
 }
-thead th{
-	background:#e1eef0;
-	color:black;
-}
+
 tbody.userlist-body > tr:nth-child(odd) {
     background: rgb(240,245,250);
 }

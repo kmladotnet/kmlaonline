@@ -5,15 +5,15 @@
 		<table style="width:100%">
 			<tr>
 				<td style="width:60px;"><?php echo lang("generic","id"); ?></td>
-				<td><input type="text" name="id" class="login_input" onkeydown="if (event.which || event.keyCode){if ((event.which == 13) || (event.keyCode == 13)) {document.getElementById('cmdLoginUserArea').click();return false;}};" /></td>
+				<td><input type="text" name="id" class="login_input form-control" onkeydown="if (event.which || event.keyCode){if ((event.which == 13) || (event.keyCode == 13)) {document.getElementById('cmdLoginUserArea').click();return false;}};" /></td>
 			</tr>
 			<tr>
 				<td><?php echo lang("generic","password"); ?></td>
-				<td><input type="password" name="pwd" class="login_input" onkeydown="if (event.which || event.keyCode){if ((event.which == 13) || (event.keyCode == 13)) {document.getElementById('cmdLoginUserArea').click();return false;}};" /></td>
+				<td><input type="password" name="pwd" class="login_input form-control" onkeydown="if (event.which || event.keyCode){if ((event.which == 13) || (event.keyCode == 13)) {document.getElementById('cmdLoginUserArea').click();return false;}};" /></td>
 			</tr>
 		</table>
-		<div style="float:right"><button onclick="$('#upform_login_action').val('login');$('#upform_login').submit();" id="cmdLoginUserArea"><?php echo lang("generic","login"); ?></button></div>
-		<div style="float:right"><button onclick="$('#upform_login_action').val('register');$('#upform_login').submit();"><?php echo lang("user","register","title"); ?></button></div>
+		<div style="float:right"><button class="btn btn-default" onclick="$('#upform_login_action').val('login');$('#upform_login').submit();" id="cmdLoginUserArea"><?php echo lang("generic","login"); ?></button></div>
+		<div style="float:right"><button class="btn btn-primary" onclick="$('#upform_login_action').val('register');$('#upform_login').submit();"><?php echo lang("user","register","title"); ?></button></div>
 		<div style="float:left;margin-left:3px;">
 			<a href="/user/lost/id"><?php echo lang("generic","findid"); ?></a><br />
 			<a href="/user/lost/password"><?php echo lang("generic","findpw"); ?></a>
