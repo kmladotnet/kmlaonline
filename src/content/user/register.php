@@ -1,7 +1,7 @@
 <?php
 $title=lang("user","register","title") . " - " . $title;
 function printContent(){ ?>
-	<script type="text/javascript">alert("가입 기간이 아닙니다.");location.href="/";</script>
+	<!--<script type="text/javascript">alert("가입 기간이 아닙니다.");location.href="/";</script>-->
 	<?php
 	global $max_level;
 	insertOnLoadScript("putAlertOnLeave();");
@@ -27,19 +27,19 @@ function printContent(){ ?>
 						<table style="width:100%" class="table-register-data">
 							<tr>
 								<th style="width:120px;"><?php echo lang("generic","id"); ?></th>
-								<td style="width:240px;"><input autocomplete="off" type="text" name="s_id" style="width:100%" <?php echo isset($_POST['s_id'])?"value='".htmlspecialchars($_POST['s_id'])."'":""?> /></td>
+								<td style="width:240px;"><input class="form-control" autocomplete="off" type="text" name="s_id" style="width:100%" <?php echo isset($_POST['s_id'])?"value='".htmlspecialchars($_POST['s_id'])."'":""?> /></td>
 							</tr>
 							<tr>
 								<th style="width:120px;"><?php echo lang("generic","password"); ?></th>
-								<td><input type="password" autocomplete="off" name="s_pw" style="width:100%" /></td>
+								<td><input class="form-control" type="password" autocomplete="off" name="s_pw" style="width:100%" /></td>
 							</tr>
 							<tr>
 								<th style="width:120px;"><?php echo lang("user","register","password check"); ?></th>
-								<td><input type="password" autocomplete="off" name="s_pw_check" style="width:100%" /></td>
+								<td><input class="form-control" type="password" autocomplete="off" name="s_pw_check" style="width:100%" /></td>
 							</tr>
 							<tr>
 								<th style="width:120px;"><?php echo lang("generic","email"); ?></th>
-								<td><input type="text" name="s_email" style="width:100%" <?php echo isset($_POST['s_email'])?"value='".htmlspecialchars($_POST['s_email'])."'":""?> /></td>
+								<td><input class="form-control" type="email" name="s_email" style="width:100%" <?php echo isset($_POST['s_email'])?"value='".htmlspecialchars($_POST['s_email'])."'":""?> /></td>
 							</tr>
 							<tr>
 								<th style="width:120px;"><?php echo lang("generic","level"); ?></th>
@@ -53,18 +53,18 @@ function printContent(){ ?>
 							</tr>
 							<tr>
 								<th style="width:120px;"><?php echo lang("generic","name"); ?></th>
-								<td><input type="text" name="s_kor_name" style="width:100%" <?php echo isset($_POST['s_kor_name'])?"value='".htmlspecialchars($_POST['s_kor_name'])."'":""?> /></td>
+								<td><input class="form-control" type="text" name="s_kor_name" style="width:100%" <?php echo isset($_POST['s_kor_name'])?"value='".htmlspecialchars($_POST['s_kor_name'])."'":""?> /></td>
 							</tr>
 							<tr>
 								<th style="width:120px;"><?php echo lang("generic","nick"); ?></th>
-								<td><input type="text" name="s_eng_name" style="width:100%" <?php echo isset($_POST['s_eng_name'])?"value='".htmlspecialchars($_POST['s_eng_name'])."'":""?> /></td>
+								<td><input class="form-control" type="text" name="s_eng_name" style="width:100%" <?php echo isset($_POST['s_eng_name'])?"value='".htmlspecialchars($_POST['s_eng_name'])."'":""?> /></td>
 							</tr>
 							<tr>
 								<th style="width:120px;"><?php echo lang("generic","birthday"); ?></th>
 								<td style="text-align:left">
-									<input type="text" style="width:60px;" name="n_birth_date_yr" <?php echo isset($_POST['n_birth_date_yr'])?"value='".htmlspecialchars($_POST['n_birth_date_yr'])."'":""?> /><?php echo lang("generic","year"); ?> 
-									<input type="text" style="width:30px;" name="n_birth_date_month" <?php echo isset($_POST['n_birth_date_month'])?"value='".htmlspecialchars($_POST['n_birth_date_month'])."'":""?> /><?php echo lang("generic","month"); ?> 
-									<input type="text" style="width:30px;" name="n_birth_date_day" <?php echo isset($_POST['n_birth_date_day'])?"value='".htmlspecialchars($_POST['n_birth_date_day'])."'":""?> /><?php echo lang("generic","day"); ?>
+									<input class="form-control" type="number" style="width:60px;" name="n_birth_date_yr" <?php echo isset($_POST['n_birth_date_yr'])?"value='".htmlspecialchars($_POST['n_birth_date_yr'])."'":""?> /><?php echo lang("generic","year"); ?>
+									<input class="form-control" type="number" style="width:30px;" name="n_birth_date_month" <?php echo isset($_POST['n_birth_date_month'])?"value='".htmlspecialchars($_POST['n_birth_date_month'])."'":""?> /><?php echo lang("generic","month"); ?>
+									<input class="form-control" type="number" style="width:30px;" name="n_birth_date_day" <?php echo isset($_POST['n_birth_date_day'])?"value='".htmlspecialchars($_POST['n_birth_date_day'])."'":""?> /><?php echo lang("generic","day"); ?>
 								</td>
 							</tr>
 							<tr>
@@ -84,7 +84,7 @@ function printContent(){ ?>
 								<th><?php echo lang("user","register","captcha")?></th>
 								<td>
 									<a onclick="return false"><img id="img_captcha" src="/files/captcha/0.png" onclick="return refreshCaptcha();" /></a>
-									<input type="text" autocomplete="off" name="s_captcha" style="width:100%" />
+									<input class="form-control" type="text" autocomplete="off" name="s_captcha" style="width:100%" />
 								</td>
 							</tr>
 						</table>
@@ -103,8 +103,8 @@ function printContent(){ ?>
 							<tr>
 								<th style="width:120px;">학번 방</th>
 								<td style="text-align:left">
-									학번: <input type="text" name="n_student_id" style="width:80px" <?php echo isset($_POST['n_student_id'])?"value='".htmlspecialchars($_POST['n_student_id'])."'":""?> />
-									방: <input type="text" name="s_room" style="width:80px" <?php echo isset($_POST['s_room'])?"value='".htmlspecialchars($_POST['s_room'])."'":""?> />
+									학번: <input class="form-control" type="number" name="n_student_id" style="width:80px" <?php echo isset($_POST['n_student_id'])?"value='".htmlspecialchars($_POST['n_student_id'])."'":""?> />
+									방: <input class="form-control" type="text" name="s_room" style="width:80px" <?php echo isset($_POST['s_room'])?"value='".htmlspecialchars($_POST['s_room'])."'":""?> />
 								</td>
 							</tr>
 							<tr>
@@ -118,24 +118,24 @@ function printContent(){ ?>
 										}
 										?>
 									</select>
-									반: <input type="text" name="s_class" style="width:80px" <?php echo isset($_POST['s_class'])?"value='".htmlspecialchars($_POST['s_class'])."'":""?> />
+									반: <input class="form-control" type="text" name="s_class" style="width:80px" <?php echo isset($_POST['s_class'])?"value='".htmlspecialchars($_POST['s_class'])."'":""?> />
 								</td>
 							</tr>
 							<tr>
 								<th style="width:120px;"><?php echo lang("generic","status message")?></th>
-								<td><input type="text" name="s_status_message" style="width:100%" <?php echo isset($_POST['s_status_message'])?"value='".htmlspecialchars($_POST['s_status_message'])."'":""?> /></td>
+								<td><input class="form-control" type="text" name="s_status_message" style="width:100%" <?php echo isset($_POST['s_status_message'])?"value='".htmlspecialchars($_POST['s_status_message'])."'":""?> /></td>
 							</tr>
 							<tr>
 								<th style="width:120px;"><?php echo lang("generic","homepage")?></th>
-								<td><input type="text" name="s_homepage" style="width:100%" <?php echo isset($_POST['s_homepage'])?"value='".htmlspecialchars($_POST['s_homepage'])."'":""?> /></td>
+								<td><input class="form-control" type="text" name="s_homepage" style="width:100%" <?php echo isset($_POST['s_homepage'])?"value='".htmlspecialchars($_POST['s_homepage'])."'":""?> /></td>
 							</tr>
 							<tr>
 								<th style="width:120px;"><?php echo lang("generic","phone")?></th>
-								<td><input type="text" name="s_phone" style="width:100%" <?php echo isset($_POST['s_phone'])?"value='".htmlspecialchars($_POST['s_phone'])."'":""?> /></td>
+								<td><input class="form-control" type="text" name="s_phone" style="width:100%" <?php echo isset($_POST['s_phone'])?"value='".htmlspecialchars($_POST['s_phone'])."'":""?> /></td>
 							</tr>
 							<tr>
 								<th style="width:120px;"><?php echo lang("generic","interest")?></th>
-								<td><input type="text" name="s_interest" style="width:100%" <?php echo isset($_POST['s_interest'])?"value='".htmlspecialchars($_POST['s_interest'])."'":""?> /></td>
+								<td><input class="form-control" type="text" name="s_interest" style="width:100%" <?php echo isset($_POST['s_interest'])?"value='".htmlspecialchars($_POST['s_interest'])."'":""?> /></td>
 							</tr>
 						</table>
 					</td>
