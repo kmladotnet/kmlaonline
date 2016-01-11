@@ -34,16 +34,12 @@ function printContent(){
 				<div style="color:red;font-weight:bold;size:15pt;text-align:center;">로그인해야 볼 수 있는 페이지입니다.</div>
 			<?php } ?>
 			<div style="width:222px;margin:0 auto;display:block;">
-				<table style="width:100%">
-					<tr>
-						<td style="width:60px;color:white;">ID</td>
-						<td><input placeholder="ID로 로그인해주세요" type="text" name="id" class="login_input form-control" onkeydown="if (event.which || event.keyCode){if ((event.which == 13) || (event.keyCode == 13)) {document.getElementById('cmdLoginPage').click();}};" /></td>
-					</tr>
-					<tr>
-						<td style="color:white;">비밀번호</td>
-						<td><input placeholder="비밀번호" type="password" name="pwd" class="login_input form-control" onkeydown="if (event.which || event.keyCode){if ((event.which == 13) || (event.keyCode == 13)) {document.getElementById('cmdLoginPage').click();}};" /></td>
-					</tr>
-				</table>
+				<div class="form-group">
+                    <input placeholder="ID로 로그인해주세요" type="text" name="id" class="login_input form-control" onkeydown="if (event.which || event.keyCode){if ((event.which == 13) || (event.keyCode == 13)) {document.getElementById('cmdLoginPage').click();}};">
+                </div>
+                <div class="form-group">
+                    <input placeholder="비밀번호" type="password" name="pwd" class="login_input form-control" onkeydown="if (event.which || event.keyCode){if ((event.which == 13) || (event.keyCode == 13)) {document.getElementById('cmdLoginPage').click();}};">
+                </div>
 				<div style="float:right"><button class="btn btn-primary" onclick="$('#downform_login_action').val('login');$('#downform_login').submit();" id="cmdLoginPage">로그인</button></div>
 				<div style="float:right"><button class="btn btn-default" style="margin-right:5px;border-radius:5px;" onclick="$('#downform_login_action').val('register');$('#downform_login').submit();">회원가입</button></div>
 				<div style="float:right;color:white;height:32px;vertical-align:middle;line-height:32px;margin-right:10px;"><label for="chk_remember_me" style="vertical-align:middle;"><input type="checkbox" name="remember_me" id="chk_remember_me" style="vertical-align:middle;" onchange="if(this.checked) if(!confirm('브라우저를 껐다가 켜도 로그인되어있게 하는 기능으로, 개인용 장치에서만 사용해야 하며 공공 장소에서는 이용하면 안 됩니다. 계속하시겠습니까?')) this.checked='';" /> 기억하기</label></div>
