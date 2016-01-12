@@ -129,12 +129,12 @@ function printContentPc(){
                     ]
 JSON;
                     $modules;
-                    if(true){//file_exists("data/user/main_layout/{$me['n_id']}.txt")) {
+                    if(false){//file_exists("data/user/main_layout/{$me['n_id']}.txt")) {
                         $modules = json_decode(file_get_contents("data/user/main_layout/{$me['n_id']}.txt"), true);
                     } else {
                         $modules = json_decode($default_options);
                         $current_setting=array();
-                        foreach($board->getCategoryList(0,0) as $val){
+                        foreach($board->getCategoryList(0,0) as $val) {
                             if(checkCategoryAccess($val['n_id'], "list")){
                                 if(strpos($val['s_id'],"announce")!==false)
                                     $current_setting[] = $val['n_id'];
