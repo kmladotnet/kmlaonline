@@ -6,7 +6,7 @@ function printContent(){ ?>
 	global $max_level;
 	insertOnLoadScript("putAlertOnLeave();");
 	?>
-	<form id="register-form" action="/ajax/user/register" method="post" enctype="multipart/form-data" onsubmit="window.onbeforeunload=null;">
+	<form data-toggle="validator" action="/ajax/user/register" method="post" enctype="multipart/form-data" onsubmit="window.onbeforeunload=null;">
 		<input type="hidden" name="prev_url" value="<?php echo htmlspecialchars($_SERVER['REQUEST_URI'])?>" />
 		<div style="text-align:center;width:100%">
 			<h1><?php echo lang("user","register","title"); ?></h1>
@@ -27,15 +27,27 @@ function printContent(){ ?>
 						<table style="width:100%" class="table-register-data">
 							<tr>
 								<th style="width:120px;"><?php echo lang("generic","id"); ?></th>
-								<td style="width:240px;"><input class="form-control" autocomplete="off" type="text" name="s_id" style="width:100%" <?php echo isset($_POST['s_id'])?"value='".htmlspecialchars($_POST['s_id'])."'":""?> required/></td>
+								<td style="width:240px;">
+                                    <div class="form-group">
+                                        <input class="form-control" autocomplete="off" type="text" name="s_id" style="width:100%" <?php echo isset($_POST['s_id'])?"value='".htmlspecialchars($_POST['s_id'])."'":""?> required/>
+                                    </div>
+                                </td>
 							</tr>
 							<tr>
 								<th style="width:120px;"><?php echo lang("generic","password"); ?></th>
-								<td><input class="form-control" id="input-password" type="password" autocomplete="off" name="s_pw" style="width:100%" required/></td>
+								<td>
+                                    <div class="form-group">
+                                        <input class="form-control" id="input-password" type="password" autocomplete="off" name="s_pw" style="width:100%" required/>
+                                    </div>
+                                </td>
 							</tr>
 							<tr>
 								<th style="width:120px;"><?php echo lang("user","register","password check"); ?></th>
-								<td><input class="form-control" type="password" autocomplete="off" name="s_pw_check" style="width:100%" data-match="#input-password" data-match-error="패스워드가 다릅니다." required/></td>
+								<td>
+                                    <div class="form-group">
+                                        <input class="form-control" type="password" autocomplete="off" name="s_pw_check" style="width:100%" data-match="#input-password" data-match-error="패스워드가 다릅니다." required/>
+                                    </div>
+                                </td>
 							</tr>
 							<tr>
 								<th style="width:120px;"><?php echo lang("generic","email"); ?></th>
@@ -44,47 +56,63 @@ function printContent(){ ?>
 							<tr>
 								<th style="width:120px;"><?php echo lang("generic","level"); ?></th>
 								<td>
-									<select name="n_wave" class="selectpicker" data-size="5" data-width="100%" style="width:100%">
-										<?php for($i=$max_level,$j=0;$i>=1;$i--,$j++){ ?>
-											<option value="<?php echo $i?>" <?php echo (isset($_POST['n_wave']) && $_POST['n_wave']==$i)?"selected='selected'":""?>><?php echo $i . "기 " . ($j>=3?"졸업생":"학생") ?></option>
-										<?php } ?>
-									</select>
+                                    <div class="form-group">
+                                        <select name="n_wave" class="selectpicker" data-size="5" data-width="100%" style="width:100%">
+                                            <?php for($i=$max_level,$j=0;$i>=1;$i--,$j++){ ?>
+                                                <option value="<?php echo $i?>" <?php echo (isset($_POST['n_wave']) && $_POST['n_wave']==$i)?"selected='selected'":""?>><?php echo $i . "기 " . ($j>=3?"졸업생":"학생") ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
 								</td>
 							</tr>
 							<tr>
 								<th style="width:120px;"><?php echo lang("generic","name"); ?></th>
-								<td><input class="form-control" type="text" name="s_kor_name" style="width:100%" <?php echo isset($_POST['s_kor_name'])?"value='".htmlspecialchars($_POST['s_kor_name'])."'":""?> required/></td>
+								<td>
+                                    <div class="form-group">
+                                        <input class="form-control" type="text" name="s_kor_name" style="width:100%" <?php echo isset($_POST['s_kor_name'])?"value='".htmlspecialchars($_POST['s_kor_name'])."'":""?> required/>
+                                    </div>
+                                </td>
 							</tr>
 							<tr>
 								<th style="width:120px;"><?php echo lang("generic","nick"); ?></th>
-								<td><input class="form-control" type="text" name="s_eng_name" style="width:100%" <?php echo isset($_POST['s_eng_name'])?"value='".htmlspecialchars($_POST['s_eng_name'])."'":""?> required/></td>
+								<td>
+                                    <div class="form-group">
+                                        <input class="form-control" type="text" name="s_eng_name" style="width:100%" <?php echo isset($_POST['s_eng_name'])?"value='".htmlspecialchars($_POST['s_eng_name'])."'":""?> required/>
+                                    </div>
+                                </td>
 							</tr>
 							<tr>
 								<th style="width:120px;"><?php echo lang("generic","birthday"); ?></th>
 								<td style="text-align:left">
-									<input class="form-control" type="number" style="width:80px; display:inline-block" name="n_birth_date_yr" <?php echo isset($_POST['n_birth_date_yr'])?"value='".htmlspecialchars($_POST['n_birth_date_yr'])."'":""?> required/><?php echo lang("generic","year"); ?>
-									<input class="form-control" type="number" style="width:60px; display:inline-block" name="n_birth_date_month" <?php echo isset($_POST['n_birth_date_month'])?"value='".htmlspecialchars($_POST['n_birth_date_month'])."'":""?> required/><?php echo lang("generic","month"); ?>
-									<input class="form-control" type="number" style="width:60px; display:inline-block" name="n_birth_date_day" <?php echo isset($_POST['n_birth_date_day'])?"value='".htmlspecialchars($_POST['n_birth_date_day'])."'":""?> required/><?php echo lang("generic","day"); ?>
+                                    <div class="form-group">
+                                        <input class="form-control" type="number" style="width:80px; display:inline-block" name="n_birth_date_yr" <?php echo isset($_POST['n_birth_date_yr'])?"value='".htmlspecialchars($_POST['n_birth_date_yr'])."'":""?> required/><?php echo lang("generic","year"); ?>
+                                        <input class="form-control" type="number" style="width:60px; display:inline-block" name="n_birth_date_month" <?php echo isset($_POST['n_birth_date_month'])?"value='".htmlspecialchars($_POST['n_birth_date_month'])."'":""?> required/><?php echo lang("generic","month"); ?>
+                                        <input class="form-control" type="number" style="width:60px; display:inline-block" name="n_birth_date_day" <?php echo isset($_POST['n_birth_date_day'])?"value='".htmlspecialchars($_POST['n_birth_date_day'])."'":""?> required/><?php echo lang("generic","day"); ?>
+                                    </div>
 								</td>
 							</tr>
 							<tr>
 								<th style="width:120px;"><?php echo lang("generic","gender"); ?></th>
 								<td>
-									<select name="n_gender" class="selectpicker" data-width="100%" style="width:100%">
-										<?php
-										$opt_list=array(lang("generic","unspecified"), lang("generic","male"), lang("generic","female"), lang("generic","other"));
-										foreach($opt_list as $key=>$val){
-											?><option value="<?php echo $key?>" <?php echo (isset($_POST['n_gender']) && $_POST['n_gender']==$key)?"selected='selected'":""?>><?php echo htmlspecialchars($val)?></option><?php
-										}
-										?>
-									</select>
+                                    <div class="form-group">
+                                        <select name="n_gender" class="selectpicker" data-width="100%" style="width:100%">
+                                            <?php
+                                            $opt_list=array(lang("generic","unspecified"), lang("generic","male"), lang("generic","female"), lang("generic","other"));
+                                            foreach($opt_list as $key=>$val){
+                                                ?><option value="<?php echo $key?>" <?php echo (isset($_POST['n_gender']) && $_POST['n_gender']==$key)?"selected='selected'":""?>><?php echo htmlspecialchars($val)?></option><?php
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
 								</td>
 							</tr>
 							<tr>
 								<th><?php echo lang("user","register","captcha")?></th>
 								<td>
-									<a onclick="return false"><img id="img_captcha" src="/files/captcha/0.png" onclick="return refreshCaptcha();" /></a>
-									<input class="form-control" type="text" autocomplete="off" name="s_captcha" style="width:100%" required/>
+                                    <div class="form-group">
+                                        <a onclick="return false"><img id="img_captcha" src="/files/captcha/0.png" onclick="return refreshCaptcha();" /></a>
+                                        <input class="form-control" type="text" autocomplete="off" name="s_captcha" style="width:100%" required/>
+                                    </div>
 								</td>
 							</tr>
 						</table>
@@ -147,8 +175,5 @@ function printContent(){ ?>
 			<input type="submit" class="btn btn-primary btn-lg" value="<?php echo lang("user","register","ok")?>" style="margin: 10px" />
 		</div>
 	</form>
-<script>
-    $("#register-form").validator();
-</script>
 	<?php
 }
