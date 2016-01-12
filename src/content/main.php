@@ -172,6 +172,7 @@ JSON
         });
     });
     bindModuleCloseButton();
+    bindModuleReloadButton();
     </script>
 	<?php
 }
