@@ -119,6 +119,12 @@ function printContent(){ ?>
                                     </div>
 								</td>
 							</tr>
+                            <tr>
+								<th>사람 확인</th>
+								<td>
+                                    <div class="g-recaptcha" data-sitekey="6LemDhUTAAAAAOeAxTrulB03uH1-TOcFmz5SbxDs"></div>
+                                </td>
+                            </tr>
 						</table>
 					</td>
 

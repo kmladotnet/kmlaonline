@@ -534,4 +534,16 @@ function getOrDefault(&$var, $default=null) {
     return isset($var) ? $var : $default;
 }
 
+function httpPost($url, $data) {
+    $options = array(
+        'http' => array(
+            'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+            'method'  => 'POST',
+            'content' => http_build_query($data),
+        ),
+    );
+    $context  = stream_context_create($options);
+    return file_get_contents($url, false, $context);
+}
+
 $maxUploadFileSize = convertToBytes( ini_get( 'upload_max_filesize' ) );

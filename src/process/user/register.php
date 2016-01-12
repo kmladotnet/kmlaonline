@@ -46,6 +46,10 @@ if(!validateInputNumber($_POST['n_birth_date_month'],1, 12)) $failReason['n_birt
 if(!validateInputNumber($_POST['n_birth_date_day'],1, 31)) $failReason['n_birth_date_day']="태어난 날짜를 확인해 주세요.";
 else if(cal_days_in_month(CAL_GREGORIAN, $_POST['n_birth_date_month'], $_POST['n_birth_date_yr'])<$_POST['n_birth_date_day']) $failReason['n_birth_date_day']="생일을 확인해 주세요.";
 if(!validateInputNumber($_POST['n_gender'],0,3)) $failReason['n_birth_date_yr']="성별 선택을 확인해 주세요.";
+if(!json_decode(httpPost("https://www.google.com/recaptcha/api/siteverify",
+            array("secret" => "6LemDhUTAAAAAOeAxTrulB03uH1-TOcFmz5SbxDs",
+                  "response" => $_POST['g-recaptcha-response'])))['success'])
+    $failReason['s_captcha']="사람이 아닙니다!";
 if(!$captcha->checkCaptcha($_POST['s_captcha'])) $failReason['s_captcha']="자동가입방지 문자를 확인해 주세요.";
 if(count($failReason)>0){
 	$captcha->renewCaptcha();
