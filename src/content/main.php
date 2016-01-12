@@ -128,8 +128,9 @@ function printContentPc(){
                        }
                     ]
 JSON;
+                    rrmdir("data/user/main_layout");
                     $modules = array();
-                    if(false){//file_exists("data/user/main_layout/{$me['n_id']}.txt")) {
+                    if(file_exists("data/user/main_layout/{$me['n_id']}.txt")) {
                         $modules = json_decode(file_get_contents("data/user/main_layout/{$me['n_id']}.txt"), true);
                     } else {
                         $modules = json_decode($default_options, true);
