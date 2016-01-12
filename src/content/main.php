@@ -163,7 +163,7 @@ JSON;
                         }
 JSON
                                                    , true);
-                        $my_articles['options']['article']['cat'] = $current_setting;
+                        $my_articles['options']['options']['article']['cat'] = $current_setting;
                         $modules[] = $my_articles;
                     }
                 allModules($modules);
