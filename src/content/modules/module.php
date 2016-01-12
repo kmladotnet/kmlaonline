@@ -89,8 +89,11 @@ function moduleContents($module_name, $options) {
     <div class="grid-stack-item-content">
         <div class="main-block">
             <div class="main-block-title">
-                <button class="main-block-close btn btn-default" type="button">
+                <button class="main-block-reload main-block-button btn btn-default" type="button">
                     <span class="glyphicon glyphicon-remove"></span>
+                </button>
+                <button class="main-block-close main-block-button btn btn-default" type="button">
+                    <span class="glyphicon glyphicon-refresh"></span>
                 </button>
                 <div class="main-block-title-content">
                     <?php

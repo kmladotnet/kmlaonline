@@ -514,13 +514,19 @@ div#upper-header-holder{
     overflow: auto;
     padding: 5px;
 }
-.main-block-close{
+.main-block-button{
     float:right;
+    margin: 0 10px;
     padding:0px;
     border-radius: 50%;
     width: 24px;
     height: 24px;
+}
+.main-block-close{
     color: #d9534f;
+}
+.main-block-reload{
+    color: #5cb85c;
 }
 
 .main-block-old{

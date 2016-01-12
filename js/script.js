@@ -513,6 +513,23 @@ function bindModuleCloseButton() {
     });
 }
 
+function bindModuleReloadButton() {
+    $(".main-block-close").click(function() {
+        var module = $(this).closest(".grid-stack-item");
+        $.post("ajax/user/getmodule", {"json": JSON.stringify(moduleToObject(module)), "ajax": 1}, function(data) {
+            module.html(data);
+        });
+        new PNotify({
+            text: '새로고침 했습니다.',
+            type: 'success',
+            buttons: {
+                closer: false,
+                sticker: false
+            }
+        });
+    });
+}
+
 function resetMainLayout() {
     (new PNotify({
         title: '정말로 레이아웃을 초기화할까요?',
