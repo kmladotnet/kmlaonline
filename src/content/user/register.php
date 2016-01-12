@@ -29,7 +29,7 @@ function printContent(){ ?>
 								<th style="width:120px;"><?php echo lang("generic","id"); ?></th>
 								<td style="width:240px;">
                                     <div class="form-group">
-                                        <input class="form-control" autocomplete="off" type="text" name="s_id" style="width:100%" <?php echo isset($_POST['s_id'])?"value='".htmlspecialchars($_POST['s_id'])."'":""?> required/>
+                                        <input class="form-control" autocomplete="off" pattern="/^[A-Za-z0-9_\\-]+$/" type="text" name="s_id" placeholder="3글자 이상 영문자/숫자/-/_ 조합" style="width:100%" <?php echo isset($_POST['s_id'])?"value='".htmlspecialchars($_POST['s_id'])."'":""?> required/>
                                     </div>
                                 </td>
 							</tr>
@@ -37,7 +37,7 @@ function printContent(){ ?>
 								<th style="width:120px;"><?php echo lang("generic","password"); ?></th>
 								<td>
                                     <div class="form-group">
-                                        <input class="form-control" id="input-password" type="password" autocomplete="off" name="s_pw" style="width:100%" required/>
+                                        <input class="form-control" id="input-password" data-minlength="6" placeholder="6글자 이상" type="password" autocomplete="off" name="s_pw" style="width:100%" required/>
                                     </div>
                                 </td>
 							</tr>
@@ -81,7 +81,7 @@ function printContent(){ ?>
 								<th style="width:120px;"><?php echo lang("generic","nick"); ?></th>
 								<td>
                                     <div class="form-group">
-                                        <input class="form-control" type="text" name="s_eng_name" style="width:100%" <?php echo isset($_POST['s_eng_name'])?"value='".htmlspecialchars($_POST['s_eng_name'])."'":""?> required/>
+                                        <input class="form-control" type="text" name="s_eng_name" data-minlength="6" placeholder="최소 6글자" style="width:100%" <?php echo isset($_POST['s_eng_name'])?"value='".htmlspecialchars($_POST['s_eng_name'])."'":""?> required/>
                                     </div>
                                 </td>
 							</tr>

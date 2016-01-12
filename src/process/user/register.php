@@ -32,7 +32,7 @@ $failReason=array();
 if(!isset($_POST['n_tos_agree']) || $_POST['n_tos_agree']!="yes") $failReason["n_tos_agree"]="약관을 읽고 동의해 주세요.";
 if(!validateInputString($_POST['s_id'],3,64,"/^[A-Za-z0-9_\\-]+$/")) $failReason["s_id"]="ID는 2자보다 길어야 하고 65자보다 짧은 영문자 및 숫자의 조합이어야 합니다.";
 else if($member->getMember($_POST['s_id'],1)!==false) $failReason["s_id"]="ID가 이미 있습니다.";
-if(!validateInputString($_POST['s_pw'],4)) $failReason["s_pw"]="패스워드는 3자보다 길어야 합니다.";
+if(!validateInputString($_POST['s_pw'],6)) $failReason["s_pw"]="패스워드는 6자보다 길어야 합니다.";
 if($_POST['s_pw']!=$_POST['s_pw_check']) $failReason["s_pw_check"]="패스워드가 일치하지 않습니다.";
 if(!validateInputString($_POST['s_email'],5,255) || !checkEmail($_POST['s_email'])) $failReason["s_email"]="E-Mail이 잘못되었습니다.";
 else if($member->getMember($_POST['s_email'],2)!==false) $failReason["s_id"]="E-Mail이 이미 존재합니다.";
@@ -47,7 +47,7 @@ else if(cal_days_in_month(CAL_GREGORIAN, $_POST['n_birth_date_month'], $_POST['n
 if(!validateInputNumber($_POST['n_gender'],0,3)) $failReason['n_birth_date_yr']="성별 선택을 확인해 주세요.";
 if(!json_decode(httpPost("https://www.google.com/recaptcha/api/siteverify",
             array("secret" => "6LemDhUTAAAAAOeAxTrulB03uH1-TOcFmz5SbxDs",
-                  "response" => $_POST['g-recaptcha-response'])))['success'])
+                  "response" => $_POST['g-recaptcha-response'])), true)['success'])
     $failReason['s_captcha']="사람이 아닙니다!";
 if(count($failReason)>0){
 	if(isAjax()){
