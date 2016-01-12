@@ -100,7 +100,7 @@ div#divSavingIndicatorInformation{
 	padding-right:36px;
 }
 div#total-wrap{
-    width:calc(60% + 240px);
+    width:calc(50% + 300px);
 	margin:0 auto;
 	font-size:10pt;
 }

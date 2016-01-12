@@ -39,7 +39,6 @@ else if($member->getMember($_POST['s_email'],2)!==false) $failReason["s_id"]="E-
 if(!validateInputNumber($_POST['n_wave'],1,intval(date("Y"))-1995)) $failReason["n_wave"]="기수를 확인해 주세요.";
 if(!validateInputString($_POST['s_kor_name'],6,30)) $failReason["s_kor_name"]="한글 이름을 확인해 주세요.";
 if(!validateInputString($_POST['s_eng_name'],6,128)) $failReason["s_eng_name"]="영어 이름을 확인해 주세요.";
-
 if(!validateInputNumber($_POST['n_birth_date_yr'],1970, intval(date("Y")))) $failReason['n_birth_date_yr']="태어난 년도를 확인해 주세요.";
 if(!validateInputNumber($_POST['n_birth_date_month'],1, 12)) $failReason['n_birth_date_month']="태어난 달을 확인해 주세요.";
 if(!validateInputNumber($_POST['n_birth_date_day'],1, 31)) $failReason['n_birth_date_day']="태어난 날짜를 확인해 주세요.";
@@ -48,7 +47,7 @@ if(!validateInputNumber($_POST['n_gender'],0,3)) $failReason['n_birth_date_yr']=
 if(!json_decode(httpPost("https://www.google.com/recaptcha/api/siteverify",
             array("secret" => "6LemDhUTAAAAAOeAxTrulB03uH1-TOcFmz5SbxDs",
                   "response" => $_POST['g-recaptcha-response'])), true)['success'])
-    $failReason['s_captcha']="사람이 아닙니다!";
+    $failReason['s_captcha']="사람이 아닙니다! 혹시... 로봇이신가요?";
 if(count($failReason)>0){
 	if(isAjax()){
 		ajaxDie($failReason);
