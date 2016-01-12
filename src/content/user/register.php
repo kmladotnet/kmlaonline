@@ -110,15 +110,6 @@ function printContent(){ ?>
                                     </div>
 								</td>
 							</tr>
-							<tr>
-								<th><?php echo lang("user","register","captcha")?></th>
-								<td>
-                                    <div class="form-group">
-                                        <a onclick="return false"><img id="img_captcha" src="/files/captcha/0.png" onclick="return refreshCaptcha();" /></a>
-                                        <input class="form-control" type="text" autocomplete="off" name="s_captcha" style="width:100%" required/>
-                                    </div>
-								</td>
-							</tr>
                             <tr>
 								<th>사람 확인</th>
 								<td>
