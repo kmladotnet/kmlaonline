@@ -32,7 +32,6 @@ function printContentPc(){
                     <table style="width:100%; word-break: keep-all;" class="table table-striped table-hover contacts" cellspacing="0">
                         <thead>
                             <tr style="height:32px;">
-                                <th>기수</th>
                                 <th>이름</th>
                                 <th>방</th>
                                 <th>학번</th>
@@ -49,9 +48,6 @@ function printContentPc(){
                             <?php foreach($arr as $m){
 						?>
                                 <tr style="height:32px;">
-                                    <td style="text-align:center">
-                                        <?php echo $m['n_level']?>
-                                    </td>
                                     <td style="text-align:center">
                                         <a rel="closenow" href="/user/view/<?php echo $m['n_id']?>/<?php echo rawurlencode($m['s_id'])?>">
 									<?php if($m['s_icon']) echo "<img src='".htmlspecialchars($m['s_icon'])."' style='width:11pt;height:11pt;vertical-align:middle;' />"; ?>
