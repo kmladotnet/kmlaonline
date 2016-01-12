@@ -469,6 +469,7 @@ function moduleToObject(module) {
     result.options.w = node.width;
     result.options.h = node.height;
     result.options.options = module.data("module-options");
+    return result;
 }
 
 function mainGridToJSON() {
