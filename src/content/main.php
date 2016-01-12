@@ -156,7 +156,7 @@ JSON;
                              "h":6,
                              "options":{
                                 "article":{
-                                   "title":"내 게시판",
+                                   "title":"내 게시판"
                                 }
                              }
                           }
