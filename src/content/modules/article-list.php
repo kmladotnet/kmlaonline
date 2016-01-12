@@ -1,5 +1,5 @@
 <?php
-function articleList($article_list, $category=true, $title=true, $name=true, $date=true, $height=20, $nextline=false){
+function articleList($article_list, $category=true, $title=true, $name=true, $date=true, $height=30, $nextline=false){
 	global $me, $board, $member;
 	?>
 	<table style="width:100%;overflow:auto;">

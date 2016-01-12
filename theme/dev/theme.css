@@ -13,7 +13,7 @@ html{
 html, body{
 	background: url('woosang.jpg') repeat-x center bottom;
 	height:100%; width:100%;
-	font-family: 'Malgun Gothic', NanumGothic, AppleGothic, Gulim;
+	font-family: "Open Sans",arial,'Apple SD Gothic Neo','Noto Sans Korean','본고딕','KoPubDotum Medium','나눔바른고딕','나눔고딕','NanumGothic','맑은고딕','Malgun Gothic',sans-serif;
     line-height:1.5em;
 }
 body.cke_contents_ltr{
@@ -102,7 +102,7 @@ div#divSavingIndicatorInformation{
 div#total-wrap{
     width:calc(50% + 300px);
 	margin:0 auto;
-	font-size:10pt;
+	font-size:14pt;
 }
 div#upper-header-menu{
 	display:block;
@@ -146,7 +146,7 @@ div#total-header #userarea #status_message_edit{
 	display:block;
 	height:16px;
 	overflow:hidden;
-	font-size:9pt;
+	font-size:12pt;
 	padding:1px 0px;
 	font-family: 'Malgun Gothic';
 }
