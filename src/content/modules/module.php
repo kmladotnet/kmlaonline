@@ -90,10 +90,10 @@ function moduleContents($module_name, $options) {
         <div class="main-block">
             <div class="main-block-title">
                 <button class="main-block-reload main-block-button btn btn-default" type="button">
-                    <span class="glyphicon glyphicon-remove"></span>
+                    <span class="glyphicon glyphicon-refresh"></span>
                 </button>
                 <button class="main-block-close main-block-button btn btn-default" type="button">
-                    <span class="glyphicon glyphicon-refresh"></span>
+                    <span class="glyphicon glyphicon-remove"></span>
                 </button>
                 <div class="main-block-title-content">
                     <?php
