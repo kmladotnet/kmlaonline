@@ -10,8 +10,8 @@ function printContentPc(){
 	?>
     <div>
         <h1>
-            <span class="glyphicon glyphicon-error-sign" aria-hidden="true"></span>
-            공사중입니다! (~1/30)
+            <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
+            공사중입니다! (~1/30) 예고 없이 사용자 지정 레이아웃이 초기화될 수 있습니다.
         </h1>
     </div>
 	<div style="padding:5px;">
@@ -30,8 +30,7 @@ function printContentPc(){
         <button type="button" class="btn btn-danger" onclick="resetMainLayout()">초기화</button>
         <div class="grid-stack">
             <?php
-                if(!file_exists("data/user/main_layout/{$me['n_id']}.txt")) {
-                    file_put_contents("data/user/main_layout/{$me['n_id']}.txt", <<<JSON
+                    $default_options = <<<JSON
                     [
                        {
                           "name":"important",
@@ -100,31 +99,6 @@ function printContentPc(){
                        {
                           "name":"article-list",
                           "options":{
-                             "x":0,
-                             "y":18,
-                             "w":7,
-                             "h":6,
-                             "options":{
-                                "article":{
-                                   "title":"내 게시판",
-                                   "cat":[
-                                      2,
-                                      3,
-                                      4,
-                                      6,
-                                      63,
-                                      64,
-                                      65,
-                                      78,
-                                      203
-                                   ]
-                                }
-                             }
-                          }
-                       },
-                       {
-                          "name":"article-list",
-                          "options":{
                              "x":7,
                              "y":18,
                              "w":5,
@@ -153,10 +127,45 @@ function printContentPc(){
                           }
                        }
                     ]
+JSON;
+                    $modules;
+                    if(true){//file_exists("data/user/main_layout/{$me['n_id']}.txt")) {
+                        $modules = json_decode(file_get_contents("data/user/main_layout/{$me['n_id']}.txt"), true);
+                    } else {
+                        $modules = json_decode($default_options);
+                        $current_setting=array();
+                        foreach($board->getCategoryList(0,0) as $val){
+                            if(checkCategoryAccess($val['n_id'], "list")){
+                                if(strpos($val['s_id'],"announce")!==false)
+                                    $current_setting[] = $val['n_id'];
+                                if(strpos($val['s_id'],"forum")!==false)
+                                    $current_setting[] = $val['n_id'];
+                                if(strpos($val['s_id'],"all_")!==false)
+                                    $current_setting[] = $val['n_id'];
+                                if(strpos($val['s_id'],"wave".$user['n_level']."_")!==false)
+                                    $current_setting[] = $val['n_id'];
+                            }
+                        }
+                        $my_articles = json_decode(<<<JSON{
+                          "name":"article-list",
+                          "options":{
+                             "x":0,
+                             "y":18,
+                             "w":7,
+                             "h":6,
+                             "options":{
+                                "article":{
+                                   "title":"내 게시판",
+                                }
+                             }
+                          }
+                        })
 JSON
-                                    );
+                                                   , true);
+                        $my_articles['options']['article']['cat'] = $current_setting;
+                        $modules[] = $my_articles;
+                    }
                 }
-                $modules = json_decode(file_get_contents("data/user/main_layout/{$me['n_id']}.txt"), true);
                 allModules($modules);
             ?>
         </div>
