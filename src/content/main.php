@@ -146,7 +146,8 @@ JSON;
                                     $current_setting[] = $val['n_id'];
                             }
                         }
-                        $my_articles = json_decode( <<<JSON{
+                        $my_articles = json_decode( <<<JSON
+                        {
                           "name":"article-list",
                           "options":{
                              "x":0,
