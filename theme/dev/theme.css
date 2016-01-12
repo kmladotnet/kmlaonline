@@ -516,7 +516,7 @@ div#upper-header-holder{
 }
 .main-block-button{
     float:right;
-    margin: 0 10px;
+    margin: 0 0 0 10px;
     padding:0px;
     border-radius: 50%;
     width: 24px;
