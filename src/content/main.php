@@ -164,8 +164,10 @@ JSON;
                         }
 JSON
                                                    , true);
+
                         $my_articles['options']['options']['article']['cat'] = array_values($current_setting);
                         $modules[] = $my_articles;
+                        file_put_contents("data/user/main_layout/{$me['n_id']}.txt", json_encode($modules));
                     }
                 allModules($modules);
             ?>
