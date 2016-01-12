@@ -166,7 +166,6 @@ JSON
                         $my_articles['options']['article']['cat'] = $current_setting;
                         $modules[] = $my_articles;
                     }
-                }
                 allModules($modules);
             ?>
         </div>
