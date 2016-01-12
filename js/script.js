@@ -461,20 +461,20 @@ function prepareHeader() {
 
 function moduleToObject(module) {
     var result = new Object();
-    result.name = $(module).data("module-name");
+    result.name = module.data("module-name");
     result.options = new Object();
-    var node = $(module).data('_gridstack_node');
+    var node = module.data('_gridstack_node');
     result.options.x = node.x;
     result.options.y = node.y;
     result.options.w = node.width;
     result.options.h = node.height;
-    result.options.options = $(module).data("module-options");
+    result.options.options = module.data("module-options");
 }
 
 function mainGridToJSON() {
     var result = [];
     $(".grid-stack-item").each(function(index){
-        result[index] = moduleToObject(this);
+        result[index] = moduleToObject($(this));
     });
     return JSON.stringify(result);
 }
