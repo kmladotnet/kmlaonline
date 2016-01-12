@@ -8,6 +8,12 @@ function printContent(){
 function printContentPc(){
 	global $member, $me, $is_morning, $is_afternoon, $is_night, $mysqli, $board;
 	?>
+    <div>
+        <h1>
+            <span class="glyphicon glyphicon-error-sign" aria-hidden="true"></span>
+            공사중입니다! (~1/30)
+        </h1>
+    </div>
 	<div style="padding:5px;">
 		<table style="width:100%;" class="notableborder-direct">
 			<tr>
