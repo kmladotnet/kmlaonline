@@ -122,7 +122,7 @@ function printContent(){ ?>
                             <tr>
 								<th>사람 확인</th>
 								<td>
-                                    <div class="g-recaptcha" data-sitekey="6LemDhUTAAAAAOeAxTrulB03uH1-TOcFmz5SbxDs"></div>
+                                    <div class="g-recaptcha" data-sitekey="6LemDhUTAAAAANQ4uLZYzLEBnZNJtizB7Ozc_8mV"></div>
                                 </td>
                             </tr>
 						</table>
