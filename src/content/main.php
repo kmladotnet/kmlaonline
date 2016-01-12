@@ -128,11 +128,11 @@ function printContentPc(){
                        }
                     ]
 JSON;
-                    $modules;
+                    $modules = array();
                     if(false){//file_exists("data/user/main_layout/{$me['n_id']}.txt")) {
                         $modules = json_decode(file_get_contents("data/user/main_layout/{$me['n_id']}.txt"), true);
                     } else {
-                        $modules = json_decode($default_options);
+                        $modules = json_decode($default_options, true);
                         $current_setting=array();
                         foreach($board->getCategoryList(0,0) as $val) {
                             if(checkCategoryAccess($val['n_id'], "list")){
