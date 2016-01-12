@@ -6,7 +6,7 @@ function printContent(){
 	else printContentPc();
 }
 function printContentPc(){
-	global $member, $me, $is_morning, $is_afternoon, $is_night, $mysqli, $board;
+	global $member, $me, $is_morning, $is_afternoon, $is_night, $mysqli, $board, $user;
 	?>
     <div>
         <h1>
