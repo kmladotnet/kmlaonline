@@ -522,10 +522,11 @@ div#upper-header-holder{
     width: 24px;
     height: 24px;
 }
-.main-block-close{
+
+.main-block-close .main-block-close:active{
     color: #d9534f;
 }
-.main-block-reload{
+.main-block-reload .main-block-reload:active{
     color: #5cb85c;
 }
 

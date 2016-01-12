@@ -1,10 +1,4 @@
 <div style="text-align:center">
-    <div>
-        <a <?php if($is_morning) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-breakfast');">아침</a> |
-        <a <?php if($is_afternoon) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-lunch');">점심</a> |
-        <a <?php if($is_night) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-dinner');">저녁</a> |
-        <a href="/util/schedule?<?php echo "year=$curYear&amp;month=$curMonth&amp;mode=food:0"?>">모두 보기</a>
-    </div>
     <?php
     $curYear=date("Y"); $curMonth=date("n"); $curDay=date("j");
     if($is_morning && date("H")>=22){
@@ -12,6 +6,14 @@
         $curMonth = date("m", strtotime("+1 day"));
         $curDay = date("d", strtotime("+1 day"));
     }
+    ?>
+    <div>
+        <a <?php if($is_morning) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-breakfast');">아침</a> |
+        <a <?php if($is_afternoon) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-lunch');">점심</a> |
+        <a <?php if($is_night) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-dinner');">저녁</a> |
+        <a href="/util/schedule?<?php echo "year=$curYear&amp;month=$curMonth&amp;mode=food:0"?>">모두 보기</a>
+    </div>
+    <?php
     $query="SELECT s_mode, s_data FROM kmlaonline_schedule_table WHERE n_year=$curYear AND n_month=$curMonth AND n_day=$curDay";
     if($res=$mysqli->query($query)){
         while ($row = $res->fetch_array(MYSQLI_ASSOC)){
