@@ -6,7 +6,7 @@ function printContent(){ ?>
 	global $max_level;
 	insertOnLoadScript("putAlertOnLeave();");
 	?>
-	<form data-toggle="validator" action="/ajax/user/register" method="post" enctype="multipart/form-data" onsubmit="window.onbeforeunload=null;">
+	<form data-toggle="validator" data-delay="100" action="/ajax/user/register" method="post" enctype="multipart/form-data" onsubmit="window.onbeforeunload=null;">
 		<input type="hidden" name="prev_url" value="<?php echo htmlspecialchars($_SERVER['REQUEST_URI'])?>" />
 		<div style="text-align:center;width:100%">
 			<h1><?php echo lang("user","register","title"); ?></h1>
@@ -51,7 +51,11 @@ function printContent(){ ?>
 							</tr>
 							<tr>
 								<th style="width:120px;"><?php echo lang("generic","email"); ?></th>
-								<td><input class="form-control" type="email" name="s_email" style="width:100%" <?php echo isset($_POST['s_email'])?"value='".htmlspecialchars($_POST['s_email'])."'":""?> required/></td>
+								<td>
+                                    <div class="form-group">
+                                        <input class="form-control" type="email" name="s_email" style="width:100%" <?php echo isset($_POST['s_email'])?"value='".htmlspecialchars($_POST['s_email'])."'":""?> required/>
+                                    </div>
+                                </td>
 							</tr>
 							<tr>
 								<th style="width:120px;"><?php echo lang("generic","level"); ?></th>
