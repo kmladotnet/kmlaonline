@@ -535,15 +535,23 @@ function getOrDefault(&$var, $default=null) {
 }
 
 function httpPost($url, $data) {
-    $options = array(
-        'http' => array(
-            'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-            'method'  => 'POST',
-            'content' => http_build_query($data),
-        ),
-    );
-    $context  = stream_context_create($options);
-    return file_get_contents($url, false, $context);
+    $fields_string = '';
+    foreach($data as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
+    rtrim($fields_string, '&');
+    $ch = curl_init();
+
+    //set the url, number of POST vars, POST data
+    curl_setopt($ch,CURLOPT_URL, $url);
+    curl_setopt($ch,CURLOPT_POST, count($data));
+    curl_setopt($ch,CURLOPT_POSTFIELDS, $fields_string);
+
+    //execute post
+    $result = curl_exec($ch);
+
+    //close connection
+    curl_close($ch);
+
+    return $result;
 }
 
 $maxUploadFileSize = convertToBytes( ini_get( 'upload_max_filesize' ) );
