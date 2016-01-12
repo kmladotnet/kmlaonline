@@ -518,6 +518,8 @@ function bindModuleReloadButton() {
         var module = $(this).closest(".grid-stack-item");
         $.post("ajax/user/getmodule", {"json": JSON.stringify(moduleToObject(module)), "ajax": 1}, function(data) {
             module.html(data);
+            bindModuleCloseButton();
+            bindModuleReloadButton();
         });
         new PNotify({
             text: '새로고침 했습니다.',
@@ -597,6 +599,7 @@ function addModule(json) {
         var dat = JSON.parse(json);
         grid.add_widget($(data), 0, 0, 4, 4);
         bindModuleCloseButton();
+        bindModuleReloadButton();
         $(".grid-stack-item:not([data-module-name])").attr("data-module-name", dat["name"]).attr("data-module-options", JSON.stringify(dat["options"]["options"]));
         updateModules();
     });
