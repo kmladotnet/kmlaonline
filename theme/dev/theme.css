@@ -541,14 +541,6 @@ span.sitemap-icon{
 	display:inline-block;
 	background:url('./sitemap.png');
 }
-
-tbody.userlist-body > tr:nth-child(odd) {
-    background: rgb(240,245,250);
-}
-
-tbody.userlist-body > tr:nth-child(even) {
-    background: white;
-}
 .contact-finder a.wavebutton:hover{
 	background:#ddefff;
 }

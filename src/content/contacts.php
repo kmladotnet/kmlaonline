@@ -29,7 +29,7 @@ function printContentPc(){
             <?php for($i=$max_level; $i>=1; $i--){ ?>
                 <a rel="navigate" href="/contacts?wave=<?php echo $i?>" class="wavebutton" <?php if($i==$clevel) echo "style='background:#ddefff'"; ?>><?php echo $i?>기</a>
                 <?php } ?>
-                    <table style="width:100%; word-break: keep-all;" class="notableborder">
+                    <table style="width:100%; word-break: keep-all;" class="contacts">
                         <thead>
                             <tr style="height:32px;">
                                 <th>기수</th>
@@ -106,6 +106,9 @@ function printContentPc(){
                                 <?php } ?>
                         </tbody>
                     </table>
+            <script>
+                $(".contacts").DataTable();
+            </script>
         </div>
     </div>
     <?php
