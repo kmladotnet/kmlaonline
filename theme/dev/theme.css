@@ -102,7 +102,7 @@ div#divSavingIndicatorInformation{
 div#total-wrap{
     width:calc(50% + 300px);
 	margin:0 auto;
-	font-size:12pt;
+	font-size:11pt;
 }
 div#upper-header-menu{
 	display:block;
@@ -148,7 +148,6 @@ div#total-header #userarea #status_message_edit{
 	overflow:hidden;
 	font-size:12pt;
 	padding:1px 0px;
-	font-family: 'Malgun Gothic';
 }
 div#total-header #userarea #status_message{
 	padding-top:7px;
@@ -386,7 +385,7 @@ a:hover,a:active{
 	color: #60A0C0
 }
 body{
-	font-family: 'Malgun Gothic', NanumGothic, AppleGothic, Gulim;
+	font-family: "Open Sans",arial,'Apple SD Gothic Neo','Noto Sans Korean','본고딕','KoPubDotum Medium','나눔바른고딕','나눔고딕','NanumGothic','맑은고딕','Malgun Gothic',sans-serif;
 }
 div#backgrounds{
 }
@@ -523,10 +522,10 @@ div#upper-header-holder{
     height: 24px;
 }
 
-.main-block-close .main-block-close:active{
+.main-block-close, .main-block-close:active{
     color: #d9534f;
 }
-.main-block-reload .main-block-reload:active{
+.main-block-reload, .main-block-reload:active{
     color: #5cb85c;
 }
 
