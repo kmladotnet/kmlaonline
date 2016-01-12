@@ -137,7 +137,7 @@ function saveAjax(obj, opername, ckeditor, callafter) {
                         doit = confirm(ret["confirm_message"]);
                     if (doit) {
                         window.onbeforeunload = null;
-                        location.href= ret["redirect_to"];
+                        location.href = ret["redirect_to"];
                         $(window).unload(function () {
                             if (window.leaving) clearTimeout(window.leaving);
                             window.leaving = null;
@@ -474,14 +474,14 @@ function moduleToObject(module) {
 
 function mainGridToJSON() {
     var result = [];
-    $(".grid-stack-item").each(function(index){
+    $(".grid-stack-item").each(function (index) {
         result[index] = moduleToObject($(this));
     });
     return JSON.stringify(result);
 }
 
 function bindModuleCloseButton() {
-    $(".main-block-close").click(function() {
+    $(".main-block-close").unbind("click").click(function () {
         var toDelete = this;
         (new PNotify({
             title: '정말로 패널을 지울까요?',
@@ -497,11 +497,11 @@ function bindModuleCloseButton() {
             history: {
                 history: false
             }
-        })).get().on('pnotify.confirm', function() {
+        })).get().on('pnotify.confirm', function () {
             $('.grid-stack').data('gridstack').remove_widget($(toDelete).closest(".grid-stack-item"));
             updateModules();
-        }).on('pnotify.cancel', function() {
-                new PNotify({
+        }).on('pnotify.cancel', function () {
+            new PNotify({
                 text: '취소했습니다.',
                 type: 'info',
                 buttons: {
@@ -514,9 +514,12 @@ function bindModuleCloseButton() {
 }
 
 function bindModuleReloadButton() {
-    $(".main-block-reload").click(function() {
+    $(".main-block-reload").unbind("click").click(function () {
         var module = $(this).closest(".grid-stack-item");
-        $.post("ajax/user/getmodule", {"json": JSON.stringify(moduleToObject(module)), "ajax": 1}, function(data) {
+        $.post("ajax/user/getmodule", {
+            "json": JSON.stringify(moduleToObject(module)),
+            "ajax": 1
+        }, function (data) {
             module.html(data);
             bindModuleCloseButton();
             bindModuleReloadButton();
@@ -547,13 +550,15 @@ function resetMainLayout() {
         history: {
             history: false
         }
-    })).get().on('pnotify.confirm', function() {
-         $.post("ajax/user/resetlayout", {"ajax": "1"})
-            .done(function() {
-             location.reload(true);
+    })).get().on('pnotify.confirm', function () {
+        $.post("ajax/user/resetlayout", {
+                "ajax": "1"
+            })
+            .done(function () {
+                location.reload(true);
             });
-    }).on('pnotify.cancel', function() {
-            new PNotify({
+    }).on('pnotify.cancel', function () {
+        new PNotify({
             text: '취소했습니다.',
             type: 'info',
             buttons: {
@@ -565,36 +570,42 @@ function resetMainLayout() {
 }
 
 function updateModules() {
-    $.post("ajax/user/updatelayout", {"json": mainGridToJSON(), "ajax": "1"})
-    .done(function() {
-        var notice = new PNotify({
-            text: '레이아웃이 저장되었습니다!',
-            type: 'success',
-            buttons: {
-                closer: false,
-                sticker: false
-            }
+    $.post("ajax/user/updatelayout", {
+            "json": mainGridToJSON(),
+            "ajax": "1"
+        })
+        .done(function () {
+            var notice = new PNotify({
+                text: '레이아웃이 저장되었습니다!',
+                type: 'success',
+                buttons: {
+                    closer: false,
+                    sticker: false
+                }
+            });
+            notice.get().click(function () {
+                notice.remove();
+            });
+        }).fail(function () {
+            var notice = new PNotify({
+                text: '레이아웃을 저장하지 못했습니다.',
+                type: 'error',
+                buttons: {
+                    closer: false,
+                    sticker: false
+                }
+            });
+            notice.get().click(function () {
+                notice.remove();
+            });
         });
-        notice.get().click(function() {
-            notice.remove();
-        });
-    }).fail(function() {
-        var notice = new PNotify({
-            text: '레이아웃을 저장하지 못했습니다.',
-            type: 'error',
-            buttons: {
-                closer: false,
-                sticker: false
-            }
-        });
-        notice.get().click(function() {
-            notice.remove();
-        });
-    });
 }
 
 function addModule(json) {
-    $.post("ajax/user/getmodule", {"json": json, "ajax": 1}, function(data) {
+    $.post("ajax/user/getmodule", {
+        "json": json,
+        "ajax": 1
+    }, function (data) {
         var grid = $('.grid-stack').data('gridstack');
         var dat = JSON.parse(json);
         grid.add_widget($(data), 0, 0, 4, 4);
