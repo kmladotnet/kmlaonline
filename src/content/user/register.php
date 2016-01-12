@@ -14,7 +14,12 @@ function printContent(){ ?>
 			<div style="width:640px;height:240px;overflow:auto;margin:0 auto;text-align:left;border:1px solid gray;padding:5px;">
 				<?php echo lang("user","register","tos"); ?>
 				<hr />
-				<input type="checkbox" id="chk_n_tos_agree" name="n_tos_agree" value="yes" <?php echo (isset($_POST['n_tos_agree']) && $_POST['n_tos_agree']=="yes")?"checked='checked'":""?> data-error="동의해주세요." required/> <label for="chk_n_tos_agree"><?php echo lang("user","register","accept tos"); ?></label>
+                <div class="form-group">
+                    <label for="chk_n_tos_agree">
+                        <input type="checkbox" id="chk_n_tos_agree" name="n_tos_agree" value="yes" <?php echo (isset($_POST['n_tos_agree']) && $_POST['n_tos_agree']=="yes")?"checked='checked'":""?> data-error="동의해주세요." required/> <?php echo lang("user","register","accept tos"); ?>
+                    </label>
+                    <div class="help-block with-errors"></div>
+                </div>
 			</div>
 			<table style="margin:20px auto;width:800px;" class="notableborder">
 				<tr>
