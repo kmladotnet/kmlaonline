@@ -29,7 +29,7 @@ function printContent(){ ?>
 								<th style="width:120px;"><?php echo lang("generic","id"); ?></th>
 								<td style="width:240px;">
                                     <div class="form-group">
-                                        <input class="form-control" autocomplete="off" pattern="/^[A-Za-z0-9_\\-]+$/" type="text" name="s_id" placeholder="3글자 이상 영문자/숫자/-/_ 조합" style="width:100%" <?php echo isset($_POST['s_id'])?"value='".htmlspecialchars($_POST['s_id'])."'":""?> required/>
+                                        <input class="form-control" autocomplete="off" data-minlength="3" pattern="^[A-Za-z0-9_\\-]+$" type="text" name="s_id" placeholder="3글자 이상 영문자/숫자/-/_ 조합" style="width:100%" <?php echo isset($_POST['s_id'])?"value='".htmlspecialchars($_POST['s_id'])."'":""?> required/>
                                     </div>
                                 </td>
 							</tr>
