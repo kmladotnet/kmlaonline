@@ -128,7 +128,6 @@ function printContentPc(){
                        }
                     ]
 JSON;
-                    mkdir("data/user/main_layout");
                     $modules = array();
                     if(file_exists("data/user/main_layout/{$me['n_id']}.txt")) {
                         $modules = json_decode(file_get_contents("data/user/main_layout/{$me['n_id']}.txt"), true);
