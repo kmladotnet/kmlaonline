@@ -160,7 +160,7 @@ JSON;
                                 }
                              }
                           }
-                        })
+                        }
 JSON
                                                    , true);
                         $my_articles['options']['article']['cat'] = $current_setting;
