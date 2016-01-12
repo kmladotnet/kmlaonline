@@ -514,7 +514,7 @@ function bindModuleCloseButton() {
 }
 
 function bindModuleReloadButton() {
-    $(".main-block-close").click(function() {
+    $(".main-block-reload").click(function() {
         var module = $(this).closest(".grid-stack-item");
         $.post("ajax/user/getmodule", {"json": JSON.stringify(moduleToObject(module)), "ajax": 1}, function(data) {
             module.html(data);
