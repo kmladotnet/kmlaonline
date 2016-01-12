@@ -45,7 +45,7 @@ $_LANGUAGE=array(
 		),
 		"register"=>array(
 			"title"=>"회원가입",
-			"tos"=>"이용 약관=========================",
+			"tos"=>"... 아직 안 만들었어요.",
 			"accept tos"=>"이용 약관에 동의합니다.",
 			"required"=>"필수 정보",
 			"optional"=>"선택적 정보",
