@@ -75,7 +75,7 @@ function redirectAlert($lnk=false,$alert=false){
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <title>Redirecting...</title>
         <base href="/" />
-        <script type="text/javascript" src="/js/jquery-1.8.2.min.js" charset="utf-8"></script>
+        <script src="//cdn.jsdelivr.net/g/jquery@2.1.4"></script>
         <script type="text/javascript" src="/js/script.js" charset="utf-8"></script>
     </head>
 
@@ -132,7 +132,7 @@ function redirectWith($str,$dat=""){
                 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
                 <title>Redirecting...</title>
                 <base href="/" />
-                <script type="text/javascript" src="/js/jquery-1.8.2.min.js" charset="utf-8"></script>
+                <script src="//cdn.jsdelivr.net/g/jquery@2.1.4"></script>
                 <script type="text/javascript" src="/js/script.js" charset="utf-8"></script>
             </head>
 
@@ -160,7 +160,7 @@ function redirectLoginIfRequired(){
                     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
                     <title>Redirecting...</title>
                     <base href="/" />
-                    <script type="text/javascript" src="/js/jquery-1.8.2.min.js" charset="utf-8"></script>
+                    <script src="//cdn.jsdelivr.net/g/jquery@2.1.4"></script>
                     <script type="text/javascript" src="/js/script.js" charset="utf-8"></script>
                 </head>
 
@@ -535,20 +535,15 @@ function getOrDefault(&$var, $default=null) {
 }
 
 function httpPost($url, $data) {
-    $fields_string = '';
-    foreach($data as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
-    rtrim($fields_string, '&');
     $ch = curl_init();
 
-    //set the url, number of POST vars, POST data
     curl_setopt($ch,CURLOPT_URL, $url);
     curl_setopt($ch,CURLOPT_POST, count($data));
-    curl_setopt($ch,CURLOPT_POSTFIELDS, $fields_string);
+    curl_setopt($ch,CURLOPT_POSTFIELDS, http_build_query($data));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-    //execute post
     $result = curl_exec($ch);
 
-    //close connection
     curl_close($ch);
 
     return $result;
