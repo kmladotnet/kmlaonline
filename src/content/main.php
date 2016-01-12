@@ -137,13 +137,13 @@ JSON;
                         foreach($board->getCategoryList(0,0) as $val) {
                             if(checkCategoryAccess($val['n_id'], "list")){
                                 if(strpos($val['s_id'],"announce")!==false)
-                                    $current_setting[] = $val['n_id'];
+                                    $current_setting[$val['n_id']] = $val['n_id'];
                                 if(strpos($val['s_id'],"forum")!==false)
-                                    $current_setting[] = $val['n_id'];
+                                    $current_setting[$val['n_id']] = $val['n_id'];
                                 if(strpos($val['s_id'],"all_")!==false)
-                                    $current_setting[] = $val['n_id'];
+                                    $current_setting[$val['n_id']] = $val['n_id'];
                                 if(strpos($val['s_id'],"wave".$user['n_level']."_")!==false)
-                                    $current_setting[] = $val['n_id'];
+                                    $current_setting[$val['n_id']] = $val['n_id'];
                             }
                         }
                         $my_articles = json_decode( <<<JSON
@@ -163,7 +163,7 @@ JSON;
                         }
 JSON
                                                    , true);
-                        $my_articles['options']['options']['article']['cat'] = $current_setting;
+                        $my_articles['options']['options']['article']['cat'] = array_values($current_setting);
                         $modules[] = $my_articles;
                     }
                 allModules($modules);
