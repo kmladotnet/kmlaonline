@@ -31,7 +31,7 @@ function printContentPc(){
         <button type="button" class="btn btn-success" data-toggle="collapse" data-target="#add-module">패널 추가</button>
 
         <div id="add-module" class="collapse">
-            <form id="add-module-form" action="javascript:void(0);">
+            <form id="add-module-form" action="javascript:void(0);" onsubmit="">
                 <div class="form-group">
                     <select name="module-name" class="selectpicker" data-size="5" data-width="100%" style="width:100%">
                         <option value="important">중요 공지</option>
