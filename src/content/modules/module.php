@@ -6,7 +6,7 @@ function moduleTitle($module_name, $options) {
         case 'important':
             ?>
             꼭 보세요
-            <div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;">
+            <div style="font-size:9pt;height:15pt;padding-top:3pt; margin-left:3pt">
                 <a href="/util/important">
                     신청목록 보기
                     <?php
@@ -28,25 +28,20 @@ function moduleTitle($module_name, $options) {
             ?>
             큼라보드
             <?php if(isUserPermitted($me['n_id'], "kmlaboard_changer")){ ?>
-                <div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;">
-                    <a href="/util/kmlaboard">수정하기</a>
+                <div style="font-size:9pt;height:15pt;padding-top:3pt;margin-left:3pt">
+                    <a href="/util/kmlaboard">(수정하기)</a>
                 </div>
             <?php }
             break;
         case 'article-list':
             $one_cat = count($options['article']['cat']) === 1;
-            $cat = $board->getCategory(getOrDefault($options['article']['cat'][0], 139));
-            echo htmlspecialchars(getOrDefault($options['article']['title'], $cat['s_name']));
-            ?>
-            <div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;">
-                <a href="<?php echo '/board/'.($one_cat ? $cat['s_id'] : urlencode(json_encode($options['article'])));?>">더보기</a>
-            </div>
+            $cat = $board->getCategory(getOrDefault($options['article']['cat'][0], 139));?>
+            <a href="<?php echo '/board/'.($one_cat ? $cat['s_id'] : urlencode(json_encode($options['article'])));?>"><?php echo htmlspecialchars(getOrDefault($options['article']['title'], $cat['s_name']));?></a>
             <?php
             break;
         case 'gallery':
             ?>
-            갤러리
-            <div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;"><a href="/board/all_gallery">모두 보기</a></div>
+            <a href="/board/all_gallery">갤러리</a>
             <?php
             break;
     }
