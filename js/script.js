@@ -665,6 +665,16 @@ function addModule(json) {
     });
 }
 
+function setDragAndDrop(set) {
+    if(set) {
+        $(".main-block-close").animate({width: 24, "margin-left": 5, "border-width": 1, opacity: 1}, 300);
+        $('.grid-stack').data('gridstack').enable();
+    } else {
+        $(".main-block-close").animate({width: 0, "margin-left":0, "border-width": 0, opacity: 0}, 300);
+        $('.grid-stack').data('gridstack').disable();
+    }
+}
+
 function editStatusMessageShow() {
     $("#status_message").css("display", "none");
     $("#status_message_edit").css("display", "block");
