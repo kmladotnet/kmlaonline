@@ -510,6 +510,25 @@ function mainGridToJSON() {
     return JSON.stringify(result);
 }
 
+function bindAddModuleButton() {
+    $("#add-module").on('change', function(event) {
+        var name = $("#add-module").val();
+        $.post("ajax/user/getmoduledefaults", {
+            "name": name,
+            ajax: 1
+        }, function (data) {
+            var grid = $('.grid-stack').data('gridstack');
+            grid.add_widget($(data), 0, 0, 4, 4);
+            bindModuleCloseButton();
+            bindModuleReloadButton();
+            $(".grid-stack-item:not([data-module-name])").attr("data-module-name", name);
+            updateModules();
+        });
+        $("#add-module").val('');
+        return false;
+    });
+}
+
 function bindModuleCloseButton() {
     $(".main-block-close").unbind("click").click(function () {
         var toDelete = this;
@@ -543,25 +562,6 @@ function bindModuleCloseButton() {
     });
 }
 
-function bindAddModuleButton() {
-    $("#add-module").on('change', function(event) {
-        var name = $("#add-module").val();
-        $.post("ajax/user/getmoduledefaults", {
-            "name": name,
-            ajax: 1
-        }, function (data) {
-            var grid = $('.grid-stack').data('gridstack');
-            grid.add_widget($(data), 0, 0, 4, 4);
-            bindModuleCloseButton();
-            bindModuleReloadButton();
-            $(".grid-stack-item:not([data-module-name])").attr("data-module-name", name);
-            updateModules();
-        });
-        $("#add-module").val('');
-        return false;
-    });
-}
-
 function bindModuleReloadButton() {
     $(".main-block-reload").unbind("click").click(function () {
         var module = $(this).closest(".grid-stack-item");
@@ -582,6 +582,14 @@ function bindModuleReloadButton() {
             }
         });
     });
+}
+
+function toggleOptions(show, element) {
+    var mainBlock = element.closest(".main-block");
+    var toShow = mainBlock.find(show ? ".main-block-options-pane" : ".main-block-content");
+    var toHide = mainBlock.find(show ? ".main-block-content" : ".main-block-options-pane");
+    toShow.slideDown(300);
+    toHide.slideUp(300);
 }
 
 function resetMainLayout() {

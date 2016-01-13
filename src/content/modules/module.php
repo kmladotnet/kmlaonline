@@ -90,7 +90,7 @@ function moduleContents($module_name, $options) {
                 <button class="main-block-reload main-block-button btn btn-default" type="button">
                     <span class="glyphicon glyphicon-refresh"></span>
                 </button>
-                <button class="main-block-options main-block-button btn btn-default" type="button">
+                <button class="main-block-options main-block-button btn btn-default" type="button" data-toggle="button" onclick="toggleOptions(!$(this).hasClass('active'), $(this));">
                     <span class="glyphicon glyphicon-cog"></span>
                 </button>
                 <div class="main-block-title-content">
@@ -104,6 +104,9 @@ function moduleContents($module_name, $options) {
                 <?php
                 moduleContent($module_name, $options);
                 ?>
+            </div>
+            <div class="main-block-options-pane">
+                준비중입니다...
             </div>
         </div>
     </div>

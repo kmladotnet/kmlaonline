@@ -508,10 +508,13 @@ div#upper-header-holder{
 .main-block-title-content {
 	overflow: hidden;
 }
-.main-block-content{
+.main-block-content, .main-block-options-pane{
     height: calc(100% - 40px);
     overflow: auto;
     padding: 5px;
+}
+.main-block-options-pane{
+    display:none;
 }
 .main-block-button{
     float:right;
