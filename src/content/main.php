@@ -45,7 +45,6 @@ function printContentPc(){
 
         <div class="grid-stack">
             <?php
-                    mkdir("data/user/main_layout");
                     $default_options = <<<JSON
                     [
                        {
