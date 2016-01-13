@@ -49,7 +49,6 @@
                 e = 0;
             f.css({
                 overflow: "hidden",
-                position: "relative"
             }).children("ul").css({
                 position: "absolute",
                 margin: 0,

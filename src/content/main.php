@@ -19,7 +19,7 @@ function printContentPc(){
 			<tr>
 				<td style="width:600px;">
 					<div class="main-block">
-						<iframe src="/fetch_kmla_announcements.php" style="border:0;width:100%;height:67px;margin:0;padding:5px 0 2px 7px;overflow:hidden;border-box" scrolling="no" seamless="seamless" frameBorder="0" allowtransparency="true"></iframe>
+						<iframe src="/fetch_kmla_announcements.php" style="border:0;width:100%;height:67px;margin:0;overflow:hidden;border-box" scrolling="no" seamless="seamless" frameBorder="0" allowtransparency="true"></iframe>
 					</div>
 				</td>
 				<td style="vertical-align:top">
