@@ -546,7 +546,7 @@ function bindModuleCloseButton() {
 function bindAddModuleButton() {
     $("#add-module-form").submit(function(event) {
         $.post("ajax/user/getmoduledefaults", {
-            "name": $("#add-module-form input[name='module-name']"),
+            "name": $("#add-module-form select[name='module-name']").val(),
             ajax: 1
         }, function (data) {
             var grid = $('.grid-stack').data('gridstack');
