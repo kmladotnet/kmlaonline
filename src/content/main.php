@@ -194,8 +194,12 @@ JSON
             animate: true,
             cell_height: 64,
             vertical_margin: 4,
+            always_show_resize_handle: true,
             draggable: {
                 handle: '.main-block-title',
+            },
+            resizable: {
+                handles: 'e, se, s, sw, w'
             }
         };
         $('.grid-stack').gridstack(options);
