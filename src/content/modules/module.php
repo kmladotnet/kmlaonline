@@ -7,14 +7,14 @@ function moduleTitle($module_name, $options) {
             ?>
             꼭 보세요
             <div style="font-size:9pt;display: inline-block; margin-left:3pt">
-                <a href="/util/important">
+                <button class="btn btn-link" href="/util/important" style="padding: 0;">
                     신청목록 보기
                     <?php
                     $res=$mysqli->query("SELECT count(*) FROM kmlaonline_important_notices_table WHERE n_state=0");
                     $res=$res->fetch_array();
                     if($res[0]>0) echo " ({$res[0]})";
                     ?>
-                </a>
+                </button>
             </div>
             <?php
             break;
@@ -29,7 +29,9 @@ function moduleTitle($module_name, $options) {
             큼라보드
             <?php if(isUserPermitted($me['n_id'], "kmlaboard_changer")){ ?>
                 <div style="font-size:9pt;display: inline-block;margin-left:3pt">
-                    <a href="/util/kmlaboard">(수정하기)</a>
+                <button class="btn btn-link" href="/util/important" style="padding: 0;">
+                    (수정하기)
+                </button>
                 </div>
             <?php }
             break;
