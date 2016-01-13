@@ -11,7 +11,7 @@ function printContentPc(){
 	<div style="padding:6px;">
 		<table style="width:100%;" class="notableborder-direct">
 			<tr>
-				<td style="width:600px;padding-left:2px">
+				<td style="padding-left:2px">
 					<div class="main-block">
 						<iframe src="/fetch_kmla_announcements.php" style="border:0;width:100%;height:67px;margin:0;overflow:hidden;border-box" scrolling="no" seamless="seamless" frameBorder="0" allowtransparency="true"></iframe>
 					</div>
