@@ -545,16 +545,16 @@ function bindModuleCloseButton() {
 
 function bindAddModuleButton() {
     $("#add-module-form").submit(function(event) {
+        var name = $("#add-module-form select[name='module-name']").val();
         $.post("ajax/user/getmoduledefaults", {
-            "name": $("#add-module-form select[name='module-name']").val(),
+            "name": name,
             ajax: 1
         }, function (data) {
             var grid = $('.grid-stack').data('gridstack');
-            var dat = JSON.parse(json);
             grid.add_widget($(data), 0, 0, 4, 4);
             bindModuleCloseButton();
             bindModuleReloadButton();
-            $(".grid-stack-item:not([data-module-name])").attr("data-module-name", dat["name"]).attr("data-module-options", JSON.stringify(dat["options"]["options"]));
+            $(".grid-stack-item:not([data-module-name])").attr("data-module-name", name);
             updateModules();
         });
         return false;
