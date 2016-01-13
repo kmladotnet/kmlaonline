@@ -29,6 +29,7 @@ function printContentPc(){
 		</table>
         <button type="button" class="btn btn-danger" onclick="resetMainLayout()">초기화</button>
         <select id="add-module" class="selectpicker" data-style="btn-success" data-size="10" title="패널 추가">
+            <option value=""></option>
             <option value="important">중요 공지</option>
             <option value="birthday">생일</option>
             <option value="menu">식단</option>

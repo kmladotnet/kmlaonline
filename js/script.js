@@ -557,6 +557,7 @@ function bindAddModuleButton() {
             $(".grid-stack-item:not([data-module-name])").attr("data-module-name", name);
             updateModules();
         });
+        $("#add-module").val('');
         return false;
     });
 }
