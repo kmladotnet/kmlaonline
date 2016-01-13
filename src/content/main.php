@@ -27,6 +27,7 @@ function printContentPc(){
 				</td>
 			</tr>
 		</table>
+        <button type="button" class="btn btn-primary" data-toggle="button" onclick="setDragAndDrop(!$(this).hasClass('active'));">편집 모드</button>
         <button type="button" class="btn btn-danger" onclick="resetMainLayout()">초기화</button>
         <select id="add-module" class="selectpicker" data-style="btn-success" data-size="10" title="패널 추가">
             <option value=""></option>
@@ -194,6 +195,7 @@ JSON
             }
         };
         $('.grid-stack').gridstack(options);
+        $('.grid-stack').data('gridstack').disable();
         $('.grid-stack').on('change', function (e, items) {
             updateModules();
         });
