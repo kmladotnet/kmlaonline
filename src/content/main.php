@@ -28,23 +28,15 @@ function printContentPc(){
 			</tr>
 		</table>
         <button type="button" class="btn btn-danger" onclick="resetMainLayout()">초기화</button>
-        <button type="button" class="btn btn-success" data-toggle="collapse" data-target="#add-module">패널 추가</button>
+        <select id="add-module" class="selectpicker" data-style="btn-success" data-size="10">
+            <option value="important">중요 공지</option>
+            <option value="birthday">생일</option>
+            <option value="menu">식단</option>
+            <option value="kmlaboard">큼라보드</option>
+            <option value="article-list">게시판</option>
+            <option value="gallery">갤러리</option>
+        </select>
 
-        <div id="add-module" class="collapse">
-            <form id="add-module-form" action="javascript:void(0);" onsubmit="">
-                <div class="form-group">
-                    <select name="module-name" class="selectpicker" data-size="5" data-width="100%" style="width:100%">
-                        <option value="important">중요 공지</option>
-                          <option value="birthday">생일</option>
-                          <option value="menu">식단</option>
-                          <option value="kmlaboard">큼라보드</option>
-                          <option value="article-list">게시판</option>
-                          <option value="gallery">갤러리</option>
-                    </select>
-                </div>
-                <input type="submit" class="btn btn-primary" value="만들기" />
-            </form>
-        </div>
         <div class="grid-stack">
             <?php
                     $default_options = <<<JSON

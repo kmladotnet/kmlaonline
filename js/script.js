@@ -544,8 +544,8 @@ function bindModuleCloseButton() {
 }
 
 function bindAddModuleButton() {
-    $("#add-module-form").submit(function(event) {
-        var name = $("#add-module-form select[name='module-name']").val();
+    $("#add-module").on('change', function(event) {
+        var name = $("#add-module").val();
         $.post("ajax/user/getmoduledefaults", {
             "name": name,
             ajax: 1
@@ -557,7 +557,6 @@ function bindAddModuleButton() {
             $(".grid-stack-item:not([data-module-name])").attr("data-module-name", name);
             updateModules();
         });
-        event.preventDefault();
         return false;
     });
 }
