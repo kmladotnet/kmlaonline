@@ -498,7 +498,6 @@ div#upper-header-holder{
 .main-block-title{
 	font-size:15pt;
 	font-weight:bold;
-    cursor:move;
     height:40px;
 	padding:10px;
 	border-bottom:1px solid #EEE;
@@ -524,6 +523,10 @@ div#upper-header-holder{
 }
 
 .main-block-close, .main-block-close:hover{
+    width: 0px;
+    border-width: 0px;
+    margin-left: 0px;
+    opacity: 0;
     color: #d9534f;
 }
 .main-block-reload, .main-block-reload:hover{
