@@ -19,12 +19,10 @@ function moduleTitle($module_name, $options) {
             <?php
             break;
         case 'birthday':
-            ?> <img src="/theme/dev/birthday.png" style="width:32px;" /> 생일! <?php
+            ?>생일<?php
             break;
         case 'menu':
-            ?>
-            <img src="/theme/dev/food.png" style="width:32px;" /> 식단!
-            <?php
+            ?>식단<?php
             break;
         case 'kmlaboard':
             ?>
