@@ -1,6 +1,7 @@
 <?php
 $title=lang("user","register","title") . " - " . $title;
 function printContent(){ ?>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 	<!--<script type="text/javascript">alert("가입 기간이 아닙니다.");location.href="/";</script>-->
 	<?php
 	global $max_level;
