@@ -588,8 +588,8 @@ function toggleOptions(show, element) {
     var mainBlock = element.closest(".main-block");
     var toShow = mainBlock.find(show ? ".main-block-options-pane" : ".main-block-content");
     var toHide = mainBlock.find(show ? ".main-block-content" : ".main-block-options-pane");
-    toShow.slideDown(300);
-    toHide.slideUp(300);
+    toShow.fadeIn(200);
+    toHide.fadeOut(200);
 }
 
 function resetMainLayout() {
