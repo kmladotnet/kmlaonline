@@ -558,6 +558,7 @@ function bindAddModuleButton() {
             updateModules();
         });
         event.preventDefault();
+        return false;
     });
 }
 
