@@ -665,14 +665,16 @@ function addModule(json) {
     });
 }
 
-function setDragAndDrop(set) {
+function toggleLayoutEditing(set) {
     if(set) {
         $(".main-block-close").animate({width: 24, "margin-left": 5, "border-width": 1, opacity: 1}, 300);
         $(".main-block-title").css("cursor", "move");
+        $("#main-edit-pane").slideDown(300);
         $('.grid-stack').data('gridstack').enable();
     } else {
         $(".main-block-close").animate({width: 0, "margin-left":0, "border-width": 0, opacity: 0}, 300);
         $(".main-block-title").css("cursor", "default");
+        $("#main-edit-pane").slideUp(300);
         $('.grid-stack').data('gridstack').disable();
     }
 }

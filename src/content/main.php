@@ -14,7 +14,7 @@ function printContentPc(){
             공사중입니다! (~1/30) 예고 없이 사용자 지정 레이아웃이 초기화될 수 있습니다.
         </h1>
     </div>
-	<div style="padding:5px;">
+	<div style="padding:6px;">
 		<table style="width:100%;" class="notableborder-direct">
 			<tr>
 				<td style="width:600px;">
@@ -27,17 +27,21 @@ function printContentPc(){
 				</td>
 			</tr>
 		</table>
-        <button type="button" class="btn btn-primary" data-toggle="button" onclick="setDragAndDrop(!$(this).hasClass('active'));">편집 모드</button>
-        <button type="button" class="btn btn-danger" onclick="resetMainLayout()">초기화</button>
-        <select id="add-module" class="selectpicker" data-style="btn-success" data-size="10" title="패널 추가">
-            <option value=""></option>
-            <option value="important">중요 공지</option>
-            <option value="birthday">생일</option>
-            <option value="menu">식단</option>
-            <option value="kmlaboard">큼라보드</option>
-            <option value="article-list">게시판</option>
-            <option value="gallery">갤러리</option>
-        </select>
+        <div style="padding: 6px">
+        <button type="button" class="btn btn-primary" data-toggle="button" onclick="toggleLayoutEditing(!$(this).hasClass('active'));">편집 모드</button>
+            <div id="main-edit-pane" style="display:none">
+                <button type="button" class="btn btn-danger" onclick="resetMainLayout()">초기화</button>
+                <select id="add-module" class="selectpicker" data-style="btn-success" data-size="10" title="패널 추가">
+                    <option value=""></option>
+                    <option value="important">중요 공지</option>
+                    <option value="birthday">생일</option>
+                    <option value="menu">식단</option>
+                    <option value="kmlaboard">큼라보드</option>
+                    <option value="article-list">게시판</option>
+                    <option value="gallery">갤러리</option>
+                </select>
+            </div>
+        </div>
 
         <div class="grid-stack">
             <?php
