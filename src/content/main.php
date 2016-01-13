@@ -44,9 +44,6 @@ function printContentPc(){
                 </div>
                 <input type="submit" class="btn btn-primary" value="만들기" />
             </form>
-            <script>
-                bindAddModuleButton();
-            </script>
         </div>
         <div class="grid-stack">
             <?php
@@ -210,6 +207,7 @@ JSON
     });
     bindModuleCloseButton();
     bindModuleReloadButton();
+    bindAddModuleButton();
     </script>
 	<?php
 }
