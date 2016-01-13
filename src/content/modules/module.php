@@ -95,6 +95,9 @@ function moduleContents($module_name, $options) {
                 <button class="main-block-reload main-block-button btn btn-default" type="button">
                     <span class="glyphicon glyphicon-refresh"></span>
                 </button>
+                <button class="main-block-options main-block-button btn btn-default" type="button">
+                    <span class="glyphicon glyphicon-cog"></span>
+                </button>
                 <div class="main-block-title-content">
                     <?php
                     moduleTitle($module_name, $options);

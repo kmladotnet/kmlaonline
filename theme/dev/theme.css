@@ -516,18 +516,21 @@ div#upper-header-holder{
 }
 .main-block-button{
     float:right;
-    margin: 0 0 0 10px;
+    margin: 0 0 0 5px;
     padding:0px;
     border-radius: 50%;
     width: 24px;
     height: 24px;
 }
 
-.main-block-close, .main-block-close:active{
+.main-block-close, .main-block-close:hover{
     color: #d9534f;
 }
-.main-block-reload, .main-block-reload:active{
+.main-block-reload, .main-block-reload:hover{
     color: #5cb85c;
+}
+.main-block-options, .main-block-options:hover{
+    color: #337ab7;
 }
 
 .main-block-old{
