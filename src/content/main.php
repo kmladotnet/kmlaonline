@@ -30,7 +30,7 @@ function printContentPc(){
         <button type="button" class="btn btn-danger" onclick="resetMainLayout()">초기화</button>
         <button type="button" class="btn btn-success" data-toggle="collapse" data-target="#add-module">패널 추가</button>
 
-        <div id="add-module">
+        <div id="add-module" class="collapse">
             준비중입니다... ㅠㅠ
         </div>
         <div class="grid-stack">
