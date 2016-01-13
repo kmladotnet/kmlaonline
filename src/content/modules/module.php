@@ -6,7 +6,7 @@ function moduleTitle($module_name, $options) {
         case 'important':
             ?>
             꼭 보세요
-            <div style="font-size:9pt;height:15pt;padding-top:3pt; margin-left:3pt">
+            <div style="font-size:9pt;display: inline-block; margin-left:3pt">
                 <a href="/util/important">
                     신청목록 보기
                     <?php
@@ -28,7 +28,7 @@ function moduleTitle($module_name, $options) {
             ?>
             큼라보드
             <?php if(isUserPermitted($me['n_id'], "kmlaboard_changer")){ ?>
-                <div style="font-size:9pt;height:15pt;padding-top:3pt;margin-left:3pt">
+                <div style="font-size:9pt;display: inline-block;margin-left:3pt">
                     <a href="/util/kmlaboard">(수정하기)</a>
                 </div>
             <?php }
