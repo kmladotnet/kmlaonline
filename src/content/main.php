@@ -31,7 +31,21 @@ function printContentPc(){
         <button type="button" class="btn btn-success" data-toggle="collapse" data-target="#add-module">패널 추가</button>
 
         <div id="add-module" class="collapse">
-            준비중입니다... ㅠㅠ
+            <form id="add-module-form">
+                <div class="form-group">
+                    <select name="module-name" class="selectpicker" data-size="5" data-width="100%" style="width:100%">
+                        <option value="important">중요 공지</option>
+                          <option value="birthday">생일</option>
+                          <option value="menu">식단</option>
+                          <option value="kmlaboard">큼라보드</option>
+                          <option value="article-list">게시판</option>
+                          <option value="gallery">갤러리</option>
+                    </select>
+                </div>
+            </form>
+            <script>
+                bindAddModuleButton();
+            </script>
         </div>
         <div class="grid-stack">
             <?php

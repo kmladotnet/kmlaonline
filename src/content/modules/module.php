@@ -128,6 +128,28 @@ function getModule($module_name, $options, $x, $y, $w, $h) {
 <?php
 }
 
+function defaultOptions($module_name) {
+    switch($module_name) {
+        case 'important':
+            break;
+        case 'birthday':
+            break;
+        case 'menu':
+            break;
+        case 'kmlaboard':
+            break;
+        case 'article-list':
+            break;
+        case 'gallery':
+            break;
+    }
+    return array();
+}
+
+function defaultModule($module_name) {
+    moduleContents($module_name, defaultOptions($module_name));
+}
+
 function allModules($modules) {
     foreach($modules as $module) {
         getModule($module['name'], $module['options']['options'], $module['options']['x'], $module['options']['y'], $module['options']['w'], $module['options']['h']);

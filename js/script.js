@@ -543,6 +543,24 @@ function bindModuleCloseButton() {
     });
 }
 
+function bindAddModuleButton() {
+    $("#add-module-form").submit(function(event) {
+        $.post("ajax/user/getmoduledefaults", {
+            "name": $("#add-module-form input[name='module-name']"),
+            ajax: 1
+        }, function (data) {
+            var grid = $('.grid-stack').data('gridstack');
+            var dat = JSON.parse(json);
+            grid.add_widget($(data), 0, 0, 4, 4);
+            bindModuleCloseButton();
+            bindModuleReloadButton();
+            $(".grid-stack-item:not([data-module-name])").attr("data-module-name", dat["name"]).attr("data-module-options", JSON.stringify(dat["options"]["options"]));
+            updateModules();
+        });
+    });
+
+}
+
 function bindModuleReloadButton() {
     $(".main-block-reload").unbind("click").click(function () {
         var module = $(this).closest(".grid-stack-item");
