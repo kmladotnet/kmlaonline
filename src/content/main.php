@@ -8,16 +8,10 @@ function printContent(){
 function printContentPc(){
 	global $member, $me, $is_morning, $is_afternoon, $is_night, $mysqli, $board, $user;
 	?>
-    <div>
-        <h1>
-            <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
-            공사중입니다! (~1/30) 예고 없이 사용자 지정 레이아웃이 초기화될 수 있습니다.
-        </h1>
-    </div>
 	<div style="padding:6px;">
 		<table style="width:100%;" class="notableborder-direct">
 			<tr>
-				<td style="width:600px;">
+				<td style="width:600px;padding-left:2px">
 					<div class="main-block">
 						<iframe src="/fetch_kmla_announcements.php" style="border:0;width:100%;height:67px;margin:0;overflow:hidden;border-box" scrolling="no" seamless="seamless" frameBorder="0" allowtransparency="true"></iframe>
 					</div>
