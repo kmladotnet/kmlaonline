@@ -504,6 +504,7 @@ div#upper-header-holder{
 	border-bottom:1px solid #EEE;
 	background: #FCFCFC;
 	text-align: left;
+    white-space: nowrap;
 }
 .main-block-title-content {
 	overflow: hidden;
