@@ -152,7 +152,7 @@ function defaultModule($module_name) {
 
 function allModules($modules) {
     foreach($modules as $module) {
-        getModule($module['name'], array_key_exists($module, 'options') ? $module['options']['options'] : defaultOptions($module['name']), $module['options']['x'], $module['options']['y'], $module['options']['w'], $module['options']['h']);
+        getModule($module['name'], array_key_exists('options', $module) ? $module['options']['options'] : defaultOptions($module['name']), $module['options']['x'], $module['options']['y'], $module['options']['w'], $module['options']['h']);
     }
 }
 ?>
