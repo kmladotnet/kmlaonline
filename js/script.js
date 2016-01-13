@@ -557,9 +557,8 @@ function bindAddModuleButton() {
             $(".grid-stack-item:not([data-module-name])").attr("data-module-name", name);
             updateModules();
         });
-        return false;
+        event.preventDefault();
     });
-
 }
 
 function bindModuleReloadButton() {
