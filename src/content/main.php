@@ -42,6 +42,7 @@ function printContentPc(){
                           <option value="gallery">갤러리</option>
                     </select>
                 </div>
+                <input type="submit" class="btn btn-primary" value="만들기" />
             </form>
             <script>
                 bindAddModuleButton();
