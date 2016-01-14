@@ -521,6 +521,7 @@ function bindAddModuleButton() {
             grid.add_widget($(data), 0, 0, 4, 4);
             bindModuleCloseButton();
             bindModuleReloadButton();
+            $(".main-block-close").css({width: 24, "margin-left": 5, "border-width": 1, opacity: 1});
             $(".grid-stack-item:not([data-module-name])").attr("data-module-name", name);
             updateModules();
         });
