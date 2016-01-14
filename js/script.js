@@ -547,6 +547,9 @@ function bindModuleReloadButton() {
             module.html(data);
             bindModuleCloseButton();
             bindModuleReloadButton();
+            if($("#main-edit-button").hasClass('active')) {
+                $(".main-block-close").css({width: 24, "margin-left": 5, "border-width": 1, opacity: 1});
+            }
         });
         new PNotify({
             text: '새로고침 했습니다.',

@@ -22,7 +22,7 @@ function printContentPc(){
 			</tr>
 		</table>
         <div style="padding: 6px">
-        <button type="button" class="btn btn-primary" data-toggle="button" onclick="toggleLayoutEditing(!$(this).hasClass('active'));">편집 모드</button>
+        <button type="button" id="main-edit-button" class="btn btn-primary" data-toggle="button" onclick="toggleLayoutEditing(!$(this).hasClass('active'));">편집 모드</button>
             <div id="main-edit-pane" style="margin-top: 6px; display:none">
                 <button type="button" class="btn btn-danger" onclick="resetMainLayout()">초기화</button>
                 <select id="add-module" class="selectpicker" data-style="btn-success" data-size="10" title="패널 추가">
