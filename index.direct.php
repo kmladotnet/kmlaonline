@@ -6,46 +6,12 @@
     <meta charset="utf-8" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <base href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/" />
-
-    <!-- jquery -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-
-    <!-- velocity -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
-
-    <!-- bootstrap -->
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap-theme.min.css" />
-    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-    <!-- fontawesome -->
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" />
-
-    <!-- bootstrap-select -->
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/2.0.0-beta1/css/bootstrap-select.min.css" />
-    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.9.3/js/bootstrap-select.min.js"></script>
-
-    <!-- gridstack -->
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.3/gridstack.css" />
-    <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.0.0/lodash.min.js"></script>
+    <script src="//cdn.jsdelivr.net/g/jquery@2.1.4,jquery.ui@1.11.4,lodash@3.10.1,pnotify@2.0.0,bootstrap@3.3.6,jquery.datatables@1.10.10(js/jquery.dataTables.min.js+js/dataTables.bootstrap.min.js),bootstrap.select@2.0.0-beta1"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.3/gridstack.min.js"></script>
-
-    <!-- pnotify -->
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pnotify/3.0.0/pnotify.min.css" />
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pnotify/3.0.0/pnotify.brighttheme.min.css" />
+    <script src="//cdn.ckeditor.com/4.5.6/full/ckeditor.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/pnotify/3.0.0/pnotify.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/pnotify/3.0.0/pnotify.confirm.min.js"></script>
-
-    <!-- datatables -->
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.10.10/css/dataTables.bootstrap.min.css" />
-    <script src="//cdnjs.cloudflare.com/ajax/libs/datatables/1.10.10/js/jquery.dataTables.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/datatables/1.10.10/js/dataTables.bootstrap.min.js"></script>
-
-    <!-- ckeditor -->
-    <script src="//cdn.ckeditor.com/4.5.6/full/ckeditor.js"></script>
-
-    <!-- other -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.9.0/validator.min.js"></script>
     <script src="/js/lightbox.js" charset="utf-8"></script>
     <script src="/swfupload/swfupload.js" charset="utf-8"></script>
     <script src="/swfupload/swfupload.queue.js" charset="utf-8"></script>
@@ -56,6 +22,14 @@
         snowStorm.snowColor = '#99ccff';
         snowStorm.freezeOnBlur = true;
     </script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/2.0.0-beta1/css/bootstrap-select.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.10.10/css/dataTables.bootstrap.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.3/gridstack.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pnotify/3.0.0/pnotify.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pnotify/3.0.0/pnotify.brighttheme.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="/css/lightbox.css" charset="utf-8" type="text/css" media="screen" />
     <link rel="stylesheet" href="/css/font.css" charset="utf-8" type="text/css" media="screen" />
     <title>
