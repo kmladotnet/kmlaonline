@@ -532,34 +532,8 @@ function bindAddModuleButton() {
 
 function bindModuleCloseButton() {
     $(".main-block-close").unbind("click").click(function () {
-        var toDelete = this;
-        (new PNotify({
-            title: '정말로 패널을 지울까요?',
-            icon: 'glyphicon glyphicon-question-sign',
-            hide: false,
-            confirm: {
-                confirm: true
-            },
-            buttons: {
-                closer: false,
-                sticker: false
-            },
-            history: {
-                history: false
-            }
-        })).get().on('pnotify.confirm', function () {
-            $('.grid-stack').data('gridstack').remove_widget($(toDelete).closest(".grid-stack-item"));
-            updateModules();
-        }).on('pnotify.cancel', function () {
-            new PNotify({
-                text: '취소했습니다.',
-                type: 'info',
-                buttons: {
-                    closer: false,
-                    sticker: false
-                }
-            });
-        });
+        $('.grid-stack').data('gridstack').remove_widget($(this).closest(".grid-stack-item"));
+        updateModules();
     });
 }
 
