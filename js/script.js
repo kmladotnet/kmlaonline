@@ -782,7 +782,7 @@ function smoothToggleVisibility(itm, a) {
                 duration: 200
             });
         else
-            itm..velocity("finish", true).velocity("slideDown", {duration: 200, easing: "easeOutCubic"}).velocity({
+            itm.velocity("finish", true).velocity("slideDown", {duration: 200, easing: "easeOutCubic"}).velocity({
                 opacity: 1
             }, {
                 queue: false,
