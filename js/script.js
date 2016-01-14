@@ -87,23 +87,23 @@ function checkAjaxReturnedData(ret) {
 function showLoading(opername) {
     $("#divSavingIndicatorFiller").height($(document).height());
     $("#divSavingIndicatorFiller").css("display", "block");
-    $("#divSavingIndicatorFiller").css('opacity', 0);
-    $("#divSavingIndicatorFiller").velocity(200, 0.7);
+    $("#divSavingIndicatorFiller").fadeTo(0, 0);
+    $("#divSavingIndicatorFiller").fadeTo(200, 0.7);
     $("#divSavingIndicator").height($(document).height());
     $("#divSavingIndicator").css("display", "block");
-    $("#divSavingIndicator").css("opacity", 100);
+    $("#divSavingIndicator").fadeIn(0);
     $("#spnWhatAmIDoing").html(opername);
     $("#cancelAjax").prop("disabled", "disabled");
     window.ajaxCancelTimer = setTimeout("$('#cancelAjax').removeAttr('disabled');", 5000);
-    //$('html, body').velocity({ scrollTop: 0 }, 200);
+    //$('html, body').animate({ scrollTop: 0 }, 200);
 }
 
 function hideLoading() {
     if (window.ajaxCancelTimer) clearTimeout(window.ajaxCancelTimer);
     window.ajaxCancelTimer = null;
     $('#cancelAjax').removeAttr('disabled');
-    $("#divSavingIndicatorFiller").velocity("fadeOut", {duration: 200});
-    $("#divSavingIndicator").velocity("fadeOut", {duration: 200});
+    $("#divSavingIndicatorFiller").fadeOut(200);
+    $("#divSavingIndicator").fadeOut(200);
 }
 
 function saveAjax(obj, opername, ckeditor, callafter) {
@@ -168,11 +168,11 @@ function showSlidedown(i, visib) {
         showSlidedown(2, false);
         showSlidedown(3, false);
         $("#slidedown" + i + "_button").addClass("slidedown_button_pressed");
-        $("#slidedown" + i + "_sub").velocity("finish", true).velocity("slideDown", {duration: 200, easing: "easeOutCubic"});
+        $("#slidedown" + i + "_sub").stop(true, true).slideDown(200, "easeOutCubic");
     } else {
         if (!$("#slidedown" + i + "_sub").is(":visible")) return;
         $("#slidedown" + i + "_button").removeClass("slidedown_button_pressed");
-        $("#slidedown" + i + "_sub").velocity("finish", true).velocity("slideUp", {duration: 200, easing: "easeOutCubic"});
+        $("#slidedown" + i + "_sub").stop(true, true).slideUp(200, "easeOutCubic");
     }
 }
 var upperHeaderVisible = false;
@@ -242,19 +242,19 @@ function loadUpperHeader(theurl, placeTo, immediate) {
 }
 
 function showUpperHeader(itm) {
-    $("#upper-header-menu").find(".upper-menus").not("#" + itm).velocity("finish", true).velocity({
+    $("#upper-header-menu").find(".upper-menus").not("#" + itm).stop(true, true).animate({
         opacity: 0,
         height: 0
     }, 500, function () {
         $(this).css("display", "none");
     });
-    $("#" + itm).velocity("finish", true).css("display", "block").velocity({
+    $("#" + itm).stop(true, true).css("display", "block").animate({
         opacity: 1,
         height: $(window).height() + "px"
     }, 500, "swing", function () {
         $(this).height("auto");
     });
-    $('html,body').velocity({
+    $('html,body').animate({
         scrollTop: 0
     }, 500);
     if ((toload = $("#" + itm).find(".ajax-holder")).length) {
@@ -265,11 +265,11 @@ function showUpperHeader(itm) {
         return;
     }
 
-    $("#upper-header-menu-kept-visible").velocity({
+    $("#upper-header-menu-kept-visible").animate({
         height: ($("#upper-header-menu-kept-visible").find(".menu2").length * 81) + "px"
     }, 500);
 
-    $("#upper-header-menu").velocity("finish", true).velocity({
+    $("#upper-header-menu").stop(true, true).animate({
         opacity: 1,
         height: ($(window).height() - $("#total-header-menu").height()) + "px"
     }, 500, "swing", function () {
@@ -281,25 +281,25 @@ function showUpperHeader(itm) {
         $("#total-wrap").css("background", "white");
     });
 
-    $("#below-header-menu").velocity({
+    $("#below-header-menu").animate({
         height: 0,
         opacity: 0.7
     }, 500);
 
-    $("#upper-header-menu-close").velocity({
+    $("#upper-header-menu-close").animate({
         opacity: 1,
         height: "80px"
     }, 500);
 
-    $("#total-header-menu-menus").children(".menu1").not("#upper-header-menu-kept-visible").velocity({
+    $("#total-header-menu-menus").children(".menu1").not("#upper-header-menu-kept-visible").animate({
         height: 0,
         opacity: 0.7
     }, 500);
     $("div.menu1").off("mouseenter").off("mouseleave");
     $("div#total-header-menu .slidedown").css("top", "auto").css("bottom", "0");
     upperHeaderVisible = true;
-    $(".hide-on-upper-panel").velocity("fadeOut", {duration: 500});
-    $("#behind-total-wrap").velocity("fadeOut", {duration: 500});
+    $(".hide-on-upper-panel").fadeOut(500);
+    $("#behind-total-wrap").fadeIn(500);
 }
 
 function hideUpperHeader() {
@@ -308,21 +308,21 @@ function hideUpperHeader() {
     $("#total-wrap").css("height", "auto");
     $("#upper-header-menu").css("height", ($(window).height() - $("#total-header-menu").height()) + "px");
     $("#total-header-menu").css("position", "static");
-    $("#upper-header-menu").velocity("finish", true).velocity({
+    $("#upper-header-menu").stop(true, true).animate({
         opacity: 0.7,
         height: 0
     }, 500);
-    $("#below-header-menu").velocity({
+    $("#below-header-menu").animate({
         height: $("#below-header-menu").children().height() + "px",
         opacity: 1
     }, 500, "swing", function () {
         $(this).height("auto");
     });
-    $("#upper-header-menu-close").velocity({
+    $("#upper-header-menu-close").animate({
         opacity: 0.7,
         height: 0
     }, 500);
-    $("#total-header-menu-menus").children(".menu1").velocity({
+    $("#total-header-menu-menus").children(".menu1").animate({
         height: "80px",
         opacity: 1
     }, 500);
@@ -331,8 +331,8 @@ function hideUpperHeader() {
     upperHeaderVisible = false;
     $("#total-header-menu").css("position", "fixed");
     $("#total-header-menu").css("bottom", "");
-    $(".hide-on-upper-panel").velocity("fadeIn", {duration: 500});
-    $("#behind-total-wrap").velocity("fadeOut", {duration: 500});
+    $(".hide-on-upper-panel").fadeIn(500);
+    $("#behind-total-wrap").fadeOut(500);
     prepareHeader();
 }
 
@@ -341,14 +341,14 @@ function closeMenu(ths, force) {
     var obj = t.find(".menu1_sub");
     var obj3 = t.find(".widthholder");
     if (obj.length) {
-        t.velocity("finish", true).velocity({
+        t.stop(true, false).animate({
             height: "40px",
         }, 200, "easeOutCubic");
-        obj3.velocity("finish", true).velocity({}, 200, function () {
+        obj3.stop(true, false).animate({}, 200, function () {
             $(this).css("height", "40px");
             $(this).css("height", "1000px");
         });
-        obj.velocity("finish", true).fadeTo(200, 0);
+        obj.stop(true, false).fadeTo(200, 0);
     }
 }
 
@@ -358,17 +358,17 @@ function showHeader() {
     $("#total-header-menu").slideDown(200, "easeOutCubic");
     var n = 0;
     var f = function () {
-        $($("div.menu1_text")[n++]).velocity({
+        $($("div.menu1_text")[n++]).animate({
             top: 0
         }, 200, "easeOutCubic");
         if (n < $("div.menu1_text").length) setTimeout(f, 20);
     }
     f();
-    $("#menu-logo").velocity({
+    $("#menu-logo").animate({
         left: "0",
         opacity: "1"
     }, 200, "easeOutCubic", function () {});
-    $("#menu-logo-2").velocity({
+    $("#menu-logo-2").animate({
         left: "0",
         opacity: "0"
     }, 200, "easeOutCubic", function () {});
@@ -385,13 +385,13 @@ function prepareHeader() {
         var obj2 = t.find(".widthholder");
         if (obj.length) {
             clearTimeout(closeTimer);
-            t.velocity("finish", true).velocity({
+            t.stop(true, false).animate({
                 height: obj.height() + 40 + "px",
             }, 200, "easeOutCubic");
-            obj2.velocity("finish", true).velocity({
+            obj2.stop(true, true).animate({
                 height: "600px",
             }, 200);
-            obj.velocity("finish", true).fadeTo(200, 1);
+            obj.stop(true, true).fadeTo(200, 1);
             $(".menu1").not(this).each(function (i) {
                 closeMenu(this);
             });
@@ -414,17 +414,17 @@ function prepareHeader() {
             if (scroller > 160) {
                 if (menuShown) {
                     menuShown = false;
-                    $("div.total-header-menu-extend").velocity("slideUp", {duration: 200, easing: "easeOutCubic"});
-                    $("div.menu-shadow").velocity("slideUp", {duration: 200, easing: "easeOutCubic"});
-                    $("#total-header-menu").velocity("slideUp", {duration: 200, easing: "easeOutCubic"});
-                    $("div.menu1_text").velocity({
+                    $("div.total-header-menu-extend").slideUp(200, "easeOutCubic");
+                    $("div.menu-shadow").slideUp(200, "easeOutCubic");
+                    $("#total-header-menu").slideUp(200, "easeOutCubic");
+                    $("div.menu1_text").animate({
                         top: -40
                     }, 200, "easeOutCubic");
-                    $("#menu-logo").velocity("finish", true).velocity({
+                    $("#menu-logo").stop().animate({
                         left: "-40",
                         opacity: "0"
                     }, 200, "easeOutCubic", function () {});
-                    $("#menu-logo-2").velocity({
+                    $("#menu-logo-2").animate({
                         left: "-40",
                         opacity: "1"
                     }, 200, "easeOutCubic", function () {});
@@ -565,7 +565,7 @@ function toggleOptions(show, element) {
     var mainBlock = element.closest(".main-block");
     var toShow = mainBlock.find(show ? ".main-block-options-pane" : ".main-block-content");
     var toHide = mainBlock.find(show ? ".main-block-content" : ".main-block-options-pane");
-    toHide.velocity("fadeOut", {duration: 150, complete: function() { toShow.velocity("fadeIn", {duration: 150}); }});
+    toHide.fadeOut(150, function() { toShow.fadeIn(150); });
 }
 
 function resetMainLayout() {
@@ -651,14 +651,14 @@ function addModule(json) {
 
 function toggleLayoutEditing(set) {
     if(set) {
-        $(".main-block-close").velocity({width: 24, "margin-left": 5, "border-width": 1, opacity: 1}, 300);
+        $(".main-block-close").animate({width: 24, "margin-left": 5, "border-width": 1, opacity: 1}, 300);
         $(".main-block-title").css("cursor", "move");
-        $("#main-edit-pane").velocity("slideDown", {duration: 300, easing: "easeOutCubic"});
+        $("#main-edit-pane").slideDown(300);
         $('.grid-stack').data('gridstack').enable();
     } else {
-        $(".main-block-close").velocity({width: 0, "margin-left":0, "border-width": 0, opacity: 0}, 300);
+        $(".main-block-close").animate({width: 0, "margin-left":0, "border-width": 0, opacity: 0}, 300);
         $(".main-block-title").css("cursor", "default");
-        $("#main-edit-pane").velocity("slideUp", {duration: 300, easing: "easeOutCubic"});
+        $("#main-edit-pane").slideUp(300);
         $('.grid-stack').data('gridstack').disable();
     }
 }
@@ -714,7 +714,7 @@ function changeTab(n, nohistoryedit) {
         obj = $(obj);
         if (i == n) {
             obj.addClass("tab_menu_selected");
-            $("#tab_menu_" + i).velocity("finish", true).velocity("slideDown", {duration: 200, easing: "easeOutCubic"}).velocity({
+            $("#tab_menu_" + i).stop(true, true).slideDown(200).animate({
                 opacity: 1
             }, {
                 queue: false,
@@ -722,7 +722,7 @@ function changeTab(n, nohistoryedit) {
             });
         } else {
             obj.removeClass("tab_menu_selected");
-            $("#tab_menu_" + i).velocity("finish", true).velocity("slideUp", {duration: 200, easing: "easeOutCubic"}).velocity({
+            $("#tab_menu_" + i).stop(true, true).slideUp(200).animate({
                 opacity: 0
             }, {
                 queue: false,
@@ -751,7 +751,7 @@ function refreshCaptcha(obj) {
 }
 
 function scrollToMiddle(top) {
-    $('html,body').velocity({
+    $('html,body').animate({
         scrollTop: top - ($('html,body').height() / 3)
     }, 200);
 }
@@ -760,14 +760,14 @@ function smoothToggleVisibility(itm, a) {
     itm = $(itm);
     if (a) {
         if (a == 1)
-            itm.velocity("finish", true).velocity("slideUp", {duration: 200, easing: "easeOutCubic"}).velocity({
+            itm.stop(true, true).slideUp(200).animate({
                 opacity: 0
             }, {
                 queue: false,
                 duration: 200
             });
         else
-            itm.velocity("finish", true).velocity("slideDown", {duration: 200, easing: "easeOutCubic"}).velocity({
+            itm.stop(true, true).slideDown(200).animate({
                 opacity: 1
             }, {
                 queue: false,
@@ -775,14 +775,14 @@ function smoothToggleVisibility(itm, a) {
             });
     } else {
         if (!itm.is(":hidden"))
-            itm.velocity("finish", true).velocity("slideUp", {duration: 200, easing: "easeOutCubic"}).velocity({
+            itm.stop(true, true).slideUp(200).animate({
                 opacity: 0
             }, {
                 queue: false,
                 duration: 200
             });
         else
-            itm.velocity("finish", true).velocity("slideDown", {duration: 200, easing: "easeOutCubic"}).velocity({
+            itm.stop(true, true).slideDown(200).animate({
                 opacity: 1
             }, {
                 queue: false,
@@ -880,16 +880,18 @@ var falseReturnFunction = function () {
 };
 
 function disableElement(div) {
-    var chider = $('<div class="__hide_contents_link_change"></div>');
+    chider = $('<div class="__hide_contents_link_change"></div>');
     chider.height($(div).height());
     $(div).click(falseReturnFunction).mousedown(falseReturnFunction).mouseup(falseReturnFunction).keydown(falseReturnFunction).keyup(falseReturnFunction).keypress(falseReturnFunction).prepend(chider);
     $(div).css("position", "relative");
-    chider.velocity("finish", true);
+    chider.stop(true, false).fadeTo(0, 0).fadeTo(100, 0.8);
 }
 
 function enableElement(div) {
-    $(div).off("click").off("mousedown").off("mouseup").off("keydown").off("keyup").off("keypress").children(".__hide_contents_link_change").velocity("finish", true).css("opacity", 100).remove();
-    $(div).css("position", "static");
+    $(div).off("click").off("mousedown").off("mouseup").off("keydown").off("keyup").off("keypress").children(".__hide_contents_link_change").stop(true, false).fadeTo(100, 0, function () {
+        $(this).remove();
+        $(div).css("position", "static");
+    });
 }
 
 function navigateBack() {
@@ -1082,24 +1084,26 @@ function flashObject(elem, shortanim) {
     notifier = $("<div id='" + objid + "' style='background:black;display:block;z-index:10;position:absolute;top:0;left:0;width:100%;'></div>");
     totalwrap = $("#total-wrap");
     totalwrap.prepend(notifier);
-    notifier.css({opacity: 0, left: elem.offset().left - totalwrap.offset().left, top: elem.offset().top - totalwrap.offset().top});
+    notifier.fadeTo(0, 0);
+    notifier.css("left", elem.offset().left - totalwrap.offset().left);
+    notifier.css("top", elem.offset().top - totalwrap.offset().top);
     notifier.width(elem.width());
     notifier.height(elem.height());
     if (shortanim)
         setTimeout("$('#" + objid + "').remove();", 400);
     else
         setTimeout("$('#" + objid + "').remove();", 800);
-    notifier.velocity({
+    notifier.animate({
         opacity: 1
     }, 200, function () {
-        notifier.velocity({
+        notifier.animate({
             opacity: 0
         }, 200, function () {
             if (!shortanim)
-                notifier.velocity({
+                notifier.animate({
                     opacity: 0.4
                 }, 200, function () {
-                    notifier.velocity({
+                    notifier.animate({
                         opacity: 0
                     }, 200, function () {
                         notifier.remove();
@@ -1144,6 +1148,25 @@ addLoadEvent(function () {
                 data: $(this).serialize()
             });
         });
+    });
+    $("input[type=text], input[type=password]").focus(function () {
+        $(this).stop(true, false).animate({
+            boxShadow: '0 0 15px #4889b3'
+        }, 200);
+    }).blur(function () {
+        $(this).stop(true, false).animate({
+            boxShadow: '0 0 5px #333333'
+        }, 200);
+    });
+    $("input[type=submit], input[type=button], input[type=reset], button, .upper-file").mouseenter(function () {
+        $(this).stop(true, false).animate({
+            boxShadow: '0 0 5px 0 #4889b3'
+        }, 100);
+        console.log("ENTER");
+    }).mouseleave(function () {
+        $(this).stop(true, false).animate({
+            boxShadow: '0 0 0 0 #4889b3'
+        }, 100);
     });
     $(".upper-file input[type=file]").change(function () {
         if (this.value) {
