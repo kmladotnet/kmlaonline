@@ -386,7 +386,7 @@ function prepareHeader() {
             obj2.velocity("stop", true).velocity({
                 height: "600px",
             }, 200);
-            obj.velocity("stop", true).velocity("fadeIn", {duration: 200});
+            obj.velocity("stop", true).velocity({opacity: 1}, {duration: 200});
             $(".menu1").not(this).each(function (i) {
                 closeMenu(this);
             });
