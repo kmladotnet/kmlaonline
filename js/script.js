@@ -1082,7 +1082,7 @@ function flashObject(elem, shortanim) {
     notifier = $("<div id='" + objid + "' style='background:black;display:block;z-index:10;position:absolute;top:0;left:0;width:100%;'></div>");
     totalwrap = $("#total-wrap");
     totalwrap.prepend(notifier);
-    notifier.css({opacity, 0, left: elem.offset().left - totalwrap.offset().left, top: elem.offset().top - totalwrap.offset().top});
+    notifier.css({opacity: 0, left: elem.offset().left - totalwrap.offset().left, top: elem.offset().top - totalwrap.offset().top});
     notifier.width(elem.width());
     notifier.height(elem.height());
     if (shortanim)
