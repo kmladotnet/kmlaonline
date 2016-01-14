@@ -380,6 +380,8 @@ function prepareHeader() {
         var obj2 = t.find(".widthholder");
         if (obj.length) {
             clearTimeout(closeTimer);
+            if($(obj).css('opacity') === 1)
+                return;
             t.velocity("stop", true).velocity({
                 height: obj.height() + 40,
             }, 200, "easeOutCubic");
