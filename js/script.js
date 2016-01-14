@@ -565,7 +565,7 @@ function toggleOptions(show, element) {
     var mainBlock = element.closest(".main-block");
     var toShow = mainBlock.find(show ? ".main-block-options-pane" : ".main-block-content");
     var toHide = mainBlock.find(show ? ".main-block-content" : ".main-block-options-pane");
-    toHide..velocity("fadeOut", {duration: 150, complete: function() { toShow.velocity("fadeIn", {duration: 150}); }});
+    toHide.velocity("fadeOut", {duration: 150, complete: function() { toShow.velocity("fadeIn", {duration: 150}); }});
 }
 
 function resetMainLayout() {
