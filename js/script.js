@@ -343,10 +343,7 @@ function closeMenu(ths, force) {
         t.velocity("finish", true).velocity({
             height: "40px",
         }, 200, "easeOutCubic");
-        obj3.velocity("finish", true).velocity({}, 200, function () {
-            $(this).css("height", "40px");
-            $(this).css("height", "1000px");
-        });
+        obj3.velocity("finish", true).delay(200).css("height", "40px").css("height", "1000px");
         obj.velocity("finish", true).velocity("fadeOut", {duration: 200});
     }
 }
@@ -366,11 +363,11 @@ function showHeader() {
     $("#menu-logo").velocity({
         left: 0,
         opacity: 1
-    }, 200, "easeOutCubic", function () {});
+    }, 200, "easeOutCubic");
     $("#menu-logo-2").velocity({
         left: 0,
         opacity: 0
-    }, 200, "easeOutCubic", function () {});
+    }, 200, "easeOutCubic");
 }
 
 var closeTimer;
