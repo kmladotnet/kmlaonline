@@ -59,7 +59,6 @@ function checkAjaxReturnedData(ret) {
         delete ret["__other"];
     }
     if (ret["__overriden"]) {
-        debug.info(ret["__overriden"]);
         delete ret["__overriden"];
     }
     for (var i in ret) {
