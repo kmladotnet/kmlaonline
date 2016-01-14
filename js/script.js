@@ -343,7 +343,6 @@ function closeMenu(ths, force) {
         t.velocity("finish", true).velocity({
             height: "40px",
         }, 200, "easeOutCubic");
-        obj3.velocity("finish", true).delay(200).css("height", "40px").css("height", "1000px");
         obj.velocity("finish", true).velocity("fadeOut", {duration: 200});
     }
 }
@@ -387,7 +386,7 @@ function prepareHeader() {
             obj2.velocity("finish", true).velocity({
                 height: "600px",
             }, 200);
-            obj.velocity("finish", true).fadeTo(200, 1);
+            obj.velocity("finish", true).velocity("fadeIn", {duration: 200});
             $(".menu1").not(this).each(function (i) {
                 closeMenu(this);
             });
