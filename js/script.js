@@ -340,10 +340,10 @@ function closeMenu(ths, force) {
     var obj = t.find(".menu1_sub");
     var obj3 = t.find(".widthholder");
     if (obj.length) {
-        t.velocity("finish", true).velocity({
+        t.velocity("stop", true).velocity({
             height: "40px",
         }, 200, "easeOutCubic");
-        obj.velocity("finish", true).velocity("fadeOut", {duration: 200});
+        obj.velocity("stop", true).velocity("fadeOut", {duration: 200});
     }
 }
 
@@ -380,13 +380,13 @@ function prepareHeader() {
         var obj2 = t.find(".widthholder");
         if (obj.length) {
             clearTimeout(closeTimer);
-            t.velocity("finish", true).velocity({
+            t.velocity("stop", true).velocity({
                 height: obj.height() + 40,
             }, 200, "easeOutCubic");
-            obj2.velocity("finish", true).velocity({
+            obj2.velocity("stop", true).velocity({
                 height: "600px",
             }, 200);
-            obj.velocity("finish", true).velocity("fadeIn", {duration: 200});
+            obj.velocity("stop", true).velocity("fadeIn", {duration: 200});
             $(".menu1").not(this).each(function (i) {
                 closeMenu(this);
             });
