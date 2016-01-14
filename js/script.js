@@ -343,7 +343,7 @@ function closeMenu(ths, force) {
         t.velocity("stop", true).velocity({
             height: "40px",
         }, 200, "easeOutCubic");
-        obj.velocity("stop", true).velocity("fadeOut", {duration: 200});
+        obj.velocity("stop", true).velocity({opacity: 0}, {duration: 200});
     }
 }
 
@@ -380,8 +380,6 @@ function prepareHeader() {
         var obj2 = t.find(".widthholder");
         if (obj.length) {
             clearTimeout(closeTimer);
-            if($(obj).css('opacity') === 1)
-                return;
             t.velocity("stop", true).velocity({
                 height: obj.height() + 40,
             }, 200, "easeOutCubic");
