@@ -72,7 +72,7 @@ function moduleContent($module_name, $options) {
             break;
         case 'article-list':
             articleList($board->getArticleList(arrayToCategories($options['cat']), false, 0, 0, 10),
-                        getOrDefault($options['show-cat'], true), getOrDefault($options['show-title'], true),
+                        $options['show-cat'] == "true"), getOrDefault($options['show-title'], true),
                         getOrDefault($options['show-name'], true), getOrDefault($options['show-date'], true));
             break;
         case 'gallery':
@@ -125,8 +125,7 @@ function moduleOptions($module_name, $options) {
                     ?>
                     <div class="checkbox">
                         <label>
-                            <input type="hidden"   name="<?php echo $k; ?>" value="false" />
-                            <input type="checkbox" name="<?php echo $k; ?>" <?php if($options[$k]) echo 'checked'; ?> value="true">
+                            <input type="checkbox" name="<?php echo $k; ?>" <?php if($options[$k]) echo 'checked'; ?>>
                             <?php echo $v; ?> 표시
                         </label>
                     </div>
