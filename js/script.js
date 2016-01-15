@@ -576,10 +576,7 @@ function saveOptionsForm(form) {
     });
     module.data("module-options", options);
     $.post("ajax/user/getmodule", {
-        "json": JSON.stringify(moduleToObject(module), function(key, value) {
-            if(!isNaN(value))
-                return parseInt(value);
-        }),
+        "json": JSON.stringify(moduleToObject(module)),
         "ajax": 1
     }, function (data) {
         module.html(data);
