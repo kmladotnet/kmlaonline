@@ -168,7 +168,7 @@ JSON
         var options = {
             animate: true,
             cell_height: 64,
-            vertical_margin: 4,
+            vertical_margin: 6,
             draggable: {
                 handle: '.main-block-title',
             },

@@ -588,7 +588,7 @@ div.hide-on-upper-panel{
 
 .grid-stack .grid-stack-item .grid-stack-item-content,
 .grid-stack .grid-stack-item .placeholder-content {
-    left: 2px;
-    right: 2px;
+    left: 3px;
+    right: 3px;
     overflow: hidden;
 }
