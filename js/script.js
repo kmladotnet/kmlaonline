@@ -405,7 +405,7 @@ function prepareHeader() {
                     $("div.total-header-menu-extend").velocity("slideUp", {duration: 200, easing: "easeOutCubic"});
                     $("div.menu-shadow").velocity("slideUp", {duration: 200, easing: "easeOutCubic"});
                     $("#total-header-menu").velocity("slideUp", {duration: 200, easing: "easeOutCubic"});
-                    $("div.menu1_text").velocity("transition.perspectiveUpOut", {duration: 200, stagger: 30});
+                    $("div.menu1_text").velocity("transition.perspectiveDownOut", {duration: 200});
                     $("#menu-logo").velocity("finish", true).velocity({
                         left: -40,
                         opacity: 0
