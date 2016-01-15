@@ -587,6 +587,7 @@ function saveOptionsForm(form) {
         options[field.name] = field.value;
     });
     module.data("module-options", options);
+    console.log(moduleToObject(module));
     $.post("ajax/user/getmodule", {
         "json": JSON.stringify(moduleToObject(module)),
         "ajax": 1
