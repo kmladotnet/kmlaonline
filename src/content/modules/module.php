@@ -71,9 +71,7 @@ function moduleContent($module_name, $options) {
             filterContent($dat);
             break;
         case 'article-list':
-            articleList($board->getArticleList(arrayToCategories($options['cat']), false, 0, 0, 10),
-                        $options['show-cat'] == "true"), getOrDefault($options['show-title'], true),
-                        getOrDefault($options['show-name'], true), getOrDefault($options['show-date'], true));
+            articleList($board->getArticleList(arrayToCategories($options['cat']), false, 0, 0, 10),$options['show-cat'], $options['show-title'], $options['show-name'], $options['show-date'],);
             break;
         case 'gallery':
             include('gallery.php');
