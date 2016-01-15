@@ -506,6 +506,7 @@ function bindAddModuleButton() {
             grid.add_widget($(data), 0, 0, 4, 4);
             bindModuleCloseButton();
             bindModuleReloadButton();
+            bindOptionsForm();
             $(".main-block-close").css({width: 24, "margin-left": 5, "border-width": 1, opacity: 1});
             $(".grid-stack-item:not([data-module-name])").attr("data-module-name", name);
             updateModules();
@@ -532,6 +533,7 @@ function bindModuleReloadButton() {
             module.html(data);
             bindModuleCloseButton();
             bindModuleReloadButton();
+            bindOptionsForm();
             if($("#main-edit-button").hasClass('active')) {
                 $(".main-block-close").css({width: 24, "margin-left": 5, "border-width": 1, opacity: 1});
             }
@@ -561,6 +563,7 @@ function saveOptionsForm() {
         module.html(data);
         bindModuleCloseButton();
         bindModuleReloadButton();
+        bindOptionsForm();
         if($("#main-edit-button").hasClass('active')) {
             $(".main-block-close").css({width: 24, "margin-left": 5, "border-width": 1, opacity: 1});
         }
@@ -571,7 +574,6 @@ function bindOptionsForm() {
     $(".main-block-options-form").unbind("submit").submit(function() {
         saveOptionsForm();
     });
-});
 }
 
 function toggleOptions(show, element) {
@@ -657,6 +659,7 @@ function addModule(json) {
         grid.add_widget($(data), 0, 0, 4, 4);
         bindModuleCloseButton();
         bindModuleReloadButton();
+        bindOptionsForm();
         $(".grid-stack-item:not([data-module-name])").attr("data-module-name", dat["name"]).attr("data-module-options", JSON.stringify(dat["options"]["options"]));
         updateModules();
     });

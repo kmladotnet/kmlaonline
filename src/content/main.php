@@ -185,6 +185,7 @@ JSON
     bindModuleCloseButton();
     bindModuleReloadButton();
     bindAddModuleButton();
+    bindOptionsForm();
     </script>
 	<?php
 }
