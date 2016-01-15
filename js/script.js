@@ -571,6 +571,7 @@ function saveOptionsForm(form) {
 }
 
 function bindOptionsForm() {
+    $(".main-block-options-form").submit(false);
     $(".main-block-options-submit").unbind("click").click(function() {
         saveOptionsForm($(this).closest("form"));
     });
