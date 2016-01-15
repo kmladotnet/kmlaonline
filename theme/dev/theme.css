@@ -496,12 +496,10 @@ div#upper-header-holder{
 	background:white;
 }
 .main-block-title{
-	font-size:15pt;
+	font-size:16pt;
 	font-weight:bold;
-    height:40px;
+    height:45px;
 	padding:10px;
-	border-bottom:1px solid #EEE;
-	background: #FCFCFC;
 	text-align: left;
     white-space: nowrap;
 }
@@ -509,9 +507,8 @@ div#upper-header-holder{
 	overflow: hidden;
 }
 .main-block-content, .main-block-options-pane{
-    height: calc(100% - 40px);
+    height: calc(100% - 45px);
     overflow: auto;
-    padding: 5px;
 }
 .main-block-options-pane{
     display:none;
