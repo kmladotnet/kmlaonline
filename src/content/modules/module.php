@@ -246,6 +246,10 @@ function defaultOptions($module_name) {
 
     switch($module_name) {
         case 'important':
+            $defaults['show-cat'] = true;
+            $defaults['show-title'] = true;
+            $defaults['show-name'] = true;
+            $defaults['show-date'] = true;
             break;
         case 'birthday':
             break;
