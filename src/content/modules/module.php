@@ -82,8 +82,8 @@ function moduleContent($module_name, $options) {
 function moduleContents($module_name, $options) {
     ?>
     <div class="grid-stack-item-content">
-        <div class="main-block">
-            <div class="main-block-title">
+        <div class="main-block panel panel-default">
+            <div class="main-block-title panel-heading">
                 <button class="main-block-close main-block-button btn btn-default" type="button">
                     <span class="glyphicon glyphicon-remove"></span>
                 </button>
@@ -100,13 +100,15 @@ function moduleContents($module_name, $options) {
                 </div>
             </div>
 
-            <div class="main-block-content">
-                <?php
-                moduleContent($module_name, $options);
-                ?>
-            </div>
-            <div class="main-block-options-pane">
-                준비중입니다...
+            <div class="panel-body">
+                <div class="main-block-content">
+                    <?php
+                    moduleContent($module_name, $options);
+                    ?>
+                </div>
+                <div class="main-block-options-pane">
+                    준비중입니다...
+                </div>
             </div>
         </div>
     </div>
