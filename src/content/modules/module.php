@@ -106,6 +106,7 @@ function basicModuleOptions($options) {
 }
 
 function moduleOptions($module_name, $options) {
+	global $member, $me, $is_morning, $is_afternoon, $is_night, $mysqli, $board, $curYear, $curMonth, $curDay;
     switch($module_name) {
         case 'article-list':
         ?>
