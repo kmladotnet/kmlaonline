@@ -348,18 +348,18 @@ function closeMenu(ths, force) {
 }
 
 function showHeader() {
-    $("div.total-header-menu-extend").velocity("slideDown", {duration: 200, easing: "easeOutCubic"});
-    $("div.menu-shadow").velocity("slideDown", {duration: 200, easing: "easeOutCubic"});
-    $("#total-header-menu").velocity("slideDown", {duration: 200, easing: "easeOutCubic"});
-    $("div.menu1_text").velocity("finish", true).velocity("transition.slideLeftBigIn", {stagger: 30, duration: 200});
+    $("div.total-header-menu-extend").velocity("slideDown", {duration: 250, easing: "easeOutCubic"});
+    $("div.menu-shadow").velocity("slideDown", {duration: 250, easing: "easeOutCubic"});
+    $("#total-header-menu").velocity("slideDown", {duration: 250, easing: "easeOutCubic"});
+    $("div.menu1_text").velocity("finish", true).css("display", "block").velocity("transition.slideLeftBigIn", {stagger: 50, duration: 250, drag: true});
     $("#menu-logo").velocity({
         left: 0,
         opacity: 1
-    }, 200, "easeOutCubic");
+    }, 250, "easeOutCubic");
     $("#menu-logo-2").velocity({
         left: 0,
         opacity: 0
-    }, 200, "easeOutCubic");
+    }, 250, "easeOutCubic");
 }
 
 var closeTimer;
