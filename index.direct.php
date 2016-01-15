@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta charset="utf-8" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <base href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/" />
 
     <!-- jquery -->
