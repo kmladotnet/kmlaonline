@@ -159,6 +159,7 @@ function moduleContents($module_name, $options) {
                         미완성...
                         <?php
                         basicModuleOptions($options);
+                        moduleOptions($module_name, $options);
                         ?>
                         <button type="button" class="main-block-options-submit btn btn-default">확인</button>
                     </form>
