@@ -567,6 +567,7 @@ function saveOptionsForm(form) {
         if($("#main-edit-button").hasClass('active')) {
             $(".main-block-close").css({width: 24, "margin-left": 5, "border-width": 1, opacity: 1});
         }
+        updateModules();
     });
 }
 

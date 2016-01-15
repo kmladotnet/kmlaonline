@@ -97,7 +97,6 @@ function basicModuleOptions($options) {
 }
 
 function moduleContents($module_name, $options) {
-    print_r($options);
     ?>
     <div class="grid-stack-item-content">
         <div class="main-block panel panel-<?php echo $options['color'];?>">
