@@ -572,10 +572,12 @@ function bindModuleReloadButton() {
 function saveOptionsForm(form) {
     var module = form.closest(".grid-stack-item");
     var options = module.data("module-options");
+    var catFirst = true;
     $(form.serializeArray()).each(function(i, field) {
         if(field.name === "cat") {
-            if(!("cat" in options) || !Array.isArray(options["cat"])) {
+            if(catFirst || !("cat" in options) || !Array.isArray(options["cat"])) {
                 options["cat"] = new Array();
+                catFirst = false;
             }
             options["cat"].push(field.value);
         } else {
