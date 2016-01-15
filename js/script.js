@@ -495,6 +495,13 @@ function mainGridToJSON() {
     return JSON.stringify(result);
 }
 
+function rebindModules() {
+    bindModuleCloseButton();
+    bindModuleReloadButton();
+    bindOptionsForm();
+    $('.selectpicker').selectpicker();
+}
+
 function bindAddModuleButton() {
     $("#add-module").on('change', function(event) {
         var name = $("#add-module").val();
@@ -504,9 +511,7 @@ function bindAddModuleButton() {
         }, function (data) {
             var grid = $('.grid-stack').data('gridstack');
             grid.add_widget($(data), 0, 0, 4, 4);
-            bindModuleCloseButton();
-            bindModuleReloadButton();
-            bindOptionsForm();
+            rebindModules();
             $(".main-block-close").css({width: 24, "margin-left": 5, "border-width": 1, opacity: 1});
             $(".grid-stack-item:not([data-module-name])").attr("data-module-name", name);
             updateModules();
@@ -531,9 +536,7 @@ function bindModuleReloadButton() {
             "ajax": 1
         }, function (data) {
             module.html(data);
-            bindModuleCloseButton();
-            bindModuleReloadButton();
-            bindOptionsForm();
+            rebindModules();
             if($("#main-edit-button").hasClass('active')) {
                 $(".main-block-close").css({width: 24, "margin-left": 5, "border-width": 1, opacity: 1});
             }
@@ -561,9 +564,7 @@ function saveOptionsForm(form) {
         "ajax": 1
     }, function (data) {
         module.html(data);
-        bindModuleCloseButton();
-        bindModuleReloadButton();
-        bindOptionsForm();
+        rebindModules();
         if($("#main-edit-button").hasClass('active')) {
             $(".main-block-close").css({width: 24, "margin-left": 5, "border-width": 1, opacity: 1});
         }
@@ -659,9 +660,7 @@ function addModule(json) {
         var grid = $('.grid-stack').data('gridstack');
         var dat = JSON.parse(json);
         grid.add_widget($(data), 0, 0, 4, 4);
-        bindModuleCloseButton();
-        bindModuleReloadButton();
-        bindOptionsForm();
+        rebindModules();
         $(".grid-stack-item:not([data-module-name])").attr("data-module-name", dat["name"]).attr("data-module-options", JSON.stringify(dat["options"]["options"]));
         updateModules();
     });
