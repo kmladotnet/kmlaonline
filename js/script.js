@@ -351,7 +351,7 @@ function showHeader() {
     $("div.total-header-menu-extend").velocity("slideDown", {duration: 250, easing: "easeOutCubic"});
     $("div.menu-shadow").velocity("slideDown", {duration: 250, easing: "easeOutCubic"});
     $("#total-header-menu").velocity("slideDown", {duration: 250, easing: "easeOutCubic"});
-    $("div.menu1_text").velocity("finish", true).velocity("transition.slideLeftBigIn", {display: null, duration: 250, drag: true});
+    $("div.menu1_text").velocity("finish", true).velocity("transition.slideLeftBigIn", {display: null, duration: 250, stagger: 40});
     $("#menu-logo").velocity({
         left: 0,
         opacity: 1
