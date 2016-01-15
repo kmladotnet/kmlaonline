@@ -134,8 +134,6 @@ function printContentPc(){
                     ]
 JSON;
                     $modules = array();
-                    rrmdir("data/user/main_layout");
-                    mkdir("data/user/main_layout");
                     if(file_exists("data/user/main_layout/{$me['n_id']}.txt")) {
                         $modules = json_decode(file_get_contents("data/user/main_layout/{$me['n_id']}.txt"), true);
                     } else {
