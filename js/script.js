@@ -551,8 +551,8 @@ function bindModuleReloadButton() {
 
 function saveOptionsForm() {
     var module = $(this).closest(".grid-stack-item");
-    var options = JSON.parse(module.data("module-options"));
-    $(this).serializeArray().each(function(i, field) {
+    var options = module.data("module-options");
+    $($(this).serializeArray()).each(function(i, field) {
         options[field.name] = field.value;
     });
     module.data("module-options", JSON.stringify(options));
@@ -571,8 +571,10 @@ function saveOptionsForm() {
 }
 
 function bindOptionsForm() {
-    $(".main-block-options-form").unbind("submit").submit(function() {
+    $(".main-block-options-form").unbind("submit").submit(function(e) {
         saveOptionsForm();
+        e.stopPropagation();
+        return false;
     });
 }
 
