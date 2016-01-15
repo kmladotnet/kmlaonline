@@ -108,6 +108,50 @@ function basicModuleOptions($options) {
 function moduleOptions($module_name, $options) {
     switch($module_name) {
         case 'article-list':
+        ?>
+        <div class="form-group">
+            <label>글 분류</label>
+            <select class="selectpicker" name="cat" multiple>
+                <?php
+                    $cat=array(
+                        "/^club_.*$/"=>array("동아리",array()),
+                        "/^department_.*$/"=>array("부서",array()),
+                        "/^student_.*$/"=>array("교내",array()),
+                        "/^(site_suggestions|login_candidates|login_approved|site_kmlacafe|site_notice)$/"=>array("큼라온라인", array()),
+                        "/.*?/"=>array("전체",array()),
+                    );
+                    for($i=intval(date("Y"))-1995;$i>=1;$i--)
+                        $cat["/^wave{$i}_.*$/"]=array("{$i}기 게시판",array());
+                    foreach($board->getCategoryList(0,0) as $val){
+                        if($val['n_id']==1) continue;
+                        if(checkCategoryAccess($val['n_id'], "list")){
+                            $f=false;
+                            foreach($cat as $k=>$v){
+                                if(preg_match($k, $val['s_id'])){
+                                    $f=true;
+                                    $cat[$k][1][]=$val;
+                                }
+                            }
+                        }
+                    }
+                    foreach(array_values($cat) as $a) {
+                    ?>
+                        <optgroup label="<?php echo $a; ?>">
+                        <?php
+                            foreach($a as $b) {
+                                ?>
+                                <option value="<?php echo $b['n_id']; ?>" <?php if(in_array($b['n_id'], $options['cat'])) echo 'selected'; ?> >
+                                    <?php echo $b['s_name']; ?>
+                                </option>
+                                <?php
+                            }
+                        ?>
+                        </optgroup>
+                    <?php
+                    }
+                ?>
+            </select>
+        </div>
         case 'important':
 
             ?>
