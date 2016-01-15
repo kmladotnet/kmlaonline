@@ -530,6 +530,7 @@ function bindAddModuleButton() {
             rebindModules();
             $(".main-block-close").css({width: 24, "margin-left": 5, "border-width": 1, opacity: 1});
             $(".grid-stack-item:not([data-module-name])").attr("data-module-name", name);
+            $(".grid-stack-item:not([data-module-name])").attr("data-module-options", "[]");
             updateModules();
         });
         $("#add-module").val('');
