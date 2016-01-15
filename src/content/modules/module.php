@@ -38,7 +38,7 @@ function moduleTitle($module_name, $options) {
         case 'article-list':
             $one_cat = count($options['article']['cat']) === 1;
             $cat = $board->getCategory(getOrDefault($options['article']['cat'][0], 139));?>
-            <a href="<?php echo '/board/'.($one_cat ? $cat['s_id'] : urlencode(json_encode($options['article'])));?>"><?php echo htmlspecialchars(getOrDefault($options['article']['title'], $cat['s_name']));?></a>
+            <a href="<?php echo '/board/'.($one_cat ? $cat['s_id'] : urlencode(json_encode(array('cat'=>$options['cat'], 'title'=>$options['title'])));?>"><?php echo htmlspecialchars(getOrDefault($options['title'], $cat['s_name']));?></a>
             <?php
             break;
         case 'gallery':
@@ -69,7 +69,7 @@ function moduleContent($module_name, $options) {
             filterContent($dat);
             break;
         case 'article-list':
-            articleList($board->getArticleList(arrayToCategories($options['article']['cat']), false, 0, 0, 10),
+            articleList($board->getArticleList(arrayToCategories($options['cat']), false, 0, 0, 10),
                         getOrDefault($options['show-cat'], true), getOrDefault($options['show-title'], true),
                         getOrDefault($options['show-name'], true), getOrDefault($options['show-date'], true));
             break;
@@ -140,7 +140,9 @@ function defaultOptions($module_name) {
         case 'kmlaboard':
             break;
         case 'article-list':
-            break;
+            return array(
+                'cat' => array(139)
+            );
         case 'gallery':
             break;
     }

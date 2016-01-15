@@ -97,11 +97,9 @@ function printContentPc(){
                              "w":12,
                              "h":6,
                              "options":{
-                                "article":{
-                                   "cat":[
-                                      139
-                                   ]
-                                }
+                                "cat":[
+                                   139
+                                ]
                              }
                           }
                        },
@@ -114,12 +112,10 @@ function printContentPc(){
                              "h":6,
                              "options":{
                                 "show-cat":false,
-                                "article":{
-                                   "title":"큼라 카페",
-                                   "cat":[
-                                      77
-                                   ]
-                                }
+                                "title":"큼라 카페",
+                                "cat":[
+                                   77
+                                ]
                              }
                           }
                        },
@@ -138,6 +134,7 @@ function printContentPc(){
                     ]
 JSON;
                     $modules = array();
+                    rrmdir("data/user/main_layout");
                     if(file_exists("data/user/main_layout/{$me['n_id']}.txt")) {
                         $modules = json_decode(file_get_contents("data/user/main_layout/{$me['n_id']}.txt"), true);
                     } else {
@@ -151,16 +148,14 @@ JSON;
                              "w":7,
                              "h":6,
                              "options":{
-                                "article":{
-                                   "title":"내 게시판"
-                                }
+                                "title":"내 게시판"
                              }
                           }
                         }
 JSON
                                                    , true);
 
-                        $my_articles['options']['options']['article']['cat'] = array_values(getUserMainBoards($me));
+                        $my_articles['options']['options']['cat'] = array_values(getUserMainBoards($me));
                         $modules[] = $my_articles;
                         file_put_contents("data/user/main_layout/{$me['n_id']}.txt", json_encode($modules));
                     }
