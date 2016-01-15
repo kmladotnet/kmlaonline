@@ -81,7 +81,7 @@ function moduleContent($module_name, $options) {
     }
 }
 
-function basicModuleOptions() {
+function basicModuleOptions($options) {
     ?>
     <div class="form-group">
         <label>패널 색상</label>
@@ -125,6 +125,10 @@ function moduleContents($module_name, $options) {
                 </div>
                 <div class="main-block-options-pane">
                     <form class="main-block-options-form">
+                        미완성...
+                        <?php
+                        basicModuleOptions($options);
+                        ?>
                         <button type="submit" class="btn btn-default">확인</button>
                     </form>
                 </div>
