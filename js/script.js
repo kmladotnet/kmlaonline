@@ -574,13 +574,8 @@ function saveOptionsForm(form) {
     var options = module.data("module-options");
     $(form.serializeArray()).each(function(i, field) {
         if(field.name === "cat") {
-            if(!("cat" in options)) {
+            if(!("cat" in options) || !Array.isArray(options["cat"])) {
                 options["cat"] = new Array();
-            }
-            if(!Array.isArray(options["cat"])) {
-                var tmpCat = options["cat"];
-                options["cat"] = new Array();
-                options["cat"].push(tmpCat);
             }
             options["cat"].push(field.value);
         } else {
