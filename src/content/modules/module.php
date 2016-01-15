@@ -124,7 +124,7 @@ function moduleContents($module_name, $options) {
                     ?>
                 </div>
                 <div class="main-block-options-pane">
-                    <form class="main-block-options-form">
+                    <form class="main-block-options-form" onsubmit>
                         미완성...
                         <?php
                         basicModuleOptions($options);
