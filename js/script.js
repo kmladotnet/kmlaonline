@@ -573,7 +573,7 @@ function saveOptionsForm() {
 function bindOptionsForm() {
     $(".main-block-options-form").unbind("submit").submit(function(e) {
         saveOptionsForm();
-        e.stopPropagation();
+        e.preventDefault();
         return false;
     });
 }
