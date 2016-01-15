@@ -351,14 +351,7 @@ function showHeader() {
     $("div.total-header-menu-extend").velocity("slideDown", {duration: 200, easing: "easeOutCubic"});
     $("div.menu-shadow").velocity("slideDown", {duration: 200, easing: "easeOutCubic"});
     $("#total-header-menu").velocity("slideDown", {duration: 200, easing: "easeOutCubic"});
-    var n = 0;
-    var f = function () {
-        $($("div.menu1_text")[n++]).velocity({
-            top: 0
-        }, 200, "easeOutCubic");
-        if (n < $("div.menu1_text").length) setTimeout(f, 20);
-    }
-    f();
+    $("div.menu1_text").velocity("transition.perspectiveDownIn", {duration: 200, stagger: 30});
     $("#menu-logo").velocity({
         left: 0,
         opacity: 1
