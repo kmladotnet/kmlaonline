@@ -83,7 +83,16 @@ function moduleContent($module_name, $options) {
 
 function basicModuleOptions() {
     ?>
-
+    <div class="form-group">
+        <label>패널 색상</label>
+        <select class="selectpicker" name="color">
+            <option value="default">기본값(회색)</option>
+            <option value="success">초록</option>
+            <option value="info">파랑</option>
+            <option value="warning">노랑</option>
+            <option value="danger">빨강</option>
+        </select>
+    </div>
 <?php
 }
 
@@ -144,7 +153,6 @@ function getModule($module_name, $options, $x = 0, $y = 0, $w = 4, $h = 4) {
 function defaultOptions($module_name) {
     $defaults = array(
         'color' => 'default',
-
     );
 
     switch($module_name) {
