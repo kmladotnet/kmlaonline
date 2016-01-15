@@ -555,7 +555,7 @@ function saveOptionsForm(form) {
     $(form.serializeArray()).each(function(i, field) {
         options[field.name] = field.value;
     });
-    module.data("module-options", JSON.stringify(options));
+    module.data("module-options", options);
     $.post("ajax/user/getmodule", {
         "json": JSON.stringify(moduleToObject(module)),
         "ajax": 1
