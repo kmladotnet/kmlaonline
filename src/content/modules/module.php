@@ -52,7 +52,7 @@ function moduleTitle($module_name, $options) {
 }
 
 function moduleContent($module_name, $options) {
-	global $member, $me, $is_morning, $is_afternoon, $is_night, $mysqli, $board, $curMonth, $curDay;
+	global $member, $me, $is_morning, $is_afternoon, $is_night, $mysqli, $board, $curYear, $curMonth, $curDay;
     switch($module_name) {
         case 'important':
             articleList($mysqli->query("SELECT * FROM kmlaonline_important_notices_table WHERE n_state=1 ORDER BY n_id DESC"), true,true,true,true);
