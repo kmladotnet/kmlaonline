@@ -96,6 +96,35 @@ function basicModuleOptions($options) {
 <?php
 }
 
+function moduleOptions($module_name, $options) {
+    switch($module_name) {
+        case 'article-list':
+        case 'important':
+            ?>
+            <h2>글 목록 설정</h2>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="show-cat"> 분류 표시
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="show-title"> 제목 표시
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="show-name"> 이름 표시
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="show-date"> 날짜 표시
+                </label>
+            </div>
+    }
+}
+
 function moduleContents($module_name, $options) {
     ?>
     <div class="grid-stack-item-content">
