@@ -112,7 +112,7 @@ function moduleOptions($module_name, $options) {
         ?>
         <div class="form-group">
             <label>글 분류</label>
-            <select class="selectpicker" name="cat" multiple>
+            <select class="selectpicker" name="cat" data-dropup-auto="false" multiple>
                 <?php
                     $cat=array(
                         "/^club_.*$/"=>array("동아리",array()),
@@ -153,8 +153,8 @@ function moduleOptions($module_name, $options) {
                 ?>
             </select>
         </div>
+        <?php
         case 'important':
-
             ?>
             <h2>글 목록 설정</h2>
             <?php
