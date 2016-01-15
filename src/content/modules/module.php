@@ -55,7 +55,7 @@ function moduleContent($module_name, $options) {
 	global $member, $me, $is_morning, $is_afternoon, $is_night, $mysqli, $board, $curYear, $curMonth, $curDay;
     switch($module_name) {
         case 'important':
-            articleList($mysqli->query("SELECT * FROM kmlaonline_important_notices_table WHERE n_state=1 ORDER BY n_id DESC"), true,true,true,true);
+            articleList($mysqli->query("SELECT * FROM kmlaonline_important_notices_table WHERE n_state=1 ORDER BY n_id DESC"),$options['show-cat'], $options['show-title'], $options['show-name'], $options['show-date']);
             break;
         case 'birthday':
             include("birthday.php");
