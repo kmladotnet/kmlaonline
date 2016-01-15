@@ -36,8 +36,8 @@ function moduleTitle($module_name, $options) {
             <?php }
             break;
         case 'article-list':
-            $one_cat = count($options['article']['cat']) === 1;
-            $cat = $board->getCategory(getOrDefault($options['article']['cat'][0], 139));?>
+            $one_cat = count($options['cat']) === 1;
+            $cat = $board->getCategory(getOrDefault($options['cat'][0], 139));?>
             <a href="<?php echo '/board/'.($one_cat ? $cat['s_id'] : urlencode(json_encode(array('cat'=>$options['cat'], 'title'=>$options['title']))));?>"><?php echo htmlspecialchars(getOrDefault($options['title'], $cat['s_name']));?></a>
             <?php
             break;
