@@ -81,10 +81,16 @@ function moduleContent($module_name, $options) {
     }
 }
 
+function basicModuleOptions() {
+    ?>
+
+<?php
+}
+
 function moduleContents($module_name, $options) {
     ?>
     <div class="grid-stack-item-content">
-        <div class="main-block panel panel-default">
+        <div class="main-block panel panel-<?php echo $options['color'];?>">
             <div class="main-block-title panel-heading">
                 <button class="main-block-close main-block-button btn btn-default" type="button">
                     <span class="glyphicon glyphicon-remove"></span>
@@ -109,7 +115,9 @@ function moduleContents($module_name, $options) {
                     ?>
                 </div>
                 <div class="main-block-options-pane">
-                    준비중입니다...
+                    <form class="main-block-options-form">
+                        <button type="submit" class="btn btn-default">확인</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -134,6 +142,11 @@ function getModule($module_name, $options, $x = 0, $y = 0, $w = 4, $h = 4) {
 }
 
 function defaultOptions($module_name) {
+    $defaults = array(
+        'color' => 'default',
+
+    );
+
     switch($module_name) {
         case 'important':
             break;
@@ -144,13 +157,12 @@ function defaultOptions($module_name) {
         case 'kmlaboard':
             break;
         case 'article-list':
-            return array(
-                'cat' => array(139)
-            );
+            $defaults['cat'] = array(139);
+            break;
         case 'gallery':
             break;
     }
-    return array();
+    return $defaults;
 }
 
 function defaultModule($module_name) {
@@ -159,7 +171,10 @@ function defaultModule($module_name) {
 
 function allModules($modules) {
     foreach($modules as $module) {
-        getModule($module['name'], array_key_exists('options', $module['options']) ? $module['options']['options'] : defaultOptions($module['name']), $module['options']['x'], $module['options']['y'], $module['options']['w'], $module['options']['h']);
+        getModule($module['name'], array_key_exists('options', $module['options'])
+                  ? array_merge(defaultOptions($module['name']), $module['options']['options'])
+                  : defaultOptions($module['name']),
+                  $module['options']['x'], $module['options']['y'], $module['options']['w'], $module['options']['h']);
     }
 }
 ?>
