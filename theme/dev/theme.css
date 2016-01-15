@@ -509,6 +509,9 @@ div#upper-header-holder{
 .main-block-options-pane{
     display:none;
 }
+.main-block-options-pane > h3{
+	margin-top :5px;
+}
 .main-block-button{
     float:right;
     margin: 0 0 0 5px;
