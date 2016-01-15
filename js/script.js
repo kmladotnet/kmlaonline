@@ -575,9 +575,14 @@ function saveOptionsForm(form) {
     $(form.serializeArray()).each(function(i, field) {
         if(field.name === "cat") {
             if(!("cat" in options)) {
-                options[field.name] = new Array();
+                options["cat"] = new Array();
             }
-        options["cat"].push(field.value);
+            if(!Array.isArray(options["cat"])) {
+                var tmpCat = options["cat"];
+                options["cat"] = new Array();
+                options["cat"].push(tmpCat);
+            }
+            options["cat"].push(field.value);
         }
         options[field.name] = field.value;
     });
