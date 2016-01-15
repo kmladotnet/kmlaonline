@@ -84,7 +84,7 @@ function basicModuleOptions($options) {
     <h3>공통 설정</h3>
     <div class="form-group">
         <label>패널 색상</label>
-        <select class="selectpicker" name="color">
+        <select class="selectpicker" data-width="175px" name="color">
             <?php
                 $colors = array(
                     'default' => '기본값(회색)',
@@ -210,7 +210,6 @@ function moduleContents($module_name, $options) {
                 </div>
                 <div class="main-block-options-pane">
                     <form class="main-block-options-form" onsubmit>
-                        <h2>설정</h2>
                         <?php
                         basicModuleOptions($options);
                         moduleOptions($module_name, $options);
