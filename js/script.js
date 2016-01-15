@@ -573,6 +573,12 @@ function saveOptionsForm(form) {
     var module = form.closest(".grid-stack-item");
     var options = module.data("module-options");
     $(form.serializeArray()).each(function(i, field) {
+        if(field.name === "cat") {
+            if(!("cat" in options)) {
+                options[field.name] = new Array();
+            }
+        options["cat"].push(field.value);
+        }
         options[field.name] = field.value;
     });
     module.data("module-options", options);
