@@ -112,7 +112,7 @@ function moduleOptions($module_name, $options) {
         ?>
         <div class="form-group">
             <label>글 분류</label>
-            <select class="selectpicker" name="cat" data-live-search="true" data-size="8" data-dropup-auto="false" multiple>
+            <select class="selectpicker" name="cat" data-live-search="true" data-size="6" data-dropup-auto="false" multiple>
                 <?php
                     $cat=array(
                         "/^club_.*$/"=>array("동아리",array()),
