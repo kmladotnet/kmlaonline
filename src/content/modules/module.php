@@ -137,9 +137,9 @@ function moduleOptions($module_name, $options) {
                     }
                     foreach(array_values($cat) as $a) {
                     ?>
-                        <optgroup label="<?php echo $a; ?>">
+                        <optgroup label="<?php echo $a[0]; ?>">
                         <?php
-                            foreach($a as $b) {
+                            foreach($a[1] as $b) {
                                 ?>
                                 <option value="<?php echo $b['n_id']; ?>" <?php if(in_array($b['n_id'], $options['cat'])) echo 'selected'; ?> >
                                     <?php echo $b['s_name']; ?>
