@@ -583,8 +583,9 @@ function saveOptionsForm(form) {
                 options["cat"].push(tmpCat);
             }
             options["cat"].push(field.value);
+        } else {
+            options[field.name] = field.value;
         }
-        options[field.name] = field.value;
     });
     module.data("module-options", options);
     console.log(moduleToObject(module));
