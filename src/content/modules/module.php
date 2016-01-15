@@ -86,11 +86,22 @@ function basicModuleOptions($options) {
     <div class="form-group">
         <label>패널 색상</label>
         <select class="selectpicker" name="color">
-            <option value="default">기본값(회색)</option>
-            <option value="success">초록</option>
-            <option value="info">파랑</option>
-            <option value="warning">노랑</option>
-            <option value="danger">빨강</option>
+            <?php
+                $colors = array(
+                    'default' => '기본값(회색)',
+                    'success' => '초록',
+                    'info' => '파랑',
+                    'warning' => '노랑',
+                    'danger' => '빨강'
+                );
+                foreach($colors as $k, $v) {
+                    ?>
+                    <option value="<?php echo $k; ?>" <?php if($options['color'] === $k) echo 'selected'; ?> >
+                        <?php echo $v; ?>
+                    </option>
+                    <?php
+                }
+            ?>
         </select>
     </div>
 <?php
@@ -100,28 +111,27 @@ function moduleOptions($module_name, $options) {
     switch($module_name) {
         case 'article-list':
         case 'important':
+
             ?>
             <h2>글 목록 설정</h2>
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" name="show-cat"> 분류 표시
-                </label>
-            </div>
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" name="show-title"> 제목 표시
-                </label>
-            </div>
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" name="show-name"> 이름 표시
-                </label>
-            </div>
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" name="show-date"> 날짜 표시
-                </label>
-            </div>
+            <?php
+                $shown = array(
+                    'show-cat' => '분류',
+                    'show-title' => '제목',
+                    'show-name' => '이름',
+                    'show-date' => '날짜'
+                );
+                foreach($shown as $k, $v) {
+                    ?>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="<?php echo $k; ?>" <?php if($options[$k]) echo 'checked'; ?>>
+                            <?php echo $v; ?> 표시
+                        </label>
+                    </div>
+                    <?php
+                }
+            ?>
             <?php
             break;
     }
@@ -202,6 +212,10 @@ function defaultOptions($module_name) {
             break;
         case 'article-list':
             $defaults['cat'] = array(139);
+            $defaults['show-cat'] = true;
+            $defaults['show-title'] = true;
+            $defaults['show-name'] = true;
+            $defaults['show-date'] = true;
             break;
         case 'gallery':
             break;
