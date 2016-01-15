@@ -129,7 +129,7 @@ function moduleContents($module_name, $options) {
                         <?php
                         basicModuleOptions($options);
                         ?>
-                        <button class="main-block-options-submit" type="submit" class="btn btn-default">확인</button>
+                        <button class="main-block-options-submit" class="btn btn-default">확인</button>
                     </form>
                 </div>
             </div>
