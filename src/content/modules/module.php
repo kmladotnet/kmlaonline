@@ -122,6 +122,8 @@ function moduleOptions($module_name, $options) {
                     <input type="checkbox" name="show-date"> 날짜 표시
                 </label>
             </div>
+            <?php
+            break;
     }
 }
 
