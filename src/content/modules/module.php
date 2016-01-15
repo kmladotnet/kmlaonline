@@ -129,7 +129,7 @@ function moduleOptions($module_name, $options) {
                             foreach($cat as $k=>$v){
                                 if(preg_match($k, $val['s_id'])){
                                     $cat[$k][1][]=$val;
-                                    continue;
+                                    break;
                                 }
                             }
                         }
