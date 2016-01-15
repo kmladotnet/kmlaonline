@@ -125,7 +125,8 @@ function moduleOptions($module_name, $options) {
                     ?>
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" name="<?php echo $k; ?>" <?php if($options[$k]) echo 'checked'; ?>>
+                            <input type="hidden"   name="<?php echo $k; ?>" value="false" />
+                            <input type="checkbox" name="<?php echo $k; ?>" <?php if($options[$k]) echo 'checked'; ?> value="true">
                             <?php echo $v; ?> 표시
                         </label>
                     </div>
