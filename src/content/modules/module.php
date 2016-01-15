@@ -112,7 +112,7 @@ function moduleOptions($module_name, $options) {
         ?>
         <div class="form-group">
             <label>글 분류</label>
-            <select class="selectpicker" name="cat" data-dropup-auto="false" multiple>
+            <select class="selectpicker" name="cat" data-size="7" data-dropup-auto="false" multiple>
                 <?php
                     $cat=array(
                         "/^club_.*$/"=>array("동아리",array()),
@@ -122,7 +122,7 @@ function moduleOptions($module_name, $options) {
                         "/.*?/"=>array("전체",array()),
                     );
                     for($i=intval(date("Y"))-1995;$i>=1;$i--)
-                        $cat["/^wave{$i}_.*$/"]=array("{$i}기 게시판",array());
+                        $cat = array("/^wave{$i}_.*$/"=>array("{$i}기 게시판",array())) + $cat;
                     foreach($board->getCategoryList(0,0) as $val){
                         if($val['n_id']==1) continue;
                         if(checkCategoryAccess($val['n_id'], "list")){
