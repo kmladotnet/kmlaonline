@@ -102,7 +102,7 @@ function moduleContents($module_name, $options) {
                 </div>
             </div>
 
-            <div class="panel-body">
+            <div class="panel-body main-block-body">
                 <div class="main-block-content">
                     <?php
                     moduleContent($module_name, $options);

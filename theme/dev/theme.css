@@ -501,7 +501,8 @@ div#upper-header-holder{
 .main-block-title-content {
 	overflow: hidden;
 }
-.main-block-content, .main-block-options-pane{
+.main-block-body {
+    padding: 10px;
     height: calc(100% - 42px);
     overflow: auto;
 }
