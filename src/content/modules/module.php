@@ -94,7 +94,7 @@ function basicModuleOptions($options) {
                     'warning' => '노랑',
                     'danger' => '빨강'
                 );
-                foreach($colors as $k, $v) {
+                foreach($colors as $k => $v) {
                     ?>
                     <option value="<?php echo $k; ?>" <?php if($options['color'] === $k) echo 'selected'; ?> >
                         <?php echo $v; ?>
@@ -121,7 +121,7 @@ function moduleOptions($module_name, $options) {
                     'show-name' => '이름',
                     'show-date' => '날짜'
                 );
-                foreach($shown as $k, $v) {
+                foreach($shown as $k => $v) {
                     ?>
                     <div class="checkbox">
                         <label>
