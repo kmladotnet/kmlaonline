@@ -351,7 +351,7 @@ function showHeader() {
     $("div.total-header-menu-extend").velocity("slideDown", {duration: 250, easing: "easeOutCubic"});
     $("div.menu-shadow").velocity("slideDown", {duration: 250, easing: "easeOutCubic"});
     $("#total-header-menu").velocity("slideDown", {duration: 250, easing: "easeOutCubic"});
-    $("div.menu1_text").velocity("finish", true).css("display", "block").velocity("transition.slideLeftBigIn", {stagger: 50, duration: 250, drag: true});
+    $("div.menu1_text").velocity("finish", true).velocity("transition.slideLeftBigIn", {display: null, duration: 250, drag: true});
     $("#menu-logo").velocity({
         left: 0,
         opacity: 1
@@ -405,7 +405,7 @@ function prepareHeader() {
                     $("div.total-header-menu-extend").velocity("slideUp", {duration: 200, easing: "easeOutCubic"});
                     $("div.menu-shadow").velocity("slideUp", {duration: 200, easing: "easeOutCubic"});
                     $("#total-header-menu").velocity("slideUp", {duration: 200, easing: "easeOutCubic"});
-                    $("div.menu1_text").velocity("finish", true).velocity("transition.slideLeftBigOut", {duration: 200});
+                    $("div.menu1_text").velocity("finish", true).velocity("transition.slideLeftBigOut", {display: null, duration: 200});
                     $("#menu-logo").velocity("finish", true).velocity({
                         left: -40,
                         opacity: 0
