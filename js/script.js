@@ -547,6 +547,33 @@ function bindModuleReloadButton() {
     });
 }
 
+function saveOptionsForm() {
+    var module = $(this).closest(".grid-stack-item");
+    var options = JSON.parse(module.data("module-options"));
+    $(this).serializeArray().each(function(i, field) {
+        options[field.name] = field.value;
+    });
+    module.data("module-options", JSON.stringify(options));
+    $.post("ajax/user/getmodule", {
+        "json": JSON.stringify(moduleToObject(module)),
+        "ajax": 1
+    }, function (data) {
+        module.html(data);
+        bindModuleCloseButton();
+        bindModuleReloadButton();
+        if($("#main-edit-button").hasClass('active')) {
+            $(".main-block-close").css({width: 24, "margin-left": 5, "border-width": 1, opacity: 1});
+        }
+    });
+}
+
+function bindOptionsForm() {
+    $(".main-block-options-form").unbind("submit").submit(function() {
+        saveOptionsForm();
+    });
+});
+}
+
 function toggleOptions(show, element) {
     var mainBlock = element.closest(".main-block");
     var toShow = mainBlock.find(show ? ".main-block-options-pane" : ".main-block-content");
