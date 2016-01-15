@@ -22,12 +22,6 @@ function moduleTitle($module_name, $options) {
             ?>생일<?php
             break;
         case 'menu':
-            $curYear=date("Y"); $curMonth=date("n"); $curDay=date("j");
-            if($is_morning && date("H") >= 22) {
-                $curYear = date("Y", strtotime("+1 day"));
-                $curMonth = date("m", strtotime("+1 day"));
-                $curDay = date("d", strtotime("+1 day"));
-            }
             ?>
             <a href="/util/schedule?<?php echo "year=$curYear&amp;month=$curMonth&amp;mode=food:0"?>">식단</a>
             <?php

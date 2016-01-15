@@ -65,6 +65,12 @@ $is_morning = $is_afternoon = $is_night = false;
 if($hr < 8 || $hr >= 22) $is_morning = true; // 혼정빵은 10시 이후에 끝
 elseif($hr >= 8 && $hr < 13) $is_afternoon = true;
 else $is_night = true;
+$curYear=date("Y"); $curMonth=date("n"); $curDay=date("j");
+if($is_morning && date("H") >= 22) {
+    $curYear = date("Y", strtotime("+1 day"));
+    $curMonth = date("m", strtotime("+1 day"));
+    $curDay = date("d", strtotime("+1 day"));
+}
 function redirectAlert($lnk=false,$alert=false){
 	?>
     <!doctype html>
