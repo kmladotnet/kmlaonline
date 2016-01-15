@@ -496,10 +496,10 @@ div#upper-header-holder{
 	background:white;
 }
 .main-block-title{
-	font-size:16pt;
+	font-size:15pt;
 	font-weight:bold;
-    height:45px;
-	padding:10px;
+    height:42px;
+	padding:9px;
 	text-align: left;
     white-space: nowrap;
 }
@@ -507,7 +507,7 @@ div#upper-header-holder{
 	overflow: hidden;
 }
 .main-block-content, .main-block-options-pane{
-    height: calc(100% - 45px);
+    height: calc(100% - 42px);
     overflow: auto;
 }
 .main-block-options-pane{
