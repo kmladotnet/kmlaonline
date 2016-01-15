@@ -39,8 +39,8 @@ function moduleTitle($module_name, $options) {
             break;
         case 'article-list':
             $one_cat = count($options['cat']) === 1;
-            $cat = $board->getCategory(getOrDefault($options['cat'][0], 139));?>
-            <a href="<?php echo '/board/'.($one_cat ? $cat['s_id'] : urlencode(json_encode(array('cat'=>$options['cat'], 'title'=>$options['title']))));?>"><?php echo htmlspecialchars(getOrDefault($options['title'], $cat['s_name']));?></a>
+            $cat = $one_cat ? $board->getCategory($options['cat'][0]) : null;?>
+            <a href="<?php echo '/board/'.($one_cat ? $cat['s_id'] : urlencode(json_encode(array('cat'=>$options['cat'], 'title'=>$options['title']))));?>"><?php echo htmlspecialchars(getOrDefault($options['title'], $one_cat ? $cat['s_name'] : '여러가지'));?></a>
             <?php
             break;
         case 'gallery':
