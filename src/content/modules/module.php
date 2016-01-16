@@ -165,7 +165,13 @@ function moduleOptions($module_name, $options) {
         </div>
         <div class="form-group">
             <label>패널 제목</label>
-            <input class="form-control" type="text" name="title" placeholder="비우면 자동으로 설정됩니다." />
+            <input class="form-control" type="text" name="title" <?php
+            $one_cat = count($options['cat']) === 1;
+            $cat = $one_cat ? $board->getCategory($options['cat'][0]) : null;
+            if(array_key_exists('title', $options) && (!$one_cat || $options['title'] !== $cat['s_name'])) {
+                echo ' value="',$options['title'],'" ';
+            }
+            ?>placeholder="비우면 자동으로 설정됩니다." />
         </div>
         <?php
         case 'important':
