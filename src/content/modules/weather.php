@@ -1,10 +1,11 @@
 <?php
 $weather = getWeather();
+$ko_time = new DateTimeZone('Asia/Seoul');
 ?>
 <div class="weather">
     <div class="weather-last-update">
         <?php
-        echo $weather->lastUpdate->format('m월 d일 H시 i분');
+        echo $weather->lastUpdate->setTimeZone($ko_time)->format('m월 d일 H시 i분');
         ?>
     </div>
     <link href="css/owfont-regular.css" rel="stylesheet" type="text/css">
