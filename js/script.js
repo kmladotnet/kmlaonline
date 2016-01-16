@@ -528,7 +528,6 @@ function bindAddModuleButton() {
             $(".main-block-close").css({width: 24, "margin-left": 5, "border-width": 1, opacity: 1});
             $(".grid-stack-item:not([data-module-name])").attr("data-module-name", name);
             $(".grid-stack-item:not([data-module-name])").attr("data-module-options", "[]");
-            updateModules();
         });
         $("#add-module").val('');
         return false;
@@ -538,7 +537,6 @@ function bindAddModuleButton() {
 function bindModuleCloseButton() {
     $(".main-block-close").unbind("click").click(function () {
         $('.grid-stack').data('gridstack').remove_widget($(this).closest(".grid-stack-item"));
-        updateModules();
     });
 }
 
@@ -591,7 +589,6 @@ function saveOptionsForm(form) {
         if($("#main-edit-button").hasClass('active')) {
             $(".main-block-close").css({width: 24, "margin-left": 5, "border-width": 1, opacity: 1});
         }
-        updateModules();
     });
 }
 
@@ -618,7 +615,7 @@ function toggleOptions(show, element, force) {
 function resetMainLayout() {
     (new PNotify({
         title: '정말로 레이아웃을 초기화할까요?',
-        icon: 'glyphicon glyphicon-question-sign',
+        icon: 'fa fa-question-circle',
         hide: false,
         confirm: {
             confirm: true
@@ -649,10 +646,44 @@ function resetMainLayout() {
     });
 }
 
+function cancelLayout() {
+    (new PNotify({
+        title: '레이아웃 변경사항 취소',
+        text: '레이아웃을 마지막으로 저장된 상태로 되돌릴까요?',
+        icon: 'fa fa-question-circle',
+        hide: false,
+        confirm: {
+            confirm: true
+        },
+        buttons: {
+            closer: false,
+            sticker: false
+        },
+        history: {
+            history: false
+        }
+    })).get().on('pnotify.confirm', function () {
+                location.reload(true);
+    }).on('pnotify.cancel', function () {
+    });
+}
+
 function updateModules() {
     $.post("ajax/user/updatelayout", {
             "json": mainGridToJSON(),
             "ajax": "1"
+        }).done(function () {
+            var notice = new PNotify({
+                text: '레이아웃이 저장되었습니다!',
+                type: 'success',
+                buttons: {
+                    closer: false,
+                    sticker: false
+                }
+            });
+            notice.get().click(function () {
+                notice.remove();
+            });
         }).fail(function () {
             var notice = new PNotify({
                 text: '레이아웃을 저장하지 못했습니다. 인터넷 연결을 확인하세요.',
@@ -678,7 +709,6 @@ function addModule(json) {
         grid.add_widget($(data), 0, 0, 4, 4);
         rebindModules();
         $(".grid-stack-item:not([data-module-name])").attr("data-module-name", dat["name"]).attr("data-module-options", JSON.stringify(dat["options"]["options"]));
-        updateModules();
     });
 }
 

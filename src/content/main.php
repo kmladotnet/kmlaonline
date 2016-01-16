@@ -24,8 +24,10 @@ function printContentPc(){
         <div style="padding: 6px">
         <button type="button" id="main-edit-button" class="btn btn-primary" data-toggle="button" onclick="toggleLayoutEditing(!$(this).hasClass('active'));">편집 모드</button>
             <div id="main-edit-pane" style="margin-top: 6px; display:none">
-                <button type="button" class="btn btn-danger" onclick="resetMainLayout()">초기화</button>
-                <select id="add-module" class="selectpicker" data-style="btn-success" data-size="10" title="패널 추가">
+                <div>
+                    <i class="fa fa-exclamation-triangle"></i> 레이아웃 저장 버튼을 눌러야지 영구적으로 저장됩니다.
+                </div>
+                <select id="add-module" class="selectpicker" data-style="btn-primary" data-size="10" title="패널 추가">
                     <option data-divider="true"></option>
                     <option value="important">중요 공지</option>
                     <option value="birthday">생일</option>
@@ -34,6 +36,9 @@ function printContentPc(){
                     <option value="article-list">게시판</option>
                     <option value="gallery">갤러리</option>
                 </select>
+                <button type="button" class="btn btn-success" onclick="updateModules();">레이아웃 저장</button>
+                <button type="button" class="btn btn-warning" onclick="updateModules();">모든 변경사항 취소</button>
+                <button type="button" class="btn btn-danger" onclick="resetMainLayout()">초기화</button>
             </div>
         </div>
 
@@ -178,9 +183,6 @@ JSON
         };
         $('.grid-stack').gridstack(options);
         $('.grid-stack').data('gridstack').disable();
-        $('.grid-stack').on('change', function (e, items) {
-            updateModules();
-        });
     });
     bindModuleCloseButton();
     bindModuleReloadButton();
