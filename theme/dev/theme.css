@@ -607,3 +607,7 @@ div.food {
 div.food-header {
     font-weight: bold;
 }
+
+div.weather {
+    text-align: center;
+}
