@@ -23,9 +23,9 @@ function printMenu($allDay = false) {
         }
         echo "<div style='font-weight:bold;font-size:11pt;padding:4px;'>{$curMonth}월 {$curDay}일</div>";
         ?>
-        <div <?php if(!$allDay) echo 'id="food-breakfast"';?> class="morning"><?php echo isset($scheduleData['food:0'])?nl2br($scheduleData['food:0']):"<span style='color:#DDD'>(입력되지 않음)</span>"; ?></div>
-        <div <?php if(!$allDay) echo 'id="food-lunch';?> class="afternoon"><?php echo isset($scheduleData['food:1'])?nl2br($scheduleData['food:1']):"<span style='color:#DDD'>(입력되지 않음)</span>"; ?></div>
-        <div <?php if(!$allDay) echo 'id="food-dinner"';?> class="night"><?php echo isset($scheduleData['food:2'])?nl2br($scheduleData['food:2']):"<span style='color:#DDD'>(입력되지 않음)</span>"; ?></div>
+        <div <?php if(!$allDay) echo 'id="food-breakfast" class="morning"'; else echo 'class="food"';?>><?php echo isset($scheduleData['food:0'])?nl2br($scheduleData['food:0']):"<span style='color:#DDD'>(입력되지 않음)</span>"; ?></div>
+        <div <?php if(!$allDay) echo 'id="food-lunch class="afternoon"'; else echo 'class="food"';?>><?php echo isset($scheduleData['food:1'])?nl2br($scheduleData['food:1']):"<span style='color:#DDD'>(입력되지 않음)</span>"; ?></div>
+        <div <?php if(!$allDay) echo 'id="food-dinner" class="night"'; else echo 'class="food"';?>><?php echo isset($scheduleData['food:2'])?nl2br($scheduleData['food:2']):"<span style='color:#DDD'>(입력되지 않음)</span>"; ?></div>
     </div>
     <?php
 }

@@ -593,3 +593,8 @@ div.hide-on-upper-panel{
     right: 3px;
     overflow: hidden;
 }
+
+div.food {
+    padding: 10px;
+    float: left;
+}
