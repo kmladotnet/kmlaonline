@@ -90,7 +90,6 @@ function moduleContent($module_name, $options) {
 
 function basicModuleOptions($options) {
     ?>
-    <h3>공통 설정</h3>
     <div class="form-group">
         <label>패널 색상</label>
         <select class="selectpicker" data-width="175px" name="color">
@@ -120,7 +119,6 @@ function moduleOptions($module_name, $options) {
     switch($module_name) {
         case 'article-list':
         ?>
-        <h3>게시판 설정</h3>
         <div class="form-group">
             <label>글 분류</label>
             <select class="selectpicker" name="cat" data-live-search="true" data-size="6" data-dropup-auto="false" multiple>
@@ -176,7 +174,6 @@ function moduleOptions($module_name, $options) {
         <?php
         case 'important':
             ?>
-            <h3>글 목록 설정</h3>
             <?php
                 $shown = array(
                     'show-cat' => '분류',
