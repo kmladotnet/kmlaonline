@@ -33,10 +33,8 @@ class ExampleCache extends AbstractCache {
     public function isCached($url) {
         $path = $this->urlToPath($url);
         if (!file_exists($path) || filectime($path) + $this->seconds < time()) {
-            echo "Weather data is NOT cached!\n";
             return false;
         }
-        echo "Weather data is cached!\n";
         return true;
     }
     public function getCached($url) {
@@ -46,12 +44,12 @@ class ExampleCache extends AbstractCache {
         file_put_contents($this->urlToPath($url), $content);
     }
 }
-// Language of data (try your own language here!):
 $lang = 'ko';
-// Units (can be 'metric' or 'imperial' [default]):
 $units = 'metric';
 $owm = new OpenWeatherMap(null, new ExampleCache(), 60);
 $weather = $owm->getWeather('Hoengsong', $units, $lang, '713e90471b96dbd9c11826031ee66031');
-echo "EXAMPLE 1<hr />\n\n\n";
+?>
+<link href="css/owfont-regular.css" rel="stylesheet" type="text/css">
+<i class="owf owf-<?php echo $weather->weather->id;?>"></i>
 echo $weather->temperature;
 ?>
