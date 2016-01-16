@@ -712,6 +712,8 @@ function addModule(json) {
 
 function toggleLayoutEditing(set) {
     if(set) {
+        $(".main-block-close").css("display", "inline-block");
+        $(".main-block-options").css("display", "inline-block");
         $(".main-block-close").velocity({width: 24, "margin-left": 5, "border-width": 1, opacity: 1}, 300);
         $(".main-block-options").velocity({width: 24, "margin-left": 5, "border-width": 1, opacity: 1}, 300);
         $(".main-block-title").css("cursor", "move");

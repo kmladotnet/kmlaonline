@@ -524,6 +524,7 @@ div#upper-header-holder{
     border-width: 0px;
     margin-left: 0px;
     opacity: 0;
+    display: none;
     color: #d9534f;
 }
 .main-block-reload, .main-block-reload:hover, .main-block-reload:active{
@@ -534,6 +535,7 @@ div#upper-header-holder{
     border-width: 0px;
     margin-left: 0px;
     opacity: 0;
+    display: none;
     color: #337ab7;
 }
 
