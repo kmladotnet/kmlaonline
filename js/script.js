@@ -241,7 +241,7 @@ function loadUpperHeader(theurl, placeTo, immediate) {
 }
 
 function showUpperHeader(itm) {
-    $("#upper-header-menu").find(".upper-menus").not("#" + itm).velocity("finish", true).velocity({
+    $("#upper-header-menu").find(".upper-menus").not("#" + itm).velocity({
         opacity: 0,
         height: 0
     }, 500, function () {
@@ -298,7 +298,7 @@ function showUpperHeader(itm) {
     $("div#total-header-menu .slidedown").css("top", "auto").css("bottom", "0");
     upperHeaderVisible = true;
     $(".hide-on-upper-panel").velocity("fadeOut", {duration: 500});
-    $("#behind-total-wrap").velocity("fadeOut", {duration: 500});
+    $("#behind-total-wrap").velocity("fadeIn", {duration: 500});
 }
 
 function hideUpperHeader() {
