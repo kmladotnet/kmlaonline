@@ -552,7 +552,7 @@ function bindModuleReloadButton() {
             "json": JSON.stringify(moduleToObject(module)),
             "ajax": 1
         }, function (data) {
-            module.closest(".grid-stack-item-content").html(data);
+            module.find(".grid-stack-item-content").html(data);
             rebindModules();
             if($("#main-edit-button").hasClass('active')) {
                 $(".main-block-close").css({width: 24, "margin-left": 5, "border-width": 1, opacity: 1});
@@ -589,9 +589,7 @@ function saveOptionsForm(form) {
         "json": JSON.stringify(moduleToObject(module)),
         "ajax": 1
     }, function (data) {
-        console.log(data);
-        console.log(module.closest(".grid-stack-item-content"));
-        module.closest(".grid-stack-item-content").html(data);
+        module.find(".grid-stack-item-content").html(data);
         rebindModules();
         if($("#main-edit-button").hasClass('active')) {
             $(".main-block-close").css({width: 24, "margin-left": 5, "border-width": 1, opacity: 1});
