@@ -130,6 +130,8 @@ function printContent(){
 			<div style="margin:0 auto;width:120px;text-align:center;">총 <?php echo $article_count?>개</div>
 		</div>
 	</div>
+
+    <script src="//cdn.ckeditor.com/4.5.6/full/ckeditor.js"></script>
 	<script type="text/html" id="user_found_template">
 		<li><input type="checkbox" id="chk_<%=USERINDEX%>" class="user_search_results" value="<%=USERINDEX%>" rel="<%=USERDESC%>" /> <label for="chk_<%=USERINDEX%>"><%=USERDESC%></label></li>
 	</script>
