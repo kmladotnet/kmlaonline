@@ -199,41 +199,39 @@ function moduleOptions($module_name, $options) {
 
 function moduleContents($module_name, $options) {
     ?>
-    <div class="grid-stack-item-content">
-        <div class="main-block panel panel-<?php echo $options['color'];?>">
-            <div class="main-block-title panel-heading">
-                <button class="main-block-close main-block-button btn btn-default" type="button">
-                    <span class="glyphicon glyphicon-remove"></span>
-                </button>
-                <button class="main-block-reload main-block-button btn btn-default" type="button">
-                    <span class="glyphicon glyphicon-refresh"></span>
-                </button>
-                <button class="main-block-options main-block-button btn btn-default" type="button" data-toggle="button" onclick="toggleOptions(!$(this).hasClass('active'), $(this));">
-                    <span class="glyphicon glyphicon-cog"></span>
-                </button>
-                <div class="main-block-title-content">
-                    <?php
-                    moduleTitle($module_name, $options);
-                    ?>
-                </div>
+    <div class="main-block panel panel-<?php echo $options['color'];?>">
+        <div class="main-block-title panel-heading">
+            <button class="main-block-close main-block-button btn btn-default" type="button">
+                <span class="glyphicon glyphicon-remove"></span>
+            </button>
+            <button class="main-block-reload main-block-button btn btn-default" type="button">
+                <span class="glyphicon glyphicon-refresh"></span>
+            </button>
+            <button class="main-block-options main-block-button btn btn-default" type="button" data-toggle="button" onclick="toggleOptions(!$(this).hasClass('active'), $(this));">
+                <span class="glyphicon glyphicon-cog"></span>
+            </button>
+            <div class="main-block-title-content">
+                <?php
+                moduleTitle($module_name, $options);
+                ?>
             </div>
+        </div>
 
-            <div class="panel-body main-block-body">
-                <div class="main-block-content">
+        <div class="panel-body main-block-body">
+            <div class="main-block-content">
+                <?php
+                moduleContent($module_name, $options);
+                ?>
+            </div>
+            <div class="main-block-options-pane">
+                <form class="main-block-options-form" onsubmit>
                     <?php
-                    moduleContent($module_name, $options);
+                    basicModuleOptions($options);
+                    moduleOptions($module_name, $options);
                     ?>
-                </div>
-                <div class="main-block-options-pane">
-                    <form class="main-block-options-form" onsubmit>
-                        <?php
-                        basicModuleOptions($options);
-                        moduleOptions($module_name, $options);
-                        ?>
-                        <button type="button" class="main-block-options-submit btn btn-primary">저장</button>
-                        <button type="reset" class="main-block-options-cancel btn btn-warning">취소</button>
-                    </form>
-                </div>
+                    <button type="button" class="main-block-options-submit btn btn-primary">저장</button>
+                    <button type="reset" class="main-block-options-cancel btn btn-warning">취소</button>
+                </form>
             </div>
         </div>
     </div>
@@ -251,7 +249,9 @@ function getModule($module_name, $options, $x = 0, $y = 0, $w = 4, $h = 4) {
         echo 'data-module-options=\'',htmlspecialchars(json_encode($options)),'\'';
         ?>
             >
-        <?php moduleContents($module_name, $options); ?>
+        <div class="grid-stack-item-content">
+            <?php moduleContents($module_name, $options); ?>
+        </div>
     </div>
 <?php
 }
