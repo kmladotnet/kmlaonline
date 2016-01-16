@@ -36,9 +36,9 @@ function printContentPc(){
                     <option value="article-list">게시판</option>
                     <option value="gallery">갤러리</option>
                 </select>
-                <button type="button" class="btn btn-success" onclick="updateModules();"><i class="fa fa-floppy-o"></i>레이아웃 저장</button>
-                <button type="button" class="btn btn-warning" onclick="cancelLayout();"><i class="fa fa-trash-o"></i>모든 변경사항 취소</button>
-                <button type="button" class="btn btn-danger" onclick="resetMainLayout()"><i class="fa fa-times"></i>초기화</button>
+                <button type="button" class="btn btn-success" onclick="updateModules();"><i class="fa fa-floppy-o"></i> 레이아웃 저장</button>
+                <button type="button" class="btn btn-warning" onclick="cancelLayout();"><i class="fa fa-trash-o"></i> 모든 변경사항 취소</button>
+                <button type="button" class="btn btn-danger" onclick="resetMainLayout()"><i class="fa fa-times"></i> 초기화</button>
             </div>
         </div>
 

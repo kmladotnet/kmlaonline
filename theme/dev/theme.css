@@ -516,6 +516,7 @@ div#upper-header-holder{
     border-radius: 50%;
     width: 24px;
     height: 24px;
+    font-size: 11pt;
 }
 
 .main-block-close, .main-block-close:hover, .main-block-close:active{
