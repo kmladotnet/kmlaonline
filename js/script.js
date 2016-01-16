@@ -589,6 +589,7 @@ function saveOptionsForm(form) {
         "json": JSON.stringify(moduleToObject(module)),
         "ajax": 1
     }, function (data) {
+        console.log(data);
         module.closest(".grid-stack-item-content").html(data);
         rebindModules();
         if($("#main-edit-button").hasClass('active')) {
