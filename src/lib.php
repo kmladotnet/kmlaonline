@@ -591,7 +591,6 @@ function __autoload($className) {
     }
     return false;
 }
-require_once("src/lib/OpenWeatherMap.php");
 
 class WeatherCache extends AbstractCache {
     private function urlToPath($url) {
@@ -619,6 +618,7 @@ class WeatherCache extends AbstractCache {
 }
 
 function getWeather() {
+    require_once("src/lib/OpenWeatherMap.php");
     $lang = 'ko';
     $units = 'metric';
     $owm = new OpenWeatherMap(null, new WeatherCache(), 60);
