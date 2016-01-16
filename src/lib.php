@@ -604,11 +604,10 @@ class WeatherCache extends AbstractCache {
     }
     public function isCached($url) {
         $path = $this->urlToPath($url);
+        echo $path;
         if (!file_exists($path) || filectime($path) + $this->seconds < time()) {
-            echo 'xcache';
             return false;
         }
-        echo 'cache';
         return true;
     }
     public function getCached($url) {
