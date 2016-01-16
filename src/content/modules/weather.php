@@ -51,6 +51,7 @@ $weather = $owm->getWeather('Hoengsong', $units, $lang, '713e90471b96dbd9c118260
 ?>
 <link href="css/owfont-regular.css" rel="stylesheet" type="text/css">
 <i class="owf owf-<?php echo $weather->weather->id;?> owf-5x"></i>
+<br>
 <?php
-echo $weather->temperature;
+echo '기온: ', $weather->temperature;
 ?>
