@@ -512,6 +512,10 @@ function rebindModules() {
     bindModuleCloseButton();
     bindModuleReloadButton();
     bindOptionsForm();
+    if($("#main-edit-button").hasClass('active')) {
+        $(".main-block-close").css({width: 24, "margin-left": 5, "border-width": 1, opacity: 1});
+        $(".main-block-title").css("cursor", "move");
+    }
     $('.selectpicker').selectpicker();
 }
 
@@ -549,9 +553,6 @@ function bindModuleReloadButton() {
         }, function (data) {
             module.find(".grid-stack-item-content").html(data);
             rebindModules();
-            if($("#main-edit-button").hasClass('active')) {
-                $(".main-block-close").css({width: 24, "margin-left": 5, "border-width": 1, opacity: 1});
-            }
         });
         new PNotify({
             text: '새로고침 했습니다.',
@@ -586,9 +587,6 @@ function saveOptionsForm(form) {
     }, function (data) {
         module.find(".grid-stack-item-content").html(data);
         rebindModules();
-        if($("#main-edit-button").hasClass('active')) {
-            $(".main-block-close").css({width: 24, "margin-left": 5, "border-width": 1, opacity: 1});
-        }
     });
 }
 
