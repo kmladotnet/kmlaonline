@@ -39,8 +39,17 @@ function moduleTitle($module_name, $options) {
             break;
         case 'article-list':
             $one_cat = count($options['cat']) === 1;
-            $cat = $one_cat ? $board->getCategory($options['cat'][0]) : null;?>
-            <a href="<?php echo '/board/'.($one_cat ? $cat['s_id'] : urlencode(json_encode(array('cat'=>$options['cat'], 'title'=>$options['title']))));?>"><?php echo htmlspecialchars(getOrDefault($options['title'], $one_cat ? $cat['s_name'] : '여러가지'));?></a>
+            $cat = $one_cat ? $board->getCategory($options['cat'][0]) : null;
+            if(!array_key_exists('title', $options)) {
+                if($one_cat) {
+                    $options['title'] = $cat['s_name'];
+                }
+                else {
+                    $options['title'] = '여러가지';
+                }
+            }
+            ?>
+            <a href="<?php echo '/board/'.($one_cat ? $cat['s_id'] : urlencode(json_encode(array('cat'=>$options['cat'], 'title'=>$options['title']))));?>"><?php echo htmlspecialchars($options['title']);?></a>
             <?php
             break;
         case 'gallery':
@@ -153,6 +162,10 @@ function moduleOptions($module_name, $options) {
                     }
                 ?>
             </select>
+        </div>
+        <div class="form-group">
+            <label>패널 제목</label>
+            <input class="form-control" type="text" name="title" placeholder="비우면 자동으로 설정됩니다." />
         </div>
         <?php
         case 'important':
