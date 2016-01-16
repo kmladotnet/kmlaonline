@@ -617,11 +617,13 @@ class WeatherCache extends AbstractCache {
     }
 }
 
+require_once("src/lib/OpenWeatherMap.php");
+$owm = new OpenWeatherMap(null, new WeatherCache(), 60);
+
 function getWeather() {
-    require_once("src/lib/OpenWeatherMap.php");
+    global $owm;
     $lang = 'ko';
     $units = 'metric';
-    $owm = new OpenWeatherMap(null, new WeatherCache(), 60);
     return $owm->getWeather('Hoengsong', $units, $lang, '713e90471b96dbd9c11826031ee66031');
 }
 
