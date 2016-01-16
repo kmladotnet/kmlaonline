@@ -303,7 +303,7 @@ function showUpperHeader(itm) {
 
 function hideUpperHeader() {
     if (!upperHeaderVisible) return;
-    $("#total-header-menu-menus").children(".menu1").velocity({
+    $("#total-header-menu-menus").children(".menu1").not(".menu1-logo").velocity({
         width: 80,
         opacity: 1
     }, 500);

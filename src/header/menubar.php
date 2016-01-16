@@ -1,7 +1,7 @@
 <?php if(!isset($_SESSION['user'])) return; ?>
     <div id="total-header-menu-menus" style="position: absolute;">
 
-        <div class="menu1" style="width:40px;padding-left:10px">
+        <div class="menu1 menu1-logo" style="width:40px;padding-left:10px">
             <!-- <a href="http://kmlaonline.net" style="border-"><img src="/images/logo.png" alt="KMLAONLINE" style="width:20px;height:20px;padding-top:10px"></a>-->
         </div>
         <div class="menu1">
