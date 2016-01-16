@@ -619,3 +619,11 @@ div.weather-temp {
 div.weather-name {
 
 }
+
+div.weather-copyright {
+    bottom: 0px;
+    position: absolute;
+    font-size: 8pt;
+    width: 100%;
+    margin: 0 -10px;
+}
