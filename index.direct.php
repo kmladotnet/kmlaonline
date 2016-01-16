@@ -14,7 +14,7 @@
     <!-- velocity -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.ui.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.0.0/lodash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>
     <script src="//cdn.jsdelivr.net/g/pnotify@2.0.0,bootstrap@3.3.6,jquery.datatables@1.10.10(js/jquery.dataTables.min.js+js/dataTables.bootstrap.min.js),bootstrap.select@2.0.0-beta1"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.3/gridstack.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/pnotify/3.0.0/pnotify.min.js"></script>
