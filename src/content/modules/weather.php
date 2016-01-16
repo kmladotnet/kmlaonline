@@ -9,15 +9,15 @@ $ko_time = new DateTimeZone('Asia/Seoul');
         ?>
     </div>
     <link href="css/owfont-regular.css" rel="stylesheet" type="text/css">
-    <div class="weather-temp">
+    <div class="weather-name">
         <i class="owf owf-<?php echo $weather->weather->id;?> owf-2x" style="vertical-align:middle"></i>
         <?php
-        echo $weather->temperature;
+        echo '(',lang('weather', $weather->weather->id),')';
         ?>
     </div>
-    <div class="weather-name">
+    <div class="weather-temp">
         <?php
-        echo '(',lang('weather', $weather->weather->id),')';
+        echo $weather->temperature;
         ?>
     </div>
     <div class="weather-copyright">

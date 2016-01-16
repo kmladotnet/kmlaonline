@@ -613,11 +613,11 @@ div.weather {
 }
 
 div.weather-temp {
-    font-size: 24pt;
+    font-size: 30pt;
 }
 
 div.weather-name {
-
+    font-size: 24pt;
 }
 
 div.weather-copyright {
