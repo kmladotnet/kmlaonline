@@ -625,5 +625,4 @@ function getWeather() {
     return $owm->getWeather('Hoengsong', $units, $lang, '713e90471b96dbd9c11826031ee66031');
 }
 
-
 $maxUploadFileSize = convertToBytes( ini_get( 'upload_max_filesize' ) );
