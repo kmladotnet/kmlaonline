@@ -305,8 +305,9 @@ function hideUpperHeader() {
     $("#total-header-menu-menus").children(".menu1").not(".menu1-logo").velocity({
         width: 80,
         opacity: 1
-    }, 300);
-    closeMenu("#upper-header-menu-kept-visible", true);
+    }, 300, function(){
+        prepareHeader();
+    });
     $("#total-wrap").css("background", "none");
     $("#total-wrap").css("height", "auto");
     $("#upper-header-menu").css("height", ($(window).height() - $("#total-header-menu").height()) + "px");
@@ -329,7 +330,6 @@ function hideUpperHeader() {
     $("#total-header-menu").css("bottom", "");
     $(".hide-on-upper-panel").velocity("fadeIn", {duration: 300});
     $("#behind-total-wrap").velocity("fadeOut", {duration: 300});
-    prepareHeader();
 }
 
 function closeMenu(ths, force) {
