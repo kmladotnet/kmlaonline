@@ -1,5 +1,6 @@
 <?php
 function printMenu($allDay = false) {
+	global $member, $me, $is_morning, $is_afternoon, $is_night, $mysqli;
 ?>
     <div style="text-align:center">
         <?php
