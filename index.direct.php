@@ -25,11 +25,6 @@
     <script src="/swfupload/swfupload.queue.js" charset="utf-8"></script>
     <script src="/js/script.js?v=1.3" charset="utf-8"></script>
     <script src="/js/content/combined.js" charset="utf-8"></script>
-    <script src="/js/snowstorm.js"></script>
-    <script type="text/javascript">
-        snowStorm.snowColor = '#99ccff';
-        snowStorm.freezeOnBlur = true;
-    </script>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap-theme.min.css" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/2.0.0-beta1/css/bootstrap-select.min.css" />
