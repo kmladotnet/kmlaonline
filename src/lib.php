@@ -619,7 +619,7 @@ class WeatherCache extends AbstractCache {
 }
 
 require_once("src/lib/OpenWeatherMap.php");
-$owm = new OpenWeatherMap(null, null, 60);
+$owm = new OpenWeatherMap();
 
 function getWeather() {
     global $owm;
