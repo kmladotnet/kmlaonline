@@ -723,17 +723,7 @@ function toggleLayoutEditing(set) {
         $(".main-block-title").css("cursor", "default");
         $("#main-edit-pane").velocity("slideUp", {duration: 300, easing: "easeOutCubic"});
         $('.grid-stack').data('gridstack').disable();
-        new PNotify({
-            text: '레이아웃을 바꿨다면 저장하는 것을 잊지 마세요!',
-            type: 'info',
-            buttons: {
-                closer: false,
-                sticker: false
-            }
-        });
-        notice.get().click(function () {
-            notice.remove();
-        });
+        updateLayout();
     }
 }
 

@@ -25,7 +25,7 @@ function printContentPc(){
         <button type="button" id="main-edit-button" class="btn btn-primary" data-toggle="button" onclick="toggleLayoutEditing(!$(this).hasClass('active'));">편집 모드</button>
             <div id="main-edit-pane" style="margin-top: 6px; display:none">
                 <div>
-                    <i class="fa fa-exclamation-triangle"></i> 레이아웃 저장 버튼을 눌러야 영구적으로 저장됩니다.
+                    <i class="fa fa-exclamation-triangle"></i> 레이아웃 저장 버튼을 누르거나 편집 모드를 종료하기 전엔 레이아웃이 저장되지 않습니다.
                 </div>
                 <select id="add-module" class="selectpicker" data-style="btn-primary" data-size="10" title="패널 추가">
                     <option data-divider="true"></option>
