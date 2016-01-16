@@ -611,3 +611,11 @@ div.food-header {
 div.weather {
     text-align: center;
 }
+
+div.weather-temp {
+    font-size: 24pt;
+}
+
+div.weather-name {
+
+}
