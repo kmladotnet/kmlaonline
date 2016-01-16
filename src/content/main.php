@@ -37,7 +37,7 @@ function printContentPc(){
                     <option value="gallery">갤러리</option>
                 </select>
                 <button type="button" class="btn btn-success" onclick="updateModules();">레이아웃 저장</button>
-                <button type="button" class="btn btn-warning" onclick="updateModules();">모든 변경사항 취소</button>
+                <button type="button" class="btn btn-warning" onclick="cancelLayout();">모든 변경사항 취소</button>
                 <button type="button" class="btn btn-danger" onclick="resetMainLayout()">초기화</button>
             </div>
         </div>
