@@ -719,7 +719,7 @@ function toggleLayoutEditing(set) {
         $('.grid-stack').data('gridstack').enable();
     } else {
         $(".main-block-close").velocity({width: 0, "margin-left":0, "border-width": 0, opacity: 0}, 300);
-        $(".main-block-options").velocity({width: 24, "margin-left": 5, "border-width": 1, opacity: 1}, 300);
+        $(".main-block-options").velocity({width: 0, "margin-left":0, "border-width": 0, opacity: 0}, 300);
         $(".main-block-title").css("cursor", "default");
         $("#main-edit-pane").velocity("slideUp", {duration: 300, easing: "easeOutCubic"});
         $('.grid-stack').data('gridstack').disable();
