@@ -291,7 +291,7 @@ function showUpperHeader(itm) {
     }, 500);
 
     $("#total-header-menu-menus").children(".menu1").not("#upper-header-menu-kept-visible").velocity({
-        height: 0,
+        width: 0,
         opacity: 0.7
     }, 500);
     $("div.menu1").off("mouseenter").off("mouseleave");
@@ -312,7 +312,7 @@ function hideUpperHeader() {
         height: 0
     }, 500);
     $("#below-header-menu").velocity({
-        height: $("#below-header-menu").children().height() + "px",
+        height: $("#below-header-menu").children().height(),
         opacity: 1
     }, 500, "swing", function () {
         $(this).height("auto");
@@ -322,7 +322,7 @@ function hideUpperHeader() {
         height: 0
     }, 500);
     $("#total-header-menu-menus").children(".menu1").velocity({
-        height: "80px",
+        width: 40,
         opacity: 1
     }, 500);
     closeMenu("#upper-header-menu-kept-visible", true);
