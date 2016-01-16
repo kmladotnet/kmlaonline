@@ -303,6 +303,10 @@ function showUpperHeader(itm) {
 
 function hideUpperHeader() {
     if (!upperHeaderVisible) return;
+    $("#total-header-menu-menus").children(".menu1").velocity({
+        width: 80,
+        opacity: 1
+    }, 500);
     $("#total-wrap").css("background", "none");
     $("#total-wrap").css("height", "auto");
     $("#upper-header-menu").css("height", ($(window).height() - $("#total-header-menu").height()) + "px");
@@ -321,11 +325,6 @@ function hideUpperHeader() {
         opacity: 0.7,
         height: 0
     }, 500);
-    $("#total-header-menu-menus").children(".menu1").velocity({
-        width: 80,
-        opacity: 1
-    }, 500);
-    closeMenu("#upper-header-menu-kept-visible", true);
     $("div#total-header-menu .slidedown").css("top", "40px").css("bottom", "auto");
     upperHeaderVisible = false;
     $("#total-header-menu").css("position", "fixed");
