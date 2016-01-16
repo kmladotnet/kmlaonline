@@ -40,7 +40,7 @@ function moduleTitle($module_name, $options) {
         case 'article-list':
             $one_cat = count($options['cat']) === 1;
             $cat = $one_cat ? $board->getCategory($options['cat'][0]) : null;
-            if(!array_key_exists('title', $options)) {
+            if(!array_key_exists('title', $options) || $options['title'] === '') {
                 if($one_cat) {
                     $options['title'] = $cat['s_name'];
                 }
