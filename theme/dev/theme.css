@@ -530,6 +530,10 @@ div#upper-header-holder{
     color: #5cb85c;
 }
 .main-block-options, .main-block-options:hover, .main-block-options:active{
+    width: 0px;
+    border-width: 0px;
+    margin-left: 0px;
+    opacity: 0;
     color: #337ab7;
 }
 
