@@ -306,6 +306,7 @@ function hideUpperHeader() {
         width: 80,
         opacity: 1
     }, 300);
+    closeMenu("#upper-header-menu-kept-visible", true);
     $("#total-wrap").css("background", "none");
     $("#total-wrap").css("height", "auto");
     $("#upper-header-menu").css("height", ($(window).height() - $("#total-header-menu").height()) + "px");
