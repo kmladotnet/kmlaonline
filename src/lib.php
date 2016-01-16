@@ -604,7 +604,6 @@ class WeatherCache extends AbstractCache {
     }
     public function isCached($url) {
         $path = $this->urlToPath($url);
-        echo $path;
         if (!file_exists($path) || filectime($path) + $this->seconds < time()) {
             return false;
         }
@@ -619,7 +618,7 @@ class WeatherCache extends AbstractCache {
 }
 
 require_once("src/lib/OpenWeatherMap.php");
-$owm = new OpenWeatherMap();
+$owm = new OpenWeatherMap(null, new WeatherCache(), 120);
 
 function getWeather() {
     global $owm;
