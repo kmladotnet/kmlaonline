@@ -230,7 +230,8 @@ function moduleContents($module_name, $options) {
                         basicModuleOptions($options);
                         moduleOptions($module_name, $options);
                         ?>
-                        <button type="button" class="main-block-options-submit btn btn-default">확인</button>
+                        <button type="button" class="main-block-options-submit btn btn-primary">저장</button>
+                        <button type="reset" class="main-block-options-cancel btn btn-warning">취소</button>
                     </form>
                 </div>
             </div>

@@ -603,10 +603,16 @@ function bindOptionsForm() {
     $(".main-block-options-submit").unbind("click").click(function() {
         saveOptionsForm($(this).closest("form"));
     });
+    $(".main-block-options-cancel").unbind("click").click(function() {
+        toggleOptions(false, $(this));
+    });
 }
 
 function toggleOptions(show, element) {
     var mainBlock = element.closest(".main-block");
+    if(!show) {
+        mainBlock.find(".main-block-options").removeClass("active");
+    }
     var toShow = mainBlock.find(show ? ".main-block-options-pane" : ".main-block-content");
     var toHide = mainBlock.find(show ? ".main-block-content" : ".main-block-options-pane");
     toHide.velocity("fadeOut", {duration: 150, complete: function() { toShow.velocity("fadeIn", {duration: 150}); }});
