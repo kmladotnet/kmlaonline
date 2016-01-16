@@ -92,7 +92,7 @@ function basicModuleOptions($options) {
     ?>
     <div class="form-group">
         <label>패널 색상</label>
-        <select class="selectpicker" data-width="175px" name="color">
+        <select class="selectpicker" data-width="150px" name="color">
             <?php
                 $colors = array(
                     'default' => '기본값(회색)',
