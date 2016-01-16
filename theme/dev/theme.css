@@ -599,6 +599,11 @@ div.hide-on-upper-panel{
 }
 
 div.food {
-    padding: 10px;
+    padding: 5px;
     float: left;
+    width: 33%;
+}
+
+div.food-header {
+    font-weight: bold;
 }
