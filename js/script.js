@@ -723,7 +723,7 @@ function toggleLayoutEditing(set) {
         $(".main-block-title").css("cursor", "default");
         $("#main-edit-pane").velocity("slideUp", {duration: 300, easing: "easeOutCubic"});
         $('.grid-stack').data('gridstack').disable();
-        updateLayout();
+        updateModules();
     }
 }
 
