@@ -57,6 +57,11 @@ function moduleTitle($module_name, $options) {
             <a href="/board/all_gallery">갤러리</a>
             <?php
             break;
+        case 'weather':
+            ?>
+            날씨
+            <?php
+            break;
     }
 }
 
@@ -85,6 +90,9 @@ function moduleContent($module_name, $options) {
             break;
         case 'gallery':
             include('gallery.php');
+            break;
+        case 'weather':
+            include('weather.php');
             break;
     }
 }
@@ -294,6 +302,8 @@ function defaultOptions($module_name) {
             $defaults['show-date'] = true;
             break;
         case 'gallery':
+            break;
+        case 'weather':
             break;
     }
     return $defaults;
