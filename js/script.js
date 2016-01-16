@@ -604,13 +604,13 @@ function bindOptionsForm() {
         saveOptionsForm($(this).closest("form"));
     });
     $(".main-block-options-cancel").unbind("click").click(function() {
-        toggleOptions(false, $(this));
+        toggleOptions(false, $(this), true);
     });
 }
 
-function toggleOptions(show, element) {
+function toggleOptions(show, element, force) {
     var mainBlock = element.closest(".main-block");
-    if(!show) {
+    if(!show && force) {
         mainBlock.find(".main-block-options").removeClass("active");
     }
     var toShow = mainBlock.find(show ? ".main-block-options-pane" : ".main-block-content");
