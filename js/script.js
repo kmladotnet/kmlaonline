@@ -292,7 +292,7 @@ function showUpperHeader(itm) {
 
     $("#total-header-menu-menus").children(".menu1").not("#upper-header-menu-kept-visible").velocity({
         width: 0,
-        opacity: 0.7
+        opacity: 0
     }, 500);
     $("div.menu1").off("mouseenter").off("mouseleave");
     $("div#total-header-menu .slidedown").css("top", "auto").css("bottom", "0");
@@ -322,7 +322,7 @@ function hideUpperHeader() {
         height: 0
     }, 500);
     $("#total-header-menu-menus").children(".menu1").velocity({
-        width: 40,
+        width: 80,
         opacity: 1
     }, 500);
     closeMenu("#upper-header-menu-kept-visible", true);
