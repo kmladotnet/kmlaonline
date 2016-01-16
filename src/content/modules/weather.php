@@ -50,6 +50,7 @@ $owm = new OpenWeatherMap(null, new ExampleCache(), 60);
 $weather = $owm->getWeather('Hoengsong', $units, $lang, '713e90471b96dbd9c11826031ee66031');
 ?>
 <link href="css/owfont-regular.css" rel="stylesheet" type="text/css">
-<i class="owf owf-<?php echo $weather->weather->id;?>"></i>
+<i class="owf owf-<?php echo $weather->weather->id;?> owf-5x"></i>
+<?php
 echo $weather->temperature;
 ?>
