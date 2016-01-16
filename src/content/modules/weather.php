@@ -5,6 +5,12 @@ require_once("src/lib/OpenWeatherMap.php");
 foreach (glob("src/lib/OpenWeatherMap/*.php") as $filename){
     require_once($filename);
 }
+foreach (glob("src/lib/OpenWeatherMap/Fetcher/*.php") as $filename){
+    require_once($filename);
+}
+foreach (glob("src/lib/OpenWeatherMap/Util/*.php") as $filename){
+    require_once($filename);
+}
 
 $lang = 'ko';
 
