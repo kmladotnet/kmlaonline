@@ -2,6 +2,9 @@
 use Cmfcmf\OpenWeatherMap;
 use Cmfcmf\OpenWeatherMap\Exception as OWMException;
 require_once("src/lib/OpenWeatherMap.php");
+foreach (glob("src/lib/OpenWeatherMap/*.php") as $filename){
+    require_once($filename);
+}
 
 $lang = 'ko';
 
