@@ -614,10 +614,12 @@ div.weather {
 
 div.weather-temp {
     font-size: 30pt;
+    margin: 10px 0;
 }
 
 div.weather-name {
     font-size: 24pt;
+    margin: 15px 0;
 }
 
 div.weather-copyright {

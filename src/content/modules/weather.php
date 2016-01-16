@@ -5,14 +5,14 @@ $ko_time = new DateTimeZone('Asia/Seoul');
 <div class="weather">
     <div class="weather-last-update">
         <?php
-        echo $weather->lastUpdate->setTimeZone($ko_time)->format('n월 j일 H시 i분 기준');
+        echo $weather->lastUpdate->setTimeZone($ko_time)->format('n월 j일 H:i 기준');
         ?>
     </div>
     <link href="css/owfont-regular.css" rel="stylesheet" type="text/css">
     <div class="weather-name">
         <i class="owf owf-<?php echo $weather->weather->id;?> owf-2x" style="vertical-align:middle"></i>
         <?php
-        echo '(',lang('weather', $weather->weather->id),')';
+        echo lang('weather', $weather->weather->id);
         ?>
     </div>
     <div class="weather-temp">
