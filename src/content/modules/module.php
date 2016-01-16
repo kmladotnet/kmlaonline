@@ -70,7 +70,8 @@ function moduleContent($module_name, $options) {
             include("birthday.php");
             break;
         case 'menu':
-            include("menu.php");
+            require_once("menu.php");
+            printMenu($options['all-day']);
             break;
         case 'kmlaboard':
             $dat="";
@@ -194,6 +195,16 @@ function moduleOptions($module_name, $options) {
             ?>
             <?php
             break;
+        case 'menu':
+            ?>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="all-day" <?php if($options[$all-day]) echo 'checked'; ?>>
+                    아침/점심/저녁 모두 보기
+                </label>
+            </div>
+            <?php
+            break;
     }
 }
 
@@ -271,6 +282,7 @@ function defaultOptions($module_name) {
         case 'birthday':
             break;
         case 'menu':
+            $defaults['all-day'] = false;
             break;
         case 'kmlaboard':
             break;
