@@ -590,6 +590,7 @@ function saveOptionsForm(form) {
         "ajax": 1
     }, function (data) {
         console.log(data);
+        console.log(module.closest(".grid-stack-item-content"));
         module.closest(".grid-stack-item-content").html(data);
         rebindModules();
         if($("#main-edit-button").hasClass('active')) {
