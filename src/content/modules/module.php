@@ -199,7 +199,7 @@ function moduleOptions($module_name, $options) {
             ?>
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" name="all-day" <?php if($options[$all-day]) echo 'checked'; ?>>
+                    <input type="checkbox" name="all-day" <?php if($options["all-day"]) echo 'checked'; ?>>
                     아침/점심/저녁 모두 보기
                 </label>
             </div>
