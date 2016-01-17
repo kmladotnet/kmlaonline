@@ -509,9 +509,13 @@ div#upper-header-holder{
 .main-block-options-pane{
     display:none;
 }
-.main-block-button{
+
+.main-block-button-group{
     float:right;
-    margin: 0 0 0 5px;
+}
+
+.main-block-button{
+    margin: 0;
     padding:0px;
     border-radius: 50%;
     width: 24px;
@@ -522,7 +526,6 @@ div#upper-header-holder{
 .main-block-close, .main-block-close:hover, .main-block-close:active{
     width: 0px;
     border-width: 0px;
-    margin-left: 0px;
     opacity: 0;
     display: none;
     color: #d9534f;
@@ -533,7 +536,6 @@ div#upper-header-holder{
 .main-block-options, .main-block-options:hover, .main-block-options:active{
     width: 0px;
     border-width: 0px;
-    margin-left: 0px;
     opacity: 0;
     display: none;
     color: #337ab7;
