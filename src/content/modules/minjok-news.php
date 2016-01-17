@@ -9,7 +9,14 @@
             $type=trim($each[1]);
             $date=trim($each[2]);
             $msg=trim(strip_tags($each[3]));
-            ?><dt><?php echo "[$date] $type";?></dt><dd><a href="http://www.minjok.hs.kr/members/" target="_new" style="color:black"><?php echo "$msg"?></a></dd><?php
+            ?>
+            <dt style="width: 90px">
+                <?php echo "[$date] $type";?>
+            </dt>
+            <dd style="margin-left: 100px">
+                <a href="http://www.minjok.hs.kr/members/" target="_new"><?php echo "$msg"?></a>
+            </dd>
+            <?php
         }
     }
     ?>

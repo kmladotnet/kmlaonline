@@ -17,9 +17,6 @@ function printContentPc(){
 		<table style="width:100%;" class="notableborder-direct">
 			<tr>
 				<td style="padding-left:2px">
-					<div class="main-block">
-						<iframe src="/fetch_kmla_announcements.php" style="border:0;width:100%;height:67px;margin:0;overflow:hidden;border-box" scrolling="no" seamless="seamless" frameBorder="0" allowtransparency="true"></iframe>
-					</div>
 				</td>
 				<td style="vertical-align:top">
 					<?php printEverydayLinks("display:block;padding:3px;float:right;", "display:block;padding:3px;clear:right;float:right;text-align:right"); ?>
