@@ -14,7 +14,7 @@ function printContentPc(){
     <script src="//cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.3/gridstack.min.js"></script>
 
 	<div style="padding:6px;">
-    <?php printEverydayLinks("display:block;padding:3px;float:right;", "display:block;padding:3px;clear:right;float:right;text-align:right"); ?>
+    <?php printEverydayLinks(); ?>
         <div style="padding: 6px">
         <button type="button" id="main-edit-button" class="btn btn-primary" onclick="toggleLayoutEditing();">편집 모드 시작</button>
             <div id="main-edit-pane" style="margin-top: 6px; display:none">
@@ -188,39 +188,36 @@ JSON
 	<?php
 }
 
-function printEverydayLinks($lay1="display:block;padding:3px;float:left;", $lay2="display:block;padding:3px;float:right;text-align:right", $lay3="display:none"){
+function printEverydayLinks(){
 	global $board;
-	echo "<div style=\"$lay1\">";
-	// 그날그날: 택배, 선도, 혼정, 잔반
-	$i=0;
-	foreach(array("everyday_parcel"=>"택배", "everyday_guidance"=>"선도", /*"everyday_honjung"=>"혼정", */"leftover"=>"잔반") as $k=>$v){
-		echo $i++>0?" | ":"";
-		$cat=$board->getCategory(false,$k);
-		$a=$board->getArticleList(array($cat['n_id']), false, false, 0, 1);
-		if(count($a)==0){
-			echo "<a href='/board/$k' id='nav_everyday' style='color:gray'>$v 없음</a>";
-		}else{
-			$a=$a[0];
-			$bold=(time()-$a['n_writedate']<43200)?"font-weight:bold;":"";
-			echo "<a href=\"/board/$k/view/{$a['n_id']}\">{$v} <span style=\"$bold\">(".date("m월 d일", $a['n_writedate']).")</span></a>";
-		}
-	}
-	echo "</div>";
-	echo "<div style=\"$lay2\">";
-	echo "<a href=\"/board/commu\">자유게시판 </a> | ";
-	echo "<a href=\"/board/student_legislative/view/433333\">학교자료실</a> | ";
-	echo "<a href=\"/board/department_environment\">환경부</a>";
-    echo "<br>";
-	echo "<a href=\"/board/student_mpt\">MPT</a> | ";
-	echo "<a href=\"/board/student_ambassador\">대외홍보단</a>  | ";
-	echo "<a href=\"/util/lectureroom\">공동강의실 신청 </a>";
-	echo "</div>";
-	echo "<div style=\"$lay3\">";
-	echo "<a href=\"http://www.minjok.hs.kr/\">학교 홈페이지</a> | ";
-	echo "<a href=\"http://www.minjok.hs.kr/members/\">인트라넷</a> | ";
-	echo "<a href=\"/user/message?compose_to=3\">오류 신고 및 문의</a>";
-	echo "</div>";
-	echo "<div style='clear:both'></div>";
+    ?>
+    <div class="everyday-links">
+        <?php
+        // 그날그날: 택배, 선도, 잔반
+        $i=0;
+        foreach(array("everyday_parcel"=>"택배", "everyday_guidance"=>"선도", /*"everyday_honjung"=>"혼정", */"leftover"=>"잔반") as $k=>$v){
+            echo $i++>0?" | ":"";
+            $cat=$board->getCategory(false,$k);
+            $a=$board->getArticleList(array($cat['n_id']), false, false, 0, 1);
+            if(count($a)==0){
+                echo "<a href='/board/$k' id='nav_everyday' style='color:gray'>$v 없음</a>";
+            }else{
+                $a=$a[0];
+                $bold=(time()-$a['n_writedate']<43200)?"font-weight:bold;":"";
+                echo "<a href=\"/board/$k/view/{$a['n_id']}\">{$v} <span style=\"$bold\">(".date("m월 d일", $a['n_writedate']).")</span></a>";
+            }
+        }
+        ?>
+        <a href="/board/commu">자유게시판 </a> |
+        <a href="/board/student_legislative/view/433333">학교자료실</a> |
+        <a href="/board/department_environment">환경부</a> |
+        <a href="/board/student_mpt">MPT</a> |
+        <a href="/board/student_ambassador">대외홍보단</a>  |
+        <a href="/util/lectureroom">공동강의실 신청 </a> |
+        <a href="http://www.minjok.hs.kr/">학교 홈페이지</a> |
+        <a href="http://www.minjok.hs.kr/members/">인트라넷</a> |
+        <a href="/user/message?compose_to=3">오류 신고 및 문의</a>
+    </div>
 }
 function printContentMobile(){
 	global $member, $me, $is_morning, $is_afternoon, $is_night, $mysqli, $board;
