@@ -513,6 +513,8 @@ function rebindModules() {
     bindModuleReloadButton();
     bindOptionsForm();
     if(editMode) {
+        $(".main-block-close").css("display", "inline-block");
+        $(".main-block-options").css("display", "inline-block");
         $(".main-block-close").css({width: 28, "border-width": 1, opacity: 1});
         $(".main-block-options").css({width: 28, "border-width": 1, opacity: 1});
         $(".main-block-reload").css({width: 28, "border-radius": 0});
