@@ -34,9 +34,11 @@ function articleList($article_list, $category=true, $title=true, $name=true, $da
 				<?php } ?>
 				<?php if($title){ ?>
 					<td>
-						<div style="display:block;left:0;top:1px;white-space: nowrap;">
-                            <a href="<?php echo htmlspecialchars("/board/{$a['cat']['s_id']}/view/" . $a['n_id'])?>" style="color:black;<?php echo $b_bold_title?"font-weight:bold;":"";?>" title="<?php echo strip_tags($pretty_title)?>"><?php echo $pretty_title ?>
-                            </a>
+                        <div style="position:relative">
+                            <div style="position:absolute;text-overflow: ellipsis;max-width: 100%;left:0;top:1px;white-space: nowrap;overflow:hidden;">
+                                <a href="<?php echo htmlspecialchars("/board/{$a['cat']['s_id']}/view/" . $a['n_id'])?>" style="color:black;<?php echo $b_bold_title?"font-weight:bold;":"";?>" title="<?php echo strip_tags($pretty_title)?>"><?php echo $pretty_title ?>
+                                </a>
+                            </div>
                         </div>
 					</td>
 				<?php } ?>
