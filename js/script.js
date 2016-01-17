@@ -707,13 +707,10 @@ function addModule(json) {
     }, function (data) {
         var grid = $('.grid-stack').data('gridstack');
         var dat = JSON.parse(json);
-        grid.add_widget($(data), 0, 0, 4, 4);
-        rebindModules();
-        var newModule = $(".grid-stack-item:not([data-module-name])");
-        if(newModule.children(".grid-stack-item-content").length === 0) {
-            newModule.wrapInner("<div class='grid-stack-item-content'></div>");
-        }
+        var newModule = $(data).wrap("<div class='grid-stack-item-content'></div>");
         newModule.attr("data-module-name", dat["name"]).attr("data-module-options", JSON.stringify(dat["options"]["options"]));
+        grid.add_widget(newModule, 0, 0, 4, 4);
+        rebindModules();
     });
 }
 
