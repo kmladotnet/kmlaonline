@@ -94,7 +94,7 @@ function moduleContent($module_name, $options) {
         case 'birthday':
         case 'weather':
         case 'minjok-news':
-            include($module_name));
+            include($module_name);
             break;
     }
 }
