@@ -30,7 +30,7 @@ function printContentPc(){
                     <option value="article-list">게시판</option>
                     <option value="gallery">갤러리</option>
                     <option value="weather">날씨</option>
-                    <option value="minjok-news">minjok.hs.kr 공지</option>
+                    <option value="minjok-news">인트라넷 공지</option>
                 </select>
                 <button type="button" class="btn btn-success" onclick="updateModules();"><i class="fa fa-floppy-o"></i> 레이아웃 저장</button>
                 <button type="button" class="btn btn-warning" onclick="cancelLayout();"><i class="fa fa-trash-o"></i> 모든 변경사항 취소</button>
@@ -204,20 +204,22 @@ function printEverydayLinks(){
                 }else{
                     $a=$a[0];
                     $bold=(time()-$a['n_writedate']<43200)?"font-weight:bold;":"";
-                    echo "<a class='btn btn-default' href=\"/board/$k/view/{$a['n_id']}\">{$v} <span style=\"$bold\">(".date("m월 d일", $a['n_writedate']).")</span></a>";
+                    echo "<a class='btn btn-default' role='button' style='color: black' href=\"/board/$k/view/{$a['n_id']}\">{$v} <span style=\"$bold\">(".date("m월 d일", $a['n_writedate']).")</span></a>";
                 }
             }
             ?>
         </div>
-        <a href="/board/commu">자유게시판 </a> |
-        <a href="/board/student_legislative/view/433333">학교자료실</a> |
-        <a href="/board/department_environment">환경부</a> |
-        <a href="/board/student_mpt">MPT</a> |
-        <a href="/board/student_ambassador">대외홍보단</a>  |
-        <a href="/util/lectureroom">공동강의실 신청 </a> |
-        <a href="http://www.minjok.hs.kr/">학교 홈페이지</a> |
-        <a href="http://www.minjok.hs.kr/members/">인트라넷</a> |
-        <a href="board/student_suggestions">오류 신고 및 건의사항</a>
+        <div class="btn-group" role="group" aria-label="...">
+            <a class='btn btn-default' role='button' href="/board/department_environment">환경부</a>
+            <a class='btn btn-default' role='button' href="/board/student_mpt">MPT</a>
+            <a class='btn btn-default' role='button' href="/board/student_ambassador">대외홍보단</a>
+            <a class='btn btn-default' role='button' href="/util/lectureroom">공강 신청</a>
+        </div>
+        <div class="btn-group" role="group" aria-label="...">
+            <a class='btn btn-default' role='button' href="http://www.minjok.hs.kr/">학교 홈페이지</a>
+            <a class='btn btn-default' role='button' href="http://www.minjok.hs.kr/members/">인트라넷</a>
+            <a class='btn btn-default' role='button' href="board/student_suggestions">오류신고/건의사항</a>
+        </div>
     </div>
     <?php
 }
