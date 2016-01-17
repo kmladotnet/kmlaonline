@@ -729,7 +729,7 @@ function toggleLayoutEditing() {
         $("#main-edit-button").html("저장하고 편집 모드 종료");
     } else {
         $(".main-block-close").velocity({width: 0, opacity: 0}, 300, function() {$(this).css({display: "none", "border-width": "0"})});
-        $(".main-block-options").velocity({width: 0, opacity: 0}, 300, function() {{$(this).css({display: "none", "border-width": "0"})});
+        $(".main-block-options").velocity({width: 0, opacity: 0}, 300, function() {$(this).css({display: "none", "border-width": "0"})});
         $(".main-block-reload").velocity({width: 24, "border-radius": 12}, 300);
         $(".main-block-title").css("cursor", "default");
         $("#main-edit-pane").velocity("slideUp", {duration: 300, easing: "easeOutCubic"});
