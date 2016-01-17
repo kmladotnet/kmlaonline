@@ -293,13 +293,6 @@ function printContentMobile(){
 			<?php include("modules/birthday.php"); ?>
 			</div>
 		</div>
-		<div class="main-block">
-			<div class="main-block-title">
-				갤러리
-				<div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;"><a href="/board/all_gallery">모두 보기</a></div>
-			</div>
-			<?php include("modules/gallery.php"); ?>
-		</div>
 		<div class="main-block gradient">
 			<div class="main-block-title">
 				<img src="/theme/dev/kmlacafe.png" style="width:24px;vertical-align:bottom;margin-bottom:2px;" /> 큼라 카페
