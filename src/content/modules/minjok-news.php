@@ -8,6 +8,7 @@
 
             $type=trim($each[1]);
             $date=trim($each[2]);
+            echo $each[3];
             $msg=strip_tags(preg_replace('@\x{FFFD}@u', '', $each[3]));
             ?>
             <dt style="width: 90px; margin-bottom: 8px">
