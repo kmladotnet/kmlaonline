@@ -519,6 +519,7 @@ div#upper-header-holder{
     border-radius: 12px;
     width: 28px;
     height: 24px;
+    padding-top: 2px;
     font-size: 11pt;
 }
 
