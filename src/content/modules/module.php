@@ -224,7 +224,7 @@ function moduleContents($module_name, $options) {
                 <button class="main-block-options main-block-button btn btn-default" type="button" data-toggle="button" onclick="toggleOptions(!$(this).hasClass('active'), $(this));">
                     <i class="fa fa-cog"></i>
                 </button>
-                <button class="btn btn-default main-block-button main-block-reload" type="button">
+                <button class="btn btn-default main-block-button main-block-reload" type="button" style="border-radius: 12px; width: 24px;">
                     <i class="fa fa-refresh"></i>
                 </button>
                 <button class="main-block-close main-block-button btn btn-default" type="button">

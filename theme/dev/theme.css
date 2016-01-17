@@ -518,7 +518,7 @@ div#upper-header-holder{
     margin: 0;
     padding:0px;
     border-radius: 12px;
-    width: 24px;
+    width: 28px;
     height: 24px;
     font-size: 11pt;
 }
@@ -531,7 +531,6 @@ div#upper-header-holder{
     color: #d9534f;
 }
 .main-block-reload, .main-block-reload:hover, .main-block-reload:active{
-    border-radius: 12px;
     color: #5cb85c;
 }
 .main-block-options, .main-block-options:hover, .main-block-options:active{
