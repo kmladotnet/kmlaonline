@@ -165,6 +165,7 @@ function fetchPermission(theurl){
 			}else{
 				$("#categoryPermissionSelectDiv").css("display", "block");
 				jQuery.each(ret, function(index, element) {
+                    index = index.substring(4);
                     console.log(index);
 					if(element==1)
 						$("#cat_perm_each_"+index).prop("checked", true);
