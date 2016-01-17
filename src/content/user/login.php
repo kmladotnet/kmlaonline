@@ -73,11 +73,6 @@ function printContent(){
 					</div>
 				</div>
                 <div class="panel-body">
-                    <div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;">
-							<a <?php if($is_morning) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-breakfast');">아침</a> |
-							<a <?php if($is_afternoon) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-lunch');">점심</a> |
-							<a <?php if($is_night) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-dinner');">저녁</a>
-                    </div>
 
                     <div style="text-align:center">
                         <?php
@@ -97,6 +92,12 @@ function printContent(){
                         }
                         echo "<div style='font-weight:bold;font-size:11pt;padding:4px;'>{$curYear}년 {$curMonth}월 {$curDay}일</div>";
                         ?>
+
+                        <div style="font-size:9pt;height:15pt;padding-top:3pt;">
+                                <a <?php if($is_morning) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-breakfast');">아침</a> |
+                                <a <?php if($is_afternoon) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-lunch');">점심</a> |
+                                <a <?php if($is_night) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-dinner');">저녁</a>
+                        </div>
                         <div id="food-breakfast" class="morning"><?php echo isset($scheduleData['food:0'])?nl2br($scheduleData['food:0']):"<span style='color:#DDD'>(입력되지 않음)</span>"; ?></div>
                         <div id="food-lunch" class="afternoon"><?php echo isset($scheduleData['food:1'])?nl2br($scheduleData['food:1']):"<span style='color:#DDD'>(입력되지 않음)</span>"; ?></div>
                         <div id="food-dinner" class="night"><?php echo isset($scheduleData['food:2'])?nl2br($scheduleData['food:2']):"<span style='color:#DDD'>(입력되지 않음)</span>"; ?></div>
