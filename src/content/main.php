@@ -210,14 +210,14 @@ function printEverydayLinks(){
             ?>
         </div>
         <div class="btn-group" role="group" aria-label="...">
-            <a class='btn btn-default' role='button' href="/board/department_environment">환경부</a>
-            <a class='btn btn-default' role='button' href="/board/student_mpt">MPT</a>
-            <a class='btn btn-default' role='button' href="/board/student_ambassador">대외홍보단</a>
-            <a class='btn btn-default' role='button' href="/util/lectureroom">공강신청</a>
+            <a class='btn btn-default' role='button' style='color: black' href="/board/department_environment">환경부</a>
+            <a class='btn btn-default' role='button' style='color: black' href="/board/student_mpt">MPT</a>
+            <a class='btn btn-default' role='button' style='color: black' href="/board/student_ambassador">대외홍보단</a>
+            <a class='btn btn-default' role='button' style='color: black' href="/util/lectureroom">공강신청</a>
         </div>
         <div class="btn-group" role="group" aria-label="...">
-            <a class='btn btn-default' role='button' href="http://www.minjok.hs.kr/members/">인트라넷</a>
-            <a class='btn btn-default' role='button' href="board/student_suggestions">오류신고/건의사항</a>
+            <a class='btn btn-default' role='button' style='color: black' href="http://www.minjok.hs.kr/members/">인트라넷</a>
+            <a class='btn btn-default' role='button' style='color: black' href="board/student_suggestions">오류신고/건의사항</a>
         </div>
     </div>
     <?php
