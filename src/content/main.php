@@ -14,7 +14,7 @@ function printContentPc(){
     <script src="//cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.3/gridstack.min.js"></script>
 
 	<div style="padding:6px;">
-        <div style="padding: 4px; margin-bottom: 10px;">
+        <div style="padding: 4px; margin-bottom: 4px;">
             <button type="button" id="main-edit-button" class="btn btn-primary" onclick="toggleLayoutEditing();">편집 모드 시작</button>
             <?php printEverydayLinks(); ?>
             <div id="main-edit-pane" style="margin-top: 6px; display:none">
