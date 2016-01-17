@@ -11,7 +11,6 @@ html{
 	overflow-y: scroll;
 }
 html, body{
-	background: url('woosang.jpg') repeat-x center bottom;
 	height:100%; width:100%;
 	font-family: "Open Sans",arial,'Apple SD Gothic Neo','Noto Sans Korean','본고딕','KoPubDotum Medium','나눔바른고딕','나눔고딕','NanumGothic','맑은고딕','Malgun Gothic',sans-serif;
     line-height:1.5em;
