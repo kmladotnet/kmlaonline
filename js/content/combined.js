@@ -159,12 +159,14 @@ function fetchPermission(theurl){
 		hideLoading();
 		try{
 			var ret=JSON.parse(msg);
+            console.log(ret);
 			if(ret["error"]==1){
 				alert(ret["__other"]);
 			}else{
 				$("#categoryPermissionSelectDiv").css("display", "block");
 				jQuery.each(ret, function(index, element) {
 					index=index.substring(4);
+                    console.log(index);
 					if(element==1)
 						$("#cat_perm_each_"+index).prop("checked", true);
 					else
@@ -309,7 +311,7 @@ function user_message_addRecepientUser(userIndex, userDesc){
 function user_message_putQuote(from){
 	var addd="<p><blockquote>"+$("#message_item_"+from).find(".view_data").html().replaceAll("\n","").replaceAll("\r","").replace(/(<\/\w+>)/i,"$1\n").replace(/<blockquote>.*<\/blockquote>/i, "")+"</blockquote></p>";
 	if(CKEDITOR.instances['s_data_ckeditor']){
-		CKEDITOR.instances['s_data_ckeditor'].insertHtml(addd); 
+		CKEDITOR.instances['s_data_ckeditor'].insertHtml(addd);
 	}else{
 		$("#s_data_ckeditor").val($("#s_data_ckeditor").val()+addd);
 	}
@@ -627,7 +629,7 @@ function settings_menu_addSubItem(){
 		p.append(obj);
 		obj.fadeTo(1000,1);
 	}).fail(function(jqXHR, textStatus) {
-		
+
 	});
 }
 function settings_menu_removeSelf(t){
@@ -709,7 +711,7 @@ function board_putCommentForm(parent){
 		obj=$("#article_comment_"+parent);
 		toadd=$($("#article_comment_template").html().split("<%=ARTICLEID%>").join(parent));
 		obj.append(toadd);
-		
+
 		scrollToMiddle(toadd.offset().top);
 		toadd.find("textarea").focus();
 	}
@@ -737,7 +739,7 @@ function board_prepareSwfUploadBoardWrite(sessid){
 		},
 		debug: false,
 
-		
+
 		button_image_url: "/images/upload.gif",
 		button_width: "61",
 		button_height: "22",
@@ -747,7 +749,7 @@ function board_prepareSwfUploadBoardWrite(sessid){
 		button_text_left_padding: 12,
 		button_text_top_padding: 3,
 		
-		
+
 		file_queued_handler : fileQueued,
 		file_queue_error_handler : fileQueueError,
 		file_dialog_complete_handler : fileDialogComplete,
@@ -756,7 +758,7 @@ function board_prepareSwfUploadBoardWrite(sessid){
 		upload_error_handler : uploadError,
 		upload_success_handler : uploadSuccess,
 		upload_complete_handler : uploadComplete,
-		queue_complete_handler : queueComplete	
+		queue_complete_handler : queueComplete
 	};
 	swfu = new SWFUpload(settings);
 }
@@ -854,7 +856,7 @@ function board_insertItem(urlObj){
 	}
 	ele2=$("<span></span>");
 	ele2.append(element);
-	CKEDITOR.instances['s_data_ckeditor'].insertHtml(ele2.html()); 
+	CKEDITOR.instances['s_data_ckeditor'].insertHtml(ele2.html());
 }
 function board_removeItem(urlObj){
 	var url=$('#uploadedItemUrl_'+urlObj).val();
@@ -1035,7 +1037,7 @@ FileProgress.prototype.appear = function () {
 		try {
 			this.fileProgressWrapper.filters.item("DXImageTransform.Microsoft.Alpha").opacity = 100;
 		} catch (e) {
-			
+
 			this.fileProgressWrapper.style.filter = "progid:DXImageTransform.Microsoft.Alpha(opacity=100)";
 		}
 	} else {
@@ -1055,7 +1057,7 @@ FileProgress.prototype.disappear = function () {
 
 	var reduceOpacityBy = 15;
 	var reduceHeightBy = 4;
-	var rate = 30;	
+	var rate = 30;
 
 	if (this.opacity > 0) {
 		this.opacity -= reduceOpacityBy;
@@ -1067,7 +1069,7 @@ FileProgress.prototype.disappear = function () {
 			try {
 				this.fileProgressWrapper.filters.item("DXImageTransform.Microsoft.Alpha").opacity = this.opacity;
 			} catch (e) {
-				
+
 				this.fileProgressWrapper.style.filter = "progid:DXImageTransform.Microsoft.Alpha(opacity=" + this.opacity + ")";
 			}
 		} else {
@@ -1250,7 +1252,7 @@ function uploadError(file, errorCode, message) {
 			this.debug("Error Code: File Validation Failed, File name: " + file.name + ", File size: " + file.size + ", Message: " + message);
 			break;
 		case SWFUpload.UPLOAD_ERROR.FILE_CANCELLED:
-			
+
 			if (this.getStats().files_queued === 0) {
 				document.getElementById(this.customSettings.cancelButtonId).disabled = true;
 			}
