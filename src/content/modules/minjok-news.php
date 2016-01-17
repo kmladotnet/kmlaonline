@@ -9,6 +9,8 @@
             $type=trim($each[1]);
             $date=trim($each[2]);
             $msg=trim(strip_tags(str_replace('�','',$each[3])));
+            echo $each[3];
+            echo $msg;
             ?>
             <dt style="width: 90px; margin-bottom: 8px">
                 <?php echo "[$date] $type";?>
