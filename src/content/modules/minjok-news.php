@@ -9,10 +9,7 @@ error_reporting(E_ALL);
 
             $type=trim($each[1]);
             $date=trim($each[2]);
-            $msg=preg_replace('@\\x{FFFD}@u', '', strip_tags($each[3]));
-            echo $each[3];
-            echo strip_tags($each[3]);
-            echo preg_replace('/\\x{FFFD}/u', '', strip_tags($each[3]));
+            $msg=htmlspecialchars(strip_tags($each[3]));
             ?>
             <dt style="width: 90px; margin-bottom: 8px">
                 <?php echo "[$date] $type";?>
