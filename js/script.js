@@ -709,7 +709,11 @@ function addModule(json) {
         var dat = JSON.parse(json);
         grid.add_widget($(data), 0, 0, 4, 4);
         rebindModules();
-        $(".grid-stack-item:not([data-module-name])").attr("data-module-name", dat["name"]).attr("data-module-options", JSON.stringify(dat["options"]["options"]));
+        var newModule = $(".grid-stack-item:not([data-module-name])");
+        if(newModule.children(".grid-stack-item-content").length === 0) {
+            newModule.wrapInner("<div class='grid-stack-item-content'></div>");
+        }
+        newModule.attr("data-module-name", dat["name"]).attr("data-module-options", JSON.stringify(dat["options"]["options"]));
     });
 }
 
