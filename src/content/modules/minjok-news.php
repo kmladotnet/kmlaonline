@@ -1,4 +1,4 @@
-<dl class="dl-horizontal">
+<dl class="dl-horizontal" style="overflow: hidden;">
     <?php
     $f=file_get_contents("http://www.minjok.hs.kr/app/kumla_notice/kumla_all.html");
     if(preg_match_all('/<li>\[([^\]]+):([^\]]+)\](.*?)<br>/sim', $f, $m, PREG_SET_ORDER)){
@@ -14,7 +14,7 @@
                 <?php echo "[$date] $type";?>
             </dt>
             <dd style="margin-left: 100px">
-                <a href="http://www.minjok.hs.kr/members/" target="_new" style="color: black"><?php echo "$msg"?></a>
+                <a href="http://www.minjok.hs.kr/members/" target="_new" style="color: black; white-space: nowrap;"><?php echo "$msg"?></a>
             </dd>
             <?php
         }
