@@ -152,7 +152,7 @@ function searchBoard($search, $articleperpage, $pagenumber){
 		$b_anonymous=($val['n_flag']&0x4) && checkCategoryAccess($val['cat']['n_id'], "flag anonymous");
 		if($b_anonymous && (strpos($member->getMember($val['n_writer'])['s_name'], $search) !== false)) continue;
 		$val['link']="/board/{$val['cat']['s_id']}/view/{$val['n_id']}";
-		$val['desc']=htmlspecialchars($val['s_title']);
+		$val['desc']=strip_tags(htmlspecialchars($val['s_title']);
 		if($val['n_comments']!=0 && doesAdminBypassEverythingAndIsAdmin(!$b_no_comment))
 			$val['desc'].= " <span style='font-size:9pt;color:#008800'>[{$val['n_comments']}]</span>";
 		if(isset($val['n_parent']))
