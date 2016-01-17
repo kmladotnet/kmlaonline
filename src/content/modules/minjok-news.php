@@ -1,4 +1,4 @@
-<dl class="dl-horizontal" style="overflow: hidden;">
+<dl class="dl-horizontal" style="overflow: hidden; margin-bottom: 0">
     <?php
     $f=file_get_contents("http://www.minjok.hs.kr/app/kumla_notice/kumla_all.html");
     if(preg_match_all('/<li>\[([^\]]+):([^\]]+)\](.*?)<br>/sim', $f, $m, PREG_SET_ORDER)){
