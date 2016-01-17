@@ -531,7 +531,8 @@ function bindAddModuleButton() {
             ajax: 1
         }, function (data) {
             var grid = $('.grid-stack').data('gridstack');
-            var newModule = $(data).wrap("<div class='grid-stack-item-content'></div>").parent();
+            var newModule = $(data).wrap("<div class='grid-stack-item-content'></div>")
+                .wrap("<div class='grid-stack-item'></div>").parent();
             newModule.attr("data-module-name", name).attr("data-module-options", "[]");
             grid.add_widget(newModule, 0, 0, 4, 4);
             rebindModules();
