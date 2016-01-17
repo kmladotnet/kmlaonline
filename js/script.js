@@ -711,8 +711,8 @@ function addModule(json) {
 }
 
 var editMode = false;
-function toggleLayoutEditing(set) {
-    if(editMode) {
+function toggleLayoutEditing() {
+    if(!editMode) {
         $(".main-block-close").css("display", "inline-block");
         $(".main-block-options").css("display", "inline-block");
         $(".main-block-close").velocity({width: 28, "border-width": 1, opacity: 1}, 300);
