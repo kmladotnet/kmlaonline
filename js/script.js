@@ -720,6 +720,7 @@ function toggleLayoutEditing(set) {
         $(".main-block-title").css("cursor", "move");
         $("#main-edit-pane").velocity("slideDown", {duration: 300, easing: "easeOutCubic"});
         $('.grid-stack').data('gridstack').enable();
+        $("#main-edit-button").html("저장하고 편집 모드 종료");
     } else {
         $(".main-block-close").velocity({width: 0, "border-width": 0, opacity: 0}, 300, function() {$(this).css("display", "none");});
         $(".main-block-options").velocity({width: 0, "border-width": 0, opacity: 0}, 300, function() {$(this).css("display", "none");});
@@ -727,6 +728,7 @@ function toggleLayoutEditing(set) {
         $(".main-block-title").css("cursor", "default");
         $("#main-edit-pane").velocity("slideUp", {duration: 300, easing: "easeOutCubic"});
         $('.grid-stack').data('gridstack').disable();
+        $("#main-edit-button").html("편집 모드 시작");
         updateModules();
     }
 }
