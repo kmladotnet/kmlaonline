@@ -569,7 +569,7 @@ function saveOptionsForm(form) {
     var module = form.closest(".grid-stack-item");
     var options = module.data("module-options");
     var catFirst = true;
-    $(serializeArray($form)).each(function(i, field) {
+    $(serializeArray($(form))).each(function(i, field) {
         if(field.name === "cat") {
             if(catFirst || !("cat" in options) || !Array.isArray(options["cat"])) {
                 options["cat"] = new Array();
