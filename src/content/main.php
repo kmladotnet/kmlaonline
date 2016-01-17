@@ -298,7 +298,7 @@ function printContentMobile(){
 				갤러리
 				<div style="font-size:9pt;float:right;height:15pt;padding-top:3pt;"><a href="/board/all_gallery">모두 보기</a></div>
 			</div>
-			<?php printGallery(16); ?>
+			<?php include("modules/gallery.php"); ?>
 		</div>
 		<div class="main-block gradient">
 			<div class="main-block-title">
