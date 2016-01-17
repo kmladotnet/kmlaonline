@@ -8,6 +8,6 @@
             $msg=trim(strip_tags($each[3]));
             ?><li class="news-item"><i class="fa fa-caret-right"></i><a href="http://www.minjok.hs.kr/members/" target="_new" style="color:black"><?php echo "<b>[$date] $type</b>: $msg"?></a></li><?php
         }
+    }
     ?>
-    <li></li>
 </ul>
