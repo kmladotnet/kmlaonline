@@ -5,6 +5,7 @@
         $length = count($m);
         for ($i = 0; $i < $length - 2; $i++) {
             $each = $m[$i];
+error_reporting(E_ALL);
 
             $type=trim($each[1]);
             $date=trim($each[2]);
