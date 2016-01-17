@@ -218,6 +218,7 @@ function printEverydayLinks(){
         <a href="http://www.minjok.hs.kr/members/">인트라넷</a> |
         <a href="/user/message?compose_to=3">오류 신고 및 문의</a>
     </div>
+    <?php
 }
 function printContentMobile(){
 	global $member, $me, $is_morning, $is_afternoon, $is_night, $mysqli, $board;
