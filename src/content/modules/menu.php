@@ -35,7 +35,7 @@ function printMenu($allDay = false) {
                 echo isset($scheduleData['food:0'])?nl2br($scheduleData['food:0']):"<span style='color:#DDD'>(입력되지 않음)</span>";
             ?>
         </div>
-        <div <?php if(!$allDay) echo 'id="food-lunch class="afternoon"'; else echo 'class="food"';?>>
+        <div <?php if(!$allDay) echo 'id="food-lunch" class="afternoon"'; else echo 'class="food"';?>>
             <?php
                 if($allDay) {
                     ?>
