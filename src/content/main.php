@@ -215,10 +215,6 @@ function printEverydayLinks(){
             <a class='btn btn-default' role='button' style='color: black' href="/board/student_ambassador">대외홍보단</a>
             <a class='btn btn-default' role='button' style='color: black' href="/util/lectureroom">공강신청</a>
         </div>
-        <div class="btn-group" role="group" aria-label="...">
-            <a class='btn btn-default' role='button' style='color: black' href="http://www.minjok.hs.kr/members/">인트라넷</a>
-            <a class='btn btn-default' role='button' style='color: black' href="board/student_suggestions">오류신고/건의사항</a>
-        </div>
     </div>
     <?php
 }
