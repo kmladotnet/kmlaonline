@@ -5,11 +5,10 @@
         $length = count($m);
         for ($i = 0; $i < $length - 2; $i++) {
             $each = $m[$i];
-error_reporting(E_ALL);
 
             $type=trim($each[1]);
             $date=trim($each[2]);
-            $msg=htmlspecialchars(strip_tags($each[3]));
+            $msg=str_replace('&amp;nbsp;', '', htmlspecialchars(trim(strip_tags($each[3])), ENT_IGNORE));
             ?>
             <dt style="width: 90px; margin-bottom: 8px">
                 <?php echo "[$date] $type";?>
