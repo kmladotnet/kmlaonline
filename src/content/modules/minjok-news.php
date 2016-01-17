@@ -8,16 +8,13 @@
 
             $type=trim($each[1]);
             $date=trim($each[2]);
-            $msg=preg_replace('@\x{FFFD}@u', '', $each[3]);
-            echo $msg;
-            $msg = trim(strip_tags($msg));
-            echo $msg;
+            $msg=trim(strip_tags(preg_replace('@\x{FFFD}@u', '', $each[3])));
             ?>
             <dt style="width: 90px; margin-bottom: 8px">
                 <?php echo "[$date] $type";?>
             </dt>
             <dd style="margin-left: 100px">
-                <a href="http://www.minjok.hs.kr/members/" target="_new" style="color: black; white-space: nowrap;"><?php echo str_replace('&amp;nbsp;', '', htmlspecialchars($msg));?></a>
+                <a href="http://www.minjok.hs.kr/members/" target="_new" style="color: black; white-space: nowrap;"><?php echo $msg;?></a>
             </dd>
             <?php
         }
