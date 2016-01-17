@@ -34,16 +34,10 @@ function articleList($article_list, $category=true, $title=true, $name=true, $da
 				<?php } ?>
 				<?php if($title){ ?>
 					<td>
-						<?php if($nextline){ ?>
-							<a href="<?php echo htmlspecialchars("/board/{$a['cat']['s_id']}/view/" . $a['n_id'])?>" style="color:black;<?php echo $b_bold_title?"font-weight:bold;":"";?>" title="<?php echo strip_tags($pretty_title)?>"><?php echo $pretty_title ?>
+						<div style="display:block;left:0;top:1px;white-space: nowrap;">
+                            <a href="<?php echo htmlspecialchars("/board/{$a['cat']['s_id']}/view/" . $a['n_id'])?>" style="color:black;<?php echo $b_bold_title?"font-weight:bold;":"";?>" title="<?php echo strip_tags($pretty_title)?>"><?php echo $pretty_title ?>
                             </a>
-						<?php }else{ ?>
-							<div style="width:100%;height:<?php echo $height?>px;display:block;overflow:hidden;position:relative;">
-								<div style="width:640px;display:block;position:absolute;left:0;top:1px;white-space: nowrap;">
-									<a href="<?php echo htmlspecialchars("/board/{$a['cat']['s_id']}/view/" . $a['n_id'])?>" style="color:black;<?php echo $b_bold_title?"font-weight:bold;":"";?>" title="<?php echo strip_tags($pretty_title)?>"><?php echo $pretty_title ?>
-                                    </a>
-								</div>
-							</div>
+                        </div>
 						<?php } ?>
 					</td>
 				<?php } ?>
