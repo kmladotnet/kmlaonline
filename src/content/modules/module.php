@@ -250,7 +250,10 @@ function moduleContents($module_name, $options) {
                     basicModuleOptions($options);
                     moduleOptions($module_name, $options);
                     ?>
-                    <button type="button" class="main-block-options-submit btn btn-primary">적용</button>
+                    <div class="main-block-options-warning">
+                        주의: 설정을 영구적으로 저장하려면 임시 적용 후 레이아웃 저장을 해주세요.
+                    </div>
+                    <button type="button" class="main-block-options-submit btn btn-primary">(임시)적용</button>
                     <button type="reset" class="main-block-options-cancel btn btn-warning">취소</button>
                 </form>
             </div>
