@@ -633,3 +633,7 @@ div.weather-copyright {
     width: 100%;
     margin: 0 -10px;
 }
+
+div.everyday-links {
+    display: inline-block;
+}
