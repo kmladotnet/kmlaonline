@@ -531,10 +531,10 @@ function bindAddModuleButton() {
             ajax: 1
         }, function (data) {
             var grid = $('.grid-stack').data('gridstack');
-            grid.add_widget($(data), 0, 0, 4, 4);
+            var newModule = $(data).wrap("<div class='grid-stack-item-content'></div>");
+            newModule.attr("data-module-name", name).attr("data-module-options", "[]");
+            grid.add_widget(newModule, 0, 0, 4, 4);
             rebindModules();
-            $(".grid-stack-item:not([data-module-name])").attr("data-module-name", name);
-            $(".grid-stack-item:not([data-module-name])").attr("data-module-options", "[]");
         });
         $("#add-module").val('');
         return false;
