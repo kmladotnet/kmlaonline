@@ -635,5 +635,5 @@ div.weather-copyright {
 }
 
 div.everyday-links {
-    display: inline-block;
+    float: right;
 }
