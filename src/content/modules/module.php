@@ -62,6 +62,11 @@ function moduleTitle($module_name, $options) {
             날씨
             <?php
             break;
+        case 'minjok-news':
+            ?>
+            학교 공지
+            <?php
+            break;
     }
 }
 
@@ -70,9 +75,6 @@ function moduleContent($module_name, $options) {
     switch($module_name) {
         case 'important':
             articleList($mysqli->query("SELECT * FROM kmlaonline_important_notices_table WHERE n_state=1 ORDER BY n_id DESC"),$options['show-cat'], $options['show-title'], $options['show-name'], $options['show-date']);
-            break;
-        case 'birthday':
-            include("birthday.php");
             break;
         case 'menu':
             require_once("menu.php");
@@ -89,10 +91,10 @@ function moduleContent($module_name, $options) {
             articleList($board->getArticleList(arrayToCategories($options['cat']), false, 0, 0, 10),$options['show-cat'], $options['show-title'], $options['show-name'], $options['show-date']);
             break;
         case 'gallery':
-            include('gallery.php');
-            break;
+        case 'birthday':
         case 'weather':
-            include('weather.php');
+        case 'minjok-news':
+            include($module_name));
             break;
     }
 }
@@ -309,6 +311,8 @@ function defaultOptions($module_name) {
         case 'gallery':
             break;
         case 'weather':
+            break;
+        case 'minjok-news':
             break;
     }
     return $defaults;
