@@ -148,6 +148,7 @@ function fetchPermission(theurl){
 		hideLoading();
 		try{
 			var ret=JSON.parse(msg);
+            console.log(ret);
 			if(ret["error"]==1){
 				alert(ret["__other"]);
 			}else{
