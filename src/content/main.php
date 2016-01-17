@@ -14,15 +14,7 @@ function printContentPc(){
     <script src="//cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.3/gridstack.min.js"></script>
 
 	<div style="padding:6px;">
-		<table style="width:100%;" class="notableborder-direct">
-			<tr>
-				<td style="padding-left:2px">
-				</td>
-				<td style="vertical-align:top">
-					<?php printEverydayLinks("display:block;padding:3px;float:right;", "display:block;padding:3px;clear:right;float:right;text-align:right"); ?>
-				</td>
-			</tr>
-		</table>
+    <?php printEverydayLinks("display:block;padding:3px;float:right;", "display:block;padding:3px;clear:right;float:right;text-align:right"); ?>
         <div style="padding: 6px">
         <button type="button" id="main-edit-button" class="btn btn-primary" onclick="toggleLayoutEditing();">편집 모드 시작</button>
             <div id="main-edit-pane" style="margin-top: 6px; display:none">
