@@ -7,7 +7,7 @@ function articleList($article_list, $category=true, $title=true, $name=true, $da
 			<?php if($category){ ?><th style="width:140px;">분류</th><?php } ?>
 			<?php if($title){ ?><th>제목</th><?php } ?>
 			<?php if($name){ ?><th style="width:100px;">이름</th><?php } ?>
-			<?php if($date){ ?><th style="width:60px;">날짜</th><?php } ?>
+			<?php if($date){ ?><th style="width:70px;">날짜</th><?php } ?>
 		</tr>
 		<?php foreach($article_list as $a){
             if(!array_key_exists("cat", $a)) {
