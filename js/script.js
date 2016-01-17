@@ -470,22 +470,18 @@ function prepareHeader() {
         }(k));
     }
 }
+function serializeArray(elem) {
+    var brokenSerialization = elem.serializeArray();
+    var checkboxValues = elem.find('input[type=checkbox]').map(function () {
+        return { 'name': this.name, 'value': this.checked };
+    }).get();
+    var checkboxKeys = $.map(checkboxValues, function (element) { return element.name; });
+    var withoutCheckboxes = $.grep(brokenSerialization, function (element) {
+        return $.inArray(element.name, checkboxKeys) == -1;
+    });
 
-var originalSerializeArray = $.fn.serializeArray;
-$.fn.extend({
-    serializeArray: function () {
-        var brokenSerialization = originalSerializeArray.apply(this);
-        var checkboxValues = $(this).find('input[type=checkbox]').map(function () {
-            return { 'name': this.name, 'value': this.checked };
-        }).get();
-        var checkboxKeys = $.map(checkboxValues, function (element) { return element.name; });
-        var withoutCheckboxes = $.grep(brokenSerialization, function (element) {
-            return $.inArray(element.name, checkboxKeys) == -1;
-        });
-
-        return $.merge(withoutCheckboxes, checkboxValues);
-    }
-});
+    return $.merge(withoutCheckboxes, checkboxValues);
+}
 
 function moduleToObject(module) {
     var result = new Object();
@@ -573,7 +569,7 @@ function saveOptionsForm(form) {
     var module = form.closest(".grid-stack-item");
     var options = module.data("module-options");
     var catFirst = true;
-    $(form.serializeArray()).each(function(i, field) {
+    $(serializeArray($form)).each(function(i, field) {
         if(field.name === "cat") {
             if(catFirst || !("cat" in options) || !Array.isArray(options["cat"])) {
                 options["cat"] = new Array();
