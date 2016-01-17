@@ -51,7 +51,7 @@
     <script src="/js/lightbox.js" charset="utf-8"></script>
     <script src="/swfupload/swfupload.js" charset="utf-8"></script>
     <script src="/swfupload/swfupload.queue.js" charset="utf-8"></script>
-    <script src="/js/script.js?v=1.3" charset="utf-8"></script>
+    <script src="/js/script.js?v=2.0" charset="utf-8"></script>
     <script src="/js/content/combined.js" charset="utf-8"></script>
     <link rel="stylesheet" href="/css/lightbox.css" charset="utf-8" type="text/css" media="screen" />
     <link rel="stylesheet" href="/css/font.css" charset="utf-8" type="text/css" media="screen" />
