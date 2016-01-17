@@ -216,7 +216,7 @@ function printEverydayLinks(){
         <a href="/util/lectureroom">공동강의실 신청 </a> |
         <a href="http://www.minjok.hs.kr/">학교 홈페이지</a> |
         <a href="http://www.minjok.hs.kr/members/">인트라넷</a> |
-        <a href="/user/message?compose_to=3">오류 신고 및 문의</a>
+        <a href="board/student_suggestions">오류 신고 및 건의사항</a>
     </div>
     <?php
 }
