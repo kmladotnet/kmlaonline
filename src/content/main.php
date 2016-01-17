@@ -8,6 +8,12 @@ function printContent(){
 function printContentPc(){
 	global $member, $me, $is_morning, $is_afternoon, $is_night, $mysqli, $board, $user;
 	?>
+
+    <!-- gridstack -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.3/gridstack.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.3/gridstack.min.js"></script>
+
 	<div style="padding:6px;">
 		<table style="width:100%;" class="notableborder-direct">
 			<tr>
