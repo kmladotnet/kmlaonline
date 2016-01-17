@@ -714,8 +714,8 @@ function toggleLayoutEditing(set) {
     if(set) {
         $(".main-block-close").css("display", "inline-block");
         $(".main-block-options").css("display", "inline-block");
-        $(".main-block-close").velocity({width: 24, "border-width": 1, opacity: 1}, 300);
-        $(".main-block-options").velocity({width: 24, "border-width": 1, opacity: 1}, 300);
+        $(".main-block-close").velocity({width: 28, "border-width": 1, opacity: 1}, 300);
+        $(".main-block-options").velocity({width: 28, "border-width": 1, opacity: 1}, 300);
         $(".main-block-reload").velocity({"border-radius": 0}, 300);
         $(".main-block-title").css("cursor", "move");
         $("#main-edit-pane").velocity("slideDown", {duration: 300, easing: "easeOutCubic"});
@@ -723,7 +723,7 @@ function toggleLayoutEditing(set) {
     } else {
         $(".main-block-close").velocity({width: 0, "border-width": 0, opacity: 0}, 300, function() {$(this).css("display", "none");});
         $(".main-block-options").velocity({width: 0, "border-width": 0, opacity: 0}, 300, function() {$(this).css("display", "none");});
-        $(".main-block-reload").velocity({"border-radius": 50+"%"}, 300);
+        $(".main-block-reload").velocity({"border-radius": 12}, 300);
         $(".main-block-title").css("cursor", "default");
         $("#main-edit-pane").velocity("slideUp", {duration: 300, easing: "easeOutCubic"});
         $('.grid-stack').data('gridstack').disable();
