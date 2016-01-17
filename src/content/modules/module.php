@@ -64,7 +64,7 @@ function moduleTitle($module_name, $options) {
             break;
         case 'minjok-news':
             ?>
-            학교 공지
+            인트라넷 공지
             <?php
             break;
     }
