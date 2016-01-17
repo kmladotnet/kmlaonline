@@ -14,7 +14,7 @@
                 <?php echo "[$date] $type";?>
             </dt>
             <dd style="margin-left: 100px">
-                <a href="http://www.minjok.hs.kr/members/" target="_new" style="color: black; white-space: nowrap;"><?php echo str_replace('�', '', $msg); ?></a>
+                <a href="http://www.minjok.hs.kr/members/" target="_new" style="color: black; white-space: nowrap;"><?php echo htmlspecialchars(str_replace('�', '', $msg)); ?></a>
             </dd>
             <?php
         }
