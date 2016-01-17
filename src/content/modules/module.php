@@ -251,7 +251,9 @@ function moduleContents($module_name, $options) {
                     moduleOptions($module_name, $options);
                     ?>
                     <div class="main-block-options-warning">
-                        주의: 설정을 영구적으로 저장하려면 임시 적용 후 레이아웃 저장을 해주세요.
+                        주의: 임시 적용 버튼을 눌러도 영구적으로 저장되지는 않습니다.
+                        <br>
+                        영구적으로 설정을 저장하려면 레이아웃을 저장해야 합니다.
                     </div>
                     <button type="button" class="main-block-options-submit btn btn-primary">(임시)적용</button>
                     <button type="reset" class="main-block-options-cancel btn btn-warning">취소</button>
