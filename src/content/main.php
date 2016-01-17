@@ -197,7 +197,6 @@ function printEverydayLinks(){
             // 그날그날: 택배, 선도, 잔반
             $i=0;
             foreach(array("everyday_parcel"=>"택배", "everyday_guidance"=>"선도", /*"everyday_honjung"=>"혼정", */"leftover"=>"잔반") as $k=>$v){
-                echo $i++>0?" | ":"";
                 $cat=$board->getCategory(false,$k);
                 $a=$board->getArticleList(array($cat['n_id']), false, false, 0, 1);
                 if(count($a)==0){
@@ -205,7 +204,7 @@ function printEverydayLinks(){
                 }else{
                     $a=$a[0];
                     $bold=(time()-$a['n_writedate']<43200)?"font-weight:bold;":"";
-                    echo "<a href=\"/board/$k/view/{$a['n_id']}\">{$v} <span style=\"$bold\">(".date("m월 d일", $a['n_writedate']).")</span></a>";
+                    echo "<a class='btn btn-default' href=\"/board/$k/view/{$a['n_id']}\">{$v} <span style=\"$bold\">(".date("m월 d일", $a['n_writedate']).")</span></a>";
                 }
             }
             ?>
