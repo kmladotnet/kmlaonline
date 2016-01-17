@@ -192,22 +192,24 @@ function printEverydayLinks(){
 	global $board;
     ?>
     <div class="everyday-links">
-        <?php
-        // 그날그날: 택배, 선도, 잔반
-        $i=0;
-        foreach(array("everyday_parcel"=>"택배", "everyday_guidance"=>"선도", /*"everyday_honjung"=>"혼정", */"leftover"=>"잔반") as $k=>$v){
-            echo $i++>0?" | ":"";
-            $cat=$board->getCategory(false,$k);
-            $a=$board->getArticleList(array($cat['n_id']), false, false, 0, 1);
-            if(count($a)==0){
-                echo "<a href='/board/$k' id='nav_everyday' style='color:gray'>$v 없음</a>";
-            }else{
-                $a=$a[0];
-                $bold=(time()-$a['n_writedate']<43200)?"font-weight:bold;":"";
-                echo "<a href=\"/board/$k/view/{$a['n_id']}\">{$v} <span style=\"$bold\">(".date("m월 d일", $a['n_writedate']).")</span></a>";
+        <div class="btn-group" role="group" aria-label="...">
+            <?php
+            // 그날그날: 택배, 선도, 잔반
+            $i=0;
+            foreach(array("everyday_parcel"=>"택배", "everyday_guidance"=>"선도", /*"everyday_honjung"=>"혼정", */"leftover"=>"잔반") as $k=>$v){
+                echo $i++>0?" | ":"";
+                $cat=$board->getCategory(false,$k);
+                $a=$board->getArticleList(array($cat['n_id']), false, false, 0, 1);
+                if(count($a)==0){
+                    echo "<a class='btn btn-default' href='/board/$k' id='nav_everyday' style='color:gray'>$v 없음</a>";
+                }else{
+                    $a=$a[0];
+                    $bold=(time()-$a['n_writedate']<43200)?"font-weight:bold;":"";
+                    echo "<a href=\"/board/$k/view/{$a['n_id']}\">{$v} <span style=\"$bold\">(".date("m월 d일", $a['n_writedate']).")</span></a>";
+                }
             }
-        }
-        ?>
+            ?>
+        </div>
         <a href="/board/commu">자유게시판 </a> |
         <a href="/board/student_legislative/view/433333">학교자료실</a> |
         <a href="/board/department_environment">환경부</a> |
