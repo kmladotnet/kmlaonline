@@ -22,7 +22,7 @@ function printContentPc(){
 			</tr>
 		</table>
         <div style="padding: 6px">
-        <button type="button" id="main-edit-button" class="btn btn-primary" data-toggle="button" onclick="toggleLayoutEditing(!$(this).hasClass('active'));">편집 모드 시작</button>
+        <button type="button" id="main-edit-button" class="btn btn-primary" onclick="toggleLayoutEditing();">편집 모드 시작</button>
             <div id="main-edit-pane" style="margin-top: 6px; display:none">
                 <div>
                     <i class="fa fa-exclamation-triangle"></i> 레이아웃 저장 버튼을 누르거나 편집 모드를 종료하기 전엔 레이아웃이 저장되지 않습니다.

@@ -512,7 +512,7 @@ function rebindModules() {
     bindModuleCloseButton();
     bindModuleReloadButton();
     bindOptionsForm();
-    if($("#main-edit-button").hasClass('active')) {
+    if(editMode) {
         $(".main-block-close").css({width: 24, "margin-left": 5, "border-width": 1, opacity: 1});
         $(".main-block-options").css({width: 24, "margin-left": 5, "border-width": 1, opacity: 1});
         $(".main-block-title").css("cursor", "move");
@@ -710,8 +710,9 @@ function addModule(json) {
     });
 }
 
+var editMode = false;
 function toggleLayoutEditing(set) {
-    if(set) {
+    if(editMode) {
         $(".main-block-close").css("display", "inline-block");
         $(".main-block-options").css("display", "inline-block");
         $(".main-block-close").velocity({width: 28, "border-width": 1, opacity: 1}, 300);
@@ -731,6 +732,7 @@ function toggleLayoutEditing(set) {
         $("#main-edit-button").html("편집 모드 시작");
         updateModules();
     }
+    editMode = !editMode;
 }
 
 function editStatusMessageShow() {
