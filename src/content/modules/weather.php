@@ -5,7 +5,7 @@ $ko_time = new DateTimeZone('Asia/Seoul');
 <div class="weather">
     <div class="weather-last-update">
         <?php
-        echo $weather->lastUpdate->setTimeZone($ko_time)->format('n월 j일 H:i 기준');
+        echo $weather->lastUpdate->setTimeZone($ko_time)->add(DateInterval::createFromDateString('30 minutes'))->format('n월 j일 H시 기준');
         ?>
     </div>
     <link href="css/owfont-regular.css" rel="stylesheet" type="text/css">
