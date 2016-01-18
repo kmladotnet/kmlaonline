@@ -38,31 +38,35 @@ function printContent(){
 							<tr>
 								<th>E-Mail</th>
 								<td>
-									<input class="form-control" type="text" name="s_email" value='<?php echo htmlspecialchars(isset($_POST['s_email'])?$_POST['s_email']:$me['s_email'])?>' /><br />
+									<input class="form-control" type="text" name="s_email" value='<?php echo htmlspecialchars(isset($_POST['s_email'])?$_POST['s_email']:$me['s_email'])?>' />
 									<!-- <div class="changeinfo_information">바뀌면 확인 메일이 발송됩니다.</div> -->
 								</td>
 							</tr>
 							<tr>
 								<th>이름</th>
-								<td><input class="form-control" type="text" name="s_kor_name" value='<?php echo htmlspecialchars(isset($_POST['s_name'])?$_POST['s_name']:$me['s_name'])?>' /></td>
+								<td>
+                                    <input class="form-control" type="text" name="s_kor_name" value='<?php echo htmlspecialchars(isset($_POST['s_name'])?$_POST['s_name']:$me['s_name'])?>' />
+                                </td>
 							</tr>
 							<tr>
 								<th>영어 이름</th>
-								<td><input class="form-control" type="text" name="s_eng_name" value='<?php echo htmlspecialchars(isset($_POST['s_real_name'])?$_POST['s_real_name']:$me['s_real_name'])?>' /></td>
+								<td>
+                                    <input class="form-control" type="text" name="s_eng_name" value='<?php echo htmlspecialchars(isset($_POST['s_real_name'])?$_POST['s_real_name']:$me['s_real_name'])?>' />
+                                </td>
 							</tr>
 							<tr>
 								<th>생일</th>
 								<td>
-									<input class="form-control" type="text" style="width:60px;" name="n_birth_date_yr" value='<?php echo htmlspecialchars(isset($_POST['n_birth_date_yr'])?$_POST['n_birth_date_yr']:$me['n_birth_date_yr'])?>' />년
-									<input tclass="form-control" ype="text" style="width:30px;" name="n_birth_date_month" value='<?php echo htmlspecialchars(isset($_POST['n_birth_date_month'])?$_POST['n_birth_date_month']:$me['n_birth_date_month'])?>' />월
-									<input class="form-control" type="text" style="width:30px;" name="n_birth_date_day" value='<?php echo htmlspecialchars(isset($_POST['n_birth_date_day'])?$_POST['n_birth_date_day']:$me['n_birth_date_day'])?>' />일
+									<input class="form-control" type="text" style="display: inline-block; width:80px;" name="n_birth_date_yr" value='<?php echo htmlspecialchars(isset($_POST['n_birth_date_yr'])?$_POST['n_birth_date_yr']:$me['n_birth_date_yr'])?>' />년
+									<input tclass="form-control" ype="text" style="display: inline-block; width:40px;" name="n_birth_date_month" value='<?php echo htmlspecialchars(isset($_POST['n_birth_date_month'])?$_POST['n_birth_date_month']:$me['n_birth_date_month'])?>' />월
+									<input class="form-control" type="text" style="display: inline-block; width:40px;" name="n_birth_date_day" value='<?php echo htmlspecialchars(isset($_POST['n_birth_date_day'])?$_POST['n_birth_date_day']:$me['n_birth_date_day'])?>' />일
 								</td>
 							</tr>
 							<tr>
 								<th>패스워드 변경</th>
 								<td>
-									<input class="form-control" type="password" name="s_pw" value="" /><br />
-									<input class="form-control" type="password" name="s_pw_check" value="" /><br />
+									<input class="form-control" type="password" name="s_pw" value="" />
+									<input class="form-control" type="password" name="s_pw_check" value="" />
 								</td>
 							</tr>
 							<tr>
@@ -76,10 +80,10 @@ function printContent(){
 							<tr>
 								<th>학년, 반, 방, 학번</th>
 								<td>
-									<input class="form-control" type="text" name="n_grade" value='<?php echo htmlspecialchars(isset($_POST['n_grade'])?$_POST['n_grade']:$me['n_grade'])?>' style="width:64px;" /> 학년
-									<input class="form-control" type="text" name="s_class" value='<?php echo htmlspecialchars(isset($_POST['s_class'])?$_POST['s_class']:$me['s_class'])?>' style="width:64px;" /> 반<br />
-									방: <input class="form-control" type="text" name="s_room" value='<?php echo htmlspecialchars(isset($_POST['s_room'])?$_POST['s_room']:$me['s_room'])?>' style="width:64px;" /><br />
-									학번: <input class="form-control" type="text" name="n_student_id" style="width:80px" value='<?php echo htmlspecialchars(isset($_POST['n_student_id'])?$_POST['n_student_id']:$me['n_student_id'])?>' />
+									<input class="form-control" type="text" name="n_grade" value='<?php echo htmlspecialchars(isset($_POST['n_grade'])?$_POST['n_grade']:$me['n_grade'])?>' style="display: inline-block; width:64px;" /> 학년
+									<input class="form-control" type="text" name="s_class" value='<?php echo htmlspecialchars(isset($_POST['s_class'])?$_POST['s_class']:$me['s_class'])?>' style="display: inline-block; width:64px;" /> 반<br />
+									방: <input class="form-control" type="text" name="s_room" value='<?php echo htmlspecialchars(isset($_POST['s_room'])?$_POST['s_room']:$me['s_room'])?>' style="display: inline-block; width:64px;" /><br />
+									학번: <input class="form-control" type="text" name="n_student_id" style="display: inline-block; width:80px" value='<?php echo htmlspecialchars(isset($_POST['n_student_id'])?$_POST['n_student_id']:$me['n_student_id'])?>' />
 								</td>
 							</tr>
 							<tr>
