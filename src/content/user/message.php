@@ -79,7 +79,7 @@ function printContent(){
 		</form>
 	</div>
 	<div id="message_list">
-		<ul>
+		<ul style="padding: 0">
 			<li style="text-align:center;font-weight:bold;font-size:15pt;background:white" onclick="user_message_loadCompose();" id="div_message_compose">
 				새로 쓰기
 			</li>
