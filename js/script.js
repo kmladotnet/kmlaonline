@@ -549,7 +549,7 @@ function bindAddModuleButton() {
 function bindModuleCloseButton() {
     $(".main-block-close").unbind("click").click(function () {
         var module = $(this).closest(".grid-stack-item");
-        module.velocity("transition.slideDownOut", {display: null, duration: 300, complete: function() {
+        module.velocity("transition.slideUpOut", {display: null, duration: 300, complete: function() {
             $('.grid-stack').data('gridstack').remove_widget(module);
         }});
     });
