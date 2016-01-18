@@ -38,7 +38,7 @@ function articleList($article_list, $category=true, $title=true, $name=true, $da
                             <div class="article-list-item">
                                 <a href="<?php echo htmlspecialchars("/board/{$a['cat']['s_id']}/view/" . $a['n_id'])?>" style="color:black;<?php echo $b_bold_title?"font-weight:bold;":"";?>"><?php echo $pretty_title ?>
                                 </a>
-                            </div><div class="spacer"></div>
+                            </div>
                             <span>&nbsp;</span>
                         </div>
 					</td>
