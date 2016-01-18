@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta charset="utf-8" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -42,16 +42,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.9.3/js/bootstrap-select.min.js"></script>
 
     <!-- other -->
-    <script src="/js/lightbox.js" charset="utf-8"></script>
-    <script src="/swfupload/swfupload.js" charset="utf-8"></script>
-    <script src="/swfupload/swfupload.queue.js" charset="utf-8"></script>
-    <script src="/js/script.js?v=2.0" charset="utf-8"></script>
-    <link rel="stylesheet" href="/css/lightbox.css" charset="utf-8" type="text/css" media="screen" />
-    <link rel="stylesheet" href="/css/font.css" charset="utf-8" type="text/css" media="screen" />
+    <script src="/js/lightbox.js"></script>
+    <script src="/swfupload/swfupload.js"></script>
+    <script src="/swfupload/swfupload.queue.js"></script>
+    <script src="/js/script.js?v=2.0"></script>
+    <link rel="stylesheet" href="/css/lightbox.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="/css/font.css" type="text/css" media="screen" />
     <title>
         <?php echo htmlspecialchars($title); ?>
     </title>
-    <meta name="kmlaonline-changeable-start" />
     <?php head_theme();
 	if(function_exists("printHead")) printHead();
 	if(file_exists("css/content/$fn.css")) echo "<link class='page-specific-css' rel='stylesheet' href='/css/content/$fn.css' />";
@@ -62,14 +61,13 @@
 		}
 	}
 	?>
-        <style type="text/css">
-            <?php if($me['n_level']==0) echo ".login-only{display:none}";
-            if(TRUE!==$is_morning) echo ".morning{display:none}";
-            if(TRUE!==$is_afternoon) echo ".afternoon{display:none}";
-            if(TRUE!==$is_night) echo ".night{display:none}";
-            ?>
-        </style>
-        <meta name="kmlaonline-changeable-end" />
+    <style type="text/css">
+        <?php if($me['n_level']==0) echo ".login-only{display:none}";
+        if(TRUE!==$is_morning) echo ".morning{display:none}";
+        if(TRUE!==$is_afternoon) echo ".afternoon{display:none}";
+        if(TRUE!==$is_night) echo ".night{display:none}";
+        ?>
+    </style>
 </head>
 
 <body>

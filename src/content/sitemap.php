@@ -4,7 +4,7 @@ function printContent(){
 	?>
     <div style="padding:10px;">
         <?php if(!isset($_GET['linkSelector'])){ ?>
-            <h1><i class="zmdi zmdi-compass zmdi-hc-2x" style="color: rgb(21, 70, 107);"></i> <span style="vertical-align:super">사이트맵</span></h1>
+            <h1><i class="fa fa-sitemap"></i> <span style="vertical-align:super">사이트맵</span></h1>
             <?php
 		}
 		$cat=array(
@@ -48,33 +48,33 @@ function printContent(){
 				$i--;
 			?>
                 <h2 style='padding-bottom:5px;'>기능</h2>
-                <a rel='closenow' style='font-size:12pt' href="/contacts">연락망</a>
+                <a style='font-size:12pt' href="/contacts">연락망</a>
                 <br />
-                <a rel='closenow' style='font-size:12pt' href="/util/lectureroom">공동강의실 신청</a>
+                <a style='font-size:12pt' href="/util/lectureroom">공동강의실 신청</a>
                 <br />
-                <a rel='closenow' style='font-size:12pt' href="/util/important">필수 공지</a>
+                <a style='font-size:12pt' href="/util/important">필수 공지</a>
                 <br />
-                <a rel='closenow' style='font-size:12pt' href="/util/schedule">일정</a>
+                <a style='font-size:12pt' href="/util/schedule">일정</a>
                 <br />
-                <a rel='closenow' style='font-size:12pt' href="/util/kmlaboard">큼라보드</a>
+                <a style='font-size:12pt' href="/util/kmlaboard">큼라보드</a>
                 <br />
-                <a rel='closenow' style='font-size:12pt' href="/searchall">전체에서 찾기</a>
+                <a style='font-size:12pt' href="/searchall">전체에서 찾기</a>
                 <br />
-                <a rel='closenow' style='font-size:12pt' href="/board/special:list-mine">내 게시판</a>
+                <a style='font-size:12pt' href="/board/special:list-mine">내 게시판</a>
                 <br />
-                <a rel='closenow' style='font-size:12pt' href="/board/special:list-all">모든 게시판</a>
+                <a style='font-size:12pt' href="/board/special:list-all">모든 게시판</a>
                 <br />
-                <a rel='closenow' style='font-size:12pt' href="/user/notification">내 알림</a>
+                <a style='font-size:12pt' href="/user/notification">내 알림</a>
                 <br />
-                <a rel='closenow' style='font-size:12pt' href="/user/settings">사용자 설정</a>
+                <a style='font-size:12pt' href="/user/settings">사용자 설정</a>
                 <br />
-                <a rel='closenow' style='font-size:12pt' href="/user/manage">게시판 등 관리</a>
+                <a style='font-size:12pt' href="/user/manage">게시판 등 관리</a>
                 <br />
                 <?php
 			}else{
 				echo "<h2 style='padding-bottom:5px;'>".$c[0]."</h2>";
 				foreach($c[1] as $b){
-					echo "<a rel='closenow' style='font-size:12pt;' href='/board/".urlencode($b['s_id'])."'>".htmlspecialchars($b['s_name'])."</a><br />";
+					echo "<a style='font-size:12pt;' href='/board/".urlencode($b['s_id'])."'>".htmlspecialchars($b['s_name'])."</a><br />";
 				}
 			}
 			echo "</div>";

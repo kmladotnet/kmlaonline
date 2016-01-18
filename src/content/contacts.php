@@ -24,7 +24,7 @@ function printContentPc(){
 	usort($arr,"_cmp");
 	?>
     <div style="padding:10px;" class='contact-finder'>
-        <h1><span style="vertical-align:super"><span class="glyphicon glyphicon-user"></span>연락처</span></h1>
+        <h1><span style="vertical-align:super"><i class="fa fa-users"></i></span>연락처</span></h1>
         <div style="padding-top:10px;">
             <?php for($i=$max_level; $i>=1; $i--){ ?>
                 <a rel="navigate" href="/contacts?wave=<?php echo $i?>" class="wavebutton" <?php if($i==$clevel) echo "style='background:#ddefff'"; ?>><?php echo $i?>기</a>
