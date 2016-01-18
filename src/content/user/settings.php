@@ -11,11 +11,11 @@ function printContent(){
 			<div class="what_to_do">
 				<?php if(!isset($_SESSION["setting_change_no_pw_needed"])){ ?>
 					<div><?php elang("user","settings","password prev")?></div>
-					<div><input type="password" name="s_pw_prev" style="width:100%;box-sizing:border-box" /></div>
+					<div><input class="form-control" type="password" placeholder="입력해야 저장할 수 있어요." name="s_pw_prev" style="width:100%;box-sizing:border-box" required/></div>
 				<?php } ?>
 				<div>
-					<input type="reset" value="<?php elang("generic","revert")?>" style="float:left;height:32px;width:70px;" />
-					<input type="submit" value="<?php elang("user","settings","save")?>" style="float:right;height:32px;width:70px;" />
+					<input type="reset" class="btn btn-default" value="<?php elang("generic","revert")?>" style="float:left;height:32px;width:70px;" />
+					<input type="submit" class="btn btn-primary" value="<?php elang("user","settings","save")?>" style="float:right;height:32px;width:70px;" />
 				</div>
 			</div>
 			<div class="tab_menu">
@@ -31,55 +31,55 @@ function printContent(){
 							<tr>
 								<th>ID</th>
 								<td>
-									<input type="text" name="s_id" value='<?php echo htmlspecialchars(isset($_POST['s_id'])?$_POST['s_id']:$me['s_id'])?>' />
+									<input class="form-control" type="text" name="s_id" value='<?php echo htmlspecialchars(isset($_POST['s_id'])?$_POST['s_id']:$me['s_id'])?>' />
 									<?php if(strstr($me['s_id'],"@")) echo "<br /><span style='color:red'>영문자, 숫자, -, _ 로만 구성해 주세요!</span>"; ?>
 								</td>
 							</tr>
 							<tr>
 								<th>E-Mail</th>
 								<td>
-									<input type="text" name="s_email" value='<?php echo htmlspecialchars(isset($_POST['s_email'])?$_POST['s_email']:$me['s_email'])?>' /><br />
+									<input class="form-control" type="text" name="s_email" value='<?php echo htmlspecialchars(isset($_POST['s_email'])?$_POST['s_email']:$me['s_email'])?>' /><br />
 									<!-- <div class="changeinfo_information">바뀌면 확인 메일이 발송됩니다.</div> -->
 								</td>
 							</tr>
 							<tr>
 								<th>이름</th>
-								<td><input type="text" name="s_kor_name" value='<?php echo htmlspecialchars(isset($_POST['s_name'])?$_POST['s_name']:$me['s_name'])?>' /></td>
+								<td><input class="form-control" type="text" name="s_kor_name" value='<?php echo htmlspecialchars(isset($_POST['s_name'])?$_POST['s_name']:$me['s_name'])?>' /></td>
 							</tr>
 							<tr>
 								<th>영어 이름</th>
-								<td><input type="text" name="s_eng_name" value='<?php echo htmlspecialchars(isset($_POST['s_real_name'])?$_POST['s_real_name']:$me['s_real_name'])?>' /></td>
+								<td><input class="form-control" type="text" name="s_eng_name" value='<?php echo htmlspecialchars(isset($_POST['s_real_name'])?$_POST['s_real_name']:$me['s_real_name'])?>' /></td>
 							</tr>
 							<tr>
 								<th>생일</th>
 								<td>
-									<input type="text" style="width:60px;" name="n_birth_date_yr" value='<?php echo htmlspecialchars(isset($_POST['n_birth_date_yr'])?$_POST['n_birth_date_yr']:$me['n_birth_date_yr'])?>' />년 
-									<input type="text" style="width:30px;" name="n_birth_date_month" value='<?php echo htmlspecialchars(isset($_POST['n_birth_date_month'])?$_POST['n_birth_date_month']:$me['n_birth_date_month'])?>' />월 
-									<input type="text" style="width:30px;" name="n_birth_date_day" value='<?php echo htmlspecialchars(isset($_POST['n_birth_date_day'])?$_POST['n_birth_date_day']:$me['n_birth_date_day'])?>' />일
+									<input class="form-control" type="text" style="width:60px;" name="n_birth_date_yr" value='<?php echo htmlspecialchars(isset($_POST['n_birth_date_yr'])?$_POST['n_birth_date_yr']:$me['n_birth_date_yr'])?>' />년
+									<input tclass="form-control" ype="text" style="width:30px;" name="n_birth_date_month" value='<?php echo htmlspecialchars(isset($_POST['n_birth_date_month'])?$_POST['n_birth_date_month']:$me['n_birth_date_month'])?>' />월
+									<input class="form-control" type="text" style="width:30px;" name="n_birth_date_day" value='<?php echo htmlspecialchars(isset($_POST['n_birth_date_day'])?$_POST['n_birth_date_day']:$me['n_birth_date_day'])?>' />일
 								</td>
 							</tr>
 							<tr>
 								<th>패스워드 변경</th>
 								<td>
-									<input type="password" name="s_pw" value="" /><br />
-									<input type="password" name="s_pw_check" value="" /><br />
+									<input class="form-control" type="password" name="s_pw" value="" /><br />
+									<input class="form-control" type="password" name="s_pw_check" value="" /><br />
 								</td>
 							</tr>
 							<tr>
 								<th>홈페이지</th>
-								<td><input type="text" name="s_homepage" value='<?php echo htmlspecialchars(isset($_POST['s_homepage'])?$_POST['s_homepage']:$me['s_homepage'])?>' /></td>
+								<td><input class="form-control" type="text" name="s_homepage" value='<?php echo htmlspecialchars(isset($_POST['s_homepage'])?$_POST['s_homepage']:$me['s_homepage'])?>' /></td>
 							</tr>
 							<tr>
 								<th>전화번호</th>
-								<td><input type="text" name="s_phone" value='<?php echo htmlspecialchars(isset($_POST['s_phone'])?$_POST['s_phone']:$me['s_phone'])?>' /></td>
+								<td><input class="form-control" type="text" name="s_phone" value='<?php echo htmlspecialchars(isset($_POST['s_phone'])?$_POST['s_phone']:$me['s_phone'])?>' /></td>
 							</tr>
 							<tr>
 								<th>학년, 반, 방, 학번</th>
 								<td>
-									<input type="text" name="n_grade" value='<?php echo htmlspecialchars(isset($_POST['n_grade'])?$_POST['n_grade']:$me['n_grade'])?>' style="width:64px;" /> 학년 
-									<input type="text" name="s_class" value='<?php echo htmlspecialchars(isset($_POST['s_class'])?$_POST['s_class']:$me['s_class'])?>' style="width:64px;" /> 반<br /> 
-									방: <input type="text" name="s_room" value='<?php echo htmlspecialchars(isset($_POST['s_room'])?$_POST['s_room']:$me['s_room'])?>' style="width:64px;" /><br />
-									학번: <input type="text" name="n_student_id" style="width:80px" value='<?php echo htmlspecialchars(isset($_POST['n_student_id'])?$_POST['n_student_id']:$me['n_student_id'])?>' />
+									<input class="form-control" type="text" name="n_grade" value='<?php echo htmlspecialchars(isset($_POST['n_grade'])?$_POST['n_grade']:$me['n_grade'])?>' style="width:64px;" /> 학년
+									<input class="form-control" type="text" name="s_class" value='<?php echo htmlspecialchars(isset($_POST['s_class'])?$_POST['s_class']:$me['s_class'])?>' style="width:64px;" /> 반<br />
+									방: <input class="form-control" type="text" name="s_room" value='<?php echo htmlspecialchars(isset($_POST['s_room'])?$_POST['s_room']:$me['s_room'])?>' style="width:64px;" /><br />
+									학번: <input class="form-control" type="text" name="n_student_id" style="width:80px" value='<?php echo htmlspecialchars(isset($_POST['n_student_id'])?$_POST['n_student_id']:$me['n_student_id'])?>' />
 								</td>
 							</tr>
 							<tr>
@@ -111,13 +111,8 @@ function printContent(){
 							<tr>
 								<th>메뉴 관리</th>
 								<td>
-									<div style="float:right">
-										<button style="width:120px;height:32px" onclick="return false;">모두 지우기</button>
-									</div>
-									<div style="float:left">
-										<button type="button" style="width:120px;height:32px" onclick="settings_menu_addCategory(); return false;">분류 추가</button>
-										<button type="button" style="width:120px;height:32px" onclick="settings_menu_addSubItem(); return false;">항목 추가</button>
-									</div>
+                                    <button class="btn btn-default" type="button" style="width:120px;height:32px" onclick="settings_menu_addCategory(); return false;">분류 추가</button>
+                                    <button class="btn btn-default" type="button" style="width:120px;height:32px" onclick="settings_menu_addSubItem(); return false;">항목 추가</button>
 									<ul id="menusorter">
 										<?php
 										$menu_bar=getUserMenuBar($me);

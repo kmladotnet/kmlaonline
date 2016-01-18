@@ -151,9 +151,7 @@ if(count($failReason)>0){
         if(isset($_POST['menu_data']))
 			$menu_data=$_POST['menu_data'];
 		if(isset($menu_data)){
-            echo $menu_data;
 			$menu_title=$_POST['menu_titles'];
-            echo $menu_titles;
 			for($i=0;$i<count($menu_title);$i++){
 				if($menu_data[$i]=="divider"){
 					if(isset($curr)){
@@ -173,7 +171,6 @@ if(count($failReason)>0){
 			$menu_data_out[$curr['title']]=$curr;
 			unset($menu_data_out[$curr['title']]['title']);
 		}
-        print_r($menu_data_out);
 		file_put_contents("data/user/menu_bar/{$me['n_id']}.txt",serialize($menu_data_out));
 		session_start();
 		unset($_SESSION["setting_change_no_pw_needed"]);
