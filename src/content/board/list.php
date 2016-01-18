@@ -5,16 +5,16 @@ function printArticleListTypeBoard($board_data, $additional_query_string){
 	<table class="notableborder table" style="width:100%">
 		<thead>
 			<tr style="height:32px;">
-				<th class="no-mobile" style="width:48px;">번호</th>
+				<th class="no-mobile">번호</th>
 				<th>제목</th>
-				<th style="width:120px;">글쓴이</th>
-				<th style="width:80px;">날짜</th>
-				<th class="no-mobile" style="width:56px;">조회수</th>
+				<th>글쓴이</th>
+				<th>날짜</th>
+				<th class="no-mobile">조회수</th>
 			</tr>
 		</thead>
 		<tbody>
-			<?php foreach($board_data as $item){ 
-				$memb=$member->getMember($item['n_writer']); 
+			<?php foreach($board_data as $item){
+				$memb=$member->getMember($item['n_writer']);
 				$flag=$item['n_flag']; $b_public_article=$flag&0x1; $b_no_comment=$flag&0x2; $b_anonymous=$flag&0x4; $b_bold_title=$flag&0x8;
 				$b_public_article=$b_public_article && checkCategoryAccess($board_cat['n_id'], "flag public");
 				$b_no_comment=$b_no_comment && checkCategoryAccess($board_cat['n_id'], "flag no comment");
@@ -28,7 +28,7 @@ function printArticleListTypeBoard($board_data, $additional_query_string){
 					<td onclick="return changeLinkTo('<?php echo htmlspecialchars(addslashes("/board/$board_id/view/{$item['n_id']}$additional_query_string"))?>');" style="padding-left:5px;">
 						<a onclick="return false;" href="<?php echo htmlspecialchars("/board/$board_id/view/" . $item['n_id'])?>" style="color:black;<?php echo $b_bold_title?"font-weight:bold;":"";?>">
 							<?php
-							echo htmlspecialchars($item['s_title']); 
+							echo htmlspecialchars($item['s_title']);
 							if(($item['n_comments']!=0 && doesAdminBypassEverythingAndIsAdmin(!$b_no_comment)))
 								echo " <span style='font-size:9pt;color:#008800'>[{$item['n_comments']}]</span>";
 							?>
@@ -71,15 +71,15 @@ function printArticleListTypeForum($board_data, $additional_query_string){
 	<table class="notableborder" style="width:100%">
 		<thead>
 			<tr style="height:32px;">
-				<th class="no-mobile" style="width:48px;">번호</th>
+				<th class="no-mobile">번호</th>
 				<th>주제</th>
-				<th style="width:100px;">마지막 글</th>
-				<th style="width:80px;">상태</th>
+				<th>마지막 글</th>
+				<th>상태</th>
 			</tr>
 		</thead>
 		<tbody>
-			<?php foreach($board_data as $item){ 
-				$memb=$member->getMember($item['n_writer']); 
+			<?php foreach($board_data as $item){
+				$memb=$member->getMember($item['n_writer']);
 				$flag=$item['n_flag']; $b_public_article=$flag&0x1; $b_no_comment=$flag&0x2; $b_anonymous=$flag&0x4; $b_bold_title=$flag&0x8;
 				$b_public_article=$b_public_article && checkCategoryAccess($board_cat['n_id'], "flag public");
 				$b_no_comment=$b_no_comment && checkCategoryAccess($board_cat['n_id'], "flag no comment");
@@ -125,13 +125,6 @@ function printArticleListTypeForum($board_data, $additional_query_string){
 		</tbody>
 	</table>
 	<?php
-	insertOnLoadScript('
-		$(".forum_list_item").mouseenter(function(){
-			$(this).css("backgroundColor", "#EEE");
-		}).mouseleave(function(){
-			$(this).css("backgroundColor", "transparent");
-		});
-	');
 }
 function printArticleListTypeGallery($board_data, $additional_query_string){
 	global $board, $member, $board_cat, $board_id;
@@ -157,8 +150,8 @@ function printArticleListTypeGallery($board_data, $additional_query_string){
 					<img src="<?php echo htmlspecialchars($path_thumb)?>" style="z-index:1;position:absolute;left:0;right:0;width:100%;" />
 				<?php } ?>
 				<div class="title" style="<?php echo $b_bold_title?"font-weight:bold;":""?>">
-					<?php 
-					echo htmlspecialchars($item['s_title']); 
+					<?php
+					echo htmlspecialchars($item['s_title']);
 					if($item['n_comments']!=0 && doesAdminBypassEverythingAndIsAdmin(!$b_no_comment))
 						echo " <span style='font-size:9pt;color:#008800'>[{$item['n_comments']}]</span>";
 					?>
@@ -239,10 +232,10 @@ function printArticleList(){
 	<?php } ?>
 	<div style="text-align:center">
 		<?php $disp=array(1=>true); ?>
-		<a href="<?php echo "/board/$board_id/page/1$additional_query_string" ;?>" <?php if($pagenumber==1) echo "style='color:black'" ?>>[1]</a> 
+		<a href="<?php echo "/board/$board_id/page/1$additional_query_string" ;?>" <?php if($pagenumber==1) echo "style='color:black'" ?>>[1]</a>
 		<?php if(2<$pagenumber-10) echo "..."; ?>
 		<?php for($i=max(2,$pagenumber-10); $i<=min($page_count-1, $pagenumber+10); $i++){ ?>
-			<a href="<?php echo "/board/$board_id/page/$i$additional_query_string" ;?>" <?php if($pagenumber==$i) echo "style='color:black'" ?>>[<?php echo $i; $disp[$i]=true;?>]</a> 
+			<a href="<?php echo "/board/$board_id/page/$i$additional_query_string" ;?>" <?php if($pagenumber==$i) echo "style='color:black'" ?>>[<?php echo $i; $disp[$i]=true;?>]</a>
 		<?php } ?>
 		<?php if($i<$page_count && $i!=max(2,$pagenumber-10)) echo "..."; ?>
 		<?php if(!isset($disp[$page_count]) && $page_count>1){ ?><a href="<?php echo "/board/$board_id/page/$page_count$additional_query_string" ;?>" <?php if($pagenumber==$page_count) echo "style='color:black'" ?>>[<?php echo $page_count?>]</a><?php } ?>
