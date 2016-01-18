@@ -150,7 +150,9 @@ if(count($failReason)>0){
 		$menu_data_out=array();
 		if(isset($menu_data)){
 			$menu_data=$_POST['menu_data'];
+            echo $menu_data;
 			$menu_title=$_POST['menu_titles'];
+            echo $menu_titles;
 			for($i=0;$i<count($menu_title);$i++){
 				if($menu_data[$i]=="divider"){
 					if(isset($curr)){
