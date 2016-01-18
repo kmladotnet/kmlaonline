@@ -21,10 +21,7 @@ function printContent(){
 			<div class="tab_menu">
 				<ul>
 					<li><a id="tab_menu_switch_0" href="#" onclick="return changeTab(0);"><?php elang("user","settings","myinfo","")?></a></li>
-					<li><a id="tab_menu_switch_1" href="#" onclick="return changeTab(1);"><?php elang("user","settings","mainboard","")?></a></li>
-					<li><a id="tab_menu_switch_2" href="#" onclick="return changeTab(2);"><?php elang("user","settings","menu","")?></a></li>
-					<li><a id="tab_menu_switch_3" href="#" onclick="return changeTab(3);"><?php elang("user","settings","mypage","")?></a></li>
-					<li><a id="tab_menu_switch_4" href="#" onclick="return changeTab(4);"><?php elang("user","settings","message","")?></a></li>
+					<li><a id="tab_menu_switch_1" href="#" onclick="return changeTab(1);"><?php elang("user","settings","menu","")?></a></li>
 				</ul>
 			</div>
 			<div class="tab_wrap" style="min-height:320px;">
@@ -112,33 +109,6 @@ function printContent(){
 					<div id="tab_menu_1" class="tab_menu_items">
 						<table class="table_info_view">
 							<tr>
-								<th>첫 화면에 보일 게시판</th>
-								<td>
-									<div style="float:right">
-										<button style="width:120px;height:32px" onclick="$('.chk_board_on_main').attr('checked','checked'); return false;">모두 선택</button>
-										<button style="width:120px;height:32px" onclick="$('.chk_board_on_main').removeAttr('checked'); return false;">모두 해제</button>
-									</div>
-									<?php
-									$accessible_categories=getUserMainBoards($me);
-									foreach($board->getCategoryList(0,0) as $val){
-										if(checkCategoryAccess($val['n_id'], "list")){
-											if(isset($accessible_categories[$val['n_id']]))
-												$checked="checked=\"checked\"";
-											else
-												$checked="";
-											?>
-											<div style="padding:3px;"><input type="checkbox" class="chk_board_on_main" name="board_on_main[]" value="<?php echo $val['n_id']?>" id="_board_id_<?php echo $val['n_id']?>" <?php echo $checked?> /> <label for="_board_id_<?php echo $val['n_id']?>"><?php echo htmlspecialchars($val['s_name']); ?></label></div>
-											<?php
-										}
-									}
-									?>
-								</td>
-							</tr>
-						</table>
-					</div>
-					<div id="tab_menu_2" class="tab_menu_items">
-						<table class="table_info_view">
-							<tr>
 								<th>메뉴 관리</th>
 								<td>
 									<div style="float:right">
@@ -187,16 +157,6 @@ function printContent(){
 									</div>
 								</td>
 						</table>
-					</div>
-					<div id="tab_menu_3" class="tab_menu_items">
-						<div>
-							NEED FIX<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-						</div>
-					</div>
-					<div id="tab_menu_4" class="tab_menu_items">
-						<div>
-							NEED FIX<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-						</div>
 					</div>
 				</div>
 			</div>
