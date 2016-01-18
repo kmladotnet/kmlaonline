@@ -55,7 +55,7 @@
     <?php head_theme();
 	if(function_exists("printHead")) printHead();
 	if(file_exists("css/content/$fn.css")) echo "<link class='page-specific-css' rel='stylesheet' href='/css/content/$fn.css' />";
-	if(file_exists("js/content/$fn.js")) echo "<script src='/js/content/$fn.js' />";
+	if(file_exists("js/content/$fn.js")) echo "<script src='/js/content/$fn.js'></script>";
     if(isset($includes)){
 		foreach($includes as $val){
 			if(substr($val,-4,4)==".css") echo "<link class='page-specific-css' rel='stylesheet' href='$val' />";
