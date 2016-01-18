@@ -568,7 +568,7 @@ function bindModuleReloadButton() {
             rebindModules();
         });
         new PNotify({
-            text: '새로고침 했습니다.',
+            title: '새로고침 했습니다.',
             type: 'success',
             buttons: {
                 closer: false,
@@ -661,7 +661,7 @@ function resetMainLayout() {
             });
     }).on('pnotify.cancel', function () {
         new PNotify({
-            text: '취소했습니다.',
+            title: '취소했습니다.',
             type: 'info',
             buttons: {
                 closer: false,
@@ -699,7 +699,7 @@ function updateModules() {
             "ajax": "1"
         }).done(function () {
             var notice = new PNotify({
-                text: '레이아웃이 저장되었습니다!',
+                title: '레이아웃이 저장되었습니다!',
                 type: 'success',
                 buttons: {
                     closer: false,
@@ -711,7 +711,7 @@ function updateModules() {
             });
         }).fail(function () {
             var notice = new PNotify({
-                text: '레이아웃을 저장하지 못했습니다. 인터넷 연결을 확인하세요.',
+                title: '레이아웃을 저장하지 못했습니다. 인터넷 연결을 확인하세요.',
                 type: 'error',
                 buttons: {
                     closer: false,
