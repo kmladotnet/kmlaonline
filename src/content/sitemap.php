@@ -4,7 +4,7 @@ function printContent(){
 	?>
     <div style="padding:10px;">
         <?php if(!isset($_GET['linkSelector'])){ ?>
-            <h1><i class="fa fa-sitemap"></i> <span style="vertical-align:super">사이트맵</span></h1>
+            <h1><i class="fa fa-sitemap"></i> 사이트맵</h1>
             <?php
 		}
 		$cat=array(

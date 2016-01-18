@@ -271,10 +271,10 @@ function getModuleShell($module_name, $options, $x = 0, $y = 0, $w = 4, $h = 4) 
     ?>
     <div class="grid-stack-item"
         <?php
-        echo 'data-gs-x="',$x,'" data-gs-y="',$y,'"';
-        echo 'data-gs-width="',$w,'" data-gs-height="',$h,'"';
-        echo 'data-module-name="',$module_name,'"';
-        echo 'data-module-options=\'',htmlspecialchars(json_encode($options)),'\'';
+        echo ' data-gs-x="',$x,'" data-gs-y="',$y,'"';
+        echo ' data-gs-width="',$w,'" data-gs-height="',$h,'"';
+        echo ' data-module-name="',$module_name,'"';
+        echo ' data-module-options=\'',htmlspecialchars(json_encode($options)),'\'';
         ?>
             >
         <div class="grid-stack-item-content">
