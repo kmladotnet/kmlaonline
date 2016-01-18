@@ -564,7 +564,7 @@ function bindExampleLayoutButton() {
             }
         })).get().on('pnotify.confirm', function () {
             $.post("ajax/user/examplelayout", {
-                    "name": $("#example-layout").var(),
+                    "name": $("#example-layout").val(),
                     ajax: 1
             }).done(function () {
                 $(".grid-stack-item").velocity("transition.slideUpOut", {stagger: 50, duration: 300, complete: function() {
