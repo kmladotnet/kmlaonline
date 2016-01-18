@@ -85,7 +85,7 @@ function printContent() {
 </table>
 
     <button class="btn btn-primary">모두 설치하기(권장)</button>
-      <a class="btn btn-warning" href="?action=main">설치하지 않고 계속 (권장하지 않음)</a>
+      <a class="btn btn-warning" style="color: white;" href="?action=main">설치하지 않고 계속 (권장하지 않음)</a>
   </div>
 <?php
 }
