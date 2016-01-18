@@ -580,6 +580,7 @@ function reloadAll() {
             "json": JSON.stringify(simpleModuleToObject(module)),
             "ajax": 1
         }, function (data) {
+            module.velocity("transition.slideUpIn", {display: null, duration: 100});
             module.find(".grid-stack-item-content").html(data);
             rebindModules();
         });
