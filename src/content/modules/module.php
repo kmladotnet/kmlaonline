@@ -341,7 +341,7 @@ function defaultModule($module_name) {
 }
 
 function allModules($modules) {
-    echo $modules;
+    print_r($modules);
     foreach($modules as $module) {
         getModuleShell($module['name'], array_key_exists('options', $module['options'])
                   ? array_merge(defaultOptions($module['name']), $module['options']['options'])
