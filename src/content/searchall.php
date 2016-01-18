@@ -72,6 +72,7 @@ function printSearchResult($search){
                         </a>
                     </td>
                 </tr>
+                <?php
 			}
 			?>
 		</tbody>
