@@ -46,7 +46,6 @@
     <script src="/swfupload/swfupload.js" charset="utf-8"></script>
     <script src="/swfupload/swfupload.queue.js" charset="utf-8"></script>
     <script src="/js/script.js?v=2.0" charset="utf-8"></script>
-    <script src="/js/content/combined.js" charset="utf-8"></script>
     <link rel="stylesheet" href="/css/lightbox.css" charset="utf-8" type="text/css" media="screen" />
     <link rel="stylesheet" href="/css/font.css" charset="utf-8" type="text/css" media="screen" />
     <title>
@@ -56,7 +55,8 @@
     <?php head_theme();
 	if(function_exists("printHead")) printHead();
 	if(file_exists("css/content/$fn.css")) echo "<link class='page-specific-css' rel='stylesheet' href='/css/content/$fn.css' />";
-	if(isset($includes)){
+	if(file_exists("js/content/$fn.js")) echo "<script src='/js/content/$fn.js' />";
+    if(isset($includes)){
 		foreach($includes as $val){
 			if(substr($val,-4,4)==".css") echo "<link class='page-specific-css' rel='stylesheet' href='$val' />";
 		}
