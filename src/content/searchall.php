@@ -54,37 +54,38 @@ function printSearchResult($search){
 	else
 		$GLOBALS['_SORT_BY_']="score";
 	uasort($result, 'search_sort_results');
-	?><table style="width:100%" id="found_results" class="notableborder">
+	?><table style="width:100%" id="found_results" class="table table-hover">
 		<thead><tr><th style="width:180px;">찾은 곳</th><th>이름</th><th style="width:90px;">올린이</th></tr></thead>
 		<tbody>
 			<?php
 			foreach($result as $itm){
-				echo "<tr style='cursor:pointer' onclick=\"return changeLinkTo('".htmlspecialchars(addslashes($itm['link']))."');\"><td>{$itm['found']}</td><td>{$itm['desc']} <span style='color:gray;font-size:8pt'>(".($itm['time']==0?"(지정되지 않음)":date("y-m-d H:i:s",$itm['time'])).")</span></td><td>{$itm['writer']}</td></tr>";
+                ?>
+                <tr>
+                    <td><?php echo $itm['found']; ?></td>
+                    <td>
+                        <a href="<?php echo htmlspecialchars(addslashes($itm['link']))?>">
+                            <?php echo $itm['desc'];?>
+                            <span style='color:gray;font-size:8pt'><?php
+                                echo ($itm['time']==0 ? "(지정되지 않음)" : date("(y-m-d H:i:s)",$itm['time']));
+                                ?>
+                            </span>
+                        </a>
+                    </td>
+                </tr>
 			}
 			?>
 		</tbody>
 	</table>
-	<?php
-	insertOnLoadScript('
-		$("#found_results tbody tr").mouseenter(function(){
-			$(this).css("backgroundColor", "#EEE");
-		}).mouseleave(function(){
-			$(this).css("backgroundColor", "transparent");
-		});
-	');
-	?>
 	<?php if(count($result)>0){ ?>
 		<div style="text-align:center">
 			<form method="get" action="/searchall/<?php echo $pagenumber+2?>">
 				<input type="hidden" name="search" value="<?php echo htmlspecialchars($search)?>" />
-				<!--<input type="hidden" name="orderby" value="<?php echo $orderby?"time":"score"?>" />-->
 				<input type="submit" value="계속 찾아보기" style="width:160px;height:32px;" />
 			</form>
 		</div>
 	<?php }else{ ?>
 		<div style="text-align:center;padding:14px;font-weight:bold;">검색을 완료했습니다.</div>
 	<?php }
-	//echo nl2br(htmlspecialchars(print_r($result,true)));
 }
 function searchAttachments($search, $articleperpage, $pagenumber){
 	global $board, $member;
