@@ -1085,7 +1085,9 @@ if (history.pushState && false) {
 }
 
 function flashObject(elem, shortanim) {
-    $(elem).velocity("callout.pulse", {duration: 300});
+    if(shortanim)
+        return;
+    $(elem).velocity("callout.shake", {duration: 500});
 }
 addLoadEvent(function () {
     $('a').each(function () {
