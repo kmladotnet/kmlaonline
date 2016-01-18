@@ -571,17 +571,6 @@ function bindExampleLayoutButton() {
                     location.reload(true);
                 }});
             });
-        }).on('pnotify.cancel', function () {
-            $("#example-layout").val();
-            new PNotify({
-                title: '취소했습니다.',
-                type: 'info',
-                buttons: {
-                    closer: false,
-                    sticker: false
-                }
-            });
-            return false;
         });
     });
 }
@@ -618,7 +607,7 @@ function bindModuleReloadButton() {
     });
 }
 
-function reloadAll() {
+function reloadAllModules() {
     $('.grid-stack-item').each(function() {
         var module = $(this);
         $.post("ajax/user/getmodule", {
@@ -701,15 +690,6 @@ function resetMainLayout() {
                     location.reload(true);
                 }});
             });
-    }).on('pnotify.cancel', function () {
-        new PNotify({
-            title: '취소했습니다.',
-            type: 'info',
-            buttons: {
-                closer: false,
-                sticker: false
-            }
-        });
     });
 }
 
@@ -731,7 +711,6 @@ function cancelLayout() {
         }
     })).get().on('pnotify.confirm', function () {
                 location.reload(true);
-    }).on('pnotify.cancel', function () {
     });
 }
 
@@ -1070,67 +1049,6 @@ function changeLinkTo(href, ajaxData) {
     location.href = href;
     return false;
 }
-var popped = ('state' in window.history && window.history.state !== null),
-    initialURL = location.href;
-if (history.pushState && false) {
-    window.addEventListener("popstate", function (s) {
-        var initialPop = !popped && location.href == initialURL;
-        popped = true;
-        if (initialPop) {
-            history.replaceState({
-                head: $("head").html(),
-                body: $("#below-header-menu #total-content").html(),
-                header: $("#below-header-menu #total-header").html(),
-                footer: $("#below-header-menu #total-footer").html(),
-                ttitle: document.title,
-                script: ""
-            }, document.title, location.href);
-            if (event && event.preventDefault) event.preventDefault();
-            return false;
-        }
-        if (s.state) {
-            location.reload();
-            return;
-            hideUpperHeader();
-            unbindCkeditor();
-            window.onbeforeunload = null;
-            var removeStarted = false;
-            $("head").children().each(function (i) {
-                if (this.name == "kmlaonline-changeable-end")
-                    removeStarted = false;
-                else if (removeStarted) {
-                    $(this).remove();
-                } else {
-                    if (this.name == "kmlaonline-changeable-start")
-                        removeStarted = true;
-                }
-            });
-            document.title = s.state.ttitle;
-            removeStarted = false;
-            $("<div>" + s.state.head + "</div>").children().each(function (i) {
-                if (removeStarted) {
-                    $("head").append(this);
-                } else {
-                    if (this.name == "changeable-start")
-                        removeStarted = true;
-                }
-            });
-            $("#below-header-menu #total-content").empty();
-            $("#below-header-menu #total-content").append($("<div>" + s.state.body + "</div>").children());
-            $("#below-header-menu #total-header").empty();
-            $("#below-header-menu #total-header").append($("<div>" + s.state.header + "</div>").children());
-            $("#below-header-menu #total-footer").html("<div>" + s.state.footer + "</div>");
-            $("#onload-scripts").html(s.state.script);
-            eval(s.state.script);
-            if (window.onload) window.onload();
-            if (document.onload) document.onload();
-            enableElement("#below-header-menu #total-content");
-        }
-        if (event && event.preventDefault) event.preventDefault();
-        return false;
-    });
-}
-
 function flashObject(elem, shortanim) {
     if(shortanim)
         return;
@@ -1138,27 +1056,24 @@ function flashObject(elem, shortanim) {
 }
 addLoadEvent(function () {
     $('a').each(function () {
-        if (this.onclick || $(this).is('.clickbound') || this.href == "") return;
-        if (this.href.toLowerCase().indexOf("http://" + location.host.toLowerCase() + "/files/") == 0 ||
+        if (this.onclick || $(this).is('.clickbound') || this.href == "" ||
+            this.href.toLowerCase().indexOf("http://" + location.host.toLowerCase() + "/files/") == 0 ||
             this.href.toLowerCase().indexOf("https://" + location.host.toLowerCase() + "/files/") == 0 ||
             this.href.toLowerCase().indexOf("http://" + location.host.toLowerCase() + "/data/") == 0 ||
             this.href.toLowerCase().indexOf("https://" + location.host.toLowerCase() + "/data/") == 0
         )
             return;
-        $(this).off("click");
-        $(this).click(function () {
-            if (this.rel == "navigate") {
+        if(this.rel == "navigate") {
+            $(this).off("click").click(function () {
                 loadUpperHeader(this.href, $("#upper-header-menu #total-content"), true);
                 return false;
-            }
-            if (this.rel == "closenow") hideUpperHeader();
-        });
+            });
+        }
     });
     $('form').each(function () {
         if (this.onsubmit) return;
         if (this.enctype == "multipart/form-data") return;
-        $(this).off("submit");
-        $(this).submit(function () {
+        $(this).off("submit").submit(function () {
             lnk = $(this).attr('action');
             if ($(this).attr("method").toLowerCase() == "get") lnk += "?" + $(this).serialize();
             return changeLinkTo(lnk, {
@@ -1179,11 +1094,6 @@ addLoadEvent(function () {
         } else
             $(this).parent().find("span").text("파일 선택");
     });
-    $("a.likebutton").bind("dragstart", function () {
-        return false;
-    }).bind("selectstart", function () {
-        return false;
-    });
     var elem = window.location.hash;
     if (elem && (elem = $(elem)) && elem.length > 0) {
         scrollToMiddle(elem.offset().top);
@@ -1194,7 +1104,7 @@ addLoadEvent(function () {
         getNotificationCount();
         setTimeout(function () {
             window.notificationCountGetter
-        }, 10000);
+        }, 1E4);
     };
     window.notificationCountGetter();
 });

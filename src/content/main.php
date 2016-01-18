@@ -92,7 +92,7 @@ JSON
             }
         };
         $('.grid-stack').gridstack(options);
-        reloadAll();
+        reloadAllModules();
         $('.grid-stack').data('gridstack').disable();
     });
     bindAddModuleButton();
