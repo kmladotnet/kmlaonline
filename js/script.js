@@ -574,8 +574,8 @@ function bindModuleReloadButton() {
 }
 
 function reloadAll() {
-    var module = $(this);
     $('.grid-stack-item').each(function() {
+        var module = $(this);
         $.post("ajax/user/getmodule", {
             "json": JSON.stringify(simpleModuleToObject(module)),
             "ajax": 1
