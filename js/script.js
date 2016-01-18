@@ -462,9 +462,9 @@ function prepareHeader() {
                     return;
                 if (i2 == 2)
                     getNotifications();
+                showSlidedown(i2, true);
                 if (i2 == 3)
                     $('#txt_search_whole').focus();
-                showSlidedown(i2, true);
                 return false;
             }
         }(k));
