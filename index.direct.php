@@ -131,7 +131,6 @@
                 /*<!--*/
                 <?php
 			if(isset($_scripts)) echo $_scripts;
-			if(isset($overriden)) echo "debug.info(".json_encode($overriden).");";
 			if(isset($_POST['error_occured'])) echo "checkAjaxReturnedData(JSON.parse(\"".str_replace("</", "<\" + \"/",addslashes($_POST['error_occured']))."\"));";
 		?>
                 /*-->*/
@@ -139,7 +138,6 @@
             <script id="onload-scripts" type="text/text">
                 <?php
 		if(isset($_scripts)) echo $_scripts;
-		if(isset($overriden)) echo "debug.info(".json_encode($overriden).");";
 		if(isset($_POST['error_occured'])) echo "checkAjaxReturnedData(JSON.parse(\"".str_replace("</", "<\" + \"/",addslashes($_POST['error_occured']))."\"));";
 		?>
             </script>

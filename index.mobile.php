@@ -6,8 +6,11 @@
 	<base href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/" />
 	<!--[if lte IE 7]><script type="text/javascript" src="/js/json2.js" charset="utf-8"></script><![endif]-->
 	<!--[if gte IE 9]><style type="text/css">.gradient{filter: none;}</style><![endif]-->
-	<script type="text/javascript" src="/js/jquery-1.11.0.min.js" charset="utf-8"></script>
-	<script type="text/javascript" src="/js/jquery-ui-1.10.4.custom.min.js" charset="utf-8"></script>
+
+    <!-- jquery -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
 	<script type="text/javascript" src="/js/lightbox.js" charset="utf-8"></script>
 	<script type="text/javascript" src="/swfupload/swfupload.js" charset="utf-8"></script>
 	<script type="text/javascript" src="/swfupload/swfupload.queue.js" charset="utf-8"></script>
