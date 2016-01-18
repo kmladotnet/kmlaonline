@@ -1102,9 +1102,7 @@ addLoadEvent(function () {
 
     window.notificationCountGetter = function () {
         getNotificationCount();
-        setTimeout(function () {
-            window.notificationCountGetter
-        }, 1E4);
+        setTimeout(window.notificationCountGetter, 1E4);
     };
     window.notificationCountGetter();
 });
