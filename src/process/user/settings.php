@@ -147,10 +147,6 @@ if(count($failReason)>0){
 		$member->setAdditionalData($me['n_id'], "n_grade", $_POST['n_grade']);
 		$member->setAdditionalData($me['n_id'], "s_class", $_POST['s_class']);
 		$member->setAdditionalData($me['n_id'], "n_student_id", $_POST['n_student_id']);
-		$accessible_categories=array();
-		foreach($_POST['board_on_main'] as $val){
-			$accessible_categories[$val]=$val;
-		}
 		$menu_data_out=array();
 		if(isset($menu_data)){
 			$menu_data=$_POST['menu_data'];
@@ -174,7 +170,6 @@ if(count($failReason)>0){
 			$menu_data_out[$curr['title']]=$curr;
 			unset($menu_data_out[$curr['title']]['title']);
 		}
-		file_put_contents("data/user/board_on_main/{$me['n_id']}.txt",serialize($accessible_categories));
 		file_put_contents("data/user/menu_bar/{$me['n_id']}.txt",serialize($menu_data_out));
 		session_start();
 		unset($_SESSION["setting_change_no_pw_needed"]);
