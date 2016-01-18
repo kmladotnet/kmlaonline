@@ -613,12 +613,12 @@ div.weather {
 }
 
 div.weather-temp {
-    font-size: 30pt;
+    font-size: 25pt;
     margin: 10px 0;
 }
 
 div.weather-name {
-    font-size: 22pt;
+    font-size: 20pt;
     margin: 6px 0;
 }
 
