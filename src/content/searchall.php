@@ -71,6 +71,9 @@ function printSearchResult($search){
                             </span>
                         </a>
                     </td>
+                    <td>
+                        <?php echo $itm['writer'];?>
+                    </td>
                 </tr>
                 <?php
 			}
