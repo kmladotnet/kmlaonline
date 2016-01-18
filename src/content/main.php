@@ -45,125 +45,34 @@ function printContentPc(){
 
         <div class="grid-stack">
             <?php
-                    $default_options = <<<JSON
-                    [
-                       {
-                          "name":"important",
-                          "options":{
-                             "x":0,
-                             "y":0,
-                             "w":10,
-                             "h":6,
-                             "options":[
+                $modules = array();
+                if(file_exists("data/user/main_layout/{$me['n_id']}.txt")) {
+                    $modules = json_decode(file_get_contents("data/user/main_layout/{$me['n_id']}.txt"), true);
+                } else {
+                    $layout = '[{"name":"weather","options":{"x":8,"y":2,"w":2,"h":4,"options":{"color":"default"}}},{"name":"birthday","options":{"x":8,"y":0,"w":2,"h":2,"options":{"color":"default"}}},{"name":"menu","options":{"x":10,"y":0,"w":2,"h":6,"options":{"color":"default","all-day":false}}},{"name":"important","options":{"x":0,"y":0,"w":8,"h":6,"options":{"color":"default","show-cat":true,"show-title":true,"show-name":true,"show-date":true}}},{"name":"kmlaboard","options":{"x":0,"y":6,"w":12,"h":6,"options":{"color":"default"}}},{"name":"minjok-news","options":{"x":0,"y":12,"w":5,"h":4,"options":{"color":"default"}}},{"name":"article-list","options":{"x":0,"y":16,"w":5,"h":4,"options":{"color":"default","cat":["77"],"num":"6","show-cat":false,"show-title":true,"show-name":true,"show-date":true,"title":"큼라 카페"}}}]';
 
-                             ]
-                          }
-                       },
-                       {
-                          "name":"birthday",
-                          "options":{
-                             "x":10,
-                             "y":0,
-                             "w":2,
-                             "h":2,
-                             "options":[
-
-                             ]
-                          }
-                       },
-                       {
-                          "name":"menu",
-                          "options":{
-                             "x":10,
-                             "y":2,
-                             "w":2,
-                             "h":4,
-                             "options":[
-
-                             ]
-                          }
-                       },
-                       {
-                          "name":"kmlaboard",
-                          "options":{
-                             "x":0,
-                             "y":6,
-                             "w":12,
-                             "h":6,
-                             "options":[
-
-                             ]
-                          }
-                       },
-                       {
-                          "name":"article-list",
-                          "options":{
-                             "x":0,
-                             "y":12,
-                             "w":12,
-                             "h":6,
-                             "options":{
-                                "cat":[
-                                   139
-                                ]
-                             }
-                          }
-                       },
-                       {
-                          "name":"article-list",
-                          "options":{
-                             "x":7,
-                             "y":18,
-                             "w":5,
-                             "h":6,
-                             "options":{
-                                "show-cat":false,
-                                "title":"큼라 카페",
-                                "cat":[
-                                   77
-                                ]
-                             }
-                          }
-                       },
-                       {
-                          "name":"gallery",
-                          "options":{
-                             "x":0,
-                             "y":24,
-                             "w":12,
-                             "h":4,
-                             "options":[
-
-                             ]
-                          }
-                       }
-                    ]
-JSON;
-                    $modules = array();
-                    if(file_exists("data/user/main_layout/{$me['n_id']}.txt")) {
-                        $modules = json_decode(file_get_contents("data/user/main_layout/{$me['n_id']}.txt"), true);
-                    } else {
-                        $modules = json_decode($default_options, true);
-                        $my_articles = json_decode( <<<JSON
-                        {
-                          "name":"article-list",
-                          "options":{
-                             "x":0,
-                             "y":18,
-                             "w":7,
-                             "h":6,
-                             "options":{
-                                "title":"내 게시판"
-                             }
-                          }
-                        }
-JSON
-                                                   , true);
-
-                        $my_articles['options']['options']['cat'] = array_values(getUserMainBoards($me));
-                        $modules[] = $my_articles;
-                        file_put_contents("data/user/main_layout/{$me['n_id']}.txt", json_encode($modules));
+                    $modules = json_decode($layout, true);
+                    $my_articles = json_decode( <<<JSON
+                    {
+                      "name":"article-list",
+                      "options":{
+                         "x":5,
+                         "y":12,
+                         "w":7,
+                         "h":8,
+                         "options":{
+                            "num": "15",
+                            "title":"내 게시판"
+                         }
+                      }
                     }
+JSON
+                               , true);
+                    $my_articles['options']['options']['cat'] = array_values(getUserMainBoards($me));
+                    $modules[] = $my_articles;
+                    $layout = json_encode($modules);
+                    file_put_contents("data/user/main_layout/{$me['n_id']}.txt", $layout);
+                }
                 allModules($modules);
             ?>
         </div>
