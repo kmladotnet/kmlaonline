@@ -8,5 +8,7 @@ switch($_POST['name']) {
         $layout = '[{"name":"article-list","options":{"x":0,"y":0,"w":12,"h":6,"options":{"color":"danger","cat":["6"],"show-cat":false,"show-title":true,"show-name":true,"show-date":true,"title":"전쟁터"}}}]"';
         break;
 }
-file_put_contents("data/user/main_layout/{$me['n_id']}.txt", $layout);
+if($layout !== '') {
+    file_put_contents("data/user/main_layout/{$me['n_id']}.txt", $layout);
+}
 ?>
