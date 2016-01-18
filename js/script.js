@@ -545,6 +545,46 @@ function bindAddModuleButton() {
         return false;
     });
 }
+function bindExampleLayoutButton() {
+    $("#example-layout").on('change', function(event) {
+        (new PNotify({
+            title: '정말로 예시 레이아웃을 적용할까요?',
+            text: '지금 사용중인 레이아웃은 초기화됩니다.',
+            icon: 'fa fa-question-circle',
+            hide: false,
+            confirm: {
+                confirm: true
+            },
+            buttons: {
+                closer: false,
+                sticker: false
+            },
+            history: {
+                history: false
+            }
+        })).get().on('pnotify.confirm', function () {
+            $.post("ajax/user/examplelayout", {
+                    "name": name,
+                    ajax: 1
+            }).done(function () {
+                $(".grid-stack-item").velocity("transition.slideUpOut", {stagger: 50, duration: 300, complete: function() {
+                    location.reload(true);
+                }});
+            });
+        }).on('pnotify.cancel', function () {
+            $("#example-layout").val('');
+            new PNotify({
+                title: '취소했습니다.',
+                type: 'info',
+                buttons: {
+                    closer: false,
+                    sticker: false
+                }
+            });
+            return false;
+        });
+    });
+}
 
 function bindModuleCloseButton() {
     $(".main-block-close").unbind("click").click(function () {
@@ -657,7 +697,9 @@ function resetMainLayout() {
                 "ajax": "1"
             })
             .done(function () {
-                location.reload(true);
+                $(".grid-stack-item").velocity("transition.slideUpOut", {stagger: 50, duration: 300, complete: function() {
+                    location.reload(true);
+                }});
             });
     }).on('pnotify.cancel', function () {
         new PNotify({
