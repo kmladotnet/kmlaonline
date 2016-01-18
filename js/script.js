@@ -229,9 +229,8 @@ function loadUpperHeader(theurl, placeTo, immediate) {
         if (immediate) {
             p.append(obj);
         } else {
-            obj.fadeTo(0, 0);
             p.append(obj);
-            obj.fadeTo(1000, 1);
+            obj.velocity("transition.slideDownIn", {duration: 400});
         }
     }).fail(function (jqXHR, textStatus) {
         //alert( "페이지를 불러 오는 데 실패하였습니다" );
