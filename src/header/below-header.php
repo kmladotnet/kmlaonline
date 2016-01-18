@@ -32,5 +32,5 @@
 		</div>
 		<script type="text/javascript">prepareHeader();</script>
 	<?php } ?>
-	<div id="total-content"><content><?php if(function_exists("printContent")){ printContent();} ?></content><div style="clear:both"></div></div>
+	<div id="total-content"><?php if(function_exists("printContent")){ printContent();} ?><div style="clear:both"></div></div>
 </div>
