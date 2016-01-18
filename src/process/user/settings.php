@@ -172,6 +172,7 @@ if(count($failReason)>0){
 			$menu_data_out[$curr['title']]=$curr;
 			unset($menu_data_out[$curr['title']]['title']);
 		}
+        print_r($menu_data_out);
 		file_put_contents("data/user/menu_bar/{$me['n_id']}.txt",serialize($menu_data_out));
 		session_start();
 		unset($_SESSION["setting_change_no_pw_needed"]);
