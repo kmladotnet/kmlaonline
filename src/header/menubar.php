@@ -124,7 +124,7 @@
                 <div style="width:100%;overflow:hidden;">
                     <input type="text" class="form-control" name="search" id="txt_search_whole" value=""/>
                 </div>
-                <input type="submit" value="검색" style="width:80px;height:32px;float:right" />
+                <input type="submit" class="btn btn-default" value="검색" style="width:80px;height:32px;float:right" />
             </form>
         </div>
     </div>
