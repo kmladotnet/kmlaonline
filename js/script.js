@@ -548,7 +548,10 @@ function bindAddModuleButton() {
 
 function bindModuleCloseButton() {
     $(".main-block-close").unbind("click").click(function () {
-        $('.grid-stack').data('gridstack').remove_widget($(this).closest(".grid-stack-item"));
+        var module = $(this).closest(".grid-stack-item");
+        module.velocity("transition.slideDownOut", {display: null, duration: 300, complete: function() {
+            $('.grid-stack').data('gridstack').remove_widget(module);
+        }});
     });
 }
 
@@ -730,7 +733,7 @@ function addModule(json) {
         var dat = JSON.parse(json);
         var newModule = $(data).wrap("<div class='grid-stack-item-content'></div>");
         newModule.attr("data-module-name", dat["name"]).attr("data-module-options", JSON.stringify(dat["options"]["options"]));
-        grid.add_widget(newModule, 0, 0, 4, 4);
+        grid.add_widget(newModule, 0, 0, 4, 4).velocity("transition.slideDownIn", {display: null, duration: 300});
         rebindModules();
     });
 }
