@@ -164,7 +164,7 @@ JSON
         </div>
     </div>
     <script type="text/javascript">
-    PNotify.prototype.options.delay = 3000;
+    PNotify.prototype.options.delay = 2500;
     $(function () {
         var options = {
             animate: true,

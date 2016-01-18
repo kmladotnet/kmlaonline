@@ -638,3 +638,16 @@ div.weather-copyright {
 div.everyday-links {
     float: right;
 }
+
+div.article-list-item {
+    position: absolute;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+div.spacer {
+    height:0;
+    overflow: hidden;
+}

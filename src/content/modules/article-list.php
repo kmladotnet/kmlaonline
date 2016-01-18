@@ -35,10 +35,10 @@ function articleList($article_list, $category=true, $title=true, $name=true, $da
 				<?php if($title){ ?>
 					<td>
                         <div style="position:relative">
-                            <div style="position:absolute;text-overflow:ellipsis;max-width:100%;white-space: nowrap;overflow:hidden;">
+                            <div class="article-list-item">
                                 <a href="<?php echo htmlspecialchars("/board/{$a['cat']['s_id']}/view/" . $a['n_id'])?>" style="color:black;<?php echo $b_bold_title?"font-weight:bold;":"";?>" title="<?php echo strip_tags($pretty_title)?>"><?php echo $pretty_title ?>
                                 </a>
-                            </div><div class="spacer" style="height: 0;overflow: hidden;"></div>
+                            </div><div class="spacer"></div>
                             <span>&nbsp;</span>
                         </div>
 					</td>
