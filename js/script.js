@@ -572,7 +572,7 @@ function bindExampleLayoutButton() {
                 }});
             });
         }).on('pnotify.cancel', function () {
-            $("#example-layout").val('');
+            $("#example-layout").val();
             new PNotify({
                 title: '취소했습니다.',
                 type: 'info',
