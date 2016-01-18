@@ -54,6 +54,7 @@
     <meta name="kmlaonline-changeable-start" />
     <?php head_theme();
 	if(function_exists("printHead")) printHead();
+    echo $fn;
 	if(file_exists("css/content/$fn.css")) echo "<link class='page-specific-css' rel='stylesheet' href='/css/content/$fn.css' />";
 	if(file_exists("js/content/$fn.js")) echo "<script src='/js/content/$fn.js'></script>";
     if(isset($includes)){
