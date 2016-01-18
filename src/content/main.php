@@ -178,9 +178,9 @@ JSON
             }
         };
         $('.grid-stack').gridstack(options);
+        reloadAll();
         $('.grid-stack').data('gridstack').disable();
     });
-    reloadAll();
     bindAddModuleButton();
     bindOptionsForm();
     </script>
