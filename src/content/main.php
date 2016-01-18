@@ -13,7 +13,7 @@ function printContentPc(){
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.3/gridstack.min.js"></script>
 
-	<div style="padding:6px;">
+	<div style="padding:6px; min-height: 600px">
         <div style="padding: 4px; margin-bottom: 4px;">
             <button type="button" id="main-edit-button" class="btn btn-primary" onclick="toggleLayoutEditing();">편집 모드 시작</button>
             <?php printEverydayLinks(); ?>
