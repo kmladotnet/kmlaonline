@@ -1085,37 +1085,7 @@ if (history.pushState && false) {
 }
 
 function flashObject(elem, shortanim) {
-    objid = "flashObject_" + randstring(512);
-    notifier = $("<div id='" + objid + "' style='background:black;display:block;z-index:10;position:absolute;top:0;left:0;width:100%;'></div>");
-    totalwrap = $("#total-wrap");
-    totalwrap.prepend(notifier);
-    notifier.css({opacity: 0, left: elem.offset().left - totalwrap.offset().left, top: elem.offset().top - totalwrap.offset().top});
-    notifier.width(elem.width());
-    notifier.height(elem.height());
-    if (shortanim)
-        setTimeout("$('#" + objid + "').remove();", 400);
-    else
-        setTimeout("$('#" + objid + "').remove();", 800);
-    notifier.velocity({
-        opacity: 1
-    }, 200, function () {
-        notifier.velocity({
-            opacity: 0
-        }, 200, function () {
-            if (!shortanim)
-                notifier.velocity({
-                    opacity: 0.4
-                }, 200, function () {
-                    notifier.velocity({
-                        opacity: 0
-                    }, 200, function () {
-                        notifier.remove();
-                    });
-                });
-            else
-                notifier.remove();
-        });
-    });
+    $(elem).velocity("callout.swing", {duration: 200});
 }
 addLoadEvent(function () {
     $('a').each(function () {
