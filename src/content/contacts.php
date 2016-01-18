@@ -21,8 +21,11 @@ function printContentPc(){
 	foreach($arr as $k=>$v){
 		$arr[$k]=array_merge($v, $member->getAdditionalData($v['n_id']));
 	}
-	usort($arr,"_cmp");
+	//usort($arr,"_cmp");
 	?>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.10.10/css/dataTables.bootstrap.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.10/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.10/js/dataTables.bootstrap.min.js"></script>
     <div style="padding:10px;" class='contact-finder'>
         <h1><i class="fa fa-users"></i>연락처</h1>
         <div style="padding-top:10px;">
