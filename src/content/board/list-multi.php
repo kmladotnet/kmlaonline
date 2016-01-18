@@ -2,7 +2,7 @@
 function printArticleListTypeBoard($board_data, $additional_query_string){
 	global $board, $member;
 	?>
-	<table class="notableborder table" style="width:100%">
+	<table class="table-hover table" style="width:100%">
 		<thead>
 			<tr style="height:32px;">
 				<th class="no-mobile" style="width:60px;">번호</th>
@@ -63,13 +63,6 @@ function printArticleListTypeBoard($board_data, $additional_query_string){
 		</tbody>
 	</table>
 	<?php
-	insertOnLoadScript('
-		$(".board_list_item").mouseenter(function(){
-			$(this).css("backgroundColor", "#EEE");
-		}).mouseleave(function(){
-			$(this).css("backgroundColor", "transparent");
-		});
-	');
 }
 function printArticleListTypeForum($board_data, $additional_query_string){}
 function printArticleListTypeGallery($board_data, $additional_query_string){}
