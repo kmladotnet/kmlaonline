@@ -250,7 +250,7 @@ function printArticleList(){
                     <a href="<?php echo "/board/$board_id/page/$page_count$additional_query_string" ;?>">
                         <?php echo $page_count?>
                     </a>
-                </li>>
+                </li>
             <?php } ?>
         </ul>
 	</div>
