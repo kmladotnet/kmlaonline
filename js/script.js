@@ -496,6 +496,13 @@ function moduleToObject(module) {
     return result;
 }
 
+function simpleModuleToObject(module) {
+    var result = new Object();
+    result.name = module.data("module-name");
+    result.options = new Object();
+    result.options.options = module.data("module-options");
+    return result;
+
 function mainGridToJSON() {
     var result = [];
     $(".grid-stack-item").each(function (index) {
@@ -569,7 +576,7 @@ function reloadAll() {
     var module = $(this);
     $('.grid-stack-item').each(function() {
         $.post("ajax/user/getmodule", {
-            "json": JSON.stringify(moduleToObject(module)),
+            "json": JSON.stringify(simpleModuleToObject(module)),
             "ajax": 1
         }, function (data) {
             module.find(".grid-stack-item-content").html(data);
