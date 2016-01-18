@@ -115,8 +115,8 @@ function printContent(){
 										<button style="width:120px;height:32px" onclick="return false;">모두 지우기</button>
 									</div>
 									<div style="float:left">
-										<button style="width:120px;height:32px" onclick="settings_menu_addCategory(); return false;">분류 추가</button>
-										<button style="width:120px;height:32px" onclick="settings_menu_addSubItem(); return false;">항목 추가</button>
+										<button type="button" style="width:120px;height:32px" onclick="settings_menu_addCategory(); return false;">분류 추가</button>
+										<button type="button" style="width:120px;height:32px" onclick="settings_menu_addSubItem(); return false;">항목 추가</button>
 									</div>
 									<ul id="menusorter">
 										<?php
