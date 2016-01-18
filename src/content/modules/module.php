@@ -88,7 +88,7 @@ function moduleContent($module_name, $options) {
             filterContent($dat);
             break;
         case 'article-list':
-            articleList($board->getArticleList(arrayToCategories($options['cat']), false, 0, 0, 10),$options['show-cat'], $options['show-title'], $options['show-name'], $options['show-date']);
+            articleList($board->getArticleList(arrayToCategories($options['cat']), false, 0, 0, $options['num']),$options['show-cat'], $options['show-title'], $options['show-name'], $options['show-date']);
             break;
         case 'gallery':
         case 'birthday':
@@ -206,6 +206,14 @@ function moduleOptions($module_name, $options) {
                     <?php
                 }
             ?>
+            <div class="form-group">
+                <label>글 개수</label>
+                <input class="form-control" type="number" name="num" <?php
+                if(array_key_exists('num', $options)) {
+                    echo ' value="',$options['num'],'" ';
+                }
+                ?>/>
+            </div>
             <?php
             break;
         case 'menu':
@@ -321,6 +329,7 @@ function defaultOptions($module_name) {
             break;
         case 'article-list':
             $defaults['cat'] = array(139);
+            $defaults['num'] = 10;
             $defaults['show-cat'] = true;
             $defaults['show-title'] = true;
             $defaults['show-name'] = true;
