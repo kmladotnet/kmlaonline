@@ -5,11 +5,11 @@ function printArticleListTypeBoard($board_data, $additional_query_string){
 	<table class="notableborder table" style="width:100%">
 		<thead>
 			<tr style="height:32px;">
-				<th class="no-mobile">번호</th>
+				<th class="no-mobile" style="width:60px;">번호</th>
 				<th>제목</th>
-				<th>글쓴이</th>
-				<th>날짜</th>
-				<th class="no-mobile">조회수</th>
+				<th style="width:140px;">글쓴이</th>
+				<th style="width:100px;">날짜</th>
+				<th class="no-mobile" style="width:80px;">조회수</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -22,7 +22,7 @@ function printArticleListTypeBoard($board_data, $additional_query_string){
 				$b_bold_title=$b_bold_title && checkCategoryAccess($board_cat['n_id'], "flag bold title");
 				?>
 				<tr class="board_list_item" style="<?php echo (isset($_GET['bitm']) && $_GET['bitm']==$item['n_id'])?"font-weight:bold;":"" ?>">
-					<td class="no-mobile" onclick="return changeLinkTo('<?php echo htmlspecialchars(addslashes("/board/$board_id/view/{$item['n_id']}$additional_query_string"))?>');" style="font-size:8pt;text-align:center;">
+					<td class="no-mobile" onclick="return changeLinkTo('<?php echo htmlspecialchars(addslashes("/board/$board_id/view/{$item['n_id']}$additional_query_string"))?>');" style="text-align:center;">
 						<?php echo htmlspecialchars($item['n_id']); ?>
 					</td>
 					<td onclick="return changeLinkTo('<?php echo htmlspecialchars(addslashes("/board/$board_id/view/{$item['n_id']}$additional_query_string"))?>');" style="padding-left:5px;">
@@ -87,7 +87,7 @@ function printArticleListTypeForum($board_data, $additional_query_string){
 				$b_bold_title=$b_bold_title && checkCategoryAccess($board_cat['n_id'], "flag bold title");
 				?>
 				<tr class="forum_list_item" style="<?php echo (isset($_GET['bitm']) && $_GET['bitm']==$item['n_id'])?"font-weight:bold;":"" ?>">
-					<td class="no-mobile" onclick="return changeLinkTo(<?php echo htmlspecialchars(addslashes("/board/$board_id/view/{$item['n_id']}$additional_query_string"))?>');" style="font-size:8pt;text-align:center;">
+					<td class="no-mobile" onclick="return changeLinkTo(<?php echo htmlspecialchars(addslashes("/board/$board_id/view/{$item['n_id']}$additional_query_string"))?>');" style="text-align:center;">
 						<?php echo htmlspecialchars($item['n_id']); ?>
 					</td>
 					<td>
