@@ -565,6 +565,18 @@ function bindModuleReloadButton() {
     });
 }
 
+function reloadAll() {
+    $('.grid-stack-item').each(function() {
+        $.post("ajax/user/getmodule", {
+            "json": JSON.stringify(moduleToObject($(this))),
+            "ajax": 1
+        }, function (data) {
+            $(this).find(".grid-stack-item-content").html(data);
+            rebindModules();
+        });
+    });
+}
+
 function saveOptionsForm(form) {
     var module = form.closest(".grid-stack-item");
     var options = module.data("module-options");
