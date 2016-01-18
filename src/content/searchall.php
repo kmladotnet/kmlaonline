@@ -166,3 +166,4 @@ function searchBoard($search, $articleperpage, $pagenumber){
 	}
 	return search_saveequivalence($search, $ret, array("s_data", "s_title", "s_tag", "s_writer"));
 }
+?>
