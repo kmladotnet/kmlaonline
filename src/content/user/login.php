@@ -47,7 +47,7 @@ function printContent(){
                         (new PNotify({
                             title: '자동 로그인',
                             text: '브라우저를 껐다가 켜도 로그인되어있게 하는 기능으로, 개인용 장치에서만 사용해야 하며 공공 장소에서는 이용하면 안 됩니다. 계속하시겠습니까?',
-                            icon: 'glyphicon glyphicon-question-sign',
+                            icon: 'fa fa-question-circle',
                             hide: false,
                             confirm: {
                                 confirm: true
