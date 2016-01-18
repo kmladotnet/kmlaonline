@@ -538,7 +538,7 @@ function bindAddModuleButton() {
             var newModule = $(data).wrap("<div class='grid-stack-item-content'></div>").parent()
                 .wrap("<div class='grid-stack-item'></div>").parent();
             newModule.attr("data-module-name", name).attr("data-module-options", "[]");
-            grid.add_widget(newModule, 0, 0, 4, 4);
+            grid.add_widget(newModule, 0, 0, 4, 4).velocity("transition.slideDownIn", {display: null, duration: 300});
             rebindModules();
         });
         $("#add-module").val('');
