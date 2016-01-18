@@ -208,7 +208,7 @@ function moduleOptions($module_name, $options) {
             ?>
             <div class="form-group">
                 <label>글 개수</label>
-                <input class="form-control" type="number" name="num" value="<?php array_key_exists('num', $options) ? $options['num'] : 10 ?>">
+                <input class="form-control" type="number" name="num" value="<?php echo array_key_exists('num', $options) ? $options['num'] : 10; ?>">
             </div>
             <?php
             break;
