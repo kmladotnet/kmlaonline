@@ -555,10 +555,12 @@ function bindModuleCloseButton() {
 function bindModuleReloadButton() {
     $(".main-block-reload").unbind("click").click(function () {
         var module = $(this).closest(".grid-stack-item");
+        module.velocity("transition.slideUpOut", {display: null, duration: 300});
         $.post("ajax/user/getmodule", {
             "json": JSON.stringify(moduleToObject(module)),
             "ajax": 1
         }, function (data) {
+            module.velocity("transition.slideUpIn", {display: null, duration: 300});
             module.find(".grid-stack-item-content").html(data);
             rebindModules();
         });
