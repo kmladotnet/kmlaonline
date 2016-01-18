@@ -107,5 +107,6 @@ function printContent(){
 			</div>
 		</div>
 	</form>
+    <script src="/js/content/user/login.js"></script>
 	<?php
 }
