@@ -931,11 +931,16 @@ function getNotificationCount() {
         type: "GET",
         url: "/ajax/user/getnotifications?count=yes"
     }).done(function (msg) {
-        if (msg > 0)
-            $("#notificationCount").css("display", "block");
-        else
-            $("#notificationCount").css("display", "none");
-        $("#notificationCount").text(msg);
+        if (msg > 0) {
+            new PNotify({
+            title: '읽지 않은 알림이 있어요!',
+            type: 'info',
+            buttons: {
+                closer: false,
+                sticker: false
+            }
+        });
+        }
     }).fail(function (jqXHR, textStatus) {});
 }
 
