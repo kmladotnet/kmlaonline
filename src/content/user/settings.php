@@ -163,6 +163,7 @@ function printContent(){
 			<div style="clear:both"></div>
 		</div>
 	</form>
+    <script src="/js/content/user/settings.js"></script>
 	<script type="text/html" id="menuCategoryForm">
 		<li>
 			<div class="handle" style="background:black"><hr /><hr /><hr /></div>
