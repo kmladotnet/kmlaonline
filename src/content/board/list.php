@@ -223,23 +223,6 @@ function printArticleList(){
 			글이 없습니다.
 		</div>
 	<?php } ?>
-    <nav>
-        <li>
-          <a href="#" aria-label="Previous">
-            <span aria-hidden="true">&laquo;</span>
-          </a>
-        </li>
-        <li><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
-        <li>
-          <a href="#" aria-label="Next">
-            <span aria-hidden="true">&raquo;</span>
-          </a>
-        </li>
-    </nav>
 	<div style="text-align:center">
         <ul class="pagination">
             <?php
@@ -250,7 +233,7 @@ function printArticleList(){
                 <a href="<?php echo "/board/$board_id/page/1$additional_query_string" ;?>">1</a>
             </li>
             <?php if(2<$pagenumber-$max_show) { ?>
-                <li class="disabled">...</li>
+                <li class="disabled"><span>...</span></li>
             <?php }
             for($i=max(2,$pagenumber-$max_show); $i<=min($page_count-1, $pagenumber+$max_show); $i++) { ?>
                 <li <?php if($pagenumber==$i) echo "class='active'" ?>>
@@ -260,7 +243,7 @@ function printArticleList(){
                 </li>
             <?php } ?>
             <?php if($i<$page_count && $i!=max(2,$pagenumber-10)) { ?>
-                <li class="disabled">...</li>
+                <li class="disabled"><span>...</span></li>
             <?php }
             if(!isset($disp[$page_count]) && $page_count>1) { ?>
                 <li <?php if($pagenumber==$page_count) echo "class='active'" ?>>
