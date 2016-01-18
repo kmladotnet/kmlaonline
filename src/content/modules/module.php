@@ -155,6 +155,9 @@ function moduleOptions($module_name, $options) {
                         }
                     }
                     foreach(array_values($cat) as $a) {
+                        if(count($a[1]) === 0) {
+                            continue;
+                        }
                     ?>
                         <optgroup label="<?php echo $a[0]; ?>">
                         <?php
