@@ -242,7 +242,7 @@ function printArticleList(){
                     </a>
                 </li>
             <?php } ?>
-            <?php if($i<$page_count && $i!=max(2,$pagenumber-10)) { ?>
+            <?php if($i<$page_count && $i!=max(2,$pagenumber-$max_show)) { ?>
                 <li class="disabled"><span>...</span></li>
             <?php }
             if(!isset($disp[$page_count]) && $page_count>1) { ?>
