@@ -89,7 +89,7 @@ function printContentPc(){
                                     </td>
                                     <td style="text-align:center">
                                         <?php if($m['s_homepage']!=""){ ?>
-                                            <a target="_blank" rel="closenow" href="<?php echo urlencode($m['s_homepage']); ?>">
+                                            <a target="_blank" rel="closenow" href="<?php echo $m['s_homepage']; ?>">
                                                 <?php echo htmlspecialchars($m['s_homepage'])?>
                                             </a>
                                             <?php }else{ ?><span style="color:gray">(없음)</span>
