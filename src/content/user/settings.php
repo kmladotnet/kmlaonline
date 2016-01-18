@@ -11,10 +11,10 @@ function printContent(){
 			<div class="what_to_do">
 				<?php if(!isset($_SESSION["setting_change_no_pw_needed"])){ ?>
 					<div><?php elang("user","settings","password prev")?></div>
-					<div><input class="form-control" type="password" placeholder="입력해야 저장할 수 있어요." name="s_pw_prev" style="width:100%;box-sizing:border-box" required/></div>
+					<div><input class="form-control" type="password" name="s_pw_prev" style="width:100%;box-sizing:border-box" required/></div>
 				<?php } ?>
 				<div>
-					<input type="reset" class="btn btn-default" value="<?php elang("generic","revert")?>" style="float:left;height:32px;width:70px;" />
+					<input type="reset" class="btn btn-default" value="<?php elang("generic","revert")?>" style="float:left;height:32px;" />
 					<input type="submit" class="btn btn-primary" value="<?php elang("user","settings","save")?>" style="float:right;height:32px;width:70px;" />
 				</div>
 			</div>
