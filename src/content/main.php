@@ -180,8 +180,7 @@ JSON
         $('.grid-stack').gridstack(options);
         $('.grid-stack').data('gridstack').disable();
     });
-    bindModuleCloseButton();
-    bindModuleReloadButton();
+    reloadAll();
     bindAddModuleButton();
     bindOptionsForm();
     </script>

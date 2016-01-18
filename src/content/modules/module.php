@@ -267,6 +267,20 @@ function moduleContents($module_name, $options) {
     <?php
 }
 
+function getModuleShell($module_name, $options, $x = 0, $y = 0, $w = 4, $h = 4) {
+    ?>
+    <div class="grid-stack-item"
+        <?php
+        echo 'data-gs-x="',$x,'" data-gs-y="',$y,'"';
+        echo 'data-gs-width="',$w,'" data-gs-height="',$h,'"';
+        echo 'data-module-name="',$module_name,'"';
+        echo 'data-module-options=\'',htmlspecialchars(json_encode($options)),'\'';
+        ?>
+            >
+    </div>
+    <?php
+}
+
 function getModule($module_name, $options, $x = 0, $y = 0, $w = 4, $h = 4) {
 	global $member, $me, $is_morning, $is_afternoon, $is_night, $mysqli, $board;
     ?>
@@ -327,7 +341,7 @@ function defaultModule($module_name) {
 
 function allModules($modules) {
     foreach($modules as $module) {
-        getModule($module['name'], array_key_exists('options', $module['options'])
+        getModuleShell($module['name'], array_key_exists('options', $module['options'])
                   ? array_merge(defaultOptions($module['name']), $module['options']['options'])
                   : defaultOptions($module['name']),
                   $module['options']['x'], $module['options']['y'], $module['options']['w'], $module['options']['h']);
