@@ -148,8 +148,9 @@ if(count($failReason)>0){
 		$member->setAdditionalData($me['n_id'], "s_class", $_POST['s_class']);
 		$member->setAdditionalData($me['n_id'], "n_student_id", $_POST['n_student_id']);
 		$menu_data_out=array();
-		if(isset($menu_data)){
+        if(isset($_POST['menu_data']))
 			$menu_data=$_POST['menu_data'];
+		if(isset($menu_data)){
             echo $menu_data;
 			$menu_title=$_POST['menu_titles'];
             echo $menu_titles;
