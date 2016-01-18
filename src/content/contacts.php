@@ -23,7 +23,6 @@ function printContentPc(){
 	}
 	//usort($arr,"_cmp");
 	?>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.10.10/css/dataTables.bootstrap.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.10/js/jquery.dataTables.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.10/js/dataTables.bootstrap.min.js"></script>
     <div style="padding:10px;" class='contact-finder'>
@@ -105,6 +104,9 @@ function printContentPc(){
                                 <?php } ?>
                         </tbody>
                     </table>
+            <script>
+                initContacts();
+            </script>
         </div>
     </div>
     <?php

@@ -224,7 +224,6 @@ function loadUpperHeader(theurl, placeTo, immediate) {
                     loadUpperHeader(this.href, $("#upper-header-menu #total-content"), true);
                     return false;
                 }
-                if (this.rel == "closenow") hideUpperHeader();
             });
         });
         if (immediate) {
@@ -234,7 +233,6 @@ function loadUpperHeader(theurl, placeTo, immediate) {
             p.append(obj);
             obj.fadeTo(1000, 1);
         }
-        initContacts();
     }).fail(function (jqXHR, textStatus) {
         //alert( "페이지를 불러 오는 데 실패하였습니다" );
     });
