@@ -66,7 +66,7 @@ function printContent() {
             </td>
         </tr>
         <tr>
-            <td><strong>저격글 차단(ANTI Keyboard-Warrior</strong></td>
+            <td><strong>저격글 차단(ANTI Keyboard-Warrior)</strong></td>
             <td class="t_left">큼포에 익명으로 저격글을 올리는 것을 차단해주는 프로그램입니다.</td>
             <td>
                 미설치
