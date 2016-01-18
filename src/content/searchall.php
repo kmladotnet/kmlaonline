@@ -55,7 +55,7 @@ function printSearchResult($search){
 		$GLOBALS['_SORT_BY_']="score";
 	uasort($result, 'search_sort_results');
 	?><table style="width:100%" id="found_results" class="table table-hover">
-		<thead><tr><th style="width:180px;">찾은 곳</th><th>이름</th><th style="width:90px;">올린이</th></tr></thead>
+		<thead><tr><th>찾은 곳</th><th>이름</th><th>올린이</th></tr></thead>
 		<tbody>
 			<?php
 			foreach($result as $itm){
