@@ -566,12 +566,13 @@ function bindModuleReloadButton() {
 }
 
 function reloadAll() {
+    var module = $(this);
     $('.grid-stack-item').each(function() {
         $.post("ajax/user/getmodule", {
-            "json": JSON.stringify(moduleToObject($(this))),
+            "json": JSON.stringify(moduleToObject(module)),
             "ajax": 1
         }, function (data) {
-            $(this).find(".grid-stack-item-content").html(data);
+            module.find(".grid-stack-item-content").html(data);
             rebindModules();
         });
     });

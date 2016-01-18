@@ -277,6 +277,8 @@ function getModuleShell($module_name, $options, $x = 0, $y = 0, $w = 4, $h = 4) 
         echo 'data-module-options=\'',htmlspecialchars(json_encode($options)),'\'';
         ?>
             >
+        <div class="grid-stack-item-content">
+        </div>
     </div>
     <?php
 }
