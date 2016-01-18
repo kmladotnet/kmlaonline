@@ -58,7 +58,7 @@ function printContent(){
 								<th>생일</th>
 								<td>
 									<input class="form-control" type="text" style="display: inline-block; width:80px;" name="n_birth_date_yr" value='<?php echo htmlspecialchars(isset($_POST['n_birth_date_yr'])?$_POST['n_birth_date_yr']:$me['n_birth_date_yr'])?>' />년
-									<input tclass="form-control" ype="text" style="display: inline-block; width:40px;" name="n_birth_date_month" value='<?php echo htmlspecialchars(isset($_POST['n_birth_date_month'])?$_POST['n_birth_date_month']:$me['n_birth_date_month'])?>' />월
+									<input class="form-control" ype="text" style="display: inline-block; width:40px;" name="n_birth_date_month" value='<?php echo htmlspecialchars(isset($_POST['n_birth_date_month'])?$_POST['n_birth_date_month']:$me['n_birth_date_month'])?>' />월
 									<input class="form-control" type="text" style="display: inline-block; width:40px;" name="n_birth_date_day" value='<?php echo htmlspecialchars(isset($_POST['n_birth_date_day'])?$_POST['n_birth_date_day']:$me['n_birth_date_day'])?>' />일
 								</td>
 							</tr>
