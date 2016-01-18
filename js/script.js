@@ -502,6 +502,7 @@ function simpleModuleToObject(module) {
     result.options = new Object();
     result.options.options = module.data("module-options");
     return result;
+}
 
 function mainGridToJSON() {
     var result = [];
