@@ -16,8 +16,6 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.ui.min.js"></script>
 
 	<script type="text/javascript" src="/js/lightbox.js" charset="utf-8"></script>
-	<script type="text/javascript" src="/swfupload/swfupload.js" charset="utf-8"></script>
-	<script type="text/javascript" src="/swfupload/swfupload.queue.js" charset="utf-8"></script>
 	<script type="text/javascript" src="/js/script.js" charset="utf-8"></script>
 	<script type="text/javascript" src="/js/content/combined.js" charset="utf-8"></script>
 	<link rel="stylesheet" href="/css/lightbox.css" charset="utf-8" type="text/css" media="screen" />
