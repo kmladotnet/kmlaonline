@@ -8,23 +8,11 @@
 	<!--[if gte IE 9]><style type="text/css">.gradient{filter: none;}</style><![endif]-->
 	<script type="text/javascript" src="/js/jquery-1.11.0.min.js" charset="utf-8"></script>
 	<script type="text/javascript" src="/js/jquery-ui-1.10.4.custom.min.js" charset="utf-8"></script>
-	<script type="text/javascript" src="/js/jquery.smooth-scroll.min.js" charset="utf-8"></script>
-	<script type="text/javascript" src="/js/jquery.color.js" charset="utf-8"></script>
-	<script type="text/javascript" src="/js/jquery.autoresize.js" charset="utf-8"></script>
-	<script type="text/javascript" src="/js/jquery.animate-shadow-min.js" charset="utf-8"></script>
 	<script type="text/javascript" src="/js/lightbox.js" charset="utf-8"></script>
-	<script type="text/javascript" src="/js/ba-debug.min.js" charset="utf-8"></script>
-	<script type="text/javascript" src="/ckeditor/ckeditor.js" charset="utf-8"></script>
 	<script type="text/javascript" src="/swfupload/swfupload.js" charset="utf-8"></script>
 	<script type="text/javascript" src="/swfupload/swfupload.queue.js" charset="utf-8"></script>
 	<script type="text/javascript" src="/js/script.js" charset="utf-8"></script>
 	<script type="text/javascript" src="/js/content/combined.js" charset="utf-8"></script>
-	<script type="text/javascript" src="/js/snowstorm.js"></script>
-	<script>
-	snowStorm.snowColor = '#99ccff';
-	snowStorm.flakesMaxActive = 50;
-	snowStorm.autoStart = true;
-	</script>
 	<link rel="stylesheet" href="/css/lightbox.css" charset="utf-8" type="text/css" media="screen" />
 	<link rel="stylesheet" href="/css/font.css" charset="utf-8" type="text/css" media="screen" />
 	<title><?php echo htmlspecialchars($title); ?></title>
@@ -75,14 +63,12 @@
 	<script type="text/javascript">/*<!--*/
 		<?php
 			if(isset($_scripts)) echo $_scripts;
-			if(isset($overriden)) echo "debug.info(".json_encode($overriden).");";
 			if(isset($_POST['error_occured'])) echo "checkAjaxReturnedData(JSON.parse(\"".str_replace("</", "<\" + \"/",addslashes($_POST['error_occured']))."\"));";
 		?>
 	/*-->*/</script>
 	<script id="onload-scripts" type="text/text">
 		<?php
 		if(isset($_scripts)) echo $_scripts;
-		if(isset($overriden)) echo "debug.info(".json_encode($overriden).");";
 		if(isset($_POST['error_occured'])) echo "checkAjaxReturnedData(JSON.parse(\"".str_replace("</", "<\" + \"/",addslashes($_POST['error_occured']))."\"));";
 		?>
 	</script>
