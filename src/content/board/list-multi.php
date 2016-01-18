@@ -114,15 +114,37 @@ function printArticleList(){
 			글이 없습니다.
 		</div>
 	<?php } ?>
+
 	<div style="text-align:center">
-		<?php $disp=array(1=>true); ?>
-		<a href="<?php echo "/board/",urlencode(json_encode($board_id)),"/page/1$additional_query_string" ;?>" <?php if($pagenumber==1) echo "style='color:black'" ?>>[1]</a>
-		<?php if(2<$pagenumber-10) echo "..."; ?>
-		<?php for($i=max(2,$pagenumber-10); $i<=min($page_count-1, $pagenumber+10); $i++){ ?>
-			<a href="<?php echo "/board/",urlencode(json_encode($board_id)),"/page/$i$additional_query_string" ;?>" <?php if($pagenumber==$i) echo "style='color:black'" ?>>[<?php echo $i; $disp[$i]=true;?>]</a>
-		<?php } ?>
-		<?php if($i<$page_count && $i!=max(2,$pagenumber-10)) echo "..."; ?>
-		<?php if(!isset($disp[$page_count]) && $page_count>1){ ?><a href="<?php echo "/board/", urlencode(json_encode($board_id)), "/page/$page_count$additional_query_string" ;?>" <?php if($pagenumber==$page_count) echo "style='color:black'" ?>>[<?php echo $page_count?>]</a><?php } ?>
+        <ul class="pagination">
+            <?php
+                $disp=array(1=>true);
+                $max_show = 5;
+            ?>
+            <li <?php if($pagenumber==1) echo "class='active'";?>>
+                <a href="<?php echo "/board/",urlencode(json_encode($board_id)),"/page/1$additional_query_string" ;?>">1</a>
+            </li>
+            <?php if(2<$pagenumber-$max_show) { ?>
+                <li class="disabled"><span>...</span></li>
+            <?php }
+            for($i=max(2,$pagenumber-$max_show); $i<=min($page_count-1, $pagenumber+$max_show); $i++) { ?>
+                <li <?php if($pagenumber==$i) echo "class='active'" ?>>
+                    <a href="<?php echo "/board/",urlencode(json_encode($board_id)),"/page/$i$additional_query_string" ;?>">
+                        <?php echo $i; $disp[$i]=true;?>
+                    </a>
+                </li>
+            <?php } ?>
+            <?php if($i<$page_count && $i!=max(2,$pagenumber-$max_show)) { ?>
+                <li class="disabled"><span>...</span></li>
+            <?php }
+            if(!isset($disp[$page_count]) && $page_count>1) { ?>
+                <li <?php if($pagenumber==$page_count) echo "class='active'" ?>>
+                    <a href="<?php echo "/board/",urlencode(json_encode($board_id)),"/page/$page_count$additional_query_string" ;?>">
+                        <?php echo $page_count?>
+                    </a>
+                </li>
+            <?php } ?>
+        </ul>
 	</div>
 	<div style="margin:0 auto;width:120px;text-align:center;">총 <?php echo $article_count?>개</div>
 	<?php if($is_mobile){ ?>
