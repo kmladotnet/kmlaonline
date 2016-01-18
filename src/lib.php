@@ -81,7 +81,7 @@ function redirectAlert($lnk=false,$alert=false){
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <title>Redirecting...</title>
         <base href="/" />
-        <script src="//cdn.jsdelivr.net/g/jquery@2.1.4"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
         <script type="text/javascript" src="/js/script.js" charset="utf-8"></script>
     </head>
 
@@ -138,7 +138,7 @@ function redirectWith($str,$dat=""){
                 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
                 <title>Redirecting...</title>
                 <base href="/" />
-                <script src="//cdn.jsdelivr.net/g/jquery@2.1.4"></script>
+                <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
                 <script type="text/javascript" src="/js/script.js" charset="utf-8"></script>
             </head>
 
@@ -191,7 +191,7 @@ function isAjax(){
 }
 function ajaxDie($arr=array(), $message=false){
 	global $overriden;
-	if($message!==false) 
+	if($message!==false)
 		$arr['__other']=$message;
 	$arr['error']=1;
 	if(isset($overriden)) $arr['__overriden']=$overriden;
@@ -236,14 +236,14 @@ function filterContent($s, $print=true){
 	global $member;
 	$s = preg_replace(
 			array(
-				'~(?![^"\']|^)(www\.[^<]+?)(\s|\r|\n|$)~im', 
+				'~(?![^"\']|^)(www\.[^<]+?)(\s|\r|\n|$)~im',
 				'%(?<=[^="\'])(https?://)([^<]+?)(?=[\s"\'><]|$)%im',
-				'/(\s)on([a-zA-Z0-9_]+)([^a-zA-Z0-9_])/sim', 
+				'/(\s)on([a-zA-Z0-9_]+)([^a-zA-Z0-9_])/sim',
 			),
 			array(
-				'http://$1$2', 
-				'<a href="$1$2" target="_blank">$2</a>', 
-				'$1on<span></span>$2$3', 
+				'http://$1$2',
+				'<a href="$1$2" target="_blank">$2</a>',
+				'$1on<span></span>$2$3',
 			),
 			$s
 		);
@@ -498,7 +498,7 @@ function resizeImage($path, $thumb_name, $sizex, $sizey){
 		if($angle==180)
 			imageflip($virtual_image,IMG_FLIP_BOTH);
 		else if($angle==90 || $angle==-90){
-			imagesetinterpolation($virtual_image, IMG_HERMITE);			
+			imagesetinterpolation($virtual_image, IMG_HERMITE);
 			$virtual_image = imagerotate($virtual_image, $angle, 0);
 		}
 		imagejpeg($virtual_image,$thumb_name,100);
