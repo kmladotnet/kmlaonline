@@ -256,11 +256,6 @@ div#total-footer{
     position:relative;
     top:40px;
 }
-.main-block{
-	display:block;
-    height:100%;
-    box-sizing: border-box;
-}
 div.tab_global_wrap{
 	margin:12px;
 	padding:8px;
@@ -387,11 +382,6 @@ a:hover,a:active{
 body{
 	font-family: "Open Sans",arial,'Apple SD Gothic Neo','Noto Sans Korean','본고딕','KoPubDotum Medium','나눔바른고딕','나눔고딕','NanumGothic','맑은고딕','Malgun Gothic',sans-serif;
 }
-div#backgrounds{
-}
-input, button, select{
-	font-family: 'Malgun Gothic';
-}
 .upper-file{
 	display: inline-block;
 	margin:0;
@@ -489,6 +479,11 @@ div#upper-header-holder{
 #total-footer{
 	background: #fff3d2;
 	padding:32px;
+}
+.main-block{
+	display:block;
+    height:100%;
+    box-sizing: border-box;
 }
 .main-block-title{
 	font-size:15pt;

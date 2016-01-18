@@ -106,7 +106,7 @@
         </div>
         <!--</a>-->
         <div class="slidedown" id="slidedown2_sub" style="right:0px;">
-            <ul style="text-align:center" id="top_notification_list">
+            <ul style="text-align:center; padding:0" id="top_notification_list">
                 <li id="notification_item_loading">불러오는 중....</li>
             </ul>
             <a href="/user/notification"><div style="text-align: center;padding: 5px;"> 모두 보기</div></a>
