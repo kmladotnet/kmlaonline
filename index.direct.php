@@ -9,7 +9,7 @@
     <base href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/" />
 
     <!-- pace -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/blue/pace-theme-flash.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/white/pace-theme-flash.css" />
     <script src="//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"></script>
 
     <!-- gridstack -->
