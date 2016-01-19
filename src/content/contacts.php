@@ -46,7 +46,7 @@ function printContentPc(){
                         </thead>
                         <tbody class="userlist-body">
                             <?php foreach($arr as $m){
-                                if(strpos($m, '테스트')) {
+                                if(strpos($m['s_name'], '테스트')) {
                                     continue;
                                 }
 						?>
