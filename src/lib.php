@@ -372,6 +372,7 @@ function arrayToCategories($array) {
 }
 
 function defaultUserMainBoards($user) {
+	global $board;
     $current_setting=array();
     foreach($board->getCategoryList(0,0) as $val){
         if(checkCategoryAccess($val['n_id'], "list")){
