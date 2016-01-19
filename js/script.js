@@ -232,6 +232,7 @@ function loadUpperHeader(theurl, placeTo, immediate) {
             p.append(obj);
             obj.velocity("transition.slideDownIn", {duration: 400});
         }
+        initContacts();
     }).fail(function (jqXHR, textStatus) {
         //alert( "페이지를 불러 오는 데 실패하였습니다" );
     });

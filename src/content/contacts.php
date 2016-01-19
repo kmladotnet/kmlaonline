@@ -105,11 +105,6 @@ function printContentPc(){
                                 <?php } ?>
                         </tbody>
                     </table>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.10/js/jquery.dataTables.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.10/js/dataTables.bootstrap.min.js"></script>
-            <script type="text/javascript">
-                initContacts();
-            </script>
         </div>
     </div>
     <?php
