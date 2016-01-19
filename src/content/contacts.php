@@ -23,8 +23,6 @@ function printContentPc(){
 	}
 	//usort($arr,"_cmp");
 	?>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.10/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.10/js/dataTables.bootstrap.min.js"></script>
     <div style="padding:10px;" class='contact-finder'>
         <h1><i class="fa fa-users"></i>연락처</h1>
         <div style="padding-top:10px;">
@@ -104,7 +102,9 @@ function printContentPc(){
                                 <?php } ?>
                         </tbody>
                     </table>
-            <script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.10/js/jquery.dataTables.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.10/js/dataTables.bootstrap.min.js"></script>
+            <script type="text/javascript">
                 initContacts();
             </script>
         </div>
