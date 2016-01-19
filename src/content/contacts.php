@@ -92,11 +92,13 @@ function printContentPc(){
                                     </td>
                                     <td style="text-align:center">
                                         <?php if($m['s_homepage']!=""){ ?>
-                                            <a target="_blank" rel="closenow" href="<?php echo $m['s_homepage']; ?>">
-                                                <?php echo htmlspecialchars($m['s_homepage'])?>
-                                            </a>
-                                            <?php }else{ ?><span style="color:gray">(없음)</span>
-                                                <?php } ?>
+                                            <?php if(filter_var($m['s_homepage'], FILTER_VALIDATE_URL) === false) {
+                                                echo htmlspecialchars($m['s_homepage']);
+                                            } else {?>
+                                                <a target="_blank" rel="closenow" href="<?php echo $m['s_homepage']; ?>">
+                                                    (바로가기)
+                                                </a>
+                                        <?php }}else{ ?><span style="color:gray">(없음)</span><?php } ?>
                                     </td>
                                     <td style="text-align:left">
                                         <?php echo htmlspecialchars($m['s_status_message']) ?>
