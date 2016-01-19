@@ -46,6 +46,9 @@ function printContentPc(){
                         </thead>
                         <tbody class="userlist-body">
                             <?php foreach($arr as $m){
+                                if(strpos($m, '테스트')) {
+                                    continue;
+                                }
 						?>
                                 <tr style="height:32px;">
                                     <td style="text-align:center">
