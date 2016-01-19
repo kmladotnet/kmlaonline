@@ -371,29 +371,37 @@ function arrayToCategories($array) {
     return $multi_id;
 }
 
+function defaultUserMainBoards($user) {
+    $current_setting=array();
+    foreach($board->getCategoryList(0,0) as $val){
+        if(checkCategoryAccess($val['n_id'], "list")){
+            if(strpos($val['s_id'],"announce")!==false)
+                $current_setting[$val['n_id']]=$val['n_id'];
+            if(strpos($val['s_id'],"forum")!==false)
+                $current_setting[$val['n_id']]=$val['n_id'];
+            if(strpos($val['s_id'],"all_")!==false)
+                $current_setting[$val['n_id']]=$val['n_id'];
+            if(strpos($val['s_id'],"wave".$user['n_level']."_")!==false)
+                $current_setting[$val['n_id']]=$val['n_id'];
+        }
+    }
+    return $current_setting;
+}
+
 function getUserMainBoards($user){
 	global $board;
 	$file="data/user/board_on_main/{$user['n_id']}.txt";
-	if(file_exists($file)){
+	if(file_exists($file)) {
 		$current_setting=unserialize(file_get_contents($file));
 		foreach($current_setting as $key=>$val){
 			if(!checkCategoryAccess($key, "list"))
 				unset($current_setting[$key]);
 		}
-	}else{
-		$current_setting=array();
-		foreach($board->getCategoryList(0,0) as $val){
-			if(checkCategoryAccess($val['n_id'], "list")){
-				if(strpos($val['s_id'],"announce")!==false)
-					$current_setting[$val['n_id']]=$val['n_id'];
-				if(strpos($val['s_id'],"forum")!==false)
-					$current_setting[$val['n_id']]=$val['n_id'];
-				if(strpos($val['s_id'],"all_")!==false)
-					$current_setting[$val['n_id']]=$val['n_id'];
-				if(strpos($val['s_id'],"wave".$user['n_level']."_")!==false)
-					$current_setting[$val['n_id']]=$val['n_id'];
-			}
-		}
+        if(count($current_setting) === 0) {
+            return defaultUserMainBoards($user);
+        }
+	} else {
+		return defaultUserMainBoards($user);
 	}
 	return $current_setting;
 }
