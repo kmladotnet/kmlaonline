@@ -2,6 +2,8 @@ RewriteEngine On
 
 # [QCA] : Pass Query String
 
+AddType application/x-httpd-php .css
+
 RewriteRule ^check$ process.php?actiontype=check [QSA,L]
 
 RewriteRule ^util/([a-z0-9-_]+)$ index.php?action=util&sub=$1 [QSA,L]

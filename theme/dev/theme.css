@@ -1,3 +1,6 @@
+<?php
+    header("Content-type: text/css; charset: UTF-8");
+?>
 @charset utf-8;
 h1,h2,h3,h4,h5,h6,th,strong,b{font-weight:bold}
 h1 { font-size: 2em; }
@@ -372,12 +375,6 @@ div.ajax-holder{
 	padding:5px;
 	color:black;
 	background:white;
-}
-a,a:link,a:visited{
-	color: #4480A2;
-}
-a:hover,a:active{
-	color: #60A0C0
 }
 body{
 	font-family: "Open Sans",arial,'Apple SD Gothic Neo','Noto Sans Korean','본고딕','KoPubDotum Medium','나눔바른고딕','나눔고딕','NanumGothic','맑은고딕','Malgun Gothic',sans-serif;
