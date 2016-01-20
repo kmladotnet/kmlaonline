@@ -574,6 +574,65 @@ function bindExampleLayoutButton() {
     });
 }
 
+function backupLayout() {
+    (new PNotify({
+        title: '레이아웃을 백업할까요?',
+        text: '마지막으로 저장된 상태가 백업됩니다. 아직 저장하지 않은 변경사항이 있다면 먼저 레이아웃을 저장하고 백업하세요.',
+        icon: 'fa fa-question-circle',
+        hide: false,
+        confirm: {
+            confirm: true
+        },
+        buttons: {
+            closer: false,
+            sticker: false
+        },
+        history: {
+            history: false
+        }
+    })).get().on('pnotify.confirm', function () {
+        $.post("ajax/user/backuplayout", {
+                ajax: 1
+        }).done(function () {
+            new PNotify({
+                title: '백업이 성공했습니다.',
+                type: 'success',
+                buttons: {
+                    closer: false,
+                    sticker: false
+                }
+            });
+        });
+    });
+}
+
+function backupLayout() {
+    (new PNotify({
+        title: '레이아웃을 복구할까요?',
+        text: '레이아웃이 마지막 백업 상태로 되돌려집니다.',
+        icon: 'fa fa-question-circle',
+        hide: false,
+        confirm: {
+            confirm: true
+        },
+        buttons: {
+            closer: false,
+            sticker: false
+        },
+        history: {
+            history: false
+        }
+    })).get().on('pnotify.confirm', function () {
+        $.post("ajax/user/restorelayout", {
+                ajax: 1
+        }).done(function () {
+            $(".grid-stack-item").velocity("transition.slideUpOut", {stagger: 50, duration: 300, complete: function() {
+                location.reload(true);
+            }});
+        });
+    });
+}
+
 function bindModuleCloseButton() {
     $(".main-block-close").unbind("click").click(function () {
         var module = $(this).closest(".grid-stack-item");

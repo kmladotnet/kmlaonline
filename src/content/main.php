@@ -21,25 +21,31 @@ function printContentPc(){
                 <div>
                     <i class="fa fa-exclamation-triangle"></i> 편집 모드를 종료하거나 레이아웃 저장 버튼을 누르기 전엔 레이아웃이 저장되지 않습니다.
                 </div>
-                <select id="add-module" class="selectpicker" data-style="btn-primary" data-size="10" title="패널 추가">
-                    <option data-divider="true"></option>
-                    <option value="important">중요 공지</option>
-                    <option value="birthday">생일</option>
-                    <option value="menu">식단</option>
-                    <option value="kmlaboard">큼라보드</option>
-                    <option value="article-list">게시판</option>
-                    <option value="gallery">갤러리</option>
-                    <option value="weather">날씨</option>
-                    <option value="minjok-news">인트라넷 공지</option>
-                </select>
-                <select id="example-layout" class="selectpicker" data-style="btn-info" data-size="10" title="예시 레이아웃">
-                    <option data-divider="true"></option>
-                    <option value="colorful">알록달록</option>
-                    <option value="warrior">키보드워리어</option>
-                </select>
-                <button type="button" class="btn btn-success" onclick="updateModules();"><i class="fa fa-floppy-o"></i> 레이아웃 저장</button>
-                <button type="button" class="btn btn-warning" onclick="cancelLayout();"><i class="fa fa-trash-o"></i> 모든 변경사항 취소</button>
-                <button type="button" class="btn btn-danger" onclick="resetMainLayout()"><i class="fa fa-times"></i> 초기화</button>
+                <div>
+                    <select id="add-module" class="selectpicker" data-style="btn-primary" data-size="10" title="패널 추가">
+                        <option data-divider="true"></option>
+                        <option value="important">중요 공지</option>
+                        <option value="birthday">생일</option>
+                        <option value="menu">식단</option>
+                        <option value="kmlaboard">큼라보드</option>
+                        <option value="article-list">게시판</option>
+                        <option value="gallery">갤러리</option>
+                        <option value="weather">날씨</option>
+                        <option value="minjok-news">인트라넷 공지</option>
+                    </select>
+                    <select id="example-layout" class="selectpicker" data-style="btn-info" data-size="10" title="예시 레이아웃">
+                        <option data-divider="true"></option>
+                        <option value="colorful">알록달록</option>
+                        <option value="warrior">키보드워리어</option>
+                    </select>
+                    <button type="button" class="btn btn-success" onclick="updateModules();"><i class="fa fa-floppy-o"></i> 레이아웃 저장</button>
+                    <button type="button" class="btn btn-warning" onclick="cancelLayout();"><i class="fa fa-trash-o"></i> 모든 변경사항 취소</button>
+                    <button type="button" class="btn btn-danger" onclick="resetMainLayout();"><i class="fa fa-times"></i> 초기화</button>
+                </div>
+                <div>
+                    <button type="button" id="backup-layout" class="btn btn-primary" onclick="backupLayout();"><i class="fa fa-cloud-upload"></i>백업</button>
+                    <button type="button" id="restore-layout" class="btn btn-primary" onclick="restoreLayout();"><i class="fa fa-cloud-upload"></i>복구</button>
+                </div>
             </div>
         </div>
 
@@ -97,7 +103,8 @@ JSON
     });
     bindAddModuleButton();
     bindExampleLayoutButton();
-    bindOptionsForm();
+    bindBackupLayoutButton();
+    bindRestoreLayoutButton();
     </script>
 	<?php
 }
