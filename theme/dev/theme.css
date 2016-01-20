@@ -640,3 +640,5 @@ div.article-list-item {
     white-space: nowrap;
     overflow: hidden;
 }
+
+.bootstrap-select.btn-group[class*=col-] {float:left;display:inline-block;margin-left:0}
