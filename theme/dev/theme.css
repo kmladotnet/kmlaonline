@@ -638,5 +638,5 @@ div.article-list-item {
 .btn-group .bootstrap-select.btn-group[class*="col-"] {
   float: left;
   display: inline-block;
-  margin-left: -1;
+  margin-left: -1px;
 }
