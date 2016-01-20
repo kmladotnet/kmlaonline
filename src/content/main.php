@@ -22,8 +22,6 @@ function printContentPc(){
                     <i class="fa fa-exclamation-triangle"></i> 편집 모드를 종료하거나 레이아웃 저장 버튼을 누르기 전엔 레이아웃이 저장되지 않습니다.
                 </div>
                 <div class="btn-group" style="margin-top: 4px">
-                </div>
-                <div class="btn-group" style="margin-top: 4px">
                     <select id="add-module" class="selectpicker" data-style="btn-default" data-size="10" title="패널 추가">
                         <option data-divider="true"></option>
                         <option value="important">중요 공지</option>
