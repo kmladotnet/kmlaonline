@@ -33,13 +33,13 @@ function printContentPc(){
                         <option value="weather">날씨</option>
                         <option value="minjok-news">인트라넷 공지</option>
                     </select>
-                    <select id="example-layout" class="selectpicker" data-style="btn-info" data-size="10" title="예시 레이아웃">
+                    <select id="example-layout" class="selectpicker" data-style="btn-primary" data-size="10" title="예시 레이아웃">
                         <option data-divider="true"></option>
                         <option value="colorful">알록달록</option>
                         <option value="warrior">키보드워리어</option>
                     </select>
-                    <button type="button" class="btn btn-success" onclick="updateModules();"><i class="fa fa-floppy-o"></i> 레이아웃 저장</button>
-                    <button type="button" class="btn btn-warning" onclick="cancelLayout();"><i class="fa fa-trash-o"></i> 모든 변경사항 취소</button>
+                    <button type="button" class="btn btn-primary" onclick="updateModules();"><i class="fa fa-floppy-o"></i> 레이아웃 저장</button>
+                    <button type="button" class="btn btn-danger" onclick="cancelLayout();"><i class="fa fa-trash-o"></i> 모든 변경사항 취소</button>
                     <button type="button" class="btn btn-danger" onclick="resetMainLayout();"><i class="fa fa-times"></i> 초기화</button>
                 </div>
                 <div style="margin-top: 6px;">
