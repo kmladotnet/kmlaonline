@@ -1,5 +1,5 @@
 function initializeLoginBackgroundImage(url,w,h){
-	$("#no-login-bg").attr("src",url).css("display","block");
+	$("#no-login-bg").attr("src",url).css("display","block").css("z-index", "99999999");
 	var aspRatio=w/h;
 	$(document).ready(function () {
 		$(window).on('resize', function(){

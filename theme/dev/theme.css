@@ -640,3 +640,9 @@ div.article-list-item {
   display: inline-block;
   margin-left: -1px;
 }
+#downform_login {
+    z-index: 999999999999;
+    position: fixed;
+    left: calc(50% - 130px);
+    width: 260px;
+}
