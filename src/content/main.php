@@ -45,9 +45,9 @@ function printContentPc(){
                 <div style="margin-top: 6px;">
                     <button type="button" id="backup-layout" class="btn btn-primary" onclick="backupLayout();"><i class="fa fa-cloud-upload"></i> 백업</button>
                     <?php
-                    if(file_exists("data/user/main_layout-backup/{$me['n_id']}.txt")) {?>
+                    if(file_exists("data/user/main_layout-backup/{$me['n_id']}.txt")) { ?>
                         <button type="button" id="restore-layout" class="btn btn-primary" onclick="restoreLayout();"><i class="fa fa-cloud-upload"></i> 복구</button>
-                    <?php}?>
+                    <?php } ?>
                 </div>
             </div>
         </div>
