@@ -40,11 +40,15 @@ function printContentPc(){
                         <option value="weather">날씨</option>
                         <option value="minjok-news">인트라넷 공지</option>
                     </select>
-                    <button type="button" class="btn btn-default" onclick="updateModules();"><i class="fa fa-floppy-o"></i> 레이아웃 저장</button>
-                    <button type="button" id="backup-layout" class="btn btn-default" onclick="backupLayout();"><i class="fa fa-cloud-upload"></i> 백업</button>
+                </div>
+                <div class="btn-group" style="margin-top: 4px">
+                    <button type="button" class="btn btn-success" onclick="updateModules();"><i class="fa fa-floppy-o"></i> 레이아웃 저장</button>
+                </div>
+                <div class="btn-group" style="margin-top: 4px">
+                    <button type="button" id="backup-layout" class="btn btn-primary" onclick="backupLayout();"><i class="fa fa-cloud-upload"></i> 백업</button>
                     <?php
                     if(file_exists("data/user/main_layout_backup/{$me['n_id']}.txt")) { ?>
-                        <button type="button" id="restore-layout" class="btn btn-default" onclick="restoreLayout();"><i class="fa fa-cloud-download"></i> 복구</button>
+                        <button type="button" id="restore-layout" class="btn btn-primary" onclick="restoreLayout();"><i class="fa fa-cloud-download"></i> 복구</button>
                     <?php } ?>
                 </div>
                 <div class="btn-group" style="margin-top: 4px">
