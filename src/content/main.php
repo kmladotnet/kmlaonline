@@ -22,7 +22,7 @@ function printContentPc(){
                     <i class="fa fa-exclamation-triangle"></i> 편집 모드를 종료하거나 레이아웃 저장 버튼을 누르기 전엔 레이아웃이 저장되지 않습니다.
                 </div>
                 <div style="margin-top: 6px;">
-                    <select id="example-layout" class="selectpicker" data-style="btn-default" data-size="10" title="예시 레이아웃 (먼저 백업하세요!)">
+                    <select id="example-layout" class="selectpicker" data-style="btn-default" data-width="300px" data-size="10" title="예시 레이아웃 (먼저 백업하세요!)">
                         <option data-divider="true"></option>
                         <option value="colorful">알록달록</option>
                         <option value="warrior">키보드워리어</option>
