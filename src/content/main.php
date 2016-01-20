@@ -22,14 +22,14 @@ function printContentPc(){
                     <i class="fa fa-exclamation-triangle"></i> 편집 모드를 종료하거나 레이아웃 저장 버튼을 누르기 전엔 레이아웃이 저장되지 않습니다.
                 </div>
                 <div style="margin-top: 4px;display: inline-block;">
-                    <select id="example-layout" class="selectpicker" data-style="btn-default" data-width="300px" data-size="10" title="예시 레이아웃 (먼저 백업하세요!)">
+                    <select id="example-layout" class="selectpicker" data-style="btn-primary" data-width="300px" data-size="10" title="예시 레이아웃 (먼저 백업하세요!)">
                         <option data-divider="true"></option>
                         <option value="colorful">알록달록</option>
                         <option value="warrior">키보드워리어</option>
                     </select>
                 </div>
                 <div style="margin-top: 4px;display: inline-block;">
-                    <select id="add-module" class="selectpicker" data-style="btn-primary" data-size="10" title="패널 추가">
+                    <select id="add-module" class="selectpicker" data-style="btn-default" data-size="10" title="패널 추가">
                         <option data-divider="true"></option>
                         <option value="important">중요 공지</option>
                         <option value="birthday">생일</option>
@@ -40,11 +40,11 @@ function printContentPc(){
                         <option value="weather">날씨</option>
                         <option value="minjok-news">인트라넷 공지</option>
                     </select>
-                    <button type="button" class="btn btn-primary" onclick="updateModules();"><i class="fa fa-floppy-o"></i> 레이아웃 저장</button>
-                    <button type="button" id="backup-layout" class="btn btn-primary" onclick="backupLayout();"><i class="fa fa-cloud-upload"></i> 백업</button>
+                    <button type="button" class="btn btn-default" onclick="updateModules();"><i class="fa fa-floppy-o"></i> 레이아웃 저장</button>
+                    <button type="button" id="backup-layout" class="btn btn-default" onclick="backupLayout();"><i class="fa fa-cloud-upload"></i> 백업</button>
                     <?php
                     if(file_exists("data/user/main_layout_backup/{$me['n_id']}.txt")) { ?>
-                        <button type="button" id="restore-layout" class="btn btn-primary" onclick="restoreLayout();"><i class="fa fa-cloud-download"></i> 복구</button>
+                        <button type="button" id="restore-layout" class="btn btn-default" onclick="restoreLayout();"><i class="fa fa-cloud-download"></i> 복구</button>
                     <?php } ?>
                 </div>
                 <div style="margin-top: 4px;display: inline-block;">
