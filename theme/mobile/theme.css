@@ -1,3 +1,6 @@
+<?php
+    header("Content-type: text/css; charset: UTF-8");
+?>
 @charset utf-8;
 .no-mobile{ display:none }
 h1,h2,h3,h4,h5,h6,th,strong,b{font-weight:bold}
