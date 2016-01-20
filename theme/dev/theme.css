@@ -36,11 +36,7 @@ body.cke_contents_ltr{
 }
 
 a{
-	text-decoration: none;
 	cursor:pointer;
-}
-a:hover{
-	text-decoration:underline;
 }
 blockquote{ border:1px solid gray; margin:3px; padding:3px; }
 input{ margin:0 }
@@ -221,7 +217,7 @@ div#total-header-menu .slidedown_holder{
     z-index:5;
 }
 div#total-header-menu .slidedown_button{
-    color:lightsteelblue;
+    color:rgba(255, 255, 255, 0.8);
     cursor: pointer;
     font-size: 24px;
     padding: 6px;
@@ -442,7 +438,7 @@ div#total-header-menu, div.total-header-menu-extend{
 	/* menubar-base.backup.png for original background */
 }
 div#total-header-menu .menu1{
-	color:lightsteelblue;
+	color:rgba(255, 255, 255, 0.8);
 	text-decoration:none;
     cursor:pointer;
     cursor:hand;
@@ -459,7 +455,7 @@ div#total-header-menu .menu1_sub{
     border-bottom-right-radius: 5px;
 }
 div#total-header-menu .menu2{
-	color:lightsteelblue;
+	color:rgba(255, 255, 255, 0.8);
 	text-decoration:none;
 }
 div#total-header-menu .menu2:hover{
