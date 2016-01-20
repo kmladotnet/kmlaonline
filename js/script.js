@@ -606,7 +606,7 @@ function backupLayout() {
     });
 }
 
-function backupLayout() {
+function restoreLayout() {
     (new PNotify({
         title: '레이아웃을 복구할까요?',
         text: '레이아웃이 마지막 백업 상태로 되돌려집니다.',
