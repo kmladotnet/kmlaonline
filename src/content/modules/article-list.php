@@ -50,7 +50,7 @@ function articleList($article_list, $category=true, $title=true, $name=true, $da
 							echo "익명";
 						else{
 							$m=$member->getMember($a['n_writer']);
-							echo "<a href='/user/view/{$m['n_id']}/{$m['s_id']}' style='color:black'>";
+							echo "<a href='/user/view/{$m['n_id']}' style='color:black'>";
 							putUserCard($m);
 							echo "</a>";
 						}

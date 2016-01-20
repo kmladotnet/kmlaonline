@@ -394,7 +394,7 @@ function prepareHeader() {
     // Always show when scroll <= 160
     $(window).scroll(function (event) {
         var scroller = $(this).scrollTop();
-        if (!upperHeaderVisible && !hovering && !$("#slidedown2_sub").is(":visible") && !$("#slidedown3_sub").is(":visible")) {
+        if (!upperHeaderVisible && !hovering && !$("#slidedown1_sub").is(":visible") && !$("#slidedown2_sub").is(":visible") && !$("#slidedown3_sub").is(":visible")) {
             if (scroller > 160) {
                 if (menuShown) {
                     menuShown = false;
