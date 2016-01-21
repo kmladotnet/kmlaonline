@@ -44,7 +44,7 @@ function printContentPc(){
                         if(file_exists("data/user/main_layout_backup/{$me['n_id']}.txt")) { ?>
                             <button type="button" id="restore-layout" class="btn btn-primary" onclick="restoreLayout();"><i class="fa fa-cloud-download"></i> 복구</button>
                         <?php } ?>
-                        <select id="example-layout" class="selectpicker" data-style="btn-primary" data-width="240px" data-size="10" title="예시 레이아웃 (먼저 백업하세요!)">
+                        <select id="example-layout" class="selectpicker" data-style="btn-primary" data-width="250px" data-size="10" title="예시 레이아웃 (먼저 백업하세요!)">
                             <option data-divider="true"></option>
                             <option value="colorful">알록달록</option>
                             <option value="warrior">키보드워리어</option>
