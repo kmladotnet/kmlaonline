@@ -71,7 +71,7 @@
 </head>
 
 <body>
-    <img id="no-login-bg" style="position:fixed;left:0;top:0;display:none;z-index:-50;" />
+    <img id="no-login-bg" style="position:fixed;left:0;top:0;display:none;z-index:99999999;" />
     <div class="hide-on-upper-panel menu-shadow" style="left:0;width:100%;right:0;display:block;height:40px;box-shadow:1px 3px 100px rgba(255, 255, 255, 0.42);">
         <div class="total-header-menu-extend" style="position:absolute;left:0;width:100%;right:0;display:block;height:40px;"></div>
     </div>

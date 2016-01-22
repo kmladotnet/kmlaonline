@@ -20,7 +20,7 @@ function printContent(){
 	}
 
 	?>
-
+    <div style="position: fixed;top: 0;left: 0;width: 100%;height: 100%;background: white;z-index: 99999;"></div>
     <form method="post" action="./check" id="downform_login" onsubmit="return true;">
         <input type="hidden" id="downform_login_action" name="action" value="login" />
         <input type="hidden" name="returnto" value="<?php echo ((isset($_REQUEST['returnto']) && $_REQUEST['returnto']!=" ")?$_REQUEST['returnto']:"/ ")?>" />
