@@ -511,11 +511,13 @@ function mainGridToJSON() {
     return JSON.stringify(result);
 }
 
-function rebindModules() {
-    bindModuleCloseButton();
-    bindModuleReloadButton();
-    bindOptionsForm();
-    if(editMode) {
+function rebindModules(mobile) {
+    bindModuleReloadButton(mobile);
+    if(!mobile) {
+        bindModuleCloseButton();
+        bindOptionsForm();
+    }
+    if(editMode && mobile) {
         $(".main-block-close").css("display", "inline-block");
         $(".main-block-options").css("display", "inline-block");
         $(".main-block-close").css({width: 28, "border-width": 1, opacity: 1});
@@ -660,7 +662,7 @@ function reloadAllModules(light) {
         }, function (data) {
             module.velocity("transition.slideUpIn", {display: null, duration: 300});
             module.find(".grid-stack-item-content").html(data);
-            rebindModules();
+            rebindModules(light);
         });
     });
 }
