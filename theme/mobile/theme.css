@@ -16,6 +16,18 @@ html, body {
     font-family: "Open Sans", arial, 'Apple SD Gothic Neo', 'Noto Sans Korean', '본고딕', 'KoPubDotum Medium', '나눔바른고딕', '나눔고딕', 'NanumGothic', '맑은고딕', 'Malgun Gothic', sans-serif;
     font-size: 9pt;
 }
+
+.circle {
+    border-radius: 100%;
+}
+.anonymous-bubble {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: xx-large;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+
 div, img, body, h1, h2, h3, h4, h5, h6, ul {
     border: 0;
     margin: 0;
