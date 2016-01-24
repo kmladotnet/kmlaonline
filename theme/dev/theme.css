@@ -455,6 +455,9 @@ div#upper-header-holder {
 }
 
 /* 메인 화면 */
+a.everyday-button {
+    color: black;
+}
 .main-block {
     display: block;
     height: 100%;

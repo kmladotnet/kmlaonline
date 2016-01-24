@@ -132,16 +132,16 @@ function printEverydayLinks(){
                 }else{
                     $a=$a[0];
                     $bold=(time()-$a['n_writedate']<43200)?"font-weight:bold;":"";
-                    echo "<a class='btn btn-default' role='button' style='color: black;font-size:9pt' href=\"/board/$k/view/{$a['n_id']}\">{$v} <span style=\"$bold\">(".date("m월 d일", $a['n_writedate']).")</span></a>";
+                    echo "<a class='btn btn-default everyday-button' role='button' href=\"/board/$k/view/{$a['n_id']}\">{$v} <span style=\"$bold\">(".date("m월 d일", $a['n_writedate']).")</span></a>";
                 }
             }
             ?>
         </div>
         <div class="btn-group" role="group" aria-label="...">
-            <a class='btn btn-default' role='button' style='color: black' href="/board/department_environment">환경부</a>
-            <a class='btn btn-default' role='button' style='color: black' href="/board/student_mpt">MPT</a>
-            <a class='btn btn-default' role='button' style='color: black' href="/board/student_ambassador">대외홍보단</a>
-            <a class='btn btn-default' role='button' style='color: black' href="/util/lectureroom">공강신청</a>
+            <a class='btn btn-default everyday-button' role='button' href="/board/department_environment">환경부</a>
+            <a class='btn btn-default everyday-button' role='button' href="/board/student_mpt">MPT</a>
+            <a class='btn btn-default everyday-button' role='button' href="/board/student_ambassador">대외홍보단</a>
+            <a class='btn btn-default everyday-button' role='button' href="/util/lectureroom">공강신청</a>
         </div>
     </div>
     <?php

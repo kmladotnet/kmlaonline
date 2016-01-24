@@ -367,7 +367,10 @@ thead th {
 }
 
 /* 메인 화면 */
-
+a.everyday-button {
+    color: black;
+    font-size:9pt;
+}
 .main-block {
     display: block;
     height: 100%;
