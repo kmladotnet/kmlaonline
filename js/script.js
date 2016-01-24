@@ -626,7 +626,7 @@ function bindModuleCloseButton() {
     });
 }
 
-function bindModuleReloadButton() {
+function bindModuleReloadButton(mobile) {
     $(".main-block-reload").unbind("click").click(function () {
         var module = $(this).closest(".grid-stack-item");
         module.velocity("transition.slideUpOut", {display: null, duration: 300});
@@ -637,14 +637,16 @@ function bindModuleReloadButton() {
             module.velocity("transition.slideUpIn", {display: null, duration: 300});
             module.find(".grid-stack-item-content").html(data);
             rebindModules();
-        });
-        new PNotify({
-            title: '새로고침 했습니다.',
-            type: 'success',
-            buttons: {
-                closer: false,
-                sticker: false
-            }
+            if(mobile)
+                return;
+            new PNotify({
+                title: '새로고침 했습니다.',
+                type: 'success',
+                buttons: {
+                    closer: false,
+                    sticker: false
+                }
+            });
         });
     });
 }

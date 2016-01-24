@@ -193,7 +193,6 @@ JSON
         </div>
     </div>
     <script type="text/javascript">
-    PNotify.prototype.options.delay = 2500;
     $(function () {
         var options = {
             cell_height: 64,
