@@ -18,6 +18,9 @@
     <!-- bootstrap -->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" />
 
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" />
+
 	<script type="text/javascript" src="/js/lightbox.js" charset="utf-8"></script>
 	<script type="text/javascript" src="/js/script.js" charset="utf-8"></script>
 	<script type="text/javascript" src="/js/content/combined.js" charset="utf-8"></script>
