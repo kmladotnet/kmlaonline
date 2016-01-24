@@ -132,7 +132,7 @@ function printEverydayLinks(){
                 }else{
                     $a=$a[0];
                     $bold=(time()-$a['n_writedate']<43200)?"font-weight:bold;":"";
-                    echo "<a class='btn btn-default' role='button' style='color: black' href=\"/board/$k/view/{$a['n_id']}\">{$v} <span style=\"$bold\">(".date("m월 d일", $a['n_writedate']).")</span></a>";
+                    echo "<a class='btn btn-default' role='button' style='color: black;font-size:9pt' href=\"/board/$k/view/{$a['n_id']}\">{$v} <span style=\"$bold\">(".date("m월 d일", $a['n_writedate']).")</span></a>";
                 }
             }
             ?>
