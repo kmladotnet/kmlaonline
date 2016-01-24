@@ -304,6 +304,33 @@ function getModule($module_name, $options, $x = 0, $y = 0, $w = 4, $h = 4) {
 <?php
 }
 
+function moduleContentsLite($module_name, $options) {
+    ?>
+    <div class="main-block panel panel-<?php echo $options['color'];?>">
+        <div class="main-block-title panel-heading">
+            <div class="btn-group main-block-button-group" role="group">
+                <button class="btn btn-default main-block-button main-block-reload" type="button" style="border-radius: 12px; width: 24px;">
+                    <i class="fa fa-refresh"></i>
+                </button>
+            </div>
+            <div class="main-block-title-content">
+                <?php
+                moduleTitle($module_name, $options);
+                ?>
+            </div>
+        </div>
+
+        <div class="panel-body main-block-body">
+            <div class="main-block-content">
+                <?php
+                moduleContent($module_name, $options);
+                ?>
+            </div>
+        </div>
+    </div>
+    <?php
+}
+
 function defaultOptions($module_name) {
     $defaults = array(
         'color' => 'default',

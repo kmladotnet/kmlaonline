@@ -649,10 +649,10 @@ function bindModuleReloadButton() {
     });
 }
 
-function reloadAllModules() {
+function reloadAllModules(light) {
     $('.grid-stack-item').each(function() {
         var module = $(this);
-        $.post("ajax/user/getmodule", {
+        $.post(light ? "ajax/user/getmodulelite" : "ajax/user/getmodule", {
             "json": JSON.stringify(simpleModuleToObject(module)),
             "ajax": 1
         }, function (data) {
