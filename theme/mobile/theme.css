@@ -153,10 +153,6 @@ div#total-footer{
 	clear:both;
 	text-align:center;
 }
-.main-block{
-	display:block;
-	margin:3px;
-}
 div.tab_global_wrap{
 	margin:12px;
 	padding:8px;
@@ -328,21 +324,6 @@ div#total-wrap{
 	background: #fff3d2;
 	padding:32px;
 }
-.main-block{
-	border:1px solid #DDD;
-	border-radius: 3px;
-	background:white;
-}
-.main-block-title{
-	font-size:15pt;
-	font-weight:bold;
-	padding:5px 5px 5px 10px;
-	border-bottom:1px solid #EEE;
-	background: #FCFCFC;
-}
-.main-block-old{
-	border:1px solid gray;
-}
 .userinfo_border{
 	border:1px solid #EEE;
 }
@@ -408,22 +389,8 @@ thead th{
     height: 24px;
     font-size: 11pt;
 }
-.main-block-close, .main-block-close:hover, .main-block-close:active {
-    width: 0px;
-    border-width: 0px;
-    opacity: 0;
-    display: none;
-    color: #d9534f;
-}
 .main-block-reload, .main-block-reload:hover, .main-block-reload:active {
     color: #5cb85c;
-}
-.main-block-options, .main-block-options:hover, .main-block-options:active {
-    width: 0px;
-    border-width: 0px;
-    opacity: 0;
-    display: none;
-    color: #337ab7;
 }
 .grid-stack .grid-stack-item .grid-stack-item-content, .grid-stack .grid-stack-item .placeholder-content {
     left: 3px;
