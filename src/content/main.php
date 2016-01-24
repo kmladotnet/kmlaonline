@@ -154,7 +154,7 @@ function printContentMobile(){
     <script src="//cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.3/gridstack.min.js"></script>
 
 	<div style="padding:6px">
-        <div style="height:40px">
+        <div>
             <?php printEverydayLinks(); ?>
         </div>
 
