@@ -1,4 +1,4 @@
-<div style="overflow: hidden; margin-bottom: 0;color: black; white-space: nowrap;">
+<div class="minjok-news">
     <?php
     $f=file_get_contents("http://www.minjok.hs.kr/app/kumla_notice/kumla_all.html");
     if(preg_match_all('/<li>\[([^\]]+):([^\]]+)\](.*?)<br>/sim', $f, $m, PREG_SET_ORDER)){

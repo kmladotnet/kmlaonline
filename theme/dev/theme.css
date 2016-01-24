@@ -596,6 +596,12 @@ div.article-list-item {
     white-space: nowrap;
     overflow: hidden;
 }
+div.minjok-news {
+    overflow: hidden;
+    margin-bottom: 0;
+    white-space: nowrap;
+    line-height: 2em;
+}
 .btn-group .bootstrap-select.btn-group:not(.input-group-btn), .btn-group .bootstrap-select.btn-group[class*="col-"] {
     float: left;
     display: inline-block;
