@@ -371,3 +371,98 @@ thead th{
 .contact-finder a.wavebutton:hover{
 	background:#ddefff;
 }
+
+/* 메인 화면 */
+.main-block {
+    display: block;
+    height: 100%;
+    box-sizing: border-box;
+}
+.main-block-title {
+    font-size: 15pt;
+    font-weight: bold;
+    height: 42px;
+    padding: 9px;
+    text-align: left;
+    white-space: nowrap;
+}
+.main-block-title-content {
+    overflow: hidden;
+}
+.main-block-body {
+    padding: 10px;
+    height: calc(100% - 42px);
+    overflow: auto;
+}
+.main-block-options-pane {
+    display: none;
+}
+.main-block-button-group {
+    float: right;
+}
+.main-block-button {
+    margin: 0;
+    padding: 0px;
+    border-radius: 12px;
+    width: 28px;
+    height: 24px;
+    font-size: 11pt;
+}
+.main-block-close, .main-block-close:hover, .main-block-close:active {
+    width: 0px;
+    border-width: 0px;
+    opacity: 0;
+    display: none;
+    color: #d9534f;
+}
+.main-block-reload, .main-block-reload:hover, .main-block-reload:active {
+    color: #5cb85c;
+}
+.main-block-options, .main-block-options:hover, .main-block-options:active {
+    width: 0px;
+    border-width: 0px;
+    opacity: 0;
+    display: none;
+    color: #337ab7;
+}
+.grid-stack .grid-stack-item .grid-stack-item-content, .grid-stack .grid-stack-item .placeholder-content {
+    left: 3px;
+    right: 3px;
+    overflow: hidden;
+}
+div.food {
+    padding: 5px;
+    float: left;
+    width: 33%;
+}
+div.food-header {
+    font-weight: bold;
+}
+div.weather {
+    text-align: center;
+}
+div.weather-temp {
+    font-size: 25pt;
+    margin: 10px 0;
+}
+div.weather-name {
+    font-size: 20pt;
+    margin: 6px 0;
+}
+div.weather-copyright {
+    bottom: 0px;
+    position: absolute;
+    font-size: 8pt;
+    width: 100%;
+    margin: 0 -10px;
+}
+div.everyday-links {
+    float: right;
+}
+div.article-list-item {
+    position: absolute;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}

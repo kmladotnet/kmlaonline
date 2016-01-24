@@ -453,6 +453,8 @@ div#upper-header-holder {
     background: #fff3d2;
     padding: 32px;
 }
+
+/* 메인 화면 */
 .main-block {
     display: block;
     height: 100%;

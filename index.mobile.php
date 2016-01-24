@@ -1,11 +1,9 @@
 <!doctype html><html><head>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta charset="utf-8" />
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
 	<base href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/" />
-	<!--[if lte IE 7]><script type="text/javascript" src="/js/json2.js" charset="utf-8"></script><![endif]-->
-	<!--[if gte IE 9]><style type="text/css">.gradient{filter: none;}</style><![endif]-->
 
     <!-- jquery -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
@@ -14,6 +12,9 @@
     <!-- velocity -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.ui.min.js"></script>
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" />
 
 	<script type="text/javascript" src="/js/lightbox.js" charset="utf-8"></script>
 	<script type="text/javascript" src="/js/script.js" charset="utf-8"></script>

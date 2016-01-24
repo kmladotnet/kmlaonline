@@ -516,6 +516,7 @@ function rebindModules(mobile) {
     if(!mobile) {
         bindModuleCloseButton();
         bindOptionsForm();
+        $('.selectpicker').selectpicker();
     }
     if(editMode && mobile) {
         $(".main-block-close").css("display", "inline-block");
@@ -525,7 +526,6 @@ function rebindModules(mobile) {
         $(".main-block-reload").css({width: 28, "border-radius": 0});
         $(".main-block-title").css("cursor", "move");
     }
-    $('.selectpicker').selectpicker();
 }
 
 function bindAddModuleButton() {
