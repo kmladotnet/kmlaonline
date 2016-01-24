@@ -70,7 +70,7 @@ function moduleTitle($module_name, $options) {
     }
 }
 
-function moduleContent($module_name, $options) {
+function moduleContent($module_name, $options, $light = false) {
 	global $member, $me, $is_morning, $is_afternoon, $is_night, $mysqli, $board, $curYear, $curMonth, $curDay;
     switch($module_name) {
         case 'important':
@@ -88,7 +88,8 @@ function moduleContent($module_name, $options) {
             filterContent($dat);
             break;
         case 'article-list':
-            articleList($board->getArticleList(arrayToCategories($options['cat']), false, 0, 0, $options['num']),$options['show-cat'], $options['show-title'], $options['show-name'], $options['show-date']);
+            articleList($board->getArticleList(arrayToCategories($options['cat']), false, 0, 0, $options['num']),
+                        !$light && $options['show-cat'], $options['show-title'], $options['show-name'], !$light && $options['show-date']);
             break;
         case 'gallery':
         case 'birthday':
@@ -271,6 +272,33 @@ function moduleContents($module_name, $options) {
     <?php
 }
 
+function moduleContentsLite($module_name, $options) {
+    ?>
+    <div class="main-block panel panel-<?php echo $options['color'];?>">
+        <div class="main-block-title panel-heading">
+            <div class="btn-group main-block-button-group" role="group">
+                <button class="btn btn-default main-block-button main-block-reload" type="button" style="border-radius: 12px; width: 24px;">
+                    <i class="fa fa-refresh"></i>
+                </button>
+            </div>
+            <div class="main-block-title-content">
+                <?php
+                moduleTitle($module_name, $options);
+                ?>
+            </div>
+        </div>
+
+        <div class="panel-body main-block-body">
+            <div class="main-block-content">
+                <?php
+                moduleContent($module_name, $options, true);
+                ?>
+            </div>
+        </div>
+    </div>
+    <?php
+}
+
 function getModuleShell($module_name, $options, $x = 0, $y = 0, $w = 4, $h = 4) {
     ?>
     <div class="grid-stack-item"
@@ -302,33 +330,6 @@ function getModule($module_name, $options, $x = 0, $y = 0, $w = 4, $h = 4) {
         </div>
     </div>
 <?php
-}
-
-function moduleContentsLite($module_name, $options) {
-    ?>
-    <div class="main-block panel panel-<?php echo $options['color'];?>">
-        <div class="main-block-title panel-heading">
-            <div class="btn-group main-block-button-group" role="group">
-                <button class="btn btn-default main-block-button main-block-reload" type="button" style="border-radius: 12px; width: 24px;">
-                    <i class="fa fa-refresh"></i>
-                </button>
-            </div>
-            <div class="main-block-title-content">
-                <?php
-                moduleTitle($module_name, $options);
-                ?>
-            </div>
-        </div>
-
-        <div class="panel-body main-block-body">
-            <div class="main-block-content">
-                <?php
-                moduleContent($module_name, $options);
-                ?>
-            </div>
-        </div>
-    </div>
-    <?php
 }
 
 function defaultOptions($module_name) {

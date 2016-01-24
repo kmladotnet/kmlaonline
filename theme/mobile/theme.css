@@ -3,27 +3,6 @@
 .no-mobile {
     display: none
 }
-h1, h2, h3, h4, h5, h6, th, strong, b {
-    font-weight: bold
-}
-h1 {
-    font-size: 2em;
-}
-h2 {
-    font-size: 1.5em;
-}
-h3 {
-    font-size: 1.17em;
-}
-h4 {
-    font-size: 1em;
-}
-h5 {
-    font-size: .83em;
-}
-h6 {
-    font-size: .75em;
-}
 p {
     margin: 0;
     padding: 0
@@ -34,8 +13,8 @@ html {
 html, body {
     height: 100%;
     width: 100%;
-    font-family: 'Malgun Gothic', NanumGothic, AppleGothic, Gulim;
-    font-size: 10pt;
+    font-family: "Open Sans", arial, 'Apple SD Gothic Neo', 'Noto Sans Korean', '본고딕', 'KoPubDotum Medium', '나눔바른고딕', '나눔고딕', 'NanumGothic', '맑은고딕', 'Malgun Gothic', sans-serif;
+    font-size: 9pt;
 }
 div, img, body, h1, h2, h3, h4, h5, h6, ul {
     border: 0;
@@ -314,13 +293,6 @@ a, a:link, a:visited {
 }
 a:hover, a:active {
     color: #60A0C0
-}
-body {
-    font-family: 'Malgun Gothic', NanumGothic, AppleGothic, Gulim;
-}
-div#backgrounds {}
-input, button, select {
-    font-family: 'Malgun Gothic';
 }
 .upper-file {
     display: inline-block;
