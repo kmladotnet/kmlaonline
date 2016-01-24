@@ -153,8 +153,8 @@ function printContentMobile(){
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.3/gridstack.min.js"></script>
 
-	<div style="padding:6px; min-height: 400px">
-        <div style="padding: 4px; margin-bottom: 4px;">
+	<div style="padding:6px">
+        <div style="height:40px">
             <?php printEverydayLinks(); ?>
         </div>
 
@@ -196,6 +196,7 @@ JSON
     $(function () {
         var options = {
             cell_height: 64,
+            min_width: 999999,
             vertical_margin: 6
         };
         $('.grid-stack').gridstack(options);
