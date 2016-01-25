@@ -7,7 +7,6 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <base href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/" />
-    <link rel="stylesheet" href="/sass-compiled/screen.css" type="text/css" media="screen" />
 
     <!-- gridstack -->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.3/gridstack.css" />
@@ -45,6 +44,7 @@
     <script src="/js/script.js?v=2.0"></script>
     <link rel="stylesheet" href="/css/lightbox.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="/css/font.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="/sass-compiled/screen.css" type="text/css" media="screen" />
     <title>
         <?php echo htmlspecialchars($title); ?>
     </title>
