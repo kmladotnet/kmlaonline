@@ -21,8 +21,6 @@ $color_spindle_approx: #bed6ea;
 $color_chathams_blue_approx: #15466b;
 $color_cello_85_approx: rgba(30, 57, 89, 0.85);
 $color_milk_punch_approx: #fff3d2;
-$color_chestnut_rose_approx: #d9534f;
-$color_fern_approx: #5cb85c;
 $color_steel_blue_approx: #337ab7;
 $color_pattens_blue_approx: #ddefff;
 $color_jordy_blue_approx: #8cc1fa;
@@ -93,7 +91,7 @@ $url_4: url('/images/logo.png');
 	border-width: 0;
 	opacity: 0;
 	display: none;
-	color: $color_chestnut_rose_approx;
+	color: $brand-warning;
 }
 
 //original selectors
@@ -703,12 +701,12 @@ select {
 	}
 }
 .main-block-reload {
-	color: $color_fern_approx;
+	color: $brand-success;
 	&:hover {
-		color: $color_fern_approx;
+		color: $brand-success;
 	}
 	&:active {
-		color: $color_fern_approx;
+		color: $brand-success;
 	}
 }
 .main-block-options {
