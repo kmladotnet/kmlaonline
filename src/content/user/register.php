@@ -157,7 +157,7 @@ function printContent(){ ?>
                                             ?>
                                         </select>
                                     </div>
-									반: <input class="form-control" type="text" name="s_class" style="width:80px; display:inline-block" <?php echo isset($_POST['s_class'])?"value='".htmlspecialchars($_POST['s_class'])."'":""?> />
+									반: <input class="form-control" type="number" name="s_class" style="width:80px; display:inline-block" <?php echo isset($_POST['s_class'])?"value='".htmlspecialchars($_POST['s_class'])."'":""?> />
 								</td>
 							</tr>
 							<tr>
