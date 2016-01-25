@@ -117,7 +117,7 @@ div#below-header-menu {
 }
 div#total-header {
     height: 160px;
-    background: url('logo.png') no-repeat;
+    background: url('/images/big-logo.png') no-repeat;
 }
 div#total-header #userarea {
     width: 222px;
@@ -392,13 +392,13 @@ div#total-wrap {
     min-height: 100%;
 }
 div.total-header-extend-1 {
-    background: url('dasan-extend.jpg') #bed6ea repeat-x center bottom;
+    background: url('/images/dasan-extend.jpg') #bed6ea repeat-x center bottom;
 }
 div.total-header-extend-2 {
-    background: url('dasan.png') no-repeat center bottom;
+    background: url('/images/dasan.png') no-repeat center bottom;
 }
 div#total-header #userarea {
-    /*	background: url('menubar-panel.png') #0b2d50;	old*/
+    /*	background: url('/images/menubar-panel.png') #0b2d50;	old*/
     background: rgb(21, 70, 107);
     color: white;
 }
@@ -412,11 +412,11 @@ div#total-header #userarea #status_message_edit {
     color: black;
 }
 div#total-header #back-to-main {
-    /* background: url('./logo.png') no-repeat; */
+    /* background: url('/images/logo.png') no-repeat; */
 }
 div#total-header-menu, div.total-header-menu-extend {
     background: rgb(21, 70, 107);
-    /* menubar-base.backup.png for original background */
+    /* /images/menubar-base.backup.png for original background */
 }
 div#total-header-menu .menu1 {
     color: rgba(255, 255, 255, 0.8);
@@ -515,12 +515,6 @@ a.everyday-button {
 }
 .userinfo_border {
     border: 1px solid #EEE;
-}
-span.sitemap-icon {
-    width: 90px;
-    height: 90px;
-    display: inline-block;
-    background: url('./sitemap.png');
 }
 .contact-finder a.wavebutton:hover {
     background: #ddefff;
