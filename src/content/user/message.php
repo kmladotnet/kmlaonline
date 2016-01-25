@@ -49,7 +49,7 @@ function printContent(){
 						<div style="clear:both"></div>
 						<input type="submit" name="cmd_write" value="보내기" style="float:right;width:80px;height:32px;" />
 						<div style="clear:right"></div>
-						<table class="notableborder" style="margin-top:8px;">
+						<table style="margin-top:8px;">
 							<tr>
 								<td style="width:140px;vertical-align:top;text-align:center;">
 									<b>보낼 대상</b>

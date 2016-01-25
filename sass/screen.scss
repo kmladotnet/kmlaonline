@@ -201,62 +201,6 @@ table {
 		}
 	}
 }
-.notableborder {
-	table {
-		@extend %extend_2;
-	}
-	tr {
-		@extend %extend_2;
-	}
-	td {
-		@extend %extend_2;
-	}
-	th {
-		@extend %extend_2;
-	}
-	thead {
-		@extend %extend_2;
-	}
-	tbody {
-		@extend %extend_2;
-	}
-}
-.notableborder-direct {
-	@extend %extend_3;
-	> thead {
-		@extend %extend_3;
-		> tr {
-			@extend %extend_3;
-			> td {
-				@extend %extend_3;
-			}
-			> th {
-				@extend %extend_3;
-			}
-		}
-	}
-	> tbody {
-		@extend %extend_3;
-		> tr {
-			@extend %extend_3;
-			> td {
-				@extend %extend_3;
-			}
-			> th {
-				@extend %extend_3;
-			}
-		}
-	}
-	> tr {
-		@extend %extend_3;
-		> td {
-			@extend %extend_3;
-		}
-		> th {
-			@extend %extend_3;
-		}
-	}
-}
 div {
 	&#divSavingIndicatorFiller {
 		position: absolute;

@@ -29,7 +29,7 @@ function printContent(){
 	?>
 	<h1 style="padding:9px">설문 만들기</h1>
 	<form action="/proc/util/create-survey" method="post" onsubmit="return saveAjax(this,'생성 중...',null,survey_gotData);">
-		<table class="notableborder-direct" style="width:100%">
+		<table style="width:100%">
 			<tr>
 				<th style="width:120px;">설문 이름</th>
 				<td>

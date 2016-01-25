@@ -65,7 +65,7 @@ function printContent(){
 			<a style='font-weight:bold;<?php if($mode=="normal") echo "color:black;"; ?>' href="/util/schedule?mode=normal&amp;year=<?php echo $curYear?>&amp;month=<?php echo $curMonth?>">일정 보기</a>
 		</div>
 		<br />
-		<table class="notableborder" id="calender">
+		<table id="calender">
 			<thead>
 				<tr>
 					<th>일요일</th>

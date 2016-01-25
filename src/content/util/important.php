@@ -9,7 +9,7 @@ function printContentPartially($res){
 	$permission_to_edit=isUserPermitted($me['n_id'], "important_article_chooser");
 	$prc=0;
 	?>
-	<table style="width:100%" id="important_notices_table" class="notableborder">
+	<table style="width:100%" id="important_notices_table">
 		<thead><tr style="background:#EEE;height:32px;"><th style="width:64px;text-align:center;">상태</th><th style="width:100px;text-align:center;">게시판</th><th>제목</th><th style="width:120px;">글쓴이</th><th style="width:80px;">날짜</th><th style="width:120px;">필공 요청자</th><th style="width:80px;">등록 날짜</th></tr></thead>
 		<tbody>
 			<?php while ($row = $res->fetch_array(MYSQLI_ASSOC)){

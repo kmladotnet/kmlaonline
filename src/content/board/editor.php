@@ -66,7 +66,7 @@ function putEditorForm($form_action, $prev_info, $comment_mode=false){
 			<div style="display:block;margin-right:6px;">
 				<div style="display:block;margin-right:4px;">
 					<?php if(!$is_mobile){ ?>
-						<table class="notableborder" style="width:100%">
+						<table style="width:100%">
 							<tr style="height:32px;">
 								<th style="width:80px;"><?php if(!$comment_mode){ ?>게시판<?php } ?></th>
 								<td>

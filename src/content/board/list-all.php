@@ -2,7 +2,7 @@
 function printArticleListTypeBoard($board_data, $additional_query_string){
 	global $board, $member;
 	?>
-	<table class="notableborder" style="width:100%">
+	<table style="width:100%">
 		<thead>
 			<tr style="height:32px;">
 				<th class="no-mobile" style="width:48px;">번호</th>

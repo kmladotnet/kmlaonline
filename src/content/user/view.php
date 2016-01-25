@@ -63,7 +63,7 @@ function printContent(){
 				<?php echo htmlspecialchars($user_to['s_status_message']) ?>
 			</div>
 		</div>
-		<div class="user_info notableborder">
+		<div class="user_info">
 			<table class="userinfo_table">
 				<tr>
 					<th>생일</th>

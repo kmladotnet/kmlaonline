@@ -23,7 +23,7 @@ function printContent(){ ?>
                     <div class="help-block with-errors"></div>
                 </div>
 			</div>
-			<table style="margin:20px auto;width:800px;" class="notableborder">
+			<table style="margin:20px auto;width:800px;">
 				<tr>
 					<th style="width:400px;"><h2><?php echo lang("user","register","required"); ?></h2></th>
 					<th style="width:20px;"></th>
