@@ -12,18 +12,18 @@ $white_80: rgba(255, 255, 255, 0.8);
 $gray: #808080;
 $black: #000;
 $white: #fff;
-$color_alto_approx: #ddd;
-$color_gallery_approx: #eee;
-$color_celeste_approx: #ccc;
-$color_cream_approx: #ffc;
-$color_hawkes_blue_approx: #ddf;
-$color_titan_white_approx: #eef;
-$color_alabaster_approx: #fcfcfc;
-$kmla_header_extend_color: #bed6ea;
-$kmla_menu_color: #15466b;
-$kmla_footer_color: #fff3d2;
-$color_pattens_blue_approx: #ddefff;
-$color_jordy_blue_approx: #8cc1fa;
+$light-gray: #ccc;
+$very-light-gray: #ddd;
+$very-very-light-gray: #eee;
+$extremely-light-gray: #fcfcfc;
+$cream-color: #ffc;
+$kmla-notification-new-color: #ddf;
+$kmla-notification-hover-color: #eef;
+$kmla-header-extend-color: #bed6ea;
+$kmla-menu-color: #15466b;
+$kmla-footer-color: #fff3d2;
+$kmla-wave-button-hover-color: #ddefff;
+$kmla-profile-nav-color: #8cc1fa;
 
 //fonts
 $font_0: 'Open Sans';
@@ -54,24 +54,6 @@ $url_4: url('/images/logo.png');
 	width: 100%;
 	font-family: $font_0, $font_1, $font_2, $font_3, $font_4, $font_5, $font_6, $font_7, $font_8, $font_9, $font_10, $font_11;
 	line-height: 1.5em;
-}
-
-//original selectors
-//table.notableborder, .notableborder table, .notableborder tr, .notableborder td, .notableborder th, .notableborder thead, .notableborder tbody
-%extend_2 {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	border-spacing: 0;
-}
-
-//original selectors
-//table.notableborder-direct, .notableborder-direct, .notableborder-direct >thead >tr, .notableborder-direct >thead >tr >td, .notableborder-direct >thead >tr >th, .notableborder-direct >tbody >tr, .notableborder-direct >tbody >tr >td, .notableborder-direct >tbody >tr >th, .notableborder-direct >tr, .notableborder-direct >tr >td, .notableborder-direct >tr >th, .notableborder-direct >thead, .notableborder-direct >tbody
-%extend_3 {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	border-spacing: 0;
 }
 
 //original selectors
@@ -120,8 +102,6 @@ $url_4: url('/images/logo.png');
 	margin-left: -1px;
 }
 
-
-@charset "utf-8";
 html {
 	overflow-y: scroll;
 	@extend %extend_1;
@@ -151,14 +131,14 @@ a {
 		color: $black;
 	}
 	&.block {
-		background: $color_alabaster_approx;
+		background: $extremely-light-gray;
 		display: block;
 		text-align: center;
 		&:hover {
 			background: $white;
 		}
 		&:active {
-			background: $color_gallery_approx;
+			background: $very-very-light-gray;
 		}
 	}
 }
@@ -171,12 +151,6 @@ input {
 	margin: 0;
 }
 table {
-	&.notableborder {
-		@extend %extend_2;
-	}
-	&.notableborder-direct {
-		@extend %extend_3;
-	}
 	&.table_info_view {
 		border-spacing: 0;
 		border-color: 1px none $gray;
@@ -258,7 +232,7 @@ div {
 	&#total-header-menu {
 		height: 40px;
 		display: block;
-		background: $kmla_menu_color;
+		background: $kmla-menu-color;
 		.button {
 			width: 40px;
 			height: 40px;
@@ -299,7 +273,7 @@ div {
 			line-height: 40px;
 			text-align: center;
 			overflow: hidden;
-			background: $kmla_menu_color;
+			background: $kmla-menu-color;
 			//Instead of the line below you could use @include border-bottom-left-radius($radius)
 			border-bottom-left-radius: 5px;
 			//Instead of the line below you could use @include border-bottom-right-radius($radius)
@@ -376,7 +350,7 @@ div {
 			border-bottom-right-radius: 10px;
 			//Instead of the line below you could use @include border-bottom-left-radius($radius)
 			border-bottom-left-radius: 10px;
-			background: $kmla_menu_color;
+			background: $kmla-menu-color;
 			color: $white;
 			.login_input {
 				width: 95%;
@@ -412,7 +386,7 @@ div {
 	&.tab_global_wrap {
 		margin: 12px;
 		padding: 8px;
-		background: $color_alto_approx;
+		background: $very-light-gray;
 		display: block;
 		position: relative;
 	}
@@ -438,14 +412,14 @@ div {
 				a {
 					display: block;
 					padding: 7px;
-					background: $color_gallery_approx;
+					background: $very-very-light-gray;
 					color: $black;
 					&.tab_menu_selected {
 						background: $white;
 						font-weight: bold;
 					}
 					&:hover {
-						background: $color_celeste_approx;
+						background: $light-gray;
 					}
 				}
 			}
@@ -468,20 +442,20 @@ div {
 	&.changeinfo_information {
 		margin-top: 5px;
 		padding: 3px;
-		background: $color_cream_approx;
+		background: $cream-color;
 		border: 1px solid $gray;
 	}
 	&.ajax-holder {
 		display: none;
 	}
 	&.total-header-extend-1 {
-		background: $url_1 $kmla_header_extend_color repeat-x center bottom;
+		background: $url_1 $kmla-header-extend-color repeat-x center bottom;
 	}
 	&.total-header-extend-2 {
 		background: $url_2 no-repeat center bottom;
 	}
 	&.total-header-menu-extend {
-		background: $kmla_menu_color;
+		background: $kmla-menu-color;
 	}
 	&#upper-header-holder {
 		cursor: hand;
@@ -556,7 +530,7 @@ div {
 			text-align: center;
 		}
 		tr:hover {
-			background: $color_alabaster_approx;
+			background: $extremely-light-gray;
 		}
 	}
 	a.wavebutton {
@@ -565,7 +539,7 @@ div {
 		color: $black;
 		background: $white;
 		&:hover {
-			background: $color_pattens_blue_approx;
+			background: $kmla-wave-button-hover-color;
 		}
 	}
 }
@@ -595,7 +569,7 @@ select {
 	background: $white;
 }
 #total-footer {
-	background: $kmla_footer_color;
+	background: $kmla-footer-color;
 	padding: 32px;
 }
 .main-block {
@@ -666,11 +640,11 @@ select {
 	border: 1px solid $gray;
 }
 .userinfo_border {
-	border: 1px solid $color_gallery_approx;
+	border: 1px solid $very-very-light-gray;
 }
 #profile_nav {
 	font-weight: bold;
-	color: $color_jordy_blue_approx;
+	color: $kmla-profile-nav-color;
 }
 #nav_everyday {
 	color: $gray;
@@ -696,10 +670,10 @@ ul#top_notification_list {
 	li {
 		display: block;
 		&.new {
-			background: $color_hawkes_blue_approx;
+			background: $kmla-notification-new-color;
 		}
 		&:hover {
-			background: $color_titan_white_approx;
+			background: $kmla-notification-hover-color;
 		}
 		a {
 			height: 100%;
