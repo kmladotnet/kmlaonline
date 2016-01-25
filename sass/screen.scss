@@ -19,11 +19,9 @@ $color_cream_approx: #ffc;
 $color_hawkes_blue_approx: #ddf;
 $color_titan_white_approx: #eef;
 $color_alabaster_approx: #fcfcfc;
-$color_spindle_approx: #bed6ea;
-$color_chathams_blue_approx: #15466b;
-$color_cello_85_approx: rgba(30, 57, 89, 0.85);
-$color_milk_punch_approx: #fff3d2;
-$color_steel_blue_approx: #337ab7;
+$kmla_header_extend_color: #bed6ea;
+$kmla_menu_color: #15466b;
+$kmla_footer_color: #fff3d2;
 $color_pattens_blue_approx: #ddefff;
 $color_jordy_blue_approx: #8cc1fa;
 
@@ -103,7 +101,7 @@ $url_4: url('/images/logo.png');
 	border-width: 0;
 	opacity: 0;
 	display: none;
-	color: $color_steel_blue_approx;
+	color: $brand-info;
 }
 
 //original selectors
@@ -316,7 +314,7 @@ div {
 	&#total-header-menu {
 		height: 40px;
 		display: block;
-		background: $color_chathams_blue_approx;
+		background: $kmla_menu_color;
 		.button {
 			width: 40px;
 			height: 40px;
@@ -357,7 +355,7 @@ div {
 			line-height: 40px;
 			text-align: center;
 			overflow: hidden;
-			background: $color_cello_85_approx;
+			background: $kmla_menu_color;
 			//Instead of the line below you could use @include border-bottom-left-radius($radius)
 			border-bottom-left-radius: 5px;
 			//Instead of the line below you could use @include border-bottom-right-radius($radius)
@@ -434,7 +432,7 @@ div {
 			border-bottom-right-radius: 10px;
 			//Instead of the line below you could use @include border-bottom-left-radius($radius)
 			border-bottom-left-radius: 10px;
-			background: $color_chathams_blue_approx;
+			background: $kmla_menu_color;
 			color: $white;
 			.login_input {
 				width: 95%;
@@ -533,13 +531,13 @@ div {
 		display: none;
 	}
 	&.total-header-extend-1 {
-		background: $url_1 $color_spindle_approx repeat-x center bottom;
+		background: $url_1 $kmla_header_extend_color repeat-x center bottom;
 	}
 	&.total-header-extend-2 {
 		background: $url_2 no-repeat center bottom;
 	}
 	&.total-header-menu-extend {
-		background: $color_chathams_blue_approx;
+		background: $kmla_menu_color;
 	}
 	&#upper-header-holder {
 		cursor: hand;
@@ -653,7 +651,7 @@ select {
 	background: $white;
 }
 #total-footer {
-	background: $color_milk_punch_approx;
+	background: $kmla_footer_color;
 	padding: 32px;
 }
 .main-block {

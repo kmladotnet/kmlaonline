@@ -1,9 +1,6 @@
 RewriteEngine On
 
 # [QCA] : Pass Query String
-<Files theme.css>
-AddType application/x-httpd-php .css
-</Files>
 
 RewriteRule ^check$ process.php?actiontype=check [QSA,L]
 
