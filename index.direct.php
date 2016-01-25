@@ -7,6 +7,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <base href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/" />
+    <link rel="stylesheet" href="/sass-compiled/screen.css" type="text/css" media="screen" />
 
     <!-- gridstack -->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.3/gridstack.css" />
@@ -18,10 +19,6 @@
     <!-- velocity -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.ui.min.js"></script>
-
-    <!-- bootstrap -->
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
     <!-- fontawesome -->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" />
@@ -52,7 +49,6 @@
         <?php echo htmlspecialchars($title); ?>
     </title>
 
-    <link rel="stylesheet" href="/sass-compiled/screen.css" type="text/css" media="screen" />
     <?php
 	if(function_exists("printHead")) printHead();
 	if(file_exists("css/content/$fn.css")) echo "<link class='page-specific-css' rel='stylesheet' href='/css/content/$fn.css' />";
