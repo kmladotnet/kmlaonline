@@ -68,7 +68,7 @@ function printContent(){
 			</div>
 			<div class="main-block panel panel-default" style="margin-top:20px;height:auto;position:relative;">
 				<div class="main-block-title panel-heading" style="text-align:left">
-					<div style="display:block;background:url('/theme/dev/food.png') no-repeat 0px 6px; background-size: 32px;padding-left:36px;">
+					<div style="display:block;background:url('/images/food.png') no-repeat 0px 6px; background-size: 32px;padding-left:36px;">
 						식단
 					</div>
 				</div>
