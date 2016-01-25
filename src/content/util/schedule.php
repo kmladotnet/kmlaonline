@@ -47,11 +47,11 @@ function printContent(){
 	</div>
 	<div class="schedule-content">
 		<?php if($mode=='food:0'){ ?>
-			<h1 style="text-align:center;"><img src="/theme/dev/food.png" style="width:64px;vertical-align:bottom;" /> <?php echo "{$curYear}년 {$curMonth}월 아침식단" ?></h1>
+			<h1 style="text-align:center;"><img src="/images/food.png" style="width:64px;vertical-align:bottom;" /> <?php echo "{$curYear}년 {$curMonth}월 아침식단" ?></h1>
 		<?php }else if($mode=="food:1"){ ?>
-			<h1 style="text-align:center;"><img src="/theme/dev/food.png" style="width:64px;vertical-align:bottom;" /> <?php echo "{$curYear}년 {$curMonth}월 점심식단" ?></h1>
+			<h1 style="text-align:center;"><img src="/images/food.png" style="width:64px;vertical-align:bottom;" /> <?php echo "{$curYear}년 {$curMonth}월 점심식단" ?></h1>
 		<?php }else if($mode=="food:2"){ ?>
-			<h1 style="text-align:center;"><img src="/theme/dev/food.png" style="width:64px;vertical-align:bottom;" /> <?php echo "{$curYear}년 {$curMonth}월 저녁식단" ?></h1>
+			<h1 style="text-align:center;"><img src="/images/food.png" style="width:64px;vertical-align:bottom;" /> <?php echo "{$curYear}년 {$curMonth}월 저녁식단" ?></h1>
 		<?php }else{ ?>
 			<h1 style="text-align:center"><?php echo "{$curYear}년 {$curMonth}월 일정" ?></h1>
 		<?php } ?>
