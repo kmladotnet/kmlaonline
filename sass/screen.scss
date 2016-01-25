@@ -4,3 +4,784 @@
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
 @import "compass/reset";
+
+//colors
+$white_80: rgba(255, 255, 255, 0.8);
+$gray: #808080;
+$black: #000;
+$white: #fff;
+$color_alto_approx: #ddd;
+$color_gallery_approx: #eee;
+$color_celeste_approx: #ccc;
+$color_cream_approx: #ffc;
+$color_hawkes_blue_approx: #ddf;
+$color_titan_white_approx: #eef;
+$color_alabaster_approx: #fcfcfc;
+$color_spindle_approx: #bed6ea;
+$color_chathams_blue_approx: #15466b;
+$color_cello_85_approx: rgba(30, 57, 89, 0.85);
+$color_milk_punch_approx: #fff3d2;
+$color_chestnut_rose_approx: #d9534f;
+$color_fern_approx: #5cb85c;
+$color_steel_blue_approx: #337ab7;
+$color_pattens_blue_approx: #ddefff;
+$color_jordy_blue_approx: #8cc1fa;
+
+//fonts
+$font_0: 'Open Sans';
+$font_1: 'arial';
+$font_2: 'Apple SD Gothic Neo';
+$font_3: 'Noto Sans Korean';
+$font_4: '본고딕';
+$font_5: 'KoPubDotum Medium';
+$font_6: '나눔바른고딕';
+$font_7: '나눔고딕';
+$font_8: 'NanumGothic';
+$font_9: '맑은고딕';
+$font_10: 'Malgun Gothic';
+$font_11: 'sans-serif';
+
+//urls
+$url_0: url('/images/big-logo.png');
+$url_1: url('/images/dasan-extend.jpg');
+$url_2: url('/images/dasan.png');
+$url_3: url('/images/menubar-panel.png');
+$url_4: url('/images/logo.png');
+
+//@extend-elements
+//original selectors
+//html, body
+%extend_1 {
+	height: 100%;
+	width: 100%;
+	font-family: $font_0, $font_1, $font_2, $font_3, $font_4, $font_5, $font_6, $font_7, $font_8, $font_9, $font_10, $font_11;
+	line-height: 1.5em;
+}
+
+//original selectors
+//table.notableborder, .notableborder table, .notableborder tr, .notableborder td, .notableborder th, .notableborder thead, .notableborder tbody
+%extend_2 {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	border-spacing: 0;
+}
+
+//original selectors
+//table.notableborder-direct, .notableborder-direct, .notableborder-direct >thead >tr, .notableborder-direct >thead >tr >td, .notableborder-direct >thead >tr >th, .notableborder-direct >tbody >tr, .notableborder-direct >tbody >tr >td, .notableborder-direct >tbody >tr >th, .notableborder-direct >tr, .notableborder-direct >tr >td, .notableborder-direct >tr >th, .notableborder-direct >thead, .notableborder-direct >tbody
+%extend_3 {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	border-spacing: 0;
+}
+
+//original selectors
+//div#total-header #userarea #status_message, div#total-header #userarea #status_message_edit
+%extend_4 {
+	display: block;
+	height: 16px;
+	overflow: hidden;
+	font-size: 12pt;
+	padding: 1px 0;
+}
+
+//original selectors
+//.main-block-close, .main-block-close:hover, .main-block-close:active
+%extend_5 {
+	width: 0;
+	border-width: 0;
+	opacity: 0;
+	display: none;
+	color: $color_chestnut_rose_approx;
+}
+
+//original selectors
+//.main-block-options, .main-block-options:hover, .main-block-options:active
+%extend_6 {
+	width: 0;
+	border-width: 0;
+	opacity: 0;
+	display: none;
+	color: $color_steel_blue_approx;
+}
+
+//original selectors
+//.grid-stack .grid-stack-item .grid-stack-item-content, .grid-stack .grid-stack-item .placeholder-content
+%extend_7 {
+	left: 3px;
+	right: 3px;
+	overflow: hidden;
+}
+
+//original selectors
+//.btn-group .bootstrap-select.btn-group:not(.input-group-btn), .btn-group .bootstrap-select.btn-group[class*="col-"]
+%extend_8 {
+	float: left;
+	display: inline-block;
+	margin-left: -1px;
+}
+
+
+@charset utf-8;
+html {
+	overflow-y: scroll;
+	@extend %extend_1;
+}
+body {
+	@extend %extend_1;
+	&.cke_contents_ltr {
+		margin: 5px;
+		width: auto;
+		height: auto;
+	}
+}
+.circle {
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 100%;
+}
+.anonymous-bubble {
+	color: $white_80;
+	font-size: xx-large;
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+}
+a {
+	cursor: pointer;
+	&.everyday-button {
+		color: $black;
+	}
+	&.block {
+		background: $color_alabaster_approx;
+		display: block;
+		text-align: center;
+		&:hover {
+			background: $white;
+		}
+		&:active {
+			background: $color_gallery_approx;
+		}
+	}
+}
+blockquote {
+	border: 1px solid $gray;
+	margin: 3px;
+	padding: 3px;
+}
+input {
+	margin: 0;
+}
+table {
+	&.notableborder {
+		@extend %extend_2;
+	}
+	&.notableborder-direct {
+		@extend %extend_3;
+	}
+	&.table_info_view {
+		border-spacing: 0;
+		border-color: 1px none $gray;
+		border-collapse: collapse;
+		width: 100%;
+		th {
+			border: 1px inset $gray;
+			padding: 5px;
+			width: 200px;
+			text-align: right;
+			vertical-align: top;
+		}
+		td {
+			padding: 5px;
+			border: 1px inset $gray;
+			input[type="text"] {
+				width: 320px;
+			}
+			input[type="password"] {
+				width: 320px;
+			}
+		}
+	}
+}
+.notableborder {
+	table {
+		@extend %extend_2;
+	}
+	tr {
+		@extend %extend_2;
+	}
+	td {
+		@extend %extend_2;
+	}
+	th {
+		@extend %extend_2;
+	}
+	thead {
+		@extend %extend_2;
+	}
+	tbody {
+		@extend %extend_2;
+	}
+}
+.notableborder-direct {
+	@extend %extend_3;
+	> thead {
+		@extend %extend_3;
+		> tr {
+			@extend %extend_3;
+			> td {
+				@extend %extend_3;
+			}
+			> th {
+				@extend %extend_3;
+			}
+		}
+	}
+	> tbody {
+		@extend %extend_3;
+		> tr {
+			@extend %extend_3;
+			> td {
+				@extend %extend_3;
+			}
+			> th {
+				@extend %extend_3;
+			}
+		}
+	}
+	> tr {
+		@extend %extend_3;
+		> td {
+			@extend %extend_3;
+		}
+		> th {
+			@extend %extend_3;
+		}
+	}
+}
+div {
+	&#divSavingIndicatorFiller {
+		position: absolute;
+		width: 100%;
+		left: 0;
+		top: 0;
+		display: none;
+		background: $black;
+		z-index: 3;
+		opacity: 0.70;
+	}
+	&#divSavingIndicator {
+		position: absolute;
+		width: 100%;
+		left: 0;
+		top: 0;
+		display: none;
+		z-index: 4;
+	}
+	&#divSavingIndicatorInformation {
+		position: fixed;
+		width: 480px;
+		margin-left: -240px;
+		left: 50%;
+		top: 128px;
+		font-size: 24pt;
+		background: $white;
+		color: $black;
+		text-align: center;
+		padding-top: 24px;
+		padding-bottom: 24px;
+		padding-left: 36px;
+		padding-right: 36px;
+	}
+	&#total-wrap {
+		width: calc(55% +300px);
+		max-width: 100%;
+		font-size: 11pt;
+		margin: 0 auto;
+		min-height: 100%;
+	}
+	&#upper-header-menu {
+		display: block;
+		overflow: hidden;
+		height: 0;
+		opacity: 0.7;
+		position: relative;
+		background: $white;
+	}
+	&#total-header-menu-outer {
+		position: fixed;
+		z-index: 999;
+		width: inherit;
+	}
+	&#total-header-menu {
+		height: 40px;
+		display: block;
+		background: $color_chathams_blue_approx;
+		.button {
+			width: 40px;
+			height: 40px;
+			display: block;
+			float: right;
+			text-align: center;
+		}
+		.menu1 {
+			display: block;
+			float: left;
+			width: 80px;
+			height: 40px;
+			text-align: center;
+			line-height: 40px;
+			overflow: hidden;
+			position: relative;
+			color: $white_80;
+			text-decoration: none;
+			cursor: hand;
+			font-weight: bold;
+			.widthholder {
+				width: 80px;
+				overflow: hidden;
+			}
+			&:hover {
+				color: $white;
+			}
+		}
+		.menu1_text {
+			width: 80px;
+			float: left;
+			position: relative;
+		}
+		.menu1_sub {
+			display: block;
+			float: left;
+			height: auto;
+			line-height: 40px;
+			text-align: center;
+			overflow: hidden;
+			background: $color_cello_85_approx;
+			//Instead of the line below you could use @include border-bottom-left-radius($radius)
+			border-bottom-left-radius: 5px;
+			//Instead of the line below you could use @include border-bottom-right-radius($radius)
+			border-bottom-right-radius: 5px;
+		}
+		.slidedown_holder {
+			position: relative;
+			z-index: 5;
+		}
+		.slidedown_button {
+			color: $white_80;
+			cursor: pointer;
+			font-size: 24px;
+			padding: 6px;
+			background: transparent;
+			&:hover {
+				color: $white;
+			}
+		}
+		.slidedown_button_pressed {
+			color: $black;
+			background-color: $white;
+			&:hover {
+				color: $black;
+			}
+		}
+		.slidedown {
+			//Instead of the line below you could use @include border-bottom-left-radius($radius)
+			border-bottom-left-radius: 5px;
+			//Instead of the line below you could use @include border-bottom-right-radius($radius)
+			border-bottom-right-radius: 5px;
+			position: absolute;
+			z-index: 2;
+			right: 0;
+			top: 40px;
+			width: 280px;
+			//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+			box-shadow: 0 4px 10px -4px $gray;
+			background: $white;
+			display: none;
+		}
+		.menu2 {
+			color: $white_80;
+			text-decoration: none;
+			&:hover {
+				color: $white;
+				font-weight: bold;
+			}
+		}
+		a.menu2 {
+			display: block;
+			float: left;
+			width: 80px;
+			height: 40px;
+			z-index: 999999;
+			text-align: center;
+			line-height: 40px;
+		}
+	}
+	&#below-header-menu {
+		overflow: hidden;
+		top: 40px;
+		position: relative;
+	}
+	&#total-header {
+		height: 160px;
+		background: $url_0 no-repeat;
+		#userarea {
+			width: 222px;
+			height: 124px;
+			padding: 3px;
+			float: right;
+			//Instead of the line below you could use @include border-bottom-right-radius($radius)
+			border-bottom-right-radius: 10px;
+			//Instead of the line below you could use @include border-bottom-left-radius($radius)
+			border-bottom-left-radius: 10px;
+			background: $color_chathams_blue_approx;
+			color: $white;
+			.login_input {
+				width: 95%;
+			}
+			#status_message {
+				@extend %extend_4;
+				padding-top: 7px;
+				padding-left: 2px;
+				width: 221px;
+				text-align: center;
+				color: $white;
+			}
+			#status_message_edit {
+				@extend %extend_4;
+				border: 1px solid $gray;
+				padding-left: 2px;
+				width: 218px;
+				color: $black;
+			}
+		}
+		#back-to-main {
+		}
+	}
+	&#total-content {
+		clear: both;
+	}
+	&#total-footer {
+		clear: both;
+		text-align: center;
+		position: relative;
+		top: 40px;
+	}
+	&.tab_global_wrap {
+		margin: 12px;
+		padding: 8px;
+		background: $color_alto_approx;
+		display: block;
+		position: relative;
+	}
+	&.what_to_do {
+		position: absolute;
+		bottom: 8px;
+		left: 8px;
+		width: 150px;
+	}
+	&.tab_menu {
+		display: block;
+		float: left;
+		width: 160px;
+		ul {
+			width: 100%;
+			margin-left: 0;
+			padding-left: 0;
+			list-style: none outside none;
+			li {
+				margin: 0;
+				padding: 0;
+				border: 0;
+				a {
+					display: block;
+					padding: 7px;
+					background: $color_gallery_approx;
+					color: $black;
+					&.tab_menu_selected {
+						background: $white;
+						font-weight: bold;
+					}
+					&:hover {
+						background: $color_celeste_approx;
+					}
+				}
+			}
+		}
+	}
+	&.tab_wrap {
+		margin-left: 160px;
+		overflow: hidden;
+	}
+	&.tab_menu_content {
+		display: block;
+		margin: 0;
+		padding: 0;
+	}
+	&.tab_menu_items {
+		display: none;
+		background: $white;
+		padding: 5px;
+	}
+	&.changeinfo_information {
+		margin-top: 5px;
+		padding: 3px;
+		background: $color_cream_approx;
+		border: 1px solid $gray;
+	}
+	&.ajax-holder {
+		display: none;
+	}
+	&.total-header-extend-1 {
+		background: $url_1 $color_spindle_approx repeat-x center bottom;
+	}
+	&.total-header-extend-2 {
+		background: $url_2 no-repeat center bottom;
+	}
+	&.total-header-menu-extend {
+		background: $color_chathams_blue_approx;
+	}
+	&#upper-header-holder {
+		cursor: hand;
+	}
+	&.hide-on-upper-panel {
+		z-index: 1;
+		position: fixed;
+	}
+	&.food {
+		padding: 5px;
+		float: left;
+		width: 33%;
+	}
+	&.food-header {
+		font-weight: bold;
+	}
+	&.weather {
+		text-align: center;
+	}
+	&.weather-temp {
+		font-size: 25pt;
+		margin: 10px 0;
+	}
+	&.weather-name {
+		font-size: 20pt;
+		margin: 6px 0;
+	}
+	&.weather-copyright {
+		bottom: 0;
+		position: absolute;
+		font-size: 8pt;
+		width: 100%;
+		margin: 0 -10px;
+	}
+	&.everyday-links {
+		float: right;
+	}
+	&.article-list-item {
+		position: absolute;
+		text-overflow: ellipsis;
+		max-width: 100%;
+		white-space: nowrap;
+		overflow: hidden;
+	}
+	&.minjok-news {
+		overflow: hidden;
+		margin-bottom: 0;
+		white-space: nowrap;
+		line-height: 2em;
+	}
+}
+.__hide_contents_link_change {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	opacity: 0;
+	background: $white;
+}
+.userarea-image {
+	width: 80px;
+	height: 80px;
+	margin-left: 20px;
+	margin-top: 10px;
+}
+.contact-finder {
+	#contact_list tbody {
+		td {
+			padding: 3px;
+			text-align: center;
+		}
+		tr:hover {
+			background: $color_alabaster_approx;
+		}
+	}
+	a.wavebutton {
+		display: inline-block;
+		padding: 5px;
+		color: $black;
+		background: $white;
+		&:hover {
+			background: $color_pattens_blue_approx;
+		}
+	}
+}
+.upper-file {
+	display: inline-block;
+	margin: 0;
+	padding: 3px 16px;
+	text-align: center;
+	position: relative;
+	overflow: hidden;
+	input[type=file] {
+		position: absolute;
+		top: 0;
+		right: 0;
+		margin: 0;
+		border: solid transparent;
+		border-width: 0 0 100px 200px;
+		opacity: 0;
+		direction: ltr;
+		cursor: default;
+	}
+}
+select {
+	margin: 6px 0;
+}
+#total-content {
+	background: $white;
+}
+#total-footer {
+	background: $color_milk_punch_approx;
+	padding: 32px;
+}
+.main-block {
+	display: block;
+	height: 100%;
+	//Instead of the line below you could use @include box-sizing($bs)
+	box-sizing: border-box;
+}
+.main-block-title {
+	font-size: 15pt;
+	font-weight: bold;
+	height: 42px;
+	padding: 9px;
+	text-align: left;
+	white-space: nowrap;
+}
+.main-block-title-content {
+	overflow: hidden;
+}
+.main-block-body {
+	padding: 10px;
+	height: calc(100% - 42px);
+	overflow: auto;
+}
+.main-block-options-pane {
+	display: none;
+}
+.main-block-button-group {
+	float: right;
+}
+.main-block-button {
+	margin: 0;
+	padding: 0;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 12px;
+	width: 28px;
+	height: 24px;
+	font-size: 11pt;
+}
+.main-block-close {
+	@extend %extend_5;
+	&:hover {
+		@extend %extend_5;
+	}
+	&:active {
+		@extend %extend_5;
+	}
+}
+.main-block-reload {
+	color: $color_fern_approx;
+	&:hover {
+		color: $color_fern_approx;
+	}
+	&:active {
+		color: $color_fern_approx;
+	}
+}
+.main-block-options {
+	@extend %extend_6;
+	&:hover {
+		@extend %extend_6;
+	}
+	&:active {
+		@extend %extend_6;
+	}
+}
+.main-block-old {
+	border: 1px solid $gray;
+}
+.userinfo_border {
+	border: 1px solid $color_gallery_approx;
+}
+#profile_nav {
+	font-weight: bold;
+	color: $color_jordy_blue_approx;
+}
+#nav_everyday {
+	color: $gray;
+}
+#login_title {
+	margin-bottom: 20px;
+}
+#menu_img {
+	padding-left: 10px;
+	width: 40px;
+}
+#downform_login {
+	z-index: 999999999999;
+	position: relative;
+	left: calc(50% - 130px);
+	width: 260px;
+}
+ul#top_notification_list {
+	display: block;
+	width: 100%;
+	max-height: 240px;
+	overflow: auto;
+	li {
+		display: block;
+		&.new {
+			background: $color_hawkes_blue_approx;
+		}
+		&:hover {
+			background: $color_titan_white_approx;
+		}
+		a {
+			height: 100%;
+			color: $black;
+			display: block;
+			padding: 10px;
+			//Instead of the line below you could use @include box-sizing($bs)
+			box-sizing: ;
+		}
+	}
+}
+.grid-stack .grid-stack-item {
+	.grid-stack-item-content {
+		@extend %extend_7;
+	}
+	.placeholder-content {
+		@extend %extend_7;
+	}
+}
+.btn-group .bootstrap-select {
+	&.btn-group[class*="col-"] {
+		@extend %extend_8;
+	}
+	&.btn-group:not(.input-group-btn) {
+		@extend %extend_8;
+	}
+}
