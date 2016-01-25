@@ -3,5 +3,5 @@ db-config.php
 /images/gongmo/
 .sass-cache
 .sass-cache/*
-stylesheets
-stylesheets/*
+sass-compiled
+sass-compiled/*
