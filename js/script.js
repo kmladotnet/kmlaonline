@@ -830,6 +830,36 @@ function toggleLayoutEditing() {
     editMode = !editMode;
 }
 
+function saveTheme() {
+    $.post("ajax/user/savetheme", {
+        "json": JSON.stringify(serializeArray($("#theme-form"))),
+        "ajax": 1
+    }, function (data) {
+        new PNotify({
+            title: '테마가 저장되었습니다!',
+            text: '새로고침하면 적용됩니다.',
+            type: 'success',
+            buttons: {
+                closer: false,
+                sticker: false
+            }
+        });
+    });
+}
+
+var themeMode = false;
+function toggleThemeEditing() {
+    if(!themeMode) {
+        $("#main-theme-pane").velocity("slideDown", {duration: 200, easing: "easeOutCubic"});
+        $("#main-theme-button").html("테마 설정 저장");
+    } else {
+        $("#main-theme-pane").velocity("slideUp", {duration: 200, easing: "easeOutCubic"});
+        $("#main-theme-button").html("테마 설정");
+        saveTheme();
+    }
+    themeMode = !themeMode;
+}
+
 function editStatusMessageShow() {
     $("#status_message").css("display", "none");
     $("#status_message_edit").css("display", "block");

@@ -16,7 +16,21 @@ function printContentPc(){
 	<div style="padding:6px; min-height: 400px">
         <div style="padding: 4px; margin-bottom: 4px;">
             <button type="button" id="main-edit-button" class="btn btn-primary" onclick="toggleLayoutEditing();">편집 모드 시작</button>
+            <button type="button" id="main-theme-button" class="btn btn-primary" onclick="toggleThemeEditing();">테마 설정</button>
             <?php printEverydayLinks(); ?>
+            <div id="main-theme-pane" style="margin-top: 6px; display:none">
+                <form id="theme-form">
+                    모서리 모양:
+                    <div class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-default active">
+                            <input type="radio" name="square" id="round-option" autocomplete="off" checked> 둥글둥글
+                        </label>
+                        <label class="btn btn-primary" style="border-radius:0">
+                            <input type="radio" name="square" id="square-option" autocomplete="off"> 네모네모
+                        </label>
+                    </div>
+                </form>
+            </div>
             <div id="main-edit-pane" style="margin-top: 6px; display:none">
                 <div>
                     <i class="fa fa-exclamation-triangle"></i> 편집 모드를 종료하거나 레이아웃 저장 버튼을 누르기 전엔 레이아웃이 저장되지 않습니다.

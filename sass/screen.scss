@@ -652,3 +652,21 @@ ul#top_notification_list {
 		@extend %extend_8;
 	}
 }
+
+.btn-gradient {
+    text-shadow: 0 1px 0 #fff;
+    background-image: linear-gradient(to bottom, #fff 0%, #e0e0e0 100%);
+    background-repeat: repeat-x;
+    border-color: #dbdbdb;
+    border-color: #ccc;
+}
+.btn-gradient:hover,
+.btn-gradient:focus {
+    background-color: #e0e0e0;
+    background-position: 0 -15px;
+}
+.btn-gradient:active,
+.btn-gradient.active {
+    background-color: #e0e0e0;
+    border-color: #dbdbdb;
+}
