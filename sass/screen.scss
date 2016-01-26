@@ -670,3 +670,36 @@ ul#top_notification_list {
     background-color: #e0e0e0;
     border-color: #dbdbdb;
 }
+
+.btn-flat {
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+}
+.btn-flat:focus,
+.btn-flat.focus {
+  color: #333;
+  background-color: #e6e6e6;
+  border-color: #8c8c8c;
+}
+.btn-flat:hover {
+  color: #333;
+  background-color: #e6e6e6;
+  border-color: #adadad;
+}
+.btn-flat:active,
+.btn-flat.active {
+  color: #333;
+  background-color: #e6e6e6;
+  border-color: #adadad;
+}
+.btn-flat:active:hover,
+.btn-flat.active:hover,
+.btn-flat:active:focus,
+.btn-flat.active:focus,
+.btn-flat:active.focus,
+.btn-flat.active.focus {
+  color: #333;
+  background-color: #d4d4d4;
+  border-color: #8c8c8c;
+}

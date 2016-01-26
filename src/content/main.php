@@ -23,10 +23,21 @@ function printContentPc(){
                     모서리 모양:
                     <div class="btn-group" data-toggle="buttons">
                         <label class="btn btn-default active">
-                            <input type="radio" name="square" id="round-option" autocomplete="off" checked> 둥글둥글
+                            <input type="radio" name="round" id="round-option" autocomplete="off" checked> 둥글둥글
                         </label>
-                        <label class="btn btn-primary" style="border-radius:0">
+                        <label class="btn btn-default" style="border-radius:0">
                             <input type="radio" name="square" id="square-option" autocomplete="off"> 네모네모
+                        </label>
+                    </div>
+                </form>
+                <form id="theme-form">
+                    음영:
+                    <div class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-flat active">
+                            <input type="radio" name="flat" id="flat-option" autocomplete="off" checked> 납작납작
+                        </label>
+                        <label class="btn btn-gradient">
+                            <input type="radio" name="gradient" id="gradient-option" autocomplete="off"> 볼록볼록
                         </label>
                     </div>
                 </form>
