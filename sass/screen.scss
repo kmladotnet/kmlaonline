@@ -250,11 +250,10 @@ div {
 		.menu1_sub {
 			display: block;
 			float: left;
-			height: auto;
 			line-height: 40px;
 			text-align: center;
 			overflow: hidden;
-			background: $kmla-menu-color;
+			background: rgba($kmla-menu-color, 0.8);
 			border-bottom-left-radius: 5px;
 			border-bottom-right-radius: 5px;
 		}
