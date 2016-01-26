@@ -22,11 +22,11 @@ $kmla-profile-nav-color: #8cc1fa;
 $kmla-fonts: 'Open Sans','arial','Apple SD Gothic Neo','Noto Sans Korean','본고딕','KoPubDotum Medium','나눔바른고딕','나눔고딕','NanumGothic','맑은고딕', 'Malgun Gothic', 'sans-serif';
 
 //urls
-$url_0: url('/images/big-logo.png');
-$url_1: url('/images/dasan-extend.jpg');
-$url_2: url('/images/dasan.png');
-$url_3: url('/images/menubar-panel.png');
-$url_4: url('/images/logo.png');
+$big-logo-url: url('/images/big-logo.png');
+$dasan-extend-url: url('/images/dasan-extend.jpg');
+$dasan-url: url('/images/dasan.png');
+$menubar-panel-url: url('/images/menubar-panel.png');
+$logo-url: url('/images/logo.png');
 
 //@extend-elements
 //original selectors
@@ -295,7 +295,7 @@ div {
 	}
 	&#total-header {
 		height: 160px;
-		background: $url_0 no-repeat;
+		background: $big-logo-url no-repeat;
 		#userarea {
 			width: 222px;
 			height: 124px;
@@ -399,10 +399,10 @@ div {
 		display: none;
 	}
 	&.total-header-extend-1 {
-		background: $url_1 $kmla-header-extend-color repeat-x center bottom;
+		background: $dasan-extend-url $kmla-header-extend-color repeat-x center bottom;
 	}
 	&.total-header-extend-2 {
-		background: $url_2 no-repeat center bottom;
+		background: $dasan-url no-repeat center bottom;
 	}
 	&.total-header-menu-extend {
 		background: $kmla-menu-color;
