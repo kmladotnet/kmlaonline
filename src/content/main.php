@@ -24,10 +24,12 @@ function printContentPc(){
                         모서리 모양:
                         <div class="btn-group" data-toggle="buttons">
                             <label class="btn btn-default active">
-                                <input type="radio" name="round" id="round-option" autocomplete="off" checked> 둥글둥글
+                                <input type="radio" name="round" id="round-option" autocomplete="off"
+                                       <?php if(!getTheme($me)['square']) echo "checked"; ?>> 둥글둥글
                             </label>
                             <label class="btn btn-default" style="border-radius:0">
-                                <input type="radio" name="square" id="square-option" autocomplete="off"> 네모네모
+                                <input type="radio" name="square" id="square-option" autocomplete="off"
+                                       <?php if(getTheme($me)['square']) echo "checked"; ?>> 네모네모
                             </label>
                         </div>
                     </div>
@@ -35,10 +37,12 @@ function printContentPc(){
                         음영:
                         <div class="btn-group" data-toggle="buttons">
                             <label class="btn btn-flat active">
-                                <input type="radio" name="flat" id="flat-option" autocomplete="off" checked> 납작납작
+                                <input type="radio" name="flat" id="flat-option" autocomplete="off"
+                                       <?php if(!getTheme($me)['gradients']) echo "checked"; ?>> 납작납작
                             </label>
                             <label class="btn btn-gradient">
-                                <input type="radio" name="gradients" id="gradients-option" autocomplete="off"> 볼록볼록
+                                <input type="radio" name="gradients" id="gradients-option" autocomplete="off"
+                                       <?php if(getTheme($me)['gradients']) echo "checked"; ?>> 볼록볼록
                             </label>
                         </div>
                     </div>
