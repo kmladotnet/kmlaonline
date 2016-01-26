@@ -23,11 +23,11 @@ function printContentPc(){
                     <div class="form-group">
                         모서리 모양:
                         <div class="btn-group" data-toggle="buttons">
-                            <label class="btn btn-default active">
+                            <label class="btn btn-default <?php if(!getTheme($me)['square']) echo "active"; ?>" style="border-bottom-left-radius:4px!important;border-top-left-radius:4px!important">
                                 <input type="radio" name="round" id="round-option" autocomplete="off"
                                        <?php if(!getTheme($me)['square']) echo "checked"; ?>> 둥글둥글
                             </label>
-                            <label class="btn btn-default" style="border-radius:0">
+                            <label class="btn btn-default <?php if(getTheme($me)['square']) echo "active"; ?>" style="border-radius:0">
                                 <input type="radio" name="square" id="square-option" autocomplete="off"
                                        <?php if(getTheme($me)['square']) echo "checked"; ?>> 네모네모
                             </label>
@@ -36,11 +36,11 @@ function printContentPc(){
                     <div class="form-group">
                         음영:
                         <div class="btn-group" data-toggle="buttons">
-                            <label class="btn btn-flat active">
+                            <label class="btn btn-flat <?php if(!getTheme($me)['gradients']) echo "active"; ?>">
                                 <input type="radio" name="flat" id="flat-option" autocomplete="off"
                                        <?php if(!getTheme($me)['gradients']) echo "checked"; ?>> 납작납작
                             </label>
-                            <label class="btn btn-gradient">
+                            <label class="btn btn-gradient <?php if(getTheme($me)['gradients']) echo "active"; ?>">
                                 <input type="radio" name="gradients" id="gradients-option" autocomplete="off"
                                        <?php if(getTheme($me)['gradients']) echo "checked"; ?>> 볼록볼록
                             </label>
