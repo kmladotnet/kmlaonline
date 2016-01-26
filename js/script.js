@@ -836,7 +836,7 @@ function saveTheme() {
     options['square'] = $("#square-option").hasClass("active");
     options['gradients'] = $("#gradients-option").hasClass("active");
     $.post("ajax/user/savetheme", {
-        "json": JSON.stringify(options)),
+        "json": JSON.stringify(options),
         "ajax": 1
     }, function (data) {
         new PNotify({
