@@ -231,13 +231,13 @@ function moduleContents($module_name, $options) {
     <div class="main-block panel panel-<?php echo $options['color'];?>">
         <div class="main-block-title panel-heading">
             <div class="btn-group main-block-button-group" role="group">
-                <button class="main-block-options main-block-button btn btn-default" type="button" data-toggle="button" onclick="toggleOptions(!$(this).hasClass('active'), $(this));">
+                <button class="main-block-options main-block-button main-block-hidden btn btn-default" type="button" data-toggle="button" onclick="toggleOptions(!$(this).hasClass('active'), $(this));">
                     <i class="fa fa-cog"></i>
                 </button>
                 <button class="btn btn-default main-block-button main-block-reload" type="button" style="border-radius: 12px; width: 24px;">
                     <i class="fa fa-refresh"></i>
                 </button>
-                <button class="main-block-close main-block-button btn btn-default" type="button">
+                <button class="main-block-close main-block-button main-block-hidden btn btn-default" type="button">
                     <i class="fa fa-times"></i>
                 </button>
             </div>

@@ -49,26 +49,6 @@ $url_4: url('/images/logo.png');
 }
 
 //original selectors
-//.main-block-close, .main-block-close:hover, .main-block-close:active
-%extend_5 {
-	width: 0;
-	border-width: 0;
-	opacity: 0;
-	display: none;
-	color: $brand-danger;
-}
-
-//original selectors
-//.main-block-options, .main-block-options:hover, .main-block-options:active
-%extend_6 {
-	width: 0;
-	border-width: 0;
-	opacity: 0;
-	display: none;
-	color: $brand-primary;
-}
-
-//original selectors
 //.grid-stack .grid-stack-item .grid-stack-item-content, .grid-stack .grid-stack-item .placeholder-content
 %extend_7 {
 	left: 3px;
@@ -404,11 +384,6 @@ div {
 		margin-left: 160px;
 		overflow: hidden;
 	}
-	&.tab_menu_content {
-		display: block;
-		margin: 0;
-		padding: 0;
-	}
 	&.tab_menu_items {
 		display: none;
 		background: $white;
@@ -582,13 +557,21 @@ select {
 	height: 24px;
 	font-size: 11pt;
 }
+
+.main-block-hidden {
+	width: 0;
+	border-width: 0;
+	opacity: 0;
+	display: none;
+}
+
 .main-block-close {
-	@extend %extend_5;
+	color: $brand-danger;
 	&:hover {
-		@extend %extend_5;
+		color: $brand-danger;
 	}
 	&:active {
-		@extend %extend_5;
+		color: $brand-danger;
 	}
 }
 .main-block-reload {
@@ -601,16 +584,13 @@ select {
 	}
 }
 .main-block-options {
-	@extend %extend_6;
+	color: $brand-primary;
 	&:hover {
-		@extend %extend_6;
+	   color: $brand-primary;
 	}
 	&:active {
-		@extend %extend_6;
+	   color: $brand-primary;
 	}
-}
-.main-block-old {
-	border: 1px solid $gray;
 }
 .userinfo_border {
 	border: 1px solid $very-very-light-gray;
