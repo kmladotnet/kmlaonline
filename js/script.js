@@ -831,10 +831,10 @@ function toggleLayoutEditing() {
 }
 
 function saveTheme() {
-    var options = [];
+    var options = {};
     options['dark'] = false;
-    options['square'] = $("#square-option").hasClass("active");
-    options['gradients'] = $("#gradients-option").hasClass("active");
+    options['square'] = $("#square-option").parent().hasClass("active");
+    options['gradients'] = $("#gradients-option").parent().hasClass("active");
     $.post("ajax/user/savetheme", {
         "json": JSON.stringify(options),
         "ajax": 1
