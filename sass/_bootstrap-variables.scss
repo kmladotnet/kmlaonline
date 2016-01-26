@@ -31,7 +31,7 @@
 // $text-color:            $gray-dark
 
 //** Global textual link color.
-// $link-color:            $brand-primary
+$link-color:            $brand-primary
 //** Link hover color set via `darken()` function.
 $link-hover-color:      lighten($link-color, 15%)
 //** Link hover decoration.
