@@ -654,7 +654,7 @@ function getTheme($user) {
     return $_SESSION['theme'];
 }
 
-function setTheme($theme) {
+function setTheme($theme, $user) {
     if(!file_exists("data/user/theme")) {
         mkdir("data/user/theme");
     }
