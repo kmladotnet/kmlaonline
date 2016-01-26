@@ -50,12 +50,12 @@
     <link rel="stylesheet" href="/sass-compiled/screen.css" type="text/css" media="screen" />
     <?php
     $theme = getTheme($me);
-    if($theme['square']) {?>
+    if($theme['square']) { ?>
         <link rel="stylesheet" href="/sass-compiled/square.css" type="text/css" media="screen" />
-    <?php}
-    if($theme['gradients']) {?>
+    <?php }
+    if($theme['gradients']) { ?>
         <link rel="stylesheet" href="/sass-compiled/gradients.css" type="text/css" media="screen" />
-    <?php}?>
+    <?php } ?>
     <title>
         <?php echo htmlspecialchars($title); ?>
     </title>
