@@ -636,4 +636,31 @@ function getWeather() {
     return $owm->getWeather('Hoengsong', $units, $lang, '713e90471b96dbd9c11826031ee66031');
 }
 
+function getTheme($user) {
+    if(!isset($_SESSION['theme'])) {
+        if(!file_exists("data/user/theme")) {
+            mkdir("data/user/theme");
+        }
+        $file = "data/user/theme/{$user['n_id']}.txt";
+        if(file_exists($file)) {
+            $_SESSION['theme'] = json_decode(file_get_contents($file), true);
+        } else {
+            $_SESSION['theme'] = array();
+            $_SESSION['theme']['dark'] = false;
+            $_SESSION['theme']['square'] = false;
+            $_SESSION['theme']['gradients'] = false;
+        }
+    }
+    return $_SESSION['theme'];
+}
+
+function setTheme($theme) {
+    if(!file_exists("data/user/theme")) {
+        mkdir("data/user/theme");
+    }
+    $file = "data/user/theme/{$user['n_id']}.txt";
+    file_put_contents($file, json_encode($theme));
+    $_SESSION['theme'] = $theme;
+}
+
 $maxUploadFileSize = convertToBytes( ini_get( 'upload_max_filesize' ) );
