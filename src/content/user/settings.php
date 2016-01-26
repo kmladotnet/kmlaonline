@@ -15,7 +15,7 @@ function printContent(){
 				<?php } ?>
 				<div>
 					<input type="reset" class="btn btn-default" value="<?php elang("generic","revert")?>" style="float:left;height:32px;" />
-					<input type="submit" class="btn btn-primary" value="<?php elang("user","settings","save")?>" style="float:right;height:32px;width:70px;" />
+					<input type="submit" class="btn btn-primary" value="<?php elang("user","settings","save")?>" style="float:right;height:32px;" />
 				</div>
 			</div>
 			<div class="tab_menu">
