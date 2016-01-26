@@ -232,7 +232,7 @@ div {
 			position: relative;
 			color: $white_80;
 			text-decoration: none;
-			cursor: hand;
+			cursor: pointer;
 			font-weight: bold;
 			.widthholder {
 				width: 80px;
@@ -433,7 +433,7 @@ div {
 		background: $kmla-menu-color;
 	}
 	&#upper-header-holder {
-		cursor: hand;
+		cursor: pointer;
 	}
 	&.hide-on-upper-panel {
 		z-index: 1;
