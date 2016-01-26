@@ -831,8 +831,12 @@ function toggleLayoutEditing() {
 }
 
 function saveTheme() {
+    var options = [];
+    options['dark'] = false;
+    options['square'] = $("#square-option").hasClass("active");
+    options['gradients'] = $("#gradients-option").hasClass("active");
     $.post("ajax/user/savetheme", {
-        "json": JSON.stringify(serializeArray($("#theme-form"))),
+        "json": JSON.stringify(options)),
         "ajax": 1
     }, function (data) {
         new PNotify({

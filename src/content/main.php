@@ -38,7 +38,7 @@ function printContentPc(){
                                 <input type="radio" name="flat" id="flat-option" autocomplete="off" checked> 납작납작
                             </label>
                             <label class="btn btn-gradient">
-                                <input type="radio" name="gradient" id="gradient-option" autocomplete="off"> 볼록볼록
+                                <input type="radio" name="gradients" id="gradients-option" autocomplete="off"> 볼록볼록
                             </label>
                         </div>
                     </div>
