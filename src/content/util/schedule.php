@@ -31,6 +31,7 @@ function printContent(){
 		if($mysqli->more_results())$mysqli->next_result();
 	}
 	?>
+    <script src="/js/content/util/schedule.js"></script>
 	<div class="side-navigation">
 		<div style="float:left;width:38px;margin-right:4px;">
 			<div style="padding:3px;font-size:12pt;text-align:center;">년</div>
