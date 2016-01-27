@@ -23,6 +23,10 @@ function generateRandomString($length = 32) {
 switch($member->authMember($_POST['id'],$_POST['pwd'])){
 	case 0: // Okay
 		$m=$member->getMember($_POST['id'],1);
+		if($m['n_level']==21){
+			redirectWith("loginRedirection",-1);
+			break;
+		}
 		/* if(file_exists("data/user_pending_list/{$m['n_id']}.txt")){
 			redirectWith("loginRedirection",2);
 			break;
