@@ -77,7 +77,6 @@ function printDeletePage(){
 	$m=$member->getMember($article['n_writer']);
 	insertOnLoadScript("window.noAlertOnLeave=1;");
 	$b_anonymous=$article['n_flag']&0x4;
-	$b_anonymous=$b_anonymous && checkCategoryAccess($board_cat['n_id'], "flag anonymous");
 	?>
 	<div style="padding:10px;">
 		<h1>삭제</h1>
@@ -106,7 +105,6 @@ function putCommentTree($parent,$root){
 			<div id="article_comment_sub_<?php echo $comment['n_id']?>" class="acomment">
 				<?php
 				$b_comment_anonymous=$comment['n_flag']&0x4;
-				$b_comment_anonymous=$b_comment_anonymous && checkCategoryAccess($board_cat['n_id'], "flag anonymous");
 
                 if($b_comment_anonymous)
                     $hash_val = hash_hmac("md2",$comment['n_writer'],$root);
