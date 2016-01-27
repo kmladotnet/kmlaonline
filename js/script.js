@@ -518,7 +518,7 @@ function rebindModules(mobile) {
         bindOptionsForm();
         $('.selectpicker').selectpicker();
     }
-    if(editMode && mobile) {
+    if(editMode && !mobile) {
         $(".main-block-close").css("display", "inline-block");
         $(".main-block-options").css("display", "inline-block");
         $(".main-block-close").css({width: 28, "border-width": 1, opacity: 1});
