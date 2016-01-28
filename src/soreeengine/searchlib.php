@@ -2,14 +2,14 @@
 // http://www.iamcal.com/publish/articles/php/search/
 function search_split_terms($terms){
 
-		$terms = preg_replace("/\"(.*?)\"", function($a) {return search_transform_term($a);}, $terms);
+		$terms = preg_replace_callback("/\"(.*?)\"", function($a) {return search_transform_term($a);}, $terms);
 		$terms = preg_split("/\s+|,/", $terms);
 
 		$out = array();
 
 		foreach($terms as $term){
 
-			$term = preg_replace("/\{WHITESPACE-([0-9]+)\}", function($a) {return chr($a);}, $term);
+			$term = preg_replace_callback("/\{WHITESPACE-([0-9]+)\}", function($a) {return chr($a);}, $term);
 			$term = preg_replace("/\{COMMA\}/", ",", $term);
 
 			$out[] = $term;
@@ -19,7 +19,7 @@ function search_split_terms($terms){
 	}
 
 	function search_transform_term($term){
-		$term = preg_replace("/(\s)", function($a) { return '{WHITESPACE-'.ord($a).'}';}, $term);
+		$term = preg_replace_callback("/(\s)", function($a) { return '{WHITESPACE-'.ord($a).'}';}, $term);
 		$term = preg_replace("/,/", "{COMMA}", $term);
 		return $term;
 	}
