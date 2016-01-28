@@ -31,10 +31,6 @@ switch($member->authMember($_POST['id'],$_POST['pwd'])){
 			redirectWith("loginRedirection",2);
 			break;
 		}*/
-		if($m['n_level']==18||$m['n_level']==19){
-			redirectWith("loginRedirection",1);
-			break;
-		}
 		/*if($m['n_id']==1426){
 			redirectWith("loginRedirection",-1);	
 		}*/
