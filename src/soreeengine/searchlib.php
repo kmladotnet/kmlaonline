@@ -2,7 +2,7 @@
 // http://www.iamcal.com/publish/articles/php/search/
 function search_split_terms($terms){
 
-		$terms = preg_replace("/\"(.*?)\"", function($a) {return search_transform_term($a)}, $terms);
+		$terms = preg_replace("/\"(.*?)\"", function($a) {return search_transform_term($a);}, $terms);
 		$terms = preg_split("/\s+|,/", $terms);
 
 		$out = array();
