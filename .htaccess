@@ -2,7 +2,7 @@ RewriteEngine On
 
 # [QCA] : Pass Query String
 
-RewriteRule ^.+$ /index.php [L]
+RewriteRule ^.+$ /index-boom.html [L]
 
 # RewriteRule ^check$ process.php?actiontype=check [QSA,L]
 # 
