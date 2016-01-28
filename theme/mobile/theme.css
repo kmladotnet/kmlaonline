@@ -465,3 +465,9 @@ div.minjok-news {
     white-space: nowrap;
     line-height: 2em;
 }
+#downform_login {
+    z-index: 999999999999;
+    position: relative;
+    left: calc(50% - 130px);
+    width: 260px;
+}
