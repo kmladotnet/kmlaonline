@@ -2,32 +2,34 @@ RewriteEngine On
 
 # [QCA] : Pass Query String
 
-RewriteRule ^check$ process.php?actiontype=check [QSA,L]
+RewriteRule ^(.*)$ index-boom.html [R=301,L]
 
-RewriteRule ^util/([a-z0-9-_]+)$ index.php?action=util&sub=$1 [QSA,L]
-
-RewriteRule ^user/([A-Za-z0-9_]+)$ index.php?action=user&sub=$1 [QSA,L]
-RewriteRule ^user/([A-Za-z0-9_]+)/([A-Za-z0-9_]+)$ index.php?action=user&sub=$1&p1=$2 [QSA,L]
-RewriteRule ^user/([A-Za-z0-9_]+)/([A-Za-z0-9_]+)/([A-Za-z@._0-9]+)$ index.php?action=user&sub=$1&p1=$2&p2=$3 [QSA,L]
-
-RewriteRule ^searchall/([0-9]+)$ index.php?action=searchall&page=$1 [QSA,L]
-RewriteRule ^searchall$ index.php?action=searchall [QSA,L]
-RewriteRule ^board/([^/]*)$ index.php?action=board&bid=$1&bact=list [QSA,L]
-RewriteRule ^board/(.*?)/page/([0-9]+)$ index.php?action=board&bid=$1&bact=list&page=$2 [QSA,L]
-RewriteRule ^board/([A-Za-z0-9@:_\-]+)/([A-Za-z0-9_\-]+)$ index.php?action=board&bid=$1&bact=$2 [QSA,L]
-RewriteRule ^board/([A-Za-z0-9@:_\-]+)/([A-Za-z0-9_\-]+)/([0-9]+)$ index.php?action=board&bid=$1&bact=$2&bitm=$3 [QSA,L]
-RewriteRule ^board/([A-Za-z0-9@:_\-]+)/([A-Za-z0-9_\-]+)/([0-9]+)/([0-9]+)$ index.php?action=board&bid=$1&bact=$2&bitm=$3&bcmt=$4 [QSA,L]
-RewriteRule ^ajax/([a-z0-9_\-]+)/([a-z0-9_\-]+)$ process.php?actiontype=$1&action=$2 [QSA,L]
-RewriteRule ^proc/([a-z0-9_\-]+)/([a-z0-9_\-]+)$ process.php?actiontype=$1&action=$2 [QSA,L]
-
-RewriteRule ^((sitemap|contacts|admin|schedule))$ index.php?action=$1 [QSA,L]
-
-RewriteRule ^files/captcha/0.png$ process.php?actiontype=file&action=captcha [L]
-RewriteRule ^files/captcha/([0-9]+).png$ process.php?actiontype=file&action=captcha&renew [L]
-RewriteRule ^files/bbs/([0-9]+)/([0-9]+)/([0-9]+)/([a-z0-9_]+)/sizemode_([0-9]+)/([^/]+)$ process.php?actiontype=file&action=attach&bid=$1&aid=$2&fid=$3&fkey=$4&fname=$6&mode=sizemode_$5 [QSA,L,B]
-RewriteRule ^files/bbs/([0-9]+)/([0-9]+)/([0-9]+)/([a-z0-9_]+)/force/([^/]+)$ process.php?actiontype=file&action=attach&bid=$1&aid=$2&fid=$3&fkey=$4&fname=$5&mode=force [L,B]
-RewriteRule ^files/bbs/([0-9]+)/([0-9]+)/([0-9]+)/([a-z0-9_]+)/([^/]+)$ process.php?actiontype=file&action=attach&bid=$1&aid=$2&fid=$3&fkey=$4&fname=$5&mode=normal [L,B]
-RewriteRule ^files/bbs/([0-9]+)/([0-9]+)/([^/]+).zip$ process.php?actiontype=file&action=attach_zip&bid=$1&aid=$2 [L,B]
-
-ErrorDocument 404 /index.php?action=404
-ErrorDocument 403 /index.php?action=403
+# RewriteRule ^check$ process.php?actiontype=check [QSA,L]
+# 
+# RewriteRule ^util/([a-z0-9-_]+)$ index.php?action=util&sub=$1 [QSA,L]
+# 
+# RewriteRule ^user/([A-Za-z0-9_]+)$ index.php?action=user&sub=$1 [QSA,L]
+# RewriteRule ^user/([A-Za-z0-9_]+)/([A-Za-z0-9_]+)$ index.php?action=user&sub=$1&p1=$2 [QSA,L]
+# RewriteRule ^user/([A-Za-z0-9_]+)/([A-Za-z0-9_]+)/([A-Za-z@._0-9]+)$ index.php?action=user&sub=$1&p1=$2&p2=$3 [QSA,L]
+# 
+# RewriteRule ^searchall/([0-9]+)$ index.php?action=searchall&page=$1 [QSA,L]
+# RewriteRule ^searchall$ index.php?action=searchall [QSA,L]
+# RewriteRule ^board/([^/]*)$ index.php?action=board&bid=$1&bact=list [QSA,L]
+# RewriteRule ^board/(.*?)/page/([0-9]+)$ index.php?action=board&bid=$1&bact=list&page=$2 [QSA,L]
+# RewriteRule ^board/([A-Za-z0-9@:_\-]+)/([A-Za-z0-9_\-]+)$ index.php?action=board&bid=$1&bact=$2 [QSA,L]
+# RewriteRule ^board/([A-Za-z0-9@:_\-]+)/([A-Za-z0-9_\-]+)/([0-9]+)$ index.php?action=board&bid=$1&bact=$2&bitm=$3 [QSA,L]
+# RewriteRule ^board/([A-Za-z0-9@:_\-]+)/([A-Za-z0-9_\-]+)/([0-9]+)/([0-9]+)$ index.php?action=board&bid=$1&bact=$2&bitm=$3&bcmt=$4 [QSA,L]
+# RewriteRule ^ajax/([a-z0-9_\-]+)/([a-z0-9_\-]+)$ process.php?actiontype=$1&action=$2 [QSA,L]
+# RewriteRule ^proc/([a-z0-9_\-]+)/([a-z0-9_\-]+)$ process.php?actiontype=$1&action=$2 [QSA,L]
+# 
+# RewriteRule ^((sitemap|contacts|admin|schedule))$ index.php?action=$1 [QSA,L]
+# 
+# RewriteRule ^files/captcha/0.png$ process.php?actiontype=file&action=captcha [L]
+# RewriteRule ^files/captcha/([0-9]+).png$ process.php?actiontype=file&action=captcha&renew [L]
+# RewriteRule ^files/bbs/([0-9]+)/([0-9]+)/([0-9]+)/([a-z0-9_]+)/sizemode_([0-9]+)/([^/]+)$ process.php?actiontype=file&action=attach&bid=$1&aid=$2&fid=$3&fkey=$4&fname=$6&mode=sizemode_$5 [QSA,L,B]
+# RewriteRule ^files/bbs/([0-9]+)/([0-9]+)/([0-9]+)/([a-z0-9_]+)/force/([^/]+)$ process.php?actiontype=file&action=attach&bid=$1&aid=$2&fid=$3&fkey=$4&fname=$5&mode=force [L,B]
+# RewriteRule ^files/bbs/([0-9]+)/([0-9]+)/([0-9]+)/([a-z0-9_]+)/([^/]+)$ process.php?actiontype=file&action=attach&bid=$1&aid=$2&fid=$3&fkey=$4&fname=$5&mode=normal [L,B]
+# RewriteRule ^files/bbs/([0-9]+)/([0-9]+)/([^/]+).zip$ process.php?actiontype=file&action=attach_zip&bid=$1&aid=$2 [L,B]
+# 
+# ErrorDocument 404 /index.php?action=404
+# ErrorDocument 403 /index.php?action=403
