@@ -10,7 +10,7 @@ function articleList($article_list, $category=true, $title=true, $name=true, $da
 			<?php if($date){ ?><th style="width:70px;">날짜</th><?php } ?>
 		</tr>
 		<?php
-        $num = 1;
+        $num = 0;
         foreach($article_list as $a){
             if(++$num > $maxlen)
                 break;
