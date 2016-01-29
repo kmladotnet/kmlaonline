@@ -1,5 +1,5 @@
 <?php
-function articleList($article_list, $category=true, $title=true, $name=true, $date=true, $height=30, $nextline=false){
+function articleList($article_list, $category=true, $title=true, $name=true, $date=true, $maxlen = 9999, $height=28, $nextline=false){
 	global $me, $board, $member;
 	?>
 	<table style="width:100%;overflow:auto;">
@@ -9,7 +9,11 @@ function articleList($article_list, $category=true, $title=true, $name=true, $da
 			<?php if($name){ ?><th style="width:100px;">이름</th><?php } ?>
 			<?php if($date){ ?><th style="width:70px;">날짜</th><?php } ?>
 		</tr>
-		<?php foreach($article_list as $a){
+		<?php
+        $num = 1;
+        foreach($article_list as $a){
+            if(++$num > $maxlen)
+                break;
             if(!array_key_exists("cat", $a)) {
                 if(!array_key_exists("n_article", $a)) {
                     $a=$board->getArticle($a['n_id']);

@@ -74,7 +74,7 @@ function moduleContent($module_name, $options, $light = false) {
 	global $member, $me, $is_morning, $is_afternoon, $is_night, $mysqli, $board, $curYear, $curMonth, $curDay;
     switch($module_name) {
         case 'important':
-            articleList($mysqli->query("SELECT * FROM kmlaonline_important_notices_table WHERE n_state=1 ORDER BY n_id DESC"),$options['show-cat'], $options['show-title'], $options['show-name'], $options['show-date']);
+            articleList($mysqli->query("SELECT * FROM kmlaonline_important_notices_table WHERE n_state=1 ORDER BY n_id DESC"),!$light && $options['show-cat'], $options['show-title'], $options['show-name'], !$light && $options['show-date'], $options['num']);
             break;
         case 'menu':
             require_once("menu.php");
