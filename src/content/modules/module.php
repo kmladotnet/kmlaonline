@@ -339,6 +339,7 @@ function defaultOptions($module_name) {
 
     switch($module_name) {
         case 'important':
+            $defaults['num'] = 10;
             $defaults['show-cat'] = true;
             $defaults['show-title'] = true;
             $defaults['show-name'] = true;
