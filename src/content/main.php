@@ -55,7 +55,7 @@ function printContentPc(){
                 <div class="btn-group" style="margin-top: 4px">
                     <select id="add-module" class="selectpicker" data-style="btn-default" data-size="10" title="패널 추가">
                         <option data-divider="true"></option>
-                        <option value="important">중요 공지</option>
+                        <option value="important">필수 공지</option>
                         <option value="birthday">생일</option>
                         <option value="menu">식단</option>
                         <option value="kmlaboard">큼라보드</option>
