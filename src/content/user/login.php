@@ -73,7 +73,6 @@ function printContent(){
 					</div>
 				</div>
                 <div class="panel-body">
-
                     <div style="text-align:center">
                         <?php
                         $curYear=date("Y"); $curMonth=date("n"); $curDay=date("j");
