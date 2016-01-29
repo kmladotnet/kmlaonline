@@ -3,6 +3,7 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
+    <meta name="theme-color" content="#15466b" />
 	<base href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/" />
     <!-- gridstack -->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.3/gridstack.css" />
