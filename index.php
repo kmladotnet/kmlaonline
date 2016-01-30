@@ -1,6 +1,7 @@
 <?php
 echo "<!--";
 var_dump($_SERVER);
+var_dump($_REQUEST);
 echo "-->";
 $includes=array();
 switch(isset($_GET['action'])?$_GET['action']:"main"){
