@@ -1180,9 +1180,5 @@ addLoadEvent(function () {
         flashObject(elem);
     }
 
-    window.notificationCountGetter = function () {
-        getNotificationCount();
-        setTimeout(window.notificationCountGetter, 1E4);
-    };
-    window.notificationCountGetter();
+    getNotificationCount();
 });
