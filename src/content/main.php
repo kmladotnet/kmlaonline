@@ -138,7 +138,6 @@ JSON
             }
         };
         $('.grid-stack').gridstack(options);
-        reloadAllModules();
         $('.grid-stack').data('gridstack').disable();
     });
     bindAddModuleButton();
