@@ -140,6 +140,7 @@ JSON
         $('.grid-stack').gridstack(options);
         $('.grid-stack').data('gridstack').disable();
     });
+    rebindModules(false);
     bindAddModuleButton();
     bindExampleLayoutButton();
     </script>
@@ -227,6 +228,7 @@ JSON
             cell_height: 64,
             vertical_margin: 6
         };
+        rebindModules(true);
         $('.grid-stack').gridstack(options);
         $('.grid-stack').data('gridstack').disable();
     });
