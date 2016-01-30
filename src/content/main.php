@@ -119,7 +119,7 @@ JSON
                     $layout = json_encode($modules);
                     file_put_contents("data/user/main_layout/{$me['n_id']}.txt", $layout);
                 }
-                allModules($modules);
+                allModuleShells($modules);
             ?>
         </div>
     </div>
@@ -138,6 +138,7 @@ JSON
             }
         };
         $('.grid-stack').gridstack(options);
+        reloadAllModules(false);
         $('.grid-stack').data('gridstack').disable();
     });
     rebindModules(false);
