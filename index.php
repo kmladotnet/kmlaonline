@@ -1,4 +1,5 @@
 <?php
+echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 $includes=array();
 switch(isset($_GET['action'])?$_GET['action']:"main"){
 	case "main":	$fn="main"; break;
