@@ -303,7 +303,7 @@ div {
 			background: $kmla-menu-color;
 			color: $white;
             a {
-                color: darken($kmla-profile-nav-color, 10%);
+                color: $kmla-profile-nav-color;
                 font-weight: normal;
             }
 			.login_input {
