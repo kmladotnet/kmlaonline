@@ -302,6 +302,10 @@ div {
 			border-bottom-left-radius: 10px;
 			background: $kmla-menu-color;
 			color: $white;
+            a {
+                color: darken($kmla-profile-nav-color, 10%);
+                font-weight: normal;
+            }
 			.login_input {
 				width: 95%;
 			}
