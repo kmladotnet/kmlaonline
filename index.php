@@ -1,4 +1,5 @@
 <?php
+var_dump($_SERVER);
 $includes=array();
 switch(isset($_GET['action'])?$_GET['action']:"main"){
 	case "main":	$fn="main"; break;
