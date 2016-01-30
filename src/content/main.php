@@ -228,7 +228,6 @@ JSON
             vertical_margin: 6
         };
         $('.grid-stack').gridstack(options);
-        reloadAllModules(true);
         $('.grid-stack').data('gridstack').disable();
     });
     </script>

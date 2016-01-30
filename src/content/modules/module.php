@@ -315,7 +315,7 @@ function getModuleShell($module_name, $options, $x = 0, $y = 0, $w = 4, $h = 4) 
     <?php
 }
 
-function getModule($module_name, $options, $x = 0, $y = 0, $w = 4, $h = 4) {
+function getModule($module_name, $options, $x = 0, $y = 0, $w = 4, $h = 4, $light = false) {
 	global $member, $me, $is_morning, $is_afternoon, $is_night, $mysqli, $board;
     ?>
     <div class="grid-stack-item"
@@ -326,7 +326,7 @@ function getModule($module_name, $options, $x = 0, $y = 0, $w = 4, $h = 4) {
         echo ' data-module-options=\'',htmlspecialchars(json_encode($options)),'\'';
         ?>>
         <div class="grid-stack-item-content">
-            <?php moduleContents($module_name, $options); ?>
+            <?php $light ? moduleContentsLite($module_name, $options) : moduleContents($module_name, $options); ?>
         </div>
     </div>
 <?php
@@ -374,12 +374,12 @@ function defaultModule($module_name) {
     moduleContents($module_name, defaultOptions($module_name));
 }
 
-function allModules($modules) {
+function allModules($modules, $light = false) {
     foreach($modules as $module) {
         getModule($module['name'], array_key_exists('options', $module['options'])
                   ? array_merge(defaultOptions($module['name']), $module['options']['options'])
                   : defaultOptions($module['name']),
-                  $module['options']['x'], $module['options']['y'], $module['options']['w'], $module['options']['h']);
+                  $module['options']['x'], $module['options']['y'], $module['options']['w'], $module['options']['h'], $light);
     }
 }
 ?>
