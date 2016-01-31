@@ -9,10 +9,6 @@ function printContentPc(){
 	global $member, $me, $is_morning, $is_afternoon, $is_night, $mysqli, $board, $user;
 	?>
 
-    <!-- gridstack -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.3/gridstack.min.js"></script>
-
 	<div style="padding:6px; min-height: 400px">
         <div style="padding: 4px; margin-bottom: 4px;">
             <button type="button" id="main-edit-button" class="btn btn-primary" onclick="toggleLayoutEditing();">편집 모드 시작</button>
@@ -223,8 +219,13 @@ JSON
             ?>
         </div>
     </div>
+    <!-- gridstack -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.3/gridstack.min.js"></script>
+
+    <script src="/js/content/main.js"></script>
+
     <script type="text/javascript">
-    $(function () {
         var options = {
             cell_height: 64,
             vertical_margin: 6
@@ -232,7 +233,6 @@ JSON
         rebindModules(true);
         $('.grid-stack').gridstack(options);
         $('.grid-stack').data('gridstack').disable();
-    });
     </script>
 	<?php
 }
