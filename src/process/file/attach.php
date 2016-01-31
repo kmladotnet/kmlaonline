@@ -55,6 +55,7 @@ if($err){
 		header_remove('expires');
 		header_remove('cache-control');
 		header_remove("pragma");
+        header_remove('Content-Type');
 		header("Last-Modified: ".gmdate("D, d M Y H:i:s", $last_modified_time)." GMT"); 
 		header("Etag: \"$etag\""); 
 		header("Content-Type: $ctype");
