@@ -119,6 +119,12 @@ JSON
             ?>
         </div>
     </div>
+    <!-- gridstack -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.3/gridstack.min.js"></script>
+
+    <script src="/js/content/main.js"></script>
+
     <script type="text/javascript">
     PNotify.prototype.options.delay = 2500;
     $(function () {
@@ -176,9 +182,6 @@ function printEverydayLinks(){
 function printContentMobile(){
 	global $member, $me, $is_morning, $is_afternoon, $is_night, $mysqli, $board;
 	?>
-	<!-- gridstack -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.3/gridstack.min.js"></script>
 
 	<div style="padding:6px">
         <div style="padding:4px">
