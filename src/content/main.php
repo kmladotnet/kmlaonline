@@ -226,6 +226,7 @@ JSON
     <script src="/js/content/main.js"></script>
 
     <script type="text/javascript">
+    $(function () {
         var options = {
             cell_height: 64,
             vertical_margin: 6
@@ -233,6 +234,7 @@ JSON
         rebindModules(true);
         $('.grid-stack').gridstack(options);
         $('.grid-stack').data('gridstack').disable();
+    });
     </script>
 	<?php
 }
