@@ -510,7 +510,16 @@ function resizeImage($path, $thumb_name, $sizex, $sizey){
 			imagesetinterpolation($virtual_image, IMG_HERMITE);
 			$virtual_image = imagerotate($virtual_image, $angle, 0);
 		}
-		imagejpeg($virtual_image,$thumb_name,100);
+        $image_type = exif_imagetype($path);
+        if ($image_type == IMAGETYPE_JPEG) {
+            imagejpeg($virtual_image, $thumb_name, 100);
+        } elseif ($image_type == IMAGETYPE_GIF) {
+            imagegif($virtual_image, $thumb_name);
+        } elseif ($image_type == IMAGETYPE_PNG) {
+            // need this for transparent png to work
+            imagesavealpha($virtual_image, true);
+            imagepng($virtual_image, $thumb_name);
+        }
 		return $thumb_name;
 	}
 	return;
