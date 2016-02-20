@@ -489,24 +489,28 @@ function resizeImage($path, $thumb_name, $sizex, $sizey){
 		$desired_width = floor($width * (($sizey==0?$sizex:$sizey) / $height));
 
 		/* create a new, "virtual" image */
-		if($sizex!=0 && $sizey!=0){
-			$virtual_image = imagecreatetruecolor($sizex, $sizey);
-			if($desired_height>$sizey) // Cut vertically
-				imagecopyresampled($virtual_image, $source_image, 0, -(($desired_height-$sizey)/2), 0, 0, $sizex, $desired_height, $width, $height);
-			else // Cut horizontally
-				imagecopyresampled($virtual_image, $source_image, -(($desired_width-$sizex)/2), 0, 0, 0, $desired_width, $sizey, $width, $height);
-		}else if($sizey==0){
-			if($desired_height>$height){
-				$virtual_image = imagecreatetruecolor($width, $height);
-				imagecopyresampled($virtual_image, $source_image, 0, 0, 0, 0, $width, $height, $width, $height);
-			}else{
-				$virtual_image = imagecreatetruecolor($sizex, $desired_height);
-				imagecopyresampled($virtual_image, $source_image, 0, 0, 0, 0, $sizex, $desired_height, $width, $height);
-			}
-		}
+        if($width > $sizex || $height > $sizey) {
+            if($sizex!=0 && $sizey!=0) {
+                $virtual_image = imagecreatetruecolor($sizex, $sizey);
+                if($desired_height>$sizey) // Cut vertically
+                    imagecopyresampled($virtual_image, $source_image, 0, -(($desired_height-$sizey)/2), 0, 0, $sizex, $desired_height, $width, $height);
+                else // Cut horizontally
+                    imagecopyresampled($virtual_image, $source_image, -(($desired_width-$sizex)/2), 0, 0, 0, $desired_width, $sizey, $width, $height);
+            } elseif($sizey==0) {
+                if($desired_height>$height){
+                    $virtual_image = imagecreatetruecolor($width, $height);
+                    imagecopyresampled($virtual_image, $source_image, 0, 0, 0, 0, $width, $height, $width, $height);
+                } else {
+                    $virtual_image = imagecreatetruecolor($sizex, $desired_height);
+                    imagecopyresampled($virtual_image, $source_image, 0, 0, 0, 0, $sizex, $desired_height, $width, $height);
+                }
+            }
+        } else {
+            $virtual_image = $source_image;
+        }
 		if($angle==180)
 			imageflip($virtual_image,IMG_FLIP_BOTH);
-		else if($angle==90 || $angle==-90){
+		elseif($angle==90 || $angle==-90){
 			imagesetinterpolation($virtual_image, IMG_HERMITE);
 			$virtual_image = imagerotate($virtual_image, $angle, 0);
 		}
