@@ -42,18 +42,17 @@ function save($filename, $image_type=IMAGETYPE_JPEG, $compression=75, $permissio
 	// do this or they'll all go to jpeg
 	$image_type=$this->image_type;
 
-	if( $image_type == IMAGETYPE_JPEG ) {
-    	imagejpeg($this->image,$filename,$compression);
-  	}elseif( $image_type == IMAGETYPE_GIF ) {
-     	imagegif($this->image,$filename);  
-  	}elseif( $image_type == IMAGETYPE_PNG ) {
-    // need this for transparent png to work          
-    	imagealphablending($this->image, false);
+	if ($image_type == IMAGETYPE_JPEG) {
+    	imagejpeg($this->image, $filename,$compression);
+  	} elseif ($image_type == IMAGETYPE_GIF) {
+     	imagegif($this->image, $filename);
+  	} elseif ($image_type == IMAGETYPE_PNG) {
+        // need this for transparent png to work
     	imagesavealpha($this->image,true);
-    	imagepng($this->image,$filename);
+    	imagepng($this->image, $filename);
   	}   
-  	if( $permissions != null) {
-    	chmod($filename,$permissions);
+  	if ($permissions != null) {
+    	chmod($filename, $permissions);
   	}
 }
 
@@ -62,8 +61,7 @@ function resize($width,$height,$forcesize='n') {
   	/* optional. if file is smaller, do not resize. */
   	if ($forcesize == 'n') {
       	if ($width > $this->getWidth() && $height > $this->getHeight()){
-          	$width = $this->getWidth();
-          	$height = $this->getHeight();
+          	return;
       	}
   	}	
 
