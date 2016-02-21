@@ -9,8 +9,8 @@ function printContentPc(){
 	global $member, $me, $is_morning, $is_afternoon, $is_night, $mysqli, $board, $user;
 	?>
 
-	<div style="padding:6px; min-height: 400px">
-        <div style="padding: 4px; margin-bottom: 4px;">
+	<div style="min-height: 400px">
+        <div style="padding: 3px; padding-bottom: 6px; padding-top: 6px">
             <button type="button" id="main-edit-button" class="btn btn-primary" onclick="toggleLayoutEditing();">편집 모드 시작</button>
             <button type="button" id="main-theme-button" class="btn btn-primary" onclick="toggleThemeEditing();">테마 설정</button>
             <?php printEverydayLinks(); ?>
