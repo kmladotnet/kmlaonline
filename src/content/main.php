@@ -169,7 +169,7 @@ function printEverydayLinks(){
                 }
             }
             ?>
-            <select id="everyday-other" class="selectpicker" data-style="btn-default" title="유용한 링크" onchange="location = this.options[this.selectedIndex].value;">
+            <select id="everyday-other" class="selectpicker" data-style="btn-default" title="유용한 링크" data-width="120px" onchange="location = this.options[this.selectedIndex].value;">
                 <option value="/board/department_environment">환경부</option>
                 <option value="/board/student_mpt">MPT</option>
                 <option value="/board/student_ambassador">대외홍보단</option>
