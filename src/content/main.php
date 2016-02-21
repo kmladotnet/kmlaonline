@@ -169,12 +169,12 @@ function printEverydayLinks(){
                 }
             }
             ?>
-        </div>
-        <div class="btn-group" role="group" aria-label="...">
-            <a class='btn btn-default everyday-button' role='button' href="/board/department_environment">환경부</a>
-            <a class='btn btn-default everyday-button' role='button' href="/board/student_mpt">MPT</a>
-            <a class='btn btn-default everyday-button' role='button' href="/board/student_ambassador">대외홍보단</a>
-            <a class='btn btn-default everyday-button' role='button' href="/util/lectureroom">공강신청</a>
+            <select id="everyday-other" class="selectpicker" data-style="btn-default" title="유용한 링크" onchange="location = this.options[this.selectedIndex].value;">
+                <option value="/board/department_environment">환경부</option>
+                <option value="/board/student_mpt">MPT</option>
+                <option value="/board/student_ambassador">대외홍보단</option>
+                <option value="/util/lectureroom">공강신청</option>
+            </select>
         </div>
     </div>
     <?php
