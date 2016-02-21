@@ -50,7 +50,6 @@ function printContentPc(){
                 </div>
                 <div class="btn-group" style="margin-top: 4px">
                     <select id="add-module" class="selectpicker" data-style="btn-default" data-size="10" title="패널 추가">
-                        <option data-divider="true"></option>
                         <option value="important">필수 공지</option>
                         <option value="birthday">생일</option>
                         <option value="menu">식단</option>
@@ -72,7 +71,6 @@ function printContentPc(){
                             <button type="button" id="restore-layout" class="btn btn-primary" onclick="restoreLayout();"><i class="fa fa-cloud-download"></i> 복구</button>
                         <?php } ?>
                         <select id="example-layout" class="selectpicker" data-style="btn-primary" data-width="250px" data-size="10" title="예시 레이아웃 (먼저 백업하세요!)">
-                            <option data-divider="true"></option>
                             <option value="colorful">알록달록</option>
                             <option value="warrior">키보드워리어</option>
                         </select>
