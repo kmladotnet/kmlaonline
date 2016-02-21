@@ -165,7 +165,7 @@ function printEverydayLinks(){
                     echo "<a class='btn btn-default' href='/board/$k' id='nav_everyday' style='color:gray'>$v 없음</a>";
                 }else{
                     $a=$a[0];
-                    echo "<a class='btn ".((time()-$a['n_writedate']<43200) ? 'btn-primary':'btn-default')."' role='button' href=\"/board/$k/view/{$a['n_id']}\">{$v} <span>(".date("m월 d일", $a['n_writedate']).")</span></a>";
+                    echo "<a class='btn ".((time()-$a['n_writedate']<43200) ? 'btn-primary':'btn-default')."' role='button' href=\"/board/$k/view/{$a['n_id']}\">{$v} <span>(".date("n월 j일", $a['n_writedate']).")</span></a>";
                 }
             }
             ?>
