@@ -338,7 +338,7 @@ var editMode = false;
 function toggleLayoutEditing() {
     if(!editMode) {
         $("#main-edit-button").html("저장하고 편집 모드 종료");
-        $("#main-edit-pane").velocity("slideDown", {duration: 200, easing: "easeOutCubic"}, function() {
+        $("#main-edit-pane").velocity("slideDown", {duration: 200, easing: "easeOutCubic", complete: function() {
             $(".main-block-close").css({display: "inline-block", "border-width": "1px"});
             $(".main-block-options").css({display: "inline-block", "border-width": "1px"});
             $(".main-block-close").velocity({width: 28, opacity: 1}, 200);
@@ -346,16 +346,16 @@ function toggleLayoutEditing() {
             $(".main-block-reload").velocity({width: 28, "border-radius": 0}, 200);
             $(".main-block-title").css("cursor", "move");
             $('.grid-stack').data('gridstack').enable();
-        });
+        }});
     } else {
         $("#main-edit-button").html("편집 모드 시작");
         updateModules();
-        $("#main-edit-pane").velocity("slideUp", {duration: 200, easing: "easeOutCubic"}, function() {
+        $("#main-edit-pane").velocity("slideUp", {duration: 200, easing: "easeOutCubic", complete: function() {
             $(".main-block-close").velocity({width: 0, opacity: 0}, 200, function() {$(this).css({display: "none", "border-width": "0"})});
             $(".main-block-options").velocity({width: 0, opacity: 0}, 200, function() {$(this).css({display: "none", "border-width": "0"})});
             $(".main-block-reload").velocity({width: 24, "border-radius": 12}, 200);
             $(".main-block-title").css("cursor", "default");
-        });
+        }});
         $('.grid-stack').data('gridstack').disable();
     }
     editMode = !editMode;
