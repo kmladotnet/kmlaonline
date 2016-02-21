@@ -130,10 +130,11 @@
             <?php include "src/header/upper-header.php"; ?>
         </div>
         <div id="total-header-menu-outer">
-            <div id="menu-logo" style="width:40px;padding-left:10px;float:left;position:absolute;z-index:9999999">
+            <?php //TODO: 스타일 밖으로 뺄 것 ?>
+            <div id="menu-logo" style="width:40px;padding-left:10px;left:-40px;float:left;position:absolute;z-index:9999999">
                 <a href="http://kmlaonline.net" style="border-"><img id="menu-logo-image" src="/images/logo.png" alt="KMLAONLINE" style="width:20px;height:20px;margin-top:10px"></a>
             </div>
-            <div id="menu-logo-2" style="width:40px;padding-left:10px;float:left;position:absolute;opacity:0;z-index:9999999">
+            <div id="menu-logo-2" style="width:40px;padding-left:10px;left:-40px;float:left;position:absolute;opacity:0;z-index:9999999">
                 <a href="http://kmlaonline.net" style="border-"><img id="menu-logo-image-2" src="/images/logo-inverse.png" alt="KMLAONLINE" style="width:20px;height:20px;margin-top:10px"></a>
             </div>
             <div id="total-header-menu" ondragstart="return false">

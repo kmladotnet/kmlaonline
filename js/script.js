@@ -349,11 +349,9 @@ function showHeader() {
     $("#total-header-menu").velocity("slideDown", {duration: 250, easing: "easeOutCubic"});
     $("div.menu1_text").velocity("finish", true).velocity("transition.slideLeftIn", {display: null, duration: 250, stagger: 40});
     $("#menu-logo").velocity({
-        left: 0,
         opacity: 1
     }, 250, "easeOutCubic");
     $("#menu-logo-2").velocity({
-        left: 0,
         opacity: 0
     }, 250, "easeOutCubic");
 }
@@ -403,11 +401,9 @@ function prepareHeader() {
                     $("#total-header-menu").velocity("slideUp", {duration: 200, easing: "easeOutCubic"});
                     $("div.menu1_text").velocity("finish", true).velocity("transition.slideUpOut", {display: null, duration: 200});
                     $("#menu-logo").velocity("finish", true).velocity({
-                        left: -40,
                         opacity: 0
                     }, 200, "easeOutCubic", function () {});
                     $("#menu-logo-2").velocity({
-                        left: -40,
                         opacity: 1
                     }, 200, "easeOutCubic", function () {});
                 }

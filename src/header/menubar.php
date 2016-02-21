@@ -1,5 +1,5 @@
 <?php if(!isset($_SESSION['user'])) return; ?>
-    <div id="total-header-menu-menus" style="position: absolute;">
+    <div id="total-header-menu-menus" style="position: absolute; left: -40px">
 
         <div class="menu1 menu1-logo" style="width:40px;padding-left:10px">
         </div>
