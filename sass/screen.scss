@@ -42,7 +42,6 @@ $logo-url: url('/images/logo.png');
 //div#total-header #userarea #status_message, div#total-header #userarea #status_message_edit
 %extend_4 {
 	display: block;
-	height: 16px;
 	overflow: hidden;
 	font-size: 12pt;
 	padding: 1px 0;
@@ -294,8 +293,12 @@ div {
 		height: 160px;
 		background: $big-logo-url no-repeat;
 		#userarea {
+            position: absolute;
+            right: 0;
+            z-index: 9;
 			width: 222px;
-			height: 124px;
+			height: 130px;
+            box-shadow: 0 0px 30px rgba(0, 0, 0, 0.5);
 			padding: 3px;
 			float: right;
 			border-bottom-right-radius: 10px;
