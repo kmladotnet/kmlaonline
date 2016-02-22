@@ -283,6 +283,8 @@ function showUpperHeader(itm) {
         height: 0
     }, 300);
 
+    $("#below-header-menu").css("overflow", "hidden");
+
     $("#upper-header-menu-close").velocity({
         opacity: 1,
         height: "80px"
@@ -319,6 +321,7 @@ function hideUpperHeader() {
         opacity: 1
     }, 300, "swing", function () {
         $(this).height("auto");
+        $("#below-header-menu").css("overflow", "");
     });
     $("#upper-header-menu-close").velocity({
         height: 0
