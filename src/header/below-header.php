@@ -18,8 +18,8 @@
 						}
 						?><span style="line-height:48px;"><?php echo htmlspecialchars($me['s_name']);?></span><?php
 					?></a>
-					<a href="/sitemap" class="sitemap"></a>
-					<a href="/searchall" class="searchall"></a>
+					<a href="/sitemap" class="sitemap"><i class="fa fa-bars"></i></a>
+					<a href="/searchall" class="searchall"><i class="fa fa-search"></i></a>
 				<?php } ?>
 			</div>
 		</div>

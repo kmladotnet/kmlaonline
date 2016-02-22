@@ -155,8 +155,8 @@ div#total-header #userarea a.sitemap {
     top: 0;
     height: 48px;
     width: 48px;
-    background: url('sitemap-mobile.png');
-    background-size: 48px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 32px;
 }
 div#total-header #userarea a.searchall {
     position: absolute;
@@ -164,8 +164,8 @@ div#total-header #userarea a.searchall {
     top: 0;
     height: 48px;
     width: 48px;
-    background: url('search-mobile.png');
-    background-size: 48px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 32px;
 }
 div#total-header #userarea img {
     height: 48px;
