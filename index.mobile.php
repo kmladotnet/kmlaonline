@@ -40,6 +40,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.ui.min.js"></script>
 
     <!-- bootstrap -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
     <!-- bootstrap-select -->
@@ -71,8 +72,6 @@
 		if(!$is_afternoon) echo ".afternoon{display:none}";
 		if(!$is_night) echo ".night{display:none}";
 	?></style>
-
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" />
 </head><body>
 	<img id="no-login-bg" style="position:fixed;left:0;top:0;display:none;z-index:-50;" />
 	<div id="divSavingIndicatorFiller"></div>
