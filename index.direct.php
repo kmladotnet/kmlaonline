@@ -150,7 +150,7 @@
     <div id="total-footer" class="hide-on-upper-panel">
         <?php echo langraw("layout","footer"); ?>
     </div>
-    <?php if($detect->isMobile() || $detect->isTablet()){
+    <?php if($is_mobile){
 		$puri=strtok($_SERVER["REQUEST_URI"],'?');
 		unset($_GET['force_mobile'], $_GET['force_desktop']);
 		$_GET['force_mobile']=1;
