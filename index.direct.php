@@ -106,7 +106,7 @@
 
 <body>
     <img id="no-login-bg" style="position:fixed;left:0;top:0;display:none;z-index:99999999;" />
-    <div class="hide-on-upper-panel menu-shadow" style="left:0;width:100%;right:0;display:block;height:40px;box-shadow: 0 0px 30px rgba(0, 0, 0, 0.5);">
+    <div class="hide-on-upper-panel menu-shadow" style="left:0;width:100%;right:0;display:block;height:40px;box-shadow: 0 0px 30px rgba(0, 0, 0, 0.2);">
         <div class="total-header-menu-extend" style="position:absolute;left:0;width:100%;right:0;display:block;height:40px;"></div>
     </div>
     <div class="hide-on-upper-panel" style="position:absolute;background:rgb(21,70,107);left:0;width:100%;right:0;display:block;height:40px;z-index:-5;">
