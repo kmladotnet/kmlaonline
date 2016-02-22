@@ -644,7 +644,7 @@ $owm = new OpenWeatherMap(null, new WeatherCache(), 120);
 
 function getWeather() {
     global $owm;
-    $lang = 'ko';
+    $lang = 'en';
     $units = 'metric';
     return $owm->getWeather('Hoengsong', $units, $lang, '713e90471b96dbd9c11826031ee66031');
 }
