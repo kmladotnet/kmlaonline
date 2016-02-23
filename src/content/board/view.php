@@ -148,7 +148,7 @@ function putCommentTree($parent,$root){
 					<div style="clear:both"></div>
 				</div>
 			</div>
-			<div style="margin-left:20px"><?php putCommentTree($comment['n_id'],$root); ?></div>
+			<div style="margin-left:20px;border-left-color: #DDD;border-left-style: dotted;border-left-width: 1px;"><?php putCommentTree($comment['n_id'],$root); ?></div>
 		<?php } ?>
 	</div><?php
 
