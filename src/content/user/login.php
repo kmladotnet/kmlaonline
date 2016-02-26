@@ -35,7 +35,7 @@ function printContent(){
 			<?php } ?>
 			<div style="width:222px;margin:0 auto;display:block;">
 				<div class="form-group">
-                    <input placeholder="ID로 로그인해주세요" type="text" name="id" class="login_input form-control" onkeydown="if (event.which || event.keyCode){if ((event.which == 13) || (event.keyCode == 13)) {document.getElementById('cmdLoginPage').click();}};">
+                    <input placeholder="ID로 로그인해주세요" type="text" name="id" class="login_input form-control" autofocus onkeydown="if (event.which || event.keyCode){if ((event.which == 13) || (event.keyCode == 13)) {document.getElementById('cmdLoginPage').click();}};">
                 </div>
                 <div class="form-group">
                     <input placeholder="비밀번호" type="password" name="pwd" class="login_input form-control" onkeydown="if (event.which || event.keyCode){if ((event.which == 13) || (event.keyCode == 13)) {document.getElementById('cmdLoginPage').click();}};">
