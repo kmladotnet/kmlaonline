@@ -810,7 +810,7 @@ function board_addFileToWriteList(fn,fdn,comm,no_expire){
 				$("#uploadedItemImg_"+key).css("visibility","visible");
 				$("#uploadedItemImgA_"+key).attr("href",fn);
 				$("#uploadedItemImgA_"+key).css("visibility", "hidden");
-				$("#uploadedItemImgA_"+key).prop("rel","lightbox[uploaded_images]");
+				$("#uploadedItemImgA_"+key).prop("data-toggle","lightbox");
 			}else{
 				$("#uploadedItemImgDesc_"+key).attr("src",fileDesc[i]);
 			}

@@ -41,19 +41,21 @@
 
     <!-- bootstrap -->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
     <!-- bootstrap-select -->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
 
     <!-- fontawesome -->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" />
 
-	<script type="text/javascript" src="/js/lightbox.js" charset="utf-8"></script>
+    <!-- lightbox -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/4.0.1/ekko-lightbox.min.css"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/4.0.1/ekko-lightbox.min.js"></script>
+
 	<script type="text/javascript" src="/js/script.js" charset="utf-8"></script>
 	<script type="text/javascript" src="/js/content/combined.js" charset="utf-8"></script>
-	<link rel="stylesheet" href="/css/lightbox.css" charset="utf-8" type="text/css" media="screen" />
 	<link rel="stylesheet" href="/css/font.css" charset="utf-8" type="text/css" media="screen" />
 	<title><?php echo htmlspecialchars($title); ?></title>
 	<?php head_theme();

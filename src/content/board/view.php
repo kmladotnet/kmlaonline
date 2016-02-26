@@ -31,7 +31,7 @@ function printAttachList($article, $cat, $mode=0){
 							$path_force="/files/bbs/{$cat['n_id']}/{$article['n_id']}/{$v['n_id']}/{$v['s_key']}/force/".rawurlencode($v['s_name']);
 							$file_types=array(
 								"bmp;png;jpg;jpeg;tif;tiff;gif;svg;"=>
-									"<a rel=\"lightbox[article_{$article['n_id']}]\" href=\"".htmlspecialchars($path)."\" title=\"".htmlspecialchars($v['s_name']).(htmlspecialchars($v['s_comment'])?": ".$v['s_comment']:"")."\"><img style=\"display:block;margin:0 auto;max-width:100%;\" src=\"".htmlspecialchars($path_thumb)."\" /></a>", 
+									"<a data-toggle=\"lightbox\" href=\"".htmlspecialchars($path)."\" title=\"".htmlspecialchars($v['s_name']).(htmlspecialchars($v['s_comment'])?": ".$v['s_comment']:"")."\"><img style=\"display:block;margin:0 auto;max-width:100%;\" src=\"".htmlspecialchars($path_thumb)."\" /></a>",
 								"mp3;wav;ogg;mp2;mpa;flac;wavpack;ape;alac;ra;mid;"=>
 									"+<img src='/images/sound.gif' style='margin-left:54px;margin-top:54px;' />",
 								"ppt;pptx;xls;xlsx;doc;docx;docm;dotm;xlsb;xlsm;ppsx;pps;pptm;potm;ppam;potx;ppsm;"=> // MS Office
@@ -111,7 +111,7 @@ function putCommentTree($parent,$root){
 
 				$pic_sz=50;//$is_mobile?50:100;
 				if($m['s_pic'] && !$b_comment_anonymous)
-					echo '<a href="'.htmlspecialchars(str_replace("picture/","picture_full/",$m['s_pic'])).'" rel="lightbox"><img style="float:left;width:'.$pic_sz.'px;height:'.$pic_sz.'px;margin-right:7px;" src="'.htmlspecialchars($m['s_pic']).'" /></a>';
+					echo '<a href="'.htmlspecialchars(str_replace("picture/","picture_full/",$m['s_pic'])).'" data-toggle="lightbox"><img style="float:left;width:'.$pic_sz.'px;height:'.$pic_sz.'px;margin-right:7px;" src="'.htmlspecialchars($m['s_pic']).'" /></a>';
 				else if(!$m['s_pic'] && !$b_comment_anonymous)
 					echo '<img src="/images/no-image.png" style="float:left;width:'.$pic_sz.'px;height:'.$pic_sz.'px;margin-right:7px;" />';
 				else{
@@ -173,7 +173,7 @@ function printViewPageHeader($usr, $cat){
 			</div>
 			<?php
 			if($usr['s_pic'] && !$b_anonymous)
-				echo '<a href="'.htmlspecialchars(str_replace("picture/","picture_full/",$usr['s_pic'])).'" rel="lightbox"><img style="float:right;width:50px;height:50px;margin-left:7px;" src="'.htmlspecialchars($usr['s_pic']).'" /></a>';
+				echo '<a href="'.htmlspecialchars(str_replace("picture/","picture_full/",$usr['s_pic'])).'" data-toggle="lightbox"><img style="float:right;width:50px;height:50px;margin-left:7px;" src="'.htmlspecialchars($usr['s_pic']).'" /></a>';
 			else
 				echo '<img src="/images/no-image.png" style="float:right;width:50px;height:50px;margin-left:7px;" />';
 			?>

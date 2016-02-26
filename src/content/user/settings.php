@@ -90,7 +90,7 @@ function printContent(){
 								<th>사진 변경</th>
 								<td>
 									<?php if($me['s_pic']){ ?>
-										<a target="_blank" href="<?php echo htmlspecialchars(str_replace("picture/","picture_full/",$me['s_pic']))?>" rel="lightbox"><img src="<?php echo htmlspecialchars($me['s_pic'])?>" style="width:90px;height:90px;" /></a>
+										<a target="_blank" href="<?php echo htmlspecialchars(str_replace("picture/","picture_full/",$me['s_pic']))?>" data-toggle="lightbox"><img src="<?php echo htmlspecialchars($me['s_pic'])?>" style="width:90px;height:90px;" /></a>
 										<input id="b_remove_pic" type="checkbox" name="b_remove_pic" value="yes" />
 										<label for="b_remove_pic">사진 제거</label><br />
 									<?php } ?>
@@ -101,7 +101,7 @@ function printContent(){
 								<th>아이콘 변경</th>
 								<td>
 									<?php if($me['s_icon']){ ?>
-										<a target="_blank" href="<?php echo htmlspecialchars(str_replace("icon/","icon_full/",$me['s_icon']))?>" rel="lightbox"><img src="<?php echo htmlspecialchars($me['s_icon'])?>" style="width:90px;height:90px;" /></a>
+										<a target="_blank" href="<?php echo htmlspecialchars(str_replace("icon/","icon_full/",$me['s_icon']))?>" data-toggle="lightbox"><img src="<?php echo htmlspecialchars($me['s_icon'])?>" style="width:90px;height:90px;" /></a>
 										<input id="b_remove_icon" type="checkbox" name="b_remove_icon" value="yes" />
 										<label for="b_remove_icon">아이콘 제거</label><br />
 									<?php } ?>

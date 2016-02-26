@@ -4,7 +4,7 @@
 		<tr style="height:100px">
 			<td style="width:100px;">
 				<?php if($me['s_pic']){ ?>
-					<a target="_blank" href="<?php echo htmlspecialchars(str_replace("picture/","picture_full/",$me['s_pic']))?>" rel="lightbox"><img src="<?php echo htmlspecialchars($me['s_pic'])?>" class="userarea-image" /></a>
+					<a target="_blank" href="<?php echo htmlspecialchars(str_replace("picture/","picture_full/",$me['s_pic']))?>" data-toggle="lightbox"><img src="<?php echo htmlspecialchars($me['s_pic'])?>" class="userarea-image" /></a>
 				<?php }else{ ?>
 					<img class="userarea-image" src="/images/no-image.png" />
 				<?php } ?>

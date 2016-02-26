@@ -35,7 +35,7 @@ function printContent(){
 	<div class="userinfo_border" style="margin:12px;padding:12px;">
 		<div class="user_pic">
 			<?php if($user_to['s_pic']){ ?>
-				<a target="_blank" href="<?php echo htmlspecialchars(str_replace("picture/","picture_full/",$user_to['s_pic']))?>" rel="lightbox"><img src="<?php echo htmlspecialchars($user_to['s_pic'])?>" style="width:90px;height:90px;" /></a>
+				<a target="_blank" href="<?php echo htmlspecialchars(str_replace("picture/","picture_full/",$user_to['s_pic']))?>" data-toggle="lightbox"><img src="<?php echo htmlspecialchars($user_to['s_pic'])?>" style="width:90px;height:90px;" /></a>
 			<?php }else{ ?>
 				<img src="/images/no-image.png" style="width:100px;height:100px;" />
 			<?php } ?>
