@@ -116,7 +116,7 @@ function printContent(){
             var rain = new RainyDay({
                 image: document.getElementById("no-login-bg")
             });
-            rain.rain([[1, 10, 5]], 200);
+            rain.rain([[0, 2, 20], [4, 3, 1]], 30);
             $("canvas").css("z-index", 999999999);
         </script>
         <?php
