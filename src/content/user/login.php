@@ -107,5 +107,18 @@ function printContent(){
 		</div>
 	</form>
     <script src="/js/content/user/login.js"></script>
-	<?php
+    <?php
+    $weather = getWeather();
+    if(200 <= $weather->weather->id && $weather->weather->id < 600) {
+        ?>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/rainyday.js/0.1.2/rainyday.min.js"></script>
+        <script>
+            var rain = new RainyDay({
+                image: document.getElementById("no-login-bg")
+            });
+            engine.rain([[1, 10, 5]], 200);
+            $("canvas").css("z-index", 999999999);
+        </script>
+        <?php
+    }
 }
