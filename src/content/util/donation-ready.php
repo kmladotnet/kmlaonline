@@ -148,7 +148,7 @@ var_dump($date1 > $date2);
 			</tr>
 		</thead>
 		<tbody>
-			<?php for($num=1;$num<=33;$num++){ ?>
+			<?php for($num=1;$num<=39;$num++){ ?>
 				<tr style="background:#FFF">
 
 					<td><?php echo $currentTable[$category][$num][0]; ?></td> 
