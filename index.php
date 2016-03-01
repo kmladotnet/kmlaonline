@@ -1,5 +1,5 @@
 <?php
-//test
+//test2
 $includes=array();
 switch(isset($_GET['action'])?$_GET['action']:"main"){
 	case "main":	$fn="main"; break;
