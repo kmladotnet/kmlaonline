@@ -35,7 +35,7 @@ function printContent(){
 		}
 	</style>
 	<div style="text-align:left;" id="1">
-		<font size=5><b>문제집 (국내)</b></font></br>
+		<font size=5><b name="1">문제집 (국내)</b></font></br>
 	</div>
 	<?php $category=0 ?>
 	<div style="clear:both;padding:5px;"></div>
