@@ -22,6 +22,11 @@ function printContent(){
 	</br>
 	<b>기부물품 신청 페이지입니다.</b></br> 선배님들께 기부받은 물품들을 교내외에서 돈을  받고 팔거나, 기타 수단으로 사용되는 것을 금하며, 해당 활동 등이 적발될 시에는 학생회 차원을 넘어 엄히 처벌하겠습니다. 정각에 신청 가능합니다. </br>혹 오류로 인해 자정에 신청이 안보이실 경우 10분에 신청 가능하도록 조정하도록 하겠습니다.</br>
 	</font>
+    <a href="#1">문제집 (국내)</a>
+    <a href="#2">문제집 (국제)</a>
+    <a href="#3">서적</a>
+    <a href="#4">교과서</a>
+    <a href="#5">생활용품</a>
 	</br>
 	<style>
 		td p{
@@ -29,7 +34,7 @@ function printContent(){
 			top: 5px;
 		}
 	</style>
-	<div style="text-align:left;">
+	<div style="text-align:left;" id="1">
 		<font size=5><b>문제집 (국내)</b></font></br>
 	</div>
 	<?php $category=0 ?>
@@ -85,8 +90,8 @@ function printContent(){
 	</table>
 	</br>
 
-	<div style="text-align:left;">
-		<font size=5><b>문제집 (국제)</b></font></br>
+	<div style="text-align:left;" id="2">
+		<font size=5 ><b>문제집 (국제)</b></font></br>
 	</div>
 	<?php $category=1 ?>
 	<div style="clear:both;padding:5px;"></div>
@@ -141,7 +146,7 @@ function printContent(){
 	</table>
 	</br>
 
-	<div style="text-align:left;">
+	<div style="text-align:left; " id="3">
 		<font size=5><b>서적</b></font></br>
 	</div>
 	<?php $category=2 ?>
@@ -255,8 +260,8 @@ function printContent(){
 	</table>
 	</br>	-->
 
-	<div style="text-align:left;">
-		<font size=5><b>교과서</b></font></br>
+	<div style="text-align:left;" id="4">
+		<font size=5 ><b>교과서</b></font></br>
 	</div>
 	<?php $category=4 ?>
 	<div style="clear:both;padding:5px;"></div>
@@ -310,7 +315,7 @@ function printContent(){
 		</tbody>
 	</table>
 	</br>
-	<div style="text-align:left;">
+	<div style="text-align:left;" id="5">
 		<font size=5><b>생활물품</b></font></br>
 	</div>
 	<?php $category=5 ?>
