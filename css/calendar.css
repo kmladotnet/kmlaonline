@@ -15,7 +15,7 @@ cal.grid_row:before, cal.grid_row:after{
 [class*='cal.grid_col-']{
 	float: left;
 	min-height: 1px;
-	width: 8.3333333333%;
+/*--width: 8.3333333333%;--*/
 	padding: 10px;
 }
 cal.grid_col-1{
