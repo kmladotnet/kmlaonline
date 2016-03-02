@@ -31,6 +31,13 @@ function printContent(){
 		if($mysqli->more_results())$mysqli->next_result();
 	}
 	?>
+    <div class="cal.grid_container">
+        <div class="cal.grid_row">
+            <div class="cal.grid_col-3">Option Bar Comes Here</div>
+            <div class="cal.grid_col-7">Days Section Comes Here</div>
+            <div class="cal.grid_col-2">Admin Option Comes Here</div>
+        </div>
+    </div>
 <!--
     <script src="/js/content/util/schedule.js"></script>
 	<div class="side-navigation">
