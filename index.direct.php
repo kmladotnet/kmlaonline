@@ -33,6 +33,9 @@
 
     <base href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/" />
 
+    <!-- calendar -->
+    <link rel="stylesheet" href="/css/calendar.css" />
+
     <!-- gridstack -->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.4/gridstack.css" />
 
