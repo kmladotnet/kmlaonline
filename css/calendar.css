@@ -1,0 +1,44 @@
+cal.grid_container{
+	width: 100%;
+/*--max-width: 1100px;--*/
+	margin: ;
+	background-color: #DDDDDD;
+}
+cal.grid_container *{
+	box-sizing: border-box;
+}
+cal.grid_row:before, cal.grid_row:after{
+	content: "";
+	display: table;
+	clear: both;
+}
+[class*='cal.grid_col-']{
+	float: left;
+	min-height: 1px;
+	width: 8.3333333333%;
+	padding: 10px;
+}
+cal.grid_col-1{width: 8.3333333333%;}
+cal.grid_col-2{width: 16.6666666667%;}
+cal.grid_col-3{width: 25%;}
+cal.grid_col-4{width: 33.3333333334%;}
+cal.grid_col-5{width: 41.6666666666%;}
+cal.grid_col-6{width: 50%;}
+cal.grid_col-7{width: 58.3333333333%;}
+cal.grid_col-8{width: 66.6666666667%;}
+cal.grid_col-9{width: 75%;}
+cal.grid_col-10{width: 83.3333333334%;}
+cal.grid_col-11{width: 91.6666666666%;}
+cal.grid_col-12{width: 100%;}
+
+/*--Some formating for visual representations--*/
+cal.outline, cal.outline *{
+	outline: 1px solid black;
+}
+[class*='cal.grid_col-'] > p{
+	background-color: #AAAAAA;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+	color: white;
+}

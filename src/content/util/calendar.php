@@ -33,9 +33,9 @@ function printContent(){
 	?>
     <div class="cal.grid_container">
         <div class="cal.grid_row">
-            <div class="cal.grid_col-3">Option Bar Comes Here</div>
-            <div class="cal.grid_col-7">Days Section Comes Here</div>
-            <div class="cal.grid_col-2">Admin Option Comes Here</div>
+            <div class="cal.grid_col-3"><p>Option Bar Comes Here</p></div>
+            <div class="cal.grid_col-7"><p>Days Section Comes Here</p></div>
+            <div class="cal.grid_col-2"><p>Admin Option Comes Here</p></div>
         </div>
     </div>
 <!--
