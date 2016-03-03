@@ -381,8 +381,8 @@ function printContent(){
 		<thead>
 			<tr style="background:#DDD">
 				<th style="text-align: center; height: 50px; width:10%;">종류</th>
-				<th style="text-align: center; height: 50px; width:30%;">색(장의+치마)</th>
-				<th style="text-align: center; height: 50px; width:30%;">기부자</th>
+				<th style="text-align: center; height: 50px; width:40%;">색(장의+치마)</th>
+				<th style="text-align: center; height: 50px; width:20%;">기부자</th>
                 <th style="text-align: center; height: 50px; wdith:30%;">신청자</th>
 			</tr>
 		</thead>
@@ -447,8 +447,8 @@ function printContent(){
 		<thead>
 			<tr style="background:#DDD">
 				<th style="text-align: center; height: 50px; width:10%;">종류</th>
-				<th style="text-align: center; height: 50px; width:30%;">색(장의+바지)</th>
-				<th style="text-align: center; height: 50px; width:30%;">기부자</th>
+				<th style="text-align: center; height: 50px; width:40%;">색(장의+바지)</th>
+				<th style="text-align: center; height: 50px; width:20%;">기부자</th>
                 <th style="text-align: center; height: 50px; wdith:30%;">신청자</th>
 			</tr>
 		</thead>
@@ -505,7 +505,7 @@ function printContent(){
 	</br>
 
 	<div style="text-align:left;" id="5">
-		<font size=5><b>남자 교복</b></font></br>
+		<font size=5><b>사복</b></font></br>
 	</div>
 	<?php $category=8 ?>   <!--Category 7: 여자 교복 -->
 	<div style="clear:both;padding:5px;"></div>
@@ -518,7 +518,7 @@ function printContent(){
 			</tr>
 		</thead>
 		<tbody style="text-align: center;">
-			<?php for($num=1;$num<=3;$num++){ ?>
+			<?php for($num=1;$num<=32;$num++){ ?>
 				<tr style="background:#FFF">
 
 					<td><?php echo $currentTable[$category][$num][2]; ?></td>
