@@ -437,6 +437,7 @@ function printContent(){
 		</tbody>
 	</table
 	</br>
+    </br>
 
 	<div style="text-align:left;" id="5">
 		<font size=5><b>남자 교복</b></font></br>
@@ -503,6 +504,7 @@ function printContent(){
 		</tbody>
 	</table
 	</br>
+    </br>
 
 	<div style="text-align:left;" id="5">
 		<font size=5><b>사복</b></font></br>
