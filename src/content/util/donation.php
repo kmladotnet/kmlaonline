@@ -373,7 +373,7 @@ function printContent(){
 	</table
 	</br>
 
-    <div name="uniform"></div>
+    <div id="uniform" name="uniform"></div>
 	<div style="text-align:left;" id="5">
 		<font size=5><b>여자 교복</b></font></br>
 	</div>
