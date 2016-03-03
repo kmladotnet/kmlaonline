@@ -172,8 +172,8 @@ function printContent(){
 	<table id="donation_table_etc" style="width: 100%;">
 		<thead>
 			<tr style="background:#DDD">
-				<th style="text-align: center; height: 50px; width:50%;">종류</th>
-				<th style="text-align: center; height: 50px; width:20%;">비고</th>
+				<th style="text-align: center; height: 50px; width:10%;">종류</th>
+				<th style="text-align: center; height: 50px; width:60%;">비고</th>
                 <th style="text-align: center; height: 50px; wdith:30%;">신청자</th>
 			</tr>
 		</thead>
