@@ -105,10 +105,10 @@
         <div class="slidedown" id="slidedown3_sub" style="right:40px;" tabindex="0">
             <form method="get" action="/searchall">
                 <div style="padding:3px;font-weight:bold;">사이트에서 찾아보기</div>
-                <div style="width:100%;overflow:hidden;">
-                    <input type="text" class="form-control" name="search" id="txt_search_whole" value=""/>
+                <div style="margin: 5px;overflow:hidden;">
+                    <input type="text" class="form-control" name="search" id="txt_search_whole"/>
                 </div>
-                <input type="submit" class="btn btn-default" value="검색" style="width:80px;height:32px;float:right" />
+                <input type="submit" class="btn btn-default" value="검색" style="width:80px;height:32px;float:right;margin:5px;margin-top:0" />
             </form>
         </div>
     </div>
