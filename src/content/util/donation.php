@@ -21,6 +21,7 @@ function printContent(){
 	<font size=3 color="#FFB22222">
 	</br>
 	<b>기부물품 신청 페이지입니다.</b></br> 선배님들께 기부받은 물품들을 교내외에서 돈을  받고 팔거나, 기타 수단으로 사용되는 것을 금하며, 해당 활동 등이 적발될 시에는 학생회 차원을 넘어 엄히 처벌하겠습니다. 정각에 신청 가능합니다. </br>혹 오류로 인해 자정에 신청이 안보이실 경우 10분에 신청 가능하도록 조정하도록 하겠습니다.</br>
+    <a href="#uniform"></a>
 	</font>
 	</br>
 	<style>
@@ -372,6 +373,7 @@ function printContent(){
 	</table
 	</br>
 
+    <div name="uniform"></div>
 	<div style="text-align:left;" id="5">
 		<font size=5><b>여자 교복</b></font></br>
 	</div>
