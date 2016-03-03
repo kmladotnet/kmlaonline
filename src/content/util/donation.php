@@ -525,13 +525,8 @@ function printContent(){
 
 					<td><?php echo $currentTable[$category][$num][2]; ?></td>
 
-					<td><?php if($currentTable[$category][$num][0]==""||$currentTable[$category][$num][0]==NULL){
-						echo "없음";
-					} else {
-						echo $currentTable[$category][$num][1];
-					}?>
+					<td><?php echo $currentTable[$category][$num][1]; ?></td>
 
-					</td>
 			<!--Backup	<td>echo $currentTable[$category][$num][1]; ?></td>	-->
 
 					<?php if($currentTable[$category][$num][6]!=0){
