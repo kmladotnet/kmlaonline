@@ -380,8 +380,8 @@ function printContent(){
 	<table id="donation_table_etc">
 		<thead>
 			<tr style="background:#DDD">
-				<th style="text-align: center; height: 50px; width:50%;">종류</th>
-				<th style="text-align: center; height: 50px; width:20%;">색(장의+치마)</th>
+				<th style="text-align: center; height: 50px; width:10%;">종류</th>
+				<th style="text-align: center; height: 50px; width:30%;">색(장의+치마)</th>
 				<th style="text-align: center; height: 50px; width:30%;">기부자</th>
                 <th style="text-align: center; height: 50px; wdith:30%;">신청자</th>
 			</tr>
@@ -390,15 +390,15 @@ function printContent(){
 			<?php for($num=1;$num<=63;$num++){ ?>
 				<tr style="background:#FFF">
 
-					<td><?php echo $currentTable[$category][$num][1]; ?></td>
+					<td><?php echo $currentTable[$category][$num][2]; ?></td>
 
-					<td><?php if($currentTable[$category][$num][0]==""||$currentTable[$category][$num][0]==NULL){
+					<td><?php if($currentTable[$category][$num][1]==""||$currentTable[$category][$num][0]==NULL){
 						echo "없음";
 					} else {
-						echo $currentTable[$category][$num][0];
+						echo $currentTable[$category][$num][1];
 					}?>
 
-                    <td><?php echo $currentTable[$category][$num][2] ?></td>
+                    <td><?php echo $currentTable[$category][$num][0] ?></td>
 
 					</td>
 			<!--Backup	<td>echo $currentTable[$category][$num][1]; ?></td>	-->
