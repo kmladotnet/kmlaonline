@@ -377,7 +377,7 @@ function printContent(){
 	</div>
 	<?php $category=6 ?>   <!--Category 6: 여자 교복 -->
 	<div style="clear:both;padding:5px;"></div>
-	<table id="donation_table_etc">
+	<table id="donation_table_etc" style="width: 100%;">
 		<thead>
 			<tr style="background:#DDD">
 				<th style="text-align: center; height: 50px; width:10%;">종류</th>
