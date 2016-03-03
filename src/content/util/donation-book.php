@@ -21,7 +21,7 @@ function printContent(){
 	<font size=3 color="#FFB22222">
 	</br>
 	<b>기부물품 신청 페이지입니다.</b></br> 선배님들께 기부받은 물품들을 교내외에서 돈을  받고 팔거나, 기타 수단으로 사용되는 것을 금하며, 해당 활동 등이 적발될 시에는 학생회 차원을 넘어 엄히 처벌하겠습니다. 정각에 신청 가능합니다. </br>혹 오류로 인해 자정에 신청이 안보이실 경우 10분에 신청 가능하도록 조정하도록 하겠습니다.</br>
-    <a href="/util/donation">교복 신청 목록</a>
+    <a href="/util/donation-cloth">교복 신청 목록</a>
 	</font>
 	</br>
 	<style>
@@ -47,10 +47,10 @@ function printContent(){
 			<?php for($num=1;$num<=265;$num++){ ?>
 				<tr style="background:#FFF">
 
-					<td><?php echo $currentTable[$category][$num][0]; ?></td> 
-					
+					<td><?php echo $currentTable[$category][$num][0]; ?></td>
+
 					<td style='text-align:center'><?php echo $currentTable[$category][$num][1]; ?></td>
- 
+
 					<?php if($currentTable[$category][$num][6]!=0){
 						$usr=$member->getMember($currentTable[$category][$num][6]);
 						?>
@@ -103,8 +103,8 @@ function printContent(){
 			<?php for($num=1;$num<=107;$num++){ ?>
 				<tr style="background:#FFF">
 
-					<td><?php echo $currentTable[$category][$num][1]; ?></td> 
-					
+					<td><?php echo $currentTable[$category][$num][1]; ?></td>
+
 		<!--			<td style='text-align:center'><?php switch($currentTable[$category][$num][3]){case(0): {echo "보통"; break;} case(1): {echo "양호"; break;} case(2): {echo "좋음"; break;}}?></td>	-->
 
 					<?php if($currentTable[$category][$num][6]!=0){
@@ -159,8 +159,8 @@ function printContent(){
 			<?php for($num=1;$num<=39;$num++){ ?>
 				<tr style="background:#FFF">
 
-					<td><?php echo $currentTable[$category][$num][0]; ?></td> 
-					
+					<td><?php echo $currentTable[$category][$num][0]; ?></td>
+
 				<!--	<td style='text-align:center'><?php echo $currentTable[$category][$num][2]; ?></td> 	-->
 
 					<?php if($currentTable[$category][$num][6]!=0){
@@ -217,13 +217,13 @@ function printContent(){
 			<?php for($num=1;$num<=32;$num++){ ?>
 				<tr style="background:#FFF">
 
-					<td><?php echo $currentTable[$category][$num][0]; ?></td> 
-					
-					<td style='text-align:center'><?php switch($currentTable[$category][$num][3]){case(0): {echo "보통"; break;} case(1): {echo "양호"; break;} case(2): {echo "좋음"; break;}}?></td> 
+					<td><?php echo $currentTable[$category][$num][0]; ?></td>
 
-					<td style='text-align:center'><?php if($currentTable[$category][$num][0]!="누비")switch($currentTable[$category][$num][4]){case(0): {echo "작음"; break;} case(1): {echo "보통"; break;} case(2): {echo "큼"; break;}}?></td> 
+					<td style='text-align:center'><?php switch($currentTable[$category][$num][3]){case(0): {echo "보통"; break;} case(1): {echo "양호"; break;} case(2): {echo "좋음"; break;}}?></td>
 
-					<td style='text-align:center'><?php if($currentTable[$category][$num][0]!="누비")switch($currentTable[$category][$num][5]){case(0): {echo "작음"; break;} case(1): {echo "보통"; break;} case(2): {echo "큼"; break;} case(3): {echo "마름"; break;}}?></td> 
+					<td style='text-align:center'><?php if($currentTable[$category][$num][0]!="누비")switch($currentTable[$category][$num][4]){case(0): {echo "작음"; break;} case(1): {echo "보통"; break;} case(2): {echo "큼"; break;}}?></td>
+
+					<td style='text-align:center'><?php if($currentTable[$category][$num][0]!="누비")switch($currentTable[$category][$num][5]){case(0): {echo "작음"; break;} case(1): {echo "보통"; break;} case(2): {echo "큼"; break;} case(3): {echo "마름"; break;}}?></td>
 
 					<?php if($currentTable[$category][$num][6]!=0){
 						$usr=$member->getMember($currentTable[$category][$num][6]);
@@ -273,8 +273,8 @@ function printContent(){
 			<?php for($num=1;$num<=37;$num++){ ?>
 				<tr style="background:#FFF">
 
-					<td><?php echo $currentTable[$category][$num][0]; ?></td> 
-					
+					<td><?php echo $currentTable[$category][$num][0]; ?></td>
+
 				<!--	<td><?php echo $currentTable[$category][$num][7]; ?></td>	-->
 
 					<?php if($currentTable[$category][$num][6]!=0){
@@ -329,7 +329,7 @@ function printContent(){
 				<tr style="background:#FFF">
 
 					<td><?php echo $currentTable[$category][$num][1]; ?></td>
-					
+
 					<td><?php if($currentTable[$category][$num][1]==""||$currentTable[$category][$num][1]==NULL){
 						echo "없음";
 					} else {
