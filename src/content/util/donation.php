@@ -398,7 +398,7 @@ function printContent(){
 						echo $currentTable[$category][$num][0];
 					}?>
 
-                    <td><?php echo $currentTable[$category][$num][2]</td>
+                    <td><?php echo $currentTable[$category][$num][2] ?></td>
 
 					</td>
 			<!--Backup	<td>echo $currentTable[$category][$num][1]; ?></td>	-->
