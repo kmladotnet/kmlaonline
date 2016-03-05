@@ -77,7 +77,7 @@ function bindAddModuleButton() {
 }
 function bindExampleLayoutButton() {
     $("#example-layout").on('change', function(event) {
-        askUser('정말로 예시 레이아웃을 적용할까요?', '지금 사용중인 레이아웃은 초기화됩니다.', function () {
+        askUser('정말로 예시 레이아웃을 적용할까요?', '지금 사용중인 레이아웃은 없어집니다.', function () {
             $.post("ajax/user/examplelayout", {
                     "name": $("#example-layout").val(),
                     ajax: 1
