@@ -1,6 +1,6 @@
 <?php
 redirectLoginIfRequired();
-$title="기부물품 신청 - " . $title;
+$title="서적 신청 - " . $title;
 function getCurrentTable(){
 	global $mysqli;
 	$query="SELECT * FROM kmlaonline_donation_table";
@@ -20,16 +20,18 @@ function printContent(){
 	?>
 	<font size=3 color="#FFB22222">
 	</br>
-	<b>기부물품 신청 페이지입니다.</b></br> 선배님들께 기분받은 물품을 교내외에서 돈 받고 팔거나, 기타 돈벌이 수단으로 사용되는 것을 금하며, 해당 활동 등이 적발될 시에는 학생회 차원을 넘어 엄히 처벌하겠습니다. 정각에 신청 가능합니다. </br>
+	<b>기부물품 신청 페이지입니다.</b></br> 선배님들께 기부받은 물품들을 교내외에서 돈을  받고 팔거나, 기타 수단으로 사용되는 것을 금하며, 해당 활동 등이 적발될 시에는 학생회 차원을 넘어 엄히 처벌하겠습니다. 정각에 신청 가능합니다. </br>혹 오류로 인해 자정에 신청이 안보이실 경우 10분에 신청 가능하도록 조정하도록 하겠습니다.</br>
+    <a href="/util/donation-cloth">교복 신청 목록</a>
 	</font>
-    <a href="#1">문제집 (국내)</a>
-    <a href="#2">문제집 (국제)</a>
-    <a href="#3">서적</a>
-    <a href="#4">교과서</a>
-    <a href="#5">생활용품</a>
 	</br>
-	<div style="text-align:left;">
-		<font size=5 id="1"><b>문제집 (국내)</b></font></br>
+	<style>
+		td p{
+			position: relative;
+			top: 5px;
+		}
+	</style>
+	<div style="text-align:left;" id="1">
+		<font size=5><b name="1">문제집 (국내)</b></font></br>
 	</div>
 	<?php $category=0 ?>
 	<div style="clear:both;padding:5px;"></div>
@@ -42,13 +44,13 @@ function printContent(){
 			</tr>
 		</thead>
 		<tbody>
-			<?php for($num=1;$num<=241;$num++){ ?>
+			<?php for($num=1;$num<=265;$num++){ ?>
 				<tr style="background:#FFF">
 
-					<td><?php echo $currentTable[$category][$num][0]; ?></td> 
-					
+					<td><?php echo $currentTable[$category][$num][0]; ?></td>
+
 					<td style='text-align:center'><?php echo $currentTable[$category][$num][1]; ?></td>
- 
+
 					<?php if($currentTable[$category][$num][6]!=0){
 						$usr=$member->getMember($currentTable[$category][$num][6]);
 						?>
@@ -66,29 +68,26 @@ function printContent(){
 					<?php }else{ ?>
 						<td>신청자가 없습니다</td>
 						<td>
-							<form method="post" action="/proc/util/donation" onsubmit="return saveAjax(this,'신청중...');">
+		<?php 	$date1 = new DateTime("now"); $date2 = new DateTime("2016-03-02");
+			if($date1 >=  $date2) { ?>	<form method="post" action="/proc/util/donation" onsubmit="return saveAjax(this,'신청중...');">
 								<input type="hidden" name="category" value="<?php echo $category ?>" />
 								<input type="hidden" name="num" value="<?php echo $num ?>" />
 								<input type="hidden" name="util_action" value="add" />
 								<input type="submit" value="신청" />
 							</form>
-						</form>
-<?php
-$date1 = new DateTime("now");
-$date2 = new DateTime("2016-03-02");
-
-var_dump($date1 == $date2);
-var_dump($date1 < $date2);
-var_dump($date1 > $date2);
-?>					<?php } ?>
+		<?php }else{ ?>
+							<p style="width: 150px;">기한이 아닙니다</p>
+		<?php } ?>
+ 						</form>
+					<?php } ?>
 				</tr>
 			<?php } ?>
 		</tbody>
 	</table>
 	</br>
 
-	<div style="text-align:left;">
-		<font size=5 id="2"><b>문제집 (국제)</b></font></br>
+	<div style="text-align:left;" id="2">
+		<font size=5 ><b>문제집 (국제)</b></font></br>
 	</div>
 	<?php $category=1 ?>
 	<div style="clear:both;padding:5px;"></div>
@@ -104,8 +103,8 @@ var_dump($date1 > $date2);
 			<?php for($num=1;$num<=107;$num++){ ?>
 				<tr style="background:#FFF">
 
-					<td><?php echo $currentTable[$category][$num][1]; ?></td> 
-					
+					<td><?php echo $currentTable[$category][$num][1]; ?></td>
+
 		<!--			<td style='text-align:center'><?php switch($currentTable[$category][$num][3]){case(0): {echo "보통"; break;} case(1): {echo "양호"; break;} case(2): {echo "좋음"; break;}}?></td>	-->
 
 					<?php if($currentTable[$category][$num][6]!=0){
@@ -125,13 +124,17 @@ var_dump($date1 > $date2);
 					<?php }else{ ?>
 						<td>신청자가 없습니다</td>
 						<td>
-							<form method="post" action="/proc/util/donation" onsubmit="return saveAjax(this,'신청중...');">
+		<?php 	$date1 = new DateTime("now"); $date2 = new DateTime("2016-03-02");
+			if($date1 >= $date2) { ?>	<form method="post" action="/proc/util/donation" onsubmit="return saveAjax(this,'신청중...');">
 								<input type="hidden" name="category" value="<?php echo $category ?>" />
 								<input type="hidden" name="num" value="<?php echo $num ?>" />
 								<input type="hidden" name="util_action" value="add" />
-								<input type="submit" value="신청" />	
+								<input type="submit" value="신청" />
 							</form>
-						</form>
+		<?php }else{ ?>
+							<p style="width: 150px;">기한이 아닙니다</p>
+		<?php } ?>
+ 						</form>
 					<?php } ?>
 				</tr>
 			<?php } ?>
@@ -139,8 +142,8 @@ var_dump($date1 > $date2);
 	</table>
 	</br>
 
-	<div style="text-align:left;">
-		<font size=5 id="3"><b>서적</b></font></br>
+	<div style="text-align:left; " id="3">
+		<font size=5><b>서적</b></font></br>
 	</div>
 	<?php $category=2 ?>
 	<div style="clear:both;padding:5px;"></div>
@@ -156,8 +159,8 @@ var_dump($date1 > $date2);
 			<?php for($num=1;$num<=39;$num++){ ?>
 				<tr style="background:#FFF">
 
-					<td><?php echo $currentTable[$category][$num][0]; ?></td> 
-					
+					<td><?php echo $currentTable[$category][$num][0]; ?></td>
+
 				<!--	<td style='text-align:center'><?php echo $currentTable[$category][$num][2]; ?></td> 	-->
 
 					<?php if($currentTable[$category][$num][6]!=0){
@@ -177,13 +180,17 @@ var_dump($date1 > $date2);
 					<?php }else{ ?>
 						<td>신청자가 없습니다</td>
 						<td>
-							<form method="post" action="/proc/util/donation" onsubmit="return saveAjax(this,'신청중...');">
+		<?php 	$date1 = new DateTime("now"); $date2 = new DateTime("2016-03-02");
+			if($date1 >= $date2) { ?>	<form method="post" action="/proc/util/donation" onsubmit="return saveAjax(this,'신청중...');">
 								<input type="hidden" name="category" value="<?php echo $category ?>" />
 								<input type="hidden" name="num" value="<?php echo $num ?>" />
 								<input type="hidden" name="util_action" value="add" />
 								<input type="submit" value="신청" />
 							</form>
-						</form>
+		<?php }else{ ?>
+							<p style="width: 150px;">기한이 아닙니다</p>
+		<?php } ?>
+ 						</form>
 					<?php } ?>
 				</tr>
 			<?php } ?>
@@ -210,13 +217,13 @@ var_dump($date1 > $date2);
 			<?php for($num=1;$num<=32;$num++){ ?>
 				<tr style="background:#FFF">
 
-					<td><?php echo $currentTable[$category][$num][0]; ?></td> 
-					
-					<td style='text-align:center'><?php switch($currentTable[$category][$num][3]){case(0): {echo "보통"; break;} case(1): {echo "양호"; break;} case(2): {echo "좋음"; break;}}?></td> 
+					<td><?php echo $currentTable[$category][$num][0]; ?></td>
 
-					<td style='text-align:center'><?php if($currentTable[$category][$num][0]!="누비")switch($currentTable[$category][$num][4]){case(0): {echo "작음"; break;} case(1): {echo "보통"; break;} case(2): {echo "큼"; break;}}?></td> 
+					<td style='text-align:center'><?php switch($currentTable[$category][$num][3]){case(0): {echo "보통"; break;} case(1): {echo "양호"; break;} case(2): {echo "좋음"; break;}}?></td>
 
-					<td style='text-align:center'><?php if($currentTable[$category][$num][0]!="누비")switch($currentTable[$category][$num][5]){case(0): {echo "작음"; break;} case(1): {echo "보통"; break;} case(2): {echo "큼"; break;} case(3): {echo "마름"; break;}}?></td> 
+					<td style='text-align:center'><?php if($currentTable[$category][$num][0]!="누비")switch($currentTable[$category][$num][4]){case(0): {echo "작음"; break;} case(1): {echo "보통"; break;} case(2): {echo "큼"; break;}}?></td>
+
+					<td style='text-align:center'><?php if($currentTable[$category][$num][0]!="누비")switch($currentTable[$category][$num][5]){case(0): {echo "작음"; break;} case(1): {echo "보통"; break;} case(2): {echo "큼"; break;} case(3): {echo "마름"; break;}}?></td>
 
 					<?php if($currentTable[$category][$num][6]!=0){
 						$usr=$member->getMember($currentTable[$category][$num][6]);
@@ -249,8 +256,8 @@ var_dump($date1 > $date2);
 	</table>
 	</br>	-->
 
-	<div style="text-align:left;">
-		<font size=5 id="4"><b>교과서</b></font></br>
+	<div style="text-align:left;" id="4">
+		<font size=5 ><b>교과서</b></font></br>
 	</div>
 	<?php $category=4 ?>
 	<div style="clear:both;padding:5px;"></div>
@@ -266,8 +273,8 @@ var_dump($date1 > $date2);
 			<?php for($num=1;$num<=37;$num++){ ?>
 				<tr style="background:#FFF">
 
-					<td><?php echo $currentTable[$category][$num][0]; ?></td> 
-					
+					<td><?php echo $currentTable[$category][$num][0]; ?></td>
+
 				<!--	<td><?php echo $currentTable[$category][$num][7]; ?></td>	-->
 
 					<?php if($currentTable[$category][$num][6]!=0){
@@ -287,21 +294,25 @@ var_dump($date1 > $date2);
 					<?php }else{ ?>
 						<td>신청자가 없습니다</td>
 						<td>
-							<form method="post" action="/proc/util/donation" onsubmit="return saveAjax(this,'신청중...');">
+		<?php 	$date1 = new DateTime("now"); $date2 = new DateTime("2016-03-02");
+			if($date1 >= $date2) { ?>	<form method="post" action="/proc/util/donation" onsubmit="return saveAjax(this,'신청중...');">
 								<input type="hidden" name="category" value="<?php echo $category ?>" />
 								<input type="hidden" name="num" value="<?php echo $num ?>" />
 								<input type="hidden" name="util_action" value="add" />
 								<input type="submit" value="신청" />
 							</form>
-						</form>
+		<?php }else{ ?>
+							<p style="width: 150px;">기한이 아닙니다</p>
+		<?php } ?>
+ 						</form>
 					<?php } ?>
 				</tr>
 			<?php } ?>
 		</tbody>
 	</table>
 	</br>
-	<div style="text-align:left;">
-		<font size=5 id="5"><b>생활물품</b></font></br>
+	<div style="text-align:left;" id="5">
+		<font size=5><b>생활물품</b></font></br>
 	</div>
 	<?php $category=5 ?>
 	<div style="clear:both;padding:5px;"></div>
@@ -317,12 +328,12 @@ var_dump($date1 > $date2);
 			<?php for($num=1;$num<=63;$num++){ ?>
 				<tr style="background:#FFF">
 
-					<td><?php echo $currentTable[$category][$num][0]; ?></td> 
-					
+					<td><?php echo $currentTable[$category][$num][1]; ?></td>
+
 					<td><?php if($currentTable[$category][$num][1]==""||$currentTable[$category][$num][1]==NULL){
 						echo "없음";
 					} else {
-						echo $currentTable[$category][$num][1];
+						echo $currentTable[$category][$num][0];
 					}?>
 					</td>
 			<!--Backup	<td>echo $currentTable[$category][$num][1]; ?></td>	-->
@@ -344,13 +355,17 @@ var_dump($date1 > $date2);
 					<?php }else{ ?>
 						<td>신청자가 없습니다</td>
 						<td>
-							<form method="post" action="/proc/util/donation" onsubmit="return saveAjax(this,'신청중...');">
+		<?php 	$date1 = new DateTime("now"); $date2 = new DateTime("2016-03-02");
+			if($date1 >= $date2) { ?>	<form method="post" action="/proc/util/donation" onsubmit="return saveAjax(this,'신청중...');">
 								<input type="hidden" name="category" value="<?php echo $category ?>" />
 								<input type="hidden" name="num" value="<?php echo $num ?>" />
 								<input type="hidden" name="util_action" value="add" />
 								<input type="submit" value="신청" />
 							</form>
-						</form>
+		<?php }else{ ?>
+							<p style="width: 150px;">기한이 아닙니다</p>
+		<?php } ?>
+ 						</form>
 					<?php } ?>
 				</tr>
 			<?php } ?>
