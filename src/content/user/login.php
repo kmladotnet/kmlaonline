@@ -16,7 +16,7 @@ function printContent(){
 		$i=getimagesize($v['s_path']);
 		$width=$i[0];
 		$height=$i[1];
-		insertOnLoadScript("initializeLoginBackgroundImage(\"".addslashes("/files/bbs/{$cat['n_id']}/{$v['n_parent']}/{$v['n_id']}/{$v['s_key']}/{$v['s_name']}")."\", $width, $height);");
+		insertOnLoadScript("initializeLoginBackgroundImage(\"".addslashes("/files/bbs/{$cat['n_id']}/{$v['n_parent']}/{$v['n_id']}/{$v['s_key']}/{$v['s_name']}")."\", $width, $height);".(200 <= $weather->weather->id && $weather->weather->id < 600 ? 'var rain = new RainyDay({image: document.getElementById("no-login-bg")});rain.rain([[0, 2, 20], [4, 3, 1]], 30);$("canvas").css("z-index", 999999999);' : ""));
 	}
 
 	?>
@@ -112,13 +112,6 @@ function printContent(){
     if(200 <= $weather->weather->id && $weather->weather->id < 600) {
         ?>
         <script src="//cdnjs.cloudflare.com/ajax/libs/rainyday.js/0.1.2/rainyday.min.js"></script>
-        <script>
-            var rain = new RainyDay({
-                image: document.getElementById("no-login-bg")
-            });
-            rain.rain([[0, 2, 20], [4, 3, 1]], 30);
-            $("canvas").css("z-index", 999999999);
-        </script>
         <?php
     }
 }
