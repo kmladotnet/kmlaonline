@@ -125,6 +125,34 @@ function basicModuleOptions($options) {
 <?php
 }
 
+function cacheCategories() {
+    global $member, $me, $mysqli, $board, $curYear;
+    $cat=array(
+        "/^club_.*$/"=>array("동아리",array()),
+        "/^department_.*$/"=>array("부서",array()),
+        "/^student_.*$/"=>array("교내",array()),
+        "/^(site_suggestions|login_candidates|login_approved|site_kmlacafe|site_notice)$/"=>array("큼라온라인", array()),
+        "/.*?/"=>array("전체",array()),
+    );
+    for($i=$curYear-1995;$i>=1;$i--)
+        $cat = array("/^wave{$i}_.*$/"=>array("{$i}기 게시판",array())) + $cat;
+    foreach($board->getCategoryList(0,0) as $val){
+        if($val['n_id']==1) continue;
+        if(checkCategoryAccess($val['n_id'], "list")){
+            foreach($cat as $k=>$v){
+                if(preg_match($k, $val['s_id'])){
+                    $cat[$k][1][]=$val;
+                    break;
+                }
+            }
+        }
+    }
+    if(!file_exists('/tmp/kmla/catcache')) {
+        mkdir('/tmp/kmla/catcache', 0777, true);
+    }
+    file_put_contents("/tmp/kmla/catcache/{$me['n_id']}.txt", serialize($cat));
+}
+
 function moduleOptions($module_name, $options) {
 	global $member, $me, $is_morning, $is_afternoon, $is_night, $mysqli, $board, $curYear, $curMonth, $curDay;
     switch($module_name) {
@@ -134,26 +162,7 @@ function moduleOptions($module_name, $options) {
             <label>글 분류</label>
             <select class="selectpicker" name="cat" data-live-search="true" data-size="6" data-dropup-auto="false" data-icon-base='fa', data-tick-icon='fa-check' multiple>
                 <?php
-                    $cat=array(
-                        "/^club_.*$/"=>array("동아리",array()),
-                        "/^department_.*$/"=>array("부서",array()),
-                        "/^student_.*$/"=>array("교내",array()),
-                        "/^(site_suggestions|login_candidates|login_approved|site_kmlacafe|site_notice)$/"=>array("큼라온라인", array()),
-                        "/.*?/"=>array("전체",array()),
-                    );
-                    for($i=intval(date("Y"))-1995;$i>=1;$i--)
-                        $cat = array("/^wave{$i}_.*$/"=>array("{$i}기 게시판",array())) + $cat;
-                    foreach($board->getCategoryList(0,0) as $val){
-                        if($val['n_id']==1) continue;
-                        if(checkCategoryAccess($val['n_id'], "list")){
-                            foreach($cat as $k=>$v){
-                                if(preg_match($k, $val['s_id'])){
-                                    $cat[$k][1][]=$val;
-                                    break;
-                                }
-                            }
-                        }
-                    }
+                    $cat = unserialize(file_get_contents("/tmp/kmla/catcache/{$me['n_id']}.txt"));
                     foreach(array_values($cat) as $a) {
                         if(count($a[1]) === 0) {
                             continue;
