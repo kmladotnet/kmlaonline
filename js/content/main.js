@@ -77,22 +77,7 @@ function bindAddModuleButton() {
 }
 function bindExampleLayoutButton() {
     $("#example-layout").on('change', function(event) {
-        (new PNotify({
-            title: '정말로 예시 레이아웃을 적용할까요?',
-            text: '지금 사용중인 레이아웃은 초기화됩니다.',
-            icon: 'fa fa-question-circle',
-            hide: false,
-            confirm: {
-                confirm: true
-            },
-            buttons: {
-                closer: false,
-                sticker: false
-            },
-            history: {
-                history: false
-            }
-        })).get().on('pnotify.confirm', function () {
+        askUser('정말로 예시 레이아웃을 적용할까요?', '지금 사용중인 레이아웃은 초기화됩니다.', function () {
             $.post("ajax/user/examplelayout", {
                     "name": $("#example-layout").val(),
                     ajax: 1
@@ -122,22 +107,7 @@ function backupLayout() {
 }
 
 function restoreLayout() {
-    (new PNotify({
-        title: '레이아웃을 복구할까요?',
-        text: '레이아웃이 마지막 백업 상태로 되돌려집니다.',
-        icon: 'fa fa-question-circle',
-        hide: false,
-        confirm: {
-            confirm: true
-        },
-        buttons: {
-            closer: false,
-            sticker: false
-        },
-        history: {
-            history: false
-        }
-    })).get().on('pnotify.confirm', function () {
+    askUser('레이아웃을 복구할까요?', '레이아웃이 마지막 백업 상태로 되돌려집니다.', function () {
         $.post("ajax/user/restorelayout", {
                 ajax: 1
         }).done(function () {
@@ -242,51 +212,19 @@ function toggleOptions(show, element, force) {
 }
 
 function resetMainLayout() {
-    (new PNotify({
-        title: '정말로 레이아웃을 초기화할까요?',
-        icon: 'fa fa-question-circle',
-        hide: false,
-        confirm: {
-            confirm: true
-        },
-        buttons: {
-            closer: false,
-            sticker: false
-        },
-        history: {
-            history: false
-        }
-    })).get().on('pnotify.confirm', function () {
+    askUser('정말로 레이아웃을 초기화할까요?', '지금 사용중인 레이아웃을 지우고 레이아웃을 기본값으로 되돌립니다.', function () {
         $.post("ajax/user/resetlayout", {
-                "ajax": "1"
-            })
-            .done(function () {
-                $(".grid-stack-item").velocity("transition.slideUpOut", {stagger: 50, duration: 300, complete: function() {
-                    location.reload(true);
-                }});
-            });
-    });
+            "ajax": "1"
+        }).done(function () {
+            $(".grid-stack-item").velocity("transition.slideUpOut", {stagger: 50, duration: 300, complete: function() {
+                location.reload(true);
+            }});
+        });
+    })
 }
 
 function cancelLayout() {
-    (new PNotify({
-        title: '레이아웃 변경사항 취소',
-        text: '레이아웃을 마지막으로 저장된 상태로 되돌릴까요?',
-        icon: 'fa fa-question-circle',
-        hide: false,
-        confirm: {
-            confirm: true
-        },
-        buttons: {
-            closer: false,
-            sticker: false
-        },
-        history: {
-            history: false
-        }
-    })).get().on('pnotify.confirm', function () {
-                location.reload(true);
-    });
+    askUser('레이아웃 변경사항 취소', '레이아웃을 마지막으로 저장된 상태로 되돌릴까요?', function () { location.reload(true); });
 }
 
 function updateModules() {

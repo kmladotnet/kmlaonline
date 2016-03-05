@@ -206,6 +206,25 @@ function initContacts() {
     });
 }
 
+function askUser(title, text, onConfirm) {
+    (new PNotify({
+            title: title,
+            text: text,
+            icon: 'fa fa-question-circle',
+            hide: false,
+            confirm: {
+                confirm: true
+            },
+            buttons: {
+                closer: false,
+                sticker: false
+            },
+            history: {
+                history: false
+            }
+        })).get().on('pnotify.confirm', onConfirm);
+}
+
 function loadUpperHeader(theurl, placeTo, immediate) {
     $.ajax({
         type: "GET",
