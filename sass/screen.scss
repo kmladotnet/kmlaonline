@@ -68,6 +68,7 @@ html {
 	@extend %extend_1;
 }
 body {
+    overflow-y: scroll!important;
 	@extend %extend_1;
 	&.cke_contents_ltr {
 		margin: 5px;
