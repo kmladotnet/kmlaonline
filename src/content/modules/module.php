@@ -10,8 +10,7 @@ function moduleTitle($module_name, $options) {
                 <a href="/util/important">
                 신청목록 보기
                 <?php
-                $res=$mysqli->query("SELECT count(*) FROM kmlaonline_important_notices_table WHERE n_state=0");
-                $res=$res->fetch_array();
+                $res=$mysqli->query("SELECT count(*) FROM kmlaonline_important_notices_table WHERE n_state=0")->fetch_array();
                 if($res[0]>0) echo " ({$res[0]})";
                 ?>
                 </a>
@@ -226,20 +225,24 @@ function moduleOptions($module_name, $options) {
     }
 }
 
-function moduleContents($module_name, $options) {
+function moduleContents($module_name, $options, $light) {
     ?>
     <div class="main-block panel panel-<?php echo $options['color'];?>">
         <div class="main-block-title panel-heading">
             <div class="btn-group main-block-button-group" role="group">
-                <button class="main-block-options main-block-button main-block-hidden btn btn-default" type="button" data-toggle="button" onclick="toggleOptions(!$(this).hasClass('active'), $(this));">
-                    <i class="fa fa-cog"></i>
-                </button>
+                <?php if(!$light) { ?>
+                    <button class="main-block-options main-block-button main-block-hidden btn btn-default" type="button" data-toggle="button" onclick="toggleOptions(!$(this).hasClass('active'), $(this));">
+                        <i class="fa fa-cog"></i>
+                    </button>
+                <?php } ?>
                 <button class="btn btn-default main-block-button main-block-reload" type="button" style="border-radius: 12px; width: 24px;">
                     <i class="fa fa-refresh"></i>
                 </button>
-                <button class="main-block-close main-block-button main-block-hidden btn btn-default" type="button">
-                    <i class="fa fa-times"></i>
-                </button>
+                <?php if(!$light) { ?>
+                    <button class="main-block-close main-block-button main-block-hidden btn btn-default" type="button">
+                        <i class="fa fa-times"></i>
+                    </button>
+                <?php } ?>
             </div>
             <div class="main-block-title-content">
                 <?php
@@ -254,19 +257,21 @@ function moduleContents($module_name, $options) {
                 moduleContent($module_name, $options);
                 ?>
             </div>
-            <div class="main-block-options-pane">
-                <form class="main-block-options-form" onsubmit>
-                    <?php
-                    basicModuleOptions($options);
-                    moduleOptions($module_name, $options);
-                    ?>
-                    <div class="main-block-options-warning">
-                        레이아웃 저장 버튼을 눌러야 영구 저장됩니다.
-                    </div>
-                    <button type="button" class="main-block-options-submit btn btn-primary">(임시)적용</button>
-                    <button type="reset" class="main-block-options-cancel btn btn-warning">취소</button>
-                </form>
-            </div>
+            <?php if(!$light) { ?>
+                <div class="main-block-options-pane">
+                    <form class="main-block-options-form" onsubmit>
+                        <?php
+                        basicModuleOptions($options);
+                        moduleOptions($module_name, $options);
+                        ?>
+                        <div class="main-block-options-warning">
+                            레이아웃 저장 버튼을 눌러야 영구 저장됩니다.
+                        </div>
+                        <button type="button" class="main-block-options-submit btn btn-primary">(임시)적용</button>
+                        <button type="reset" class="main-block-options-cancel btn btn-warning">취소</button>
+                    </form>
+                </div>
+            <?php } ?>
         </div>
     </div>
     <?php
@@ -307,10 +312,8 @@ function getModuleShell($module_name, $options, $x = 0, $y = 0, $w = 4, $h = 4) 
         echo ' data-gs-width="',$w,'" data-gs-height="',$h,'"';
         echo ' data-module-name="',$module_name,'"';
         echo ' data-module-options=\'',htmlspecialchars(json_encode($options)),'\'';
-        ?>
-            >
-        <div class="grid-stack-item-content">
-        </div>
+        ?>>
+        <div class="grid-stack-item-content"></div>
     </div>
     <?php
 }
@@ -326,7 +329,7 @@ function getModule($module_name, $options, $x = 0, $y = 0, $w = 4, $h = 4, $ligh
         echo ' data-module-options=\'',htmlspecialchars(json_encode($options)),'\'';
         ?>>
         <div class="grid-stack-item-content">
-            <?php $light ? moduleContentsLite($module_name, $options) : moduleContents($module_name, $options); ?>
+            <?php moduleContents($module_name, $options, $light); ?>
         </div>
     </div>
 <?php
@@ -338,13 +341,6 @@ function defaultOptions($module_name) {
     );
 
     switch($module_name) {
-        case 'important':
-            $defaults['num'] = 10;
-            $defaults['show-cat'] = true;
-            $defaults['show-title'] = true;
-            $defaults['show-name'] = true;
-            $defaults['show-date'] = true;
-            break;
         case 'birthday':
             break;
         case 'menu':
@@ -354,6 +350,7 @@ function defaultOptions($module_name) {
             break;
         case 'article-list':
             $defaults['cat'] = array(139);
+        case 'important':
             $defaults['num'] = 10;
             $defaults['show-cat'] = true;
             $defaults['show-title'] = true;
