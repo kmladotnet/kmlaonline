@@ -225,7 +225,7 @@ function moduleOptions($module_name, $options) {
     }
 }
 
-function moduleContents($module_name, $options, $light) {
+function moduleContents($module_name, $options, $light = false) {
     ?>
     <div class="main-block panel panel-<?php echo $options['color'];?>">
         <div class="main-block-title panel-heading">
