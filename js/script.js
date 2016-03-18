@@ -110,6 +110,7 @@ function hideLoading() {
 }
 
 function saveAjax(obj, opername, ckeditor, callafter) {
+    removeAlertOnLeave();
     if (ckeditor) CKEDITOR.instances[ckeditor].updateElement();
     if (window.ajaxing) {
         alert("처리 중입니다.");
