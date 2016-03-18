@@ -263,7 +263,7 @@ function moduleContents($module_name, $options, $light = false) {
         <div class="panel-body main-block-body">
             <div class="main-block-content">
                 <?php
-                moduleContent($module_name, $options);
+                moduleContent($module_name, $options, $light);
                 ?>
             </div>
             <?php if(!$light) { ?>
