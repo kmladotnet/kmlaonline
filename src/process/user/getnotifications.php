@@ -27,8 +27,8 @@ foreach($notices as $v){
 		default:
 			$lnk=$v['s_url'];
 	}
-    if(preg_match('\/board\/', $lnk)) {
-        preg_match('\/([0-9]+)$', $lnk, $articleNum);
+    if(preg_match('/\/board\//', $lnk)) {
+        preg_match('/\/([0-9]+)$/', $lnk, $articleNum);
         if($board->getArticle($articleNum[1]) === false) {
             $member->removeNotice($me['n_id'], $v['s_fnkey']);
             $pass=true;
