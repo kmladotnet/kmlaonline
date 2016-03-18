@@ -449,11 +449,14 @@ div {
 	}
 	&.article-list-item {
 		position: absolute;
-		text-overflow: ellipsis;
 		max-width: 100%;
 		white-space: nowrap;
-		overflow: hidden;
 	}
+    &.article-list-title {
+		text-overflow: ellipsis;
+		overflow: hidden;
+        float: left;
+    }
 	&.minjok-news {
 		overflow: hidden;
 		margin-bottom: 0;

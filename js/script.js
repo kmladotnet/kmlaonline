@@ -110,6 +110,7 @@ function hideLoading() {
 }
 
 function saveAjax(obj, opername, ckeditor, callafter) {
+    window.noAlertOnLeave = true;
     removeAlertOnLeave();
     if (ckeditor) CKEDITOR.instances[ckeditor].updateElement();
     if (window.ajaxing) {
