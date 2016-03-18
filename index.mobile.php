@@ -54,7 +54,7 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/4.0.1/ekko-lightbox.min.css"/>
     <script src="//cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/4.0.1/ekko-lightbox.min.js"></script>
 
-	<script type="text/javascript" src="/js/script.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/js/script.js?v=3.5" charset="utf-8"></script>
 	<script type="text/javascript" src="/js/content/combined.js" charset="utf-8"></script>
 	<link rel="stylesheet" href="/css/font.css" charset="utf-8" type="text/css" media="screen" />
 	<title><?php echo htmlspecialchars($title); ?></title>

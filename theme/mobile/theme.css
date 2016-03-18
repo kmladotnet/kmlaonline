@@ -454,10 +454,15 @@ div.weather-copyright {
 }
 div.article-list-item {
     position: absolute;
-    text-overflow: ellipsis;
     max-width: 100%;
     white-space: nowrap;
+}
+div.article-list-title {
+    text-overflow: ellipsis;
     overflow: hidden;
+    display: inline-block;
+    max-width: calc(100% - 20px);
+    vertical-align: bottom;
 }
 div.minjok-news {
     overflow: hidden;

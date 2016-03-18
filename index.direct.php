@@ -75,9 +75,9 @@
     <!-- other -->
     <script src="/swfupload/swfupload.js"></script>
     <script src="/swfupload/swfupload.queue.js"></script>
-    <script src="/js/script.js?v=3.0"></script>
+    <script src="/js/script.js?v=3.5"></script>
     <link rel="stylesheet" href="/css/font.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="/sass-compiled/screen.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="/sass-compiled/screen.css?v=1.1" type="text/css" media="screen" />
     <?php
     $theme = getTheme($me);
     if($theme['square']) { ?>
