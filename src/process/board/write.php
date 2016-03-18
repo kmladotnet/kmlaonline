@@ -53,10 +53,10 @@ if($cat===false){
 			}
 		}
 		$article_flag=0;
-		if(isset($_POST['b_public_article']) && checkCategoryAccess($cat['n_id'], "flag public")) $article_flag|=0x1;
-		if(isset($_POST['b_no_comment']) && checkCategoryAccess($cat['n_id'], "flag no comment")) $article_flag|=0x2;
-		if(isset($_POST['b_anonymous']) && checkCategoryAccess($cat['n_id'], "flag anonymous")) $article_flag|=0x4;
-		if(isset($_POST['b_bold_title']) && checkCategoryAccess($cat['n_id'], "flag bold title")) $article_flag|=0x8;
+		if(isset($_POST['b_public_article'])) $article_flag|=0x1;
+		if(isset($_POST['b_no_comment'])) $article_flag|=0x2;
+		if(isset($_POST['b_anonymous'])) $article_flag|=0x4;
+		if(isset($_POST['b_bold_title'])) $article_flag|=0x8;
 		// 만우절
 		//$ra = rand(1,5);
 		//if($ra==1)	$article_flag|=0x4;
