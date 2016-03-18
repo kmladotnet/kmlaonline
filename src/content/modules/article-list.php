@@ -27,7 +27,7 @@ function articleList($article_list, $category=true, $title=true, $name=true, $da
 			$b_anonymous=($a['n_flag']&0x4) && checkCategoryAccess($a['n_cat'], "flag anonymous");
 			$pretty_title='<div class="article-list-title">'.htmlspecialchars($a['s_title']).'</div>';
 			if(($a['n_comments']!=0 && doesAdminBypassEverythingAndIsAdmin(!$b_no_comment)))
-				$pretty_title.=" <span style='font-size:9pt;color:#008800'>[{$a['n_comments']}]</span>";
+				$pretty_title.=" <span style='font-size:9pt;color:#008800;width:20px'>[{$a['n_comments']}]</span>";
 			?>
 			<tr style="height:<?php echo $height?>px;">
 				<?php if($category){ ?>

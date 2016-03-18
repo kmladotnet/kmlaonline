@@ -455,7 +455,9 @@ div {
     &.article-list-title {
 		text-overflow: ellipsis;
 		overflow: hidden;
-        float: left;
+        display: inline-block;
+        max-width: calc(100% - 20px);
+        vertical-align: bottom;
     }
 	&.minjok-news {
 		overflow: hidden;
