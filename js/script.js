@@ -32,6 +32,10 @@ function randstring(len) {
     return text;
 }
 
+function removeAlertOnLeave() {
+    window.onbeforeunload = function() {};
+}
+
 function putAlertOnLeave() {
     window.onbeforeunload = function () {
         return '정말로 페이지에서 나가시겠습니까?';
