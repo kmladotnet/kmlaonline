@@ -451,11 +451,11 @@ div {
 		position: absolute;
 		max-width: 100%;
 		white-space: nowrap;
-        float: left;
 	}
     &.article-list-title {
 		text-overflow: ellipsis;
 		overflow: hidden;
+        float: left;
     }
 	&.minjok-news {
 		overflow: hidden;
