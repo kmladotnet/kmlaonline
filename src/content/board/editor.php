@@ -52,8 +52,7 @@ function putEditorForm($form_action, $prev_info, $comment_mode=false){
 		<div style="padding:10px;">
 			<h1><?php echo ($comment_mode?"댓글 ":"글").($_GET['bact']=="edit"?"수정":"쓰기") ?></h1>
 			<?php if($comment_mode){ 
-				$b_anonymous=$article['n_flag']&0x4;
-				$b_anonymous=$b_anonymous && checkCategoryAccess($board_cat['n_id'], "flag anonymous");?>
+				$b_anonymous=$article['n_flag']&0x4;?>
 				<div style="border:1px solid gray;margin:5px;padding:5px;">
 					<div id="article_comment_sub_<?php echo $dp['n_id']?>" class="acomment">
 						<div><?php if($b_anonymous){ ?>익명<?php }else{ ?><a href="<?php echo "/user/view/{$m['n_id']}/".htmlspecialchars($m['s_id'])?>"><?php putUserCard($m)?></a><?php } ?></div>

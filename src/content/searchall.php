@@ -153,8 +153,8 @@ function searchBoard($search, $articleperpage, $pagenumber){
 	}
 	$ret=array();
 	foreach($board->getArticleList($categories_to_search, false, false, $pagenumber, $articleperpage, "n_id", true, 0, $search, false,false,true,true,true,true, true) as $val){
-		$b_no_comment=($val['n_flag']&0x2) && checkCategoryAccess($val['cat']['n_id'], "flag no comment");
-		$b_anonymous=($val['n_flag']&0x4) && checkCategoryAccess($val['cat']['n_id'], "flag anonymous");
+		$b_no_comment=($val['n_flag']&0x2);
+		$b_anonymous=($val['n_flag']&0x4);
 		if($b_anonymous && (strpos($member->getMember($val['n_writer'])['s_name'], $search) !== false)) continue;
 		$val['link']="/board/{$val['cat']['s_id']}/view/{$val['n_id']}";
 		$val['desc']=htmlspecialchars(strip_tags($val['s_title']));

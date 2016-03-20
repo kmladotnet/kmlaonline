@@ -22,9 +22,9 @@ function articleList($article_list, $category=true, $title=true, $name=true, $da
                 }
                 $a['cat']=$board->getCategory($a['n_cat']);
             }
-			$b_bold_title=($a['n_flag']&0x8) && checkCategoryAccess($a['n_cat'], "flag bold title");
-			$b_no_comment=($a['n_flag']&0x2) && checkCategoryAccess($a['n_cat'], "flag no comment");
-			$b_anonymous=($a['n_flag']&0x4) && checkCategoryAccess($a['n_cat'], "flag anonymous");
+			$b_bold_title=($a['n_flag']&0x8);
+			$b_no_comment=($a['n_flag']&0x2);
+			$b_anonymous=($a['n_flag']&0x4);
 			$pretty_title='<div class="article-list-title">'.htmlspecialchars($a['s_title']).'</div>';
 			if(($a['n_comments']!=0 && doesAdminBypassEverythingAndIsAdmin(!$b_no_comment)))
 				$pretty_title.=" <span style='font-size:9pt;color:#008800;width:20px'>[{$a['n_comments']}]</span>";

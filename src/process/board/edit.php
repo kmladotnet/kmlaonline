@@ -51,7 +51,7 @@ else{
 		$article_flag=0;
 		if(isset($_POST['b_public_article']) && checkCategoryAccess($cat['n_id'], "flag public")) $article_flag|=0x1;
 		if(isset($_POST['b_no_comment']) && checkCategoryAccess($cat['n_id'], "flag no comment")) $article_flag|=0x2;
-		if(isset($_POST['b_anonymous']) && checkCategoryAccess($cat['n_id'], "flag anonymous")) $article_flag|=0x4;
+		if(isset($_POST['b_anonymous'])) $article_flag|=0x4;
 		if(isset($_POST['b_bold_title']) && checkCategoryAccess($cat['n_id'], "flag bold title")) $article_flag|=0x8;
 		foreach($old_attach_ as $v){
 			$old_attach["/files/bbs/{$old_cat['n_id']}/{$_POST['n_id']}/{$v['n_id']}/{$v['s_key']}/".rawurlencode($v['s_name'])]=$v;
