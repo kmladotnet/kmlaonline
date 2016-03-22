@@ -1,4 +1,8 @@
 <?php
+function getHue($hex) {
+    return hsvToRgb(((hexdec($hash_val) / 1234567890.1) % 361 + 361) % 361, 50, 80);
+}
+
 function printAttachList($article, $cat, $mode=0){
 	global $board, $is_mobile;
 	if(!checkCategoryAccess($cat['n_id'], "attach download")) return false;
@@ -115,15 +119,14 @@ function putCommentTree($parent,$root){
 				else if(!$m['s_pic'] && !$b_comment_anonymous)
 					echo '<img src="/images/no-image.png" style="float:left;width:'.$pic_sz.'px;height:'.$pic_sz.'px;margin-right:7px;" />';
 				else{
-                    $hue = ((hexdec($hash_val) / 1234567890.1) % 361 + 361) % 361; //positive int from 0 to 360
                     echo '<div style="float:left">';
-                    echo '<div class="circle anonymous-bubble" style="width:'.$pic_sz.'px; height:'.$pic_sz.'px; background:rgb('.hsvToRgb($hue,50,80).');">'.substr(base_convert($hash_val, 16, 36),2,1).'</div>';
+                    echo '<div class="circle anonymous-bubble" style="width:'.$pic_sz.'px; height:'.$pic_sz.'px; background:rgb('.getHue($hash_val).');">'.substr(base_convert($hash_val, 16, 36),2,1).'</div>';
                     echo '</div>';
 				}
 				?>
 				<div style="display:block;margin-left:<?php echo $pic_sz*1.1 ?>px;">
 					<?php
-					if($b_comment_anonymous) echo "익명 ".substr(base_convert(hash_hmac("md2",$comment['n_writer'],$root), 16, 36),2,4);
+					if($b_comment_anonymous) echo "익명 ".substr(base_convert($hash_val, 16, 36),2,4);
 					else {?>
 					<div><a href="<?php echo "/user/view/{$m['n_id']}/".htmlspecialchars($m['s_id'])?>"><?php putUserCard($m)?></a></div>
 					<?php } ?>
@@ -132,17 +135,24 @@ function putCommentTree($parent,$root){
 					<div style="font-size:8pt;color:#DDD;float:left;"><?php echo date("Y-m-d H:i:s", $comment['n_writedate'])?></div>
 					<div style="float:right;">
 						<?php
-						$commentbilities=array();
-						/**************************** COMMENTIBILITIES *************************************************/
+                        $firstCommentButton = true;
 						if(doesAdminBypassEverythingAndIsAdmin($me['n_id']==$comment['n_writer'])){
-							if(checkCategoryAccess($board_cat['n_id'], "comment edit")&&!$b_comment_anonymous)
-								$commentbilities[]="<a href='/board/$board_id/edit/{$comment['n_id']}'>편집</a>";
-							if(checkCategoryAccess($board_cat['n_id'], "comment delete")&&!$b_comment_anonymous)
-								$commentbilities[]="<a href='/board/$board_id/delete/{$comment['n_id']}'>삭제</a>";
+							if(checkCategoryAccess($board_cat['n_id'], "comment edit")&&!$b_comment_anonymous) {
+								echo "<a href='/board/$board_id/edit/{$comment['n_id']}'>편집</a>";
+                                $firstCommentButton = false;
+                            }
+							if(checkCategoryAccess($board_cat['n_id'], "comment delete")&&!$b_comment_anonymous) {
+                                if(!$firstCommentButton)
+                                    echo " | ";
+								echo "<a href='/board/$board_id/delete/{$comment['n_id']}'>삭제</a>";
+                                $firstCommentButton = false;
+                            }
 						}
-						if(checkCategoryAccess($board_cat['n_id'], "comment write"))
-							$commentbilities[]="<a onclick='return board_putCommentForm({$comment['n_id']});'>댓글 달기</a>";
-						echo implode(" | ",$commentbilities);
+						if(checkCategoryAccess($board_cat['n_id'], "comment write")) {
+                            if(!$firstCommentButton)
+                                echo " | ";
+							echo "<a onclick='return board_putCommentForm({$comment['n_id']});'>댓글 달기</a>";
+                        }
 						?>
 					</div>
 					<div style="clear:both"></div>
@@ -201,27 +211,40 @@ function printViewPageHeader($usr, $cat){
 				?>
 				<div style="position:absolute;bottom:0;right:0;"><?php echo $b_anonymous?"":htmlspecialchars($usr['s_status_message'])?> - </div>
 			</div>
-			<?php 
-			$boardbilities=array();
-			if(doesAdminBypassEverythingAndIsAdmin($me['n_id']==$article['n_writer']) || checkCategoryAccess($board_cat['n_id'], "manage modify") || isUserPermitted($me['n_id'], "important_article_chooser")){
-				if(checkCategoryAccess($board_cat['n_id'], "edit")&&(!$b_anonymous||$board_cat['n_id']==77))
-					$boardbilities[]="<a href='/board/$board_id/edit/{$article['n_id']}'>편집</a>";
-				if(checkCategoryAccess($board_cat['n_id'], "delete")&&(!$b_anonymous||$board_cat['n_id']==77))
-					$boardbilities[]="<a href='/board/$board_id/delete/{$article['n_id']}'>삭제</a>";
-				$exists=false;
-				if($res=$mysqli->query("SELECT * FROM `kmlaonline_important_notices_table` WHERE n_article={$article['n_id']}")){
-					while ($row = $res->fetch_array(MYSQLI_BOTH)){
-						$exists=true;
-					}
-				}
-				$res->close();
-				if($exists)
-					$boardbilities[]="<span style='color:gray'>필공 요청함</span>";
-				else
-					$boardbilities[]="<a onclick='return board_askImportant(this,{$article['n_id']});'>필공 신청</a>";
-			}
-			echo "<div style='position:absolute;left:0;bottom:0'>".implode(" | ",$boardbilities)."</div>";
-			?>
+            <div style='position:absolute;left:0;bottom:0'>
+                <?php
+                $firstBoardButton = true;
+                if(doesAdminBypassEverythingAndIsAdmin($me['n_id']==$article['n_writer']) || checkCategoryAccess($board_cat['n_id'], "manage modify") || isUserPermitted($me['n_id'], "important_article_chooser")){
+                    if(checkCategoryAccess($board_cat['n_id'], "edit")&&(!$b_anonymous||$board_cat['n_id']==77)) {
+                        echo "<a href='/board/$board_id/edit/{$article['n_id']}'>편집</a>";
+                        $firstBoardButton = false;
+                    }
+                    if(checkCategoryAccess($board_cat['n_id'], "delete")&&(!$b_anonymous||$board_cat['n_id']==77)) {
+                        if(!$firstBoardButton)
+                            echo " | ";
+                        echo "<a href='/board/$board_id/delete/{$article['n_id']}'>삭제</a>";
+                        $firstBoardButton = false;
+                    }
+                    $exists=false;
+                    if($res=$mysqli->query("SELECT * FROM `kmlaonline_important_notices_table` WHERE n_article={$article['n_id']}")){
+                        while ($row = $res->fetch_array(MYSQLI_BOTH)){
+                            $exists=true;
+                        }
+                    }
+                    $res->close();
+                    if($exists) {
+                        if(!$firstBoardButton)
+                            echo " | ";
+                        echo "<span style='color:gray'>필공 요청함</span>";
+                    }
+                    else {
+                        if(!$firstBoardButton)
+                            echo " | ";
+                        echo "<a onclick='return board_askImportant(this,{$article['n_id']});'>필공 신청</a>";
+                    }
+                }
+                ?>
+            </div>
 		</div>
 		<div style="clear:both"></div>
 	</div>	
@@ -321,8 +344,7 @@ function printOneForumItem($article,$root,$suppress_comments=false){
 				<?php
 				if($b_anonymous){
 					echo "익명 ".substr(base_convert(hash_hmac("md2",$article['n_writer'],$suppress_comments?$article['n_id']:$article['n_parent']), 16, 36),2,4);
-                    $hue = ((hexdec($hash_val) / 1234567890.1) % 361 + 361) % 361; //positive int from 0 to 360
-                    echo '<div class="circle anonymous-bubble" style="width:48px; height:48px; background:rgb('.hsvToRgb($hue,50,80).');">'.substr(base_convert($hash_val, 16, 36),2,1).'</div>';
+                    echo '<div class="circle anonymous-bubble" style="width:48px; height:48px; background:rgb('.getHue($hash_val).');">'.substr(base_convert($hash_val, 16, 36),2,1).'</div>';
 				}else{
 					echo "<a href=\"/user/view/{$m['n_id']}/{$m['s_id']}\" style='vertical-align:middle;line-height:48px;'>";
 					if($m['s_pic'])
@@ -397,8 +419,7 @@ function printOneForumItem($article,$root,$suppress_comments=false){
 						echo '<img src="/images/no-image.png" style="width:50px;height:50px;" />';
 					echo htmlspecialchars($m['s_status_message']) . "<br />";
 				}else{
-                    $hue = ((hexdec($hash_val) / 1234567890.1) % 361 + 361) % 361; //positive int from 0 to 360
-                    echo '<div class="circle anonymous-bubble" style="width:50px; height:50px; background:rgb('.hsvToRgb($hue,50,80).');">'.substr(base_convert($hash_val, 16, 36),2,1).'</div>';
+                    echo '<div class="circle anonymous-bubble" style="width:50px; height:50px; background:rgb('.getHue($hash_val).');">'.substr(base_convert($hash_val, 16, 36),2,1).'</div>';
 				}
 				?>
 			</div>
