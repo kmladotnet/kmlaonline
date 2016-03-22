@@ -3,6 +3,10 @@ function getHue($hex) {
     return hsvToRgb(((hexdec($hex) / 1234567890.1) % 361 + 361) % 361, 50, 80);
 }
 
+function getHash($id, $key) {
+    hash_hmac("crc32", $id, $key)
+}
+
 function printAttachList($article, $cat, $mode=0){
 	global $board, $is_mobile;
 	if(!checkCategoryAccess($cat['n_id'], "attach download")) return false;
@@ -111,7 +115,7 @@ function putCommentTree($parent,$root){
 				$b_comment_anonymous=$comment['n_flag']&0x4;
 
                 if($b_comment_anonymous)
-                    $hash_val = hash_hmac("md2",$comment['n_writer'],$root);
+                    $hash_val = getHash($comment['n_writer'], $root);
 
 				$pic_sz=50;//$is_mobile?50:100;
 				if($m['s_pic'] && !$b_comment_anonymous)
@@ -336,14 +340,14 @@ function printOneForumItem($article,$root,$suppress_comments=false){
 	$b_bold_title=$b_bold_title && checkCategoryAccess($board_cat['n_id'], "flag bold title");
 	$m=$member->getMember($article['n_writer']);
     if($b_anonymous)
-        $hash_val = hash_hmac("md2",$article['n_writer'],$suppress_comments?$article['n_id']:$article['n_parent']);
+        $hash_val = getHash($article['n_writer'], $suppress_comments ? $article['n_id'] : $article['n_parent']);
 	?>
 	<li class="items" id="article_comment_sub_<?php echo $article['n_id']?>">
 		<?php if($is_mobile){ ?>
 			<div class="item_head">
 				<?php
 				if($b_anonymous){
-					echo "익명 ".substr(base_convert(hash_hmac("md2",$article['n_writer'],$suppress_comments?$article['n_id']:$article['n_parent']), 16, 36),2,4);
+					echo "익명 ".substr(base_convert($hash_val, 16, 36),2,4);
                     echo '<div class="circle anonymous-bubble" style="width:48px; height:48px; background:rgb('.getHue($hash_val).');">'.substr(base_convert($hash_val, 16, 36),2,1).'</div>';
 				}else{
 					echo "<a href=\"/user/view/{$m['n_id']}/{$m['s_id']}\" style='vertical-align:middle;line-height:48px;'>";
@@ -387,7 +391,7 @@ function printOneForumItem($article,$root,$suppress_comments=false){
 			<div class="item_head">
 				<div class="item_left">
 					<?php if($b_anonymous){ 
-						echo "익명 ".substr(base_convert(hash_hmac("md2",$article['n_writer'],$suppress_comments?$article['n_id']:$article['n_parent']), 16, 36),2,4);
+						echo "익명 ".substr(base_convert($hash_val, 16, 36),2,4);
 					}else{ ?>
 						<a href="<?php echo "/user/view/{$m['n_id']}/{$m['s_id']}" ?>"><?php putUserCard($m); ?></a>
 					<?php } ?>
