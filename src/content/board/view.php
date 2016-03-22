@@ -1,6 +1,6 @@
 <?php
 function getHue($hex) {
-    return hsvToRgb(((hexdec($hash_val) / 1234567890.1) % 361 + 361) % 361, 50, 80);
+    return hsvToRgb(((hexdec($hex) / 1234567890.1) % 361 + 361) % 361, 50, 80);
 }
 
 function printAttachList($article, $cat, $mode=0){
