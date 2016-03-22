@@ -4,7 +4,7 @@ function getHue($hex) {
 }
 
 function getHash($id, $key) {
-    hash_hmac("md2", $id, $key);
+    return hash_hmac("crc32", $id, $key);
 }
 
 function printAttachList($article, $cat, $mode=0){
