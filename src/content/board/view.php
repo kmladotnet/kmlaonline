@@ -7,6 +7,20 @@ function getHash($id, $key) {
     return hash_hmac("crc32", $id, $key);
 }
 
+function printVotes($id) {
+    $upvotes = getVotes($id);
+    ?>
+    <span style='font-weight:bold; color: <?php echo ($upvotes > 0 ? 'forestgreen' : ($upvotes < 0 ? 'crimson' : 'gray'));?>'>
+        <?php
+        if($upvotes >= 0) {
+            echo '&#43;';
+        }
+        echo $upvotes;
+        ?>
+    </span>
+    <?php
+}
+
 function printAttachList($article, $cat, $mode=0){
 	global $board, $is_mobile;
 	if(!checkCategoryAccess($cat['n_id'], "attach download")) return false;
@@ -132,6 +146,7 @@ function putCommentTree($parent,$root){
 				if(getTheme($me)['beta']) { ?>
                     <div style="display:block;">
                         <?php
+                        printVotes($comment['n_id']);
                         if($b_comment_anonymous) echo "<span style='font-weight:bold; color:rgb(".getHue($hash_val, 60, 70).")'>익명 ".substr(base_convert($hash_val, 16, 36),2,4).'</span>';
                         else {?>
                         <span style="font-weight:bold"><a style="color:#666!important" href="<?php echo "/user/view/{$m['n_id']}/".htmlspecialchars($m['s_id'])?>"><?php putUserCard($m)?></a></span>
@@ -408,17 +423,7 @@ function printOneForumItem($article,$root,$suppress_comments=false){
             if(getTheme($me)['beta']) { ?>
                 <div class="item_head" style="padding:6px">
                     <?php
-                    $upvotes = getVotes($article['n_id']);
-                    ?>
-                    <span style='font-weight:bold; color: <?php echo ($upvotes > 0 ? 'forestgreen' : ($upvotes < 0 ? 'crimson' : 'gray'));?>'>
-                        <?php
-                        if($upvotes >= 0) {
-                            echo '&#43;';
-                        }
-                        echo $upvotes;
-                        ?>
-                    </span>
-                    <?php
+                    printVotes($article['n_id']);
                     if($b_anonymous){
                         echo "<span style='font-weight:bold; color:rgb(".getHue($hash_val, 60, 70).")'>익명 ".substr(base_convert($hash_val, 16, 36),2,4).'</span>';
                     }else{ ?>
