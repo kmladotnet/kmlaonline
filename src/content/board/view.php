@@ -144,23 +144,16 @@ function putCommentTree($parent,$root){
                         <?php } ?>
                         <div style="font-size:0.8em">
                             <?php
-                            $firstCommentButton = true;
                             if(doesAdminBypassEverythingAndIsAdmin($me['n_id']==$comment['n_writer'])){
                                 if(checkCategoryAccess($board_cat['n_id'], "comment edit")&&!$b_comment_anonymous) {
-                                    echo "<a href='/board/$board_id/edit/{$comment['n_id']}'>편집</a>";
-                                    $firstCommentButton = false;
+                                    echo "<a style='padding-right:4px' href='/board/$board_id/edit/{$comment['n_id']}'>편집</a>";
                                 }
                                 if(checkCategoryAccess($board_cat['n_id'], "comment delete")&&!$b_comment_anonymous) {
-                                    if(!$firstCommentButton)
-                                        echo " | ";
-                                    echo "<a href='/board/$board_id/delete/{$comment['n_id']}'>삭제</a>";
-                                    $firstCommentButton = false;
+                                    echo "<a style='padding-right:4px' href='/board/$board_id/delete/{$comment['n_id']}'>삭제</a>";
                                 }
                             }
                             if(checkCategoryAccess($board_cat['n_id'], "comment write")) {
-                                if(!$firstCommentButton)
-                                    echo " | ";
-                                echo "<a onclick='return board_putCommentForm({$comment['n_id']});'>댓글 달기</a>";
+                                echo "<a style='padding-right:4px' onclick='return board_putCommentForm({$comment['n_id']});'>댓글 달기</a>";
                             }
                             ?>
                         </div>
@@ -178,23 +171,16 @@ function putCommentTree($parent,$root){
                         <div style="font-size:8pt;color:#DDD;float:left;"><?php echo date("Y-m-d H:i:s", $comment['n_writedate'])?></div>
                         <div style="float:right;">
                             <?php
-                            $firstCommentButton = true;
                             if(doesAdminBypassEverythingAndIsAdmin($me['n_id']==$comment['n_writer'])){
                                 if(checkCategoryAccess($board_cat['n_id'], "comment edit")&&!$b_comment_anonymous) {
-                                    echo "<a href='/board/$board_id/edit/{$comment['n_id']}'>편집</a>";
-                                    $firstCommentButton = false;
+                                    echo "<a style='padding-right:4px' href='/board/$board_id/edit/{$comment['n_id']}'>편집</a>";
                                 }
                                 if(checkCategoryAccess($board_cat['n_id'], "comment delete")&&!$b_comment_anonymous) {
-                                    if(!$firstCommentButton)
-                                        echo " | ";
-                                    echo "<a href='/board/$board_id/delete/{$comment['n_id']}'>삭제</a>";
-                                    $firstCommentButton = false;
+                                    echo "<a style='padding-right:4px' href='/board/$board_id/delete/{$comment['n_id']}'>삭제</a>";
                                 }
                             }
                             if(checkCategoryAccess($board_cat['n_id'], "comment write")) {
-                                if(!$firstCommentButton)
-                                    echo " | ";
-                                echo "<a onclick='return board_putCommentForm({$comment['n_id']});'>댓글 달기</a>";
+                                echo "<a style='padding-right:4px' onclick='return board_putCommentForm({$comment['n_id']});'>댓글 달기</a>";
                             }
                             ?>
                         </div>
@@ -257,17 +243,12 @@ function printViewPageHeader($usr, $cat){
 			</div>
             <div style='position:absolute;left:0;bottom:0'>
                 <?php
-                $firstBoardButton = true;
                 if(doesAdminBypassEverythingAndIsAdmin($me['n_id']==$article['n_writer']) || checkCategoryAccess($board_cat['n_id'], "manage modify") || isUserPermitted($me['n_id'], "important_article_chooser")){
                     if(checkCategoryAccess($board_cat['n_id'], "edit")&&(!$b_anonymous||$board_cat['n_id']==77)) {
-                        echo "<a href='/board/$board_id/edit/{$article['n_id']}'>편집</a>";
-                        $firstBoardButton = false;
+                        echo "<a style='padding-right:4px' href='/board/$board_id/edit/{$article['n_id']}'>편집</a>";
                     }
                     if(checkCategoryAccess($board_cat['n_id'], "delete")&&(!$b_anonymous||$board_cat['n_id']==77)) {
-                        if(!$firstBoardButton)
-                            echo " | ";
-                        echo "<a href='/board/$board_id/delete/{$article['n_id']}'>삭제</a>";
-                        $firstBoardButton = false;
+                        echo "<a style='padding-right:4px' href='/board/$board_id/delete/{$article['n_id']}'>삭제</a>";
                     }
                     $exists=false;
                     if($res=$mysqli->query("SELECT * FROM `kmlaonline_important_notices_table` WHERE n_article={$article['n_id']}")){
@@ -277,14 +258,10 @@ function printViewPageHeader($usr, $cat){
                     }
                     $res->close();
                     if($exists) {
-                        if(!$firstBoardButton)
-                            echo " | ";
-                        echo "<span style='color:gray'>필공 요청함</span>";
+                        echo "<span style='color:gray; padding-right:4px'>필공 요청함</span>";
                     }
                     else {
-                        if(!$firstBoardButton)
-                            echo " | ";
-                        echo "<a onclick='return board_askImportant(this,{$article['n_id']});'>필공 신청</a>";
+                        echo "<a style='padding-right:4px'  onclick='return board_askImportant(this,{$article['n_id']});'>필공 신청</a>";
                     }
                 }
                 ?>
