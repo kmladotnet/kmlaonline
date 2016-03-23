@@ -138,8 +138,11 @@ function putCommentTree($parent,$root){
                         <?php } ?>
                         <span style="font-size:8pt;color:gray;"><?php echo date("Y-m-d H:i:s", $comment['n_writedate'])?></span>
                         <?php if($board_id!='picexhibit') { ?>
-                        <div style="margin-top:14px;margin-bottom:6px;"><?php filterContent($comment['s_data']); }?></div>
-                        <div style="float:right;">
+                            <div style="margin-top:6px; margin-bottom:4px;">
+                                <?php filterContent($comment['s_data']);?>
+                            </div>
+                        <?php } ?>
+                        <div style="font-size:0.8em">
                             <?php
                             $firstCommentButton = true;
                             if(doesAdminBypassEverythingAndIsAdmin($me['n_id']==$comment['n_writer'])){
