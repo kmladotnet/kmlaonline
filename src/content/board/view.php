@@ -110,7 +110,7 @@ function putCommentTree($parent,$root){
 	global $board, $member, $article, $me, $board_id, $board_cat, $is_mobile;
 	?><div id="article_comment_<?php echo $parent?>" class="article_comment">
 		<?php foreach($board->getArticleList(false, false, $parent, 0, 0, "n_id", false, 0, false, true, true, false, false, false, false, true) as $comment){ $m=$member->getMember($comment['n_writer']);?>
-			<div id="article_comment_sub_<?php echo $comment['n_id']?>" class="acomment">
+			<div id="article_comment_sub_<?php echo $comment['n_id']?>" class="<?php if(getTheme($me)['beta']) echo 'new_';?>acomment">
 				<?php
 				$b_comment_anonymous=$comment['n_flag']&0x4;
 
