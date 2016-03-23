@@ -369,21 +369,26 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
 	?>
 	<li class="items" id="article_comment_sub_<?php echo $article['n_id']?>">
 		<?php if($is_mobile) { ?>
-			<div class="item_head">
+			<div class="item_head" style="padding:6px">
 				<?php
+                printVotes($article['n_id']);
 				if($b_anonymous){
-					echo "익명 ".substr(base_convert($hash_val, 16, 36),2,4);
-                    echo '<div class="circle anonymous-bubble" style="width:48px; height:48px; background:rgb('.getHue($hash_val).');">'.substr(base_convert($hash_val, 16, 36),2,1).'</div>';
-				}else{
-					echo "<a href=\"/user/view/{$m['n_id']}/{$m['s_id']}\" style='vertical-align:middle;line-height:48px;'>";
-					if($m['s_pic'])
-						echo "<img src='{$m['s_pic']}' style='width:48px;height:48px;vertical-align:middle;' />";
-					else
-						echo '<img src="/images/no-image.png" style="width:48px;height:48px;vertical-align:middle;" />';
-					echo "<span style='padding-left:5px;'>";
-					putUserCard($m);
-					echo "</span>";
-					echo "</a>";
+                    echo "<span style='font-weight:bold; color:rgb(".getHue($hash_val, 60, 70).")'>익명 ".substr(base_convert($hash_val, 16, 36),2,4).'</span>';
+				} else {
+                    ?>
+                    <span style="font-weight:bold">
+                        <a style="color:#666!important" href="<?php echo "/user/view/{$m['n_id']}/{$m['s_id']}" ?>"><?php putUserCard($m); ?></a>
+                    </span>
+                <?php } ?>
+
+                <span style='font-size:8pt;color:gray'>
+                    <?php
+                    echo date("Y년 m월 d일 H시 i분 s초", $article['n_writedate']);
+                    if($article['n_writedate']!=$article['n_editdate'])
+                        echo " (".date("Y년 m월 d일 H시 i분 s초", $article['n_editdate'])."에 수정함)";
+                ?></span>
+
+                <?php
 					$boardbilities=array();
 					if(doesAdminBypassEverythingAndIsAdmin($me['n_id']==$article['n_writer'])){
 						if(checkCategoryAccess($board_cat['n_id'], "edit")&&!$b_anonymous)
@@ -393,13 +398,7 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
 					}
 					if(checkCategoryAccess($board_cat['n_id'], "comment write"))
 						$boardbilities[]="<a onclick='return board_putCommentForm({$article['n_id']});'>댓글 달기</a>";
-					echo "<div style='float:right;line-height:48px;'>".implode(" | ",$boardbilities)."</div>";
-					echo "<div style='text-align:right;clear:both'>";
-					echo date("Y년 m월 d일 H시 i분 s초", $article['n_writedate']);
-					if($article['n_writedate']!=$article['n_editdate'])
-						echo "<br /><span style='font-size:8pt;color:gray'>(".date("Y년 m월 d일 H시 i분 s초", $article['n_editdate'])."에 수정함)</span>";
-					echo "</div>";
-				}
+					echo "<div style='float:right;'>".implode(" | ",$boardbilities)."</div>";
 				?>
 			</div>
 			<div class="item_data">
