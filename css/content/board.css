@@ -35,6 +35,9 @@ div.forum_article_list .forum_comment_area{
 	border-top:1px solid #DDD;
 	margin-top:25px;
 }
+div.forum_article_list .new_forum_comment_area{
+	padding-left:10px;
+}
 div.forum_article_list .forum_comment_area_info{
 	padding:25px;
 	display:block;

@@ -489,7 +489,7 @@ function printOneForumItem($article,$root,$suppress_comments=false){
                     filterContent($article['s_data']);
                     printAttachList($article, $board_cat, 0);
                     ?>
-                    <div class="forum_comment_area">
+                    <div class="new_forum_comment_area">
                         <?php if($article['n_comments']>0 && !$suppress_comments){ putCommentTree($article['n_id'],$root); } ?>
                     </div>
                     <div id="article_comment_<?php echo $article['n_id']?>"></div>
