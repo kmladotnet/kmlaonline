@@ -737,4 +737,21 @@ function downvote($id, $user) {
     file_put_contents('data/board/votes/down'.$id, json_encode($downvotes));
 }
 
+function unvote($id, $user) {
+    if(file_exists('data/board/votes/up'.$id)) {
+        $upvotes = json_decode(file_get_contents('data/board/votes/up'.$id), true);
+        if(array_key_exists($user, $upvotes)) {
+            unset($upvotes[$user]);
+            file_put_contents('data/board/votes/up'.$id, json_encode($upvotes));
+        }
+    }
+    if(file_exists('data/board/votes/down'.$id)) {
+        $downvotes = json_decode(file_get_contents('data/board/votes/down'.$id), true);
+        if(array_key_exists($user, $downvotes)) {
+            unset($downvotes[$user]);
+            file_put_contents('data/board/votes/down'.$id, json_encode($downvotes));
+        }
+    }
+}
+
 $maxUploadFileSize = convertToBytes( ini_get( 'upload_max_filesize' ) );
