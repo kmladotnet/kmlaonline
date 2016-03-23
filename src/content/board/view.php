@@ -7,17 +7,37 @@ function getHash($id, $key) {
     return hash_hmac("crc32", $id, $key);
 }
 
+function formatVote($votes) {
+    if($votes >= 0) {
+        echo '&#43;';
+    }
+    echo $votes;
+}
+
 function printVotes($id) {
     $upvotes = getVotes($id);
     ?>
-    <span style='font-weight:bold; color: <?php echo ($upvotes > 0 ? 'forestgreen' : ($upvotes < 0 ? 'crimson' : 'gray'));?>'>
-        <?php
-        if($upvotes >= 0) {
-            echo '&#43;';
-        }
-        echo $upvotes;
-        ?>
-    </span>
+    <div class="input-group" style="display: inline-table; vertical-align: middle;">
+        <span class="input-group-btn">
+            <button type="button" id="plus-<?php echo $id;?>" class="btn btn-default" style="padding: 0px; height: 24px; width: 24px;">
+                +
+            </button>
+        </span>
+        <span id="downvote-<?php echo $id;?>" class="input-group-btn" style="hidden">
+            <input type="text" class="form-control" id="vote" placeholder="<?php formatVotes($upvotes - 1);?>" disabled="" style="width: 30px; padding: 3px; height: 24px; vertical-align: middle;">
+        </span>
+        <span id="vote-<?php echo $id;?>" class="input-group-btn">
+            <input type="text" class="form-control" id="vote" placeholder="<?php formatVotes($upvotes);?>" disabled="" style="width: 30px; padding: 3px; height: 24px; vertical-align: middle;">
+        </span>
+        <span id="upvote-<?php echo $id;?>" class="input-group-btn" style="hidden">
+            <input type="text" class="form-control" id="vote" placeholder="<?php formatVotes($upvotes + 1);?>" disabled="" style="width: 30px; padding: 3px; height: 24px; vertical-align: middle;">
+        </span>
+        <span class="input-group-btn">
+            <button type="button" id="minus-<?php echo $id;?>" class="btn btn-default" style="padding: 0px; height: 24px; width: 24px;">
+                -
+            </button>
+        </span>
+    </div>
     <?php
 }
 
