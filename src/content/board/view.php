@@ -134,7 +134,7 @@ function putCommentTree($parent,$root){
                         <?php
                         if($b_comment_anonymous) echo "<span style='font-weight:bold; color:rgb(".getHue($hash_val, 60, 70).")'>익명 ".substr(base_convert($hash_val, 16, 36),2,4).'</span>';
                         else {?>
-                        <span><a href="<?php echo "/user/view/{$m['n_id']}/".htmlspecialchars($m['s_id'])?>"><?php putUserCard($m)?></a></span>
+                        <span style="color:black!important"><a href="<?php echo "/user/view/{$m['n_id']}/".htmlspecialchars($m['s_id'])?>"><?php putUserCard($m)?></a></span>
                         <?php } ?>
                         <span style="font-size:8pt;color:gray;"><?php echo date("Y-m-d H:i:s", $comment['n_writedate'])?></span>
                         <?php if($board_id!='picexhibit') { ?>
@@ -433,7 +433,9 @@ function printOneForumItem($article,$root,$suppress_comments=false){
                     <?php if($b_anonymous){
                         echo "<span style='font-weight:bold; color:rgb(".getHue($hash_val, 60, 70).")'>익명 ".substr(base_convert($hash_val, 16, 36),2,4).'</span>';
                     }else{ ?>
-                        <a href="<?php echo "/user/view/{$m['n_id']}/{$m['s_id']}" ?>"><?php putUserCard($m); ?></a>
+                        <span style="color:black!important">
+                            <a href="<?php echo "/user/view/{$m['n_id']}/{$m['s_id']}" ?>"><?php putUserCard($m); ?></a>
+                        </span>
                     <?php } ?>
                     <span style='font-size:8pt;color:gray'>
                         <?php
