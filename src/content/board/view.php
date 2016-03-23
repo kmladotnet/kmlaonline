@@ -20,7 +20,7 @@ function printVotes($id) {
     ?>
     <div class="input-group" style="display: inline-table; vertical-align: middle; width: 1px">
         <span class="input-group-btn">
-            <button type="button" id="plus-<?php echo $id;?>" data-toggle="button" class="btn btn-success
+            <button type="button" id="plus-<?php echo $id;?>" data-toggle="button" class="btn btn-default
                 <?php if(upvoted($id, $me)) echo 'active';?>" style="padding: 0px; height: 24px; width: 24px;">
                 +
             </button>
@@ -35,7 +35,7 @@ function printVotes($id) {
             <input type="text" class="form-control" id="vote" placeholder="<?php formatVotes($upvotes + 1);?>" disabled="" style="width: 30px; padding: 3px; height: 24px; vertical-align: middle;">
         </span>
         <span class="input-group-btn">
-            <button type="button" id="minus-<?php echo $id;?>" data-toggle="button" class="btn btn-warning
+            <button type="button" id="minus-<?php echo $id;?>" data-toggle="button" class="btn btn-default
                 <?php if(downvoted($id, $me)) echo 'active';?>" style="padding: 0px; height: 24px; width: 24px;">
                 -
             </button>
