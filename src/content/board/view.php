@@ -388,7 +388,7 @@ function printOneForumItem($article,$root,$suppress_comments=false){
 				<div id="article_comment_<?php echo $article['n_id']?>"></div>
 			</div>
 		<?php }else{
-            if(getTheme()[beta]) { ?>
+            if(getTheme($user)[beta]) { ?>
                 <div class="item_head">
                     <div class="item_left">
                         <?php if($b_anonymous){
