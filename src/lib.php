@@ -678,6 +678,7 @@ function setTheme($theme, $user) {
 
 function getVotes($id) {
     if(!file_exists('data/board/votes')) {
+        mkdir('data/board');
         mkdir('data/board/votes');
         mkdir('data/boards/votes/up');
         mkdir('data/boards/votes/down');
