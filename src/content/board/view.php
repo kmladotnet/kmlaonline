@@ -412,7 +412,7 @@ function printOneForumItem($article,$root,$suppress_comments=false){
                     ?>
                     <span style='font-weight:bold; color: <?php echo ($upvotes > 0 ? 'forestgreen' : ($upvotes < 0 ? 'crimson' : 'gray'));?>'>
                         <?php
-                        if($upvotes > 0) {
+                        if($upvotes >= 0) {
                             echo '+';
                         }
                         echo $upvotes;
