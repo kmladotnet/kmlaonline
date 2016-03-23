@@ -708,7 +708,7 @@ function upvote($id, $user) {
         $downvotes = json_decode(file_get_contents('data/board/votes/down'.$id), true);
         if(array_key_exists($user, $downvotes)) {
             unset($downvotes[$user]);
-            file_put_contents('data/board/votes/down'.$id, $downvotes);
+            file_put_contents('data/board/votes/down'.$id, json_encode($downvotes));
         }
     }
     if(file_exists('data/board/votes/up'.$id)) {
@@ -717,7 +717,7 @@ function upvote($id, $user) {
         $upvotes = array();
     }
     $upvotes[$user] = null;
-    file_put_contents('data/board/votes/up'.$id, $upvotes);
+    file_put_contents('data/board/votes/up'.$id, json_encode($upvotes));
 }
 
 function downvote($id, $user) {
@@ -725,7 +725,7 @@ function downvote($id, $user) {
         $upvotes = json_decode(file_get_contents('data/board/votes/up'.$id), true);
         if(array_key_exists($user, $upvotes)) {
             unset($upvotes[$user]);
-            file_put_contents('data/board/votes/up'.$id, $upvotes);
+            file_put_contents('data/board/votes/up'.$id, json_encode($upvotes));
         }
     }
     if(file_exists('data/board/votes/down'.$id)) {
@@ -734,7 +734,7 @@ function downvote($id, $user) {
         $downvotes = array();
     }
     $downvotes[$user] = $id;
-    file_put_contents('data/board/votes/down'.$id, $downvotes);
+    file_put_contents('data/board/votes/down'.$id, json_encode($downvotes));
 }
 
 $maxUploadFileSize = convertToBytes( ini_get( 'upload_max_filesize' ) );
