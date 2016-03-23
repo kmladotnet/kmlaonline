@@ -34,13 +34,13 @@ function printVotes($id) {
                 +
             </button>
         </span>
-        <span id="downvote-<?php echo $id;?>" class="input-group-btn" style="<?php if(!$downvoted) echo 'display:none';?>">
+        <span id="downvote-<?php echo $id;?>" class="input-group-btn vote-count" style="<?php if(!$downvoted) echo 'display:none';?>">
             <input type="text" class="form-control" id="vote" value="<?php formatVotes($upvotes - 1);?>" disabled style="color:crimson!important; width: 40px; padding: 3px; height: 24px; vertical-align: middle; cursor: default;">
         </span>
-        <span id="vote-<?php echo $id;?>" class="input-group-btn" style="<?php if($upvoted || $downvoted) echo 'display:none';?>">
+        <span id="vote-<?php echo $id;?>" class="input-group-btn vote-count" style="<?php if($upvoted || $downvoted) echo 'display:none';?>">
             <input type="text" class="form-control" id="vote" value="<?php formatVotes($upvotes);?>" disabled style="color:black!important;width: 40px; padding: 3px; height: 24px; vertical-align: middle; cursor: default;">
         </span>
-        <span id="upvote-<?php echo $id;?>" class="input-group-btn" style="<?php if(!$upvoted) echo 'display:none';?>">
+        <span id="upvote-<?php echo $id;?>" class="input-group-btn vote-count" style="<?php if(!$upvoted) echo 'display:none';?>">
             <input type="text" class="form-control" id="vote" value="<?php formatVotes($upvotes + 1);?>" disabled style="color:forestgreen!important;width: 40px; padding: 3px; height: 24px; vertical-align: middle; cursor: default;">
         </span>
         <span class="input-group-btn">

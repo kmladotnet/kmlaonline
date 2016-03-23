@@ -340,7 +340,14 @@ div#div_search_from{
 	display:none;position:absolute;right:325px;bottom:32px;background:white;border:1px solid gray;padding:5px;width:79px;
 }
 
-
+/* voting */
+span.vote-count {
+    width: 40px;
+    padding: 3px;
+    height: 24px;
+    vertical-align: middle;
+    cursor: default;
+}
 
 #flipdiv {
     width: 100%;
