@@ -693,6 +693,17 @@ function getVotes($id) {
     return $sum;
 }
 
+function upvoted($id, $user) {
+    return file_exists('data/board/votes/up'.$id) &&
+        array_key_exists($user, json_decode(file_get_contents('data/board/votes/up'.$id), true));
+}
+
+function downvoted($id, $user) {
+    return file_exists('data/board/votes/down'.$id) &&
+        array_key_exists($user, json_decode(file_get_contents('data/board/votes/down'.$id), true));
+}
+
+
 function upvote($id, $user) {
     if(file_exists('data/board/votes/down'.$id)) {
         $downvotes = json_decode(file_get_contents('data/board/votes/down'.$id), true);
