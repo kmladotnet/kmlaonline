@@ -330,3 +330,13 @@ div#div_search_method label,
 div#div_search_from label{
 	height:24px;
 }
+
+/* voting */
+input.vote-count {
+    width: 40px!important;
+    padding: 3px!important;
+    height: 24px!important;
+    vertical-align: middle!important;
+    cursor: default!important;
+    text-align: center!important;
+}
