@@ -1,6 +1,6 @@
 <?php
-function getHue($hex) {
-    return hsvToRgb(((hexdec($hex) / 123456.1) % 361 + 361) % 361, 50, 80);
+function getHue($hex, $s = 50, $v = 80) {
+    return hsvToRgb(((hexdec($hex) / 123456.1) % 361 + 361) % 361, $s, $v);
 }
 
 function getHash($id, $key) {
@@ -389,9 +389,9 @@ function printOneForumItem($article,$root,$suppress_comments=false){
 			</div>
 		<?php } else {
             if(getTheme($me)['beta']) { ?>
-                <div class="item_head">
+                <div class="item_head" style="padding:5px">
                     <?php if($b_anonymous){
-                        echo "<span style='color:rgb(".getHue($hash_val).")'>익명 ".substr(base_convert($hash_val, 16, 36),2,4).'</span>';
+                        echo "<span style='color:rgb(".getHue($hash_val, 60, 70).")'>익명 ".substr(base_convert($hash_val, 16, 36),2,4).'</span>';
                     }else{ ?>
                         <a href="<?php echo "/user/view/{$m['n_id']}/{$m['s_id']}" ?>"><?php putUserCard($m); ?></a>
                     <?php } ?>
@@ -440,7 +440,7 @@ function printOneForumItem($article,$root,$suppress_comments=false){
                 </div>
             <?php }
             if(getTheme($me)['beta']) { ?>
-                <div class="item_contents" style="border-left:1px solid #DDD;">
+                <div class="item_contents" style="padding:5px">
                     <?php
                     filterContent($article['s_data']);
                     printAttachList($article, $board_cat, 0);
