@@ -29,7 +29,7 @@ function printVotes($id) {
     <div class="input-group" style="display: inline-table; vertical-align: middle; width: 1px">
         <span class="input-group-btn">
             <button type="button" data-id="<?php echo $id;?>" id="plus-<?php echo $id;?>" data-toggle="button" class="btn btn-default
-                <?php if($upvoted) echo 'active';?>" style="padding: 0px; height: 24px; width: 24px;"
+                <?php if($upvoted) echo 'active';?>" style="color: forestgreen; padding: 0px; height: 24px; width: 24px;"
                     onclick='if($(this).hasClass("active")) unvote($(this).data("id")); else upvote($(this).data("id"));'>
                 +
             </button>
@@ -45,7 +45,7 @@ function printVotes($id) {
         </span>
         <span class="input-group-btn">
             <button type="button" data-id="<?php echo $id;?>" id="minus-<?php echo $id;?>" data-toggle="button" class="btn btn-default
-                <?php if($downvoted) echo 'active';?>" style="padding: 0px; height: 24px; width: 24px;"
+                <?php if($downvoted) echo 'active';?>" style="color: crimson; padding: 0px; height: 24px; width: 24px;"
                     onclick='if($(this).hasClass("active")) unvote($(this).data("id")); else downvote($(this).data("id"));'>
                 -
             </button>
@@ -157,90 +157,49 @@ function putCommentTree($parent,$root){
 	global $board, $member, $article, $me, $board_id, $board_cat, $is_mobile;
 	?><div id="article_comment_<?php echo $parent?>" class="article_comment">
 		<?php foreach($board->getArticleList(false, false, $parent, 0, 0, "n_id", false, 0, false, true, true, false, false, false, false, true) as $comment){ $m=$member->getMember($comment['n_writer']);?>
-			<div id="article_comment_sub_<?php echo $comment['n_id']?>" class="<?php if(getTheme($me)['beta']) echo 'new_';?>acomment">
+			<div id="article_comment_sub_<?php echo $comment['n_id']?>" class="new_acomment">
 				<?php
 				$b_comment_anonymous=$comment['n_flag']&0x4;
 
                 if($b_comment_anonymous)
                     $hash_val = getHash($comment['n_writer'], $root);
-
-                if(!getTheme($me)['beta']) {
-                    $pic_sz=50;//$is_mobile?50:100;
-                    if($m['s_pic'] && !$b_comment_anonymous)
-                        echo '<a href="'.htmlspecialchars(str_replace("picture/","picture_full/",$m['s_pic'])).'" data-toggle="lightbox"><img style="float:left;width:'.$pic_sz.'px;height:'.$pic_sz.'px;margin-right:7px;" src="'.htmlspecialchars($m['s_pic']).'" /></a>';
-                    else if(!$m['s_pic'] && !$b_comment_anonymous)
-                        echo '<img src="/images/no-image.png" style="float:left;width:'.$pic_sz.'px;height:'.$pic_sz.'px;margin-right:7px;" />';
-                    else{
-                        echo '<div style="float:left">';
-                        echo '<div class="circle anonymous-bubble" style="width:'.$pic_sz.'px; height:'.$pic_sz.'px; background:rgb('.getHue($hash_val).');">'.substr(base_convert($hash_val, 16, 36),2,1).'</div>';
-                        echo '</div>';
-                    }
-                }
-				if(getTheme($me)['beta']) { ?>
-                    <div style="display:block;">
-                        <?php
-                        printVotes($comment['n_id']);
-                        if($b_comment_anonymous) echo "<span style='font-weight:bold; color:rgb(".getHue($hash_val, 60, 70).")'>익명 ".substr(base_convert($hash_val, 16, 36),2,4).'</span>';
-                        else {?>
-                        <span style="font-weight:bold"><a style="color:#666!important" href="<?php echo "/user/view/{$m['n_id']}/".htmlspecialchars($m['s_id'])?>"><?php putUserCard($m)?></a></span>
-                        <?php } ?>
-                        <span style="font-size:8pt;color:gray;"><?php echo date("Y-m-d H:i:s", $comment['n_writedate'])?></span>
-                        <?php if($board_id!='picexhibit') { ?>
-                            <div>
-                                <?php filterContent($comment['s_data']);?>
-                            </div>
-                        <?php } ?>
-                        <div style="font-size:0.8em">
-                            <?php
-                            if(doesAdminBypassEverythingAndIsAdmin($me['n_id']==$comment['n_writer'])){
-                                if(checkCategoryAccess($board_cat['n_id'], "comment edit")&&!$b_comment_anonymous) {
-                                    echo "<a style='padding-right:4px' href='/board/$board_id/edit/{$comment['n_id']}'>편집</a>";
-                                }
-                                if(checkCategoryAccess($board_cat['n_id'], "comment delete")&&!$b_comment_anonymous) {
-                                    echo "<a style='padding-right:4px' href='/board/$board_id/delete/{$comment['n_id']}'>삭제</a>";
-                                }
-                            }
-                            if(checkCategoryAccess($board_cat['n_id'], "comment write")) {
-                                echo "<a style='padding-right:4px' onclick='return board_putCommentForm({$comment['n_id']});'>댓글 달기</a>";
-                            }
-                            ?>
+                ?>
+                <div style="display:block;">
+                    <?php
+                    printVotes($comment['n_id']);
+                    if($b_comment_anonymous) echo "<span style='font-weight:bold; color:rgb(".getHue($hash_val, 60, 70).")'>익명 ".substr(base_convert($hash_val, 16, 36),2,4).'</span>';
+                    else {?>
+                    <span style="font-weight:bold"><a style="color:#666!important" href="<?php echo "/user/view/{$m['n_id']}/".htmlspecialchars($m['s_id'])?>"><?php putUserCard($m)?></a></span>
+                    <?php } ?>
+                    <span style="font-size:8pt;color:gray;"><?php echo date("Y-m-d H:i:s", $comment['n_writedate'])?></span>
+                    <?php if($board_id!='picexhibit') { ?>
+                        <div>
+                            <?php filterContent($comment['s_data']);?>
                         </div>
-                        <div style="clear:both"></div>
-                    </div>
-                <?php } else { ?>
-                    <div style="display:block;margin-left:<?php echo $pic_sz*1.1 ?>px;">
+                    <?php } ?>
+                    <div style="font-size:0.8em">
                         <?php
-                        if($b_comment_anonymous) echo "익명 ".substr(base_convert($hash_val, 16, 36),2,4);
-                        else {?>
-                        <div><a href="<?php echo "/user/view/{$m['n_id']}/".htmlspecialchars($m['s_id'])?>"><?php putUserCard($m)?></a></div>
-                        <?php } ?>
-                        <?php if($board_id!='picexhibit') { ?>
-                        <div style="margin-top:14px;margin-bottom:6px;"><?php filterContent($comment['s_data']); }?></div>
-                        <div style="font-size:8pt;color:#DDD;float:left;"><?php echo date("Y-m-d H:i:s", $comment['n_writedate'])?></div>
-                        <div style="float:right;">
-                            <?php
-                            if(doesAdminBypassEverythingAndIsAdmin($me['n_id']==$comment['n_writer'])){
-                                if(checkCategoryAccess($board_cat['n_id'], "comment edit")&&!$b_comment_anonymous) {
-                                    echo "<a style='padding-right:4px' href='/board/$board_id/edit/{$comment['n_id']}'>편집</a>";
-                                }
-                                if(checkCategoryAccess($board_cat['n_id'], "comment delete")&&!$b_comment_anonymous) {
-                                    echo "<a style='padding-right:4px' href='/board/$board_id/delete/{$comment['n_id']}'>삭제</a>";
-                                }
+                        if(doesAdminBypassEverythingAndIsAdmin($me['n_id']==$comment['n_writer'])){
+                            if(checkCategoryAccess($board_cat['n_id'], "comment edit")&&!$b_comment_anonymous) {
+                                echo "<a style='padding-right:4px' href='/board/$board_id/edit/{$comment['n_id']}'>편집</a>";
                             }
-                            if(checkCategoryAccess($board_cat['n_id'], "comment write")) {
-                                echo "<a style='padding-right:4px' onclick='return board_putCommentForm({$comment['n_id']});'>댓글 달기</a>";
+                            if(checkCategoryAccess($board_cat['n_id'], "comment delete")&&!$b_comment_anonymous) {
+                                echo "<a style='padding-right:4px' href='/board/$board_id/delete/{$comment['n_id']}'>삭제</a>";
                             }
-                            ?>
-                        </div>
-                        <div style="clear:both"></div>
+                        }
+                        if(checkCategoryAccess($board_cat['n_id'], "comment write")) {
+                            echo "<a style='padding-right:4px' onclick='return board_putCommentForm({$comment['n_id']});'>댓글 달기</a>";
+                        }
+                        ?>
                     </div>
-                <?php } ?>
+                    <div style="clear:both"></div>
+                </div>
 			</div>
 			<div style="margin-left:20px;border-left-color: #DDD;border-left-style: dotted;border-left-width: 1px;"><?php putCommentTree($comment['n_id'],$root); ?></div>
 		<?php } ?>
 	</div><?php
-
 }
+
 function printTagSplitted($tags, $board_id){
 	$o_tags=array();
 	foreach(explode(",",$tags) as $tag){
@@ -249,6 +208,7 @@ function printTagSplitted($tags, $board_id){
 	}
 	echo implode(", ",$o_tags);
 }
+
 function printViewPageHeader($usr, $cat){
 	global $me, $article, $board_id, $board_cat, $mysqli;
 	global $b_public_article, $b_no_comment, $b_anonymous, $b_bold_title;
@@ -397,7 +357,7 @@ function printViewPageModeGallery($usr, $cat){
 		<div class="comment_area"><?php putCommentTree($article['n_id'],$article['n_id']); ?></div>
 	<?php }
 }
-function printOneForumItem($article,$root,$suppress_comments=false){
+function printOneForumItem($article,$root,$suppress_comments=false) {
 	global $board_cat, $member, $me, $is_mobile;
 	$flag=$article['n_flag']; $b_public_article=$flag&0x1; $b_no_comment=$flag&0x2; $b_anonymous=$flag&0x4; $b_bold_title=$flag&0x8;
 	$b_public_article=$b_public_article && checkCategoryAccess($board_cat['n_id'], "flag public");
@@ -408,7 +368,7 @@ function printOneForumItem($article,$root,$suppress_comments=false){
         $hash_val = getHash($article['n_writer'], $suppress_comments ? $article['n_id'] : $article['n_parent']);
 	?>
 	<li class="items" id="article_comment_sub_<?php echo $article['n_id']?>">
-		<?php if($is_mobile){ ?>
+		<?php if($is_mobile) { ?>
 			<div class="item_head">
 				<?php
 				if($b_anonymous){
@@ -452,106 +412,51 @@ function printOneForumItem($article,$root,$suppress_comments=false){
 				</div>
 				<div id="article_comment_<?php echo $article['n_id']?>"></div>
 			</div>
-		<?php } else {
-            if(getTheme($me)['beta']) { ?>
-                <div class="item_head" style="padding:6px">
+		<?php } else { ?>
+            <div class="item_head" style="padding:6px">
+                <?php
+                printVotes($article['n_id']);
+                if($b_anonymous){
+                    echo "<span style='font-weight:bold; color:rgb(".getHue($hash_val, 60, 70).")'>익명 ".substr(base_convert($hash_val, 16, 36),2,4).'</span>';
+                }else{ ?>
+                    <span style="font-weight:bold">
+                        <a style="color:#666!important" href="<?php echo "/user/view/{$m['n_id']}/{$m['s_id']}" ?>"><?php putUserCard($m); ?></a>
+                    </span>
+                <?php } ?>
+                <span style='font-size:8pt;color:gray'>
                     <?php
-                    printVotes($article['n_id']);
-                    if($b_anonymous){
-                        echo "<span style='font-weight:bold; color:rgb(".getHue($hash_val, 60, 70).")'>익명 ".substr(base_convert($hash_val, 16, 36),2,4).'</span>';
-                    }else{ ?>
-                        <span style="font-weight:bold">
-                            <a style="color:#666!important" href="<?php echo "/user/view/{$m['n_id']}/{$m['s_id']}" ?>"><?php putUserCard($m); ?></a>
-                        </span>
-                    <?php } ?>
-                    <span style='font-size:8pt;color:gray'>
-                        <?php
-                        echo date("Y년 m월 d일 H시 i분 s초", $article['n_writedate']);
-                        if($article['n_writedate']!=$article['n_editdate'])
-                            echo " (".date("Y년 m월 d일 H시 i분 s초", $article['n_editdate'])."에 수정함)";
-                    ?></span><?php
-                    $boardbilities=array();
-                    if(doesAdminBypassEverythingAndIsAdmin($me['n_id']==$article['n_writer'])){
-                        if(checkCategoryAccess($board_cat['n_id'], "edit")&&!$b_anonymous)
-                            $boardbilities[]="<a href='/board/{$board_cat['s_id']}/edit/{$article['n_id']}'>편집</a>";
-                        if(checkCategoryAccess($board_cat['n_id'], "delete")&&!$b_anonymous)
-                            $boardbilities[]="<a href='/board/{$board_cat['s_id']}/delete/{$article['n_id']}'>삭제</a>";
-                    }
-                    if(checkCategoryAccess($board_cat['n_id'], "comment write"))
-                        $boardbilities[]="<a onclick='return board_putCommentForm({$article['n_id']});'>댓글 달기</a>";
-                    echo "<div style='float:right'>".implode(" | ",$boardbilities)."</div>";
-                    ?>
+                    echo date("Y년 m월 d일 H시 i분 s초", $article['n_writedate']);
+                    if($article['n_writedate']!=$article['n_editdate'])
+                        echo " (".date("Y년 m월 d일 H시 i분 s초", $article['n_editdate'])."에 수정함)";
+                ?></span><?php
+                $boardbilities=array();
+                if(doesAdminBypassEverythingAndIsAdmin($me['n_id']==$article['n_writer'])){
+                    if(checkCategoryAccess($board_cat['n_id'], "edit")&&!$b_anonymous)
+                        $boardbilities[]="<a href='/board/{$board_cat['s_id']}/edit/{$article['n_id']}'>편집</a>";
+                    if(checkCategoryAccess($board_cat['n_id'], "delete")&&!$b_anonymous)
+                        $boardbilities[]="<a href='/board/{$board_cat['s_id']}/delete/{$article['n_id']}'>삭제</a>";
+                }
+                if(checkCategoryAccess($board_cat['n_id'], "comment write"))
+                    $boardbilities[]="<a onclick='return board_putCommentForm({$article['n_id']});'>댓글 달기</a>";
+                echo "<div style='float:right'>".implode(" | ",$boardbilities)."</div>";
+                ?>
+            </div>
+            <div class="item_contents" style="padding:10px">
+                <?php
+                filterContent($article['s_data']);
+                printAttachList($article, $board_cat, 0);
+                ?>
+                <div class="new_forum_comment_area">
+                    <?php if($article['n_comments']>0 && !$suppress_comments){ putCommentTree($article['n_id'],$root); } ?>
                 </div>
-            <?php } else { ?>
-                <div class="item_head">
-                    <div class="item_left">
-                        <?php if($b_anonymous){
-                            echo "익명 ".substr(base_convert($hash_val, 16, 36),2,4);
-                        }else{ ?>
-                            <a href="<?php echo "/user/view/{$m['n_id']}/{$m['s_id']}" ?>"><?php putUserCard($m); ?></a>
-                        <?php } ?>
-                    </div>
-                    <div class="item_right">
-                        <?php
-                        echo date("Y년 m월 d일 H시 i분 s초", $article['n_writedate']);
-                        if($article['n_writedate']!=$article['n_editdate'])
-                            echo " <span style='font-size:8pt;color:gray'>(".date("Y년 m월 d일 H시 i분 s초", $article['n_editdate'])."에 수정함)</span>";
-                        $boardbilities=array();
-                        if(doesAdminBypassEverythingAndIsAdmin($me['n_id']==$article['n_writer'])){
-                            if(checkCategoryAccess($board_cat['n_id'], "edit")&&!$b_anonymous)
-                                $boardbilities[]="<a href='/board/{$board_cat['s_id']}/edit/{$article['n_id']}'>편집</a>";
-                            if(checkCategoryAccess($board_cat['n_id'], "delete")&&!$b_anonymous)
-                                $boardbilities[]="<a href='/board/{$board_cat['s_id']}/delete/{$article['n_id']}'>삭제</a>";
-                        }
-                        if(checkCategoryAccess($board_cat['n_id'], "comment write"))
-                            $boardbilities[]="<a onclick='return board_putCommentForm({$article['n_id']});'>댓글 달기</a>";
-                        echo "<div style='float:right'>".implode(" | ",$boardbilities)."</div>";
-                        ?>
-                    </div>
-                </div>
-            <?php }
-            if(getTheme($me)['beta']) { ?>
-                <div class="item_contents" style="padding:10px">
-                    <?php
-                    filterContent($article['s_data']);
-                    printAttachList($article, $board_cat, 0);
-                    ?>
-                    <div class="new_forum_comment_area">
-                        <?php if($article['n_comments']>0 && !$suppress_comments){ putCommentTree($article['n_id'],$root); } ?>
-                    </div>
-                    <div id="article_comment_<?php echo $article['n_id']?>"></div>
-                    <div style="clear:both"></div>
-                </div>
-            <?php } else { ?>
-                <div class="item_left" style="text-align:center;">
-                    <?php
-                    if(!$b_anonymous){
-                        if($m['s_pic'])
-                            echo "<img src='{$m['s_pic']}' style='width:50px;height:50px;' /><br />";
-                        else
-                            echo '<img src="/images/no-image.png" style="width:50px;height:50px;" />';
-                        echo htmlspecialchars($m['s_status_message']) . "<br />";
-                    }else{
-                        echo '<div class="circle anonymous-bubble" style="width:50px; height:50px; background:rgb('.getHue($hash_val).');">'.substr(base_convert($hash_val, 16, 36),2,1).'</div>';
-                    }
-                    ?>
-                </div>
-                <div class="item_right" style="border-left:1px solid #DDD;">
-                    <?php
-                    filterContent($article['s_data']);
-                    printAttachList($article, $board_cat, 0);
-                    ?>
-                    <div class="forum_comment_area">
-                        <?php if($article['n_comments']>0 && !$suppress_comments){ putCommentTree($article['n_id'],$root); } ?>
-                    </div>
-                    <div id="article_comment_<?php echo $article['n_id']?>"></div>
-                    <div style="clear:both"></div>
-                </div>
-            <?php }
-        } ?>
+                <div id="article_comment_<?php echo $article['n_id']?>"></div>
+                <div style="clear:both"></div>
+            </div>
+        <?php } ?>
 	</li>
 	<?php
 }
+
 function printViewPageModeForum($usr, $cat){
 	global $article, $board, $member, $is_mobile, $mysqli;
 	global $board_id, $board_act, $board_cat, $me;
