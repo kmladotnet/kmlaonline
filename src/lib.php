@@ -703,7 +703,6 @@ function downvoted($id, $user) {
         array_key_exists($user, json_decode(file_get_contents('data/board/votes/down'.$id), true));
 }
 
-
 function upvote($id, $user) {
     if(file_exists('data/board/votes/down'.$id)) {
         $downvotes = json_decode(file_get_contents('data/board/votes/down'.$id), true);
