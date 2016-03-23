@@ -671,9 +671,6 @@ function getTheme($user) {
 }
 
 function setTheme($theme, $user) {
-    if(!file_exists("data/user/theme")) {
-        mkdir("data/user/theme");
-    }
     $file = "data/user/theme/{$user['n_id']}.txt";
     file_put_contents($file, json_encode($theme));
     $_SESSION['theme'] = $theme;
