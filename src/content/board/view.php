@@ -429,7 +429,7 @@ function printOneForumItem($article,$root,$suppress_comments=false){
 			</div>
 		<?php } else {
             if(getTheme($me)['beta']) { ?>
-                <div class="item_head" style="padding:5px">
+                <div class="item_head" style="padding:6px">
                     <?php if($b_anonymous){
                         echo "<span style='font-weight:bold; color:rgb(".getHue($hash_val, 60, 70).")'>익명 ".substr(base_convert($hash_val, 16, 36),2,4).'</span>';
                     }else{ ?>
@@ -484,7 +484,7 @@ function printOneForumItem($article,$root,$suppress_comments=false){
                 </div>
             <?php }
             if(getTheme($me)['beta']) { ?>
-                <div class="item_contents" style="padding:5px">
+                <div class="item_contents" style="padding:10px">
                     <?php
                     filterContent($article['s_data']);
                     printAttachList($article, $board_cat, 0);
