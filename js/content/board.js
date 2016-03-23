@@ -634,15 +634,3 @@ function uploadComplete(file) {
 // This event comes from the Queue Plugin
 function queueComplete(numFilesUploaded) {
 }
-
-function upvote(id) {
-    $.post("ajax/board/upvote", {
-        "id" : id,
-        "ajax": 1
-    }, function (data) {
-        $('upvote-' + id).css('display', 'table-cell');
-        $('vote-' + id).css('display', 'none');
-        $('downvote-' + id).css('display', 'none');
-        $('minus-' + id).removeClass('active');
-    });
-}

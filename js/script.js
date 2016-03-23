@@ -812,3 +812,31 @@ addLoadEvent(function () {
 
     getNotificationCount();
 });
+
+
+
+function upvote(id) {
+    $.post("ajax/board/upvote", {
+        "id" : id,
+        "ajax": 1
+    }, function (data) {
+        $('upvote-' + id).css('display', 'table-cell');
+        $('vote-' + id).css('display', 'none');
+        $('downvote-' + id).css('display', 'none');
+        $('plus-' + id).addClass('active');
+        $('minus-' + id).removeClass('active');
+    });
+}
+
+function downvote(id) {
+    $.post("ajax/board/downvote", {
+        "id" : id,
+        "ajax": 1
+    }, function (data) {
+        $('upvote-' + id).css('display', 'none');
+        $('vote-' + id).css('display', 'none');
+        $('downvote-' + id).css('display', 'table-cell');
+        $('minus-' + id).addClass('active');
+        $('plus-' + id).removeClass('active');
+    });
+}
