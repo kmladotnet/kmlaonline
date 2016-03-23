@@ -341,7 +341,7 @@ div#div_search_from{
 }
 
 /* voting */
-.vote-count {
+input.vote-count {
     width: 40px;
     padding: 3px;
     height: 24px;
