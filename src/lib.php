@@ -656,6 +656,9 @@ function getTheme($user) {
         $file = "data/user/theme/{$user['n_id']}.txt";
         if(file_exists($file)) {
             $_SESSION['theme'] = json_decode(file_get_contents($file), true);
+            if(!array_key_exists('beta', $_SESSION['theme'])) {
+                $_SESSION['theme']['beta'] = false;
+            }
         } else {
             $_SESSION['theme'] = array();
             $_SESSION['theme']['dark'] = false;
