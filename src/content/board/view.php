@@ -117,50 +117,87 @@ function putCommentTree($parent,$root){
                 if($b_comment_anonymous)
                     $hash_val = getHash($comment['n_writer'], $root);
 
-				$pic_sz=50;//$is_mobile?50:100;
-				if($m['s_pic'] && !$b_comment_anonymous)
-					echo '<a href="'.htmlspecialchars(str_replace("picture/","picture_full/",$m['s_pic'])).'" data-toggle="lightbox"><img style="float:left;width:'.$pic_sz.'px;height:'.$pic_sz.'px;margin-right:7px;" src="'.htmlspecialchars($m['s_pic']).'" /></a>';
-				else if(!$m['s_pic'] && !$b_comment_anonymous)
-					echo '<img src="/images/no-image.png" style="float:left;width:'.$pic_sz.'px;height:'.$pic_sz.'px;margin-right:7px;" />';
-				else{
-                    echo '<div style="float:left">';
-                    echo '<div class="circle anonymous-bubble" style="width:'.$pic_sz.'px; height:'.$pic_sz.'px; background:rgb('.getHue($hash_val).');">'.substr(base_convert($hash_val, 16, 36),2,1).'</div>';
-                    echo '</div>';
-				}
-				?>
-				<div style="display:block;margin-left:<?php echo $pic_sz*1.1 ?>px;">
-					<?php
-					if($b_comment_anonymous) echo "익명 ".substr(base_convert($hash_val, 16, 36),2,4);
-					else {?>
-					<div><a href="<?php echo "/user/view/{$m['n_id']}/".htmlspecialchars($m['s_id'])?>"><?php putUserCard($m)?></a></div>
-					<?php } ?>
-					<?php if($board_id!='picexhibit') { ?>
-					<div style="margin-top:14px;margin-bottom:6px;"><?php filterContent($comment['s_data']); }?></div>
-					<div style="font-size:8pt;color:#DDD;float:left;"><?php echo date("Y-m-d H:i:s", $comment['n_writedate'])?></div>
-					<div style="float:right;">
-						<?php
-                        $firstCommentButton = true;
-						if(doesAdminBypassEverythingAndIsAdmin($me['n_id']==$comment['n_writer'])){
-							if(checkCategoryAccess($board_cat['n_id'], "comment edit")&&!$b_comment_anonymous) {
-								echo "<a href='/board/$board_id/edit/{$comment['n_id']}'>편집</a>";
-                                $firstCommentButton = false;
+                if(!getTheme($me)['beta']) {
+                    $pic_sz=50;//$is_mobile?50:100;
+                    if($m['s_pic'] && !$b_comment_anonymous)
+                        echo '<a href="'.htmlspecialchars(str_replace("picture/","picture_full/",$m['s_pic'])).'" data-toggle="lightbox"><img style="float:left;width:'.$pic_sz.'px;height:'.$pic_sz.'px;margin-right:7px;" src="'.htmlspecialchars($m['s_pic']).'" /></a>';
+                    else if(!$m['s_pic'] && !$b_comment_anonymous)
+                        echo '<img src="/images/no-image.png" style="float:left;width:'.$pic_sz.'px;height:'.$pic_sz.'px;margin-right:7px;" />';
+                    else{
+                        echo '<div style="float:left">';
+                        echo '<div class="circle anonymous-bubble" style="width:'.$pic_sz.'px; height:'.$pic_sz.'px; background:rgb('.getHue($hash_val).');">'.substr(base_convert($hash_val, 16, 36),2,1).'</div>';
+                        echo '</div>';
+                    }
+                }
+				if(getTheme($user)['beta']) { ?>
+                    <div style="display:block;">
+                        <?php
+                        if($b_comment_anonymous) echo "<span style='font-weight:bold; color:rgb(".getHue($hash_val, 60, 70).")'>익명 ".substr(base_convert($hash_val, 16, 36),2,4).'</span>';
+                        else {?>
+                        <div><a href="<?php echo "/user/view/{$m['n_id']}/".htmlspecialchars($m['s_id'])?>"><?php putUserCard($m)?></a></div>
+                        <?php } ?>
+                        <span style="font-size:8pt;color:gray;"><?php echo date("Y-m-d H:i:s", $comment['n_writedate'])?></span>
+                        <?php if($board_id!='picexhibit') { ?>
+                        <div style="margin-top:14px;margin-bottom:6px;"><?php filterContent($comment['s_data']); }?></div>
+                        <div style="float:right;">
+                            <?php
+                            $firstCommentButton = true;
+                            if(doesAdminBypassEverythingAndIsAdmin($me['n_id']==$comment['n_writer'])){
+                                if(checkCategoryAccess($board_cat['n_id'], "comment edit")&&!$b_comment_anonymous) {
+                                    echo "<a href='/board/$board_id/edit/{$comment['n_id']}'>편집</a>";
+                                    $firstCommentButton = false;
+                                }
+                                if(checkCategoryAccess($board_cat['n_id'], "comment delete")&&!$b_comment_anonymous) {
+                                    if(!$firstCommentButton)
+                                        echo " | ";
+                                    echo "<a href='/board/$board_id/delete/{$comment['n_id']}'>삭제</a>";
+                                    $firstCommentButton = false;
+                                }
                             }
-							if(checkCategoryAccess($board_cat['n_id'], "comment delete")&&!$b_comment_anonymous) {
+                            if(checkCategoryAccess($board_cat['n_id'], "comment write")) {
                                 if(!$firstCommentButton)
                                     echo " | ";
-								echo "<a href='/board/$board_id/delete/{$comment['n_id']}'>삭제</a>";
-                                $firstCommentButton = false;
+                                echo "<a onclick='return board_putCommentForm({$comment['n_id']});'>댓글 달기</a>";
                             }
-						}
-						if(checkCategoryAccess($board_cat['n_id'], "comment write")) {
-                            if(!$firstCommentButton)
-                                echo " | ";
-							echo "<a onclick='return board_putCommentForm({$comment['n_id']});'>댓글 달기</a>";
-                        }
-						?>
-					</div>
-					<div style="clear:both"></div>
-				</div>
+                            ?>
+                        </div>
+                        <div style="clear:both"></div>
+                    </div>
+                <?php } else { ?>
+                    <div style="display:block;margin-left:<?php echo $pic_sz*1.1 ?>px;">
+                        <?php
+                        if($b_comment_anonymous) echo "익명 ".substr(base_convert($hash_val, 16, 36),2,4);
+                        else {?>
+                        <div><a href="<?php echo "/user/view/{$m['n_id']}/".htmlspecialchars($m['s_id'])?>"><?php putUserCard($m)?></a></div>
+                        <?php } ?>
+                        <?php if($board_id!='picexhibit') { ?>
+                        <div style="margin-top:14px;margin-bottom:6px;"><?php filterContent($comment['s_data']); }?></div>
+                        <div style="font-size:8pt;color:#DDD;float:left;"><?php echo date("Y-m-d H:i:s", $comment['n_writedate'])?></div>
+                        <div style="float:right;">
+                            <?php
+                            $firstCommentButton = true;
+                            if(doesAdminBypassEverythingAndIsAdmin($me['n_id']==$comment['n_writer'])){
+                                if(checkCategoryAccess($board_cat['n_id'], "comment edit")&&!$b_comment_anonymous) {
+                                    echo "<a href='/board/$board_id/edit/{$comment['n_id']}'>편집</a>";
+                                    $firstCommentButton = false;
+                                }
+                                if(checkCategoryAccess($board_cat['n_id'], "comment delete")&&!$b_comment_anonymous) {
+                                    if(!$firstCommentButton)
+                                        echo " | ";
+                                    echo "<a href='/board/$board_id/delete/{$comment['n_id']}'>삭제</a>";
+                                    $firstCommentButton = false;
+                                }
+                            }
+                            if(checkCategoryAccess($board_cat['n_id'], "comment write")) {
+                                if(!$firstCommentButton)
+                                    echo " | ";
+                                echo "<a onclick='return board_putCommentForm({$comment['n_id']});'>댓글 달기</a>";
+                            }
+                            ?>
+                        </div>
+                        <div style="clear:both"></div>
+                    </div>
+                <?php }
 			</div>
 			<div style="margin-left:20px;border-left-color: #DDD;border-left-style: dotted;border-left-width: 1px;"><?php putCommentTree($comment['n_id'],$root); ?></div>
 		<?php } ?>
