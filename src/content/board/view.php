@@ -17,26 +17,34 @@ function formatVotes($votes) {
 function printVotes($id) {
     global $me;
     $upvotes = getVotes($id);
+    $upvoted = upvoted($id, $me['n_id']);
+    $downvoted = downvoted($id, $me['n_id']);
+    if($upvoted) {
+        $upvotes--;
+    }
+    if($downvoted) {
+        $upvotes++;
+    }
     ?>
     <div class="input-group" style="display: inline-table; vertical-align: middle; width: 1px">
         <span class="input-group-btn">
             <button type="button" id="plus-<?php echo $id;?>" data-toggle="button" class="btn btn-default
-                <?php if(upvoted($id, $me)) echo 'active';?>" style="padding: 0px; height: 24px; width: 24px;">
+                <?php if($upvoted) echo 'active';?>" style="padding: 0px; height: 24px; width: 24px;">
                 +
             </button>
         </span>
-        <span id="downvote-<?php echo $id;?>" class="input-group-btn" style="display:none">
-            <input type="text" class="form-control" id="vote" placeholder="<?php formatVotes($upvotes - 1);?>" disabled="" style="width: 30px; padding: 3px; height: 24px; vertical-align: middle;">
+        <span id="downvote-<?php echo $id;?>" class="input-group-btn" <?php if(!$downvoted) echo 'style="display:none"';?>>
+            <input type="text" class="form-control" id="vote" placeholder="<?php formatVotes($upvotes - 1);?>" disabled style="width: 30px; padding: 3px; height: 24px; vertical-align: middle;">
         </span>
-        <span id="vote-<?php echo $id;?>" class="input-group-btn">
-            <input type="text" class="form-control" id="vote" placeholder="<?php formatVotes($upvotes);?>" disabled="" style="width: 40px; padding: 3px; height: 24px; vertical-align: middle;">
+        <span id="vote-<?php echo $id;?>" class="input-group-btn" <?php if($upvoted || $downvoted) echo 'style="display:none"';?>>
+            <input type="text" class="form-control" id="vote" placeholder="<?php formatVotes($upvotes);?>" disabled style="width: 40px; padding: 3px; height: 24px; vertical-align: middle;">
         </span>
-        <span id="upvote-<?php echo $id;?>" class="input-group-btn" style="display:none">
-            <input type="text" class="form-control" id="vote" placeholder="<?php formatVotes($upvotes + 1);?>" disabled="" style="width: 30px; padding: 3px; height: 24px; vertical-align: middle;">
+        <span id="upvote-<?php echo $id;?>" class="input-group-btn" <?php if(!$upvoted) echo 'style="display:none"';?>>
+            <input type="text" class="form-control" id="vote" placeholder="<?php formatVotes($upvotes + 1);?>" disabled style="width: 30px; padding: 3px; height: 24px; vertical-align: middle;">
         </span>
         <span class="input-group-btn">
             <button type="button" id="minus-<?php echo $id;?>" data-toggle="button" class="btn btn-default
-                <?php if(downvoted($id, $me)) echo 'active';?>" style="padding: 0px; height: 24px; width: 24px;">
+                <?php if($downvoted) echo 'active';?>" style="padding: 0px; height: 24px; width: 24px;">
                 -
             </button>
         </span>
