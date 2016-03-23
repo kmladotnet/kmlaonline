@@ -34,14 +34,14 @@ function printVotes($id) {
                 +
             </button>
         </span>
-        <span id="downvote-<?php echo $id;?>" class="input-group-btn" style="color:crimson!important;<?php if(!$downvoted) echo 'display:none';?>">
-            <input type="text" class="form-control" id="vote" placeholder="<?php formatVotes($upvotes - 1);?>" disabled style="width: 30px; padding: 3px; height: 24px; vertical-align: middle;">
+        <span id="downvote-<?php echo $id;?>" class="input-group-btn" style="<?php if(!$downvoted) echo 'display:none';?>">
+            <input type="text" class="form-control" id="vote" placeholder="<?php formatVotes($upvotes - 1);?>" disabled style="color:crimson!important;width: 40px; padding: 3px; height: 24px; vertical-align: middle;">
         </span>
-        <span id="vote-<?php echo $id;?>" class="input-group-btn" style="color:black!important;<?php if($upvoted || $downvoted) echo 'display:none';?>">
-            <input type="text" class="form-control" id="vote" placeholder="<?php formatVotes($upvotes);?>" disabled style="width: 40px; padding: 3px; height: 24px; vertical-align: middle;">
+        <span id="vote-<?php echo $id;?>" class="input-group-btn" style="<?php if($upvoted || $downvoted) echo 'display:none';?>">
+            <input type="text" class="form-control" id="vote" placeholder="<?php formatVotes($upvotes);?>" disabled style="color:black!important;width: 40px; padding: 3px; height: 24px; vertical-align: middle;">
         </span>
-        <span id="upvote-<?php echo $id;?>" class="input-group-btn" style="color:forestgreen!important;<?php if(!$upvoted) echo 'display:none';?>">
-            <input type="text" class="form-control" id="vote" placeholder="<?php formatVotes($upvotes + 1);?>" disabled style="width: 30px; padding: 3px; height: 24px; vertical-align: middle;">
+        <span id="upvote-<?php echo $id;?>" class="input-group-btn" style="<?php if(!$upvoted) echo 'display:none';?>">
+            <input type="text" class="form-control" id="vote" placeholder="<?php formatVotes($upvotes + 1);?>" disabled style="color:forestgreen!important;width: 40px; padding: 3px; height: 24px; vertical-align: middle;">
         </span>
         <span class="input-group-btn">
             <button type="button" data-id="<?php echo $id;?>" id="minus-<?php echo $id;?>" data-toggle="button" class="btn btn-default
