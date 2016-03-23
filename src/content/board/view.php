@@ -34,13 +34,13 @@ function printVotes($id) {
                 +
             </button>
         </span>
-        <span id="downvote-<?php echo $id;?>" class="input-group-btn" <?php if(!$downvoted) echo 'style="display:none"';?>>
+        <span id="downvote-<?php echo $id;?>" class="input-group-btn" style="color:crimson!important;<?php if(!$downvoted) echo 'display:none';?>">
             <input type="text" class="form-control" id="vote" placeholder="<?php formatVotes($upvotes - 1);?>" disabled style="width: 30px; padding: 3px; height: 24px; vertical-align: middle;">
         </span>
-        <span id="vote-<?php echo $id;?>" class="input-group-btn" <?php if($upvoted || $downvoted) echo 'style="display:none"';?>>
+        <span id="vote-<?php echo $id;?>" class="input-group-btn" style="color:black!important;<?php if($upvoted || $downvoted) echo 'display:none';?>">
             <input type="text" class="form-control" id="vote" placeholder="<?php formatVotes($upvotes);?>" disabled style="width: 40px; padding: 3px; height: 24px; vertical-align: middle;">
         </span>
-        <span id="upvote-<?php echo $id;?>" class="input-group-btn" <?php if(!$upvoted) echo 'style="display:none"';?>>
+        <span id="upvote-<?php echo $id;?>" class="input-group-btn" style="color:forestgreen!important;<?php if(!$upvoted) echo 'display:none';?>">
             <input type="text" class="form-control" id="vote" placeholder="<?php formatVotes($upvotes + 1);?>" disabled style="width: 30px; padding: 3px; height: 24px; vertical-align: middle;">
         </span>
         <span class="input-group-btn">
