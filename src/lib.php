@@ -676,4 +676,54 @@ function setTheme($theme, $user) {
     $_SESSION['theme'] = $theme;
 }
 
+function getVotes($id) {
+    if(!file_exists('data/board/votes')) {
+        mkdir('data/board/votes');
+        mkdir('data/boards/votes/up');
+        mkdir('data/boards/votes/down');
+    }
+    $sum = 0;
+    if(file_exists('data/boards/votes/up'.$id)) {
+        $sum += count(json_decode(file_get_contents('data/boards/votes/up'.$id), true));
+    }
+    if(file_exists('data/boards/votes/down'.$id)) {
+        $sum -= count(json_decode(file_get_contents('data/boards/votes/down'.$id), true));
+    }
+    return $sum;
+}
+
+function upvote($id, $user) {
+    if(file_exists('data/boards/votes/down'.$id)) {
+        $downvotes = json_decode(file_get_contents('data/boards/votes/down'.$id), true);
+        if(array_key_exists($user, $downvotes)) {
+            unset($downvotes[$user]);
+            file_put_contents('data/boards/votes/down'.$id, $downvotes);
+        }
+    }
+    if(file_exists('data/boards/votes/up'.$id)) {
+        $upvotes = json_decode(file_get_contents('data/boards/votes/up'.$id), true);
+    } else {
+        $upvotes = array();
+    }
+    $upvotes[$user] = null;
+    file_put_contents('data/boards/votes/up'.$id, $upvotes);
+}
+
+function downvote($id, $user) {
+    if(file_exists('data/boards/votes/up'.$id)) {
+        $upvotes = json_decode(file_get_contents('data/boards/votes/up'.$id), true);
+        if(array_key_exists($user, $upvotes)) {
+            unset($upvotes[$user]);
+            file_put_contents('data/boards/votes/up'.$id, $upvotes);
+        }
+    }
+    if(file_exists('data/boards/votes/down'.$id)) {
+        $downvotes = json_decode(file_get_contents('data/boards/votes/down'.$id), true);
+    } else {
+        $downvotes = array();
+    }
+    $downvotes[$user] = $id;
+    file_put_contents('data/boards/votes/down'.$id, $downvotes);
+}
+
 $maxUploadFileSize = convertToBytes( ini_get( 'upload_max_filesize' ) );
