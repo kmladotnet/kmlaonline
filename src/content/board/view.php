@@ -7,7 +7,7 @@ function getHash($id, $key) {
     return hash_hmac("crc32", $id, $key);
 }
 
-function formatVote($votes) {
+function formatVotes($votes) {
     if($votes >= 0) {
         echo '&#43;';
     }
