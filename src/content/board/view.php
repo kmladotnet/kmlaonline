@@ -8,7 +8,7 @@ function getHash($id, $key) {
 }
 
 function formatVotes($votes) {
-    if($votes >= 0) {
+    if($votes > 0) {
         echo '&#43;';
     }
     echo $votes;
