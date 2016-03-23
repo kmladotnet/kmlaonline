@@ -418,7 +418,7 @@ function printOneForumItem($article,$root,$suppress_comments=false){
             <?php } else { ?>
                 <div class="item_head">
                     <?php if($b_anonymous){
-                        echo "<span style='color:".getHue($hash_val)."'>익명 ".substr(base_convert($hash_val, 16, 36),2,4).'</span>';
+                        echo "<span style='color:rgb(".getHue($hash_val).")'>익명 ".substr(base_convert($hash_val, 16, 36),2,4).'</span>';
                     }else{ ?>
                         <a href="<?php echo "/user/view/{$m['n_id']}/{$m['s_id']}" ?>"><?php putUserCard($m); ?></a>
                     <?php } ?>
