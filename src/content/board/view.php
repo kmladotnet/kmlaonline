@@ -391,14 +391,16 @@ function printOneForumItem($article,$root,$suppress_comments=false){
             if(getTheme($me)['beta']) { ?>
                 <div class="item_head" style="padding:5px">
                     <?php if($b_anonymous){
-                        echo "<span style='color:rgb(".getHue($hash_val, 60, 70).")'>익명 ".substr(base_convert($hash_val, 16, 36),2,4).'</span>';
+                        echo "<span style='font-weight:bold; color:rgb(".getHue($hash_val, 60, 70).")'>익명 ".substr(base_convert($hash_val, 16, 36),2,4).'</span>';
                     }else{ ?>
                         <a href="<?php echo "/user/view/{$m['n_id']}/{$m['s_id']}" ?>"><?php putUserCard($m); ?></a>
                     <?php } ?>
-                    <?php
-                    echo date("Y년 m월 d일 H시 i분 s초", $article['n_writedate']);
-                    if($article['n_writedate']!=$article['n_editdate'])
-                        echo " <span style='font-size:8pt;color:gray'>(".date("Y년 m월 d일 H시 i분 s초", $article['n_editdate'])."에 수정함)</span>";
+                    <span style='font-size:8pt;color:gray'>
+                        <?php
+                        echo date("Y년 m월 d일 H시 i분 s초", $article['n_writedate']);
+                        if($article['n_writedate']!=$article['n_editdate'])
+                            echo " (".date("Y년 m월 d일 H시 i분 s초", $article['n_editdate'])."에 수정함)";
+                    ?></span><?php
                     $boardbilities=array();
                     if(doesAdminBypassEverythingAndIsAdmin($me['n_id']==$article['n_writer'])){
                         if(checkCategoryAccess($board_cat['n_id'], "edit")&&!$b_anonymous)
