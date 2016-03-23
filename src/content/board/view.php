@@ -138,7 +138,7 @@ function putCommentTree($parent,$root){
                         <?php } ?>
                         <span style="font-size:8pt;color:gray;"><?php echo date("Y-m-d H:i:s", $comment['n_writedate'])?></span>
                         <?php if($board_id!='picexhibit') { ?>
-                            <div style="margin-top:6px; margin-bottom:4px;">
+                            <div>
                                 <?php filterContent($comment['s_data']);?>
                             </div>
                         <?php } ?>
