@@ -28,8 +28,9 @@ function printVotes($id) {
     ?>
     <div class="input-group" style="display: inline-table; vertical-align: middle; width: 1px">
         <span class="input-group-btn">
-            <button type="button" id="plus-<?php echo $id;?>" data-toggle="button" class="btn btn-default
-                <?php if($upvoted) echo 'active';?>" style="padding: 0px; height: 24px; width: 24px;">
+            <button type="button" data-id="<?php echo $id;?>" id="plus-<?php echo $id;?>" data-toggle="button" class="btn btn-default
+                <?php if($upvoted) echo 'active';?>" style="padding: 0px; height: 24px; width: 24px;"
+                    onclick='if($(this).hasClass("active")) unvote($(this).data("id")); else upvote($(this).data("id"));'>
                 +
             </button>
         </span>
@@ -43,8 +44,9 @@ function printVotes($id) {
             <input type="text" class="form-control" id="vote" placeholder="<?php formatVotes($upvotes + 1);?>" disabled style="width: 30px; padding: 3px; height: 24px; vertical-align: middle;">
         </span>
         <span class="input-group-btn">
-            <button type="button" id="minus-<?php echo $id;?>" data-toggle="button" class="btn btn-default
-                <?php if($downvoted) echo 'active';?>" style="padding: 0px; height: 24px; width: 24px;">
+            <button type="button" data-id="<?php echo $id;?>" id="minus-<?php echo $id;?>" data-toggle="button" class="btn btn-default
+                <?php if($downvoted) echo 'active';?>" style="padding: 0px; height: 24px; width: 24px;"
+                    onclick='if($(this).hasClass("active")) unvote($(this).data("id")); else downvote($(this).data("id"));'>
                 -
             </button>
         </span>

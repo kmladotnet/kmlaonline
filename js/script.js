@@ -840,3 +840,16 @@ function downvote(id) {
         $('#plus-' + id).removeClass('active');
     });
 }
+
+function unvote(id) {
+    $.post("ajax/board/unvote", {
+        "id" : id,
+        "ajax": 1
+    }, function () {
+        $('#upvote-' + id).css('display', 'none');
+        $('#vote-' + id).css('display', 'table-cell');
+        $('#downvote-' + id).css('display', 'none');
+        $('#minus-' + id).removeClass('active');
+        $('#plus-' + id).removeClass('active');
+    });
+}
