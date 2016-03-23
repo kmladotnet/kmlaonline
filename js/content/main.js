@@ -304,6 +304,7 @@ function saveTheme() {
     options['dark'] = false;
     options['square'] = $("#square-option").parent().hasClass("active");
     options['gradients'] = $("#gradients-option").parent().hasClass("active");
+    options['beta'] = $("#beta-option").parent().hasClass("active");
     $.post("ajax/user/savetheme", {
         "json": JSON.stringify(options),
         "ajax": 1
@@ -324,10 +325,10 @@ var themeMode = false;
 function toggleThemeEditing() {
     if(!themeMode) {
         $("#main-theme-pane").velocity("slideDown", {duration: 200, easing: "easeOutCubic"});
-        $("#main-theme-button").html("테마 설정 저장");
+        $("#main-theme-button").html("큼온 설정 저장");
     } else {
         $("#main-theme-pane").velocity("slideUp", {duration: 200, easing: "easeOutCubic"});
-        $("#main-theme-button").html("테마 설정");
+        $("#main-theme-button").html("큼온 설정");
         saveTheme();
     }
     themeMode = !themeMode;

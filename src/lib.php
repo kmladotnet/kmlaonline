@@ -661,6 +661,7 @@ function getTheme($user) {
             $_SESSION['theme']['dark'] = false;
             $_SESSION['theme']['square'] = false;
             $_SESSION['theme']['gradients'] = false;
+            $_SESSION['theme']['beta'] = false;
         }
     }
     return $_SESSION['theme'];

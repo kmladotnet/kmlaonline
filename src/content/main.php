@@ -12,34 +12,53 @@ function printContentPc(){
 	<div style="min-height: 400px">
         <div style="padding: 3px; padding-bottom: 6px; padding-top: 6px">
             <button type="button" id="main-edit-button" class="btn btn-primary" onclick="toggleLayoutEditing();">편집 모드 시작</button>
-            <button type="button" id="main-theme-button" class="btn btn-primary" onclick="toggleThemeEditing();">테마 설정</button>
+            <button type="button" id="main-theme-button" class="btn btn-primary" onclick="toggleThemeEditing();">큼온 설정</button>
             <?php printEverydayLinks(); ?>
             <div id="main-theme-pane" style="margin-top: 6px; display:none">
                 <form id="theme-form">
-                    <div class="form-group">
-                        모서리 모양:
-                        <div class="btn-group" data-toggle="buttons">
-                            <label class="btn btn-default <?php if(!getTheme($me)['square']) echo "active"; ?>" style="border-bottom-left-radius:4px!important;border-top-left-radius:4px!important">
-                                <input type="radio" name="round" id="round-option" autocomplete="off"
-                                       <?php if(!getTheme($me)['square']) echo "checked"; ?>> 둥글둥글
-                            </label>
-                            <label class="btn btn-default <?php if(getTheme($me)['square']) echo "active"; ?>" style="border-radius:0">
-                                <input type="radio" name="square" id="square-option" autocomplete="off"
-                                       <?php if(getTheme($me)['square']) echo "checked"; ?>> 네모네모
-                            </label>
+                    <div>
+                        <h3>테마 설정</h3>
+                        <div class="form-group">
+                            모서리 모양:
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default <?php if(!getTheme($me)['square']) echo "active"; ?>" style="border-bottom-left-radius:4px!important;border-top-left-radius:4px!important">
+                                    <input type="radio" name="round" id="round-option" autocomplete="off"
+                                           <?php if(!getTheme($me)['square']) echo "checked"; ?>> 둥글둥글
+                                </label>
+                                <label class="btn btn-default <?php if(getTheme($me)['square']) echo "active"; ?>" style="border-radius:0">
+                                    <input type="radio" name="square" id="square-option" autocomplete="off"
+                                           <?php if(getTheme($me)['square']) echo "checked"; ?>> 네모네모
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            음영:
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-flat <?php if(!getTheme($me)['gradients']) echo "active"; ?>">
+                                    <input type="radio" name="flat" id="flat-option" autocomplete="off"
+                                           <?php if(!getTheme($me)['gradients']) echo "checked"; ?>> 납작납작
+                                </label>
+                                <label class="btn btn-gradient <?php if(getTheme($me)['gradients']) echo "active"; ?>">
+                                    <input type="radio" name="gradients" id="gradients-option" autocomplete="off"
+                                           <?php if(getTheme($me)['gradients']) echo "checked"; ?>> 볼록볼록
+                                </label>
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        음영:
-                        <div class="btn-group" data-toggle="buttons">
-                            <label class="btn btn-flat <?php if(!getTheme($me)['gradients']) echo "active"; ?>">
-                                <input type="radio" name="flat" id="flat-option" autocomplete="off"
-                                       <?php if(!getTheme($me)['gradients']) echo "checked"; ?>> 납작납작
-                            </label>
-                            <label class="btn btn-gradient <?php if(getTheme($me)['gradients']) echo "active"; ?>">
-                                <input type="radio" name="gradients" id="gradients-option" autocomplete="off"
-                                       <?php if(getTheme($me)['gradients']) echo "checked"; ?>> 볼록볼록
-                            </label>
+                    <div>
+                        <h3>기타</h3>
+                        <div class="form-group">
+                            베타 테스트:
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default <?php if(getTheme($me)['beta']) echo "active"; ?>">
+                                    <input type="radio" name="beta" id="beta-option" autocomplete="off"
+                                           <?php if(getTheme($me)['beta']) echo "checked"; ?>> 활성화
+                                </label>
+                                <label class="btn btn-flat <?php if(!getTheme($me)['beta']) echo "active"; ?>">
+                                    <input type="radio" name="nobeta" id="nobeta-option" autocomplete="off"
+                                           <?php if(!getTheme($me)['beta']) echo "checked"; ?>> 비활성화
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </form>
