@@ -60,7 +60,7 @@
 	<title><?php echo htmlspecialchars($title); ?></title>
 	<?php head_theme();
 	if(function_exists("printHead")) printHead();
-	if(file_exists("css/content/$fn.mobile.css")) echo "<link class='page-specific-css' rel='stylesheet' href='/css/content/$fn.mobile.css' />";
+	if(file_exists("css/content/$fn.mobile.css")) echo "<link class='page-specific-css' rel='stylesheet' href='/css/content/$fn.mobile.css?v=2' />";
 	else if(file_exists("css/content/$fn.css")) echo "<link class='page-specific-css' rel='stylesheet' href='/css/content/$fn.css' />";
 	if(isset($includes)){
 		foreach($includes as $val){
