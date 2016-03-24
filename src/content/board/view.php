@@ -379,7 +379,8 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
 		<?php if($is_mobile) { ?>
 			<div class="item_head" style="padding:6px">
 				<?php
-                printVotes($article['n_id']);
+                $votes = getVotes($article['n_id']);
+                printVotes($article['n_id'], $votes);
 				if($b_anonymous){
                     echo "<span style='font-weight:bold; color:rgb(".getHue($hash_val, 60, 70).")'>익명 ".substr(base_convert($hash_val, 16, 36),2,4).'</span>';
 				} else {
@@ -410,8 +411,11 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
 				?>
 			</div>
 			<div class="item_data">
-				<?php
-				filterContent($article['s_data']);
+                <div <?php if($votes < 0) {
+                    echo 'style="color:rgb('.floor(255 * min(0.85, 0.4-$votes / 15)),',',floor(255 * min(0.85, 0.4-$votes / 15)),',',floor(255 * min(0.85, 0.4-$votes / 15)),')!important; font-size:0.9em!important;font-weight:normal!important"';
+                }?>><?php
+                    filterContent($article['s_data']);
+                ?></div><?php
 				printAttachList($article, $board_cat, 0);			
 				?>
 				<div class="forum_comment_area">
@@ -422,7 +426,8 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
 		<?php } else { ?>
             <div class="item_head" style="padding:6px">
                 <?php
-                printVotes($article['n_id']);
+                $votes = getVotes($article['n_id']);
+                printVotes($article['n_id'], $votes);
                 if($b_anonymous){
                     echo "<span style='font-weight:bold; color:rgb(".getHue($hash_val, 60, 70).")'>익명 ".substr(base_convert($hash_val, 16, 36),2,4).'</span>';
                 }else{ ?>
@@ -449,8 +454,11 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
                 ?>
             </div>
             <div class="item_contents" style="padding:10px">
-                <?php
-                filterContent($article['s_data']);
+                <div <?php if($votes < 0) {
+                    echo 'style="color:rgb('.floor(255 * min(0.85, 0.4-$votes / 15)),',',floor(255 * min(0.85, 0.4-$votes / 15)),',',floor(255 * min(0.85, 0.4-$votes / 15)),')!important; font-size:0.9em!important;font-weight:normal!important"';
+                    }?>><?php
+                    filterContent($article['s_data']);
+                ?></div><?php
                 printAttachList($article, $board_cat, 0);
                 ?>
                 <div class="new_forum_comment_area">
