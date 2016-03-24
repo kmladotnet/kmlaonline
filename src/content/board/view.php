@@ -29,14 +29,12 @@ function printVotes($id, $votes = null) {
     if($downvoted) {
         $upvotes++;
     }
-    if(getTheme($me)['beta']) { ?>
-        <button type="button" data-id="<?php echo $id;?>" id="collapse-<?php echo $id;?>" data-toggle="button" class="btn btn-default
-            active" style="font-weight: bold; color: royalblue; padding: 0px; height: 24px; width: 24px;"
-                onclick='if($(this).hasClass("active")) hidePost($(this).data("id")); else showPost($(this).data("id"));'>
-            <i class="fa fa-plus"></i>
-        </button>
-    <?php }
     ?>
+    <button type="button" data-id="<?php echo $id;?>" id="collapse-<?php echo $id;?>" data-toggle="button" class="btn btn-default
+        <?php if($upvotes > -6) echo 'active';?>" style="font-weight: bold; color: royalblue; padding: 0px; height: 24px; width: 24px;"
+            onclick='if($(this).hasClass("active")) hidePost($(this).data("id")); else showPost($(this).data("id"));'>
+        <i class="fa fa-plus"></i>
+    </button>
     <div class="input-group" style="display: inline-table; vertical-align: middle; width: 1px">
         <span class="input-group-btn">
             <button type="button" data-id="<?php echo $id;?>" id="plus-<?php echo $id;?>" data-toggle="button" class="btn btn-default
@@ -186,12 +184,12 @@ function putCommentTree($parent,$root){
                     <span style="font-size:8pt;color:gray;"><?php echo date("Y-m-d H:i:s", $comment['n_writedate'])?></span>
                     <?php if($board_id!='picexhibit') { ?>
                         <div id="item_contents_<?php echo $comment['n_id'];?>"  <?php if($votes < 0) {
-                            echo 'style="color:rgb('.floor(255 * min(0.85, 0.4-$votes / 15)),',',floor(255 * min(0.85, 0.4-$votes / 15)),',',floor(255 * min(0.85, 0.4-$votes / 15)),')!important; font-size:0.9em!important;font-weight:normal!important"';
+                            echo 'style="color:rgb('.floor(255 * min(0.85, 0.4-$votes / 15)),',',floor(255 * min(0.85, 0.4-$votes / 15)),',',floor(255 * min(0.85, 0.4-$votes / 15)),')!important; font-size:0.9em!important;font-weight:normal!important;',($votes > -6 ? '' : 'display:none'),'"';
                         }
                         ?>>
                             <?php filterContent($comment['s_data']);?>
                         </div>
-                        <div style="display:none" class="item_hidden" id="item_hidden_<?php echo $article['n_id'];?>">(숨겨짐)</div>
+                        <div <?php if($votes > -6) echo 'style="display:none"'?> class="item_hidden" id="item_hidden_<?php echo $article['n_id'];?>">(숨겨짐)</div>
                     <?php } ?>
                     <div style="font-size:0.8em">
                         <?php
@@ -420,11 +418,11 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
 			</div>
             <div class="item_contents" style="padding:10px">
                 <div id="item_contents_<?php echo $article['n_id'];?>" <?php if($votes < 0) {
-                    echo 'style="color:rgb('.floor(255 * min(0.85, 0.4-$votes / 15)),',',floor(255 * min(0.85, 0.4-$votes / 15)),',',floor(255 * min(0.85, 0.4-$votes / 15)),')!important; font-size:0.9em!important;font-weight:normal!important"';
+                    echo 'style="color:rgb('.floor(255 * min(0.85, 0.4-$votes / 15)),',',floor(255 * min(0.85, 0.4-$votes / 15)),',',floor(255 * min(0.85, 0.4-$votes / 15)),')!important; font-size:0.9em!important;font-weight:normal!important;',($votes > -6 ? '' : 'display:none'),'"';
                 }?>><?php
                     filterContent($article['s_data']);
                 ?></div>
-                <div style="display:none" class="item_hidden" id="item_hidden_<?php echo $article['n_id'];?>">(숨겨짐)</div>
+                <div <?php if($votes > -6) echo 'style="display:none"'?> class="item_hidden" id="item_hidden_<?php echo $article['n_id'];?>">(숨겨짐)</div>
                 <?php
 				printAttachList($article, $board_cat, 0);			
 				?>
@@ -465,11 +463,11 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
             </div>
             <div class="item_contents" style="padding:10px">
                 <div id="item_contents_<?php echo $article['n_id'];?>" <?php if($votes < 0) {
-                    echo 'style="color:rgb('.floor(255 * min(0.85, 0.3-$votes / 15)),',',floor(255 * min(0.85, 0.3-$votes / 15)),',',floor(255 * min(0.85, 0.3-$votes / 15)),')!important; font-size:0.9em!important;font-weight:normal!important"';
+                    echo 'style="color:rgb('.floor(255 * min(0.85, 0.3-$votes / 15)),',',floor(255 * min(0.85, 0.3-$votes / 15)),',',floor(255 * min(0.85, 0.3-$votes / 15)),')!important; font-size:0.9em!important;font-weight:normal!important;',($votes > -6 ? '' : 'display:none'),'"';
                     }?>><?php
                     filterContent($article['s_data']);
                 ?></div>
-                <div style="display:none" class="item_hidden" id="item_hidden_<?php echo $article['n_id'];?>">(숨겨짐)</div>
+                <div <?php if($votes > -6) echo 'style="display:none"'?> class="item_hidden" id="item_hidden_<?php echo $article['n_id'];?>">(숨겨짐)</div>
                 <?php
                 printAttachList($article, $board_cat, 0);
                 ?>
