@@ -170,7 +170,7 @@ function putCommentTree($parent,$root){
                 ?>
                 <div style="display:block;">
                     <?php
-                    $votes = getVotes($id);
+                    $votes = getVotes($comment['n_id']);
                     printVotes($comment['n_id'], $votes);
                     if($b_comment_anonymous) echo "<span style='font-weight:bold; color:rgb(".getHue($hash_val, 60, 70).")'>익명 ".substr(base_convert($hash_val, 16, 36),2,4).'</span>';
                     else {?>
