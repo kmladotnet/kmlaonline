@@ -191,6 +191,7 @@ function putCommentTree($parent,$root){
                         ?>>
                             <?php filterContent($comment['s_data']);?>
                         </div>
+                        <div style="display:none" class="item_hidden" id="item_hidden<?php echo $article['n_id'];?>">(숨겨짐)</div>
                     <?php } ?>
                     <div style="font-size:0.8em">
                         <?php
@@ -418,11 +419,13 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
 				?>
 			</div>
             <div class="item_contents" style="padding:10px">
-                <div id="item_contents_<?php echo $article['n_id'];?>"  <?php if($votes < 0) {
+                <div id="item_contents_<?php echo $article['n_id'];?>" <?php if($votes < 0) {
                     echo 'style="color:rgb('.floor(255 * min(0.85, 0.4-$votes / 15)),',',floor(255 * min(0.85, 0.4-$votes / 15)),',',floor(255 * min(0.85, 0.4-$votes / 15)),')!important; font-size:0.9em!important;font-weight:normal!important"';
                 }?>><?php
                     filterContent($article['s_data']);
-                ?></div><?php
+                ?></div>
+                <div style="display:none" class="item_hidden" id="item_hidden<?php echo $article['n_id'];?>">(숨겨짐)</div>
+                <?php
 				printAttachList($article, $board_cat, 0);			
 				?>
 				<div class="forum_comment_area">
@@ -465,7 +468,9 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
                     echo 'style="color:rgb('.floor(255 * min(0.85, 0.3-$votes / 15)),',',floor(255 * min(0.85, 0.3-$votes / 15)),',',floor(255 * min(0.85, 0.3-$votes / 15)),')!important; font-size:0.9em!important;font-weight:normal!important"';
                     }?>><?php
                     filterContent($article['s_data']);
-                ?></div><?php
+                ?></div>
+                <div style="display:none" class="item_hidden" id="item_hidden<?php echo $article['n_id'];?>">(숨겨짐)</div>
+                <?php
                 printAttachList($article, $board_cat, 0);
                 ?>
                 <div class="new_forum_comment_area">
