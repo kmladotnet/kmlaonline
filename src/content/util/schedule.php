@@ -46,14 +46,36 @@ function printContent(){
 			<?php for($i=$curMonth+1;$i<=12;$i++){ ?><a class="nav-month" href="/util/schedule?mode=<?php echo $mode?>&amp;year=<?php echo $curYear?>&amp;month=<?php echo $i?>"><?php echo $i?></a><?php } ?>
 		</div>
 	</div>
-	<div class="schedule-content">
-		<?php if($mode=='food:0'){ ?>
-			<h1 style="text-align:center;"><img src="/images/food.png" style="width:64px;vertical-align:bottom;" /> <?php echo "{$curYear}년 {$curMonth}월 아침식단" ?></h1>
-		<?php }else if($mode=="food:1"){ ?>
-			<h1 style="text-align:center;"><img src="/images/food.png" style="width:64px;vertical-align:bottom;" /> <?php echo "{$curYear}년 {$curMonth}월 점심식단" ?></h1>
-		<?php }else if($mode=="food:2"){ ?>
-			<h1 style="text-align:center;"><img src="/images/food.png" style="width:64px;vertical-align:bottom;" /> <?php echo "{$curYear}년 {$curMonth}월 저녁식단" ?></h1>
-		<?php }else{ ?>
+	<div class="schedule-content"> <?php
+        if(substr($mode, 0, 4) == 'food') { ?>
+            <h2 style="text-align:center;"><img src="/images/food.png" style="width:64px;vertical-align:bottom;" />
+                <select id="select-year" class="selectpicker" data-style="btn-default" onchange="location = this.options[this.selectedIndex].value;">
+                    <?php $prtc = 12;
+                    for($i=$curYear - 9; --$prtc > 0; $i++) {
+                        if($i < 1997) continue;
+                        $prtc--;
+                        ?>
+                        <option value="/util/schedule?mode=<?php echo $mode?>&amp;year=<?php echo $i?>&amp;month=<?php echo $curMonth?>"
+                                <?php if($i == $curYear) echo 'selected';?>>
+                            <?php echo $i?>
+                        </option>
+                    <?php } ?>
+                </select>
+                년
+                <select id="select-month" class="selectpicker" data-style="btn-default" onchange="location = this.options[this.selectedIndex].value;">
+                    <?php
+                    for($i = 1; $i <= 12; $i++){
+                        ?>
+                        <option value="/util/schedule?mode=<?php echo $mode?>&amp;year=<?php echo $i?>&amp;month=<?php echo $curMonth?>"
+                                <?php if($i == $curMonth) echo 'selected';?>>
+                            <?php echo $i?>
+                        </option>
+                    <?php } ?>
+                </select>
+                월
+                <?php echo $mode=='food:0' ? '아침식단' : ($mode=="food:1" ? '점심식단' : '저녁식단'); ?>
+            </h2>
+        <?php } else { ?>
 			<h1 style="text-align:center"><?php echo "{$curYear}년 {$curMonth}월 일정" ?></h1>
 		<?php } ?>
 		<div style="float:right">
