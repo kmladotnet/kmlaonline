@@ -179,7 +179,7 @@ function putCommentTree($parent,$root){
                     <span style="font-size:8pt;color:gray;"><?php echo date("Y-m-d H:i:s", $comment['n_writedate'])?></span>
                     <?php if($board_id!='picexhibit') { ?>
                         <div<?php if($votes < 0) {
-                            echo 'style="color:rgb('.max(0.5, 1 + $votes / 10).','.max(0.5, 1 + $votes / 10).','.max(0.5, 1 + $votes / 10)')!important; font-size:0.9em!important;font-weight:normal!important"';
+                            echo 'style="color:rgb('.max(0.5, 1 + $votes / 10),',',max(0.5, 1 + $votes / 10),',',max(0.5, 1 + $votes / 10),')!important; font-size:0.9em!important;font-weight:normal!important"';
                         }
                         ?>>
                             <?php filterContent($comment['s_data']);?>
