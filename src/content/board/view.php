@@ -392,9 +392,9 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
 
                 <span style='font-size:8pt;color:gray'>
                     <?php
-                    echo date("Y년 m월 d일 H시 i분 s초", $article['n_writedate']);
+                    echo date("Y-m-d H:i:s", $article['n_writedate']);
                     if($article['n_writedate']!=$article['n_editdate'])
-                        echo " (".date("Y년 m월 d일 H시 i분 s초", $article['n_editdate'])."에 수정함)";
+                        echo " (".date("Y-m-d H:i:s", $article['n_editdate'])."에 수정함)";
                 ?></span>
 
                 <?php
@@ -455,7 +455,7 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
             </div>
             <div class="item_contents" style="padding:10px">
                 <div <?php if($votes < 0) {
-                    echo 'style="color:rgb('.floor(255 * min(0.85, 0.4-$votes / 15)),',',floor(255 * min(0.85, 0.4-$votes / 15)),',',floor(255 * min(0.85, 0.4-$votes / 15)),')!important; font-size:0.9em!important;font-weight:normal!important"';
+                    echo 'style="color:rgb('.floor(255 * min(0.85, 0.3-$votes / 15)),',',floor(255 * min(0.85, 0.3-$votes / 15)),',',floor(255 * min(0.85, 0.3-$votes / 15)),')!important; font-size:0.9em!important;font-weight:normal!important"';
                     }?>><?php
                     filterContent($article['s_data']);
                 ?></div><?php
