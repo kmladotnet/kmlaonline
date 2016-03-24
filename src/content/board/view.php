@@ -35,7 +35,7 @@ function printVotes($id, $votes = null) {
                 onclick='if($(this).hasClass("active")) hidePost($(this).data("id")); else showPost($(this).data("id"));'>
             <i class="fa fa-plus"></i>
         </button>
-    <?php}
+    <?php }
     ?>
     <div class="input-group" style="display: inline-table; vertical-align: middle; width: 1px">
         <span class="input-group-btn">
