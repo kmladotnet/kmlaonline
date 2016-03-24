@@ -14,9 +14,13 @@ function formatVotes($votes) {
     echo $votes;
 }
 
-function printVotes($id) {
+function printVotes($id, $votes = null) {
     global $me;
-    $upvotes = getVotes($id);
+    if($votes === null) {
+        $upvotes = getVotes($id);
+    } else {
+        $upvotes = $votes;
+    }
     $upvoted = upvoted($id, $me['n_id']);
     $downvoted = downvoted($id, $me['n_id']);
     if($upvoted) {
@@ -166,14 +170,18 @@ function putCommentTree($parent,$root){
                 ?>
                 <div style="display:block;">
                     <?php
-                    printVotes($comment['n_id']);
+                    $votes = getVotes($id);
+                    printVotes($comment['n_id'], $votes);
                     if($b_comment_anonymous) echo "<span style='font-weight:bold; color:rgb(".getHue($hash_val, 60, 70).")'>익명 ".substr(base_convert($hash_val, 16, 36),2,4).'</span>';
                     else {?>
                     <span style="font-weight:bold"><a style="color:#666!important" href="<?php echo "/user/view/{$m['n_id']}/".htmlspecialchars($m['s_id'])?>"><?php putUserCard($m)?></a></span>
                     <?php } ?>
                     <span style="font-size:8pt;color:gray;"><?php echo date("Y-m-d H:i:s", $comment['n_writedate'])?></span>
                     <?php if($board_id!='picexhibit') { ?>
-                        <div>
+                        <div<?php if($votes < 0) {
+                            echo 'style="color:rgb('.max(0.5, 1 + $votes / 10).','.max(0.5, 1 + $votes / 10).','.max(0.5, 1 + $votes / 10)')!important; font-size:0.9em!important;font-weight:normal!important"';
+                        }
+                        ?>>
                             <?php filterContent($comment['s_data']);?>
                         </div>
                     <?php } ?>
