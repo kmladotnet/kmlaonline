@@ -1,9 +1,3 @@
-.side-navigation{
-	float:left;
-	display:block;
-	width:80px;
-	overflow:hidden;
-}
 a.nav-year{
 	display:block;
 	padding:3px;
@@ -25,10 +19,6 @@ a.nav-month{
 a.nav-month:hover{
 	background:white;
 	color:black;
-}
-.schedule-content{
-	margin-left:84px;
-	border-left:1px solid gray;
 }
 table#calender{
 	width:100%;
