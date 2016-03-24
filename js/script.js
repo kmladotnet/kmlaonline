@@ -853,3 +853,11 @@ function unvote(id) {
         $('#plus-' + id).removeClass('active');
     });
 }
+
+function hidePost(id) {
+    $("#item_contents_" + id).velocity("slideUp");
+}
+
+function showPost(id) {
+    $("#item_contents_" + id).velocity("slideDown");
+}
