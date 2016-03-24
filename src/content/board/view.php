@@ -410,7 +410,7 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
 					echo "<div style='float:right;'>".implode(" | ",$boardbilities)."</div>";
 				?>
 			</div>
-			<div class="item_data">
+            <div class="item_contents" id="item_contents_<?php echo $article['n_id'];?>" style="padding:10px">
                 <div <?php if($votes < 0) {
                     echo 'style="color:rgb('.floor(255 * min(0.85, 0.4-$votes / 15)),',',floor(255 * min(0.85, 0.4-$votes / 15)),',',floor(255 * min(0.85, 0.4-$votes / 15)),')!important; font-size:0.9em!important;font-weight:normal!important"';
                 }?>><?php
@@ -453,7 +453,7 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
                 echo "<div style='float:right'>".implode(" | ",$boardbilities)."</div>";
                 ?>
             </div>
-            <div class="item_contents" style="padding:10px">
+            <div class="item_contents" id="item_contents_<?php echo $article['n_id'];?>" style="padding:10px">
                 <div <?php if($votes < 0) {
                     echo 'style="color:rgb('.floor(255 * min(0.85, 0.3-$votes / 15)),',',floor(255 * min(0.85, 0.3-$votes / 15)),',',floor(255 * min(0.85, 0.3-$votes / 15)),')!important; font-size:0.9em!important;font-weight:normal!important"';
                     }?>><?php
