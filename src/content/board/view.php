@@ -29,7 +29,7 @@ function printVotes($id, $votes = null) {
     if($downvoted) {
         $upvotes++;
     }
-    if(getTheme($me)['theme']) { ?>
+    if(getTheme($me)['beta']) { ?>
         <button type="button" data-id="<?php echo $id;?>" id="collapse-<?php echo $id;?>" data-toggle="button" class="btn btn-default
             active" style="font-weight: bold; color: royalblue; padding: 0px; height: 24px; width: 24px;"
                 onclick='if($(this).hasClass("active")) hidePost($(this).data("id")); else showPost($(this).data("id"));'>
