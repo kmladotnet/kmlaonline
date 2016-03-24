@@ -53,7 +53,6 @@ function printContent(){
                     <?php $prtc = 12;
                     for($i=$curYear - 9; --$prtc > 0; $i++) {
                         if($i < 1997) continue;
-                        $prtc--;
                         ?>
                         <option value="/util/schedule?mode=<?php echo $mode?>&amp;year=<?php echo $i?>&amp;month=<?php echo $curMonth?>"
                                 <?php if($i == $curYear) echo 'selected';?>>
@@ -66,7 +65,7 @@ function printContent(){
                     <?php
                     for($i = 1; $i <= 12; $i++){
                         ?>
-                        <option value="/util/schedule?mode=<?php echo $mode?>&amp;year=<?php echo $i?>&amp;month=<?php echo $curMonth?>"
+                        <option value="/util/schedule?mode=<?php echo $mode?>&amp;year=<?php echo $curYear?>&amp;month=<?php echo $i?>"
                                 <?php if($i == $curMonth) echo 'selected';?>>
                             <?php echo $i?>
                         </option>
