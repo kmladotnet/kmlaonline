@@ -855,11 +855,11 @@ function unvote(id) {
 }
 
 function hidePost(id) {
-    $("#item_contents_" + id).velocity("slideUp", 300).velocity({padding: 0}, 300);
+    $("#item_contents_" + id).velocity("slideUp", 300);
     $("#item_hidden_" + id).velocity("slideDown", 300);
 }
 
 function showPost(id) {
-    $("#item_contents_" + id).velocity("slideDown", 300).velocity({padding: "10px"}, 300);
+    $("#item_contents_" + id).velocity("slideDown", 300);
     $("#item_hidden_" + id).velocity("slideUp", 300);
 }
