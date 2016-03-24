@@ -189,7 +189,7 @@ function putCommentTree($parent,$root){
                         ?>>
                             <?php filterContent($comment['s_data']);?>
                         </div>
-                        <div <?php if($votes > -6) echo 'style="display:none"'?> class="item_hidden" id="item_hidden_<?php echo $article['n_id'];?>">(숨겨짐)</div>
+                        <div <?php if($votes > -6) echo 'style="display:none"'?> class="item_hidden" id="item_hidden_<?php echo $article['n_id'];?>">(숨김)</div>
                     <?php } ?>
                     <div style="font-size:0.8em">
                         <?php
@@ -422,7 +422,7 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
                 }?>><?php
                     filterContent($article['s_data']);
                 ?></div>
-                <div <?php if($votes > -6) echo 'style="display:none"'?> class="item_hidden" id="item_hidden_<?php echo $article['n_id'];?>">(숨겨짐)</div>
+                <div <?php if($votes > -6) echo 'style="display:none"'?> class="item_hidden" id="item_hidden_<?php echo $article['n_id'];?>">(숨김)</div>
                 <?php
 				printAttachList($article, $board_cat, 0);			
 				?>
@@ -467,7 +467,7 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
                     }?>><?php
                     filterContent($article['s_data']);
                 ?></div>
-                <div <?php if($votes > -6) echo 'style="display:none"'?> class="item_hidden" id="item_hidden_<?php echo $article['n_id'];?>">(숨겨짐)</div>
+                <div <?php if($votes > -6) echo 'style="display:none"'?> class="item_hidden" id="item_hidden_<?php echo $article['n_id'];?>">(숨김)</div>
                 <?php
                 printAttachList($article, $board_cat, 0);
                 ?>
