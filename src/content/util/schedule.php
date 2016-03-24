@@ -35,7 +35,7 @@ function printContent(){
 	<div class="schedule-content">
         <h2 style="text-align:center;"><img src="/images/food.png" style="width:64px;vertical-align:bottom;" />
             <div style="display: inline-block; vertical-align: text-bottom;">
-                <select id="select-year" class="selectpicker" data-style="btn-default" data-width="100px" onchange="location = this.options[this.selectedIndex].value;">
+                <select id="select-year" class="selectpicker" data-style="btn-default" data-width="80px" onchange="location = this.options[this.selectedIndex].value;">
                     <?php $prtc = 12;
                     for($i=$curYear - 9; --$prtc > 0; $i++) {
                         if($i < 1997) continue;
