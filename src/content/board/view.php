@@ -185,7 +185,7 @@ function putCommentTree($parent,$root){
                     <?php } ?>
                     <span style="font-size:8pt;color:gray;"><?php echo date("Y-m-d H:i:s", $comment['n_writedate'])?></span>
                     <?php if($board_id!='picexhibit') { ?>
-                        <div <?php if($votes < 0) {
+                        <div id="item_contents_<?php echo $article['n_id'];?>"  <?php if($votes < 0) {
                             echo 'style="color:rgb('.floor(255 * min(0.85, 0.4-$votes / 15)),',',floor(255 * min(0.85, 0.4-$votes / 15)),',',floor(255 * min(0.85, 0.4-$votes / 15)),')!important; font-size:0.9em!important;font-weight:normal!important"';
                         }
                         ?>>
@@ -417,8 +417,8 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
 					echo "<div style='float:right;'>".implode(" | ",$boardbilities)."</div>";
 				?>
 			</div>
-            <div class="item_contents" id="item_contents_<?php echo $article['n_id'];?>" style="padding:10px">
-                <div <?php if($votes < 0) {
+            <div class="item_contents" style="padding:10px">
+                <div id="item_contents_<?php echo $article['n_id'];?>"  <?php if($votes < 0) {
                     echo 'style="color:rgb('.floor(255 * min(0.85, 0.4-$votes / 15)),',',floor(255 * min(0.85, 0.4-$votes / 15)),',',floor(255 * min(0.85, 0.4-$votes / 15)),')!important; font-size:0.9em!important;font-weight:normal!important"';
                 }?>><?php
                     filterContent($article['s_data']);
@@ -461,7 +461,7 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
                 ?>
             </div>
             <div class="item_contents" id="item_contents_<?php echo $article['n_id'];?>" style="padding:10px">
-                <div <?php if($votes < 0) {
+                <div id="item_contents_<?php echo $article['n_id'];?>"  <?php if($votes < 0) {
                     echo 'style="color:rgb('.floor(255 * min(0.85, 0.3-$votes / 15)),',',floor(255 * min(0.85, 0.3-$votes / 15)),',',floor(255 * min(0.85, 0.3-$votes / 15)),')!important; font-size:0.9em!important;font-weight:normal!important"';
                     }?>><?php
                     filterContent($article['s_data']);
