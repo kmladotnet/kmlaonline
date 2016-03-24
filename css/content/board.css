@@ -348,6 +348,7 @@ input.vote-count {
     vertical-align: middle!important;
     cursor: default!important;
     text-align: center!important;
+    font-weight: bold!important;
 }
 
 #flipdiv {
