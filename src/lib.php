@@ -676,6 +676,10 @@ function setTheme($theme, $user) {
     $_SESSION['theme'] = $theme;
 }
 
+if(getTheme($me)['beta']) {
+    $title .= ' beta!';
+}
+
 function getVotes($id) {
     if(!file_exists('data/board/votes')) {
         mkdir('data/board');
