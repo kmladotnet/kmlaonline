@@ -35,6 +35,9 @@ div.forum_article_list .item_data{
 div.forum_article_list .forum_comment_area{
 	padding: 8px;
 }
+div.forum_article_list .new_forum_comment_area{
+	padding-left: 8px;
+}
 div.forum_article_list .forum_comment_area_info{
 	padding:8px;
 	display:block;
@@ -126,6 +129,9 @@ div.article_comment .acomment{
 	margin-right:8px;
 	padding-bottom:5px;
 	border-bottom:1px dotted #DDD;
+}
+div.article_comment .new_acomment{
+    margin:8px;
 }
 li.placeHolder div { background-color:white !important; border:dashed 1px #DDD !important; }
 #fsUploadedFiles li{
