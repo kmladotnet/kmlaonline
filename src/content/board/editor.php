@@ -170,7 +170,7 @@ function putEditorForm($form_action, $prev_info, $comment_mode=false){
 							<div style="display:block;position:relative;top:-20px;left:15px;">
 								<div>
 									<span id="spanButtonPlaceHolder"></span>
-									<input id="btnCancel" type="button" value="모든 업로드 취소" onclick="swfu.cancelQueue();" disabled="disabled" style="margin-left: 2px; font-size: 8pt; height: 29px;" />
+									<input id="btnCancel" class="btn btn-default" type="button" value="모든 업로드 취소" onclick="swfu.cancelQueue();" disabled="disabled" style="margin-left: 2px; font-size: 8pt; height: 29px;" />
 									파일 최대 크기: <?php echo ini_get( 'upload_max_filesize' ) ?>
 								</div>
 								<div style="float:left;width:400px;margin-left:-10px;">

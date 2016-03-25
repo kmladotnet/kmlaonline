@@ -79,9 +79,9 @@ function printAttachList($article, $cat, $mode=0){
 		?>
 		<div class="attach_container">
 			<div style="width:100%;display:block;position:relative;">
-				<a onclick="smoothToggleVisibility($($(this).parent()).next().children());$('#__button__close').css('display','none');$('#__button__open').css('display','block');return false;" class="likebutton" style="float:left;<?php if(!$defaultshow) echo "display:none"?>" id="__button__close">접기 (<?php echo count($attaches)?>개)</a>
-				<a onclick="smoothToggleVisibility($($(this).parent()).next().children());$('#__button__close').css('display','block');$('#__button__open').css('display','none');return false;" class="likebutton" style="float:left;<?php if($defaultshow) echo "display:none"?>" id="__button__open">열기 (<?php echo count($attaches)?>개)</a>
-				<a href="<?php echo "/files/bbs/{$cat['n_id']}/{$article['n_id']}/".rawurlencode($cat['s_name'] . " - " .  $article['n_id'] . " - " . sanitizeFileName($article['s_title'])).".zip";?>" class="likebutton" style="float:right;">묶어받기 (<?php echo convertFromBytes($fsize); ?>)</a>
+				<a onclick="smoothToggleVisibility($($(this).parent()).next().children());$('#__button__close').css('display','none');$('#__button__open').css('display','block');return false;" class="btn btn-default" style="float:left;<?php if(!$defaultshow) echo "display:none"?>" id="__button__close">접기 (<?php echo count($attaches)?>개)</a>
+				<a onclick="smoothToggleVisibility($($(this).parent()).next().children());$('#__button__close').css('display','block');$('#__button__open').css('display','none');return false;" class="btn btn-default" style="float:left;<?php if($defaultshow) echo "display:none"?>" id="__button__open">열기 (<?php echo count($attaches)?>개)</a>
+				<a href="<?php echo "/files/bbs/{$cat['n_id']}/{$article['n_id']}/".rawurlencode($cat['s_name'] . " - " .  $article['n_id'] . " - " . sanitizeFileName($article['s_title'])).".zip";?>" class="btn btn-default" style="float:right;">묶어받기 (<?php echo convertFromBytes($fsize); ?>)</a>
 				<div style="clear:both"></div>
 			</div>
 			<div>
@@ -156,8 +156,8 @@ function printDeletePage(){
 		<div style="margin-top:5px;margin-bottom:7px;">댓글이 있을 경우 모두 함께 삭제됩니다.</div>
 		<form method="post" action="/ajax/board/delete" enctype="multipart/form-data" onsubmit="return saveAjax(this,'글 삭제 중...');">
 			<input type="hidden" name="n_id" value="<?php echo $article['n_id']?>" />
-			<input type="submit" value="삭제" style="width:120px;height:32px;" />
-			<input type="button" value="취소" style="width:120px;height:32px;" onclick="return navigateBack();" />
+			<input class="btn btn-default" type="submit" value="삭제" style="width:120px;height:32px;" />
+			<input class="btn btn-default" type="button" value="취소" style="width:120px;height:32px;" onclick="return navigateBack();" />
 		</form>
 	</div>
 	<?php
@@ -348,7 +348,7 @@ function printViewPageModeBoard($usr, $cat){
 	<?php if(doesAdminBypassEverythingAndIsAdmin(!$b_no_comment && checkCategoryAccess($board_cat['n_id'], "comment view"))){ ?>
 		<div class="comment_area_info">
 			<div style="float:left;font-size:15pt;font-weight:bold"><?php echo $article['n_comments']?>개의 댓글이 있습니다.</div>
-			<?php if(checkCategoryAccess($board_cat['n_id'], "comment write")){ ?><div style="float:right;"><a onclick='return board_putCommentForm(<?php echo $article['n_id']?>);' class='likebutton'>댓글 달기</a></div><?php } ?>
+			<?php if(checkCategoryAccess($board_cat['n_id'], "comment write")){ ?><div style="float:right;"><a onclick='return board_putCommentForm(<?php echo $article['n_id']?>);' class='btn btn-default'>댓글 달기</a></div><?php } ?>
 			<div style="clear:both"></div>
 		</div>
 		<div class="comment_area"><?php putCommentTree($article['n_id'],$article['n_id']); ?></div>
@@ -365,7 +365,7 @@ function printViewPageModeGallery($usr, $cat){
 	<?php if(doesAdminBypassEverythingAndIsAdmin(!$b_no_comment && checkCategoryAccess($board_cat['n_id'], "comment view"))){ ?>
 		<div class="comment_area_info">
 			<div style="float:left;font-size:15pt;font-weight:bold"><?php echo $article['n_comments']?>개의 댓글이 있습니다.</div>
-			<?php if(checkCategoryAccess($board_cat['n_id'], "comment write")){ ?><div style="float:right;"><a onclick='return board_putCommentForm(<?php echo $article['n_id']?>);' class='likebutton'>댓글 달기</a></div><?php } ?>
+			<?php if(checkCategoryAccess($board_cat['n_id'], "comment write")){ ?><div style="float:right;"><a onclick='return board_putCommentForm(<?php echo $article['n_id']?>);' class='btn btn-default'>댓글 달기</a></div><?php } ?>
 			<div style="clear:both"></div>
 		</div>
 		<div class="comment_area"><?php putCommentTree($article['n_id'],$article['n_id']); ?></div>
