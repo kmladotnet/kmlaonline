@@ -71,7 +71,7 @@ function putEditorForm($form_action, $prev_info, $comment_mode=false){
 								<td>
 									<?php if(!$comment_mode){ ?>
 										<div style="float:left">
-											<select name="s_cat" selectpicker>
+											<select name="s_cat" class="selectpicker">
 												<?php
 												$d=$board->getCategoryList();
 												foreach($d as $val){
@@ -151,7 +151,7 @@ function putEditorForm($form_action, $prev_info, $comment_mode=false){
 						</div>
 						<div>
 							<b>태그</b> (쉼표로 구분합니다.)<br />
-							<input type="text" class="form-control" name="s_tag" style="width:100%;" <?php echo isset($prev_info['s_tags'])?"value='".htmlspecialchars($prev_info['s_tag'])."'":""?> /><br />
+							<input type="text" class="form-control" name="s_tag" style="width:100%;" <?php echo isset($prev_info['s_tags'])?"value='".htmlspecialchars($prev_info['s_tag'])."'":""?> />
 						</div>
 					<?php } ?>
 				</div>
