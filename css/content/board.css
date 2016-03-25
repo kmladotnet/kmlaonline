@@ -351,6 +351,12 @@ input.vote-count {
     font-weight: bold!important;
 }
 
+div.item_hidden {
+    font-size: 0.8em;
+    color: gray;
+}
+
+
 #flipdiv {
     width: 100%;
     height: 100%;

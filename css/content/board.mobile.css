@@ -347,3 +347,8 @@ input.vote-count {
     text-align: center!important;
     font-weight: bold!important;
 }
+
+div.item_hidden {
+    font-size: 0.8em;
+    color: gray;
+}
