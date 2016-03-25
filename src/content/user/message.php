@@ -123,7 +123,7 @@ function printContent(){
 			</div>
 			<div style="padding:10px;">
 				<form method="get" action="/user/message<?php echo ($sent?"/sent":"")?>">
-					<input type="text" name="search" value="<?php echo $search?htmlspecialchars($search):""?>" style="margin-left:3px;width:200px;vertical-align:middle;" />
+					<input type="text" class="form-control" name="search" value="<?php echo $search?htmlspecialchars($search):""?>" style="margin-left:3px;width:200px;vertical-align:middle; display: inline-block;" />
 					<input type="submit" id="search_button" value="검색" style="width:80px;vertical-align:middle;" />
 				</form>
 			</div>
