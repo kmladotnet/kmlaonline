@@ -509,7 +509,7 @@ function printViewPageModeForum($usr, $cat){
 	if($additional_query_string)$additional_query_string="?$additional_query_string";
 	?>
 	<div class="forum_article_list">
-		<ul>
+		<ul style="padding: 0">
 			<li class="head">
 				<div class="total_title">
 					<?php echo htmlspecialchars($article['s_title']); ?><span style="color:#DDD"> | <a style="color:#DDD" href="/board/<?php echo $cat['s_id']?>"><?php echo $cat['s_name']?></a>
