@@ -66,7 +66,7 @@ function putEditorForm($form_action, $prev_info, $comment_mode=false){
 				<div style="display:block;margin-right:4px;">
 					<?php if(!$is_mobile){ ?>
 						<table style="width:100%">
-							<tr style="height:32px;">
+							<tr style="height:42px;">
 								<th style="width:80px;"><?php if(!$comment_mode){ ?>게시판<?php } ?></th>
 								<td>
 									<?php if(!$comment_mode){ ?>
@@ -99,14 +99,14 @@ function putEditorForm($form_action, $prev_info, $comment_mode=false){
 									</div>
 								</td>
 							</tr>
-							<tr style="height:32px;">
+							<tr style="height:42px;">
 								<th>제목</th>
 								<td>
 									<input type="text" class="form-control" name="s_title" style="width:100%;" <?php echo isset($prev_info['s_title'])?"value='".htmlspecialchars($prev_info['s_title'])."'":""?> />
 									<?php if($comment_mode) echo "<br />입력하지 않아도 됩니다."; ?>
 								</td>
 							</tr>
-							<tr style="height:32px;">
+							<tr style="height:42px;">
 								<th>키워드</th>
 								<td>
 									<input type="text" class="form-control" name="s_tag" style="width:100%;" <?php echo isset($prev_info['s_tag'])?"value='".htmlspecialchars($prev_info['s_tag'])."'":""?> />
