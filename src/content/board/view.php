@@ -332,7 +332,7 @@ function parseSurveyForm($aid, $b64data){
 		<input name="prev_url" value="/board/student_judicial/view/428880<?php echo $aid?>" type="hidden" />
 		<?php
 		?>
-		<input value="저장" style="box-sizing: border-box;width:80px;height:32px;float:right;" type="submit">
+		<input class="btn btn-default" value="저장" style="box-sizing: border-box;width:80px;height:32px;float:right;" type="submit">
 		<div style="clear:both"></div>
 	</form>
 	<?php
@@ -529,6 +529,7 @@ function printViewPageModeForum($usr, $cat){
 							echo "<a onclick='return board_askImportant(this,{$article['n_id']});'>(필공 신청)</a>";
 					}
 					?>
+                    </span>
 				</div>
 			</li>
 			<?php
@@ -568,11 +569,11 @@ function printViewPageModeForum($usr, $cat){
 					<input type="checkbox" onclick="board_checkSearchFrom();" id="chk_search_tag" name="search_tag" value="true" <?php echo $search_tag?"checked='checked'":""?> /> <label for="chk_search_tag">태그　</label><br />
 					<input type="checkbox" onclick="board_checkSearchFrom();" id="chk_search_writer" name="search_writer" value="true" <?php echo $search_writer?"checked='checked'":""?> /> <label for="chk_search_writer">글쓴이</label><br />
 				</div>
-				<a id="search_from_toggler" onclick="smoothToggleVisibility('#div_search_method', 1); return smoothToggleVisibility('#div_search_from');">제목에서</button></a>
-				<a id="search_method_toggler" onclick="smoothToggleVisibility('#div_search_from', 1); return smoothToggleVisibility('#div_search_method');">모든 조건 만족 시</button></a>
+				<a id="search_from_toggler" onclick="smoothToggleVisibility('#div_search_method', 1); return smoothToggleVisibility('#div_search_from');">제목에서</a>
+				<a id="search_method_toggler" onclick="smoothToggleVisibility('#div_search_from', 1); return smoothToggleVisibility('#div_search_method');">모든 조건 만족 시</a>
 				<?php if($is_mobile) echo "<br />" ?>
 				<input type="text" name="search" value="<?php echo $search?htmlspecialchars($search):""?>" style="margin-left:3px;width:120px;vertical-align:middle;" />
-				<input type="submit" id="search_button" value="검색" style="width:80px;height:32px;vertical-align:middle;" />
+				<input type="submit" class="btn btn-default" id="search_button" value="검색" style="width:80px;height:32px;vertical-align:middle;" />
 			</form>
 		</div>
 		<?php
