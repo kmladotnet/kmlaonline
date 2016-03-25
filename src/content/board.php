@@ -149,7 +149,7 @@ function printTemplates(){
 					<input type="hidden" name="s_cat" value="<?php echo $board_cat['s_id']?>" />
 					<input type="hidden" name="b_auto_html" value="true" />
 					<input type="hidden" name="prev_url" value="<?php echo $_SERVER['REQUEST_URI']?>" />
-					<textarea name="s_data" style="width:100%;height:120px;"><?php if(isset($_POST['s_data'])) echo htmlspecialchars($_POST['s_data']); ?></textarea>
+					<textarea name="s_data" class="form-control" style="width:100%;height:120px;"><?php if(isset($_POST['s_data'])) echo htmlspecialchars($_POST['s_data']); ?></textarea>
 					<input type="submit" class="btn btn-default" value="<?php echo lang("board","article","write comment")?>" style="box-sizing: border-box;width:80px;height:32px;float:right;" />
 					<input type="button" class="btn btn-default" onclick="location.href='<?php echo "/board/$board_id/comment/<%=ARTICLEID%>"; ?>';" value="고급" style="box-sizing: border-box;width:80px;height:32px;float:left;" />
 					<div style="margin:0 auto">익명으로 글을 쓸 때에는 <b>고급</b>에서 써 주셔야 합니다.</div>
