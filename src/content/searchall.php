@@ -16,7 +16,7 @@ function printSearchForm($srch=""){
 				<table style="width:100%">
 					<tr style="height:32px;">
 						<th style="width:130px;">검색</th>
-						<td><input type="text" name="search" value="<?php echo htmlspecialchars($srch) ?>" style="width:100%" /></td>
+						<td><input type="text" class="form-control" name="search" value="<?php echo htmlspecialchars($srch) ?>" style="width:100%" /></td>
 					</tr>
 					<!--
 					<tr style="height:32px;">
@@ -28,7 +28,7 @@ function printSearchForm($srch=""){
 					</tr>
 					-->
 				</table>
-				<div style="float:right;text-align:right;"><input type="submit" value="검색" style="width:80px;height:32px;" /></div>
+				<div style="float:right;text-align:right;"><input type="submit" class="btn btn-default" value="검색" style="width:80px;height:32px;" /></div>
 				<div style="clear:both;"></div>
 			</div>
 		</div>

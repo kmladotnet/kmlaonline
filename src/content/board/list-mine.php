@@ -142,7 +142,7 @@ function printArticleList(){
 			<a id="search_from_toggler" onclick="smoothToggleVisibility('#div_search_method', 1); return smoothToggleVisibility('#div_search_from');">제목에서</a>
 			<a id="search_method_toggler" onclick="smoothToggleVisibility('#div_search_from', 1); return smoothToggleVisibility('#div_search_method');">모든 조건 만족 시</a>
 			<?php if($is_mobile) echo "<br />" ?>
-			<input type="text" name="search" value="<?php echo $search?htmlspecialchars($search):""?>" style="margin-left:3px;width:120px;vertical-align:middle;" />
+			<input type="text" class="form-control" name="search" value="<?php echo $search?htmlspecialchars($search):""?>" style="margin-left:3px;width:120px;vertical-align:middle;" />
 			<input type="submit" class="btn btn-default" id="search_button" value="검색" style="width:80px;height:32px;vertical-align:middle;" />
 		</form>
 	</div>

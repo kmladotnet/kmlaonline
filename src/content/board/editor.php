@@ -102,14 +102,14 @@ function putEditorForm($form_action, $prev_info, $comment_mode=false){
 							<tr style="height:32px;">
 								<th>제목</th>
 								<td>
-									<input type="text" name="s_title" style="width:100%;" <?php echo isset($prev_info['s_title'])?"value='".htmlspecialchars($prev_info['s_title'])."'":""?> />
+									<input type="text" class="form-control" name="s_title" style="width:100%;" <?php echo isset($prev_info['s_title'])?"value='".htmlspecialchars($prev_info['s_title'])."'":""?> />
 									<?php if($comment_mode) echo "<br />입력하지 않아도 됩니다."; ?>
 								</td>
 							</tr>
 							<tr style="height:32px;">
 								<th>키워드</th>
 								<td>
-									<input type="text" name="s_tag" style="width:100%;" <?php echo isset($prev_info['s_tag'])?"value='".htmlspecialchars($prev_info['s_tag'])."'":""?> /><br />
+									<input type="text" class="form-control" name="s_tag" style="width:100%;" <?php echo isset($prev_info['s_tag'])?"value='".htmlspecialchars($prev_info['s_tag'])."'":""?> /><br />
 									쉼표로 구분합니다.
 								</td>
 							</tr>
@@ -118,7 +118,7 @@ function putEditorForm($form_action, $prev_info, $comment_mode=false){
 						<?php if(!$comment_mode){ ?>
 							<div>
 								<b>게시판</b>
-								<select name="s_cat">
+								<select name="s_cat" class="selectpicker">
 									<?php
 									$d=$board->getCategoryList();
 									foreach($d as $val){
@@ -146,12 +146,12 @@ function putEditorForm($form_action, $prev_info, $comment_mode=false){
 						</div>
 						<div>
 							<b>제목</b><br />
-							<input type="text" name="s_title" style="width:100%;" <?php echo isset($prev_info['s_title'])?"value='".htmlspecialchars($prev_info['s_title'])."'":""?> />
+							<input class="form-control" type="text" name="s_title" style="width:100%;" <?php echo isset($prev_info['s_title'])?"value='".htmlspecialchars($prev_info['s_title'])."'":""?> />
 							<?php if($comment_mode) echo "<br />입력하지 않아도 됩니다."; ?>
 						</div>
 						<div>
 							<b>태그</b> (쉼표로 구분합니다.)<br />
-							<input type="text" name="s_tag" style="width:100%;" <?php echo isset($prev_info['s_tags'])?"value='".htmlspecialchars($prev_info['s_tag'])."'":""?> /><br />
+							<input type="text" class="form-control" name="s_tag" style="width:100%;" <?php echo isset($prev_info['s_tags'])?"value='".htmlspecialchars($prev_info['s_tag'])."'":""?> /><br />
 						</div>
 					<?php } ?>
 				</div>
