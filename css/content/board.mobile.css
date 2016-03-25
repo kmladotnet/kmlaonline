@@ -34,7 +34,7 @@ div.forum_article_list .item_data{
 	word-wrap:break-word;
 }
 div.forum_article_list .forum_comment_area{
-	padding: 8px;
+	padding-left: 8px;
 }
 div.forum_article_list .new_forum_comment_area{
 	padding-left: 8px;
