@@ -54,7 +54,7 @@ function printContentPc(){
                                     <input type="radio" name="beta" id="beta-option" autocomplete="off"
                                            <?php if(getTheme($me)['beta']) echo "checked"; ?>> 활성화
                                 </label>
-                                <label class="btn btn-flat <?php if(!getTheme($me)['beta']) echo "active"; ?>">
+                                <label class="btn btn-default <?php if(!getTheme($me)['beta']) echo "active"; ?>">
                                     <input type="radio" name="nobeta" id="nobeta-option" autocomplete="off"
                                            <?php if(!getTheme($me)['beta']) echo "checked"; ?>> 비활성화
                                 </label>
