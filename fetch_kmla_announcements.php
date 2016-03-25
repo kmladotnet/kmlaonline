@@ -4,7 +4,7 @@ $f=file_get_contents("http://www.minjok.hs.kr/app/kumla_notice/kumla_all.html");
 if(preg_match_all('/<li>\[([^\]]+):([^\]]+)\](.*?)<br>/sim', $f, $m, PREG_SET_ORDER)){
 	?><!doctype html><html><head>
 	<meta charset="utf-8" /><meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 	<script type="text/javascript" src="/js/jquery.ticker.js" charset="utf-8"></script>
 	<link rel="stylesheet" href="/theme/dev/theme.css" />
 	<style type="text/css">

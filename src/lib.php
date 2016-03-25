@@ -80,7 +80,7 @@ function redirectAlert($lnk=false,$alert=false){
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <title>Redirecting...</title>
         <base href="/" />
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
         <script type="text/javascript" src="/js/script.js" charset="utf-8"></script>
     </head>
 
@@ -137,7 +137,7 @@ function redirectWith($str,$dat=""){
                 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
                 <title>Redirecting...</title>
                 <base href="/" />
-                <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+                <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
                 <script type="text/javascript" src="/js/script.js" charset="utf-8"></script>
             </head>
 
@@ -165,7 +165,7 @@ function redirectLoginIfRequired(){
                     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
                     <title>Redirecting...</title>
                     <base href="/" />
-                    <script src="//cdn.jsdelivr.net/g/jquery@2.1.4"></script>
+                    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
                     <script type="text/javascript" src="/js/script.js" charset="utf-8"></script>
                 </head>
 
