@@ -256,7 +256,7 @@ function printArticleList(){
 	<?php if(checkCategoryAccess($board_cat['n_id'], "write")){ ?>
 		<div style="float:left">
 			<form method="get" action="/board/<?php echo htmlspecialchars($board_id)?>/write">
-				<input type="submit" value="글쓰기" style="width:80px;height:32px;vertical-align:middle;" />
+				<input type="submit" class="btn btn-default" value="글쓰기" style="width:80px;height:32px;vertical-align:middle;" />
 				<?php if($search!==false){ ?><input class="btn btn-default" type="button" onclick="return changeLinkTo('/board/<?php echo htmlspecialchars($board_id)?>');" value="돌아가기" style="width:80px;height:32px;vertical-align:middle;" /><?php } ?>
 			</form>
 		</div>

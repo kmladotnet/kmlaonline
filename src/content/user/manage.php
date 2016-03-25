@@ -97,7 +97,7 @@ function printContent(){
 										}
 										if($i%$cpp!=0) echo "</table></div>";
 										?>
-										<input type="submit" value="진행" style="width:96px;height:32px;" />
+										<input type="submit" class="btn btn-default" value="진행" style="width:96px;height:32px;" />
 									</form>
 								</td>
 							</tr>

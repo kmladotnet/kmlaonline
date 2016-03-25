@@ -47,7 +47,7 @@ function printContent(){
 					<div id="compose" class="div_message_item">
 						<textarea id="s_data_ckeditor" name="s_data" style="width:100%;box-sizing:border-box;height:80px;"></textarea>
 						<div style="clear:both"></div>
-						<input type="submit" name="cmd_write" value="보내기" style="float:right;width:80px;height:32px;" />
+						<input type="submit" class="btn btn-default" name="cmd_write" value="보내기" style="float:right;width:80px;height:32px;" />
 						<div style="clear:right"></div>
 						<table style="margin-top:8px;">
 							<tr>
@@ -124,7 +124,7 @@ function printContent(){
 			<div style="padding:10px;">
 				<form method="get" action="/user/message<?php echo ($sent?"/sent":"")?>">
 					<input type="text" class="form-control" name="search" value="<?php echo $search?htmlspecialchars($search):""?>" style="margin-left:3px;width:200px;vertical-align:middle; display: inline-block;" />
-					<input type="submit" id="search_button" value="검색" style="width:80px;vertical-align:middle;" />
+					<input type="submit" class="btn btn-default" id="search_button" value="검색" style="width:80px;vertical-align:middle;" />
 				</form>
 			</div>
 			<div style="margin:0 auto;width:120px;text-align:center;">총 <?php echo $article_count?>개</div>

@@ -61,7 +61,7 @@ function printContent(){
 									<input type="hidden" name="category" value="<?php echo $category ?>" />
 									<input type="hidden" name="num" value="<?php echo $num ?>" />
 									<input type="hidden" name="util_action" value="remove" />
-									<input type="submit" value="취소" />
+									<input type="submit" class="btn btn-default"  value="취소" />
 								</form>
 							<?php } ?>
 						</td>

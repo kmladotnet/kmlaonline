@@ -100,7 +100,7 @@ function printContent(){
 									<div style="display:inline-block;width:100px;">카테고리 이름:</div><input type="text" name="new_cat_name" value="" /><br />
 									<div style="display:inline-block;width:100px;">카테고리 종류:</div><select name="new_cat_type" style="width:100px;"><option value="0">게시판</option><option value="1">갤러리</option><option value="2">포럼</option></select><br />
 									<div style="display:inline-block;width:100px;">카테고리 설명:</div><input type="text" name="new_cat_description" value="" /><br />
-									<input type="submit" value="추가" style="width:96px;height:32px;" />
+									<input type="submit" class="btn btn-default"  value="추가" style="width:96px;height:32px;" />
 								</form>
 							</td>
 						</tr>

@@ -57,7 +57,7 @@ function printContent(){
 		<label for="items.key[_].iskey"><input type="radio" id="items.key[_].iskey" name="items_key" checked="checked" value="-1" style="margin:6px 0;padding:6px 0;" /> 정렬하지 않음</label>
 		<ul id="surveysorter" class="ui-sortable">
 		</ul>
-		<input type="submit" style="height:32px;width:80px;" value="생성" />
+		<input type="submit"  class="btn btn-default" style="height:32px;width:80px;" value="생성" />
 	</form>
 	<div style="margin:5px">
 		<textarea id="return_data" readonly="readonly" style="box-sizing:border-box;width:100%;height:96px;"></textarea>

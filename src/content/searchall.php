@@ -84,7 +84,7 @@ function printSearchResult($search){
 		<div style="text-align:center">
 			<form method="get" action="/searchall/<?php echo $pagenumber+2?>">
 				<input type="hidden" name="search" value="<?php echo htmlspecialchars($search)?>" />
-				<input type="submit" value="계속 찾아보기" style="width:160px;height:32px;" />
+				<input type="submit" class="btn btn-default" value="계속 찾아보기" style="width:160px;height:32px;" />
 			</form>
 		</div>
 	<?php }else{ ?>

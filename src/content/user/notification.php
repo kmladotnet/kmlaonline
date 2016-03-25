@@ -8,7 +8,7 @@ function printContent(){
 	?>
 	<form method="post" action="/proc/user/getnotifications" onsubmit="if(confirm('정말로 비우시겠습니까?')) return saveAjax(this,'비우는 중...'); return false;">
 		<input type="hidden" name="clear" value="yes" />
-		<input type="submit" value="비우기" style="float:right;margin-top:12px;margin-left:-96px;width:80px;height:32px;" /></td>
+		<input type="submit" class="btn btn-default" value="비우기" style="float:right;margin-top:12px;margin-left:-96px;width:80px;height:32px;" />
 	</form>
 	<h1 style="padding:9px;text-align:center;">알림</h1>
 	<ul class="big_notification">

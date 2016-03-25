@@ -210,7 +210,7 @@ function putEditorForm($form_action, $prev_info, $comment_mode=false){
 				<?php }
 			} ?>
 		</div>
-		<input type="submit" value="<?php echo ($comment_mode?"댓글 ":"글").($_GET['bact']=="edit"?"수정":"쓰기") ?>" style="float:right;width:120px;height:32px;margin-right:7px;" onclick="window.onbeforeunload=null;return true;" />
+		<input type="submit" class="btn btn-default" value="<?php echo ($comment_mode?"댓글 ":"글").($_GET['bact']=="edit"?"수정":"쓰기") ?>" style="float:right;width:120px;height:32px;margin-right:7px;" onclick="window.onbeforeunload=null;return true;" />
 		<div type="clear:both"></div>
 	</form>
 
