@@ -477,7 +477,7 @@ function prepareHeader() {
         $("#slidedown" + k).click(function (i2) {
             return function () {
                 window.oneclicker = function (e) {
-                    if ($(e.target).parents("#slidedown" + i2 + "_sub").length === 0)
+                    if (!$(e.target).is("#slidedown" + i2 + "_sub") && $(e.target).parents("#slidedown" + i2 + "_sub").length === 0)
                         showSlidedown(i2, false);
                 };
                 $(document).one("click", window.oneclicker);
