@@ -18,7 +18,7 @@ function moduleTitle($module_name, $options) {
             <?php
             break;
         case 'birthday':
-            ?>생일<?php
+            ?><a href="/util/schedule?<?php echo "year=$curYear&amp;month=$curMonth&amp;mode=normal"?>">생일</a><?php
             break;
         case 'menu':
             ?>
