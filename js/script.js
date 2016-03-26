@@ -14,22 +14,10 @@ function timeToString(d) {
     return Math.floor(d / 3600) + ":" + Math.floor((d % 3600) / 60) + ":" + (d % 60);
 }
 
-function getURLParameter(name) {
-    //https://stackoverflow.com/questions/11582512/how-to-get-url-parameters-with-javascript/11582513#11582513
-    return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [, ""])[1].replace(/\+/g, '%20')) || null;
-}
-
 function htmlspecialchars(d) {
     var o = $("<div></div>");
     o.text(d);
     return o.html();
-}
-
-function randstring(len) {
-    var text = "";
-    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    for (var i = 0; i < len; i++) text += possible.charAt(Math.floor(Math.random() * possible.length));
-    return text;
 }
 
 function removeAlertOnLeave() {
@@ -711,6 +699,7 @@ function main_changeFood(btn, id) {
     $('#food-dinner').css("display", "none");
     $('#' + id).css("display", "block");
 }
+
 var falseReturnFunction = function () {
     return false;
 };
@@ -730,23 +719,6 @@ function enableElement(div) {
 
 function navigateBack() {
     history.go(-1);
-    return false;
-}
-
-function isExternal(url) {
-    if (url.indexOf("/") < url.indexOf("//")) return false;
-    k = url.indexOf("?");
-    a = url.indexOf("#");
-    if (a < k) k = a;
-    if (k == -1)
-        if (url.indexOf("//") == -1) return false;
-    if (url.indexOf("//") >= k) return false;
-    var match = url.match(/^([^:\/?#]+:)?(?:\/\/([^\/?#]*))?([^?#]+)?(\?[^#]*)?(#.*)?/);
-    if (typeof match[1] === "string" && match[1].length > 0 && match[1].toLowerCase() !== location.protocol) return true;
-    if (typeof match[2] === "string" && match[2].length > 0 && match[2].replace(new RegExp(":(" + {
-            "http:": 80,
-            "https:": 443
-        }[location.protocol] + ")?$"), "") !== location.host) return true;
     return false;
 }
 
@@ -812,7 +784,6 @@ addLoadEvent(function () {
 
     getNotificationCount();
 });
-
 
 
 function upvote(id) {
