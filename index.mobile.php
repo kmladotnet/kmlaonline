@@ -27,7 +27,7 @@
     <meta name="msapplication-config" content="/icon/browserconfig.xml">
     <meta name="theme-color" content="#15466b">
 
-	<base href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/" />
+	<base href="https://<?php echo $_SERVER['HTTP_HOST'] ?>/" />
     <!-- gridstack -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.4/gridstack.css" />
 

@@ -31,7 +31,7 @@
     <meta name="msapplication-config" content="/icon/browserconfig.xml">
     <meta name="theme-color" content="#15466b">
 
-    <base href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/" />
+    <base href="https://<?php echo $_SERVER['HTTP_HOST'] ?>/" />
 
     <!-- calendar -->
     <link rel="stylesheet" href="/css/calendar.css" />
@@ -138,10 +138,10 @@
         <div id="total-header-menu-outer">
             <?php //TODO: 스타일 밖으로 뺄 것 ?>
             <div id="menu-logo" style="width:40px;padding-left:10px;left:-40px;float:left;position:absolute;z-index:9999999">
-                <a href="http://kmlaonline.net" style="border-"><img id="menu-logo-image" src="/images/logo.png" alt="KMLAONLINE" style="width:20px;height:20px;margin-top:10px"></a>
+                <a href="https://kmlaonline.net" style="border-"><img id="menu-logo-image" src="/images/logo.png" alt="KMLAONLINE" style="width:20px;height:20px;margin-top:10px"></a>
             </div>
             <div id="menu-logo-2" style="width:40px;padding-left:10px;left:-40px;float:left;position:absolute;opacity:0;z-index:9999999">
-                <a href="http://kmlaonline.net" style="border-"><img id="menu-logo-image-2" src="/images/logo-inverse.png" alt="KMLAONLINE" style="width:20px;height:20px;margin-top:10px"></a>
+                <a href="https://kmlaonline.net" style="border-"><img id="menu-logo-image-2" src="/images/logo-inverse.png" alt="KMLAONLINE" style="width:20px;height:20px;margin-top:10px"></a>
             </div>
             <div id="total-header-menu" ondragstart="return false">
                 <?php include "src/header/menubar.php";?>
