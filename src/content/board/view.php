@@ -189,7 +189,7 @@ function putCommentTree($parent,$root){
                         ?>>
                             <?php filterContent($comment['s_data']);?>
                         </div>
-                        <div <?php if($votes > -6) echo 'style="display:none"'?> class="item_hidden" id="item_hidden_<?php echo $article['n_id'];?>">(숨김) - 좌측 상단의 '+' 버튼을 눌러서 표시할 수 있습니다.</div>
+                        <div <?php if($votes > -6) echo 'style="display:none"'?> class="item_hidden" id="item_hidden_<?php echo $comment['n_id'];?>">(숨김) - 좌측 상단의 '+' 버튼을 눌러서 표시할 수 있습니다.</div>
                     <?php } ?>
                     <div style="font-size:0.8em">
                         <?php
