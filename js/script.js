@@ -826,11 +826,11 @@ function unvote(id) {
 }
 
 function hidePost(id) {
-    $("#item_contents_" + id).velocity("slideUp", 300);
-    $("#item_hidden_" + id).velocity("slideDown", 300);
+    $("#item_contents_" + id).velocity("slideUp", {duration: 100, easing: "easeOutCubic"});
+    $("#item_hidden_" + id).velocity("slideDown", {duration: 100, easing: "easeOutCubic"});
 }
 
 function showPost(id) {
-    $("#item_contents_" + id).velocity("slideDown", 300);
-    $("#item_hidden_" + id).velocity("slideUp", 300);
+    $("#item_contents_" + id).velocity("slideDown", {duration: 100, easing: "easeOutCubic"});
+    $("#item_hidden_" + id).velocity("slideUp", {duration: 100, easing: "easeOutCubic"});
 }

@@ -310,7 +310,7 @@ function saveTheme() {
         "ajax": 1
     }, function (data) {
         new PNotify({
-            title: '테마가 저장되었습니다!',
+            title: '설정이 저장되었습니다!',
             text: '새로고침하면 적용됩니다.',
             type: 'success',
             buttons: {
