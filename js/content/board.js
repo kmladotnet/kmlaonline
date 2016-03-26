@@ -1,3 +1,7 @@
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+
 function board_askImportant(obj,aid){
 	obj=$(obj);
 	if(obj.css("opacity")==0.5){
