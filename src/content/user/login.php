@@ -26,7 +26,7 @@ function printContent(){
         <input type="hidden" id="downform_login_action" name="action" value="login" />
         <input type="hidden" name="returnto" value="<?php echo ((isset($_REQUEST['returnto']) && $_REQUEST['returnto']!=" ")?$_REQUEST['returnto']:"/ ")?>" />
         <div style="text-align:center;width:100%">
-            <a href="http://kmlaonline.net"><h1 id="login_title" style="color:white">KMLAONLINE</h1></a>
+            <a href="https://kmlaonline.net"><h1 id="login_title" style="color:white">KMLAONLINE</h1></a>
             <?php if(isset($_GET['p1']) && $_GET['p1']=='bad'){ ?>
                 <div style="color:red;font-weight:bold;size:15pt;text-align:center;">ID 또는 패스워드가 잘못되었습니다.
                     <br /><b>E-Mail이 아니라 ID로 로그인하세요.</div>
