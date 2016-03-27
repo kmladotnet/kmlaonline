@@ -6,7 +6,7 @@ if(!function_exists("__Soreeboard__removeSpaces")){
 class Soreeboard{
 	private $mysqli, $table_prefix;
 	private $attach_path="./data/bbs/";
-	private $table_data, $table_view, $table_like, $table_attach, $table_category, $table_category_access, $table_category_access_defaults, $table_category_access_levels;
+	private $table_data, $table_view, $table_attach, $table_category, $table_category_access, $table_category_access_defaults, $table_category_access_levels;
 	private $category_cache=array(), $category_default_action_cache=array();
 	private $category_actions=false, $category_actions_orig=array( // max 16
 			"list",
@@ -85,10 +85,6 @@ class Soreeboard{
 				n_member BIGINT, KEY n_member (n_member), FOREIGN KEY (n_member) REFERENCES `{$this->member->getTableData()}`(n_id) ON DELETE CASCADE,
 				s_userkey char(41) NOT NULL, KEY s_userkey (s_userkey)
 				)";
-		$query[]="CREATE TABLE IF NOT EXISTS `$this->table_like` (
-				n_parent BIGINT, KEY n_parent (n_parent), FOREIGN KEY (n_parent) REFERENCES `$this->table_data`(n_id) ON DELETE CASCADE, 
-				n_user BIGINT, KEY n_user (n_user), FOREIGN KEY (n_user) REFERENCES `{$this->member->getTableData()}`(n_id) ON DELETE CASCADE
-				)";
 		$query[]="CREATE TABLE IF NOT EXISTS `$this->table_attach` (
 				n_id BIGINT NOT NULL AUTO_INCREMENT, PRIMARY KEY (n_id),
 				n_parent BIGINT, KEY n_parent(n_parent), FOREIGN KEY (n_parent) REFERENCES `$this->table_data`(n_id) ON DELETE CASCADE, 
@@ -114,7 +110,6 @@ class Soreeboard{
 		$this->mysqli=$db;
 		$this->table_data=$this->escape($this->table_prefix . "_data");
 		$this->table_view=$this->escape($this->table_prefix . "_view");
-		$this->table_like=$this->escape($this->table_prefix . "_like");
 		$this->table_attach=$this->escape($this->table_prefix . "_attach");
 		$this->table_category=$this->escape($this->table_prefix . "_category");
 		$this->table_category_access=$this->escape($this->table_prefix . "_category_access");
@@ -737,7 +732,6 @@ class Soreeboard{
 			$this->removeAttachment($arr[$i]);
 		$query=array();
 		$query[]="DELETE FROM `$this->table_view` WHERE n_id=" . $id;
-		$query[]="DELETE FROM `$this->table_like` WHERE n_parent=" . $id;
 		if($article['n_parent']==0) $query[]="UPDATE `$this->table_category` SET n_count=n_count-1 WHERE n_id={$article['n_cat']}";
 		
 		$k=true;
