@@ -30,12 +30,12 @@ function printVotes($id, $votes = null) {
         $upvotes++;
     }
     ?>
+    <button type="button" data-id="<?php echo $id;?>" id="collapse-<?php echo $id;?>" data-toggle="button" class="btn btn-default
+        <?php if($upvotes > -6) echo 'active';?>" style="font-weight: bold; color: royalblue; padding: 0px; height: 24px; width: 24px;"
+            onclick='if($(this).hasClass("active")) hidePost($(this).data("id")); else showPost($(this).data("id"));'>
+        <i class="fa fa-plus"></i>
+    </button>
     <div class="input-group" style="display: inline-table; vertical-align: middle; width: 1px;<?php if(getTheme($me)['voteright']) echo 'float:right;';?>">
-        <button type="button" data-id="<?php echo $id;?>" id="collapse-<?php echo $id;?>" data-toggle="button" class="btn btn-default
-            <?php if($upvotes > -6) echo 'active';?>" style="font-weight: bold; color: royalblue; padding: 0px; height: 24px; width: 24px; margin-right: 4px;"
-                onclick='if($(this).hasClass("active")) hidePost($(this).data("id")); else showPost($(this).data("id"));'>
-            <i class="fa fa-plus"></i>
-        </button>
         <span class="input-group-btn">
             <button type="button" data-id="<?php echo $id;?>" id="plus-<?php echo $id;?>" data-toggle="button" class="btn btn-default
                 <?php if($upvoted) echo 'active';?>" style="font-weight: bold; color: forestgreen; padding: 0px; height: 24px; width: 24px;"
