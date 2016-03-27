@@ -48,6 +48,19 @@ function printContentPc(){
                     <div>
                         <h3>기타</h3>
                         <div class="form-group">
+                            voting 버튼 위치:
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default <?php if(!getTheme($me)['voteright']) echo "active"; ?>">
+                                    <input type="radio" name="voteleft" id="voteleft-option" autocomplete="off"
+                                           <?php if(!getTheme($me)['voteright']) echo "checked"; ?>> 왼쪽
+                                </label>
+                                <label class="btn btn-default <?php if(getTheme($me)['voteright']) echo "active"; ?>">
+                                    <input type="radio" name="voteright" id="voteright-option" autocomplete="off"
+                                           <?php if(getTheme($me)['voteright']) echo "checked"; ?>> 오른쪽
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             베타 테스트:
                             <div class="btn-group" data-toggle="buttons">
                                 <label class="btn btn-default <?php if(getTheme($me)['beta']) echo "active"; ?>">

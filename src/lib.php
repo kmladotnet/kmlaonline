@@ -659,12 +659,16 @@ function getTheme($user) {
             if(!array_key_exists('beta', $_SESSION['theme'])) {
                 $_SESSION['theme']['beta'] = false;
             }
+            if(!array_key_exists('voteright', $_SESSION['theme'])) {
+                $_SESSION['theme']['voteright'] = false;
+            }
         } else {
             $_SESSION['theme'] = array();
             $_SESSION['theme']['dark'] = false;
             $_SESSION['theme']['square'] = false;
             $_SESSION['theme']['gradients'] = false;
             $_SESSION['theme']['beta'] = false;
+            $_SESSION['theme']['voteright'] = false;
         }
     }
     return $_SESSION['theme'];
