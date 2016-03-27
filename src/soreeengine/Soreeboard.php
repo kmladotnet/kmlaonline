@@ -625,7 +625,7 @@ class Soreeboard{
 		$writer_s=$this->escape($writer_s);
 		$curr=time();
 		$query="INSERT INTO `$this->table_data` (n_parent, n_sticky, n_cat, n_writedate, n_editdate, n_views, n_out_views, n_comments, s_title, s_data, n_attach1, s_tag, s_writer, n_writer) VALUES(
-					$parent, $sticky, $category, $curr, $curr, 0, 0, 0, 0, '$title', '$data', $attach_1, '$tag', '$writer_s', $writer_n)";
+					$parent, $sticky, $category, $curr, $curr, 0, 0, 0, '$title', '$data', $attach_1, '$tag', '$writer_s', $writer_n)";
 		if($this->mysqli->query($query) === true){
 			$insert_id=$this->mysqli->insert_id;
 			$this->mysqli->autocommit(false);
