@@ -37,7 +37,7 @@
     <link rel="stylesheet" href="/css/calendar.css" />
 
     <!-- gridstack -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.5/gridstack.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.5/gridstack.min.css" />
 
     <!-- jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
