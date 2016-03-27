@@ -682,8 +682,8 @@ if(getTheme($me)['beta']) {
 
 function getVotes($id) {
     $tmp = sys_get_temp_dir();
-    if(file_exists($tmp.'/upvotes.'.$id)) {
-        return file_get_contents($tmp.'/'.$id);
+    if(file_exists($tmp.'/v.'.$id)) {
+        return file_get_contents($tmp.'/v.'.$id);
     }
     $sum = 0;
     if(file_exists('data/board/votes/up'.$id)) {
@@ -723,7 +723,7 @@ function upvote($id, $user) {
     $upvotes[$user] = 0;
     $votes += count($upvotes);
     file_put_contents('data/board/votes/up'.$id, json_encode($upvotes));
-    file_put_contents(sys_get_temp_dir().'/'.$id, $votes);
+    file_put_contents(sys_get_temp_dir().'/v.'.$id, $votes);
 }
 
 function downvote($id, $user) {
@@ -744,7 +744,7 @@ function downvote($id, $user) {
     $downvotes[$user] = 0;
     $votes -= count($downvotes);
     file_put_contents('data/board/votes/down'.$id, json_encode($downvotes));
-    file_put_contents(sys_get_temp_dir().'/'.$id, $votes);
+    file_put_contents(sys_get_temp_dir().'/v.'.$id, $votes);
 }
 
 function unvote($id, $user) {
@@ -765,7 +765,7 @@ function unvote($id, $user) {
         }
         $votes -= count($downvotes);
     }
-    file_put_contents(sys_get_temp_dir().'/'.$id, $votes);
+    file_put_contents(sys_get_temp_dir().'/v.'.$id, $votes);
 }
 
 $maxUploadFileSize = convertToBytes( ini_get( 'upload_max_filesize' ) );
