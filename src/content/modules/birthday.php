@@ -3,6 +3,11 @@
 $minWave=date("Y")-1997;
 $births=0;
 foreach($member->listMembersBirth(date("n"), date("j")) as $val){
+    if($val['n_id'] === $me['n_id']) {
+        echo "<div>생일 축하해요!</div>";
+    }
+}
+foreach($member->listMembersBirth(date("n"), date("j")) as $val){
     if($val['n_level']>=$minWave){
         $births++;
         echo "<a href='/user/view/{$val['n_id']}/{$val['s_id']}'>";
