@@ -18,7 +18,17 @@ function moduleTitle($module_name, $options) {
             <?php
             break;
         case 'birthday':
-            ?><a href="/util/schedule?<?php echo "year=$curYear&amp;month=$curMonth&amp;mode=normal"?>">생일</a><?php
+            ?> <a href="/util/schedule?<?php echo "year=$curYear&amp;month=$curMonth&amp;mode=normal"?>">
+                생일
+                <?php
+                foreach($member->listMembersBirth(date("n"), date("j")) as $val){
+                    if($val['n_id'] === $me['n_id']) {
+                        echo " 축하해요!";
+                        break;
+                    }
+                }
+                ?>
+            </a><?php
             break;
         case 'menu':
             ?>
