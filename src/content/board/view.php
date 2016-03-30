@@ -32,7 +32,7 @@ function printVotes($id, $votes = null) {
     }
     ?>
     <button type="button" data-id="<?php echo $id;?>" id="collapse-<?php echo $id;?>" data-toggle="button" class="btn btn-default
-        <?php if($upvotes > upvote_threshold) echo 'active';?>" data-tooltip="tooltip" title="<?php echo $upvotes > upvote_threshold ? '글 숨기기' : '글 보이기';?>" style="font-weight: bold; color: royalblue; padding: 0px; height: 24px; width: 24px;"
+        <?php if($upvotes > upvote_threshold) echo 'active';?>" data-tooltip="tooltip" trigger="hover" title="<?php echo $upvotes > upvote_threshold ? '글 숨기기' : '글 보이기';?>" style="font-weight: bold; color: royalblue; padding: 0px; height: 24px; width: 24px;"
             onclick='if($(this).hasClass("active")) hidePost($(this).data("id")); else showPost($(this).data("id"));'>
         <i class="fa fa-plus"></i>
     </button>
@@ -55,7 +55,7 @@ function printVotes($id, $votes = null) {
         </span>
         <span class="input-group-btn">
             <button type="button" data-id="<?php echo $id;?>" id="minus-<?php echo $id;?>" data-toggle="button" class="btn btn-default
-                <?php if($downvoted) echo 'active';?>" data-tooltip="tooltip" title="&quot;동의하지 않음&quot; 버튼이 아닙니다." style="font-weight: bold; color: crimson; padding: 0px; height: 24px; width: 24px;"
+                <?php if($downvoted) echo 'active';?>" data-tooltip="tooltip" trigger="hover" title="&quot;동의하지 않음&quot; 버튼이 아닙니다." style="font-weight: bold; color: crimson; padding: 0px; height: 24px; width: 24px;"
                     onclick='if($(this).hasClass("active")) unvote($(this).data("id")); else downvote($(this).data("id"));'>
                 <i class="fa fa-arrow-down"></i>
             </button>
