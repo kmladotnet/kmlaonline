@@ -1,4 +1,5 @@
 <?php
+define("upvote_threshold", -10);
 function getHue($hex, $s = 50, $v = 80) {
     return hsvToRgb(((hexdec($hex) / 123456.1) % 361 + 361) % 361, $s, $v);
 }
@@ -31,7 +32,7 @@ function printVotes($id, $votes = null) {
     }
     ?>
     <button type="button" data-id="<?php echo $id;?>" id="collapse-<?php echo $id;?>" data-toggle="button" class="btn btn-default
-        <?php if($upvotes > -6) echo 'active';?>" style="font-weight: bold; color: royalblue; padding: 0px; height: 24px; width: 24px;"
+        <?php if($upvotes > upvote_threshold) echo 'active';?>" style="font-weight: bold; color: royalblue; padding: 0px; height: 24px; width: 24px;"
             onclick='if($(this).hasClass("active")) hidePost($(this).data("id")); else showPost($(this).data("id"));'>
         <i class="fa fa-plus"></i>
     </button>
@@ -184,12 +185,12 @@ function putCommentTree($parent,$root){
                     <span style="font-size:8pt;color:gray;"><?php echo date("Y-m-d H:i:s", $comment['n_writedate'])?></span>
                     <?php if($board_id!='picexhibit') { ?>
                         <div id="item_contents_<?php echo $comment['n_id'];?>"  <?php if($votes < 0) {
-                            echo 'style="color:rgb('.floor(255 * min(0.5, 0.2-$votes / 15)),',',floor(255 * min(0.5, 0.2-$votes / 15)),',',floor(255 * min(0.5, 0.2-$votes / 15)),')!important; font-size:1em!important;font-weight:normal!important;',($votes > -6 ? '' : 'display:none'),'"';
+                            echo 'style="color:rgb('.floor(255 * min(0.5, -$votes /  30)),',',floor(255 * min(0.5, -$votes /  30)),',',floor(255 * min(0.5, -$votes /  30)),')!important; font-size:1em!important;font-weight:normal!important;',($votes > upvote_threshold ? '' : 'display:none'),'"';
                         }
                         ?>>
                             <?php filterContent($comment['s_data']);?>
                         </div>
-                        <div <?php if($votes > -6) echo 'style="display:none"'?> class="item_hidden" id="item_hidden_<?php echo $comment['n_id'];?>">(숨김) - 좌측 상단의 '+' 버튼을 눌러서 표시할 수 있습니다.</div>
+                        <div <?php if($votes > upvote_threshold) echo 'style="display:none"'?> class="item_hidden" id="item_hidden_<?php echo $comment['n_id'];?>">(숨김) - 좌측 상단의 '+' 버튼을 눌러서 표시할 수 있습니다.</div>
                     <?php } ?>
                     <div style="font-size:0.8em">
                         <?php
@@ -418,11 +419,11 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
 			</div>
             <div class="item_contents" style="padding:10px;padding-bottom:7px">
                 <div id="item_contents_<?php echo $article['n_id'];?>" <?php if($votes < 0) {
-                    echo 'style="color:rgb('.floor(255 * min(0.5, 0.2-$votes / 15)),',',floor(255 * min(0.5, 0.2-$votes / 15)),',',floor(255 * min(0.5, 0.2-$votes / 15)),')!important; font-size:1em!important;font-weight:normal!important;',($votes > -6 ? '' : 'display:none'),'"';
+                    echo 'style="color:rgb('.floor(255 * min(0.5, -$votes /  30)),',',floor(255 * min(0.5, -$votes /  30)),',',floor(255 * min(0.5, -$votes /  30)),')!important; font-size:1em!important;font-weight:normal!important;',($votes > upvote_threshold ? '' : 'display:none'),'"';
                 }?>><?php
                     filterContent($article['s_data']);
                 ?></div>
-                <div <?php if($votes > -6) echo 'style="display:none"'?> class="item_hidden" id="item_hidden_<?php echo $article['n_id'];?>">(숨김) - 좌측 상단의 '+' 버튼을 눌러서 표시할 수 있습니다.</div>
+                <div <?php if($votes > upvote_threshold) echo 'style="display:none"'?> class="item_hidden" id="item_hidden_<?php echo $article['n_id'];?>">(숨김) - 좌측 상단의 '+' 버튼을 눌러서 표시할 수 있습니다.</div>
                 <?php
 				printAttachList($article, $board_cat, 0);			
 				?>
@@ -463,11 +464,11 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
             </div>
             <div class="item_contents" style="padding:10px;padding-bottom:7px">
                 <div id="item_contents_<?php echo $article['n_id'];?>" <?php if($votes < 0) {
-                    echo 'style="color:rgb('.floor(255 * min(0.5, 0.2-$votes / 15)),',',floor(255 * min(0.5, 0.2-$votes / 15)),',',floor(255 * min(0.5, 0.2-$votes / 15)),')!important; font-size:1em!important;font-weight:normal!important;',($votes > -6 ? '' : 'display:none'),'"';
+                    echo 'style="color:rgb('.floor(255 * min(0.5, -$votes /  30)),',',floor(255 * min(0.5, -$votes /  30)),',',floor(255 * min(0.5, -$votes /  30)),')!important; font-size:1em!important;font-weight:normal!important;',($votes > upvote_threshold ? '' : 'display:none'),'"';
                     }?>><?php
                     filterContent($article['s_data']);
                 ?></div>
-                <div <?php if($votes > -6) echo 'style="display:none"'?> class="item_hidden" id="item_hidden_<?php echo $article['n_id'];?>">(숨김) - 좌측 상단의 '+' 버튼을 눌러서 표시할 수 있습니다.</div>
+                <div <?php if($votes > upvote_threshold) echo 'style="display:none"'?> class="item_hidden" id="item_hidden_<?php echo $article['n_id'];?>">(숨김) - 좌측 상단의 '+' 버튼을 눌러서 표시할 수 있습니다.</div>
                 <?php
                 printAttachList($article, $board_cat, 0);
                 ?>
