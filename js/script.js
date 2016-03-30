@@ -828,9 +828,11 @@ function unvote(id) {
 function hidePost(id) {
     $("#item_contents_" + id).velocity("slideUp", {duration: 100, easing: "easeOutCubic"});
     $("#item_hidden_" + id).velocity("slideDown", {duration: 100, easing: "easeOutCubic"});
+    $("#collapse-" + id).attr("title", "글 보이기");
 }
 
 function showPost(id) {
     $("#item_contents_" + id).velocity("slideDown", {duration: 100, easing: "easeOutCubic"});
     $("#item_hidden_" + id).velocity("slideUp", {duration: 100, easing: "easeOutCubic"});
+    $("#collapse-" + id).attr("title", "글 숨기기");
 }

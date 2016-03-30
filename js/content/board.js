@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $('[data-tooltip="tooltip"]').tooltip({
-        template: '<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner" style="width:300px"></div></div>'
+        template: '<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner" style="width:200px"></div></div>'
     });
 });
 
