@@ -1,5 +1,7 @@
 $(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip();
+    $('[data-tooltip="tooltip"]').tooltip({
+        template: '<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner" style="width:300px"></div></div>'
+    });
 });
 
 function board_askImportant(obj,aid){
