@@ -8,7 +8,7 @@ function getHash($id, $key) {
     return hash_hmac("crc32", $id, $key);
 }
 
-function formatVotes($votes) {
+function votes($votes) {
     if($votes > 0) {
         echo '&#43;';
     }
@@ -17,7 +17,7 @@ function formatVotes($votes) {
 
 function formatVotes($up, $down) {
     ?>
-    <span style="color: forestgreen;"><?php echo formatVotes($up);?></span> | <span style="color: crimson;"><?php echo formatVotes(-$down);?></span>
+    <span style="color: forestgreen;"><?php echo votes($up);?></span> | <span style="color: crimson;"><?php echo votes(-$down);?></span>
 <?php
 }
 
