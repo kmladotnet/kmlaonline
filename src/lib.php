@@ -666,6 +666,9 @@ function getTheme($user) {
             if(!array_key_exists('nojam', $_SESSION['theme'])) {
                 $_SESSION['theme']['nojam'] = false;
             }
+            if(!$april_fools) {
+                $_SESSION['theme']['nojam'] = false;
+            }
         } else {
             $_SESSION['theme'] = array();
             $_SESSION['theme']['dark'] = false;
@@ -675,9 +678,6 @@ function getTheme($user) {
             $_SESSION['theme']['voteright'] = false;
             $_SESSION['theme']['nojam'] = false;
         }
-    }
-    if(!$april_fools) {
-        $_SESSION['theme']['nojam'] = false;
     }
     return $_SESSION['theme'];
 }
