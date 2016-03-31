@@ -92,7 +92,7 @@
 
     <?php
 	if(function_exists("printHead")) printHead();
-	if(file_exists("css/content/$fn.css")) echo "<link class='page-specific-css' rel='stylesheet' href='/css/content/$fn.css?v=2' />";
+	if(file_exists("css/content/$fn.css")) echo "<link class='page-specific-css' rel='stylesheet' href='/css/content/$fn.css?v=3' />";
 	if(file_exists("js/content/$fn.js")) echo "<script src='/js/content/$fn.js'></script>";
     if(isset($includes)){
 		foreach($includes as $val){
