@@ -650,6 +650,7 @@ function getWeather() {
 }
 
 function getTheme($user) {
+    global $april_fools;
     if(!isset($_SESSION['theme'])) {
         if(!file_exists("data/user/theme")) {
             mkdir("data/user/theme");
