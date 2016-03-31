@@ -115,7 +115,7 @@ function printAttachList($article, $cat, $mode=0){
 									"+<img src='/images/sound.gif' style='margin-left:54px;margin-top:54px;' />",
 								"ppt;pptx;xls;xlsx;doc;docx;docm;dotm;xlsb;xlsm;ppsx;pps;pptm;potm;ppam;potx;ppsm;"=> // MS Office
 									"<a class='block' style='min-height:126px;border:1px solid #DDD;display:block;' ".
-												"href='http://view.officeapps.live.com/op/view.aspx?src=".htmlspecialchars("https://kmlaonline.net".$path)."' target='_blank' ".
+												"href='https://view.officeapps.live.com/op/view.aspx?src=".htmlspecialchars("https://kmlaonline.net".$path)."' target='_blank' ".
 												"onclick='window.open(this.href); return false;'>".
 										"<img src='/images/docs.gif' style='margin-top:45px;' /><br />".
 										"미리보기".
