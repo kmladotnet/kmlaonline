@@ -5,7 +5,9 @@ function printContent() {
 
   <div class="well">
     <h1>
-        <i class="fa fa-exclamation-triangle"></i> 안전하게 kmlaonline.net의 서비스를 사용하기 위해서는 ActiveX 보안 프로그램을 설치해야 합니다. 아래의 ActiveX를 모두 설치해 주세요.
+        <i class="fa fa-exclamation-triangle" style="color:crimson"></i>
+        안전하게 kmlaonline.net의 서비스를 이용하기 위해 ActiveX 보안 프로그램을 설치해야 합니다.
+        아래의 ActiveX를 모두 설치해 주세요.
     </h1>
   </div>
   <div>
