@@ -3,5 +3,8 @@ html {
 }
 
 @keyframes rainbow {
-  100% { filter: hue-rotate(360deg); }
+    100% {
+        filter: hue-rotate(360deg);
+        -webkit-filter: hue-rotate(360deg);
+    }
 }
