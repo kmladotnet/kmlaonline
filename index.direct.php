@@ -82,7 +82,7 @@
 
     <?php
     if($april_fools) {
-        switch(mt_rand(1, 10)) {
+        switch(mt_rand(1, 7)) {
             case 1:
                 echo '<link rel="stylesheet" href="/css/april-fools/blur.css" type="text/css" media="screen" />';
                 break;

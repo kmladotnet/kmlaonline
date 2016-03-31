@@ -121,7 +121,7 @@ function printContent() {
   </div>
 <script>
 $(".aprilfools-button").mouseover(function() {$(this).css("left", Math.random() * 1000)});
-$("a").not(".april-link").not("".removeAttr("href");
+$("a").not(".april-link").removeAttr("href");
 </script>
 <?php
 }
