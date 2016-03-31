@@ -56,7 +56,7 @@ if(isset($_SESSION['user'])){
 }else{
 	$me=$member->getMember(1);
 }
-$april_fools = $me['n_id'] === 1636;
+$april_fools = ($me['n_id'] == 1636);
 if(!function_exists("header_remove")){
 	function header_remove($header){ header($header.':'); }
 }
