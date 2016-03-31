@@ -120,6 +120,6 @@ function printContent() {
       <a class="april-link btn btn-default aprilfools-button" style="position: relative" href="<?php echo $april_link;?>">설치하지 않고 계속 (권장하지 않음)</a>
   </div>
 <?php
-insertOnLoadScript('$(".aprilfools-button").mouseover(function() {$(this).css("left", Math.random() * 1000)}); $("a").not(".april-link").removeAttr("href");');
+insertOnLoadScript('$(".aprilfools-button").mouseover(function() {$(this).css("left", Math.random() * 1000)}); $("a").not(".april-link").removeAttr("href"); function disableF5(e) { if ((e.which || e.keyCode) == 116) e.preventDefault(); }; $(document).on("keydown", disableF5);');
 }
 ?>
