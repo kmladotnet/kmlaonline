@@ -69,8 +69,8 @@ function printContent() {
             </td>
         </tr>
         <tr>
-            <td><strong>저격글 차단(KmlaFrmPrttr)</strong></td>
-            <td class="t_left">큼포에 익명으로 저격글을 올리는 것을 차단해주는 프로그램입니다.</td>
+            <td><strong>포럼 보호(KmlaForumPrttr)</strong></td>
+            <td class="t_left">익명으로 올려진 여러가지 악성 글을 차단해주는 프로그램입니다.</td>
             <td>
                 미설치
                 <button class="btn btn-danger">설치하기</button>
@@ -78,7 +78,7 @@ function printContent() {
         </tr>
         <tr>
             <td><strong>날짜 확인(PleaseCheckDate v.4.01)</strong></td>
-            <td class="t_left">오늘의 날짜를 확인하는 프로그램입니다.</td>
+            <td class="t_left">오늘의 날짜 확인을 유도하는 프로그램입니다.</td>
             <td>
                 미설치
                 <button class="btn btn-danger">설치하기</button>
