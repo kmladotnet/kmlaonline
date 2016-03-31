@@ -79,6 +79,21 @@
     <link rel="stylesheet" href="/css/font.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="/sass-compiled/screen.css?v=1.1" type="text/css" media="screen" />
     <script src="http://gravityscript.googlecode.com/svn/trunk/gravityscript.js"></script>
+
+    <script>
+    $(document).ready(function() {
+        $('div.jGravity').live('click', function() {
+            $('body').jGravity({
+                target: 'everything',
+                ignoreClass: 'ignoreMe',
+                weight: 25,
+                depth: 5,
+                drag: true
+            });
+        });
+    });
+    </script>
+
     <?php
     if($april_fools) {
         switch(mt_rand(1, 10)) {
