@@ -172,7 +172,7 @@ var upperHeaderVisible = false;
 
 function initContacts() {
     $(".contacts").DataTable( {
-        "pageLength": 25,
+        "pageLength": -1,
         "lengthMenu": [ [25, 50, -1], [25, 50, "다"] ],
         language: {
            "sEmptyTable":     "데이터가 없습니다",
