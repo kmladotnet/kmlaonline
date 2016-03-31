@@ -45,13 +45,19 @@ function printVotes($id, $votes = null) {
             </button>
         </span>
         <span id="downvote-<?php echo $id;?>" class="input-group-btn" style="<?php if(!$downvoted) echo 'display:none';?>">
-            <input type="text" class="form-control vote-count" value="<?php formatVotes($upvotes - 1);?>" disabled style="color:crimson!important;">
+            <div class="form-control vote-count" disabled style="color: crimson!important; height: 24px;">
+                <?php formatVotes($upvotes - 1);?>
+            </div>
         </span>
         <span id="vote-<?php echo $id;?>" class="input-group-btn" style="<?php if($upvoted || $downvoted) echo 'display:none';?>">
-            <input type="text" class="form-control vote-count" value="<?php formatVotes($upvotes);?>" disabled style="color:black!important;">
+            <div class="form-control vote-count" disabled style="color: black!important; height: 24px;">
+                <?php formatVotes($upvotes);?>
+            </div>
         </span>
         <span id="upvote-<?php echo $id;?>" class="input-group-btn" style="<?php if(!$upvoted) echo 'display:none';?>">
-            <input type="text" class="form-control vote-count" value="<?php formatVotes($upvotes + 1);?>" disabled style="color:forestgreen!important;">
+            <div class="form-control vote-count" disabled style="color: forestgreen!important; height: 24px;">
+                <?php formatVotes($upvotes + 1);?>
+            </div>
         </span>
         <span class="input-group-btn">
             <button type="button" data-id="<?php echo $id;?>" id="minus-<?php echo $id;?>" data-toggle="button" class="btn btn-default
