@@ -24,7 +24,7 @@ function formatVotes($up, $down) {
 }
 
 function printVotes($id) {
-    global $me;
+    global $me, $april_fools;
     $upvotes = upvotes($id);
     $downvotes = downvotes($id);
     $votes = upvotes($id) - downvotes($id);
