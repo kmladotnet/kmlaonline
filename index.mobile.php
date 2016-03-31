@@ -55,13 +55,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/4.0.1/ekko-lightbox.min.js"></script>
 
 	<script type="text/javascript" src="/js/script.js?v=3.5" charset="utf-8"></script>
-	<script type="text/javascript" src="/js/content/combined.js" charset="utf-8"></script>
 	<link rel="stylesheet" href="/css/font.css" charset="utf-8" type="text/css" media="screen" />
 	<title><?php echo htmlspecialchars($title); ?></title>
 	<?php head_theme();
 	if(function_exists("printHead")) printHead();
 	if(file_exists("css/content/$fn.mobile.css")) echo "<link class='page-specific-css' rel='stylesheet' href='/css/content/$fn.mobile.css?v=3' />";
 	else if(file_exists("css/content/$fn.css")) echo "<link class='page-specific-css' rel='stylesheet' href='/css/content/$fn.css' />";
+	if(file_exists("js/content/$fn.js")) echo "<script src='/js/content/$fn.js?v=2'></script>";
 	if(isset($includes)){
 		foreach($includes as $val){
 			if(substr($val,-4,4)==".css") echo "<link class='page-specific-css' rel='stylesheet' href='$val' />";
