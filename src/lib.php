@@ -699,6 +699,22 @@ function getVotes($id) {
     return $sum;
 }
 
+function upvotes($id) {
+    $tmp = sys_get_temp_dir();
+    if(file_exists($tmp.'/uv.'.$id)) {
+        return file_get_contents($tmp.'/uv.'.$id);
+    }
+    return count(json_decode(file_get_contents('data/board/votes/up'.$id), true));
+}
+
+function downvotes($id) {
+    $tmp = sys_get_temp_dir();
+    if(file_exists($tmp.'/dv.'.$id)) {
+        return file_get_contents($tmp.'/dv.'.$id);
+    }
+    return count(json_decode(file_get_contents('data/board/votes/down'.$id), true));
+}
+
 function upvoted($id, $user) {
     return file_exists('data/board/votes/up'.$id) &&
         array_key_exists($user, json_decode(file_get_contents('data/board/votes/up'.$id), true));
@@ -717,7 +733,8 @@ function upvote($id, $user) {
             unset($downvotes[$user]);
             file_put_contents('data/board/votes/down'.$id, json_encode($downvotes));
         }
-        $votes -= count($downvotes);
+        $dv = count($downvotes);
+        $votes -= $dv;
     }
     if(file_exists('data/board/votes/up'.$id)) {
         $upvotes = json_decode(file_get_contents('data/board/votes/up'.$id), true);
@@ -725,9 +742,12 @@ function upvote($id, $user) {
         $upvotes = array();
     }
     $upvotes[$user] = 0;
-    $votes += count($upvotes);
+    $uv = count($upvotes);
+    $votes += $uv;
     file_put_contents('data/board/votes/up'.$id, json_encode($upvotes));
     file_put_contents(sys_get_temp_dir().'/v.'.$id, $votes);
+    file_put_contents(sys_get_temp_dir().'/uv.'.$id, $uv);
+    file_put_contents(sys_get_temp_dir().'/dv.'.$id, $dv);
 }
 
 function downvote($id, $user) {
@@ -738,7 +758,8 @@ function downvote($id, $user) {
             unset($upvotes[$user]);
             file_put_contents('data/board/votes/up'.$id, json_encode($upvotes));
         }
-        $votes += count($upvotes);
+        $uv = count($upvotes);
+        $votes += $uv;
     }
     if(file_exists('data/board/votes/down'.$id)) {
         $downvotes = json_decode(file_get_contents('data/board/votes/down'.$id), true);
@@ -746,9 +767,12 @@ function downvote($id, $user) {
         $downvotes = array();
     }
     $downvotes[$user] = 0;
-    $votes -= count($downvotes);
+    $dv = count($downvotes);
+    $votes -= $dv;
     file_put_contents('data/board/votes/down'.$id, json_encode($downvotes));
     file_put_contents(sys_get_temp_dir().'/v.'.$id, $votes);
+    file_put_contents(sys_get_temp_dir().'/uv.'.$id, $uv);
+    file_put_contents(sys_get_temp_dir().'/dv.'.$id, $dv);
 }
 
 function unvote($id, $user) {
@@ -759,7 +783,8 @@ function unvote($id, $user) {
             unset($upvotes[$user]);
             file_put_contents('data/board/votes/up'.$id, json_encode($upvotes));
         }
-        $votes += count($upvotes);
+        $uv = count($upvotes);
+        $votes += $uv;
     }
     if(file_exists('data/board/votes/down'.$id)) {
         $downvotes = json_decode(file_get_contents('data/board/votes/down'.$id), true);
@@ -767,9 +792,12 @@ function unvote($id, $user) {
             unset($downvotes[$user]);
             file_put_contents('data/board/votes/down'.$id, json_encode($downvotes));
         }
-        $votes -= count($downvotes);
+        $dv = count($downvotes);
+        $votes -= $dv;
     }
     file_put_contents(sys_get_temp_dir().'/v.'.$id, $votes);
+    file_put_contents(sys_get_temp_dir().'/uv.'.$id, $uv);
+    file_put_contents(sys_get_temp_dir().'/dv.'.$id, $dv);
 }
 
 $maxUploadFileSize = convertToBytes( ini_get( 'upload_max_filesize' ) );

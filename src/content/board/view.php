@@ -15,24 +15,32 @@ function formatVotes($votes) {
     echo $votes;
 }
 
+function formatVotes($up, $down) {
+    ?>
+    <span style="color: forestgreen;"><?php echo formatVotes($up);?></span> | <span style="color: crimson;"><?php echo formatVotes(-$down);?></span>
+<?php
+}
+
 function printVotes($id, $votes = null) {
     global $me;
     if($votes === null) {
-        $upvotes = getVotes($id);
-    } else {
-        $upvotes = $votes;
+        $votes = getVotes($id);
     }
+    $upvotes = upvotes($id);
+    $downvotes = downvotes($id);
     $upvoted = upvoted($id, $me['n_id']);
     $downvoted = downvoted($id, $me['n_id']);
     if($upvoted) {
+        $votes--;
         $upvotes--;
     }
     if($downvoted) {
-        $upvotes++;
+        $votes++;
+        $downvotes--;
     }
     ?>
     <button type="button" data-id="<?php echo $id;?>" id="collapse-<?php echo $id;?>" data-toggle="button" class="btn btn-default
-        <?php if($upvotes > upvote_threshold) echo 'active';?>" data-tooltip="tooltip" trigger="hover" title="<?php echo $upvotes > upvote_threshold ? '글 숨기기' : '글 보이기';?>" style="font-weight: bold; color: royalblue; padding: 0px; height: 24px; width: 24px; float: left;"
+        <?php if($votes > upvote_threshold) echo 'active';?>" data-tooltip="tooltip" trigger="hover" title="<?php echo $votes > upvote_threshold ? '글 숨기기' : '글 보이기';?>" style="font-weight: bold; color: royalblue; padding: 0px; height: 24px; width: 24px; float: left;"
             onclick='if($(this).hasClass("active")) hidePost($(this).data("id")); else showPost($(this).data("id"));'>
         <i class="fa fa-plus"></i>
     </button>
@@ -46,17 +54,17 @@ function printVotes($id, $votes = null) {
         </span>
         <span id="downvote-<?php echo $id;?>" class="input-group-btn" style="<?php if(!$downvoted) echo 'display:none';?>">
             <div class="form-control vote-count" disabled style="color: crimson!important;">
-                <?php formatVotes($upvotes - 1);?>
+                <?php formatVotes($upvotes, $downvotes + 1);?>
             </div>
         </span>
         <span id="vote-<?php echo $id;?>" class="input-group-btn" style="<?php if($upvoted || $downvoted) echo 'display:none';?>">
-            <div class="form-control vote-count" disabled style="color: black!important;">
-                <?php formatVotes($upvotes);?>
+            <div class="form-control vote-count" disabled style="color: black;">
+                <?php formatVotes($upvotes, $downvotes);?>
             </div>
         </span>
         <span id="upvote-<?php echo $id;?>" class="input-group-btn" style="<?php if(!$upvoted) echo 'display:none';?>">
             <div class="form-control vote-count" disabled style="color: forestgreen!important;">
-                <?php formatVotes($upvotes + 1);?>
+                <?php formatVotes($upvotes + 1, $downvotes);?>
             </div>
         </span>
         <span class="input-group-btn">
