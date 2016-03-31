@@ -161,8 +161,8 @@ JSON
     $(function () {
         var options = {
             animate: true,
-            cell_height: 64,
-            vertical_margin: 6,
+            cellHeight: 64,
+            verticalMargin: 6,
             draggable: {
                 handle: '.main-block-title',
             },
@@ -264,8 +264,8 @@ JSON
     <script type="text/javascript">
     $(function () {
         var options = {
-            cell_height: 64,
-            vertical_margin: 6
+            cellHeight: 64,
+            verticalMargin: 6
         };
         rebindModules(true);
         $('.grid-stack').gridstack(options);
