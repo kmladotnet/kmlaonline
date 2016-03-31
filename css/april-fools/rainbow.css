@@ -1,5 +1,5 @@
 html {
-  animation: rainbow 8s infinite;
+  animation: rainbow 30s infinite;
 }
 
 @keyframes rainbow {
