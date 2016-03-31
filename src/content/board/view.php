@@ -112,7 +112,7 @@ function printAttachList($article, $cat, $mode=0){
 								"bmp;png;jpg;jpeg;tif;tiff;gif;svg;"=>
 									"<a data-toggle=\"lightbox\" href=\"".htmlspecialchars($path)."\" title=\"".htmlspecialchars($v['s_name']).(htmlspecialchars($v['s_comment'])?": ".$v['s_comment']:"")."\"><img style=\"display:block;margin:0 auto;max-width:100%;\" src=\"".htmlspecialchars($path_thumb)."\" /></a>",
 								"mp3;wav;ogg;mp2;mpa;flac;wavpack;ape;alac;ra;mid;"=>
-									"+<i class='fa fa-file-audio-o fa-2x'></i>",
+									"+<i class='fa fa-file-audio-o fa-2x' style='margin-top:48px;'></i>",
 								"ppt;pptx;xls;xlsx;doc;docx;docm;dotm;xlsb;xlsm;ppsx;pps;pptm;potm;ppam;potx;ppsm;"=> // MS Office
 									"<a class='block' style='min-height:126px;border:1px solid #DDD;display:block;' ".
 												"href='https://view.officeapps.live.com/op/view.aspx?src=".htmlspecialchars("https://kmlaonline.net".$path_force)."' target='_blank' ".
@@ -128,14 +128,14 @@ function printAttachList($article, $cat, $mode=0){
 										"바로 보기".
 									"</a>",
 								"avi;mp4;mkv;flv;mov;mpeg;mpg;3gp;ts;wmv;asf;ogm;ogv;rm;rmvb;aac;ac3;m4a;"=>
-									"+<i class='fa fa-file-text-o fa-2x' style='margin-top:40px;'></i><img src='/images/movie.gif' style='margin-left:54px;margin-top:54px;' />",
+									"+<i class='fa fa-film fa-2x' style='margin-top:48px;'></i>",
 							);
 							$fext=strtolower(@end(@explode('.', $path)));
 							$temp="<div style='width:126px;min-height:126px;display:block;background:white;border:1px solid #DDD;margin:0 auto;text-align:center;'><!----></div>";
 							foreach($file_types as $ftype=>$ftemp)
 								if(strpos($ftype, $fext.";")!==false)
 									$temp=(substr($ftemp,0,1)=="+")?str_replace("<!---->", substr($ftemp,1), $temp):$ftemp;
-							$temp=str_replace("<!---->", "<i class='fa fa-file-o fa-2x'></i>", $temp);
+							$temp=str_replace("<!---->", "<i class='fa fa-file-o fa-2x' style='margin-top:48px;'></i>", $temp);
 							echo $temp . "<a title=\"".htmlspecialchars($v['s_name']).(htmlspecialchars($v['s_comment'])?": ".$v['s_comment']:"")."\" href=\"" . htmlspecialchars($path_force) . "\">".htmlspecialchars($v['s_name'])."</a>";
 							if($mode==1){ // gallery
 								echo '<div style="margin:10px;">'.htmlspecialchars($v['s_comment']).'</div>';
