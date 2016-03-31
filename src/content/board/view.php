@@ -23,13 +23,11 @@ function formatVotes($up, $down) {
 <?php
 }
 
-function printVotes($id, $votes = null) {
+function printVotes($id) {
     global $me;
-    if($votes === null) {
-        $votes = getVotes($id);
-    }
     $upvotes = upvotes($id);
     $downvotes = downvotes($id);
+    $votes = upvotes($id) - downvotes($id);
     $upvoted = upvoted($id, $me['n_id']);
     $downvoted = downvoted($id, $me['n_id']);
     if($upvoted) {
@@ -193,7 +191,7 @@ function putCommentTree($parent,$root){
                 <div style="display:block;">
                     <?php
                     $votes = getVotes($comment['n_id']);
-                    printVotes($comment['n_id'], $votes);
+                    printVotes($comment['n_id']);
                     if($b_comment_anonymous) echo "<span style='font-weight:bold; color:rgb(".getHue($hash_val, 60, 70).")'>익명 ".substr(base_convert($hash_val, 16, 36),2,4).'</span>';
                     else {?>
                     <span style="font-weight:bold"><a style="color:#666!important" href="<?php echo "/user/view/{$m['n_id']}/".htmlspecialchars($m['s_id'])?>"><?php putUserCard($m)?></a></span>
@@ -403,7 +401,7 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
 			<div class="item_head" style="padding:6px">
 				<?php
                 $votes = getVotes($article['n_id']);
-                printVotes($article['n_id'], $votes);
+                printVotes($article['n_id']);
 				if($b_anonymous){
                     echo "<span style='font-weight:bold; color:rgb(".getHue($hash_val, 60, 70).")'>익명 ".substr(base_convert($hash_val, 16, 36),2,4).'</span>';
 				} else {
@@ -452,7 +450,7 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
             <div class="item_head" style="padding:6px">
                 <?php
                 $votes = getVotes($article['n_id']);
-                printVotes($article['n_id'], $votes);
+                printVotes($article['n_id']);
                 if($b_anonymous){
                     echo "<span style='font-weight:bold; color:rgb(".getHue($hash_val, 60, 70).")'>익명 ".substr(base_convert($hash_val, 16, 36),2,4).'</span>';
                 }else{ ?>
