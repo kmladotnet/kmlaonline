@@ -90,6 +90,14 @@ function printContent() {
             </td>
         </tr>
         <tr>
+            <td><strong>큼온 고스톱(data/game/gostop.swf)</strong></td>
+            <td class="t_left">닷넷 선배님들이 남기고 가신 유산, 고스톱 게임을 실행할 수 있습니다.</td>
+            <td>
+                미설치
+                <a href="/data/game/gostop.swf" class="btn btn-danger">설치하기</a>
+            </td>
+        </tr>
+        <tr>
             <td><strong>키보드 보안 모듈(Aos키보드 보안)</strong></td>
             <td class="t_left">키보드를 통해 입력되는 정보가 유출되거나 변조되지 않도록 보호해 주는 프로그램입니다.</td>
             <td>
