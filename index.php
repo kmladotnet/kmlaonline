@@ -6,7 +6,7 @@ switch(isset($_GET['action'])?$_GET['action']:"main"){
 }
 if(!file_exists("src/content/$fn.php"))$fn="404";
 include "src/lib.php";
-if($april_fools && !$is_mobile && mt_rand(1, 10) == 5) {
+if($april_fools && !$is_mobile && mt_rand(1, 8) == 5) {
     $april_link = $_SERVER["REQUEST_URI"];
     $fn = "aprilfools";
 }
