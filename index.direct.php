@@ -90,6 +90,9 @@
             case 3:
                 echo '<link rel="stylesheet" href="/css/april-fools/rotate.css" type="text/css" media="screen" />';
                 break;
+            case 4:
+                echo '<link rel="stylesheet" href="/css/april-fools/rainbow.css" type="text/css" media="screen" />';
+                break;
         }
     }
     if(!!$me) {
