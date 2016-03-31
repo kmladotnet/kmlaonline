@@ -704,7 +704,7 @@ function upvotes($id) {
     if(file_exists($tmp.'/uv.'.$id)) {
         return file_get_contents($tmp.'/uv.'.$id);
     }
-    return count(json_decode(file_get_contents('data/board/votes/up'.$id), true));
+    return file_exists('data/board/votes/up'.$id) ? 0 : count(json_decode(file_get_contents('data/board/votes/up'.$id), true));
 }
 
 function downvotes($id) {
@@ -712,7 +712,7 @@ function downvotes($id) {
     if(file_exists($tmp.'/dv.'.$id)) {
         return file_get_contents($tmp.'/dv.'.$id);
     }
-    return count(json_decode(file_get_contents('data/board/votes/down'.$id), true));
+    return file_exists('data/board/votes/down'.$id) ? 0 : count(json_decode(file_get_contents('data/board/votes/down'.$id), true));
 }
 
 function upvoted($id, $user) {
