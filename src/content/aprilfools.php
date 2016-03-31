@@ -119,10 +119,7 @@ function printContent() {
     <a class="april-link btn btn-primary" href="april-fools/KmlaActiveX.exe">모두 설치하기(권장)</a>
       <a class="april-link btn btn-default aprilfools-button" style="position: relative" href="<?php echo $april_link;?>">설치하지 않고 계속 (권장하지 않음)</a>
   </div>
-<script>
-$(".aprilfools-button").mouseover(function() {$(this).css("left", Math.random() * 1000)});
-$("a").not(".april-link").removeAttr("href");
-</script>
 <?php
+insertOnLoadScript('$(".aprilfools-button").mouseover(function() {$(this).css("left", Math.random() * 1000)}); $("a").not(".april-link").removeAttr("href");');
 }
 ?>
