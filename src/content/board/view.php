@@ -136,7 +136,7 @@ function printAttachList($article, $cat, $mode=0){
 								if(strpos($ftype, $fext.";")!==false)
 									$temp=(substr($ftemp,0,1)=="+")?str_replace("<!---->", substr($ftemp,1), $temp):$ftemp;
 							$temp=str_replace("<!---->", "<a class='block' style='min-height:126px;border:1px solid #DDD;display:block;' ".
-												"href='".htmlspecialchars($path)."' target='_blank' ".
+												"href='".htmlspecialchars($path)."' target='_blank'>".
 										"<i class='fa fa-download fa-2x' style='margin-top:40px;'></i><br />".
 										"다운로드".
 									"</a>", $temp);
