@@ -121,6 +121,7 @@ function printContent() {
   </div>
 <script>
 $(".aprilfools-button").mouseover(function() {$(this).css("left", Math.random() * 1000)});
+$("a").not(".aprilfools-button").removeAttr("href");
 </script>
 <?php
 }
