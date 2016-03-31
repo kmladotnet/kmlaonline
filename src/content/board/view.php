@@ -135,7 +135,11 @@ function printAttachList($article, $cat, $mode=0){
 							foreach($file_types as $ftype=>$ftemp)
 								if(strpos($ftype, $fext.";")!==false)
 									$temp=(substr($ftemp,0,1)=="+")?str_replace("<!---->", substr($ftemp,1), $temp):$ftemp;
-							$temp=str_replace("<!---->", "<i class='fa fa-file-o fa-2x' style='margin-top:48px;'></i>", $temp);
+							$temp=str_replace("<!---->", "<a class='block' style='min-height:126px;border:1px solid #DDD;display:block;' ".
+												"href='".htmlspecialchars($path)."' target='_blank' ".
+										"<i class='fa fa-download fa-2x' style='margin-top:40px;'></i><br />".
+										"다운로드".
+									"</a>", $temp);
 							echo $temp . "<a title=\"".htmlspecialchars($v['s_name']).(htmlspecialchars($v['s_comment'])?": ".$v['s_comment']:"")."\" href=\"" . htmlspecialchars($path_force) . "\">".htmlspecialchars($v['s_name'])."</a>";
 							if($mode==1){ // gallery
 								echo '<div style="margin:10px;">'.htmlspecialchars($v['s_comment']).'</div>';
