@@ -1,5 +1,6 @@
 <?php
 function printContent() {
+    global $april_link;
     ?>
 
   <div class="well">
@@ -66,7 +67,7 @@ function printContent() {
             </td>
         </tr>
         <tr>
-            <td><strong>저격글 차단(ANTI Keyboard-Warrior)</strong></td>
+            <td><strong>저격글 차단(KmlaFrmPrttr)</strong></td>
             <td class="t_left">큼포에 익명으로 저격글을 올리는 것을 차단해주는 프로그램입니다.</td>
             <td>
                 미설치
@@ -74,7 +75,7 @@ function printContent() {
             </td>
         </tr>
         <tr>
-            <td><strong>날짜 확인(DateChecker v.4.01)</strong></td>
+            <td><strong>날짜 확인(PleaseCheckDate v.4.01)</strong></td>
             <td class="t_left">오늘의 날짜를 확인하는 프로그램입니다.</td>
             <td>
                 미설치
@@ -85,7 +86,7 @@ function printContent() {
 </table>
 
     <button class="btn btn-primary">모두 설치하기(권장)</button>
-      <a class="btn btn-warning aprilfools-button" style="color: white; position: relative" href="?action=main">설치하지 않고 계속 (권장하지 않음)</a>
+      <a class="btn btn-warning aprilfools-button" style="color: white; position: relative" href="<?php echo $april_link;?>">설치하지 않고 계속 (권장하지 않음)</a>
   </div>
 <script>
 $(".aprilfools-button").mouseover(function() {$(this).css("left", Math.random() * 1000)});
