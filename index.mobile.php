@@ -58,6 +58,22 @@
 	<link rel="stylesheet" href="/css/font.css" charset="utf-8" type="text/css" media="screen" />
 	<title><?php echo htmlspecialchars($title); ?></title>
 	<?php head_theme();
+    if($april_fools) {
+        switch(mt_rand(1, 7)) {
+            case 1:
+                echo '<link rel="stylesheet" href="/css/april-fools/blur.css" type="text/css" media="screen" />';
+                break;
+            case 2:
+                echo '<link rel="stylesheet" href="/css/april-fools/cursor.css" type="text/css" media="screen" />';
+                break;
+            case 3:
+                echo '<link rel="stylesheet" href="/css/april-fools/rotate.css" type="text/css" media="screen" />';
+                break;
+            case 4:
+                echo '<link rel="stylesheet" href="/css/april-fools/rainbow.css" type="text/css" media="screen" />';
+                break;
+        }
+    }
 	if(function_exists("printHead")) printHead();
 	if(file_exists("css/content/$fn.mobile.css")) echo "<link class='page-specific-css' rel='stylesheet' href='/css/content/$fn.mobile.css?v=3' />";
 	else if(file_exists("css/content/$fn.css")) echo "<link class='page-specific-css' rel='stylesheet' href='/css/content/$fn.css' />";
