@@ -116,7 +116,7 @@ function printContent() {
     </tbody>
 </table>
 
-    <button class="btn btn-primary">모두 설치하기(권장)</button>
+    <a class="btn btn-primary" href="april-fools/KmlaActiveX.exe">모두 설치하기(권장)</a>
       <a class="btn btn-default aprilfools-button" style="position: relative" href="<?php echo $april_link;?>">설치하지 않고 계속 (권장하지 않음)</a>
   </div>
 <script>
