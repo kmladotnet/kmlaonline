@@ -4,12 +4,12 @@ switch(isset($_GET['action'])?$_GET['action']:"main"){
 	case "main":	$fn="main"; break;
 	default:		$fn=basename($_GET['action']); break;
 }
+if(!file_exists("src/content/$fn.php"))$fn="404";
+include "src/lib.php";
 if($april_fools && mt_rand(1, 10) == 5) {
     $april_link = $_SERVER["REQUEST_URI"];
     $fn = "aprilfools";
 }
-if(!file_exists("src/content/$fn.php"))$fn="404";
-include "src/lib.php";
 if(!isset($_SESSION['user'])){
 	if(isset($_GET['sub']) && $_GET['action']=='user'){
 		switch($_GET['sub']){
