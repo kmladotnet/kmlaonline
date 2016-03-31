@@ -79,6 +79,19 @@
     <link rel="stylesheet" href="/css/font.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="/sass-compiled/screen.css?v=1.1" type="text/css" media="screen" />
     <?php
+    if($april_fools) {
+        switch(rand(1, 10)) {
+            case 1:
+                echo '<link rel="stylesheet" href="/css/april-fools/blur.css" type="text/css" media="screen" />';
+                break;
+            case 2:
+                echo '<link rel="stylesheet" href="/css/april-fools/cursor.css" type="text/css" media="screen" />';
+                break;
+            case 3:
+                echo '<link rel="stylesheet" href="/css/april-fools/rotate.css" type="text/css" media="screen" />';
+                break;
+        }
+    }
     if(!!$me) {
         $theme = getTheme($me);
         if($theme['square']) { ?>
