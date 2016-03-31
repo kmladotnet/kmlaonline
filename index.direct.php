@@ -79,13 +79,15 @@
     <link rel="stylesheet" href="/css/font.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="/sass-compiled/screen.css?v=1.1" type="text/css" media="screen" />
     <?php
-    $theme = getTheme($me);
-    if($theme['square']) { ?>
-        <link rel="stylesheet" href="/sass-compiled/square.css" type="text/css" media="screen" />
-    <?php }
-    if($theme['gradients']) { ?>
-        <link rel="stylesheet" href="/sass-compiled/gradients.css" type="text/css" media="screen" />
-    <?php } ?>
+    if(!!$me) {
+        $theme = getTheme($me);
+        if($theme['square']) { ?>
+            <link rel="stylesheet" href="/sass-compiled/square.css" type="text/css" media="screen" />
+        <?php }
+        if($theme['gradients']) { ?>
+            <link rel="stylesheet" href="/sass-compiled/gradients.css" type="text/css" media="screen" />
+        <?php }
+    }?>
     <title>
         <?php echo htmlspecialchars($title); ?>
     </title>
