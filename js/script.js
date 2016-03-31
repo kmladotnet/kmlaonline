@@ -826,9 +826,9 @@ function unvote(id) {
 }
 
 function updateTooltip(element, tooltip) {
-    if (element.data('tooltip') != null) {
+    if (element.data('bs.tooltip') != null) {
         element.tooltip('hide');
-        element.removeData('tooltip');
+        element.removeData('bs.tooltip');
     }
     element.tooltip({
         title: tooltip
