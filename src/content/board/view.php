@@ -45,17 +45,17 @@ function printVotes($id, $votes = null) {
             </button>
         </span>
         <span id="downvote-<?php echo $id;?>" class="input-group-btn" style="<?php if(!$downvoted) echo 'display:none';?>">
-            <div class="form-control vote-count" disabled style="color: crimson!important; height: 24px;">
+            <div class="form-control vote-count" disabled style="color: crimson!important;">
                 <?php formatVotes($upvotes - 1);?>
             </div>
         </span>
         <span id="vote-<?php echo $id;?>" class="input-group-btn" style="<?php if($upvoted || $downvoted) echo 'display:none';?>">
-            <div class="form-control vote-count" disabled style="color: black!important; height: 24px;">
+            <div class="form-control vote-count" disabled style="color: black!important;">
                 <?php formatVotes($upvotes);?>
             </div>
         </span>
         <span id="upvote-<?php echo $id;?>" class="input-group-btn" style="<?php if(!$upvoted) echo 'display:none';?>">
-            <div class="form-control vote-count" disabled style="color: forestgreen!important; height: 24px;">
+            <div class="form-control vote-count" disabled style="color: forestgreen!important;">
                 <?php formatVotes($upvotes + 1);?>
             </div>
         </span>
