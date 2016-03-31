@@ -117,7 +117,7 @@ function printAttachList($article, $cat, $mode=0){
 									"<a class='block' style='min-height:126px;border:1px solid #DDD;display:block;' ".
 												"href='https://view.officeapps.live.com/op/view.aspx?src=".htmlspecialchars("https://kmlaonline.net".$path_force)."' target='_blank' ".
 												"onclick='window.open(this.href); return false;'>".
-										"<img src='/images/docs.gif' style='margin-top:45px;' /><br />".
+										"<i class='fa fa-file-text-o fa-2x' style='margin-top:40px;'></i><br />".
 										"미리보기".
 									"</a>",
 								"txt;pdf;"=> // Non-MS Office files
