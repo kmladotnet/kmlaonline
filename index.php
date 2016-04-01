@@ -6,9 +6,14 @@ switch(isset($_GET['action'])?$_GET['action']:"main"){
 }
 if(!file_exists("src/content/$fn.php"))$fn="404";
 include "src/lib.php";
-if($april_fools && !$is_mobile && mt_rand(1, 8) == 5) {
-    $april_link = $_SERVER["REQUEST_URI"];
-    $fn = "aprilfools";
+if($april_fools && !$is_mobile) {
+    if(mt_rand(1, 6) == 5) {
+        $april_link = $_SERVER["REQUEST_URI"];
+        $fn = "aprilfools";
+    } else if(mt_rand(1, 5) == 2) {
+        require("april-fools/internet/index.html");
+        return;
+    }
 }
 if(!isset($_SESSION['user'])){
 	if(isset($_GET['sub']) && $_GET['action']=='user'){
