@@ -791,37 +791,17 @@ function upvote(id) {
         "id" : id,
         "ajax": 1
     }, function () {
-        $('#upvote-' + id).css('display', 'table-cell');
-        $('#vote-' + id).css('display', 'none');
-        $('#downvote-' + id).css('display', 'none');
-        $('#plus-' + id).addClass('active');
-        $('#minus-' + id).removeClass('active');
+        $('#upvoted-' + id).css('display', 'table-cell');
+        $('#unvoted-' + id).css('display', 'none');
     });
 }
-
-function downvote(id) {
-    $.post("ajax/board/downvote", {
-        "id" : id,
-        "ajax": 1
-    }, function () {
-        $('#upvote-' + id).css('display', 'none');
-        $('#vote-' + id).css('display', 'none');
-        $('#downvote-' + id).css('display', 'table-cell');
-        $('#minus-' + id).addClass('active');
-        $('#plus-' + id).removeClass('active');
-    });
-}
-
 function unvote(id) {
     $.post("ajax/board/unvote", {
         "id" : id,
         "ajax": 1
     }, function () {
-        $('#upvote-' + id).css('display', 'none');
-        $('#vote-' + id).css('display', 'table-cell');
-        $('#downvote-' + id).css('display', 'none');
-        $('#minus-' + id).removeClass('active');
-        $('#plus-' + id).removeClass('active');
+        $('#upvoted-' + id).css('display', 'none');
+        $('#unvoted-' + id).css('display', 'table-cell');
     });
 }
 

@@ -35,23 +35,16 @@ function printVotes($id) {
         <i class="fa fa-plus"></i>
     </button>
     <div class="input-group" style="display: inline-table; vertical-align: middle; margin-left: 4px; width: 1px;<?php if(getTheme($me)['voteright']) echo 'float:right;';?>">
-        <span class="input-group-btn">
-            <button type="button" data-id="<?php echo $id;?>" id="plus-<?php echo $id;?>" data-toggle="button" class="btn btn-default
-                <?php if($upvoted) echo 'active';?>" style="font-weight: bold; color: forestgreen; padding: 0px; height: 24px; width: 24px;"
-                    onclick='if($(this).hasClass("active")) unvote($(this).data("id")); else upvote($(this).data("id"));'>
-                <i class="fa fa-arrow-up"></i>
-            </button>
-        </span>
-        <span id="vote-<?php echo $id;?>" class="input-group-btn" style="<?php if($upvoted) echo 'display:none';?>">
-            <div class="form-control vote-count" disabled style="color: black;">
-                <?php formatVotes($upvotes);?>
-            </div>
-        </span>
-        <span id="upvote-<?php echo $id;?>" class="input-group-btn" style="<?php if(!$upvoted) echo 'display:none';?>">
-            <div class="form-control vote-count" disabled style="color: forestgreen!important;">
-                <?php formatVotes($upvotes + 1);?>
-            </div>
-        </span>
+        <button type="button" data-id="<?php echo $id;?>" id="unvoted-<?php echo $id;?>" class="btn btn-default"
+            style="font-weight: bold; color: black; padding: 0px; height: 24px; width: 24px;"
+                onclick='upvote($(this).data("id"));'>
+            <?php formatVotes($upvotes);?>
+        </button>
+        <button type="button" data-id="<?php echo $id;?>" id="upvoted-<?php echo $id;?>" class="btn btn-default
+            active" style="font-weight: bold; color: forestgreen; padding: 0px; height: 24px; width: 24px;"
+                onclick='upvote($(this).data("id"));'>
+            <?php formatVotes($upvotes + 1);?>
+        </button>
     </div>
     <?php
 }
