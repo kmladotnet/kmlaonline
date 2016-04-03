@@ -120,10 +120,11 @@
 	}
 	?>
     <style type="text/css">
-        <?php if($me['n_level']==0) echo ".login-only{display:none}";
-        if(TRUE!==$is_morning) echo ".morning{display:none}";
-        if(TRUE!==$is_afternoon) echo ".afternoon{display:none}";
-        if(TRUE!==$is_night) echo ".night{display:none}";
+        <?php
+        if($me['n_level']==0) echo ".login-only{display:none}";
+        if(!$is_morning) echo ".morning{display:none}";
+        if(!$is_afternoon) echo ".afternoon{display:none}";
+        if(!$is_night) echo ".night{display:none}";
         ?>
     </style>
 </head>
@@ -184,20 +185,13 @@
         <a style="display:block;width:100%;font-size:64pt;text-align:center;padding: 64px 0;background:#EEE" href="<?php echo htmlspecialchars($puri) ?>">모바일으로 보기</a>
         <?php
 	} ?>
-            <script type="text/javascript">
-                /*<!--*/
-                <?php
-			if(isset($_scripts)) echo $_scripts;
-			if(isset($_POST['error_occured'])) echo "checkAjaxReturnedData(JSON.parse(\"".str_replace("</", "<\" + \"/",addslashes($_POST['error_occured']))."\"));";
-		?>
-                /*-->*/
-            </script>
-            <script id="onload-scripts" type="text/text">
-                <?php
-		if(isset($_scripts)) echo $_scripts;
-		if(isset($_POST['error_occured'])) echo "checkAjaxReturnedData(JSON.parse(\"".str_replace("</", "<\" + \"/",addslashes($_POST['error_occured']))."\"));";
-		?>
-            </script>
+    <script type="text/javascript">
+        <?php
+            if(isset($_scripts)) echo $_scripts;
+            if(isset($_POST['error_occured']))
+                echo "checkAjaxReturnedData(JSON.parse(\"".str_replace("</", "<\" + \"/",addslashes($_POST['error_occured']))."\"));";
+        ?>
+    </script>
     <script>
         $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
             event.preventDefault();
