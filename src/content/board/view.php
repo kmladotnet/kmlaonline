@@ -29,7 +29,7 @@ function printVotes($id) {
         <i class="fa fa-minus"></i>
     </button>
     <button type="button" data-id="<?php echo $id;?>" id="uncollapse-<?php echo $id;?>" class="btn btn-default"
-        data-tooltip="tooltip" trigger="hover" title="글 보이기" style="color: royalblue; padding: 0px; height: 24px; width: 24px; float: left;"
+        data-tooltip="tooltip" trigger="hover" title="글 보이기" style="color: royalblue; padding: 0px; height: 24px; width: 24px; float: left; display: none;"
             onclick='showPost($(this).data("id"));'>
         <i class="fa fa-plus"></i>
     </button>
