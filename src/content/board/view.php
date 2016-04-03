@@ -42,7 +42,7 @@ function printVotes($id) {
         </button>
         <button type="button" data-id="<?php echo $id;?>" id="upvoted-<?php echo $id;?>" class="btn btn-default
             active" style="font-weight: bold; color: forestgreen; padding: 0px; height: 24px; width: 24px;<?php if(!$upvoted) echo 'display: none;'; ?>"
-                onclick='upvote($(this).data("id"));'>
+                onclick='unvote($(this).data("id"));'>
             <?php formatVotes($upvotes + 1);?>
         </button>
     </div>
