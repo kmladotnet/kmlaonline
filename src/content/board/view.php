@@ -8,13 +8,6 @@ function getHash($id, $key) {
     return hash_hmac("crc32", $id, $key);
 }
 
-function votes($votes) {
-    if($votes > 0) {
-        echo '&#43;';
-    }
-    echo $votes;
-}
-
 function printVotes($id) {
     global $me, $april_fools;
     $upvotes = getVotes($id);
@@ -37,11 +30,11 @@ function printVotes($id) {
         <button type="button" data-id="<?php echo $id;?>" id="unvoted-<?php echo $id;?>" class="btn btn-default"
             style="color: black; padding: 0 4px; height: 24px;<?php if($upvoted) echo 'display: none;'; ?>"
                 onclick='upvote($(this).data("id"));'>
-            <?php votes($upvotes);?>
+            <?php  echo '&#43;'.$upvotes; ?>
         </button>
         <button type="button" data-id="<?php echo $id;?>" id="upvoted-<?php echo $id;?>" class="btn btn-default" style="font-weight: bold; color: forestgreen; padding: 0 4px; height: 24px;<?php if(!$upvoted) echo 'display: none;'; ?>"
                 onclick='unvote($(this).data("id"));'>
-            <?php votes($upvotes + 1);?>
+            <?php echo '&#43;'.($upvotes + 1); ?>
         </button>
     </div>
     <?php
