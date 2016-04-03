@@ -36,12 +36,12 @@ function printVotes($id) {
     </button>
     <div class="input-group" style="display: inline-table; vertical-align: middle; margin-left: 4px; width: 1px;<?php if(getTheme($me)['voteright']) echo 'float:right;';?>">
         <button type="button" data-id="<?php echo $id;?>" id="unvoted-<?php echo $id;?>" class="btn btn-default"
-            style="font-weight: bold; color: black; padding: 0px; height: 24px; width: 24px;<?php if($upvoted) echo 'display: none;'; ?>"
+            style="font-weight: bold; color: black; padding: 0 4px; height: 24px;<?php if($upvoted) echo 'display: none;'; ?>"
                 onclick='upvote($(this).data("id"));'>
             <?php formatVotes($upvotes);?>
         </button>
         <button type="button" data-id="<?php echo $id;?>" id="upvoted-<?php echo $id;?>" class="btn btn-default
-            active" style="font-weight: bold; color: forestgreen; padding: 0px; height: 24px; width: 24px;<?php if(!$upvoted) echo 'display: none;'; ?>"
+            active" style="font-weight: bold; color: forestgreen; padding: 0 4px; height: 24px;<?php if(!$upvoted) echo 'display: none;'; ?>"
                 onclick='unvote($(this).data("id"));'>
             <?php formatVotes($upvotes + 1);?>
         </button>
