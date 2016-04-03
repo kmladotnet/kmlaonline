@@ -113,8 +113,8 @@
 	if(function_exists("printHead")) printHead();
 	if(file_exists("css/content/$fn.css")) echo "<link class='page-specific-css' rel='stylesheet' href='/css/content/$fn.css?v=3' />";
 	if(file_exists("js/content/$fn.js")) echo "<script src='/js/content/$fn.js?v=2'></script>";
-    if(isset($includes)){
-		foreach($includes as $val){
+    if(isset($includes)) {
+		foreach($includes as $val) {
 			if(substr($val,-4,4)==".css") echo "<link class='page-specific-css' rel='stylesheet' href='$val' />";
 		}
 	}
@@ -175,16 +175,17 @@
     <div id="total-footer" class="hide-on-upper-panel">
         <?php echo langraw("layout","footer"); ?>
     </div>
-    <?php if($is_mobile){
-		$puri=strtok($_SERVER["REQUEST_URI"],'?');
+    <?php if($is_mobile) {
+		$puri = strtok($_SERVER["REQUEST_URI"],'?');
 		unset($_GET['force_mobile'], $_GET['force_desktop']);
-		$_GET['force_mobile']=1;
-		$i=0;
-		foreach($_GET as $k=>$v) $puri.=($i++==0?"?":"&").urlencode($k)."=".urlencode($v);
-		?>
-        <a style="display:block;width:100%;font-size:64pt;text-align:center;padding: 64px 0;background:#EEE" href="<?php echo htmlspecialchars($puri) ?>">모바일으로 보기</a>
-        <?php
-	} ?>
+		$_GET['force_mobile'] = 1;
+		$i = 0;
+		foreach($_GET as $k=>$v)
+            $puri .= ($i++ == 0 ? "?" : "&").urlencode($k)."=".urlencode($v);
+        ?><a style="display:block;width:100%;font-size:64pt;text-align:center;padding: 64px 0;background:#EEE" href="<?php echo htmlspecialchars($puri) ?>">
+            모바일으로 보기
+        </a>
+    <?php } ?>
     <script type="text/javascript">
         <?php
             if(isset($_scripts)) echo $_scripts;

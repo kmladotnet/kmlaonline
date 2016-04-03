@@ -1,10 +1,15 @@
 <?php
-$includes=array();
-switch(isset($_GET['action'])?$_GET['action']:"main"){
-	case "main":	$fn="main"; break;
-	default:		$fn=basename($_GET['action']); break;
+$includes = array();
+switch(isset($_GET['action']) ? $_GET['action'] : "main"){
+	case "main":
+        $fn = "main";
+        break;
+	default:
+        $fn = basename($_GET['action']);
+        break;
 }
-if(!file_exists("src/content/$fn.php"))$fn="404";
+if(!file_exists("src/content/$fn.php"))
+    $fn = "404";
 include "src/lib.php";
 if($april_fools && !$is_mobile) {
     if(mt_rand(1, 6) == 5) {
@@ -15,30 +20,30 @@ if($april_fools && !$is_mobile) {
         return;
     }
 }
-if(!isset($_SESSION['user'])){
-	if(isset($_GET['sub']) && $_GET['action']=='user'){
-		switch($_GET['sub']){
+if(!isset($_SESSION['user'])) {
+	if(isset($_GET['sub']) && $_GET['action'] == 'user') {
+		switch($_GET['sub']) {
 			case 'register':
 			case 'lost':
 				break;
 			default:
-				$_REQUEST['returnto']=$_SERVER["REQUEST_URI"];
-				$_GET['sub']="login";
+				$_REQUEST['returnto'] = $_SERVER["REQUEST_URI"];
+				$_GET['sub'] = "login";
 		}
-	}else{
-		$_REQUEST['returnto']=$_SERVER["REQUEST_URI"];
-		$fn=$_GET['action']="user";
-		$_GET['sub']="login";
+	} else {
+		$_REQUEST['returnto'] = $_SERVER["REQUEST_URI"];
+		$fn = $_GET['action'] = "user";
+		$_GET['sub'] = "login";
 	}
 }
-do{
-	$_fn=$fn;
+do {
+	$_fn = $fn;
 	include "src/content/$fn.php";
-}while($_fn!=$fn);
+} while($_fn != $fn);
 session_write_close();
-if(isAjax()){
+if(isAjax()) {
 	require("index.ajax.php");
-}else{
+} else {
 	if($is_mobile)
 		require("index.mobile.php");
 	else
