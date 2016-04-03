@@ -23,9 +23,14 @@ function printVotes($id) {
         $upvotes--;
     }
     ?>
-    <button type="button" data-id="<?php echo $id;?>" id="collapse-<?php echo $id;?>" data-toggle="button" class="btn btn-default active"
+    <button type="button" data-id="<?php echo $id;?>" id="collapse-<?php echo $id;?>" class="btn btn-default"
         data-tooltip="tooltip" trigger="hover" title="글 숨기기" style="color: royalblue; padding: 0px; height: 24px; width: 24px; float: left;"
-            onclick='if($(this).hasClass("active")) hidePost($(this).data("id")); else showPost($(this).data("id"));'>
+            onclick='hidePost($(this).data("id"));'>
+        <i class="fa fa-minus"></i>
+    </button>
+    <button type="button" data-id="<?php echo $id;?>" id="uncollapse-<?php echo $id;?>" class="btn btn-default"
+        data-tooltip="tooltip" trigger="hover" title="글 보이기" style="color: royalblue; padding: 0px; height: 24px; width: 24px; float: left;"
+            onclick='showPost($(this).data("id"));'>
         <i class="fa fa-plus"></i>
     </button>
     <div style="display: inline-block; vertical-align: middle; margin-left: 4px;<?php if(getTheme($me)['voteright']) echo 'float:right;';?>">

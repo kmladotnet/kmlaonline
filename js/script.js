@@ -805,27 +805,16 @@ function unvote(id) {
     });
 }
 
-function updateTooltip(element, tooltip) {
-    if (element.data('bs.tooltip') != null) {
-        element.tooltip('hide');
-        element.removeData('bs.tooltip');
-    }
-    element.tooltip({
-        title: tooltip
-    });
-}
-
 function hidePost(id) {
     $("#item_contents_" + id).velocity("slideUp", {duration: 100, easing: "easeOutCubic"});
     $("#item_hidden_" + id).velocity("slideDown", {duration: 100, easing: "easeOutCubic"});
-    collapse = $("#collapse-" + id);
-    updateTooltip(collapse, "글 보이기");
-    collapse.removeAttr("active");
+    $("#collapse-" + id).css('display', 'none');
+    $("#uncollapse-" + id).css('display', 'block');
 }
 
 function showPost(id) {
     $("#item_contents_" + id).velocity("slideDown", {duration: 100, easing: "easeOutCubic"});
     $("#item_hidden_" + id).velocity("slideUp", {duration: 100, easing: "easeOutCubic"});
-    updateTooltip(collapse, "글 숨기기");
-    collapse.attr("active");
+    $("#collapse-" + id).css('display', 'block');
+    $("#uncollapse-" + id).css('display', 'none');
 }
