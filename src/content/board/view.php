@@ -24,7 +24,7 @@ function printVotes($id) {
     }
     ?>
     <button type="button" data-id="<?php echo $id;?>" id="collapse-<?php echo $id;?>" data-toggle="button" class="btn btn-default"
-        active data-tooltip="tooltip" trigger="hover" title="글 숨기기" style="font-weight: bold; color: royalblue; padding: 0px; height: 24px; width: 24px; float: left;"
+        active data-tooltip="tooltip" trigger="hover" title="글 숨기기" style="color: royalblue; padding: 0px; height: 24px; width: 24px; float: left;"
             onclick='if($(this).hasClass("active")) hidePost($(this).data("id")); else showPost($(this).data("id"));'>
         <i class="fa fa-plus"></i>
     </button>
@@ -34,8 +34,7 @@ function printVotes($id) {
                 onclick='upvote($(this).data("id"));'>
             <?php votes($upvotes);?>
         </button>
-        <button type="button" data-id="<?php echo $id;?>" id="upvoted-<?php echo $id;?>" class="btn btn-default
-            active" style="font-weight: bold; color: forestgreen; padding: 0 4px; height: 24px;<?php if(!$upvoted) echo 'display: none;'; ?>"
+        <button type="button" data-id="<?php echo $id;?>" id="upvoted-<?php echo $id;?>" class="btn btn-default" style="font-weight: bold; color: forestgreen; padding: 0 4px; height: 24px;<?php if(!$upvoted) echo 'display: none;'; ?>"
                 onclick='unvote($(this).data("id"));'>
             <?php votes($upvotes + 1);?>
         </button>
