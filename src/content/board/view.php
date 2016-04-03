@@ -17,7 +17,7 @@ function votes($votes) {
 
 function printVotes($id) {
     global $me, $april_fools;
-    $upvotes = upvotes($id);
+    $upvotes = getVotes($id);
     $upvoted = upvoted($id, $me['n_id']);
     if($upvoted) {
         $upvotes--;
