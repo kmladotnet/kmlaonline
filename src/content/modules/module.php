@@ -98,9 +98,6 @@ function moduleContent($module_name, $options, $light = false) {
             break;
         case 'article-list':
             $catList = arrayToCategories($options['cat']);
-            echo '<!-- ';
-            print_r($catList);
-            echo '-->';
             if(count($catList) > 0)
                 articleList($board->getArticleList($catList, false, 0, 0, $options['num']),
                         !$light && $options['show-cat'], $options['show-title'], $options['show-name'], !$light && $options['show-date']);
