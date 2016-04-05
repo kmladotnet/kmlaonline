@@ -100,7 +100,7 @@ function moduleContent($module_name, $options, $light = false) {
             $catList = arrayToCategories($options['cat']);
             echo '<!-- ';
             print_r($catList);
-            echo '-->'
+            echo '-->';
             if(count($catList) > 0)
                 articleList($board->getArticleList($catList, false, 0, 0, $options['num']),
                         !$light && $options['show-cat'], $options['show-title'], $options['show-name'], !$light && $options['show-date']);
