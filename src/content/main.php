@@ -6,7 +6,7 @@ function printContent(){
 	else printContentPc();
 }
 function printContentPc(){
-	global $member, $me, $is_morning, $is_afternoon, $is_night, $mysqli, $board, $user;
+	global $member, $me, $is_morning, $is_afternoon, $is_night, $mysqli, $board, $user, $april_fools;
 	?>
 
 	<div style="min-height: 400px">
@@ -73,19 +73,21 @@ function printContentPc(){
                                 </label>
                             </div>
                         </div>
-                        <div class="form-group">
-                            노잼 모드:
-                            <div class="btn-group" data-toggle="buttons">
-                                <label class="btn btn-default <?php if(getTheme($me)['nojam']) echo "active"; ?>">
-                                    <input type="radio" name="nojam" id="nojam-option" autocomplete="off"
-                                           <?php if(getTheme($me)['nojam']) echo "checked"; ?>> 활성화
-                                </label>
-                                <label class="btn btn-default <?php if(!getTheme($me)['nojam']) echo "active"; ?>">
-                                    <input type="radio" name="jam" id="jam-option" autocomplete="off"
-                                           <?php if(!getTheme($me)['nojam']) echo "checked"; ?>> 비활성화
-                                </label>
+                        <?php if ($april_fools) { ?>
+                            <div class="form-group">
+                                노잼 모드:
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="btn btn-default <?php if(getTheme($me)['nojam']) echo "active"; ?>">
+                                        <input type="radio" name="nojam" id="nojam-option" autocomplete="off"
+                                               <?php if(getTheme($me)['nojam']) echo "checked"; ?>> 활성화
+                                    </label>
+                                    <label class="btn btn-default <?php if(!getTheme($me)['nojam']) echo "active"; ?>">
+                                        <input type="radio" name="jam" id="jam-option" autocomplete="off"
+                                               <?php if(!getTheme($me)['nojam']) echo "checked"; ?>> 비활성화
+                                    </label>
+                                </div>
                             </div>
-                        </div>
+                        <?php } ?>
                     </div>
                 </form>
             </div>
