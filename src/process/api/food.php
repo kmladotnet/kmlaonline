@@ -7,7 +7,7 @@ $foodData = array();
 if($res = $mysqli->query($query)){
     while ($row = $res->fetch_array(MYSQLI_ASSOC)) {
         if(substr($row['s_mode'], 0, 4) === 'food') {
-            $foodData[substr($row['s_mode'], 6)] = $row['s_data'];
+            $foodData[substr($row['s_mode'], 5)] = $row['s_data'];
         }
     }
     $res->close();
