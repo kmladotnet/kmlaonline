@@ -7,7 +7,16 @@ $foodData = array();
 if($res = $mysqli->query($query)){
     while ($row = $res->fetch_array(MYSQLI_ASSOC)) {
         if(substr($row['s_mode'], 0, 4) === 'food') {
-            $foodData[substr($row['s_mode'], 5)] = $row['s_data'];
+            $foodTime = 'error';
+            switch(substr($row['s_mode'], 5)) {
+                case 0: $foodTime = 'breakfast';
+                    break;
+                case 1: $foodTime = 'lunch';
+                    break;
+                case 2: $foodTime = 'dinner';
+                    break;
+            }
+            $foodData[$foodTime] = $row['s_data'];
         }
     }
     $res->close();
