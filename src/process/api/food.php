@@ -24,7 +24,7 @@ $query = "SELECT s_mode, s_data FROM kmlaonline_schedule_table WHERE n_year=$y A
 $foodData = array();
 $foodData['year'] = $y;
 $foodData['month'] = $m;
-$foodData['day'] = $d;
+$foodData['date'] = $d;
 if(isset($foodTime)) {
     $foodData['food'] = $foodTime;
 }
