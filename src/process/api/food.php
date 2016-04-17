@@ -1,5 +1,5 @@
 <?php
-if(isset($_GET['year']) && isset($_GET['month']) && isset($_GET['day'])) {
+if(isset($_GET['year']) && isset($_GET['month']) && isset($_GET['date'])) {
     $y = intval($_GET['year']);
     $m = intval($_GET['month']);
     $d = intval($_GET['date']);
