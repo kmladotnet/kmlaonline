@@ -2,7 +2,7 @@
 if(isset($_GET['year']) && isset($_GET['month']) && isset($_GET['day'])) {
     $y = intval($_GET['year']);
     $m = intval($_GET['month']);
-    $d = intval($_GET['day']);
+    $d = intval($_GET['date']);
 } elseif(isset($_GET['time'])) {
     $t = intval($_GET['time']);
     $y = intval(date('Y', $t));
