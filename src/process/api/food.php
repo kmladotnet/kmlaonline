@@ -6,8 +6,8 @@ if(isset($_GET['year']) && isset($_GET['month']) && isset($_GET['day'])) {
 } elseif(isset($_GET['time'])) {
     $t = intval($_GET['time']);
     $y = date('Y', $t);
-    $m = date('m', $t);
-    $d = date('d', $t);
+    $m = date('n', $t);
+    $d = date('j', $t);
 }
 
 $query = "SELECT s_mode, s_data FROM kmlaonline_schedule_table WHERE n_year=$y AND n_month=$m AND n_day=$d";
