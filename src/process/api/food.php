@@ -14,9 +14,9 @@ if(isset($_GET['year']) && isset($_GET['month']) && isset($_GET['day'])) {
     elseif($h >= 8 && $h < 13) $foodTime = 'lunch';
     else $foodTime = 'dinner';
     if($h >= 22) {
-        $y = date('Y', $t + 60 * 60 * 24;
-        $m = date('n', $t + 60 * 60 * 24;
-        $d = date('j', $t + 60 * 60 * 24;
+        $y = date('Y', $t + 60 * 60 * 24);
+        $m = date('n', $t + 60 * 60 * 24);
+        $d = date('j', $t + 60 * 60 * 24);
     }
 }
 
