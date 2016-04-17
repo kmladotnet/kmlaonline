@@ -28,8 +28,8 @@ $foodData['day'] = $d;
 if(isset($foodTime)) {
     $foodData['food'] = $foodTime;
 }
-if($foodData = $mysqli->query($query)){
-    while ($row = $foodData->fetch_array(MYSQLI_ASSOC)) {
+if($res = $mysqli->query($query)){
+    while ($row = $res->fetch_array(MYSQLI_ASSOC)) {
         if(substr($row['s_mode'], 0, 4) === 'food') {
             $foodTime = 'error';
             switch(substr($row['s_mode'], 5)) {
@@ -43,7 +43,7 @@ if($foodData = $mysqli->query($query)){
             $foodData[$foodTime] = $row['s_data'];
         }
     }
-    $foodData->close();
+    $res->close();
     if($mysqli->more_results()) $mysqli->next_result();
 }
 echo json_encode($foodData);
