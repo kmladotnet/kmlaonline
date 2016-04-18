@@ -40,6 +40,13 @@ function printVotes($id) {
     <?php
 }
 
+function votes($votes) {
+    if($votes > 0) {
+        echo '&#43;';
+    }
+    echo $votes;
+}
+
 function formatVotes($up, $down) {
     ?>
     <span style="color: forestgreen;"><?php echo votes($up);?></span>
