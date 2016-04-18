@@ -90,7 +90,7 @@ if(count($errors)==0){
 	}else{
 		$tag="";
 	}
-	$article_id=$board->addArticle($cat['n_id'], $_POST['s_title'], $s_data,($article_flag & 0x4) ? '익명' : $me['n_id'], ($article_flag & 0x4) ? 1 : $me['n_id'], isset($parent_article)?$parent_article['n_id']:0, 0, $attach, $tag);
+	$article_id=$board->addArticle($cat['n_id'], $_POST['s_title'], $s_data,($article_flag & 0x4) ? '익명' : $me['s_name'], ($article_flag & 0x4) ? 1 : $me['n_id'], isset($parent_article)?$parent_article['n_id']:0, 0, $attach, $tag);
 	if($article_id===false){
 		$errors["__other"]=$board->last_error;
 	}else{
