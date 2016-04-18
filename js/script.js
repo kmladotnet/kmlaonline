@@ -786,22 +786,54 @@ addLoadEvent(function () {
 });
 
 
-function upvote(id) {
+function upvote(id, down) {
     $.post("ajax/board/upvote", {
         "id" : id,
-        "ajax": 1
+        "ajax": 1,
+        "down" : down
     }, function () {
-        $('#upvoted-' + id).css('display', 'table-cell');
-        $('#unvoted-' + id).css('display', 'none');
+        if(down) {
+            $('#upvote-' + id).css('display', 'table-cell');
+            $('#vote-' + id).css('display', 'none');
+            $('#downvote-' + id).css('display', 'none');
+            $('#plus-' + id).addClass('active');
+            $('#minus-' + id).removeClass('active');
+        } else {
+            $('#upvoted-' + id).css('display', 'table-cell');
+            $('#unvoted-' + id).css('display', 'none');
+        }
     });
 }
-function unvote(id) {
-    $.post("ajax/board/unvote", {
+
+function downvote(id) {
+    $.post("ajax/board/downvote", {
         "id" : id,
         "ajax": 1
     }, function () {
-        $('#upvoted-' + id).css('display', 'none');
-        $('#unvoted-' + id).css('display', 'table-cell');
+        $('#upvote-' + id).css('display', 'none');
+        $('#vote-' + id).css('display', 'none');
+        $('#downvote-' + id).css('display', 'table-cell');
+        $('#minus-' + id).addClass('active');
+        $('#plus-' + id).removeClass('active');
+    });
+}
+
+function unvote(id, down) {
+    $.post("ajax/board/unvote", {
+        "id" : id,
+        "ajax": 1,
+        "down" : down
+    }, function () {
+        if(down) {
+            $('#upvote-' + id).css('display', 'none');
+            $('#vote-' + id).css('display', 'table-cell');
+            $('#downvote-' + id).css('display', 'none');
+            $('#minus-' + id).removeClass('active');
+            $('#plus-' + id).removeClass('active');
+        } else {
+            $('#upvoted-' + id).css('display', 'none');
+            $('#unvoted-' + id).css('display', 'table-cell');
+        }
     });
 }
 
