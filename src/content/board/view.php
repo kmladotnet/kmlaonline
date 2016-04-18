@@ -9,7 +9,7 @@ function getHash($id, $key) {
 }
 
 function printVotes($id) {
-    global $me, $april_fools;
+    global $me;
     $upvotes = getVotes($id);
     $upvoted = upvoted($id, $me['n_id']);
     if($upvoted) {
@@ -36,6 +36,93 @@ function printVotes($id) {
                 onclick='unvote($(this).data("id"));'>
             <?php echo '&#43;'.($upvotes + 1); ?>
         </button>
+    </div>
+    <?php
+}
+
+function printUpDownVotes($id) {
+    global $me;
+    $upvotes = upvotes($id);
+    $downvotes = downvotes($id);
+    $votes = upvotes($id) - downvotes($id);
+    $upvoted = upvoted($id, $me['n_id']);
+    $downvoted = downvoted($id, $me['n_id']);
+    if($upvoted) {
+        $votes--;
+        $upvotes--;
+    }
+    if($downvoted) {
+        $votes++;
+        $downvotes--;
+    }
+    ?>
+    <button type="button" data-id="<?php echo $id;?>" id="collapse-<?php echo $id;?>" data-toggle="button" class="btn btn-default
+        <?php if($votes > upvote_threshold) echo 'active';?>" data-tooltip="tooltip" trigger="hover" title="<?php echo $votes > upvote_threshold ? '글 숨기기' : '글 보이기';?>" style="font-weight: bold; color: royalblue; padding: 0px; height: 24px; width: 24px; float: left;"
+            onclick='if($(this).hasClass("active")) hidePost($(this).data("id")); else showPost($(this).data("id"));'>
+        <i class="fa fa-plus"></i>
+    </button>
+    <div class="input-group" style="display: inline-table; vertical-align: middle; margin-left: 4px; width: 1px;<?php if(getTheme($me)['voteright']) echo 'float:right;';?>">
+        <?php if($april_fools && mt_rand(1, 10) <= 5) { ?>
+            <span class="input-group-btn">
+                <button type="button" data-id="<?php echo $id;?>" id="minus-<?php echo $id;?>" data-toggle="button" class="btn btn-default
+                    <?php if($downvoted) echo 'active';?>" data-tooltip="big-tooltip" trigger="hover" title="&quot;동의하지 않음&quot; 버튼이 아닙니다." style="font-weight: bold; color: crimson; padding: 0px; height: 24px; width: 24px;"
+                        onclick='if($(this).hasClass("active")) unvote($(this).data("id")); else downvote($(this).data("id"));'>
+                    <i class="fa fa-arrow-down"></i>
+                </button>
+            </span>
+            <span id="downvote-<?php echo $id;?>" class="input-group-btn" style="<?php if(!$downvoted) echo 'display:none';?>">
+                <div class="form-control vote-count" disabled style="color: crimson!important;">
+                    <?php formatVotes($upvotes, $downvotes + 1);?>
+                </div>
+            </span>
+            <span id="vote-<?php echo $id;?>" class="input-group-btn" style="<?php if($upvoted || $downvoted) echo 'display:none';?>">
+                <div class="form-control vote-count" disabled style="color: black;">
+                    <?php formatVotes($upvotes, $downvotes);?>
+                </div>
+            </span>
+            <span id="upvote-<?php echo $id;?>" class="input-group-btn" style="<?php if(!$upvoted) echo 'display:none';?>">
+                <div class="form-control vote-count" disabled style="color: forestgreen!important;">
+                    <?php formatVotes($upvotes + 1, $downvotes);?>
+                </div>
+            </span>
+            <span class="input-group-btn">
+                <button type="button" data-id="<?php echo $id;?>" id="plus-<?php echo $id;?>" data-toggle="button" class="btn btn-default
+                    <?php if($upvoted) echo 'active';?>" style="font-weight: bold; color: forestgreen; padding: 0px; height: 24px; width: 24px;"
+                        onclick='if($(this).hasClass("active")) unvote($(this).data("id")); else upvote($(this).data("id"));'>
+                    <i class="fa fa-arrow-up"></i>
+                </button>
+            </span>
+        <?php } else { ?>
+            <span class="input-group-btn">
+                <button type="button" data-id="<?php echo $id;?>" id="plus-<?php echo $id;?>" data-toggle="button" class="btn btn-default
+                    <?php if($upvoted) echo 'active';?>" style="font-weight: bold; color: forestgreen; padding: 0px; height: 24px; width: 24px;"
+                        onclick='if($(this).hasClass("active")) unvote($(this).data("id")); else upvote($(this).data("id"));'>
+                    <i class="fa fa-arrow-up"></i>
+                </button>
+            </span>
+            <span id="downvote-<?php echo $id;?>" class="input-group-btn" style="<?php if(!$downvoted) echo 'display:none';?>">
+                <div class="form-control vote-count" disabled style="color: crimson!important;">
+                    <?php formatVotes($upvotes, $downvotes + 1);?>
+                </div>
+            </span>
+            <span id="vote-<?php echo $id;?>" class="input-group-btn" style="<?php if($upvoted || $downvoted) echo 'display:none';?>">
+                <div class="form-control vote-count" disabled style="color: black;">
+                    <?php formatVotes($upvotes, $downvotes);?>
+                </div>
+            </span>
+            <span id="upvote-<?php echo $id;?>" class="input-group-btn" style="<?php if(!$upvoted) echo 'display:none';?>">
+                <div class="form-control vote-count" disabled style="color: forestgreen!important;">
+                    <?php formatVotes($upvotes + 1, $downvotes);?>
+                </div>
+            </span>
+            <span class="input-group-btn">
+                <button type="button" data-id="<?php echo $id;?>" id="minus-<?php echo $id;?>" data-toggle="button" class="btn btn-default
+                    <?php if($downvoted) echo 'active';?>" data-tooltip="big-tooltip" trigger="hover" title="&quot;동의하지 않음&quot; 버튼이 아닙니다." style="font-weight: bold; color: crimson; padding: 0px; height: 24px; width: 24px;"
+                        onclick='if($(this).hasClass("active")) unvote($(this).data("id")); else downvote($(this).data("id"));'>
+                    <i class="fa fa-arrow-down"></i>
+                </button>
+            </span>
+        <?php } ?>
     </div>
     <?php
 }
