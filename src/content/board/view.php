@@ -212,9 +212,6 @@ function putCommentTree($parent,$root){
 			<div id="article_comment_sub_<?php echo $comment['n_id']?>" class="new_acomment">
 				<?php
 				$b_comment_anonymous=$comment['n_flag']&0x4;
-
-                if($b_comment_anonymous)
-                    $hash_val = getHash($comment['n_writer'], $root);
                 ?>
                 <div style="display:block;">
                     <?php
@@ -422,8 +419,6 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
 	$b_no_comment=$b_no_comment && checkCategoryAccess($board_cat['n_id'], "flag no comment");
 	$b_bold_title=$b_bold_title && checkCategoryAccess($board_cat['n_id'], "flag bold title");
 	$m=$member->getMember($article['n_writer']);
-    if($b_anonymous)
-        $hash_val = getHash($article['n_writer'], $suppress_comments ? $article['n_id'] : $article['n_parent']);
 	?>
 	<li class="items" id="article_comment_sub_<?php echo $article['n_id']?>">
 		<?php if($is_mobile) { ?>
