@@ -529,33 +529,6 @@ function resizeImage($path, $thumb_name, $sizex, $sizey){
 function clamp($val, $min, $max) {
     return $val > $min ? ($val < $max ? $val : $max) : $min;
 }
-function hsvToRgb($iH, $iS, $iV) {
-    $dV = clamp($iV, 0, 100) / 100.0;
-    $dC = $dV * clamp($iS, 0, 100) / 100.0;
-    $dH = clamp($iH, 0, 360) / 60.0;
-    $dT = fmod($dH, 2.0);
-    $dX = $dC * (1 - abs($dT - 1));
-    switch(floor($dH)) {
-        case 0:
-            $dR = $dC; $dG = $dX; $dB = 0.0; break;
-        case 1:
-            $dR = $dX; $dG = $dC; $dB = 0.0; break;
-        case 2:
-            $dR = 0.0; $dG = $dC; $dB = $dX; break;
-        case 3:
-            $dR = 0.0; $dG = $dX; $dB = $dC; break;
-        case 4:
-            $dR = $dX; $dG = 0.0; $dB = $dC; break;
-        case 5:
-            $dR = $dC; $dG = 0.0; $dB = $dX; break;
-        default:
-            $dR = 0.0; $dG = 0.0; $dB = 0.0; break;
-    }
-    $dM = $dV - $dC;
-    $dR += $dM; $dG += $dM; $dB += $dM;
-    $dR *= 255; $dG *= 255; $dB *= 255;
-    return round($dR).",".round($dG).",".round($dB);
-}
 function getOrDefault(&$var, $default=null) {
     return isset($var) ? $var : $default;
 }
