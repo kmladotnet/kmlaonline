@@ -1,7 +1,7 @@
 <?php
 $title="일정표 - $title";
 function printContent(){
-	global $member, $mysqli, $me;
+	global $member, $mysqli, $me, $is_android;
 	$curYear=isset($_GET['year'])?$_GET['year']:date("Y");
 	$curMonth=isset($_GET['month'])?$_GET['month']:date("n");
 	$mode="normal";
@@ -33,6 +33,16 @@ function printContent(){
 	?>
     <script src="/js/content/util/schedule.js"></script>
 	<div class="schedule-content">
+        <?php if($is_android && substr($mode, 0, 5) == "food:" ) { ?>
+            <div class="alert alert-info" role="alert">
+                <h3>
+                    <a href="https://play.google.com/store/apps/details?id=com.ldm2468.kmlafood">
+                        <i class="fa fa-download" aria-hidden="true"></i> Google Play 스토어에서 큼온 식단 위젯을 받아보세요!
+                    </a>
+                </h3>
+            </div>
+        <?php } ?>
+
         <h2 style="text-align:center;"><img src="/images/food.png" style="width:64px;vertical-align:bottom;" />
             <div style="display: inline-block; vertical-align: text-bottom;">
                 <select id="select-year" class="selectpicker" data-style="btn-default" data-width="80px" onchange="location = this.options[this.selectedIndex].value;">

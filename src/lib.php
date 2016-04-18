@@ -13,6 +13,7 @@ if(isset($_POST["_CUSTOM_PHPSESSID"])) { // For Flash Upload Plugin
 }
 session_start();
 $ua_mobile = preg_match('/Mobile|Android|BlackBerry/', $_SERVER['HTTP_USER_AGENT']);
+$is_android = preg_match('/Android/', $_SERVER['HTTP_USER_AGENT']);
 $is_mobile = isset($_SESSION['forceMode']) ? $_SESSION['forceMode'] : $ua_mobile;
 if(isset($_GET['force_mobile'])) {
 	if($ua_mobile) unset($_SESSION['forceMode']);
