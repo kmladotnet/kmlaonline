@@ -36,7 +36,11 @@ function votes($votes) {
     if($votes > 0) {
         echo '&#43;';
     }
-    echo $votes;
+    if(!$votes) {
+        echo 0;
+    } else {
+        echo $votes;
+    }
 }
 
 function formatVotes($up, $down) {
