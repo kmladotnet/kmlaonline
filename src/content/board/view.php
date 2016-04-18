@@ -221,9 +221,9 @@ function putCommentTree($parent,$root){
                     } else {
                         printVotes($comment['n_id']);
                     }
-                    if($b_comment_anonymous) echo '<span style="font-weight:bold;">익명</span>';
+                    if($b_comment_anonymous) echo '<span style="font-weight:bold;color:crimson;">익명</span>';
                     else { ?>
-                        <span style="font-weight:bold"><a style="color:#666!important" href="<?php echo "/user/view/{$m['n_id']}/".htmlspecialchars($m['s_id'])?>"><?php putUserCard($m)?></a></span>
+                        <span style="font-weight:bold"><a style="color:black!important" href="<?php echo "/user/view/{$m['n_id']}/".htmlspecialchars($m['s_id'])?>"><?php putUserCard($m)?></a></span>
                     <?php } ?>
                     <span style="font-size:8pt;color:gray;"><?php echo date("Y-m-d H:i:s", $comment['n_writedate'])?></span>
                     <?php if($board_id!='picexhibit') { ?>
@@ -431,11 +431,11 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
                     printVotes($article['n_id']);
                 }
 				if($b_anonymous){
-                    echo '<span style="font-weight:bold;">익명</span>';
+                    echo '<span style="font-weight:bold;color:crimson;">익명</span>';
 				} else {
                     ?>
                     <span style="font-weight:bold">
-                        <a style="color:#666!important" href="<?php echo "/user/view/{$m['n_id']}/{$m['s_id']}" ?>"><?php putUserCard($m); ?></a>
+                        <a style="color:black!important" href="<?php echo "/user/view/{$m['n_id']}/{$m['s_id']}" ?>"><?php putUserCard($m); ?></a>
                     </span>
                 <?php } ?>
 
@@ -482,10 +482,10 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
                     printVotes($article['n_id']);
                 }
                 if($b_anonymous) {
-                    echo '<span style="font-weight:bold;">익명</span>';
+                    echo '<span style="font-weight:bold;color:crimson;">익명</span>';
                 } else { ?>
                     <span style="font-weight:bold">
-                        <a style="color:#666!important" href="<?php echo "/user/view/{$m['n_id']}/{$m['s_id']}" ?>"><?php putUserCard($m); ?></a>
+                        <a style="color:black!important" href="<?php echo "/user/view/{$m['n_id']}/{$m['s_id']}" ?>"><?php putUserCard($m); ?></a>
                     </span>
                 <?php } ?>
                 <span style='font-size:8pt;color:gray'>
