@@ -40,6 +40,14 @@ function printVotes($id) {
     <?php
 }
 
+function formatVotes($up, $down) {
+    ?>
+    <span style="color: forestgreen;"><?php echo votes($up);?></span>
+    <span>|</span>
+    <span style="color: crimson;"><?php echo votes(-$down);?></span>
+<?php
+}
+
 function printUpDownVotes($id) {
     global $me;
     $upvotes = upvotes($id);
