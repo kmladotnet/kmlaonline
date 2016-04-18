@@ -1,13 +1,5 @@
 <?php
 define("upvote_threshold", -10);
-function getHue($hex, $s = 50, $v = 80) {
-    return hsvToRgb(((hexdec($hex) / 123456.1) % 361 + 361) % 361, $s, $v);
-}
-
-function getHash($id, $key) {
-    return hash_hmac("crc32", $id, $key);
-}
-
 function printVotes($id) {
     global $me;
     $upvotes = getVotes($id);
@@ -232,9 +224,9 @@ function putCommentTree($parent,$root){
                     } else {
                         printVotes($comment['n_id']);
                     }
-                    if($b_comment_anonymous) echo "<span style='font-weight:bold; color:rgb(".getHue($hash_val, 60, 70).")'>익명 ".substr(base_convert($hash_val, 16, 36),2,4).'</span>';
-                    else {?>
-                    <span style="font-weight:bold"><a style="color:#666!important" href="<?php echo "/user/view/{$m['n_id']}/".htmlspecialchars($m['s_id'])?>"><?php putUserCard($m)?></a></span>
+                    if($b_comment_anonymous) echo '<span style="font-weight:bold;">익명</span>';
+                    else { ?>
+                        <span style="font-weight:bold"><a style="color:#666!important" href="<?php echo "/user/view/{$m['n_id']}/".htmlspecialchars($m['s_id'])?>"><?php putUserCard($m)?></a></span>
                     <?php } ?>
                     <span style="font-size:8pt;color:gray;"><?php echo date("Y-m-d H:i:s", $comment['n_writedate'])?></span>
                     <?php if($board_id!='picexhibit') { ?>
@@ -444,7 +436,7 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
                     printVotes($article['n_id']);
                 }
 				if($b_anonymous){
-                    echo "<span style='font-weight:bold; color:rgb(".getHue($hash_val, 60, 70).")'>익명 ".substr(base_convert($hash_val, 16, 36),2,4).'</span>';
+                    echo '<span style="font-weight:bold;">익명</span>';
 				} else {
                     ?>
                     <span style="font-weight:bold">
@@ -495,7 +487,7 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
                     printVotes($article['n_id']);
                 }
                 if($b_anonymous) {
-                    echo "<span style='font-weight:bold; color:rgb(".getHue($hash_val, 60, 70).")'>익명 ".substr(base_convert($hash_val, 16, 36),2,4).'</span>';
+                    echo '<span style="font-weight:bold;">익명</span>';
                 } else { ?>
                     <span style="font-weight:bold">
                         <a style="color:#666!important" href="<?php echo "/user/view/{$m['n_id']}/{$m['s_id']}" ?>"><?php putUserCard($m); ?></a>
