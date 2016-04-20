@@ -220,7 +220,7 @@ function putCommentTree($parent,$root){
                 <div style="display:block;">
                     <?php
                     $votes = getVotes($comment['n_id']);
-                    if(getTheme($me)['beta'] && $b_comment_anonymous) {
+                    if($b_comment_anonymous) {
                         printUpDownVotes($comment['n_id']);
                     } else {
                         printVotes($comment['n_id']);
@@ -429,7 +429,7 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
 			<div class="item_head" style="padding:6px">
 				<?php
                 $votes = getVotes($article['n_id']);
-                if(getTheme($me)['beta'] && $b_anonymous) {
+                if($b_anonymous) {
                     printUpDownVotes($article['n_id']);
                 } else {
                     printVotes($article['n_id']);
@@ -480,7 +480,7 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
             <div class="item_head" style="padding:6px">
                 <?php
                 $votes = getVotes($article['n_id']);
-                if(getTheme($me)['beta'] && $b_anonymous) {
+                if($b_anonymous) {
                     printUpDownVotes($article['n_id']);
                 } else {
                     printVotes($article['n_id']);
