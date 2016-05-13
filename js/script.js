@@ -158,6 +158,7 @@ function saveAjax(obj, opername, ckeditor, callafter) {
 function showSlidedown(i, visib) {
     if (visib) {
         if ($("#slidedown" + i + "_sub").is(":visible")) return;
+        showSlidedown(1, false);
         showSlidedown(2, false);
         showSlidedown(3, false);
         $("#slidedown" + i + "_button").addClass("slidedown_button_pressed");
@@ -460,9 +461,10 @@ function prepareHeader() {
     $("#upper-header-menu-close").off("click").click(function () {
         hideUpperHeader();
     });
+    showSlidedown(1, false);
     showSlidedown(2, false);
     showSlidedown(3, false);
-    for (var k = 2; k <= 3; k++) {
+    for (var k = 1; k <= 3; k++) {
         if (!document.getElementById("slidedown" + k)) continue;
         $("#slidedown" + k).click(function (i2) {
             return function () {
