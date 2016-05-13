@@ -67,10 +67,10 @@ function printUpDownVotes($id) {
         $downvotes--;
     }
     ?>
-    <button type="button" data-id="<?php echo $id;?>" id="collapse-<?php echo $id;?>" data-toggle="button" class="btn btn-default
-        <?php if($votes > upvote_threshold) echo 'active';?>" data-tooltip="tooltip" trigger="hover" title="<?php echo $votes > upvote_threshold ? '글 숨기기' : '글 보이기';?>" style="font-weight: bold; color: royalblue; padding: 0px; height: 24px; width: 24px; float: left;"
-            onclick='if($(this).hasClass("active")) hidePost($(this).data("id")); else showPost($(this).data("id"));'>
-        <i class="fa fa-plus"></i>
+    <button type="button" data-id="<?php echo $id;?>" id="collapse-<?php echo $id;?>" class="btn btn-default"
+        data-tooltip="tooltip" trigger="hover" title="글 숨기기" style="color: royalblue; padding: 0px; height: 24px; width: 24px; float: left;"
+            onclick='hidePost($(this).data("id"));'>
+        <i class="fa fa-minus"></i>
     </button>
     <div class="input-group" style="display: inline-table; vertical-align: middle; margin-left: 4px; width: 1px;<?php if(getTheme($me)['voteright']) echo 'float:right;';?>">
         <span class="input-group-btn">
