@@ -367,12 +367,12 @@ function hideUserButton() {
     }, 100).velocity({
         width: 0,
         padding: 0,
-    }, 150, "easeInOutQuad", {"display": "none"});
+    }, 150, "easeInOutQuad").velocity({"display": "none"});
     userButtonShown = false;
 }
 
 function showUserButton() {
-    $("#slidedown1_button").velocity("stop", true).velocity({"display": "block"}, {
+    $("#slidedown1_button").velocity("stop", true).velocity({"display": "block"}).velocity({
         width: "40px",
         padding: "6px",
     }, 150, "easeInOutQuad").velocity({
