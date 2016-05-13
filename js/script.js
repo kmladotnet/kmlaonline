@@ -364,7 +364,7 @@ function hideUserButton() {
     showSlidedown(1, false);
     $("#slidedown1_button").velocity("stop", true).velocity({
         opacity: 0,
-    }, 50).velocity({
+    }, 100).velocity({
         width: 0,
         padding: 0,
     }, 150, "easeInOutQuad").velocity({"display": "none"});
@@ -377,7 +377,7 @@ function showUserButton() {
         padding: "6px",
     }, 150, "easeInOutQuad").velocity({
         opacity: 1,
-    }, 50);
+    }, 100);
     userButtonShown = true;
 }
 
