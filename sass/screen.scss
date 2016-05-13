@@ -29,6 +29,23 @@ $dasan-url: url('/images/dasan.png');
 $menubar-panel-url: url('/images/menubar-panel.png');
 $logo-url: url('/images/logo.png');
 
+//bootstrap custom panel backgrounds
+.panel-success > .panel-body {
+    @include background-image(linear-gradient(lighten($panel-success-heading-bg, 30%), #ffffff 10%));
+}
+
+.panel-info > .panel-body {
+    @include background-image(linear-gradient(lighten($panel-info-heading-bg, 30%), #ffffff 10%));
+}
+
+.panel-warning > .panel-body {
+    @include background-image(linear-gradient(lighten($panel-warning-heading-bg, 30%), #ffffff 10%));
+}
+
+.panel-danger > .panel-body {
+    @include background-image(linear-gradient(lighten($panel-danger-heading-bg, 30%), #ffffff 10%));
+}
+
 //@extend-elements
 //original selectors
 //html, body
