@@ -31,19 +31,19 @@ $logo-url: url('/images/logo.png');
 
 //bootstrap custom panel backgrounds
 .panel-success > .panel-body {
-    @include background-image(linear-gradient(lighten($panel-success-heading-bg, 5%), #ffffff 12%));
+    @include background-image(linear-gradient(lighten($panel-success-heading-bg, 4%), #ffffff 12%));
 }
 
 .panel-info > .panel-body {
-    @include background-image(linear-gradient(lighten($panel-info-heading-bg, 5%), #ffffff 12%));
+    @include background-image(linear-gradient(lighten($panel-info-heading-bg, 4%), #ffffff 12%));
 }
 
 .panel-warning > .panel-body {
-    @include background-image(linear-gradient(lighten($panel-warning-heading-bg, 5%), #ffffff 12%));
+    @include background-image(linear-gradient(lighten($panel-warning-heading-bg, 4%), #ffffff 12%));
 }
 
 .panel-danger > .panel-body {
-    @include background-image(linear-gradient(lighten($panel-danger-heading-bg, 5%), #ffffff 12%));
+    @include background-image(linear-gradient(lighten($panel-danger-heading-bg, 4%), #ffffff 12%));
 }
 
 //@extend-elements
