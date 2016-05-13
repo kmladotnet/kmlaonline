@@ -410,8 +410,10 @@ div {
 	&.food-header {
 		font-weight: bold;
 	}
-    &.userarea {
+    &.menu-userarea {
         display: none;
+    }
+    &.menu-userarea, &.userarea {
         position: absolute;
         right: 0;
         z-index: 9;
