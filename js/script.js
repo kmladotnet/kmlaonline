@@ -397,7 +397,7 @@ function showHeader() {
 var closeTimer;
 var hovering;
 var menuShown = true;
-
+var userButtonShown = false;
 function prepareHeader() {
     $("div.menu1").off("mouseenter").mouseenter(function () {
         var t = $(this);
