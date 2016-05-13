@@ -430,29 +430,28 @@ function prepareHeader() {
     // Always show when scroll <= 160
     $(window).scroll(function (event) {
         var scroller = $(this).scrollTop();
-            if (scroller > 160) {
-                showUserButton();
-                if (!upperHeaderVisible && !hovering && !$("#slidedown1_sub").is(":visible") && !$("#slidedown2_sub").is(":visible") && !$("#slidedown3_sub").is(":visible")) {
-                    if (menuShown) {
-                        menuShown = false;
-                        $("div.total-header-menu-extend").velocity("slideUp", {duration: 200, easing: "easeOutCubic"});
-                        $("div.menu-shadow").velocity("slideUp", {duration: 200, easing: "easeOutCubic"});
-                        $("#total-header-menu").velocity("slideUp", {duration: 200, easing: "easeOutCubic"});
-                        $("div.menu1_text").velocity("finish", true).velocity("transition.slideUpOut", {display: null, duration: 200});
-                        $("#menu-logo").velocity("finish", true).velocity({
-                            opacity: 0
-                        }, 200, "easeOutCubic", function () {});
-                        $("#menu-logo-2").velocity({
-                            opacity: 1
-                        }, 200, "easeOutCubic", function () {});
-                    }
+        if (scroller > 160) {
+            showUserButton();
+            if (!upperHeaderVisible && !hovering && !$("#slidedown1_sub").is(":visible") && !$("#slidedown2_sub").is(":visible") && !$("#slidedown3_sub").is(":visible")) {
+                if (menuShown) {
+                    menuShown = false;
+                    $("div.total-header-menu-extend").velocity("slideUp", {duration: 200, easing: "easeOutCubic"});
+                    $("div.menu-shadow").velocity("slideUp", {duration: 200, easing: "easeOutCubic"});
+                    $("#total-header-menu").velocity("slideUp", {duration: 200, easing: "easeOutCubic"});
+                    $("div.menu1_text").velocity("finish", true).velocity("transition.slideUpOut", {display: null, duration: 200});
+                    $("#menu-logo").velocity("finish", true).velocity({
+                        opacity: 0
+                    }, 200, "easeOutCubic", function () {});
+                    $("#menu-logo-2").velocity({
+                        opacity: 1
+                    }, 200, "easeOutCubic", function () {});
                 }
-            } else {
-                hideUserButton();
-                if (!menuShown) {
-                    menuShown = true;
-                    showHeader();
-                }
+            }
+        } else {
+            hideUserButton();
+            if (!menuShown) {
+                menuShown = true;
+                showHeader();
             }
         }
         previousScroll = scroller;
