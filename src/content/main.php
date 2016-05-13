@@ -124,7 +124,7 @@ function printContentPc(){
                         <button type="button" class="btn btn-danger" onclick="resetMainLayout();"><i class="fa fa-times"></i> 초기화</button>
                     </div>
                 </div>
-                <div>
+                <div style="margin-top: 6px;">
                     <i class="fa fa-exclamation-triangle"></i> 편집 모드를 종료하거나 레이아웃 저장 버튼을 누르기 전엔 레이아웃이 저장되지 않습니다.
                 </div>
             </div>
