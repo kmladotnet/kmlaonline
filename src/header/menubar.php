@@ -87,6 +87,16 @@
                     <div class="menu1_text"><a href="board/student_suggestions" class="menu2">건의사항</a></div>
                 </div>
     </div>
+    <?php if(getTheme($me)['beta']) { ?>
+        <div id="slidedown1" class="slidedown_holder">
+            <div class="button slidedown_button" id="slidedown1_button" style="z-index:1;">
+                <i class="fa fa-user"></i>
+            </div>
+            <div class="slidedown" id="slidedown1_sub" style="right:0px;">
+                <?php include "src/header/userarea.php"; ?>
+            </div>
+        </div>
+    <?php } ?>
     <div id="slidedown2" class="slidedown_holder">
         <div class="button slidedown_button" id="slidedown2_button" style="z-index:1;">
             <i class="fa fa-globe"></i>
