@@ -432,10 +432,16 @@ function prepareHeader() {
     // Always show when scroll <= 160
     $(window).scroll(function (event) {
         var scroller = $(this).scrollTop();
-        if (scroller > 160) {
+        if (scroller > 130) {
             if(!userButtonShown) {
                 showUserButton();
             }
+        } else {
+            if(userButtonShown) {
+                hideUserButton();
+            }
+        }
+        if(scroller > 160) {
             if (!upperHeaderVisible && !hovering && !$("#slidedown1_sub").is(":visible") && !$("#slidedown2_sub").is(":visible") && !$("#slidedown3_sub").is(":visible")) {
                 if (menuShown) {
                     menuShown = false;
@@ -452,9 +458,6 @@ function prepareHeader() {
                 }
             }
         } else {
-            if(userButtonShown) {
-                hideUserButton();
-            }
             if (!menuShown) {
                 menuShown = true;
                 showHeader();

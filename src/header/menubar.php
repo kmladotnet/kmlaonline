@@ -100,7 +100,7 @@ if($me['n_level']!=0){
 </div>
 <?php if(getTheme($me)['beta']) { ?>
     <div id="slidedown1" class="slidedown_holder">
-        <div class="button slidedown_button" id="slidedown1_button" style="z-index:1; display: none">
+        <div class="button slidedown_button" id="slidedown1_button" style="z-index:1; display: none; opacity: 0; width: 0; padding: 0;">
             <i class="fa fa-user"></i>
         </div>
         <div class="userarea" id="slidedown1_sub" style="right: 0px; top: 40px;">
