@@ -31,7 +31,7 @@ $brand-danger:          #D14B52;
 // $text-color:            $gray-dark
 
 //** Global textual link color.
-$link-color:            lighten($brand-primary, 15%);
+$link-color:            lighten($brand-primary, 10%);
 //** Link hover color set via `darken()` function.
 $link-hover-color:      lighten($link-color, 15%);
 //** Link hover decoration.
