@@ -72,6 +72,11 @@ function printUpDownVotes($id) {
             onclick='hidePost($(this).data("id"));'>
         <i class="fa fa-minus"></i>
     </button>
+    <button type="button" data-id="<?php echo $id;?>" id="uncollapse-<?php echo $id;?>" class="btn btn-default"
+        data-tooltip="tooltip" trigger="hover" title="글 보이기" style="color: royalblue; padding: 0px; height: 24px; width: 24px; float: left; display: none;"
+            onclick='showPost($(this).data("id"));'>
+        <i class="fa fa-plus"></i>
+    </button>
     <div class="input-group" style="display: inline-table; vertical-align: middle; margin-left: 4px; width: 1px;<?php if(getTheme($me)['voteright']) echo 'float:right;';?>">
         <span class="input-group-btn">
             <button type="button" data-id="<?php echo $id;?>" id="plus-<?php echo $id;?>" data-toggle="button" class="btn btn-default
