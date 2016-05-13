@@ -411,6 +411,7 @@ div {
 		font-weight: bold;
 	}
     &.userarea {
+        display: none;
         position: absolute;
         right: 0;
         z-index: 9;
