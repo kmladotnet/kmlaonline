@@ -362,16 +362,16 @@ function closeMenu(ths, force) {
 
 function hideUserButton() {
     showSlidedown(1, false);
-    $("#slidedown1_button").velocity("stop", true).velocity({
+    $("#slidedown1_button").velocity("finish", true).velocity({
         opacity: 0,
     }, 50).velocity({
         width: 0,
         padding: 0,
-    }, 150, "easeInOutQuad");
+    }, 150, "easeInOutQuad").css("display", "none");
 }
 
 function showUserButton() {
-    $("#slidedown1_button").velocity("stop", true).velocity({
+    $("#slidedown1_button").css("display", "block").velocity("finish", true).velocity({
         width: "40px",
         padding: "6px",
     }, 150, "easeInOutQuad").velocity({
