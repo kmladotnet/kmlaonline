@@ -178,11 +178,10 @@ $_LANGUAGE=array(
 				"remove"=>"숨기기"
 			)
 		),
-		"footer"=>'KMLA Online - SINCE 2007<br />
+		"footer"=>'KMLA Online 2007 - 2016<br />
 			<a href="http://www.minjok.hs.kr/">학교 홈페이지</a> | <a href="http://www.minjok.hs.kr/members/">인트라넷</a><br />
-			정보통신망법 제 50조 2항에 의거하여 이메일 무단수집을 거부합니다. <br />
 			<br />
-			225-823 강원도 횡성군 안흥면 봉화로 800 (소사리 1300) 민족사관고등학교 <a href="http://www.minjok.hs.kr/school_tel.html">[연락처]</a><br />'
+			25268 강원도 횡성군 안흥면 봉화로 800 (소사리 1300) 민족사관고등학교 <a href="http://www.minjok.hs.kr/school_tel.html">[연락처]</a><br />'
 	),
     "weather"=>array(
         200 => '뇌우',
