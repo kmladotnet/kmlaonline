@@ -24,12 +24,12 @@
     <link rel="icon" type="image/png" href="/icon/android-chrome-192x192.png" sizes="192x192">
     <link rel="icon" type="image/png" href="/icon/favicon-16x16.png" sizes="16x16">
     <link rel="manifest" href="/icon/manifest.json">
-    <link rel="mask-icon" href="/icon/safari-pinned-tab.svg" color="#0A497D">
+    <link rel="mask-icon" href="/icon/safari-pinned-tab.svg" color="#074275">
     <link rel="shortcut icon" href="/icon/favicon.ico">
-    <meta name="msapplication-TileColor" content="#0A497D">
+    <meta name="msapplication-TileColor" content="#074275">
     <meta name="msapplication-TileImage" content="/icon/mstile-144x144.png">
     <meta name="msapplication-config" content="/icon/browserconfig.xml">
-    <meta name="theme-color" content="#0A497D">
+    <meta name="theme-color" content="#074275">
 
     <base href="https://<?php echo $_SERVER['HTTP_HOST'] ?>/" />
 
@@ -134,8 +134,8 @@
     <div class="hide-on-upper-panel menu-shadow" style="left:0;width:100%;right:0;display:block;height:40px;box-shadow: 0 0px 30px rgba(0, 0, 0, 0.2);">
         <div class="total-header-menu-extend" style="position:absolute;left:0;width:100%;right:0;display:block;height:40px;"></div>
     </div>
-    <div class="hide-on-upper-panel" style="position:absolute;background:#0b518a;left:0;width:100%;right:0;display:block;height:40px;z-index:-5;">
-        <div class="total-header-extend-1" style="position:absolute;background:#0b518a;left:0;width:100%;right:0;display:block;height:40px;"></div>
+    <div class="hide-on-upper-panel" style="position:absolute;background:#074275;left:0;width:100%;right:0;display:block;height:40px;z-index:-5;">
+        <div class="total-header-extend-1" style="position:absolute;background:#074275;left:0;width:100%;right:0;display:block;height:40px;"></div>
     </div>
     <div class="hide-on-upper-panel" style="position:absolute;left:0;width:100%;right:0;display:block;height:160px;top:40px;z-index:-5;">
         <div class="total-header-extend-1" style="position:absolute;left:0;width:100%;right:0;display:block;height:160px;"></div>
