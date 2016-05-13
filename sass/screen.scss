@@ -14,9 +14,9 @@ $kmla-notification-new-color: #ddf;
 $kmla-notification-hover-color: #eef;
 $kmla-header-extend-color: #bed6ea;
 $kmla-menu-color: #074275;
-$kmla-footer-color: #fff3d2;
+$kmla-footer-color: #ffefd2;
 $kmla-wave-button-hover-color: #ddefff;
-$kmla-profile-nav-color: #8cc1fa;
+$kmla-profile-nav-color: #a3cfff;
 
 //fonts
 $kmla-fonts: 'Open Sans','arial','Apple SD Gothic Neo','Noto Sans Korean','본고딕','KoPubDotum Medium','나눔바른고딕','나눔고딕','NanumGothic','맑은고딕', 'Malgun Gothic', 'sans-serif';
@@ -530,7 +530,7 @@ select {
 	background: $white;
 }
 #total-footer {
-	background: $kmla-footer-color;
+    @include background-image(linear-gradient(white, $kmla-footer-color));
 	padding: 32px;
 }
 .main-block {
