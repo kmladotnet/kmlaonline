@@ -120,7 +120,7 @@ function printContentPc(){
                         </select>
                     </div>
                     <div class="btn-group" style="margin-top: 4px">
-                        <button type="button" class="btn btn-success" onclick="updateModules();"><i class="fa fa-floppy-o"></i> 레이아웃 저장</button>
+                        <button type="button" class="btn btn-primary" onclick="updateModules();"><i class="fa fa-floppy-o"></i> 레이아웃 저장</button>
                     </div>
                     <div class="btn-group" style="margin-top: 4px">
                         <button type="button" class="btn btn-danger" onclick="cancelLayout();"><i class="fa fa-trash-o"></i> 모든 변경사항 취소</button>
