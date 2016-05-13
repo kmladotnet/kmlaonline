@@ -362,21 +362,23 @@ function closeMenu(ths, force) {
 
 function hideUserButton() {
     showSlidedown(1, false);
-    $("#slidedown1_button").velocity("finish", true).velocity({
+    $("#slidedown1_button").velocity("stop", true).velocity({
         opacity: 0,
     }, 50).velocity({
         width: 0,
         padding: 0,
     }, 150, "easeInOutQuad").css("display", "none");
+    userButtonShown = false;
 }
 
 function showUserButton() {
-    $("#slidedown1_button").css("display", "block").velocity("finish", true).velocity({
+    $("#slidedown1_button").css("display", "block").velocity("stop", true).velocity({
         width: "40px",
         padding: "6px",
     }, 150, "easeInOutQuad").velocity({
         opacity: 1,
     }, 50);
+    userButtonShown = true;
 }
 
 function showHeader() {
@@ -431,7 +433,9 @@ function prepareHeader() {
     $(window).scroll(function (event) {
         var scroller = $(this).scrollTop();
         if (scroller > 160) {
-            showUserButton();
+            if(!userButtonShown) {
+                showUserButton();
+            }
             if (!upperHeaderVisible && !hovering && !$("#slidedown1_sub").is(":visible") && !$("#slidedown2_sub").is(":visible") && !$("#slidedown3_sub").is(":visible")) {
                 if (menuShown) {
                     menuShown = false;
@@ -448,7 +452,9 @@ function prepareHeader() {
                 }
             }
         } else {
-            hideUserButton();
+            if(userButtonShown) {
+                hideUserButton();
+            }
             if (!menuShown) {
                 menuShown = true;
                 showHeader();
