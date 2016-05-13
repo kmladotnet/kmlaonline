@@ -372,7 +372,7 @@ function hideUserButton() {
 }
 
 function showUserButton() {
-    $("#slidedown1_button").velocity("stop", true).velocity({"display": "block"}).velocity({
+    $("#slidedown1_button").velocity("stop", true).css("display", "block").velocity({
         width: "40px",
         padding: "6px",
     }, 150, "easeInOutQuad").velocity({
