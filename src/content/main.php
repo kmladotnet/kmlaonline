@@ -11,8 +11,8 @@ function printContentPc(){
 
 	<div style="min-height: 400px">
         <div style="padding: 3px; padding-bottom: 6px; padding-top: 6px">
-            <button type="button" id="main-edit-button" class="btn btn-primary" onclick="toggleLayoutEditing();">편집 모드 시작</button>
-            <button type="button" id="main-theme-button" class="btn btn-primary" onclick="toggleThemeEditing();">큼온 설정</button>
+            <button type="button" id="main-edit-button" class="btn btn-default" onclick="toggleLayoutEditing();">편집 모드 시작</button>
+            <button type="button" id="main-theme-button" class="btn btn-default" onclick="toggleThemeEditing();">큼온 설정</button>
             <?php printEverydayLinks(); ?>
             <div id="main-theme-pane" style="margin-top: 6px; display:none">
                 <form id="theme-form">
@@ -109,18 +109,18 @@ function printContentPc(){
                 </div>
                 <div style="float: right;">
                     <div class="btn-group" style="margin-top: 4px">
-                        <button type="button" class="btn btn-success" onclick="updateModules();"><i class="fa fa-floppy-o"></i> 레이아웃 저장</button>
-                    </div>
-                    <div class="btn-group" style="margin-top: 4px">
-                        <button type="button" id="backup-layout" class="btn btn-primary" onclick="backupLayout();"><i class="fa fa-cloud-upload"></i> 백업</button>
+                        <button type="button" id="backup-layout" class="btn btn-default" onclick="backupLayout();"><i class="fa fa-cloud-upload"></i> 백업</button>
                         <?php
                         if(file_exists("data/user/main_layout_backup/{$me['n_id']}.txt")) { ?>
-                            <button type="button" id="restore-layout" class="btn btn-primary" onclick="restoreLayout();"><i class="fa fa-cloud-download"></i> 복구</button>
+                            <button type="button" id="restore-layout" class="btn btn-default" onclick="restoreLayout();"><i class="fa fa-cloud-download"></i> 복구</button>
                         <?php } ?>
-                        <select id="example-layout" class="selectpicker" data-style="btn-primary" data-width="250px" data-size="10" title="예시 레이아웃 (먼저 백업하세요!)" data-selected-text-format="static">
+                        <select id="example-layout" class="selectpicker" data-style="btn-default" data-width="250px" data-size="10" title="예시 레이아웃 (먼저 백업하세요!)" data-selected-text-format="static">
                             <option value="colorful">알록달록</option>
                             <option value="warrior">키보드워리어</option>
                         </select>
+                    </div>
+                    <div class="btn-group" style="margin-top: 4px">
+                        <button type="button" class="btn btn-success" onclick="updateModules();"><i class="fa fa-floppy-o"></i> 레이아웃 저장</button>
                     </div>
                     <div class="btn-group" style="margin-top: 4px">
                         <button type="button" class="btn btn-danger" onclick="cancelLayout();"><i class="fa fa-trash-o"></i> 모든 변경사항 취소</button>
