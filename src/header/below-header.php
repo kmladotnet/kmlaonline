@@ -1,7 +1,7 @@
 <div>
 	<?php if ($is_mobile) { ?>
 		<div id="total-header">
-			<div id="userarea">				
+			<div class="userarea">
 				<?php
 				$notic = $member->getNoticeCount($me['n_id']);
 				if ($notic == 0)
@@ -26,7 +26,7 @@
 	<?php } else { ?>
 		<div id="total-header">
             <?php if (isset($_SESSION['user'])) { ?>
-			<div id="userarea"><?php include "src/header/userarea.php"; ?></div>
+			<div class="userarea"><?php include "src/header/userarea.php"; ?></div>
             <?php } ?>
 			<a id="back-to-main" href="./"></a><br />
 		</div>

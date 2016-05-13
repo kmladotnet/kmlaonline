@@ -103,7 +103,7 @@ if($me['n_level']!=0){
         <div class="button slidedown_button" id="slidedown1_button" style="z-index:1;">
             <i class="fa fa-user"></i>
         </div>
-        <div class="slidedown" id="slidedown1_sub" style="right:0px;">
+        <div class="slidedown userarea" id="slidedown1_sub" style="right:0px;">
             <?php include "src/header/userarea.php"; ?>
         </div>
     </div>
