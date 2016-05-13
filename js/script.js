@@ -381,18 +381,20 @@ function prepareHeader() {
         var t = $(this);
         var obj = t.find(".menu1_sub");
         var obj2 = t.find(".widthholder");
+        var a = t.find("a");
         if (obj.length) {
             clearTimeout(closeTimer);
             t.velocity("stop", true).velocity({
                 height: obj.height() + 40,
-            }, 200, "easeOutCubic");
+            }, 300, "easeOutQuad");
             obj2.velocity("stop", true).velocity({
                 height: "600px",
-            }, 200);
+            }, 300);
             obj.velocity("stop", true).velocity({opacity: 1}, {duration: 200});
             $(".menu1").not(this).each(function (i) {
                 closeMenu(this);
             });
+            a.velocity("finish", true).velocity("transition.slideDownIn", {display: null, duration: 240, stagger: 40});
             hovering = true;
         }
     }).off("mouseleave").mouseleave(function () {
