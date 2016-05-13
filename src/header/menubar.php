@@ -98,16 +98,14 @@ if($me['n_level']!=0){
         <a href="/user/notification"><div style="text-align: center;padding: 5px;"> 모두 보기</div></a>
     </div>
 </div>
-<?php if(getTheme($me)['beta']) { ?>
-    <div id="slidedown1" class="slidedown_holder">
-        <div class="button slidedown_button" id="slidedown1_button" style="z-index:1; display: none; opacity: 0; width: 0; padding: 0;">
-            <i class="fa fa-user"></i>
-        </div>
-        <div class="userarea" id="slidedown1_sub" style="right: 0px; top: 40px;">
-            <?php include "src/header/userarea.php"; ?>
-        </div>
+<div id="slidedown1" class="slidedown_holder">
+    <div class="button slidedown_button" id="slidedown1_button" style="z-index:1; display: none; opacity: 0; width: 0; padding: 0;">
+        <i class="fa fa-user"></i>
     </div>
-<?php } ?>
+    <div class="userarea" id="slidedown1_sub" style="right: 0px; top: 40px;">
+        <?php include "src/header/userarea.php"; ?>
+    </div>
+</div>
 <div id="slidedown3" class="slidedown_holder">
     <div class="button slidedown_button" id="slidedown3_button" style="z-index:1">
         <i class="fa fa-search"></i>
