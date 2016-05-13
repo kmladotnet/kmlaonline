@@ -310,42 +310,6 @@ div {
 	&#total-header {
 		height: 160px;
 		background: $big-logo-url no-repeat;
-		.userarea {
-            position: absolute;
-            right: 0;
-            z-index: 9;
-			width: 222px;
-			height: 130px;
-            box-shadow: 0 5px 30px -5px rgba(0, 0, 0, 0.2);
-			padding: 3px;
-			float: right;
-			border-bottom-right-radius: 10px;
-			border-bottom-left-radius: 10px;
-			background: $kmla-menu-color;
-			color: $white;
-            a {
-                color: $kmla-profile-nav-color;
-                font-weight: normal;
-            }
-			.login_input {
-				width: 95%;
-			}
-			#status_message {
-				@extend %extend_4;
-				padding-top: 7px;
-				padding-left: 2px;
-				width: 221px;
-				text-align: center;
-				color: $white;
-			}
-			#status_message_edit {
-				@extend %extend_4;
-				border: 1px solid $gray;
-				padding-left: 2px;
-				width: 218px;
-				color: $black;
-			}
-		}
 		#back-to-main {
             display: block;
             height: 100%;
@@ -446,6 +410,42 @@ div {
 	&.food-header {
 		font-weight: bold;
 	}
+    &.userarea {
+        position: absolute;
+        right: 0;
+        z-index: 9;
+        width: 222px;
+        height: 130px;
+        box-shadow: 0 5px 30px -5px rgba(0, 0, 0, 0.2);
+        padding: 3px;
+        float: right;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        background: $kmla-menu-color;
+        color: $white;
+        a {
+            color: $kmla-profile-nav-color;
+            font-weight: normal;
+        }
+        .login_input {
+            width: 95%;
+        }
+        #status_message {
+            @extend %extend_4;
+            padding-top: 7px;
+            padding-left: 2px;
+            width: 221px;
+            text-align: center;
+            color: $white;
+        }
+        #status_message_edit {
+            @extend %extend_4;
+            border: 1px solid $gray;
+            padding-left: 2px;
+            width: 218px;
+            color: $black;
+        }
+    }
 	&.weather {
 		text-align: center;
 	}
