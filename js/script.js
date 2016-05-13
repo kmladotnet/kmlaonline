@@ -367,7 +367,7 @@ function hideUserButton() {
     }, 50).velocity({
         width: 0,
         padding: 0,
-    }, 150, "easeInOutQuad").css("display", "none");
+    }, 150, "easeInOutQuad").velocity({"display", "none"});
     userButtonShown = false;
 }
 
