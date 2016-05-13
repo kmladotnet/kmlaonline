@@ -92,11 +92,8 @@ function printContentPc(){
                 </form>
             </div>
             <div id="main-edit-pane" style="margin-top: 6px; display:none">
-                <div>
-                    <i class="fa fa-exclamation-triangle"></i> 편집 모드를 종료하거나 레이아웃 저장 버튼을 누르기 전엔 레이아웃이 저장되지 않습니다.
-                </div>
                 <div class="btn-group" style="margin-top: 4px">
-                    <select id="add-module" class="selectpicker" data-style="btn-default" data-size="10" title="패널 추가" data-selected-text-format="static">
+                    <select id="add-module" class="selectpicker" data-style="btn-info" data-size="10" title="패널 추가" data-selected-text-format="static">
                         <option value="important">필수 공지</option>
                         <option value="birthday">생일</option>
                         <option value="menu">식단</option>
@@ -126,6 +123,9 @@ function printContentPc(){
                         <button type="button" class="btn btn-danger" onclick="cancelLayout();"><i class="fa fa-trash-o"></i> 모든 변경사항 취소</button>
                         <button type="button" class="btn btn-danger" onclick="resetMainLayout();"><i class="fa fa-times"></i> 초기화</button>
                     </div>
+                </div>
+                <div>
+                    <i class="fa fa-exclamation-triangle"></i> 편집 모드를 종료하거나 레이아웃 저장 버튼을 누르기 전엔 레이아웃이 저장되지 않습니다.
                 </div>
             </div>
         </div>
