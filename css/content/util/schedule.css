@@ -27,7 +27,7 @@ table#calender th{
 	padding:12px;
 }
 table#calender td{
-	padding:3px;
+	padding:0;
 	height:120px;
 	vertical-align:top;
 }
