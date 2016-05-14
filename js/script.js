@@ -350,6 +350,14 @@ function showUserButton() {
     userButtonShown = true;
 }
 
+if ($("total-header").length > 0) {
+    $("#slidedown1_button").velocity("stop", true).css({
+        display: "block",
+        width: "40px",
+        padding: "6px"
+    });
+}
+
 function showHeader() {
     $("div.total-header-menu-extend").velocity("slideDown", {duration: 250, easing: "easeOutCubic"});
     $("div.menu-shadow").velocity("slideDown", {duration: 250, easing: "easeOutCubic"});
