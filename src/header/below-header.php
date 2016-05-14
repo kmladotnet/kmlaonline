@@ -24,7 +24,7 @@
 			</div>
 		</div>
 	<?php } else {
-        if(!(!!$me && getTheme($me)['hideDasan'])) { ?>
+        if(!(!!$me && getTheme($me)['hidedasan'])) { ?>
             <div id="total-header">
                 <?php if (isset($_SESSION['user'])) { ?>
                     <div class="userarea"><?php include "src/header/userarea.php"; ?></div>
