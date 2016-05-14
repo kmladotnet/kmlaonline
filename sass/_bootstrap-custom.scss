@@ -6,13 +6,14 @@
 
 // Core variables and mixins
 @import "bootstrap/variables";
-@import "bootstrap-variables";
 @import "bootstrap/mixins";
 
 // Reset and dependencies
 @import "bootstrap/normalize";
 @import "bootstrap/print";
 //@import "bootstrap/glyphicons";
+
+@import "bootstrap-variables";
 
 // Core CSS
 @import "bootstrap/scaffolding";
