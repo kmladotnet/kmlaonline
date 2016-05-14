@@ -417,7 +417,7 @@ function prepareHeader() {
                 showUserButton();
             }
         }
-        if(scroller > 160) {
+        if(scroller > ($("#total-header").length > 0 ? 160 : 0)) {
             if (!upperHeaderVisible && !keepMenuShown && !hovering && !$("#slidedown1_sub").is(":visible") && !$("#slidedown2_sub").is(":visible") && !$("#slidedown3_sub").is(":visible")) {
                 if (menuShown) {
                     menuShown = false;
