@@ -350,15 +350,6 @@ function showUserButton() {
     userButtonShown = true;
 }
 
-if ($("total-header").length == 0) {
-    $("#slidedown1_button").velocity("stop", true).css({
-        display: "block",
-        width: "40px",
-        padding: "6px",
-        opacity: 1
-    });
-}
-
 function showHeader() {
     $("div.total-header-menu-extend").velocity("slideDown", {duration: 250, easing: "easeOutCubic"});
     $("div.menu-shadow").velocity("slideDown", {duration: 250, easing: "easeOutCubic"});
@@ -411,7 +402,7 @@ function prepareHeader() {
     // Always show when scroll <= 160
     $(window).scroll(function (event) {
         var scroller = $(this).scrollTop();
-        if ($("total-header").length > 0) {
+        if ($("#total-header").length > 0) {
             if (scroller > 130) {
                 if(!userButtonShown) {
                     showUserButton();
@@ -756,6 +747,14 @@ function flashObject(elem, shortanim) {
     $(elem).velocity("callout.shake", {duration: 500});
 }
 addLoadEvent(function () {
+    if ($("#total-header").length == 0) {
+        $("#slidedown1_button").velocity("stop", true).css({
+            display: "block",
+            width: "40px",
+            padding: "6px",
+            opacity: 1
+        });
+    }
     $('a').each(function () {
         if (this.onclick || $(this).is('.clickbound') || this.href == "" ||
             this.href.toLowerCase().indexOf("http://" + location.host.toLowerCase() + "/files/") == 0 ||
