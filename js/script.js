@@ -354,7 +354,8 @@ if ($("total-header").length == 0) {
     $("#slidedown1_button").velocity("stop", true).css({
         display: "block",
         width: "40px",
-        padding: "6px"
+        padding: "6px",
+        opacity: 1
     });
 }
 
