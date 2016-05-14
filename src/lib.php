@@ -629,10 +629,11 @@ function getTheme($user) {
         }
         $file = "data/user/theme/{$user['n_id']}.txt";
         $items = array('beta', 'voteright', 'nojam', 'pinmenu');
+        $on_items = array('pinmenu');
         if(file_exists($file) && ($_SESSION['theme'] = json_decode(file_get_contents($file), true)) != null) {
             foreach($items as $item) {
                 if(!array_key_exists($item, $_SESSION['theme'])) {
-                    $_SESSION['theme'][$item] = false;
+                    $_SESSION['theme'][$item] = in_array($item, $on_items);
                 }
             }
             if(!$april_fools) {
@@ -644,7 +645,7 @@ function getTheme($user) {
             $_SESSION['theme']['square'] = false;
             $_SESSION['theme']['gradients'] = false;
             foreach($items as $item) {
-                $_SESSION['theme'][$item] = false;
+                $_SESSION['theme'][$item] = in_array($item, $on_items);
             }
         }
     }
