@@ -350,7 +350,7 @@ function showUserButton() {
     userButtonShown = true;
 }
 
-if ($("total-header").length > 0) {
+if ($("total-header").length == 0) {
     $("#slidedown1_button").velocity("stop", true).css({
         display: "block",
         width: "40px",
