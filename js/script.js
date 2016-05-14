@@ -367,6 +367,7 @@ var closeTimer;
 var hovering;
 var menuShown = true;
 var userButtonShown = false;
+var keepMenuShown = false;
 function prepareHeader() {
     $("div.menu1").off("mouseenter").mouseenter(function () {
         var t = $(this);
@@ -411,7 +412,7 @@ function prepareHeader() {
             }
         }
         if(scroller > 160) {
-            if (!upperHeaderVisible && !hovering && !$("#slidedown1_sub").is(":visible") && !$("#slidedown2_sub").is(":visible") && !$("#slidedown3_sub").is(":visible")) {
+            if (!upperHeaderVisible && !keepMenuShown && !hovering && !$("#slidedown1_sub").is(":visible") && !$("#slidedown2_sub").is(":visible") && !$("#slidedown3_sub").is(":visible")) {
                 if (menuShown) {
                     menuShown = false;
                     $("div.total-header-menu-extend").velocity("slideUp", {duration: 200, easing: "easeOutCubic"});

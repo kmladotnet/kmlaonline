@@ -70,7 +70,12 @@
     <!-- other -->
     <script src="/swfupload/swfupload.js"></script>
     <script src="/swfupload/swfupload.queue.js"></script>
-    <script src="/js/script.js?v=6.2"></script>
+    <script src="/js/script.js?v=7.0"></script>
+    <?php if(getTheme($me)['pinmenu']) { ?>
+        <script>
+            keepMenuShown = true;
+        </script>
+    <?php } ?>
     <link rel="stylesheet" href="/css/font.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="/sass-compiled/screen.css?v=2" type="text/css" media="screen" />
 

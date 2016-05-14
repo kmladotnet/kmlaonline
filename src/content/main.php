@@ -44,6 +44,19 @@ function printContentPc(){
                                 </label>
                             </div>
                         </div>
+                        <div class="form-group">
+                            상단메뉴 고정:
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default <?php if(getTheme($me)['pinmenu']) echo "active"; ?>">
+                                    <input type="radio" name="pinmenu" id="pinmenu-option" autocomplete="off"
+                                           <?php if(getTheme($me)['pinmenu']) echo "checked"; ?>> 고정하기
+                                </label>
+                                <label class="btn btn-default <?php if(!getTheme($me)['pinmenu']) echo "active"; ?>">
+                                    <input type="radio" name="dontpin" id="dontpin-option" autocomplete="off"
+                                           <?php if(!getTheme($me)['pinmenu']) echo "checked"; ?>> 자동으로 숨기기
+                                </label>
+                            </div>
+                        </div>
                     </div>
                     <div>
                         <h3>기타</h3>

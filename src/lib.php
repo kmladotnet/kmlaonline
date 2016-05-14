@@ -628,15 +628,12 @@ function getTheme($user) {
             mkdir("data/user/theme");
         }
         $file = "data/user/theme/{$user['n_id']}.txt";
+        $items = array('beta', 'voteright', 'nojam', 'pinmenu');
         if(file_exists($file) && ($_SESSION['theme'] = json_decode(file_get_contents($file), true)) != null) {
-            if(!array_key_exists('beta', $_SESSION['theme'])) {
-                $_SESSION['theme']['beta'] = false;
-            }
-            if(!array_key_exists('voteright', $_SESSION['theme'])) {
-                $_SESSION['theme']['voteright'] = false;
-            }
-            if(!array_key_exists('nojam', $_SESSION['theme'])) {
-                $_SESSION['theme']['nojam'] = false;
+            foreach($items as $item) {
+                if(!array_key_exists($item, $_SESSION['theme'])) {
+                    $_SESSION['theme'][$item] = false;
+                }
             }
             if(!$april_fools) {
                 $_SESSION['theme']['nojam'] = false;
@@ -646,9 +643,9 @@ function getTheme($user) {
             $_SESSION['theme']['dark'] = false;
             $_SESSION['theme']['square'] = false;
             $_SESSION['theme']['gradients'] = false;
-            $_SESSION['theme']['beta'] = false;
-            $_SESSION['theme']['voteright'] = false;
-            $_SESSION['theme']['nojam'] = false;
+            foreach($items as $item) {
+                $_SESSION['theme'][$item] = false;
+            }
         }
     }
     return $_SESSION['theme'];
