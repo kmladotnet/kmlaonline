@@ -57,6 +57,21 @@ function printContentPc(){
                                 </label>
                             </div>
                         </div>
+                        <div class="form-group">
+                            로고 바 표시:
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default <?php if(!getTheme($me)['hidedasan']) echo "active"; ?>">
+                                    <input type="radio" name="showdasan" id="showdasan-option" autocomplete="off"
+                                           <?php if(!getTheme($me)['hidedasan']) echo "checked"; ?>>
+                                    표시하기
+                                </label>
+                                <label class="btn btn-default <?php if(getTheme($me)['hidedasan']) echo "active"; ?>">
+                                    <input type="radio" name="hidedasan" id="hidedasan-option" autocomplete="off"
+                                           <?php if(getTheme($me)['hidedasan']) echo "checked"; ?>>
+                                    숨기기
+                                </label>
+                            </div>
+                        </div>
                     </div>
                     <div>
                         <h3>기타</h3>

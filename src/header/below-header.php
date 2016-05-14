@@ -23,13 +23,15 @@
 				<?php } ?>
 			</div>
 		</div>
-	<?php } else { ?>
-		<div id="total-header">
-            <?php if (isset($_SESSION['user'])) { ?>
-			<div class="userarea"><?php include "src/header/userarea.php"; ?></div>
-            <?php } ?>
-			<a id="back-to-main" href="./"></a><br />
-		</div>
+	<?php } else {
+        if(!(!!$me && getTheme($me)['hideDasan'])) { ?>
+            <div id="total-header">
+                <?php if (isset($_SESSION['user'])) { ?>
+                    <div class="userarea"><?php include "src/header/userarea.php"; ?></div>
+                <?php } ?>
+                <a id="back-to-main" href="./"></a><br />
+            </div>
+        <?php } ?>
 		<script type="text/javascript">prepareHeader();</script>
 	<?php } ?>
 	<div id="total-content"><?php if (function_exists("printContent")) { printContent(); } ?><div style="clear:both"></div></div>

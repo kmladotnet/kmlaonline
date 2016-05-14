@@ -137,10 +137,12 @@
     <div class="hide-on-upper-panel" style="position:absolute;background:#074275;left:0;width:100%;right:0;display:block;height:40px;z-index:-5;">
         <div class="total-header-extend-1" style="position:absolute;background:#074275;left:0;width:100%;right:0;display:block;height:40px;"></div>
     </div>
-    <div class="hide-on-upper-panel" style="position:absolute;left:0;width:100%;right:0;display:block;height:160px;top:40px;z-index:-5;">
-        <div class="total-header-extend-1" style="position:absolute;left:0;width:100%;right:0;display:block;height:160px;"></div>
-        <div class="total-header-extend-2" style="position:absolute;left:0;width:100%;right:0;display:block;height:160px;"></div>
-    </div>
+    <?php if(!(!!$me && getTheme($me)['hidedasan'])) { ?>
+        <div class="hide-on-upper-panel" style="position:absolute;left:0;width:100%;right:0;display:block;height:160px;top:40px;z-index:-5;">
+            <div class="total-header-extend-1" style="position:absolute;left:0;width:100%;right:0;display:block;height:160px;"></div>
+            <div class="total-header-extend-2" style="position:absolute;left:0;width:100%;right:0;display:block;height:160px;"></div>
+        </div>
+    <?php } ?>
     <div id="divSavingIndicatorFiller"></div>
     <div style="" id="divSavingIndicator">
         <div id="divSavingIndicatorInformation">
