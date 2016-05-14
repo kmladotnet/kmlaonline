@@ -402,13 +402,19 @@ function prepareHeader() {
     // Always show when scroll <= 160
     $(window).scroll(function (event) {
         var scroller = $(this).scrollTop();
-        if (scroller > 130) {
-            if(!userButtonShown) {
-                showUserButton();
+        if ($("total-header").length > 0) {
+            if (scroller > 130) {
+                if(!userButtonShown) {
+                    showUserButton();
+                }
+            } else {
+                if(userButtonShown) {
+                    hideUserButton();
+                }
             }
         } else {
-            if(userButtonShown) {
-                hideUserButton();
+            if(!userButtonShown) {
+                showUserButton();
             }
         }
         if(scroller > 160) {
