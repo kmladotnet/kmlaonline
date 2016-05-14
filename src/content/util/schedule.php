@@ -83,7 +83,7 @@ function printContent(){
 			<a style='font-weight:bold;<?php if($mode=="normal") echo "color:black;"; ?>' href="/util/schedule?mode=normal&amp;year=<?php echo $curYear?>&amp;month=<?php echo $curMonth?>">일정 보기</a>
 		</div>
 		<br />
-		<table id="calender">
+		<table id="calender" class="table">
 			<thead>
 				<tr>
 					<th>일요일</th>
@@ -100,16 +100,16 @@ function printContent(){
 				for($i=0;$i<count($calender);$i++){
 					echo "<tr>";
 					for($j=0;$j<7;$j++){
-						$bg="";
+						$bg="padding: 3px; ";
 						if(isset($calender[$i][$j])){
 							$datename=$calender[$i][$j];
 							if($curYear==date("Y") && $curMonth==date("n") && $datename==date("j"))
-								$bg="background: gold";
+								$bg.="background: #c5e8f4;";
 						}
 						if($j==6)
-							echo "<td style='border-top:1px solid gray;'>";
+							echo "<td style='border-top:1px solid #ccc;'>";
 						else
-							echo "<td style='border-right:1px solid gray;border-top:1px solid gray;'>";
+							echo "<td style='border-right:1px solid #ccc;border-top:1px solid #ccc;'>";
 						if(!isset($calender[$i][$j])){
 							echo "</td>";
 							continue;
@@ -123,7 +123,6 @@ function printContent(){
 						
 						echo "<div style='clear:both'></div>";
 						echo "</div>";
-						echo "<div class='divider'></div>";
 						if($mode=="normal"){
 							$minWave=date("Y")-1997;
 							$births=array();
@@ -133,7 +132,7 @@ function printContent(){
 								}
 							}
 							if(count($births)){
-								echo "<div style='padding:3px 0 3px 0;'>";
+								echo "<div style='padding:3px;'>";
 								echo "<b>생일: </b>".implode(",",$births) . "<br />";
 								echo "</div>";
 								echo "<div class='divider'></div>";
@@ -152,15 +151,15 @@ function printContent(){
 								<input type='button' value='취소' onclick='return util_schedule_cancelEdit(this);' />
 								<input type='submit' value='저장' />
 							</div>
-							</form>
-							<div style='width:100%;padding:0;margin:0;border:0;text-align:center;'><?php
-								if(strlen($curData)>0)
-									echo nl2br($curData);
-								else if($mode=="normal")
-									echo "<span style='color:#DDD'>(지정되지 않음)</span>";
-								else
-									echo "<span style='color:#DDD'>(입력되지 않음)</span>";
-							?></div>
+                        </form>
+                        <div style='width:100%;padding:3px;margin:0;border:0;text-align:center;'><?php
+                            if(strlen($curData)>0)
+                                echo nl2br($curData);
+                            else if($mode=="normal")
+                                echo "<span style='color:#DDD'>(지정되지 않음)</span>";
+                            else
+                                echo "<span style='color:#DDD'>(입력되지 않음)</span>";
+                        ?></div>
 						</td>
 						<?php
 					}
