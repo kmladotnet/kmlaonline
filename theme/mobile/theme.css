@@ -129,11 +129,11 @@ div#total-header {
 div#total-header a {
     color: white;
 }
-div#total-header #userarea {
+div#total-header .userarea {
     height: 48px;
     text-align: center;
 }
-div#total-header #userarea a.backtomain {
+div#total-header .userarea a.backtomain {
     position: absolute;
     left: 0;
     top: 0;
@@ -143,13 +143,13 @@ div#total-header #userarea a.backtomain {
     font-weight: bold;
     height: 48px;
 }
-div#total-header #userarea a.userinfo {
+div#total-header .userarea a.userinfo {
     position: absolute;
     left: 0;
     top: 0;
     height: 48px;
 }
-div#total-header #userarea a.sitemap {
+div#total-header .userarea a.sitemap {
     position: absolute;
     right: 0;
     top: 0;
@@ -158,7 +158,7 @@ div#total-header #userarea a.sitemap {
     color: rgba(255, 255, 255, 0.8);
     font-size: 32px;
 }
-div#total-header #userarea a.searchall {
+div#total-header .userarea a.searchall {
     position: absolute;
     right: 48px;
     top: 0;
@@ -167,10 +167,10 @@ div#total-header #userarea a.searchall {
     color: rgba(255, 255, 255, 0.8);
     font-size: 32px;
 }
-div#total-header #userarea img {
+div#total-header .userarea img {
     height: 48px;
 }
-div#total-header #userarea * {
+div#total-header .userarea * {
     vertical-align: middle;
 }
 div#total-content {
