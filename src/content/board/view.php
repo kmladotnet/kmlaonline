@@ -127,11 +127,10 @@ function printAttachList($article, $cat, $mode=0){
 		?>
 		<div class="attach_container">
 			<div style="width:100%;display:block;position:relative;">
-				<a onclick="smoothToggleVisibility($($(this).parent()).next().children());$('#__button__close').css('display','none');$('#__button__open').css('display','block');return false;" class="btn btn-default" style="float:left;<?php if(!$defaultshow) echo "display:none"?>" id="__button__close">접기 (<?php echo count($attaches)?>개)</a>
-				<a onclick="smoothToggleVisibility($($(this).parent()).next().children());$('#__button__close').css('display','block');$('#__button__open').css('display','none');return false;" class="btn btn-default" style="float:left;<?php if($defaultshow) echo "display:none"?>" id="__button__open">열기 (<?php echo count($attaches)?>개)</a>
-				<a href="<?php echo "/files/bbs/{$cat['n_id']}/{$article['n_id']}/".rawurlencode($cat['s_name'] . " - " .  $article['n_id'] . " - " . sanitizeFileName($article['s_title'])).".zip";?>" class="btn btn-default" style="float:right;">묶어받기 (<?php echo convertFromBytes($fsize); ?>)</a>
-				<div style="clear:both"></div>
+				<div style="font-size:15pt;font-weight:bold;float:left">첨부파일</div>
+				<a href="<?php echo "/files/bbs/{$cat['n_id']}/{$article['n_id']}/".rawurlencode($cat['s_name'] . " - " .  $article['n_id'] . " - " . sanitizeFileName($article['s_title'])).".zip";?>" class="btn btn-default" style="float:right;">압축파일로 받기 (<?php echo convertFromBytes($fsize); ?>)</a>
 			</div>
+            <div style="clear: both;"></div>
 			<div>
 				<div style="<?php echo $defaultshow?"display:block;":"display:none;"?>">
 					<?php
