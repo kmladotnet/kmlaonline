@@ -235,12 +235,12 @@ function putCommentTree($parent,$root){
                     <?php } ?>
                     <span style="font-size:8pt;color:gray;"><?php echo date("Y-m-d H:i:s", $comment['n_writedate'])?></span>
                     <?php if($board_id!='picexhibit') { ?>
-                        <div id="item_contents_<?php echo $comment['n_id'];?>" style="margin-top: 4px">
+                        <div id="item_contents_<?php echo $comment['n_id'];?>" style="margin-top: 6px">
                             <?php filterContent($comment['s_data']);?>
                         </div>
                         <div style="display:none" class="item_hidden" id="item_hidden_<?php echo $comment['n_id'];?>">(숨김) - 좌측 상단의 '+' 버튼을 눌러서 표시할 수 있습니다.</div>
                     <?php } ?>
-                    <div style="font-size:0.8em">
+                    <div style="font-size:0.8em; margin-top: -8px;">
                         <?php
                         if(doesAdminBypassEverythingAndIsAdmin($me['n_id']==$comment['n_writer'])){
                             if(checkCategoryAccess($board_cat['n_id'], "comment edit")&&!$b_comment_anonymous) {
