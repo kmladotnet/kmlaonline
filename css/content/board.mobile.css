@@ -118,9 +118,8 @@ div.article_data img{
 	max-width:100% !important;
 }
 div.comment_area_info{
-	padding:25px;
+	padding:20px;
 	display:block;
-	background:#FCFCFC;
 	border-bottom:1px solid #DDD;
 }
 div.comment_area{}
@@ -195,16 +194,7 @@ div.flash {
 	margin-right:5px;
 	margin-bottom:5px;
 	border-color: #D9E4FF;
-
-	-moz-border-radius-topleft : 5px;
-	-webkit-border-top-left-radius : 5px;
-    -moz-border-radius-topright : 5px;
-    -webkit-border-top-right-radius : 5px;
-    -moz-border-radius-bottomleft : 5px;
-    -webkit-border-bottom-left-radius : 5px;
-    -moz-border-radius-bottomright : 5px;
-    -webkit-border-bottom-right-radius : 5px;
-
+    border-radius: 5px;
 }
 
 .progressWrapper {
