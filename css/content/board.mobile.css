@@ -130,7 +130,7 @@ div.article_comment .acomment{
 	border-bottom:1px dotted #DDD;
 }
 div.article_comment .new_acomment{
-    margin:8px;
+    margin:9px;
 }
 li.placeHolder div { background-color:white !important; border:dashed 1px #DDD !important; }
 #fsUploadedFiles li{
