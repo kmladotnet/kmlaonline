@@ -4,10 +4,10 @@ function articleList($article_list, $category=true, $title=true, $name=true, $da
 	?>
 	<table style="width:100%;overflow:auto;">
 		<tr style="height:<?php echo $height?>px;">
-			<?php if($category){ ?><th style="width:140px;">분류</th><?php } ?>
+			<?php if($category){ ?><th style="width: 140px; text-align: center;">분류</th><?php } ?>
 			<?php if($title){ ?><th>제목</th><?php } ?>
-			<?php if($name){ ?><th style="width:100px;">이름</th><?php } ?>
-			<?php if($date){ ?><th style="width:70px;">날짜</th><?php } ?>
+			<?php if($name){ ?><th style="width: 100px; text-align: center;">이름</th><?php } ?>
+			<?php if($date){ ?><th style="width: 70px; text-align: center;">날짜</th><?php } ?>
 		</tr>
 		<?php
         $num = 0;
