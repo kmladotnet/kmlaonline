@@ -95,7 +95,7 @@ if($me['n_level']!=0){
         <ul style="text-align: center; padding: 0; margin: 0;" id="top_notification_list">
             <li id="notification_item_loading">불러오는 중....</li>
         </ul>
-        <a href="/user/notification"><div style="text-align: center; padding: 5px; background: #eee"> 모두 보기</div></a>
+        <a href="/user/notification"><div style="text-align: center; padding: 5px; background: #eee; border-radius: 0 0 5px 5px;"> 모두 보기</div></a>
     </div>
 </div>
 <div id="slidedown1" class="slidedown_holder">
