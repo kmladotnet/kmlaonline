@@ -11,8 +11,8 @@ $very-light-gray: #ddd;
 $very-very-light-gray: #eee;
 $extremely-light-gray: #fcfcfc;
 $cream-color: #ffc;
-$kmla-notification-new-color: #ddf;
-$kmla-notification-hover-color: #eef;
+$kmla-notification-new-color: #dde5ff;
+$kmla-notification-hover-color: #d0d7f5;
 $kmla-header-extend-color: #bed6ea;
 $kmla-menu-color: #074275;
 $kmla-footer-color: #ffefd2;
@@ -665,6 +665,7 @@ ul#top_notification_list {
 			color: $black;
 			display: block;
 			padding: 10px;
+            border-bottom: 1px solid #ddd;
 		}
 	}
 }
