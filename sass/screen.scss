@@ -11,8 +11,8 @@ $very-light-gray: #ddd;
 $very-very-light-gray: #eee;
 $extremely-light-gray: #fcfcfc;
 $cream-color: #ffc;
-$kmla-notification-new-color: #e0edff;
-$kmla-notification-hover-color: #dde5ff;
+$kmla-notification-new-color: #e7f3ff;
+$kmla-notification-hover-color: #e1eeff;
 $kmla-header-extend-color: #bed6ea;
 $kmla-menu-color: #074275;
 $kmla-footer-color: #ffefd2;
@@ -455,7 +455,7 @@ div {
         background: #eee;
         border-radius: 0 0 5px 5px;
         &:hover {
-            background: #e4e4e4;
+            background: #e7e7e7;
         }
     }
 	&.weather {
