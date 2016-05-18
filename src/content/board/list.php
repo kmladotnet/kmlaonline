@@ -293,8 +293,6 @@ function printArticleList(){
                         <button class="btn btn-primary" type="submit" id="search_button"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
                     </span>
                 </div>
-				<input type="text" class="form-control" name="search" value="<?php echo $search?htmlspecialchars($search):""?>" style="margin-left:3px;width:120px;vertical-align:middle; display: inline-block;" />
-				<input type="submit" class="btn btn-default" id="search_button" value="검색" style="width:80px;height:32px;vertical-align:middle;" />
 			</form>
 		</div>
 		<?php
