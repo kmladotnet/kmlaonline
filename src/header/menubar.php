@@ -110,7 +110,7 @@ if($me['n_level']!=0){
     <div class="button slidedown_button" id="slidedown3_button" style="z-index:1">
         <i class="fa fa-search"></i>
     </div>
-    <div class="slidedown" id="slidedown3_sub" style="right:40px;" tabindex="0">
+    <div class="slidedown" id="slidedown3_sub" tabindex="0">
         <form method="get" action="/searchall">
             <div style="margin: 5px;overflow:hidden;">
                 <div class="input-group">
