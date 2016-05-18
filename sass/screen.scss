@@ -449,6 +449,15 @@ div {
             color: $black;
         }
     }
+    &.notification_more {
+        text-align: center;
+        padding: 5px;
+        background: #eee;
+        border-radius: 0 0 5px 5px;
+        &:hover {
+            background: #ddd;
+        }
+    }
 	&.weather {
 		text-align: center;
 	}
