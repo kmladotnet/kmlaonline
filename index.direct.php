@@ -77,7 +77,7 @@
         </script>
     <?php } ?>
     <link rel="stylesheet" href="/css/font.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="/sass-compiled/screen.css?v=2" type="text/css" media="screen" />
+    <link rel="stylesheet" href="/sass-compiled/screen.css?v=2.01" type="text/css" media="screen" />
 
     <?php
     if($april_fools) {
