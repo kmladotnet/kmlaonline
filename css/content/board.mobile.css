@@ -50,10 +50,11 @@ div.attach_container{
 	text-align:center;
 }
 div.each_attachment_0{
-	float:left;
+    display: inline-block;
+    vertical-align: top;
+	text-align:center;
 	width:128px;
 	min-height:148px;
-	display:block;
 	margin:5px;
 }
 div.each_attachment_1{

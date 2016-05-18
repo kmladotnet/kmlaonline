@@ -111,7 +111,7 @@
 
     <?php
 	if(function_exists("printHead")) printHead();
-	if(file_exists("css/content/$fn.css")) echo "<link class='page-specific-css' rel='stylesheet' href='/css/content/$fn.css?v=3' />";
+	if(file_exists("css/content/$fn.css")) echo "<link class='page-specific-css' rel='stylesheet' href='/css/content/$fn.css?v=4' />";
 	if(file_exists("js/content/$fn.js")) echo "<script src='/js/content/$fn.js?v=2'></script>";
     if(isset($includes)) {
 		foreach($includes as $val) {

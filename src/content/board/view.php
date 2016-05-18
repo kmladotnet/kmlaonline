@@ -128,7 +128,7 @@ function printAttachList($article, $cat, $mode=0){
 		<div class="attach_container">
 			<div style="width:100%;display:block;position:relative;">
 				<div style="font-size:15pt;font-weight:bold;float:left">첨부파일</div>
-				<a href="<?php echo "/files/bbs/{$cat['n_id']}/{$article['n_id']}/".rawurlencode($cat['s_name'] . " - " .  $article['n_id'] . " - " . sanitizeFileName($article['s_title'])).".zip";?>" class="btn btn-default" style="float:right;">압축파일로 받기 (<?php echo convertFromBytes($fsize); ?>)</a>
+				<a href="<?php echo "/files/bbs/{$cat['n_id']}/{$article['n_id']}/".rawurlencode($cat['s_name'] . " - " .  $article['n_id'] . " - " . sanitizeFileName($article['s_title'])).".zip";?>" class="btn btn-default" style="float:right; margin-top: -8px; margin-bottom: 6px;"><i class="fa fa-file-archive-o" aria-hidden="true"></i> 압축파일로 받기 (<?php echo convertFromBytes($fsize); ?>)</a>
 			</div>
             <div style="clear: both;"></div>
 			<div>
@@ -177,7 +177,6 @@ function printAttachList($article, $cat, $mode=0){
 								echo '<div style="margin:10px;">'.htmlspecialchars($v['s_comment']).'</div>';
 							}
 						?></div><?php
-						if(++$c_cnt%($is_mobile?2:7)==0) echo "<div style='clear:both'></div>";
 					}
 					?>
 					<div style="clear:both"></div>

@@ -64,15 +64,15 @@ div.attach_container{
 	padding:20px;
 	display:block;
 	border-bottom:1px solid #DDD;
-	text-align:center;
 }
 div.each_attachment_0{
-	float:left;
+    display: inline-block;
+    vertical-align: top;
+	text-align:center;
 	width:128px;
 	min-height:148px;
 	word-break:break-all;
 	white-space:pre-wrap;
-	display:block;
 	margin:5px;
 }
 div.each_attachment_1{
