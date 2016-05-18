@@ -256,8 +256,14 @@ function printArticleList(){
 	<?php if(checkCategoryAccess($board_cat['n_id'], "write")){ ?>
 		<div style="float:left">
 			<form method="get" action="/board/<?php echo htmlspecialchars($board_id)?>/write">
-				<input type="submit" class="btn btn-default" value="글쓰기" style="width:80px;height:32px;vertical-align:middle;" />
-				<?php if($search!==false){ ?><input class="btn btn-default" type="button" onclick="return changeLinkTo('/board/<?php echo htmlspecialchars($board_id)?>');" value="돌아가기" style="width:80px;height:32px;vertical-align:middle;" /><?php } ?>
+				<button type="submit" class="btn btn-default">
+                   <i class="fa fa-pencil" aria-hidden="true"></i> 글쓰기
+                </button>
+				<?php if($search!==false){ ?>
+                    <button class="btn btn-default" type="button" onclick="return changeLinkTo('/board/<?php echo htmlspecialchars($board_id)?>');">
+                        <i class="fa fa-arrow-left" aria-hidden="true"></i> 돌아가기
+                    </button>
+                <?php } ?>
 			</form>
 		</div>
 	<?php } ?>
@@ -281,6 +287,12 @@ function printArticleList(){
 				<a id="search_from_toggler" onclick="smoothToggleVisibility('#div_search_method', 1); return smoothToggleVisibility('#div_search_from');">제목에서</a>
 				<a id="search_method_toggler" onclick="smoothToggleVisibility('#div_search_from', 1); return smoothToggleVisibility('#div_search_method');">모든 조건 만족 시</a>
 				<?php if($is_mobile) echo "<br />" ?>
+                <div class="input-group" style="width: 200px; float: right; margin-left: 7px; top: -7px;">
+                    <input type="search" class="form-control" placeholder="검색" name="search">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" type="submit" id="search_button"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+                    </span>
+                </div>
 				<input type="text" class="form-control" name="search" value="<?php echo $search?htmlspecialchars($search):""?>" style="margin-left:3px;width:120px;vertical-align:middle; display: inline-block;" />
 				<input type="submit" class="btn btn-default" id="search_button" value="검색" style="width:80px;height:32px;vertical-align:middle;" />
 			</form>
