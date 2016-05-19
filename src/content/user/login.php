@@ -28,7 +28,7 @@ function printContent(){
         <div style="text-align:center;width:100%">
             <a href="https://kmlaonline.net">
                 <h1 id="login_title" style="color:white">
-                    <img id="menu-logo-image-2" src="/images/logo.png" alt="KMLAONLINE" style="width: 30px;height: 30px;margin: 10px;margin-top: 0;"> KMLA Online
+                    <img id="menu-logo-image-2" src="/images/logo.png" alt="KMLAONLINE" style="width: 30px;height: 30px;margin: 10px;margin-top: 0;">KMLA Online
                 </h1>
             </a>
             <?php if(isset($_GET['p1']) && $_GET['p1']=='bad'){ ?>
