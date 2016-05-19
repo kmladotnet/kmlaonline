@@ -26,10 +26,16 @@ function printContent(){
         <input type="hidden" id="downform_login_action" name="action" value="login" />
         <input type="hidden" name="returnto" value="<?php echo ((isset($_REQUEST['returnto']) && $_REQUEST['returnto']!=" ")?$_REQUEST['returnto']:"/ ")?>" />
         <div style="text-align:center;width:100%">
-            <a href="https://kmlaonline.net"><h1 id="login_title" style="color:white">KMLAONLINE</h1></a>
+            <a href="https://kmlaonline.net">
+                <h1 id="login_title" style="color:white">
+                    <img id="menu-logo-image-2" src="/images/logo.png" alt="KMLAONLINE" style="width: 30px;height: 30px;margin: 10px;margin-top: 0;"> KMLA Online
+                </h1>
+            </a>
             <?php if(isset($_GET['p1']) && $_GET['p1']=='bad'){ ?>
                 <div style="color:red;font-weight:bold;size:15pt;text-align:center;">ID 또는 패스워드가 잘못되었습니다.
-                    <br /><b>E-Mail이 아니라 ID로 로그인하세요.</div>
+                    <br />
+                    <b>E-Mail이 아니라 ID로 로그인하세요.</b><
+                /div>
 				<br />
 			<?php }else if(isset($_GET['p1']) && $_GET['p1']=='required'){ ?>
 				<div style="color:red;font-weight:bold;size:15pt;text-align:center;">로그인해야 볼 수 있는 페이지입니다.</div>
