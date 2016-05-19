@@ -32,36 +32,11 @@ function printContent(){
                     <img id="menu-logo-image-2" src="/images/logo.png" alt="KMLAONLINE" style="width: 30px;height: 30px;margin: 10px;margin-top: 0;">KMLA Online
                 </h1>
             </a>
-            <?php if(isset($_GET['p1']) && $_GET['p1']=='bad'){ ?>
-                <script>
-                    var badlogin = new PNotify({
-                        title: 'ID 또는 패스워드가 잘못되었습니다.',
-                        body: '실수로 ID 대신 이메일을 입력했는지 확인해주세요.',
-                        type: 'error',
-                        buttons: {
-                            closer: false,
-                            sticker: false
-                        }
-                    });
-                    badlogin.get().click(function () {
-                        badlogin.remove();
-                    });
-                </script>
-			<?php }else if(isset($_GET['p1']) && $_GET['p1']=='required'){ ?>
-                <script>
-                    var loginrequired = new PNotify({
-                        title: '로그인해야 볼 수 있습니다.',
-                        type: 'error',
-                        buttons: {
-                            closer: false,
-                            sticker: false
-                        }
-                    });
-                    loginrequired.get().click(function () {
-                        loginrequired.remove();
-                    });
-                </script>
-			<?php } ?>
+            <?php if(isset($_GET['p1']) && $_GET['p1']=='bad'){
+                insertOnLoadScript("var badlogin = new PNotify({title: 'ID 또는 패스워드가 잘못되었습니다.',body: '실수로 ID 대신 이메일을 입력했는지 확인해주세요.',type: 'error',buttons: {closer: false,sticker: false}});badlogin.get().click(function () {badlogin.remove();});");
+			}else if(isset($_GET['p1']) && $_GET['p1']=='required'){
+                insertOnLoadScript("var requirelogin = new PNotify({title: '로그인해야 볼 수 있습니다.',type: 'error',buttons: {closer: false,sticker: false}});requirelogin.get().click(function () {requirelogin.remove();});");
+            } ?>
 			<div style="width:222px;margin:0 auto;display:block;">
 				<div class="form-group">
                     <input placeholder="ID로 로그인해주세요" type="text" name="id" class="login_input form-control" autofocus onkeydown="if (event.which || event.keyCode){if ((event.which == 13) || (event.keyCode == 13)) {document.getElementById('cmdLoginPage').click();}};">
