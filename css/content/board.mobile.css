@@ -47,7 +47,6 @@ div.attach_container{
 	padding:8px;
 	display:block;
 	border-bottom:1px solid #DDD;
-	text-align:center;
 }
 div.each_attachment_0{
     display: inline-block;
@@ -103,10 +102,10 @@ div.board_gallery_list_item .info{
 	opacity:0;
 }
 div.article_header{
-	padding:8px;
+	padding:12px;
 	display:block;
-	background:#FCFCFC;
 	border-bottom:1px solid #DDD;
+    padding-bottom: 7px;
 }
 div.article_data{
 	word-wrap:break-word;
