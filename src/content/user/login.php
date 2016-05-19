@@ -73,7 +73,7 @@ function printContent(){
                     }" /> 기억하기</label></div>
 				<div style="clear:both;"></div>
 			</div>
-            <div style="text-align:center; background: rgba(255, 255, 255, 0.8); border-radius: 5px; padding: 5px;">
+            <div style="text-align:center; background: rgba(255, 255, 255, 0.8); border-radius: 5px; padding: 5px; margin: 5px;">
                 <?php
                 $curYear=date("Y");
                 $curMonth=date("n");
