@@ -5,9 +5,9 @@
 				<?php
 				$notic = $member->getNoticeCount($me['n_id']);
 				if ($notic == 0)
-					echo '<a class="backtomain" href="/">KMLA ONLINE</a>';
+					echo '<a class="backtomain" href="/"><img id="menu-logo-image-2" src="/images/logo.png" alt="KMLAONLINE" style="width: 16px; height: 16px; margin: 10px; margin-top: 8px;"> KMLA Online</a>';
 				else
-					echo '<a class="backtomain" href="/user/notification">'.$notic.' 알림</a>';
+					echo '<a class="backtomain" href="/user/notification"><img id="menu-logo-image-2" src="/images/logo.png" alt="KMLAONLINE" style="width: 16px; height: 16px; margin: 10px; margin-top: 8px;"> '.$notic.' 알림</a>';
 				?>
 				<?php if (isset($_SESSION['user'])) {  ?>
 					<a href="<?php echo "/user/view/{$me['n_id']}/{$me['s_id']}"?>" class="userinfo"><?php
