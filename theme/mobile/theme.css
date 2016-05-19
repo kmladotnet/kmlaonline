@@ -337,7 +337,8 @@ div#total-wrap {
 }
 #total-footer {
     background: #fff3d2;
-    padding: 32px;
+    background: linear-gradient(white, #ffefd2);
+    padding: 24px;
 }
 .userinfo_border {
     border: 1px solid #EEE;
