@@ -120,7 +120,7 @@ div#below-header-menu {
     background: white;
 }
 div#total-header {
-    background: rgb(21, 70, 107)
+    background: #074275
 }
 div#total-header a {
     color: white;
@@ -297,10 +297,10 @@ div.ajax-holder {
     background: white;
 }
 a, a:visited {
-    color: #4480A2
+    color: #0c70c7
 }
 a:hover, a:active {
-    color: #60A0C0
+    color: #2d97f2
 }
 .upper-file {
     display: inline-block;
