@@ -21,6 +21,7 @@ function printContent(){
 	}
 
 	?>
+    <style>.ui-pnotify{z-index:99999999999!important}</style>
     <div style="position: fixed;top: 0;left: 0;width: 100%;height: 100%;background: white;z-index: 99999;"></div>
     <form method="post" action="./check" id="downform_login" onsubmit="return true;">
         <input type="hidden" id="downform_login_action" name="action" value="login" />
