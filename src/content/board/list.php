@@ -286,11 +286,10 @@ function printArticleList(){
 				</div>
 				<a id="search_from_toggler" onclick="smoothToggleVisibility('#div_search_method', 1); return smoothToggleVisibility('#div_search_from');">제목에서</a>
 				<a id="search_method_toggler" onclick="smoothToggleVisibility('#div_search_from', 1); return smoothToggleVisibility('#div_search_method');">모든 조건 만족 시</a>
-				<?php if($is_mobile) echo "<br />" ?>
                 <div class="input-group" style="width: 200px; float: right; margin-left: 7px; top: -7px;">
                     <input type="search" class="form-control" placeholder="검색" name="search">
                     <span class="input-group-btn">
-                        <button class="btn btn-primary" type="submit" id="search_button"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+                        <button class="btn btn-primary" type="submit" id="search_button"><i class="fa fa-search" aria-hidden="true"></i></button>
                     </span>
                 </div>
 			</form>
