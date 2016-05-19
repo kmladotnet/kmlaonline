@@ -67,44 +67,39 @@ function printContent(){
                     }" /> 기억하기</label></div>
 				<div style="clear:both;"></div>
 			</div>
-			<div class="main-block panel panel-default" style="margin-top:20px;height:auto;position:relative;">
-				<div class="main-block-title panel-heading" style="text-align:left">
-					<div style="display:block;background:url('/images/food.png') no-repeat 0px 6px; background-size: 32px;padding-left:36px;">
-						식단
-					</div>
-				</div>
-                <div class="panel-body">
-                    <div style="text-align:center">
-                        <?php
-                        $curYear=date("Y"); $curMonth=date("n"); $curDay=date("j");
-                        if ($is_morning && date("H")>=22) {
-                            $curYear = date("Y", strtotime("+1 day"));
-                            $curMonth = date("m", strtotime("+1 day"));
-                            $curDay = date("d", strtotime("+1 day"));
-                        }
-                        $query="SELECT s_mode, s_data FROM kmlaonline_schedule_table WHERE n_year=$curYear AND n_month=$curMonth AND n_day=$curDay";
-                        if ($res=$mysqli->query($query)) {
-                            while ($row = $res->fetch_array(MYSQLI_ASSOC)) {
-                                $scheduleData[$row['s_mode']]=$row['s_data'];
-                            }
-                            $res->close();
-                            if ($mysqli->more_results()) $mysqli->next_result();
-                        }
-                        echo "<div style='font-weight:bold;font-size:11pt;padding:4px;'>{$curYear}년 {$curMonth}월 {$curDay}일</div>";
-                        ?>
+            <div style="text-align:center; background: rgba(255, 255, 255, 0.7); border-radius: 5px; padding: 5px;">
+                <?php
+                $curYear=date("Y");
+                $curMonth=date("n");
+                $curDay=date("j");
+                $curWeekDay = date("D");
+                if ($is_morning && date("H")>=22) {
+                    $curYear = date("Y", strtotime("+1 day"));
+                    $curMonth = date("n", strtotime("+1 day"));
+                    $curDay = date("j", strtotime("+1 day"));
+                    $curWeekDay = date("D", strtotime("+1 day"));
+                }
+                $query="SELECT s_mode, s_data FROM kmlaonline_schedule_table WHERE n_year=$curYear AND n_month=$curMonth AND n_day=$curDay";
+                if ($res=$mysqli->query($query)) {
+                    while ($row = $res->fetch_array(MYSQLI_ASSOC)) {
+                        $scheduleData[$row['s_mode']]=$row['s_data'];
+                    }
+                    $res->close();
+                    if ($mysqli->more_results()) $mysqli->next_result();
+                }
+                echo "<div style='font-weight:bold;font-size:12pt;padding:5px;'>{$curYear}년 {$curMonth}월 {$curDay}일 ({$curWeekDay})</div>";
+                ?>
 
-                        <div style="font-size:9pt;height:15pt;padding-top:3pt;">
-                                <a <?php if($is_morning) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-breakfast');">아침</a> |
-                                <a <?php if($is_afternoon) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-lunch');">점심</a> |
-                                <a <?php if($is_night) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-dinner');">저녁</a>
-                        </div>
-                        <div id="food-breakfast" class="morning"><?php echo isset($scheduleData['food:0'])?nl2br($scheduleData['food:0']):"<span style='color:#DDD'>(입력되지 않음)</span>"; ?></div>
-                        <div id="food-lunch" class="afternoon"><?php echo isset($scheduleData['food:1'])?nl2br($scheduleData['food:1']):"<span style='color:#DDD'>(입력되지 않음)</span>"; ?></div>
-                        <div id="food-dinner" class="night"><?php echo isset($scheduleData['food:2'])?nl2br($scheduleData['food:2']):"<span style='color:#DDD'>(입력되지 않음)</span>"; ?></div>
-                        <br>
-                    </div>
+                <div style="font-size:10pt;height:15pt;margin:5px;">
+                        <a <?php if($is_morning) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-breakfast');">아침</a> |
+                        <a <?php if($is_afternoon) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-lunch');">점심</a> |
+                        <a <?php if($is_night) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-dinner');">저녁</a>
                 </div>
-			</div>
+                <div id="food-breakfast" class="morning"><?php echo isset($scheduleData['food:0'])?nl2br($scheduleData['food:0']):"<span style='color:#DDD'>(입력되지 않음)</span>"; ?></div>
+                <div id="food-lunch" class="afternoon"><?php echo isset($scheduleData['food:1'])?nl2br($scheduleData['food:1']):"<span style='color:#DDD'>(입력되지 않음)</span>"; ?></div>
+                <div id="food-dinner" class="night"><?php echo isset($scheduleData['food:2'])?nl2br($scheduleData['food:2']):"<span style='color:#DDD'>(입력되지 않음)</span>"; ?></div>
+                <br>
+            </div>
 		</div>
 	</form>
     <script src="/js/content/user/login.js"></script>
