@@ -44,7 +44,7 @@ if(isset($_COOKIE['remember_user'])) { // 자동 로그인
 }
 session_write_close();
 /********************** END INITIALIZATION SESSION ************************/
-setlocale(LC_TIME, 'Korean');
+setlocale(LC_TIME, 'ko_KR.UTF-8');
 
 if(isset($_SESSION['user'])) {
 	$me = $member->getMember($_SESSION['user']);
