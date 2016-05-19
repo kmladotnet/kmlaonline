@@ -33,13 +33,34 @@ function printContent(){
                 </h1>
             </a>
             <?php if(isset($_GET['p1']) && $_GET['p1']=='bad'){ ?>
-                <div style="color:red;font-weight:bold;size:15pt;text-align:center;">ID 또는 패스워드가 잘못되었습니다.
-                    <br />
-                    <b>E-Mail이 아니라 ID로 로그인하세요.</b><
-                /div>
-				<br />
+                <script>
+                    var badlogin = new PNotify({
+                        title: 'ID 또는 패스워드가 잘못되었습니다.',
+                        body: '실수로 ID 대신 이메일을 입력했는지 확인해주세요.',
+                        type: 'error',
+                        buttons: {
+                            closer: false,
+                            sticker: false
+                        }
+                    });
+                    badlogin.get().click(function () {
+                        badlogin.remove();
+                    });
+                </script>
 			<?php }else if(isset($_GET['p1']) && $_GET['p1']=='required'){ ?>
-				<div style="color:red;font-weight:bold;size:15pt;text-align:center;">로그인해야 볼 수 있는 페이지입니다.</div>
+                <script>
+                    var loginrequired = new PNotify({
+                        title: '로그인해야 볼 수 있습니다.',
+                        type: 'error',
+                        buttons: {
+                            closer: false,
+                            sticker: false
+                        }
+                    });
+                    loginrequired.get().click(function () {
+                        loginrequired.remove();
+                    });
+                </script>
 			<?php } ?>
 			<div style="width:222px;margin:0 auto;display:block;">
 				<div class="form-group">
