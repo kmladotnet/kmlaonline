@@ -72,12 +72,12 @@ function printContent(){
                 $curYear=date("Y");
                 $curMonth=date("n");
                 $curDay=date("j");
-                $curWeekDay = date("D");
+                $curWeekDay = strftime("%a");
                 if ($is_morning && date("H")>=22) {
                     $curYear = date("Y", strtotime("+1 day"));
                     $curMonth = date("n", strtotime("+1 day"));
                     $curDay = date("j", strtotime("+1 day"));
-                    $curWeekDay = date("D", strtotime("+1 day"));
+                    $curWeekDay = strftime("%a", strtotime("+1 day"));
                 }
                 $query="SELECT s_mode, s_data FROM kmlaonline_schedule_table WHERE n_year=$curYear AND n_month=$curMonth AND n_day=$curDay";
                 if ($res=$mysqli->query($query)) {
