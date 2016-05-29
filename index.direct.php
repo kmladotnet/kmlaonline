@@ -107,7 +107,7 @@
         <script type="text/javascript" src="js/converse/dist/locales.js"></script>
         <link rel="stylesheet" type="text/css" media="screen" href="css/converse.css">
         <script type="text/javascript" src="js/converse/momentjs/min/moment.min.js"></script>
-        <script type="text/javascript" src="js/converse/dist/converse-no-dependencies.min.js"></script>
+        <script type="text/javascript" src="js/converse/dist/converse-no-dependencies.js"></script>
     <?php } ?>
 
     <!-- other -->
