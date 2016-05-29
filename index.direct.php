@@ -65,14 +65,14 @@
     <script type="text/javascript" src="js/converse/src/otr.js"></script>
 
     <!-- strophe -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/strophe.js/1.2.5/strophe.min.js"></script>
+    <script src="js/converse/strophe/strophe.min.js"></script>
     <script src="js/converse/strophejs-plugins/vcard/strophe.vcard.js"></script>
     <script src="js/converse/strophejs-plugins/disco/strophe.disco.js"></script>
     <script src="js/converse/strophejs-plugins/rsm/strophe.rsm.js"></script>
     <script src="js/converse/src/strophe.ping.js"></script>
 
     <!-- backbone -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.5.0/lodash.min.js"></script>
+    <script type="text/javascript" src="js/converse/underscore/underscore-min.js"></script>
     <script type="text/javascript" src="js/converse/backbone/backbone.js"></script>
     <script type="text/javascript" src="js/converse/backbone.browserStorage/backbone.browserStorage.js"></script>
     <script type="text/javascript" src="js/converse/backbone.overview/backbone.overview.js"></script>
