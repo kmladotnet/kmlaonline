@@ -41,7 +41,9 @@ define("SEPARATOR_CHAR", ":");
 define("AUTHLOG", "prosody_external.log");
 
 define("ABSPATH", dirname(__FILE__));
-require_once(__DIR__."/lib.php");
+require_once(__DIR__."/soreeengine/SoreeTools.php");
+$bDoInit = false; //remove and you die
+require_once(__DIR__."/db-config.php");
 
 /**
  * Check if user exists in domain
