@@ -42,40 +42,6 @@
     <!-- jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-browser/0.1.0/jquery.browser.min.js"></script>
-
-    <!-- typeahead -->
-    <script src="js/converse/typeahead.js/index.js"></script>
-
-    <!-- otr -->
-    <script type="text/javascript" src="js/converse/otr/build/dep/salsa20.js"></script>
-    <script type="text/javascript" src="js/converse/src/bigint.js"></script>
-    <script type="text/javascript" src="js/converse/otr/vendor/cryptojs/core.js"></script>
-    <script type="text/javascript" src="js/converse/otr/vendor/cryptojs/enc-base64.js"></script>
-    <script type="text/javascript" src="js/converse/crypto-js-evanvosberg/src/md5.js"></script>
-    <script type="text/javascript" src="js/converse/crypto-js-evanvosberg/src/evpkdf.js"></script>
-    <script type="text/javascript" src="js/converse/otr/vendor/cryptojs/cipher-core.js"></script>
-    <script type="text/javascript" src="js/converse/otr/vendor/cryptojs/aes.js"></script>
-    <script type="text/javascript" src="js/converse/otr/vendor/cryptojs/sha1.js"></script>
-    <script type="text/javascript" src="js/converse/otr/vendor/cryptojs/sha256.js"></script>
-    <script type="text/javascript" src="js/converse/otr/vendor/cryptojs/hmac.js"></script>
-    <script type="text/javascript" src="js/converse/otr/vendor/cryptojs/pad-nopadding.js"></script>
-    <script type="text/javascript" src="js/converse/otr/vendor/cryptojs/mode-ctr.js"></script>
-    <script type="text/javascript" src="js/converse/otr/build/dep/eventemitter.js"></script>
-    <script type="text/javascript" src="js/converse/src/otr.js"></script>
-
-    <!-- strophe -->
-    <script src="js/converse/strophe/strophe.min.js"></script>
-    <script src="js/converse/strophejs-plugins/vcard/strophe.vcard.js"></script>
-    <script src="js/converse/strophejs-plugins/disco/strophe.disco.js"></script>
-    <script src="js/converse/strophejs-plugins/rsm/strophe.rsm.js"></script>
-    <script src="js/converse/src/strophe.ping.js"></script>
-
-    <!-- backbone -->
-    <script type="text/javascript" src="js/converse/underscore/underscore-min.js"></script>
-    <script type="text/javascript" src="js/converse/backbone/backbone.js"></script>
-    <script type="text/javascript" src="js/converse/backbone.browserStorage/backbone.browserStorage.js"></script>
-    <script type="text/javascript" src="js/converse/backbone.overview/backbone.overview.js"></script>
 
     <!-- bootstrap -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -103,12 +69,9 @@
 
     <?php if(getTheme($me)['beta']) { ?>
         <!-- converse -->
-        <script type="text/javascript" src="js/converse/jed/jed.js"></script>
-        <script type="text/javascript" src="js/converse/dist/locales.js"></script>
         <link rel="stylesheet" type="text/css" media="screen" href="css/converse/theme.css">
         <link rel="stylesheet" type="text/css" media="screen" href="css/converse/converse.min.css">
-        <script type="text/javascript" src="js/converse/momentjs/min/moment-with-locales.min.js"></script>
-        <script type="text/javascript" src="js/converse/dist/converse-no-dependencies.js"></script>
+        <script type="text/javascript" src="js/converse/dist/converse.nojquery.min.js"></script>
     <?php } ?>
 
     <!-- other -->
