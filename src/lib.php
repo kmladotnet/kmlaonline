@@ -42,6 +42,11 @@ if(isset($_COOKIE['remember_user'])) { // 자동 로그인
 		}
 	}
 }
+
+if(!isset($_SESSION['tmp_password'])) {
+    $_SESSION['tmp_password'] = base64_encode(mt_rand());
+    file_put_contents('/tmp/passwords/'.$me['s_id'], $_SESSION['tmp_password']);
+}
 session_write_close();
 /********************** END INITIALIZATION SESSION ************************/
 setlocale(LC_TIME, 'ko_KR.UTF-8');
@@ -76,11 +81,6 @@ if($is_morning && date("H") >= 22) {
     $curYear = date("Y", strtotime("+1 day"));
     $curMonth = date("m", strtotime("+1 day"));
     $curDay = date("d", strtotime("+1 day"));
-}
-
-if(!isset($_SESSION['tmp_password'])) {
-    $_SESSION['tmp_password'] = base64_encode(mt_rand());
-    file_put_contents('/tmp/passwords/'.$me['s_id'], $_SESSION['tmp_password']);
 }
 
 function redirectAlert($lnk = false, $alert = false) {
