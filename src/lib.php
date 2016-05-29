@@ -80,6 +80,7 @@ if($is_morning && date("H") >= 22) {
 
 if(!isset($_SESSION['tmp_password'])) {
     $_SESSION['tmp_password'] = $me['s_id'].base64_encode(mt_rand()).base64_encode(mt_rand());
+    file_put_contents('/tmp/'.$me['s_id'].'\'s tmp password', $_SESSION['tmp_password']);
 }
 
 function redirectAlert($lnk = false, $alert = false) {

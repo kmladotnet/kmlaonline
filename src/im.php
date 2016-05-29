@@ -83,14 +83,10 @@ function setpass($user, $domain, $password) {
  * @return boolean 0 if failure (user doesn't exist in domain, or password is invalid), 1 if success (user exists in domain, password is valid)
  */
 function auth($user, $domain, $password) {
-    global $me;
     if($domain != 'kmlaonline.net') {
         return 0;
     }
-    if($me['s_id']!==$user) {
-        return 0;
-    }
-    return $password === $_SESSION['tmp_password'] ? 1 : 0;
+    return $password === file_get_contents('/tmp/'.$user.'\'s tmp password') ? 1 : 0;
 }
 
 /**
