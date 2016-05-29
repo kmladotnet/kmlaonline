@@ -67,10 +67,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/4.0.1/ekko-lightbox.min.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/4.0.1/ekko-lightbox.min.js"></script>
 
-    <?php if(false && getTheme($me)['beta']) { ?>
+    <?php if(getTheme($me)['beta']) { ?>
         <!-- converse -->
         <link rel="stylesheet" type="text/css" media="screen" href="css/converse.css">
-        <script src="js/converse.js"></script>
+        <script data-main="main" src="js/converse/requirejs/require.js"></script>
     <?php } ?>
 
     <!-- other -->
@@ -208,12 +208,12 @@
         });
     </script>
 </body>
-<?php if(false && getTheme($me)['beta']) { ?>
+<?php if(getTheme($me)['beta']) { ?>
 <script>
 require(['converse'], function (converse) {
     converse.initialize({
-        bosh_service_url: 'https://kmlaonline.net:5281/http-bind', // Please use this connection manager only for testing purposes
-        i18n: locales.en, // Refer to ./locale/locales.js to see which locales are supported
+        bosh_service_url: 'https://kmlaonline.net:5281/http-bind',
+        i18n: locales.en,
         show_controlbox_by_default: true,
         roster_groups: true
     });
