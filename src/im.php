@@ -97,7 +97,7 @@ function auth($user, $domain, $password) {
  */
 function cli() {
     $input = fgets(STDIN);
-    if($input = false) {
+    if($input === false) {
         return;
     }
     // Parse STDIN, remove trailing whitespace, split at first SEPARATOR_CHAR, so we get command & "the rest of input"
