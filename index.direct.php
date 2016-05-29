@@ -84,7 +84,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/4.0.1/ekko-lightbox.min.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/4.0.1/ekko-lightbox.min.js"></script>
 
-    <?php if(false && getTheme($me)['beta']) { ?>
+    <?php if(getTheme($me)['beta']) { ?>
         <!-- converse -->
         <link rel="stylesheet" type="text/css" media="screen" href="css/converse.css">
         <script type="text/javascript" src="js/converse/momentjs/min/moment.min.js"></script>
