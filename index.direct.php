@@ -233,7 +233,8 @@ require(['converse'], function (converse) {
         bosh_service_url: 'https://kmlaonline.net:5281/http-bind',
         i18n: locales.en,
         show_controlbox_by_default: true,
-        roster_groups: true
+        roster_groups: true,
+        allow_otr: false
     });
 });
 </script>
