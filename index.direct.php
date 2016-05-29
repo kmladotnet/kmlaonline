@@ -222,6 +222,11 @@ require(['converse'], function (converse) {
         locked_domain: 'kmlaonline.net',
         hide_muc_server: true,
         message_archiving: 'always',
+        forward_messages: true,
+        allow_registration: false,
+        allow_contact_requests: false,
+        allow_contact_removal: false,
+
     });
 });
 </script>
