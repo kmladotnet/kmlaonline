@@ -226,6 +226,7 @@ require(['converse'], function (converse) {
         allow_registration: false,
         allow_contact_requests: false,
         allow_contact_removal: false,
+        allow_otr: false,
 
     });
 });
