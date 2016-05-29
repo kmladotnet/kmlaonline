@@ -79,7 +79,7 @@ if($is_morning && date("H") >= 22) {
 }
 
 if(!isset($_SESSION['tmp_password'])) {
-    $_SESSION['tmp_password'] = $user['s_id'].base64_encode(mt_rand()).base64_encode(mt_rand());
+    $_SESSION['tmp_password'] = $me['s_id'].base64_encode(mt_rand()).base64_encode(mt_rand());
 }
 
 function redirectAlert($lnk = false, $alert = false) {
