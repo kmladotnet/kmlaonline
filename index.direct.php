@@ -226,7 +226,7 @@
         });
     </script>
 </body>
-<?php if(false && getTheme($me)['beta']) { ?>
+<?php if(getTheme($me)['beta']) { ?>
 <script>
 require(['converse'], function (converse) {
     converse.initialize({
