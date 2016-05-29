@@ -1,0 +1,6 @@
+{
+  "name": "backbone.browserStorage",
+  "version": "0.0.2",
+  "main": "./backbone.browserStorage.js",
+  "dependencies": {}
+}

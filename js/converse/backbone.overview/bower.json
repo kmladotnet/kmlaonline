@@ -1,0 +1,26 @@
+{
+  "name": "backbone.overview",
+  "version": "0.0.2",
+  "homepage": "https://github.com/jcbrand/Backbone.Overview",
+  "authors": [
+    "JC Brand <jc@opkode.com>"
+  ],
+  "description": "An Overview is a View that contains and keeps track of sub-views. Kind of like what a Collection is to a Model.",
+  "main": "backbone.overview.js",
+  "keywords": [
+    "backbone",
+    "overview"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "backbone": "~1.2.2"
+  }
+}

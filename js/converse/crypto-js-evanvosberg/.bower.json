@@ -1,0 +1,13 @@
+{
+  "name": "crypto-js-evanvosberg",
+  "homepage": "https://github.com/evanvosberg/crypto-js",
+  "_release": "release-3.1.2-5",
+  "_resolution": {
+    "type": "tag",
+    "tag": "release-3.1.2-5",
+    "commit": "03a558d4a336a0dc55fa2b0797e032e435fe7628"
+  },
+  "_source": "https://github.com/evanvosberg/crypto-js.git",
+  "_target": "release-3.1.2-5",
+  "_originalSource": "https://github.com/evanvosberg/crypto-js.git"
+}

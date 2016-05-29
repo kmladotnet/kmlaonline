@@ -1,0 +1,33 @@
+{
+  "author": "JC Brand (https://opkode.com) fork of backbone.localStorage",
+  "name": "backbone.browserStorage",
+  "version": "0.0.2",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jcbrand/Backbone.browserStorage.git"
+  },
+  "dependencies": {
+    "backbone": "~1.x.x",
+    "underscore": ">=1.4.0"
+  },
+  "devDependencies": {
+    "uglify-js": "~1.2.6",
+    "mocha-phantomjs": "~1.1.2",
+    "browserify": "~2.x.x",
+    "jquery": "~2.1.0"
+  },
+  "keywords": [
+    "backbone",
+    "localStorage",
+    "local",
+    "sessionStorage",
+    "session",
+    "storage",
+    "cache",
+    "sync"
+  ],
+  "main": "./backbone.sessionStorage.js",
+  "engines": {
+    "node": "*"
+  }
+}

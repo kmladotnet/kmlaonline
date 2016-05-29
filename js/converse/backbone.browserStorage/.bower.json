@@ -1,0 +1,16 @@
+{
+  "name": "backbone.browserStorage",
+  "version": "0.0.2",
+  "main": "./backbone.browserStorage.js",
+  "dependencies": {},
+  "homepage": "https://github.com/jcbrand/Backbone.browserStorage",
+  "_release": "0.0.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.0.2",
+    "commit": "3a6299ec2f135b2fdb5001865a67f6c4be63d6aa"
+  },
+  "_source": "https://github.com/jcbrand/Backbone.browserStorage.git",
+  "_target": "0.0.2",
+  "_originalSource": "backbone.browserStorage"
+}
