@@ -47,6 +47,23 @@
     <!-- typeahead -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.jquery.min.js"></script>
 
+    <!-- otr -->
+    <script type="text/javascript" src="js/converse/otr/build/dep/salsa20.js"></script>
+    <script type="text/javascript" src="js/converse/src/bigint.js"></script>
+    <script type="text/javascript" src="js/converse/otr/vendor/cryptojs/core.js"></script>
+    <script type="text/javascript" src="js/converse/otr/vendor/cryptojs/enc-base64.js"></script>
+    <script type="text/javascript" src="js/converse/crypto-js-evanvosberg/src/md5.js"></script>
+    <script type="text/javascript" src="js/converse/crypto-js-evanvosberg/src/evpkdf.js"></script>
+    <script type="text/javascript" src="js/converse/otr/vendor/cryptojs/cipher-core.js"></script>
+    <script type="text/javascript" src="js/converse/otr/vendor/cryptojs/aes.js"></script>
+    <script type="text/javascript" src="js/converse/otr/vendor/cryptojs/sha1.js"></script>
+    <script type="text/javascript" src="js/converse/otr/vendor/cryptojs/sha256.js"></script>
+    <script type="text/javascript" src="js/converse/otr/vendor/cryptojs/hmac.js"></script>
+    <script type="text/javascript" src="js/converse/otr/vendor/cryptojs/pad-nopadding.js"></script>
+    <script type="text/javascript" src="js/converse/otr/vendor/cryptojs/mode-ctr.js"></script>
+    <script type="text/javascript" src="js/converse/otr/build/dep/eventemitter.js"></script>
+    <script type="text/javascript" src="js/converse/src/otr.js"></script>
+
     <!-- strophe -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/strophe.js/1.2.5/strophe.min.js"></script>
     <script src="js/converse/strophejs-plugins/vcard/strophe.vcard.js"></script>
