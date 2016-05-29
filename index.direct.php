@@ -69,8 +69,8 @@
 
     <?php if(getTheme($me)['beta']) { ?>
         <!-- converse -->
-        <link rel="stylesheet" type="text/css" media="screen" href="css/converse.min.css">
-        <script src="dist/converse.js"></script>
+        <link rel="stylesheet" type="text/css" media="screen" href="css/converse.css">
+        <script src="js/converse.js"></script>
     <?php } ?>
 
     <!-- other -->
