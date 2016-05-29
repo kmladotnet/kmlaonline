@@ -211,7 +211,7 @@ require(['converse'], function (converse) {
     converse.initialize({
         jid: '<?php echo $me['s_id']; ?>@kmlaonline.net',
         fullname: '<?php echo $me['s_name']; ?>',
-        credentials_url: 'https://kmlaonline.net/proc/user/imlogin.php',
+        credentials_url: 'https://kmlaonline.net/proc/user/imlogin',
         auto_login: true,
         keepalive: true,
         bosh_service_url: 'https://kmlaonline.net/http-bind',
