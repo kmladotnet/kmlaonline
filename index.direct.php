@@ -42,6 +42,16 @@
     <!-- jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-browser/0.1.0/jquery.browser.min.js"></script>
+
+    <!-- typeahead -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.jquery.min.js"></script>
+
+    <!-- strophe -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/strophe.js/1.2.5/strophe.min.js"></script>
+    <script src="js/converse/strophejs-plugins/vcard/strophe.vcard.js"></script>
+    <script src="js/converse/strophejs-plugins/disco/strophe.disco.js"></script>
+    <script src="js/converse/strophejs-plugins/rsm/strophe.rsm.js"></script>
 
     <!-- bootstrap -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
