@@ -209,11 +209,16 @@
 <script>
 require(['converse'], function (converse) {
     converse.initialize({
+        jid: '<?php echo $me['s_id']; ?>@kmlaonline.net',
+        fullname: '<?php echo $me['s_name']; ?>',
+        password: '<?php echo $_SESSION['tmp_password'] ?>',
+        auto_login: true,
+        keepalive: true,
         bosh_service_url: 'https://kmlaonline.net/http-bind',
         i18n: locales.en,
         show_controlbox_by_default: true,
         roster_groups: true,
-        allow_otr: false
+        allow_logout: false
     });
 });
 </script>

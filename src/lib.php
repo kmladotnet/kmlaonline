@@ -77,6 +77,11 @@ if($is_morning && date("H") >= 22) {
     $curMonth = date("m", strtotime("+1 day"));
     $curDay = date("d", strtotime("+1 day"));
 }
+
+if(!isset($_SESSION['tmp_password'])) {
+    $_SESSION['tmp_password'] = $user['s_id'].base64_encode(mt_rand()).base64_encode(mt_rand());
+}
+
 function redirectAlert($lnk = false, $alert = false) {
 	?>
     <!doctype html>

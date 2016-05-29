@@ -41,9 +41,7 @@ define("SEPARATOR_CHAR", ":");
 define("AUTHLOG", "prosody_external.log");
 
 define("ABSPATH", dirname(__FILE__));
-require_once(__DIR__."/soreeengine/SoreeTools.php");
-$bDoInit = false; //remove and you die
-require_once(__DIR__."/db-config.php");
+require_once(__DIR__."/lib.php");
 
 /**
  * Check if user exists in domain
@@ -85,11 +83,14 @@ function setpass($user, $domain, $password) {
  * @return boolean 0 if failure (user doesn't exist in domain, or password is invalid), 1 if success (user exists in domain, password is valid)
  */
 function auth($user, $domain, $password) {
-    global $member;
+    global $me;
     if($domain != 'kmlaonline.net') {
         return 0;
     }
-    return $member->authMember($user, $password) === 0 ? 1 : 0;
+    if($me['s_id']!==$user) {
+        return 0;
+    }
+    return $password === $_SESSION['tmp_password'] ? 1 : 0;
 }
 
 /**
