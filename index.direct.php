@@ -52,6 +52,13 @@
     <script src="js/converse/strophejs-plugins/vcard/strophe.vcard.js"></script>
     <script src="js/converse/strophejs-plugins/disco/strophe.disco.js"></script>
     <script src="js/converse/strophejs-plugins/rsm/strophe.rsm.js"></script>
+    <script src="js/converse/src/strophe.ping.js"></script>
+
+    <!-- backbone -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.5.0/lodash.min.js"></script>
+    <script type="text/javascript" src="js/converse/backbone/backbone.js"></script>
+    <script type="text/javascript" src="js/converse/backbone.browserStorage/backbone.browserStorage.js"></script>
+    <script type="text/javascript" src="js/converse/backbone.overview/backbone.overview.js"></script>
 
     <!-- bootstrap -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -80,7 +87,8 @@
     <?php if(false && getTheme($me)['beta']) { ?>
         <!-- converse -->
         <link rel="stylesheet" type="text/css" media="screen" href="css/converse.css">
-        <script data-main="main" src="js/converse/requirejs/require.js"></script>
+        <script type="text/javascript" src="js/converse/momentjs/min/moment.min.js"></script>
+        <script type="text/javascript" src="js/converse/dist/converse-no-dependencies.min.js"></script>
     <?php } ?>
 
     <!-- other -->

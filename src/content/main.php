@@ -194,7 +194,6 @@ JSON
         </div>
     </div>
     <!-- gridstack -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.5.0/lodash.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.5/gridstack.min.js"></script>
 
     <script src="/js/content/main.js"></script>
