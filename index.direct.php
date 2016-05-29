@@ -67,7 +67,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/4.0.1/ekko-lightbox.min.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/4.0.1/ekko-lightbox.min.js"></script>
 
-    <?php if(getTheme($me)['beta']) { ?>
+    <?php if(false && getTheme($me)['beta']) { ?>
         <!-- converse -->
         <link rel="stylesheet" type="text/css" media="screen" href="css/converse.css">
         <script src="js/converse.js"></script>
@@ -208,7 +208,7 @@
         });
     </script>
 </body>
-<?php if(getTheme($me)['beta']) { ?>
+<?php if(false && getTheme($me)['beta']) { ?>
 <script>
 require(['converse'], function (converse) {
     converse.initialize({
