@@ -100,9 +100,6 @@ function cli() {
     // Split username, domain and password (in this order, max. 3 separate pieces, password might contain SEPARATOR_CHARs)
     $params = explode(SEPARATOR_CHAR, $command[1], 3);
 
-    // TODO: Is this required?
-    $params[0] = clean_username($params[0]);
-
     switch ($command[0]) {
         case "auth":
             return auth($params[0], $params[1], $params[2]);
