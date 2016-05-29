@@ -96,8 +96,12 @@ function auth($user, $domain, $password) {
  * CLI
  */
 function cli() {
+    $input = fgets(STDIN);
+    if($input = false) {
+        return;
+    }
     // Parse STDIN, remove trailing whitespace, split at first SEPARATOR_CHAR, so we get command & "the rest of input"
-    $command = explode(SEPARATOR_CHAR, trim(fgets(STDIN)), 2);
+    $command = explode(SEPARATOR_CHAR, trim($input), 2);
 
     // Split username, domain and password (in this order, max. 3 separate pieces, password might contain SEPARATOR_CHARs)
     $params = explode(SEPARATOR_CHAR, $command[1], 3);
