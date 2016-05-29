@@ -67,13 +67,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/4.0.1/ekko-lightbox.min.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/4.0.1/ekko-lightbox.min.js"></script>
 
-    <?php if(getTheme($me)['beta']) { ?>
-        <!-- converse -->
-        <link rel="stylesheet" type="text/css" media="screen" href="css/converse/theme.css">
-        <link rel="stylesheet" type="text/css" media="screen" href="css/converse/converse.min.css">
-        <script type="text/javascript" src="js/converse/dist/converse.nojquery.min.js"></script>
-    <?php } ?>
-
     <!-- other -->
     <script src="/swfupload/swfupload.js"></script>
     <script src="/swfupload/swfupload.queue.js"></script>
@@ -210,6 +203,10 @@
     </script>
 </body>
 <?php if(getTheme($me)['beta']) { ?>
+<!-- converse -->
+<link rel="stylesheet" type="text/css" media="screen" href="css/converse/theme.css">
+<link rel="stylesheet" type="text/css" media="screen" href="css/converse/converse.min.css">
+<script type="text/javascript" src="js/converse/dist/converse.nojquery.min.js"></script>
 <script>
 require(['converse'], function (converse) {
     converse.initialize({
