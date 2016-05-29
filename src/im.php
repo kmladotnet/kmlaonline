@@ -118,5 +118,9 @@ function cli() {
     return $res;
 }
 
-if (php_sapi_name() == 'cli') {echo cli();}
+if (php_sapi_name() == 'cli') {
+    while(true) {
+        echo cli();
+    }
+}
 ?>
