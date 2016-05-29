@@ -218,7 +218,10 @@ require(['converse'], function (converse) {
         i18n: locales.en,
         show_controlbox_by_default: true,
         roster_groups: true,
-        allow_logout: false
+        allow_logout: false,
+        locked_domain: 'kmlaonline.net',
+        hide_muc_server: true,
+        message_archiving: 'always',
     });
 });
 </script>
