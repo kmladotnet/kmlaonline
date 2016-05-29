@@ -86,7 +86,7 @@ function auth($user, $domain, $password) {
     if($domain != 'kmlaonline.net') {
         return 0;
     }
-    return $password === file_get_contents('/tmp/'.$user.'\'s tmp password') ? 1 : 0;
+    return $password === file_get_contents('/tmp/passwords/'.$user) ? 1 : 0;
 }
 
 /**
