@@ -67,6 +67,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/4.0.1/ekko-lightbox.min.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/4.0.1/ekko-lightbox.min.js"></script>
 
+    <?php if(getTheme($me)['beta']) { ?>
+        <!-- converse -->
+        <link rel="stylesheet" type="text/css" media="screen" href="css/converse.min.css">
+        <script src="dist/converse.js"></script>
+    <?php } ?>
+
     <!-- other -->
     <script src="/swfupload/swfupload.js"></script>
     <script src="/swfupload/swfupload.queue.js"></script>
@@ -202,5 +208,17 @@
         });
     </script>
 </body>
+<?php if(getTheme($me)['beta']) { ?>
+<script>
+require(['converse'], function (converse) {
+    converse.initialize({
+        bosh_service_url: 'https://kmlaonline.net:5281/http-bind', // Please use this connection manager only for testing purposes
+        i18n: locales.en, // Refer to ./locale/locales.js to see which locales are supported
+        show_controlbox_by_default: true,
+        roster_groups: true
+    });
+});
+</script>
+<?php } ?>
 
 </html>
