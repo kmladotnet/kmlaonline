@@ -123,8 +123,6 @@ function cli() {
 }
 
 if (php_sapi_name() == 'cli') {
-    while(true) {
-        echo cli();
-    }
+    echo cli();
 }
 ?>
