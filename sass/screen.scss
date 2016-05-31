@@ -483,6 +483,11 @@ div {
 		position: absolute;
 		width: 100%;
 		white-space: nowrap;
+        a {
+            &::hover, &::focus {
+                text-decoration: none;
+            }
+        }
 	}
     &.article-list-title {
 		text-overflow: ellipsis;
