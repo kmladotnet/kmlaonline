@@ -25,9 +25,10 @@ function articleList($article_list, $category=true, $title=true, $name=true, $da
 			$b_bold_title=($a['n_flag']&0x8);
 			$b_no_comment=($a['n_flag']&0x2);
 			$b_anonymous=($a['n_flag']&0x4);
-			$pretty_title='<div class="article-list-title">'.htmlspecialchars($a['s_title']).'</div>';
+			$pretty_title='<div class="article-list-title">'.htmlspecialchars($a['s_title']);
 			if(($a['n_comments']!=0 && doesAdminBypassEverythingAndIsAdmin(!$b_no_comment)))
 				$pretty_title .= " <span class='comment-num real-comment-num'>{$a['n_comments']}</span>";
+            $pretty_title .= '</div>';
 			?>
 			<tr style="height:<?php echo $height?>px;">
 				<?php if($category){ ?>
