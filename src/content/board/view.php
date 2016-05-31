@@ -330,10 +330,8 @@ function printViewPageHeader($usr, $cat){
                         echo "<a style='padding-right:4px' href='/board/$board_id/delete/{$article['n_id']}'>삭제</a>";
                     }
                     $exists=false;
-                    if($res=$mysqli->query("SELECT * FROM `kmlaonline_important_notices_table` WHERE n_article={$article['n_id']}")){
-                        while ($row = $res->fetch_array(MYSQLI_BOTH)){
-                            $exists=true;
-                        }
+                    if ($res = $mysqli->query("SELECT 1 FROM `kmlaonline_important_notices_table` WHERE n_article={$article['n_id']} LIMIT 1")) {
+                        $exists = $res->num_rows() > 0;
                     }
                     $res->close();
                     if($exists) {
@@ -576,10 +574,8 @@ function printViewPageModeForum($usr, $cat){
 					if(doesAdminBypassEverythingAndIsAdmin($me['n_id']==$article['n_writer']) || checkCategoryAccess($board_cat['n_id'], "manage modify")){
 						$boardbilities=array();
 						$exists=false;
-						if($res=$mysqli->query("SELECT * FROM `kmlaonline_important_notices_table` WHERE n_article={$article['n_id']}")){
-							while ($row = $res->fetch_array(MYSQLI_BOTH)){
-								$exists=true;
-							}
+						if($res = $mysqli->query("SELECT 1 FROM `kmlaonline_important_notices_table` WHERE n_article={$article['n_id']} LIMIT 1")) {
+                            $exists = $res->num_rows() > 0;
 						}
 						$res->close();
 						if($exists)
