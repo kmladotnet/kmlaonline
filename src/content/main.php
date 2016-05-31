@@ -11,8 +11,8 @@ function printContentPc(){
 
 	<div style="min-height: 400px">
         <div style="padding: 3px; padding-bottom: 6px; padding-top: 6px">
-            <button type="button" id="main-edit-button" class="btn btn-default" onclick="toggleLayoutEditing();">편집 모드 시작</button>
-            <button type="button" id="main-theme-button" class="btn btn-default" onclick="toggleThemeEditing();">큼온 설정</button>
+            <button type="button" id="main-edit-button" class="btn btn-default" onclick="toggleLayoutEditing();"><i class="fa fa-pencil" aria-hidden="true"></i> 편집 모드 시작</button>
+            <button type="button" id="main-theme-button" class="btn btn-default" onclick="toggleThemeEditing();"><i class='fa fa-wrench' aria-hidden='true'></i> 큼온 설정</button>
             <?php printEverydayLinks(); ?>
             <div id="main-theme-pane" style="margin-top: 6px; display:none">
                 <form id="theme-form">
@@ -121,7 +121,7 @@ function printContentPc(){
             </div>
             <div id="main-edit-pane" style="margin-top: 6px; display:none">
                 <div class="btn-group" style="margin-top: 4px">
-                    <select id="add-module" class="selectpicker" data-style="btn-info" data-size="10" title="패널 추가" data-selected-text-format="static">
+                    <select id="add-module" class="selectpicker" data-style="btn-info" data-size="10" title="패널 추가" data-selected-text-format="static" data-width="160px">
                         <option value="important">필수 공지</option>
                         <option value="birthday">생일</option>
                         <option value="menu">식단</option>
