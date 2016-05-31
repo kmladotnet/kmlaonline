@@ -331,7 +331,7 @@ function printViewPageHeader($usr, $cat){
                     }
                     $exists=false;
                     if ($res = $mysqli->query("SELECT 1 FROM `kmlaonline_important_notices_table` WHERE n_article={$article['n_id']} LIMIT 1")) {
-                        $exists = $res->num_rows() > 0;
+                        $exists = $res->num_rows > 0;
                     }
                     $res->close();
                     if($exists) {
@@ -575,7 +575,7 @@ function printViewPageModeForum($usr, $cat){
 						$boardbilities=array();
 						$exists=false;
 						if($res = $mysqli->query("SELECT 1 FROM `kmlaonline_important_notices_table` WHERE n_article={$article['n_id']} LIMIT 1")) {
-                            $exists = $res->num_rows() > 0;
+                            $exists = $res->num_rows > 0;
 						}
 						$res->close();
 						if($exists)
