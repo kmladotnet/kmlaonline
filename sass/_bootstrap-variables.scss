@@ -552,7 +552,7 @@ $state-danger-border:            darken(adjust-hue($state-danger-bg, -10), 7%);
 //** Primary label background color
 // $label-primary-bg:            $brand-primary
 //** Success label background color
-// $label-success-bg:            $brand-success
+$label-success-bg:            lighten($brand-success, 60%)
 //** Info label background color
 // $label-info-bg:               $brand-info
 //** Warning label background color
@@ -561,7 +561,7 @@ $state-danger-border:            darken(adjust-hue($state-danger-bg, -10), 7%);
 // $label-danger-bg:             $brand-danger
 
 //** Default label text color
-// $label-color:                 #fff
+$label-color:                 $brand-success
 //** Default text color of a linked label
 // $label-link-hover-color:      #fff
 
