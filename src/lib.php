@@ -791,7 +791,7 @@ function unvote($id, $user, $down = false) {
 }
 
 function cleanSymbols($str) {
-    return preg_replace('/[\\p{S}]/u', '', $str);
+    return preg_replace('/[\\p{S}]+/u', '', $str);
 }
 
 $maxUploadFileSize = convertToBytes( ini_get( 'upload_max_filesize' ) );
