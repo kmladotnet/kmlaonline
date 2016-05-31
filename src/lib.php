@@ -56,11 +56,12 @@ if(isset($_SESSION['user'])) {
 } else {
 	$me = $member->getMember(1);
 }
-
+/*
 if(!isset($_SESSION['tmp_password']) || !file_exists('/tmp/passwords/'.$me['s_id'])) {
     $_SESSION['tmp_password'] = base64_encode(mt_rand());
     file_put_contents('/tmp/passwords/'.$me['s_id'], $_SESSION['tmp_password']);
 }
+*/
 session_write_close();
 /********************** END INITIALIZATION SESSION ************************/
 setlocale(LC_TIME, 'ko_KR.UTF-8');

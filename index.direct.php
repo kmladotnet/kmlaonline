@@ -202,7 +202,7 @@
         });
     </script>
 </body>
-<?php if(getTheme($me)['beta']) { ?>
+<?php if(false) { ?>
 <!-- converse -->
 <link rel="stylesheet" type="text/css" media="screen" href="css/converse/converse.min.css">
 <script type="text/javascript" src="js/converse/dist/converse.nojquery.min.js"></script>
