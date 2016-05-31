@@ -280,6 +280,13 @@ function printViewPageHeader($usr, $cat){
 			<div style="float:left;width:750px;">
 				<span style="font-weight:bold"><?php echo htmlspecialchars($article["s_title"]); ?></span> <span style="color:gray">| <a style="color:gray" href="/board/<?php echo $cat['s_id']?>"><?php echo $cat['s_name']?></a></span>
 				<div style="margin-top:5px;color:#DDD"><?php printTagSplitted($article["s_tag"], $board_id); ?></div>
+                <?php
+                    if($b_anonymous) {
+                        printUpDownVotes($article['n_id']);
+                    } else {
+                        printVotes($article['n_id']);
+                    }
+                ?>
 			</div>
 			<?php
 			if($usr['s_pic'] && !$b_anonymous)
