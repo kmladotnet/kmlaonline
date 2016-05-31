@@ -27,7 +27,7 @@ function articleList($article_list, $category=true, $title=true, $name=true, $da
 			$b_anonymous=($a['n_flag']&0x4);
 			$pretty_title='<div class="article-list-title">'.htmlspecialchars($a['s_title']).'</div>';
 			if(($a['n_comments']!=0 && doesAdminBypassEverythingAndIsAdmin(!$b_no_comment)))
-				$pretty_title .= " <span class='comment-num real-comment-num'>{$a['n_comments']}</span>";
+				$pretty_title.=" <span class='comment-num'>{$a['n_comments']}</span>";
 			?>
 			<tr style="height:<?php echo $height?>px;">
 				<?php if($category){ ?>
@@ -40,9 +40,7 @@ function articleList($article_list, $category=true, $title=true, $name=true, $da
 					<td>
                         <div style="position:relative">
                             <div class="article-list-item">
-                                <a href="<?php echo htmlspecialchars("/board/{$a['cat']['s_id']}/view/" . $a['n_id'])?>" style="color:black;<?php echo $b_bold_title?"font-weight:bold;":"";?>">
-                                    <?php echo "<span class='comment-num fake-comment-num'>{$a['n_comments']}</span>" ?>
-                                    <?php echo $pretty_title ?>
+                                <a href="<?php echo htmlspecialchars("/board/{$a['cat']['s_id']}/view/" . $a['n_id'])?>" style="color:black;<?php echo $b_bold_title?"font-weight:bold;":"";?>"><?php echo $pretty_title ?>
                                 </a>
                             </div>
                             <span>&nbsp;</span>
