@@ -487,8 +487,8 @@ div {
     &.article-list-title {
 		text-overflow: ellipsis;
 		overflow: hidden;
-        display: inline-block;
-        max-width: calc(100% - 24px);
+        display: block;
+        max-width: 100%;
         vertical-align: bottom;
     }
 	&.minjok-news {
@@ -771,9 +771,18 @@ ul#top_notification_list {
     border: 1px solid $brand-success;
     border-radius: 2px;
     padding: 1px 4px;
-    display: inline-block;
+    display: block;
     width: 26px;
     text-align: center;
     line-height: 0.99;
     font-size: 0.9em;
+}
+
+.fake-comment-num {
+    float: right;
+    opacity: 0;
+}
+
+.real-comment-num {
+    display: inline-block;
 }
