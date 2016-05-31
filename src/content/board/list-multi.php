@@ -35,7 +35,7 @@ function printArticleListTypeBoard($board_data, $additional_query_string){
 							<?php
 							echo htmlspecialchars($item['s_title']);
 							if(($item['n_comments']!=0 && doesAdminBypassEverythingAndIsAdmin(!$b_no_comment)))
-								echo " <span style='font-size:9pt;color:#008800'>[{$item['n_comments']}]</span>";
+								echo " <span class='label label-success' style='vertical-align: baseline;position: relative;'>[{$item['n_comments']}]</span>";
 							?>
 						</a>
 					</td>

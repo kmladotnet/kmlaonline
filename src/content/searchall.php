@@ -159,7 +159,7 @@ function searchBoard($search, $articleperpage, $pagenumber){
 		$val['link']="/board/{$val['cat']['s_id']}/view/{$val['n_id']}";
 		$val['desc']=htmlspecialchars(strip_tags($val['s_title']));
 		if($val['n_comments']!=0 && doesAdminBypassEverythingAndIsAdmin(!$b_no_comment))
-			$val['desc'].= " <span style='font-size:9pt;color:#008800'>[{$val['n_comments']}]</span>";
+			$val['desc'].= " <span class='label label-success' style='vertical-align: baseline;position: relative;'>[{$val['n_comments']}]</span>";
 		if(isset($val['n_parent']))
 			$val['found']="댓글 - " . $val['cat']['s_name'];
 		else
