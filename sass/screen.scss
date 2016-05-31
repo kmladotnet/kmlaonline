@@ -578,6 +578,26 @@ select {
 }
 .main-block-title-content {
 	overflow: hidden;
+    a::after {
+        margin-left: 6px;
+        font-family: FontAwesome;
+        content: "\f061";
+        -webkit-transform: translateX(-6px);
+        -moz-transform: translateX(-6px);
+        transform: translateX(-6px);
+        display: inline-block;
+        opacity: 0;
+        -webkit-transition: -webkit-transform 0.24s, opacity 0.18s;
+        -moz-transition: -moz-transform 0.24s, opacity 0.18s;
+        transition: transform 0.24s, opacity 0.18s;
+    }
+    a:hover::after,
+    a:focus::after {
+        opacity: 1;
+        -webkit-transform: translateX(0px);
+        -moz-transform: translateX(0px);
+        transform: translateX(0px);
+    }
 }
 .main-block-body {
 	padding: 10px;
