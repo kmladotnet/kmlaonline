@@ -106,7 +106,7 @@
         <?php }
     }?>
     <title>
-        <?php echo htmlspecialchars($title); ?>
+        <?php formatTitle($title); ?>
     </title>
 
     <?php

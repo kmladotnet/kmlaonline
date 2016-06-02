@@ -280,7 +280,7 @@ function printViewPageHeader($usr, $cat){
 	<div class="article_header">
 		<div style="width:100%;height:100px;position:relative;">
 			<div style="float:left;width:750px;">
-				<span style="font-weight:bold"><?php echo htmlspecialchars($article["s_title"]); ?></span> <span style="color:gray">| <a style="color:gray" href="/board/<?php echo $cat['s_id']?>"><?php echo $cat['s_name']?></a></span>
+				<span style="font-weight:bold"><?php formatTitle($article["s_title"]); ?></span> <span style="color:gray">| <a style="color:gray" href="/board/<?php echo $cat['s_id']?>"><?php echo $cat['s_name']?></a></span>
 				<div style="margin-top:5px;color:#DDD"><?php printTagSplitted($article["s_tag"], $board_id); ?></div>
                 <?php
                     if($b_anonymous) {
@@ -569,7 +569,7 @@ function printViewPageModeForum($usr, $cat){
 		<ul style="padding: 0">
 			<li class="head">
 				<div class="total_title">
-					<?php echo htmlspecialchars($article['s_title']); ?><span style="color:#DDD"> | <a style="color:#DDD" href="/board/<?php echo $cat['s_id']?>"><?php echo $cat['s_name']?></a>
+					<?php formatTitle($article['s_title']); ?><span style="color:#DDD"> | <a style="color:#DDD" href="/board/<?php echo $cat['s_id']?>"><?php echo $cat['s_name']?></a>
 					<?php 
 					if(doesAdminBypassEverythingAndIsAdmin($me['n_id']==$article['n_writer']) || checkCategoryAccess($board_cat['n_id'], "manage modify")){
 						$boardbilities=array();
