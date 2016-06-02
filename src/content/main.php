@@ -89,6 +89,19 @@ function printContentPc(){
                     <div>
                         <h3>기타</h3>
                         <div class="form-group">
+                            글 제목 특수문자:
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default <?php if(!getTheme($me)['notitlesymbols']) echo "active"; ?>">
+                                    <input type="radio" name="titlesymbols" id="titlesymbols-option" autocomplete="off"
+                                           <?php if(!getTheme($me)['notitlesymbols']) echo "checked"; ?>> 보이기
+                                </label>
+                                <label class="btn btn-default <?php if(getTheme($me)['notitlesymbols']) echo "active"; ?>">
+                                    <input type="radio" name="notitlesymbols" id="notitlesymbols-option" autocomplete="off"
+                                           <?php if(getTheme($me)['notitlesymbols']) echo "checked"; ?>> 숨기기
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             베타 테스트:
                             <div class="btn-group" data-toggle="buttons">
                                 <label class="btn btn-default <?php if(getTheme($me)['beta']) echo "active"; ?>">
@@ -197,7 +210,7 @@ JSON
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.6.1/lodash.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.5/gridstack.min.js"></script>
 
-    <script src="/js/content/main.js"></script>
+    <script src="/js/content/main.js?v=1.1"></script>
 
     <script type="text/javascript">
     PNotify.prototype.options.delay = 2500;
@@ -302,7 +315,7 @@ JSON
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.6.1/lodash.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.5/gridstack.min.js"></script>
 
-    <script src="/js/content/main.js"></script>
+    <script src="/js/content/main.js?v=1.1"></script>
 
     <script type="text/javascript">
     $(function () {
