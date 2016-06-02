@@ -796,7 +796,7 @@ function cleanSymbols($str) {
 
 function formatTitle($title) {
     global $me;
-    echo htmlspecialchars(getTheme($me)['notitlesymbols'] ? cleanSymbols($title) : $title);
+    return htmlspecialchars(getTheme($me)['notitlesymbols'] ? cleanSymbols($title) : $title);
 }
 
 $maxUploadFileSize = convertToBytes( ini_get( 'upload_max_filesize' ) );

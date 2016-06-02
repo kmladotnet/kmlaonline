@@ -32,7 +32,7 @@ function printArticleListTypeBoard($board_data, $additional_query_string){
 					<td onclick="return changeLinkTo('<?php echo htmlspecialchars(addslashes("/board/$board_id/view/{$item['n_id']}$additional_query_string"))?>');" style="padding-left:5px;">
 						<a onclick="return false;" href="<?php echo htmlspecialchars("/board/$board_id/view/" . $item['n_id'])?>" style="color:black;<?php echo $b_bold_title?"font-weight:bold;":"";?>">
 							<?php
-							formatTitle($item['s_title']);
+							echo formatTitle($item['s_title']);
 							if(($item['n_comments']!=0 && doesAdminBypassEverythingAndIsAdmin(!$b_no_comment)))
 								echo " <span class='comment-num'>{$item['n_comments']}</span>";
 							?>

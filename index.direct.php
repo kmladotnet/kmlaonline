@@ -106,7 +106,7 @@
         <?php }
     }?>
     <title>
-        <?php formatTitle($title); ?>
+        <?php echo formatTitle($title); ?>
     </title>
 
     <?php

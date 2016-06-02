@@ -27,7 +27,7 @@ function printArticleListTypeBoard($board_data, $additional_query_string){
 					<td onclick="return changeLinkTo('<?php echo htmlspecialchars(addslashes("/board/$board_id/view/{$item['n_id']}$additional_query_string"))?>');" style="padding-left:5px;">
 						<a onclick="return false;" href="<?php echo htmlspecialchars("/board/$board_id/view/" . $item['n_id'])?>" style="color:black;<?php echo $b_bold_title?"font-weight:bold;":"";?>">
 							<?php
-							formatTitle($item['s_title']);
+							echo formatTitle($item['s_title']);
 							if(($item['n_comments']!=0 && doesAdminBypassEverythingAndIsAdmin(!$b_no_comment)))
 								echo " <span class='comment-num'>{$item['n_comments']}</span>";
 							?>
@@ -83,7 +83,7 @@ function printArticleListTypeForum($board_data, $additional_query_string){
 						<?php echo htmlspecialchars($item['n_id']); ?>
 					</td>
 					<td>
-						<a href="<?php echo htmlspecialchars("/board/$board_id/view/" . $item['n_id'])?>" style="<?php echo $b_bold_title?"font-weight:bold;":"";?>"><?php formatTitle($item['s_title']); ?></a><br />
+						<a href="<?php echo htmlspecialchars("/board/$board_id/view/" . $item['n_id'])?>" style="<?php echo $b_bold_title?"font-weight:bold;":"";?>"><?php echo formatTitle($item['s_title']); ?></a><br />
 						<div style="display:inline-block">글쓴이: <?php if($b_anonymous){ echo '익명'; }else{ ?><a href="<?php echo htmlspecialchars(addslashes("/user/view/" . $memb['n_id'] . "/" . $memb['s_id']))?>"><?php putUserCard($memb); ?></a><?php } ?></div>
 						<div style="display:inline-block">글쓴때: <?php echo htmlspecialchars(date((time()-$item['n_writedate']<86400)?"H:i:s":"y-m-d",$item['n_writedate'])); ?></div>
 					</td>
@@ -143,7 +143,7 @@ function printArticleListTypeGallery($board_data, $additional_query_string){
 				<?php } ?>
 				<div class="title" style="<?php echo $b_bold_title?"font-weight:bold;":""?>">
 					<?php
-					formatTitle($item['s_title']);
+					echo formatTitle($item['s_title']);
 					if($item['n_comments']!=0 && doesAdminBypassEverythingAndIsAdmin(!$b_no_comment))
 						echo " <span class='comment-num'>{$item['n_comments']}</span>";
 					?>

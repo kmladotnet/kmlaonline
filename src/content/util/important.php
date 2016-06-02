@@ -31,7 +31,7 @@ function printContentPartially($res){
 						?>
 					</td>
 					<td style="cursor:pointer;text-align:center;" onclick="smoothToggleVisibility($(this).parent().next());"><?php echo htmlspecialchars($cat['s_name']); ?></td>
-					<td style="cursor:pointer" onclick="changeLinkTo('/board/<?php echo $cat['s_id']?>/view/<?php echo $article['n_id']?>');"><a href="/board/<?php echo $cat['s_id']?>/view/<?php echo $article['n_id']?>"><?php formatTitle($article['s_title']); ?></a></td>
+					<td style="cursor:pointer" onclick="changeLinkTo('/board/<?php echo $cat['s_id']?>/view/<?php echo $article['n_id']?>');"><a href="/board/<?php echo $cat['s_id']?>/view/<?php echo $article['n_id']?>"><?php echo formatTitle($article['s_title']); ?></a></td>
 					<td style="cursor:pointer" onclick="changeLinkTo('/user/view/<?php echo $writer['n_id']."/".rawurlencode($writer['s_id']); ?>');"><?php putUserCard($writer); ?></td>
 					<td style="cursor:pointer" onclick="smoothToggleVisibility($(this).parent().next());"><?php if(time()-$article['n_writedate']<86400)
 						echo htmlspecialchars(date("H:i:s",$article['n_writedate']));
