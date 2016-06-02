@@ -638,7 +638,7 @@ function getTheme($user) {
             mkdir("data/user/theme");
         }
         $file = "data/user/theme/{$user['n_id']}.txt";
-        $items = array('beta', 'voteright', 'nojam', 'pinmenu', 'hidedasan');
+        $items = array('beta', 'voteright', 'nojam', 'pinmenu', 'hidedasan', 'notitlesymbols');
         $on_items = array('pinmenu');
         if(file_exists($file) && ($_SESSION['theme'] = json_decode(file_get_contents($file), true)) != null) {
             foreach($items as $item) {
@@ -791,7 +791,12 @@ function unvote($id, $user, $down = false) {
 }
 
 function cleanSymbols($str) {
-    return preg_replace('/[\\p{S}]+/u', '', $str);
+    return trim(preg_replace('/[\\p{S}]+/u', '', $str));
+}
+
+function formatTitle($title) {
+    global $me;
+    echo htmlspecialchars(getTheme($me)['notitlesymbols'] ? cleanSymbols($title) : $title);
 }
 
 $maxUploadFileSize = convertToBytes( ini_get( 'upload_max_filesize' ) );
