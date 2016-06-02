@@ -72,9 +72,6 @@ function printContentPc(){
                                 </label>
                             </div>
                         </div>
-                    </div>
-                    <div>
-                        <h3>기타</h3>
                         <div class="form-group">
                             voting 버튼 위치:
                             <div class="btn-group" data-toggle="buttons">
@@ -88,6 +85,9 @@ function printContentPc(){
                                 </label>
                             </div>
                         </div>
+                    </div>
+                    <div>
+                        <h3>기타</h3>
                         <div class="form-group">
                             베타 테스트:
                             <div class="btn-group" data-toggle="buttons">
