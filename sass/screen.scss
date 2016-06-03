@@ -712,6 +712,11 @@ ul#top_notification_list {
 		@extend %extend_7;
 	}
 }
+
+.btn {
+    transition: background 0.1s;
+}
+
 .btn-group .bootstrap-select {
 	&.btn-group[class*="col-"] {
 		@extend %extend_8;
