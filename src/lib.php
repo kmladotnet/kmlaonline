@@ -608,7 +608,7 @@ class WeatherCache extends AbstractCache {
     }
     public function isCached($url) {
         $path = $this->urlToPath($url);
-        if (!file_exists($path) || filectime($path) + $this->seconds < time()) {
+        if (!file_exists($path) || strlen(file_get_contents($path)) == 0 || filectime($path) + $this->seconds < time()) {
             return false;
         }
         return true;
@@ -628,7 +628,7 @@ function getWeather() {
     global $owm;
     $lang = 'en';
     $units = 'metric';
-    return $owm->getWeather('Hoengsong', $units, $lang, '713e90471b96dbd9c11826031ee66031');
+    return $owm->getWeather('Wonju', $units, $lang, '713e90471b96dbd9c11826031ee66031');
 }
 
 function getTheme($user) {
