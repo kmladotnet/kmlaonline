@@ -473,8 +473,8 @@ div.minjok-news {
     width: 280px;
 }
 .comment-num {
-    color: $brand-success;
-    border: 1px solid $brand-success;
+    color: #38A935;
+    border: 1px solid #38A935;
     border-radius: 2px;
     padding: 1px 4px;
     display: inline-block;
