@@ -276,7 +276,7 @@ var editMode = false;
 function toggleLayoutEditing() {
     if(!editMode) {
         $("#main-edit-button").html("<i class='fa fa-floppy-o' aria-hidden='true'></i> 저장하고 편집 모드 종료");
-        $("#main-edit-pane").velocity("slideDown", {duration: 100, easing: "easeOutCubic", complete: function() {
+        $("#main-edit-pane").velocity("slideDown", {duration: 100, easing: "ease", complete: function() {
             $(".main-block-close").css({display: "inline-block", "border-width": "1px"});
             $(".main-block-options").css({display: "inline-block", "border-width": "1px"});
             $(".main-block-close").velocity({width: 28, opacity: 1}, 200);
@@ -288,7 +288,7 @@ function toggleLayoutEditing() {
     } else {
         $("#main-edit-button").html("<i class='fa fa-pencil' aria-hidden='true'></i> 편집 모드 시작");
         updateModules();
-        $("#main-edit-pane").velocity("slideUp", {duration: 100, easing: "easeOutCubic", complete: function() {
+        $("#main-edit-pane").velocity("slideUp", {duration: 100, easing: "ease", complete: function() {
             $(".main-block-close").velocity({width: 0, opacity: 0}, 200, function() {$(this).css({display: "none", "border-width": "0"})});
             $(".main-block-options").velocity({width: 0, opacity: 0}, 200, function() {$(this).css({display: "none", "border-width": "0"})});
             $(".main-block-reload").velocity({width: 24, "border-radius": 12}, 200);
@@ -329,10 +329,10 @@ function saveTheme() {
 var themeMode = false;
 function toggleThemeEditing() {
     if(!themeMode) {
-        $("#main-theme-pane").velocity("slideDown", {duration: 200, easing: "easeOutCubic"});
+        $("#main-theme-pane").velocity("slideDown", {duration: 200, easing: "ease"});
         $("#main-theme-button").html("<i class='fa fa-floppy-o' aria-hidden='true'></i> 큼온 설정 저장");
     } else {
-        $("#main-theme-pane").velocity("slideUp", {duration: 200, easing: "easeOutCubic"});
+        $("#main-theme-pane").velocity("slideUp", {duration: 200, easing: "ease"});
         $("#main-theme-button").html("<i class='fa fa-wrench' aria-hidden='true'></i> 큼온 설정");
         saveTheme();
     }
