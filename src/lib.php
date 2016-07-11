@@ -816,18 +816,16 @@ function foodVote($y, $m, $d, $t, $stars, $user) {
     } else {
         $data = array();
     }
-    if(!array_key_exists($user, $data)) {
-        $data[$user] = $stars;
-        if(file_exists($fName."-total")) {
-            $tdata = json_decode(file_get_contents($fName."-total"), true);
-        } else {
-            $tdata = array("sum" => 0, "count" => 0);
-        }
-        $tdata["sum"] += $stars;
-        $tdata["count"]++;
-        file_put_contents($fName."-total", json_encode($tdata));
-        file_put_contents($fName, json_encode($data));
+    $data[$user] = $stars;
+    if(file_exists($fName."-total")) {
+        $tdata = json_decode(file_get_contents($fName."-total"), true);
+    } else {
+        $tdata = array("sum" => 0, "count" => 0);
     }
+    $tdata["sum"] += $stars;
+    $tdata["count"]++;
+    file_put_contents($fName."-total", json_encode($tdata));
+    file_put_contents($fName, json_encode($data));
 }
 
 function getMyFoodVote($y, $m, $d, $t, $user) {
