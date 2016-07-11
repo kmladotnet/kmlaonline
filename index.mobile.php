@@ -54,6 +54,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/4.0.1/ekko-lightbox.min.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/4.0.1/ekko-lightbox.min.js"></script>
 
+    <!-- rateYo -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.1.1/jquery.rateyo.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.1.1/jquery.rateyo.min.js"></script>
+
 	<script type="text/javascript" src="/js/script.js?v=6.2" charset="utf-8"></script>
 	<link rel="stylesheet" href="/css/font.css" charset="utf-8" type="text/css" media="screen" />
 	<title><?php echo htmlspecialchars($title); ?></title>
