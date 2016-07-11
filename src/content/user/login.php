@@ -98,9 +98,51 @@ function printContent(){
                         <a <?php if($is_afternoon) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-lunch');">점심</a> |
                         <a <?php if($is_night) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-dinner');">저녁</a>
                 </div>
-                <div id="food-breakfast" class="morning"><?php echo isset($scheduleData['food:0'])?nl2br($scheduleData['food:0']):"<span style='color:#DDD'>(입력되지 않음)</span>"; ?></div>
-                <div id="food-lunch" class="afternoon"><?php echo isset($scheduleData['food:1'])?nl2br($scheduleData['food:1']):"<span style='color:#DDD'>(입력되지 않음)</span>"; ?></div>
-                <div id="food-dinner" class="night"><?php echo isset($scheduleData['food:2'])?nl2br($scheduleData['food:2']):"<span style='color:#DDD'>(입력되지 않음)</span>"; ?></div>
+                <div id="food-breakfast" class="morning">
+                    <?php
+                        $voteData = getFoodVoteData($curYear, $curMonth, $curDay, 1);
+                    ?>
+                    <div class="food-votes">
+                        <?php if($voteData['count'] > 0) { ?>
+                            <span style="font-size: 1.2em"><?php echo(round($voteData['sum'] / $voteData['count'], 1));?>점</span>
+                            (<?php echo $voteData['count']; ?>명)
+                        <?php } else { ?>
+                            평점 없음
+                        <?php } ?>
+                    </div>
+                    <hr style="margin-top: 5px;margin-bottom: 5px;">
+                    <?php echo isset($scheduleData['food:0'])?nl2br($scheduleData['food:0']):"<span style='color:#DDD'>(입력되지 않음)</span>"; ?>
+                </div>
+                <div id="food-lunch" class="afternoon">
+                    <?php
+                        $voteData = getFoodVoteData($curYear, $curMonth, $curDay, 2);
+                    ?>
+                    <div class="food-votes">
+                        <?php if($voteData['count'] > 0) { ?>
+                            <span style="font-size: 1.2em"><?php echo(round($voteData['sum'] / $voteData['count'], 1));?>점</span>
+                            (<?php echo $voteData['count']; ?>명)
+                        <?php } else { ?>
+                            평점 없음
+                        <?php } ?>
+                    </div>
+                    <hr style="margin-top: 5px;margin-bottom: 5px;">
+                    <?php echo isset($scheduleData['food:1'])?nl2br($scheduleData['food:1']):"<span style='color:#DDD'>(입력되지 않음)</span>"; ?>
+                </div>
+                <div id="food-dinner" class="night">
+                    <?php
+                        $voteData = getFoodVoteData($curYear, $curMonth, $curDay, 3);
+                    ?>
+                    <div class="food-votes">
+                        <?php if($voteData['count'] > 0) { ?>
+                            <span style="font-size: 1.2em"><?php echo(round($voteData['sum'] / $voteData['count'], 1));?>점</span>
+                            (<?php echo $voteData['count']; ?>명)
+                        <?php } else { ?>
+                            평점 없음
+                        <?php } ?>
+                    </div>
+                    <hr style="margin-top: 5px;margin-bottom: 5px;">
+                    <?php echo isset($scheduleData['food:2'])?nl2br($scheduleData['food:2']):"<span style='color:#DDD'>(입력되지 않음)</span>"; ?>
+                </div>
                 <br>
             </div>
 		</div>
