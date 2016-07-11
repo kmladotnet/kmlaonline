@@ -110,8 +110,14 @@ function printMenu($allDay = false) {
             curYear = <?php echo $curYear; ?>;
             curMonth = <?php echo $curMonth; ?>;
             curDay = <?php echo $curDay; ?>;
+            rating = [ 0,
+                <?php echo getMyFoodVotes($curYear, $curMonth, $curDay, 1); ?>,
+                <?php echo getMyFoodVotes($curYear, $curMonth, $curDay, 2); ?>,
+                <?php echo getMyFoodVotes($curYear, $curMonth, $curDay, 3); ?>];
             $(function() {
-               $(".rate").rateYo({fullStar: true, starWidth: "16px"}).css({"display": "inline-block", "top":"3px"});
+                for(i = 1; i <= 3; i++) {
+                    $("#fv" + curYear + curMonth + curDay + i).rateYo({fullStar: true, starWidth: "16px", rating: rating[i]}).css({"display": "inline-block", "top":"3px"});
+                }
             });
             function foodVotes(t) {
                 if($("#fv" + curYear + curMonth + curDay + t).rateYo("rating") > 0) {
