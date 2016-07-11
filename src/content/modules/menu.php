@@ -44,7 +44,7 @@ function printMenu($allDay = false) {
                         <?php } ?>
                     </div>
                     <div class="rate" id="fv<?php echo $curYear,$curMonth,$curDay;?>1" style="inline-block"></div>
-                    <button type="button" class="btn btn-default btn-xs">제출</button>
+                    <button type="button" id="b<?php echo $curYear,$curMonth,$curDay;?>1" onclick="foodVotes(1)" class="btn btn-default btn-xs">제출</button>
                     <hr style="margin-top: 5px;margin-bottom: 5px;">
                 <?php }
                 echo isset($scheduleData['food:0'])?nl2br($scheduleData['food:0']):"<span style='color:#DDD'>(입력되지 않음)</span>";
@@ -71,7 +71,7 @@ function printMenu($allDay = false) {
                         <?php } ?>
                     </div>
                     <div class="rate" id="fv<?php echo $curYear,$curMonth,$curDay;?>2" style="inline-block"></div>
-                    <button type="button" class="btn btn-default btn-xs">제출</button>
+                    <button type="button" id="b<?php echo $curYear,$curMonth,$curDay;?>2" onclick="foodVotes(2)" class="btn btn-default btn-xs">제출</button>
                     <hr style="margin-top: 5px;margin-bottom: 5px;">
                 <?php }
                 echo isset($scheduleData['food:1'])?nl2br($scheduleData['food:1']):"<span style='color:#DDD'>(입력되지 않음)</span>";
@@ -98,7 +98,7 @@ function printMenu($allDay = false) {
                         <?php } ?>
                     </div>
                     <div class="rate" id="fv<?php echo $curYear,$curMonth,$curDay;?>3" style="inline-block"></div>
-                    <button type="button" class="btn btn-default btn-xs">제출</button>
+                    <button type="button" id="b<?php echo $curYear,$curMonth,$curDay;?>3" onclick="foodVotes(3)" class="btn btn-default btn-xs">제출</button>
                     <hr style="margin-top: 5px;margin-bottom: 5px;">
                 <?php }
                 echo isset($scheduleData['food:2'])?nl2br($scheduleData['food:2']):"<span style='color:#DDD'>(입력되지 않음)</span>";
@@ -121,6 +121,8 @@ function printMenu($allDay = false) {
                     "d": curDay,
                     "t": t,
                     "stars": $("#fv" + curYear + curMonth + curDay + t).rateYo("rating")
+                }, function() {
+                    $("#b" + curYear + curMonth + curDay + t).html("성공").delay(1000).html("제출");
                 });
             }
         </script>
