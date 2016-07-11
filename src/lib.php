@@ -816,7 +816,6 @@ function foodVote($y, $m, $d, $t, $stars, $user) {
     } else {
         $data = array();
     }
-    $data[$user] = $stars;
     if(file_exists($fName."-total")) {
         $tdata = json_decode(file_get_contents($fName."-total"), true);
     } else {
@@ -824,6 +823,11 @@ function foodVote($y, $m, $d, $t, $stars, $user) {
     }
     $tdata["sum"] += $stars;
     $tdata["count"]++;
+    if(array_key_exists($user, $data)) {
+        $tdata["sum"] -= $data[$user];
+        $tdata["count"]--;
+    }
+    $data[$user] = $stars;
     file_put_contents($fName."-total", json_encode($tdata));
     file_put_contents($fName, json_encode($data));
 }
