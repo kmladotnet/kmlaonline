@@ -848,7 +848,7 @@ function getMyFoodVote($y, $m, $d, $t, $user) {
     } else {
         $data = array();
     }
-    if(array_key_exists($user, $data)) {
+    if(!array_key_exists($user, $data)) {
         return 0;
     } else {
         return $data[$user];
