@@ -43,7 +43,7 @@ function printMenu($allDay = false) {
                             평점 없음
                         <?php } ?>
                     </div>
-                    <div class="rate" id="#fv<?php echo $curYear,$curMonth,$curDay;?>1" style="inline-block"></div>
+                    <div class="rate" id="fv<?php echo $curYear,$curMonth,$curDay;?>1" style="inline-block"></div>
                     <button type="button" class="btn btn-default btn-xs">제출</button>
                     <hr style="margin-top: 5px;margin-bottom: 5px;">
                 <?php }
@@ -70,7 +70,7 @@ function printMenu($allDay = false) {
                             평점 없음
                         <?php } ?>
                     </div>
-                    <div class="rate" id="#fv<?php echo $curYear,$curMonth,$curDay;?>2" style="inline-block"></div>
+                    <div class="rate" id="fv<?php echo $curYear,$curMonth,$curDay;?>2" style="inline-block"></div>
                     <button type="button" class="btn btn-default btn-xs">제출</button>
                     <hr style="margin-top: 5px;margin-bottom: 5px;">
                 <?php }
@@ -97,7 +97,7 @@ function printMenu($allDay = false) {
                             평점 없음
                         <?php } ?>
                     </div>
-                    <div class="rate" id="#fv<?php echo $curYear,$curMonth,$curDay;?>3" style="inline-block"></div>
+                    <div class="rate" id="fv<?php echo $curYear,$curMonth,$curDay;?>3" style="inline-block"></div>
                     <button type="button" class="btn btn-default btn-xs">제출</button>
                     <hr style="margin-top: 5px;margin-bottom: 5px;">
                 <?php }
