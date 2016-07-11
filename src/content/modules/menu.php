@@ -43,7 +43,6 @@ function printMenu($allDay = false) {
                             평점 없음
                         <?php } ?>
                     </div>
-                    <br>
                     <div class="rate" style="inline-block"></div>
                     <button type="button" class="btn btn-default btn-xs">제출</button>
                     <hr style="margin-top: 5px;margin-bottom: 5px;">
@@ -60,7 +59,17 @@ function printMenu($allDay = false) {
                     </div>
                     <?php
                 }
-                if(getTheme($me)['beta']) { ?>
+                if(getTheme($me)['beta']) {
+                    $voteData = getFoodVoteData($curYear, $curMonth, $curDay, 2);
+                    ?>
+                    <div class="food-votes">
+                        <?php if($voteData['count'] > 0) { ?>
+                            평점: <?php echo($voteData['sum'] / $voteData['count']);?>점
+                            (<?php echo $voteData['count']; ?>명)
+                        <?php } else { ?>
+                            평점 없음
+                        <?php } ?>
+                    </div>
                     <div class="rate" style="inline-block"></div>
                     <button type="button" class="btn btn-default btn-xs">제출</button>
                     <hr style="margin-top: 5px;margin-bottom: 5px;">
@@ -77,7 +86,17 @@ function printMenu($allDay = false) {
                     </div>
                     <?php
                 }
-                if(getTheme($me)['beta']) { ?>
+                if(getTheme($me)['beta']) {
+                    $voteData = getFoodVoteData($curYear, $curMonth, $curDay, 3);
+                    ?>
+                    <div class="food-votes">
+                        <?php if($voteData['count'] > 0) { ?>
+                            평점: <?php echo($voteData['sum'] / $voteData['count']);?>점
+                            (<?php echo $voteData['count']; ?>명)
+                        <?php } else { ?>
+                            평점 없음
+                        <?php } ?>
+                    </div>
                     <div class="rate" style="inline-block"></div>
                     <button type="button" class="btn btn-default btn-xs">제출</button>
                     <hr style="margin-top: 5px;margin-bottom: 5px;">
