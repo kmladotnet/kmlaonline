@@ -68,7 +68,7 @@ function printMenu($allDay = false) {
     <?php if(getTheme($me)['beta']) { ?>
         <script>
             $(function() {
-               $(".rate").rateYo({fullStar: true, starWidth: "16px"}).css("display", "inline-block");
+               $(".rate").rateYo({fullStar: true, starWidth: "16px"}).css({"display": "inline-block", "top":"3px"});
             });
         </script>
     <?php }
