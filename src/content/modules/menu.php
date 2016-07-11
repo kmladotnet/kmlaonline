@@ -111,9 +111,9 @@ function printMenu($allDay = false) {
             curMonth = <?php echo $curMonth; ?>;
             curDay = <?php echo $curDay; ?>;
             rating = [ 0,
-                <?php echo getMyFoodVote($curYear, $curMonth, $curDay, 1); ?>,
-                <?php echo getMyFoodVote($curYear, $curMonth, $curDay, 2); ?>,
-                <?php echo getMyFoodVote($curYear, $curMonth, $curDay, 3); ?>];
+                <?php echo getMyFoodVote($curYear, $curMonth, $curDay, 1, $me['n_id']); ?>,
+                <?php echo getMyFoodVote($curYear, $curMonth, $curDay, 2, $me['n_id']); ?>,
+                <?php echo getMyFoodVote($curYear, $curMonth, $curDay, 3, $me['n_id']); ?>];
             $(function() {
                 for(i = 1; i <= 3; i++) {
                     $("#fv" + curYear + curMonth + curDay + i).rateYo({fullStar: true, starWidth: "16px", rating: rating[i]}).css({"display": "inline-block", "top":"3px"});
