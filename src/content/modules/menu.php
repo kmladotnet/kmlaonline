@@ -43,7 +43,7 @@ function printMenu($allDay = false) {
                             평점 없음
                         <?php } ?>
                     </div>
-                    <div class="rate" style="inline-block"></div>
+                    <div class="rate" id="#fv<?php echo $curYear,$curMonth,$curDay;?>1" style="inline-block"></div>
                     <button type="button" class="btn btn-default btn-xs">제출</button>
                     <hr style="margin-top: 5px;margin-bottom: 5px;">
                 <?php }
@@ -70,7 +70,7 @@ function printMenu($allDay = false) {
                             평점 없음
                         <?php } ?>
                     </div>
-                    <div class="rate" style="inline-block"></div>
+                    <div class="rate" id="#fv<?php echo $curYear,$curMonth,$curDay;?>2" style="inline-block"></div>
                     <button type="button" class="btn btn-default btn-xs">제출</button>
                     <hr style="margin-top: 5px;margin-bottom: 5px;">
                 <?php }
@@ -97,7 +97,7 @@ function printMenu($allDay = false) {
                             평점 없음
                         <?php } ?>
                     </div>
-                    <div class="rate" style="inline-block"></div>
+                    <div class="rate" id="#fv<?php echo $curYear,$curMonth,$curDay;?>3" style="inline-block"></div>
                     <button type="button" class="btn btn-default btn-xs">제출</button>
                     <hr style="margin-top: 5px;margin-bottom: 5px;">
                 <?php }
@@ -107,9 +107,22 @@ function printMenu($allDay = false) {
     </div>
     <?php if(getTheme($me)['beta']) { ?>
         <script>
+            curYear = <?php echo $curYear; ?>;
+            curMonth = <?php echo $curMonth; ?>;
+            curDay = <?php echo $curDay; ?>;
             $(function() {
                $(".rate").rateYo({fullStar: true, starWidth: "16px"}).css({"display": "inline-block", "top":"3px"});
             });
+            function foodVotes(t) {
+                $.post("ajax/user/foodvote", {
+                    "ajax": 1,
+                    "y": curYear,
+                    "m": curMonth,
+                    "d": curDay,
+                    "t": t,
+                    "stars": $("#fv" + curYear + curMonth + curDay + t).rateYo("rating")
+                };
+            }
         </script>
     <?php }
 }
