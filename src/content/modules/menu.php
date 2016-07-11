@@ -35,8 +35,13 @@ function printMenu($allDay = false) {
                 if(getTheme($me)['beta']) {
                     $voteData = getFoodVoteData($curYear, $curMonth, $curDay, 1);
                     ?>
-                    <div class="food-votes">평점: <?php echo($voteData['sum'] / $voteData['count']);?>점
-                        (<?php echo $voteData['count']; ?>명)</div>
+                    <div class="food-votes">
+                        <?php if($voteData['count'] > 0) { ?>
+                            평점: <?php echo($voteData['sum'] / $voteData['count']);?>점
+                            (<?php echo $voteData['count']; ?>명)</div>
+                        <?php } else { ?>
+                            평점 없음
+                        <?php } ?>
                     <br>
                     <div class="rate" style="inline-block"></div>
                     <button type="button" class="btn btn-default btn-xs">제출</button>
