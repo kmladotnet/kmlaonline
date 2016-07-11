@@ -799,4 +799,48 @@ function formatTitle($title) {
     return htmlspecialchars(getTheme($me)['notitlesymbols'] ? cleanSymbols($title) : $title);
 }
 
+function getFoodVotes($y, $m, $d, $t) {
+    $fName = "data/food/votes/{$y}.{$m}.{$d}.{$t}-total";
+    if(!file_exists($fName)) {
+        return 0;
+    }
+    $dat = json_decode(file_get_contents($fName), true);
+    return $dat["sum"] / $dat["count"];
+}
+
+function foodVote($stars, $user) {
+    global $me;
+    $fName = "data/food/votes/{$y}.{$m}.{$d}.{$t}";
+    if(file_exists($fName)) {
+        $data = json_decode(file_get_contents($fName), true);
+    } else {
+        $data = array();
+    }
+    if(!array_key_exists($user, $data)) {
+        $data[$user] = $stars;
+        if(file_exists($fName."-total")) {
+            $tdata = json_decode(file_get_contents($fName."-total"), true);
+        } else {
+            $tdata = array("sum" => 0, "count" => 0);
+        }
+        $tdata["sum"] += $stars;
+        $tdata["count"]++;
+        file_put_contents($fName."-total", json_encode($tdata));
+        file_put_contents($fName, json_encode($data));
+    }
+}
+
+function getMyFoodVote($user) {
+    if(file_exists($fName)) {
+        $data = json_decode(file_get_contents($fName), true);
+    } else {
+        $data = array();
+    }
+    if(array_key_exists($user, $data)) {
+        return 0;
+    } else {
+        return $data[$user];
+    }
+}
+
 $maxUploadFileSize = convertToBytes( ini_get( 'upload_max_filesize' ) );
