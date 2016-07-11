@@ -38,10 +38,11 @@ function printMenu($allDay = false) {
                     <div class="food-votes">
                         <?php if($voteData['count'] > 0) { ?>
                             평점: <?php echo($voteData['sum'] / $voteData['count']);?>점
-                            (<?php echo $voteData['count']; ?>명)</div>
+                            (<?php echo $voteData['count']; ?>명)
                         <?php } else { ?>
                             평점 없음
                         <?php } ?>
+                    </div>
                     <br>
                     <div class="rate" style="inline-block"></div>
                     <button type="button" class="btn btn-default btn-xs">제출</button>
