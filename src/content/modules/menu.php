@@ -122,7 +122,10 @@ function printMenu($allDay = false) {
                     "t": t,
                     "stars": $("#fv" + curYear + curMonth + curDay + t).rateYo("rating")
                 }, function() {
-                    $("#b" + curYear + curMonth + curDay + t).html("성공").delay(1000).html("제출");
+                    $("#b" + curYear + curMonth + curDay + t).html("성공");
+                    setTimeout(function() {
+                        $("#b" + curYear + curMonth + curDay + t).html("제출");
+                    }, 1000);
                 });
             }
         </script>
