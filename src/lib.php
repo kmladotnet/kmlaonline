@@ -808,7 +808,7 @@ function getFoodVotes($y, $m, $d, $t) {
     return $dat["sum"] / $dat["count"];
 }
 
-function foodVote($stars, $user) {
+function foodVote($y, $m, $d, $t, $stars, $user) {
     global $me;
     $fName = "data/food/votes/{$y}.{$m}.{$d}.{$t}";
     if(file_exists($fName)) {
@@ -830,7 +830,8 @@ function foodVote($stars, $user) {
     }
 }
 
-function getMyFoodVote($user) {
+function getMyFoodVote($y, $m, $d, $t, $user) {
+    $fName = "data/food/votes/{$y}.{$m}.{$d}.{$t}";
     if(file_exists($fName)) {
         $data = json_decode(file_get_contents($fName), true);
     } else {
