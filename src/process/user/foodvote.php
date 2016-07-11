@@ -1,2 +1,2 @@
 <?php
-foodVote($_POST['y'], $_POST['m'], $_POST['d'], $_POST['t'], $_POST['stars'], $me['n_id']);
+foodVote($_REQUEST['y'], $_REQUEST['m'], $_REQUEST['d'], $_REQUEST['t'], $_REQUEST['stars'], $me['n_id']);
