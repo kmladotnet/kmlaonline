@@ -121,7 +121,7 @@ function printMenu($allDay = false) {
                     "d": curDay,
                     "t": t,
                     "stars": $("#fv" + curYear + curMonth + curDay + t).rateYo("rating")
-                };
+                });
             }
         </script>
     <?php }
