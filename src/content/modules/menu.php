@@ -33,9 +33,9 @@ function printMenu($allDay = false) {
                     <?php
                 }
                 if(getTheme($me)['beta']) { ?>
-                    <hr style="margin-top: 5px;margin-bottom: 5px;">
                     <div class="rate" style="inline-block"></div>
                     <button type="button" class="btn btn-default btn-xs">제출</button>
+                    <hr style="margin-top: 5px;margin-bottom: 5px;">
                 <?php }
                 echo isset($scheduleData['food:0'])?nl2br($scheduleData['food:0']):"<span style='color:#DDD'>(입력되지 않음)</span>";
             ?>
