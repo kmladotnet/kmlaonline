@@ -110,6 +110,7 @@ function printContent(){
                             평점 없음
                         <?php } ?>
                     </div>
+                    로그인해야 평점을 줄 수 있어요.
                     <hr style="margin-top: 5px;margin-bottom: 5px;">
                     <?php echo isset($scheduleData['food:0'])?nl2br($scheduleData['food:0']):"<span style='color:#DDD'>(입력되지 않음)</span>"; ?>
                 </div>
@@ -125,6 +126,7 @@ function printContent(){
                             평점 없음
                         <?php } ?>
                     </div>
+                    로그인해야 평점을 줄 수 있어요.
                     <hr style="margin-top: 5px;margin-bottom: 5px;">
                     <?php echo isset($scheduleData['food:1'])?nl2br($scheduleData['food:1']):"<span style='color:#DDD'>(입력되지 않음)</span>"; ?>
                 </div>
@@ -140,6 +142,7 @@ function printContent(){
                             평점 없음
                         <?php } ?>
                     </div>
+                    로그인해야 평점을 줄 수 있어요.
                     <hr style="margin-top: 5px;margin-bottom: 5px;">
                     <?php echo isset($scheduleData['food:2'])?nl2br($scheduleData['food:2']):"<span style='color:#DDD'>(입력되지 않음)</span>"; ?>
                 </div>
