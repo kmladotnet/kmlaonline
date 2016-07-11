@@ -114,19 +114,21 @@ function printMenu($allDay = false) {
                $(".rate").rateYo({fullStar: true, starWidth: "16px"}).css({"display": "inline-block", "top":"3px"});
             });
             function foodVotes(t) {
-                $.post("ajax/user/foodvote", {
-                    "ajax": 1,
-                    "y": curYear,
-                    "m": curMonth,
-                    "d": curDay,
-                    "t": t,
-                    "stars": $("#fv" + curYear + curMonth + curDay + t).rateYo("rating")
-                }, function() {
-                    $("#b" + curYear + curMonth + curDay + t).html("성공");
-                    setTimeout(function() {
-                        $("#b" + curYear + curMonth + curDay + t).html("제출");
-                    }, 1000);
-                });
+                if($("#fv" + curYear + curMonth + curDay + t).rateYo("rating") > 0) {
+                    $.post("ajax/user/foodvote", {
+                        "ajax": 1,
+                        "y": curYear,
+                        "m": curMonth,
+                        "d": curDay,
+                        "t": t,
+                        "stars": $("#fv" + curYear + curMonth + curDay + t).rateYo("rating")
+                    }, function() {
+                        $("#b" + curYear + curMonth + curDay + t).html("성공").removeClass("btn-default").addClass("btn-success");
+                        setTimeout(function() {
+                            $("#b" + curYear + curMonth + curDay + t).html("제출").removeClass("btn-success").addClass("btn-default");
+                        }, 1000);
+                    });
+                }
             }
         </script>
     <?php }
