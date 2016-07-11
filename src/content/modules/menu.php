@@ -32,7 +32,12 @@ function printMenu($allDay = false) {
                     </div>
                     <?php
                 }
-                if(getTheme($me)['beta']) { ?>
+                if(getTheme($me)['beta']) {
+                    $voteData = getFoodVoteData($curYear, $curMonth, $curDay, 1);
+                    ?>
+                    <div class="food-votes">평점: <?php echo($voteData['sum'] / $voteData['count']);?>점
+                        (<?php echo $voteData['count']; ?>명)</div>
+                    <br>
                     <div class="rate" style="inline-block"></div>
                     <button type="button" class="btn btn-default btn-xs">제출</button>
                     <hr style="margin-top: 5px;margin-bottom: 5px;">
@@ -49,6 +54,11 @@ function printMenu($allDay = false) {
                     </div>
                     <?php
                 }
+                if(getTheme($me)['beta']) { ?>
+                    <div class="rate" style="inline-block"></div>
+                    <button type="button" class="btn btn-default btn-xs">제출</button>
+                    <hr style="margin-top: 5px;margin-bottom: 5px;">
+                <?php }
                 echo isset($scheduleData['food:1'])?nl2br($scheduleData['food:1']):"<span style='color:#DDD'>(입력되지 않음)</span>";
             ?>
         </div>
@@ -61,6 +71,11 @@ function printMenu($allDay = false) {
                     </div>
                     <?php
                 }
+                if(getTheme($me)['beta']) { ?>
+                    <div class="rate" style="inline-block"></div>
+                    <button type="button" class="btn btn-default btn-xs">제출</button>
+                    <hr style="margin-top: 5px;margin-bottom: 5px;">
+                <?php }
                 echo isset($scheduleData['food:2'])?nl2br($scheduleData['food:2']):"<span style='color:#DDD'>(입력되지 않음)</span>";
             ?>
         </div>

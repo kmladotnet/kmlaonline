@@ -808,6 +808,15 @@ function getFoodVotes($y, $m, $d, $t) {
     return $dat["sum"] / $dat["count"];
 }
 
+function getFoodVoteData($y, $m, $d, $t) {
+    $fName = "data/food/votes/{$y}.{$m}.{$d}.{$t}-total";
+    if(file_exists($fName)) {
+        return json_decode(file_get_contents($fName), true);
+    } else {
+        return array("sum" => 0, "count" => 0);
+    }
+}
+
 function foodVote($y, $m, $d, $t, $stars, $user) {
     global $me;
     $fName = "data/food/votes/{$y}.{$m}.{$d}.{$t}";
