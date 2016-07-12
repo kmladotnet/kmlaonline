@@ -5,7 +5,7 @@ function moduleTitle($module_name, $options) {
     switch($module_name) {
         case 'important':
             ?>
-            꼭 보세요
+            <i class="fa fa-exclamation-circle" aria-hidden="true"></i> 꼭 보세요
             <button class="btn btn-link" style="padding:0;vertical-align:top">
                 <a href="/util/important">
                 신청목록 보기<?php
@@ -16,7 +16,9 @@ function moduleTitle($module_name, $options) {
             <?php
             break;
         case 'birthday':
-            ?> <a href="/util/schedule?<?php echo "year=$curYear&amp;month=$curMonth&amp;mode=normal"?>">
+            ?>
+                <i class="fa fa-birthday-cake" aria-hidden="true"></i>
+                <a href="/util/schedule?<?php echo "year=$curYear&amp;month=$curMonth&amp;mode=normal"?>">
                 생일<?php
                 foreach($member->listMembersBirth(date("n"), date("j")) as $val){
                     if($val['n_id'] === $me['n_id']) {
@@ -28,12 +30,13 @@ function moduleTitle($module_name, $options) {
             break;
         case 'menu':
             ?>
+            <i class="fa fa-cutlery" aria-hidden="true"></i>
             <a href="/util/schedule?<?php echo "year=$curYear&amp;month=$curMonth&amp;mode=food:0"?>">식단</a>
             <?php
             break;
         case 'kmlaboard':
             ?>
-            큼라보드
+            <i class="fa fa-dot-circle-o" aria-hidden="true"></i> 큼라보드
             <?php if(isUserPermitted($me['n_id'], "kmlaboard_changer")){ ?>
                 <button class="btn btn-link" style="padding:0;vertical-align:top">
                     <a href="/util/kmlaboard">(수정하기)</a>
@@ -57,17 +60,17 @@ function moduleTitle($module_name, $options) {
             break;
         case 'gallery':
             ?>
-            <a href="/board/all_gallery">갤러리</a>
+            <i class="fa fa-picture-o" aria-hidden="true"></i> <a href="/board/all_gallery">갤러리</a>
             <?php
             break;
         case 'weather':
             ?>
-            날씨
+            <i class="fa fa-bolt" aria-hidden="true"></i> 날씨
             <?php
             break;
         case 'minjok-news':
             ?>
-            인트라넷 공지
+            <i class="fa fa-info-circle" aria-hidden="true"></i> 인트라넷 공지
             <?php
             break;
     }
