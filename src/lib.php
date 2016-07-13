@@ -82,8 +82,8 @@ $curMonth = date("n");
 $curDay = date("j");
 if($is_morning && date("H") >= 22) {
     $curYear = date("Y", strtotime("+1 day"));
-    $curMonth = date("m", strtotime("+1 day"));
-    $curDay = date("d", strtotime("+1 day"));
+    $curMonth = date("n", strtotime("+1 day"));
+    $curDay = date("j", strtotime("+1 day"));
 }
 
 function redirectAlert($lnk = false, $alert = false) {
