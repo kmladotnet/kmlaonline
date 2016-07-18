@@ -628,7 +628,7 @@ function getWeather() {
     global $owm;
     $lang = 'en';
     $units = 'metric';
-    return $owm->getWeather('Wonju', $units, $lang, '713e90471b96dbd9c11826031ee66031');
+    return $owm->getWeather(1833105, $units, $lang, '713e90471b96dbd9c11826031ee66031');
 }
 
 function getTheme($user) {

@@ -186,7 +186,8 @@ div {
 		padding-right: 36px;
 	}
 	&#total-wrap {
-		width: calc(55% + 300px);
+        width: 1020px;
+		width: calc(58% + 320px);
 		max-width: 100%;
 		font-size: 11pt;
 		margin: 0 auto;
@@ -404,7 +405,7 @@ div {
 	}
 	&.food {
 		float: left;
-		width: 33.3%;
+		width: 33.33333%;
 	}
 	&.food-header {
         font-size: 1.15em;
