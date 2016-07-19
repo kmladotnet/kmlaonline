@@ -499,10 +499,10 @@ div {
             max-width: calc(100% - 24px);
         }
         &.has-votes {
-            max-width: calc(100% - 48px);
+            max-width: calc(100% - 40px);
         }
         &.has-both {
-            max-width: calc(100% - 80px);
+            max-width: calc(100% - 70px);
         }
         &.has-none {
             max-width: 100%;
@@ -806,7 +806,6 @@ ul#top_notification_list {
     border-radius: 2px;
     padding: 1px 4px;
     display: inline-block;
-    width: 50px;
     text-align: center;
     line-height: 0.99;
     font-size: 0.9em;
@@ -817,7 +816,6 @@ ul#top_notification_list {
     border-radius: 2px;
     padding: 1px 4px;
     display: inline-block;
-    width: 50px;
     text-align: center;
     line-height: 0.99;
     font-size: 0.9em;
