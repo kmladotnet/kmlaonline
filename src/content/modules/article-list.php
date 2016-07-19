@@ -25,9 +25,25 @@ function articleList($article_list, $category=true, $title=true, $name=true, $da
 			$b_bold_title=($a['n_flag']&0x8);
 			$b_no_comment=($a['n_flag']&0x2);
 			$b_anonymous=($a['n_flag']&0x4);
-			$pretty_title='<div class="article-list-title">'.formatTitle($a['s_title']).'</div>';
-			if(($a['n_comments']!=0 && doesAdminBypassEverythingAndIsAdmin(!$b_no_comment)))
-				$pretty_title.=" <span class='comment-num'>{$a['n_comments']}</span>";
+            $has_comments = ($a['n_comments']!=0 && doesAdminBypassEverythingAndIsAdmin(!$b_no_comment));
+            $votes = get_votes($a['n_id']);
+            $classes = "article-list-title";
+            if($has_comments) {
+                if($votes != 0) {
+                    $classes .= " has-both";
+                } else {
+                    $classes .= " has-comments";
+                }
+            } else if($votes != 0) {
+                $classes .= " has-votes";
+            } else {
+                $classes .= " has-none";
+            }
+			$pretty_title='<div class="'.$classes.'">'.formatTitle($a['s_title']).'</div>';
+            if($votes != 0)
+                $pretty_title .= ' <span class="'.($votes > 0 ? 'positive' : 'negative').'-vote-num">'.(($votes > 0) ? '+' : '').$votes.'</span>';
+			if($has_comments)
+				$pretty_title .= " <span class='comment-num'>{$a['n_comments']}</span>";
 			?>
 			<tr style="height:<?php echo $height?>px;">
 				<?php if($category){ ?>

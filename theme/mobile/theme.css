@@ -483,4 +483,26 @@ div.minjok-news {
     line-height: 0.99;
     font-size: 0.9em;
 }
+.positive-vote-num {
+    color: #33ADD9;
+    border: 1px solid #33ADD9;
+    border-radius: 2px;
+    padding: 1px 4px;
+    display: inline-block;
+    width: 50px;
+    text-align: center;
+    line-height: 0.99;
+    font-size: 0.9em;
+}
+.negative-vote-num {
+    color: #D14B52;
+    border: 1px solid #D14B52;
+    border-radius: 2px;
+    padding: 1px 4px;
+    display: inline-block;
+    width: 50px;
+    text-align: center;
+    line-height: 0.99;
+    font-size: 0.9em;
+}
 

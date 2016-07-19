@@ -495,6 +495,18 @@ div {
 		overflow: hidden;
         display: inline-block;
         max-width: calc(100% - 24px);
+        &.has-comments {
+            max-width: calc(100% - 24px);
+        }
+        &.has-votes {
+            max-width: calc(100% - 48px);
+        }
+        &.has-both {
+            max-width: calc(100% - 80px);
+        }
+        &.has-none {
+            max-width: 100%;
+        }
         vertical-align: bottom;
     }
 	&.minjok-news {
@@ -784,6 +796,28 @@ ul#top_notification_list {
     padding: 1px 4px;
     display: inline-block;
     width: 26px;
+    text-align: center;
+    line-height: 0.99;
+    font-size: 0.9em;
+}
+.positive-vote-num {
+    color: $brand-info;
+    border: 1px solid $brand-info;
+    border-radius: 2px;
+    padding: 1px 4px;
+    display: inline-block;
+    width: 50px;
+    text-align: center;
+    line-height: 0.99;
+    font-size: 0.9em;
+}
+.negative-vote-num {
+    color: $brand-danger;
+    border: 1px solid $brand-danger;
+    border-radius: 2px;
+    padding: 1px 4px;
+    display: inline-block;
+    width: 50px;
     text-align: center;
     line-height: 0.99;
     font-size: 0.9em;
