@@ -26,7 +26,7 @@ function articleList($article_list, $category=true, $title=true, $name=true, $da
 			$b_no_comment=($a['n_flag']&0x2);
 			$b_anonymous=($a['n_flag']&0x4);
             $has_comments = ($a['n_comments']!=0 && doesAdminBypassEverythingAndIsAdmin(!$b_no_comment));
-            $votes = get_votes($a['n_id']);
+            $votes = getVotes($a['n_id']);
             $classes = "article-list-title";
             if($has_comments) {
                 if($votes != 0) {
