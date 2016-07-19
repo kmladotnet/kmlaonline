@@ -457,8 +457,21 @@ div.article-list-title {
     text-overflow: ellipsis;
     overflow: hidden;
     display: inline-block;
-    max-width: calc(100% - 20px);
+    max-width: calc(100% - 24px);
     vertical-align: bottom;
+}
+
+div.article-list-title.has-comments {
+    max-width: calc(100% - 24px);
+}
+div.article-list-title.has-votes {
+    max-width: calc(100% - 40px);
+}
+div.article-list-title.has-both {
+    max-width: calc(100% - 70px);
+}
+div.article-list-title.has-none {
+    max-width: 100%;
 }
 div.minjok-news {
     overflow: hidden;
