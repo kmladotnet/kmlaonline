@@ -35,7 +35,11 @@
 		<script type="text/javascript">prepareHeader();</script>
 	<?php } ?>
 	<div id="total-content">
-        방학에 큼온을 방문하다니! 항상 큼온을 사랑해주셔서 감사합니다.
+        <div class="alert alert-info" style="margin-top: 20px;">
+            여름방학중에 큼온을 방문하다니! 항상 큼온을 사랑해주셔서 감사합니다. <br>
+            방학동안 정기점검 및 기능추가 때문에 간혹 사이트가 불안정할 수 있습니다. <br>
+            더욱 좋은 모습으로 2학기 때 봐요!
+        </div>
         <?php if (function_exists("printContent")) { printContent(); } ?>
         <div style="clear:both"></div>
     </div>
