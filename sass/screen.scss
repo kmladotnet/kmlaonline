@@ -32,28 +32,28 @@ $logo-url: url('/images/logo.png');
 //bootstrap custom panel backgrounds
 .panel-success > .panel-body {
     @include background-image(linear-gradient(lighten($panel-success-heading-bg, 13%), #ffffff 10%));
-    &::selection {
+    * ::selection {
         background: $panel-success-heading-bg;
     }
 }
 
 .panel-info > .panel-body {
     @include background-image(linear-gradient(lighten($panel-info-heading-bg, 7.5%), #ffffff 10%));
-    &::selection {
+    * ::selection {
         background: $panel-info-heading-bg;
     }
 }
 
 .panel-warning > .panel-body {
     @include background-image(linear-gradient(lighten($panel-warning-heading-bg, 7%), #ffffff 10%));
-    &::selection {
+    * ::selection {
         background: $panel-warning-heading-bg;
     }
 }
 
 .panel-danger > .panel-body {
     @include background-image(linear-gradient(lighten($panel-danger-heading-bg, 6%), #ffffff 10%));
-    &::selection {
+    * ::selection {
         background: $panel-danger-heading-bg;
     }
 }
