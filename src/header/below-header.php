@@ -36,7 +36,7 @@
 	<?php } ?>
 	<div id="total-content">
         <div class="alert alert-info" style="margin-top: 20px;">
-            여름방학중에 큼온을 방문하다니! (할 게 별로 없나봐요?) <br>
+            여름방학중에 큼온을 방문하다니! <br>
             방학동안 정기점검 및 기능추가 때문에 간혹 사이트가 불안정할 수 있으니 주의해주세요! <br>
             항상 큼온을 사랑해주셔서 감사합니다!
         </div>
