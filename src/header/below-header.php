@@ -34,5 +34,9 @@
         <?php } ?>
 		<script type="text/javascript">prepareHeader();</script>
 	<?php } ?>
-	<div id="total-content"><?php if (function_exists("printContent")) { printContent(); } ?><div style="clear:both"></div></div>
+	<div id="total-content">
+        방학에 큼온을 방문하다니! 항상 큼온을 사랑해주셔서 감사합니다.
+        <?php if (function_exists("printContent")) { printContent(); } ?>
+        <div style="clear:both"></div>
+    </div>
 </div>
