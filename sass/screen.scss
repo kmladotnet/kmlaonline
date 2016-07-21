@@ -31,7 +31,7 @@ $logo-url: url('/images/logo.png');
 
 //bootstrap custom panel backgrounds
 .panel-success > .panel-body {
-    @include background-image(linear-gradient(lighten($panel-success-heading-bg, 7.5%), #ffffff 10%));
+    @include background-image(linear-gradient(lighten($panel-success-heading-bg, 10%), #ffffff 10%));
 }
 
 .panel-info > .panel-body {
