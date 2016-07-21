@@ -15,6 +15,7 @@ $kmla-notification-new-color: #e7f3ff;
 $kmla-notification-hover-color: #e1eeff;
 $kmla-header-extend-color: #bed6ea;
 $kmla-menu-color: #074275;
+$kmla-highlight-color: #6B9BC7;
 $kmla-footer-color: #ffefd2;
 $kmla-wave-button-hover-color: #ddefff;
 $kmla-profile-nav-color: #a3cfff;
@@ -28,7 +29,9 @@ $dasan-extend-url: url('/images/dasan-extend.jpg');
 $dasan-url: url('/images/dasan.png');
 $menubar-panel-url: url('/images/menubar-panel.png');
 $logo-url: url('/images/logo.png');
-
+* :: selection {
+    background: $kmla-highlight-color;
+}
 //bootstrap custom panel backgrounds
 .panel-success > .panel-body {
     @include background-image(linear-gradient(lighten($panel-success-heading-bg, 13%), #ffffff 10%));
