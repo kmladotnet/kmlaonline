@@ -89,11 +89,11 @@ function printContentPc(){
                             애니메이션:
                             <div class="btn-group" data-toggle="buttons">
                                 <label class="btn btn-default <?php if(!getTheme($me)['noanim']) echo "active"; ?>">
-                                    <input type="radio" name="enable-anim" id="voteleft-option" autocomplete="off"
+                                    <input type="radio" name="enable-anim" id="anim-option" autocomplete="off"
                                            <?php if(!getTheme($me)['noanim']) echo "checked"; ?>> 활성화
                                 </label>
                                 <label class="btn btn-default <?php if(getTheme($me)['noanim']) echo "active"; ?>">
-                                    <input type="radio" name="noanim" id="voteright-option" autocomplete="off"
+                                    <input type="radio" name="noanim" id="noanim-option" autocomplete="off"
                                            <?php if(getTheme($me)['noanim']) echo "checked"; ?>> 비활성화
                                 </label>
                             </div>

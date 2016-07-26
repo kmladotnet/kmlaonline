@@ -310,6 +310,7 @@ function saveTheme() {
     options['pinmenu'] = $("#pinmenu-option").parent().hasClass("active");
     options['hidedasan'] = $("#hidedasan-option").parent().hasClass("active");
     options['notitlesymbols'] = $("#notitlesymbols-option").parent().hasClass("active");
+    options['noanim'] = $("#noanim-option").parent().hasClass("active");
     $.post("ajax/user/savetheme", {
         "json": JSON.stringify(options),
         "ajax": 1
