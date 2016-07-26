@@ -68,7 +68,7 @@ function bindAddModuleButton() {
             var newModule = $(data).wrap("<div class='grid-stack-item-content'></div>").parent()
                 .wrap("<div class='grid-stack-item'></div>").parent();
             newModule.attr("data-module-name", name).attr("data-module-options", "[]");
-            grid.add_widget(newModule, 0, 0, 4, 4).velocity("transition.slideDownIn", {display: null, duration: 300});
+            grid.add_widget(newModule, 0, 0, 4, 4).velocity("transition.slideDownIn", {display: null, duration: 200});
             rebindModules();
         });
         $("#add-module").val('');
@@ -82,7 +82,7 @@ function bindExampleLayoutButton() {
                     "name": $("#example-layout").val(),
                     ajax: 1
             }).done(function () {
-                $(".grid-stack-item").velocity("transition.slideUpOut", {stagger: 50, duration: 300, complete: function() {
+                $(".grid-stack-item").velocity("transition.slideUpOut", {stagger: 50, duration: 200, complete: function() {
                     location.reload(true);
                 }});
             });
@@ -111,7 +111,7 @@ function restoreLayout() {
         $.post("ajax/user/restorelayout", {
                 ajax: 1
         }).done(function () {
-            $(".grid-stack-item").velocity("transition.slideUpOut", {stagger: 50, duration: 300, complete: function() {
+            $(".grid-stack-item").velocity("transition.slideUpOut", {stagger: 50, duration: 200, complete: function() {
                 location.reload(true);
             }});
         });
@@ -121,7 +121,7 @@ function restoreLayout() {
 function bindModuleCloseButton() {
     $(".main-block-close").unbind("click").click(function () {
         var module = $(this).closest(".grid-stack-item");
-        module.velocity("transition.slideUpOut", {display: null, duration: 300, complete: function() {
+        module.velocity("transition.slideUpOut", {display: null, duration: 200, complete: function() {
             $('.grid-stack').data('gridstack').remove_widget(module);
         }});
     });
@@ -130,7 +130,7 @@ function bindModuleCloseButton() {
 function bindModuleReloadButton(mobile) {
     $(".main-block-reload").unbind("click").click(function () {
         var module = $(this).closest(".grid-stack-item");
-        module.velocity("transition.slideUpOut", {display: null, duration: 300});
+        module.velocity("transition.slideUpOut", {display: null, duration: 200});
         $.post(mobile ? "ajax/user/getmodulelite" : "ajax/user/getmodule", {
             "json": JSON.stringify(moduleToObject(module)),
             "ajax": 1
@@ -216,7 +216,7 @@ function resetMainLayout() {
         $.post("ajax/user/resetlayout", {
             "ajax": "1"
         }).done(function () {
-            $(".grid-stack-item").velocity("transition.slideUpOut", {stagger: 50, duration: 300, complete: function() {
+            $(".grid-stack-item").velocity("transition.slideUpOut", {stagger: 50, duration: 200, complete: function() {
                 location.reload(true);
             }});
         });
@@ -267,7 +267,7 @@ function addModule(json) {
         var dat = JSON.parse(json);
         var newModule = $(data).wrap("<div class='grid-stack-item-content'></div>");
         newModule.attr("data-module-name", dat["name"]).attr("data-module-options", JSON.stringify(dat["options"]["options"]));
-        grid.add_widget(newModule, 0, 0, 4, 4).velocity("transition.slideDownIn", {display: null, duration: 300});
+        grid.add_widget(newModule, 0, 0, 4, 4).velocity("transition.slideDownIn", {display: null, duration: 200});
         rebindModules();
     });
 }
