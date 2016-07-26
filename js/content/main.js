@@ -135,7 +135,7 @@ function bindModuleReloadButton(mobile) {
             "json": JSON.stringify(moduleToObject(module)),
             "ajax": 1
         }, function (data) {
-            module.velocity("transition.slideUpIn", {display: null, duration: 300});
+            module.velocity("transition.slideUpIn", {display: null, duration: 200});
             module.find(".grid-stack-item-content").html(data);
             rebindModules(mobile);
             if(mobile)
@@ -159,7 +159,7 @@ function reloadAllModules(light) {
             "json": JSON.stringify(simpleModuleToObject(module)),
             "ajax": 1
         }, function (data) {
-            module.velocity("transition.slideUpIn", {display: null, duration: 300});
+            module.velocity("transition.slideUpIn", {display: null, duration: 200});
             module.find(".grid-stack-item-content").html(data);
             rebindModules(light);
         });
