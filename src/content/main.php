@@ -13,7 +13,6 @@ function printContentPc(){
         <div style="padding: 3px; padding-bottom: 6px; padding-top: 6px">
             <button type="button" id="main-edit-button" class="btn btn-default" onclick="toggleLayoutEditing();"><i class="fa fa-pencil" aria-hidden="true"></i> 편집 모드 시작</button>
             <button type="button" id="main-theme-button" class="btn btn-default" onclick="toggleThemeEditing();"><i class='fa fa-wrench' aria-hidden='true'></i> 큼온 설정</button>
-            <button type="button" id="main-reload-button" class="btn btn-default" onclick="reloadAllModules();"><i class="fa fa-refresh" aria-hidden="true"></i> 새로 고침</button>
             <?php printEverydayLinks(); ?>
             <div id="main-theme-pane" style="margin-top: 6px; display:none">
                 <form id="theme-form">
@@ -83,6 +82,19 @@ function printContentPc(){
                                 <label class="btn btn-default <?php if(getTheme($me)['voteright']) echo "active"; ?>">
                                     <input type="radio" name="voteright" id="voteright-option" autocomplete="off"
                                            <?php if(getTheme($me)['voteright']) echo "checked"; ?>> 오른쪽
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            애니메이션:
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default <?php if(!getTheme($me)['noanim']) echo "active"; ?>">
+                                    <input type="radio" name="enable-anim" id="voteleft-option" autocomplete="off"
+                                           <?php if(!getTheme($me)['noanim']) echo "checked"; ?>> 활성화
+                                </label>
+                                <label class="btn btn-default <?php if(getTheme($me)['noanim']) echo "active"; ?>">
+                                    <input type="radio" name="noanim" id="voteright-option" autocomplete="off"
+                                           <?php if(getTheme($me)['noanim']) echo "checked"; ?>> 비활성화
                                 </label>
                             </div>
                         </div>

@@ -638,7 +638,7 @@ function getTheme($user) {
             mkdir("data/user/theme");
         }
         $file = "data/user/theme/{$user['n_id']}.txt";
-        $items = array('beta', 'voteright', 'nojam', 'pinmenu', 'hidedasan', 'notitlesymbols');
+        $items = array('beta', 'voteright', 'nojam', 'pinmenu', 'hidedasan', 'notitlesymbols', 'noanim');
         $on_items = array('pinmenu');
         if(file_exists($file) && ($_SESSION['theme'] = json_decode(file_get_contents($file), true)) != null) {
             foreach($items as $item) {

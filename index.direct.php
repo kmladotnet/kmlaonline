@@ -33,9 +33,6 @@
 
     <base href="https://<?php echo $_SERVER['HTTP_HOST'] ?>/" />
 
-    <!-- calendar -->
-    <link rel="stylesheet" href="/css/calendar.css" />
-
     <!-- gridstack -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.5/gridstack.min.css" />
 
@@ -107,6 +104,13 @@
         <?php }
         if($theme['gradients']) { ?>
             <link rel="stylesheet" href="/sass-compiled/gradients.css" type="text/css" media="screen" />
+        <?php }
+        if($theme['noanim']) { ?>
+            <script>
+                $(function() {
+                    $.Velocity.mock = true;
+                });
+            </script>
         <?php }
     }?>
     <title>
@@ -206,35 +210,5 @@
         });
     </script>
 </body>
-<?php if(false) { ?>
-<!-- converse -->
-<link rel="stylesheet" type="text/css" media="screen" href="css/converse/converse.min.css">
-<script type="text/javascript" src="js/converse/dist/converse.nojquery.min.js"></script>
-<script>
-require(['converse'], function (converse) {
-    converse.initialize({
-        jid: '<?php echo $me['s_id']; ?>@kmlaonline.net',
-        fullname: '<?php echo $me['s_name']; ?>',
-        credentials_url: 'https://kmlaonline.net/proc/user/imlogin',
-        auto_login: true,
-        keepalive: true,
-        bosh_service_url: 'https://kmlaonline.net/http-bind',
-        i18n: locales.en,
-        show_controlbox_by_default: true,
-        roster_groups: true,
-        allow_logout: false,
-        locked_domain: 'kmlaonline.net',
-        hide_muc_server: true,
-        message_archiving: 'always',
-        forward_messages: true,
-        allow_registration: false,
-        allow_contact_requests: false,
-        allow_contact_removal: false,
-        allow_otr: false,
-
-    });
-});
-</script>
-<?php } ?>
 
 </html>
