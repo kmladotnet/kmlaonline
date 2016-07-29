@@ -203,7 +203,8 @@ div {
 	&#total-wrap {
         width: 1020px;
 		width: calc(58% + 320px);
-		max-width: 100%;
+		max-width: 90%;
+        max-width: calc(100% - 80px);
 		font-size: 11pt;
 		margin: 0 auto;
 		min-height: 100%;
@@ -220,6 +221,7 @@ div {
 		position: fixed;
 		z-index: 999;
 		width: inherit;
+        max-width: inherit;
 	}
 	&#total-header-menu {
 		height: 40px;
