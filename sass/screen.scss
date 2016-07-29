@@ -843,10 +843,10 @@ ul#top_notification_list {
     font-weight: bold;
     margin: 10px;
     height: 50px;
-    .guilty {
+    . .guilty {
         color: $brand-danger;
     }
-    .innocent {
+    . .innocent {
         color: $brand-success;
     }
 }
@@ -859,10 +859,10 @@ span.court-location {
     display: block;
     font-size: 16pt;
     margin: 5px;
-    .dasan {
+    . .dasan {
         color: $brand-success;
     }
-    .gym {
+    . .gym {
         color: $brand-danger;
     }
 }
