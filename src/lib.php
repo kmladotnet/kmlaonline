@@ -857,7 +857,7 @@ function getMyFoodVote($y, $m, $d, $t, $user) {
 
 function getLatestCourtPost() {
     global $board;
-    $postList = $board->getArticleList(array(67), false, false, 0, 10);
+    $postList = $board->getArticleList(array(67), false, false, 0, 10, "n_id", true, 0, false, true, true, false, false, false, false, true);
     foreach($postList as $post) {
         if(preg_match("/법정 *리스트/", $post['s_title'])) {
             return $post;
@@ -879,7 +879,6 @@ function goesToCourt($name, $courtPost) {
 }
 
 function isCourtDasan($courtPost) {
-    print_r($courtPost);
     $pos = strpos($courtPost['s_data'], '소강당');
     return $pos !== false && $pos < 50;
 }
