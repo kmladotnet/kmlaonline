@@ -224,7 +224,7 @@ JSON
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.6.1/lodash.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.5/gridstack.min.js"></script>
 
-    <script src="/js/content/main.js?v=1.1"></script>
+    <script src="/js/content/main.js?v=1.2"></script>
 
     <script type="text/javascript">
     PNotify.prototype.options.delay = 2500;

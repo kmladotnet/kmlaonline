@@ -68,7 +68,7 @@ function bindAddModuleButton() {
             var newModule = $(data).wrap("<div class='grid-stack-item-content'></div>").parent()
                 .wrap("<div class='grid-stack-item'></div>").parent();
             newModule.attr("data-module-name", name).attr("data-module-options", "[]");
-            grid.add_widget(newModule, 0, 0, 4, 4).velocity("transition.slideDownIn", {display: null, duration: 200});
+            grid.addWidget(newModule, 0, 0, 4, 4).velocity("transition.slideDownIn", {display: null, duration: 200});
             rebindModules();
         });
         $("#add-module").val('');
@@ -122,7 +122,7 @@ function bindModuleCloseButton() {
     $(".main-block-close").unbind("click").click(function () {
         var module = $(this).closest(".grid-stack-item");
         module.velocity("transition.slideUpOut", {display: null, duration: 200, complete: function() {
-            $('.grid-stack').data('gridstack').remove_widget(module);
+            $('.grid-stack').data('gridstack').removeWidget(module);
         }});
     });
 }
@@ -267,7 +267,7 @@ function addModule(json) {
         var dat = JSON.parse(json);
         var newModule = $(data).wrap("<div class='grid-stack-item-content'></div>");
         newModule.attr("data-module-name", dat["name"]).attr("data-module-options", JSON.stringify(dat["options"]["options"]));
-        grid.add_widget(newModule, 0, 0, 4, 4).velocity("transition.slideDownIn", {display: null, duration: 200});
+        grid.addWidget(newModule, 0, 0, 4, 4).velocity("transition.slideDownIn", {display: null, duration: 200});
         rebindModules();
     });
 }
