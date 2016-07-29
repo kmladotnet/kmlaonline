@@ -7,6 +7,7 @@ function printContent(){
 }
 function printContentPc(){
 	global $member, $me, $is_morning, $is_afternoon, $is_night, $mysqli, $board, $user, $april_fools;
+    echo goesToCourt($me['s_name']);
 	?>
 
 	<div style="min-height: 400px">

@@ -866,4 +866,17 @@ function getLatestCourtPost() {
     return null;
 }
 
+function goesToCourt($name) {
+    global $board;
+    $courtPost = getLatestCourtPost();
+	$attaches = $board->getAttachments(false, $article['n_id']);
+    foreach($attaches as $file) {
+        if(preg_match("/법정 *리스트/", $file['s_name'])) {
+            $excel = file_get_contents($file['s_path']);
+            return mb_strpos($test, mb_convert_encoding($name, "UTF-16LE"), 0, "8bit") !== false;
+        }
+    }
+    return false;
+}
+
 $maxUploadFileSize = convertToBytes( ini_get( 'upload_max_filesize' ) );
