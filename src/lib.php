@@ -855,4 +855,15 @@ function getMyFoodVote($y, $m, $d, $t, $user) {
     }
 }
 
+function getLatestCourtPost() {
+    global $board;
+    $postList = $board->getArticleList(array(67), false, false, 0, 10);
+    foreach($postList as $post) {
+        if(preg_match("/법정 *리스트/", $post['s_title'])) {
+            return $post;
+        }
+    }
+    return null;
+}
+
 $maxUploadFileSize = convertToBytes( ini_get( 'upload_max_filesize' ) );

@@ -257,12 +257,16 @@ function printEverydayLinks(){
         <select id="everyday-other" class="selectpicker" data-style="btn-default" title="바로가기" data-width="180px" onchange="location = this.options[this.selectedIndex].value;">
             <?php
                 foreach(array("everyday_parcel" => "택배", "everyday_guidance" => "선도", "leftover" => "잔반") as $k => $v){
-                    $cat = $board->getCategory(false,$k);
+                    $cat = $board->getCategory(false, $k);
                     $a = $board->getArticleList(array($cat['n_id']), false, false, 0, 1);
-                    if(count($a)!=0) {
+                    if(count($a) != 0) {
                         $a = $a[0];
-                        echo "<option value=\"/board/$k/view/{$a['n_id']}\" data-content='",((time() - $a['n_writedate'] < 43200) ? '<i class="fa fa-plus-circle" aria-hidden="true"></i> ' : ''),"{$v} <span>(".date("n월 j일", $a['n_writedate']).")</span>'></option>";
+                        echo "<option value=\"/board/$k/view/{$a['n_id']}\" data-content='",((time() - $a['n_writedate'] < 43200) ? '<i class="fa fa-plus-circle" aria-hidden="true"></i> ' : ''),"{$v} <span>(".date("n월 j일", $a['n_writedate']).")</span>'>{$v}</option>";
                     }
+                }
+                $courtPost = getLatestCourtPost();
+                if($courtPost) {
+                    echo "<option value='/board/student_judicial/view/{$courtPost['n_id']}'>법정리스트</option>"
                 }
             ?>
             <option data-divider="true"></option>
