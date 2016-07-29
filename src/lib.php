@@ -866,9 +866,8 @@ function getLatestCourtPost() {
     return null;
 }
 
-function goesToCourt($name) {
+function goesToCourt($name, $courtPost) {
     global $board;
-    $courtPost = getLatestCourtPost();
 	$attaches = $board->getAttachments(false, $courtPost['n_id']);
     foreach($attaches as $file) {
         if(preg_match("/법정 *리스트/", $file['s_name'])) {
@@ -877,6 +876,11 @@ function goesToCourt($name) {
         }
     }
     return false;
+}
+
+function isCourtDasan($courtPost) {
+    $pos = strpos($courtPost['s_data'], '소강당');
+    return $pos !== false && $pos < 50;
 }
 
 $maxUploadFileSize = convertToBytes( ini_get( 'upload_max_filesize' ) );
