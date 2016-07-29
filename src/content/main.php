@@ -254,31 +254,24 @@ function printEverydayLinks(){
 	global $board;
     ?>
     <div class="everyday-links">
-        <div class="btn-group" role="group" aria-label="...">
+        <select id="everyday-other" class="selectpicker" data-style="btn-default" title="바로가기" data-width="180px" onchange="location = this.options[this.selectedIndex].value;">
             <?php
-            // 그날그날: 택배, 선도, 잔반
-            $i=0;
-
-            ?>
-            <select id="everyday-other" class="selectpicker" data-style="btn-default" title="바로가기" data-width="180px" onchange="location = this.options[this.selectedIndex].value;">
-                <?php
-                    foreach(array("everyday_parcel" => "택배", "everyday_guidance" => "선도", "leftover" => "잔반") as $k => $v){
-                        $cat = $board->getCategory(false,$k);
-                        $a = $board->getArticleList(array($cat['n_id']), false, false, 0, 1);
-                        if(count($a)!=0) {
-                            $a = $a[0];
-                            echo "<option value=\"/board/$k/view/{$a['n_id']}\" data-content='",((time() - $a['n_writedate'] < 43200) ? '<i class="fa fa-plus-circle" aria-hidden="true"></i> ' : ''),"{$v} <span>(".date("n월 j일", $a['n_writedate']).")</span>'></option>";
-                        }
+                foreach(array("everyday_parcel" => "택배", "everyday_guidance" => "선도", "leftover" => "잔반") as $k => $v){
+                    $cat = $board->getCategory(false,$k);
+                    $a = $board->getArticleList(array($cat['n_id']), false, false, 0, 1);
+                    if(count($a)!=0) {
+                        $a = $a[0];
+                        echo "<option value=\"/board/$k/view/{$a['n_id']}\" data-content='",((time() - $a['n_writedate'] < 43200) ? '<i class="fa fa-plus-circle" aria-hidden="true"></i> ' : ''),"{$v} <span>(".date("n월 j일", $a['n_writedate']).")</span>'></option>";
                     }
-                ?>
-                <option value="/board/department_environment">환경부</option>
-                <option value="/board/student_mpt">MPT</option>
-                <option value="/board/student_ambassador">대외홍보단</option>
-                <option value="/util/lectureroom">공강신청</option>
-		        <option value="/util/donation-cloth">교복 신청</option>
-                <option value="/util/donation-book">서적 신청</option>
-            </select>
-        </div>
+                }
+            ?>
+            <option value="/board/department_environment">환경부</option>
+            <option value="/board/student_mpt">MPT</option>
+            <option value="/board/student_ambassador">대외홍보단</option>
+            <option value="/util/lectureroom">공강신청</option>
+            <option value="/util/donation-cloth">교복 신청</option>
+            <option value="/util/donation-book">서적 신청</option>
+        </select>
     </div>
     <?php
 }
