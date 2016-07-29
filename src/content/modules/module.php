@@ -73,6 +73,11 @@ function moduleTitle($module_name, $options) {
             <i class="fa fa-info-circle" aria-hidden="true"></i> 인트라넷 공지
             <?php
             break;
+        case 'court':
+            ?>
+            <i class="fa fa-gavel" aria-hidden="true"></i> 법정 기소
+            <?php
+            break;
     }
 }
 
@@ -104,6 +109,7 @@ function moduleContent($module_name, $options, $light = false) {
         case 'birthday':
         case 'weather':
         case 'minjok-news':
+        case 'court':
             include($module_name.'.php');
             break;
     }
