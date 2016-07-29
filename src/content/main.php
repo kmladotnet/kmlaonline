@@ -256,7 +256,7 @@ function printEverydayLinks(){
     <div class="everyday-links">
         <select id="everyday-other" class="selectpicker" data-style="btn-default" title="바로가기" data-width="180px" onchange="location = this.options[this.selectedIndex].value;">
             <?php
-                foreach(array("everyday_parcel" => "택배", "everyday_guidance" => "선도", "leftover" => "잔반") as $k => $v){
+                foreach(array("everyday_parcel" => "택배", "everyday_guidance" => "선도", "leftover" => "잔반") as $k => $v) {
                     $cat = $board->getCategory(false, $k);
                     $a = $board->getArticleList(array($cat['n_id']), false, false, 0, 1);
                     if(count($a) != 0) {
@@ -266,7 +266,7 @@ function printEverydayLinks(){
                 }
                 $courtPost = getLatestCourtPost();
                 if($courtPost) {
-                    echo "<option value='/board/student_judicial/view/{$courtPost['n_id']}'>법정리스트</option>"
+                    echo "<option value='/board/student_judicial/view/{$courtPost['n_id']}'>법정리스트</option>";
                 }
             ?>
             <option data-divider="true"></option>
