@@ -266,7 +266,7 @@ function printEverydayLinks(){
                 }
                 $courtPost = getLatestCourtPost();
                 if($courtPost) {
-                    echo "<option value='/board/student_judicial/view/{$courtPost['n_id']}'>법정리스트</option>";
+                    echo "<option value='/board/student_judicial/view/{$courtPost['n_id']}' data-content='법정리스트 <span>(".date("n월 j일", $courtPost['n_writedate']).")</span>'>법정리스트</option>";
                 }
             ?>
             <option data-divider="true"></option>
