@@ -75,7 +75,7 @@ function moduleTitle($module_name, $options) {
             break;
         case 'court':
             ?>
-            <i class="fa fa-gavel" aria-hidden="true"></i> 법정 기소
+            <i class="fa fa-gavel" aria-hidden="true"></i> 법정
             <?php
             break;
     }

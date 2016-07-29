@@ -12,6 +12,6 @@ $isDasan = isCourtDasan($courtPost);
         <span class="court-location <?php echo $isDasan ? "dasan" : "gym"; ?>">
             <?php echo $isDasan ? "소강당" : "체육관"; ?>
         </span>
-        <br><a href="/board/student_judicial/view/<?php echo $courtPost['n_id']; ?>">법정리스트</a>
+        <a href="/board/student_judicial/view/<?php echo $courtPost['n_id']; ?>">법정리스트</a>
     </div>
 </div>
