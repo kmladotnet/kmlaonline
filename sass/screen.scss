@@ -849,11 +849,12 @@ ul#top_notification_list {
     }
     &.innocent {
         color: $brand-success;
+        font-size: 70pt;
     }
 }
 .court-text {
     text-align: center;
-    text-size: 13pt;
+    font-size: 13pt;
 }
 span.court-location {
     font-weight: bold;
