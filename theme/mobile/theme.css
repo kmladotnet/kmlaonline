@@ -521,13 +521,14 @@ div.minjok-news {
     font-size: 40pt;
     font-weight: bold;
     margin: 10px;
+    margin-top: 2px;
     height: 50px;
 }
 .court-face.guilty {
-    color: $brand-danger;
+    color: #D14B52;
 }
 .court-face.innocent {
-    color: $brand-success;
+    color: #38A935;
 }
 .court-text {
     font-size: 13pt;
@@ -540,9 +541,9 @@ span.court-location {
     margin: 5px;
 }
 span.court-location.dasan {
-    color: $brand-success;
+    color: #38A935;
 }
 span.court-location.gym {
-    color: $brand-danger;
+    color: #D14B52;
 }
 
