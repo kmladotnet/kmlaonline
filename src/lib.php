@@ -879,6 +879,7 @@ function goesToCourt($name, $courtPost) {
 }
 
 function isCourtDasan($courtPost) {
+    print_r($courtPost);
     $pos = strpos($courtPost['s_data'], '소강당');
     return $pos !== false && $pos < 50;
 }
