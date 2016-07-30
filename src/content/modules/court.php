@@ -18,6 +18,7 @@ if($courtPost !== null) {
     </div>
 <?php } else { ?>
     <div class="court-face">
+        <br>
         ?
     </div>
 <?php }
