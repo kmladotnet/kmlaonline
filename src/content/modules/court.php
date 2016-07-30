@@ -21,4 +21,7 @@ if($courtPost !== null) {
         <br>
         ?
     </div>
+    <div style="text-align: center; font-size: 13pt;">
+        <a href="/board/student_judicial">사법게시판</a>
+    </div>
 <?php }
