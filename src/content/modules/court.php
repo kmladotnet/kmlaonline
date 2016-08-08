@@ -17,8 +17,7 @@ if($courtPost !== null) {
         <a href="/board/student_judicial/view/<?php echo $courtPost['n_id']; ?>">법정리스트</a>
     </div>
 <?php } else { ?>
-    <div class="court-face">
-        <br>
+    <div style="padding-top: 16px;" class="court-face">
         ?
     </div>
     <div style="text-align: center; font-size: 13pt;">
