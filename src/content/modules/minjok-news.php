@@ -1,6 +1,6 @@
 <div class="minjok-news">
     <?php
-    $f=file_get_contents("http://www.minjok.hs.kr/app/kumla_notice/kumla_all.html");
+    $f=file_get_contents("http://125.141.224.185/app/kumla_notice/kumla_all.html");
     if(preg_match_all('/<li>\[([^\]]+):([^\]]+)\](.*?)<br>/sim', $f, $m, PREG_SET_ORDER)){
         $length = count($m);
         for ($i = 0; $i < $length - 2; $i++) {
