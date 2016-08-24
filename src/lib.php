@@ -860,7 +860,7 @@ function getLatestCourtPost() {
     $postList = $board->getArticleList(array(67), false, false, 0, 10, "n_id", true, 0, false, true, true, false, false, false, false, true);
     foreach($postList as $post) {
         if(preg_match("/법정 *리스트/", $post['s_title'])) {
-            if(strtotime('next Thursday', $post['n_writedate'] - 60 * 60 * 20) != strtotime('next Thursday', time() - 60 * 60 * 20)) {
+            if(strtotime('next Thursday', $post['n_writedate'] - 60 * 60 * 20) < strtotime('next Thursday', time() - 60 * 60 * 20)) {
                 return null;
             }
             return $post;
