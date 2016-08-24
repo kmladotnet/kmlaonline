@@ -871,7 +871,7 @@ function goesToCourt($name, $courtPost) {
     global $board;
 	$attaches = $board->getAttachments(false, $courtPost['n_id']);
     foreach($attaches as $file) {
-        if(preg_match("/법정 *리스트/", $file['s_name'])) {
+        if(preg_match("/법정 *리스트.*\.xls/", $file['s_name'])) {
             $excel = file_get_contents($file['s_path']);
             return mb_strpos($excel, mb_convert_encoding($name, "UTF-16LE"), 0, "8bit") !== false;
         }
