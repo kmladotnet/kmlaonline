@@ -861,7 +861,7 @@ function getLatestCourtPost() {
     foreach($postList as $post) {
         if(preg_match("/법정 *리스트/", $post['s_title'])) {
             if(strtotime('next Thursday', $post['n_writedate'] - 60 * 60 * 20) < strtotime('next Thursday', time() - 60 * 60 * 20)) {
-                return null;
+                continue;
             }
             return $post;
         }
