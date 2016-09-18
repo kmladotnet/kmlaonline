@@ -628,7 +628,12 @@ function getWeather() {
     global $owm;
     $lang = 'en';
     $units = 'metric';
-    return $owm->getWeather(1833105, $units, $lang, '713e90471b96dbd9c11826031ee66031');
+    try {
+        $weather = $owm->getWeather(1833105, $units, $lang, '713e90471b96dbd9c11826031ee66031');
+    } catch ( \Exception e) {
+        echo '날씨를 불러올 수 없습니다.';
+    }
+    return $weather;
 }
 
 function getTheme($user) {

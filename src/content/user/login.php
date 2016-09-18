@@ -152,7 +152,7 @@ function printContent(){
 	</form>
     <script src="/js/content/user/login.js"></script>
     <?php
-    if(200 <= $weather->weather->id && $weather->weather->id < 600) {
+    if(!is_null($weather) && (200 <= $weather->weather->id) && ($weather->weather->id < 600)) {
         ?>
         <script src="//cdnjs.cloudflare.com/ajax/libs/rainyday.js/0.1.2/rainyday.min.js"></script>
         <?php
