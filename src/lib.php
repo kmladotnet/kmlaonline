@@ -862,10 +862,10 @@ function getMyFoodVote($y, $m, $d, $t, $user) {
 
 function getLatestCourtPost() {
     global $board;
-    $postList = $board->getArticleList(array(67), false, false, 0, 1, "n_id", true, 0, "법정 리스트", true, true, true, false, false, false, true);
+    $postList = $board->getArticleList(array(67), false, false, 0, 10, "n_id", true, 0, "법정 리스트", true, true, true, false, false, false, true);
     foreach($postList as $post) {
-        if(strtotime('next Thursday', $post['n_writedate'] - 60 * 60 * 20) < strtotime('next Thursday', time() - 60 * 60 * 20)) {
-            return null;
+        if($post['n_parent'] || strtotime('next Thursday', $post['n_writedate'] - 60 * 60 * 20) < strtotime('next Thursday', time() - 60 * 60 * 20)) {
+            continue;
         }
         return $post;
     }
