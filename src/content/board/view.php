@@ -473,7 +473,7 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
 					echo "<div style='float:right;'>".implode(" | ",$boardbilities)."</div>";
 				?>
 			</div>
-            <div class="item_contents" style="padding:10px;padding-bottom:7px">
+            <div class="item_contents" style="padding:10px;padding-bottom:7px;overflow:auto">
                 <div id="item_contents_<?php echo $article['n_id'];?>"><?php
                     filterContent($article['s_data']);
                 ?></div>
@@ -520,7 +520,7 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
                 echo "<div style='float:right'>".implode(" | ",$boardbilities)."</div>";
                 ?>
             </div>
-            <div class="item_contents" style="padding:10px;padding-bottom:7px">
+            <div class="item_contents" style="padding:10px;padding-bottom:7px;overflow:auto">
                 <div id="item_contents_<?php echo $article['n_id'];?>"><?php
                     filterContent($article['s_data']);
                 ?></div>
