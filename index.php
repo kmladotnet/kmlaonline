@@ -12,10 +12,10 @@ if(!file_exists("src/content/$fn.php"))
     $fn = "404";
 include "src/lib.php";
 if($april_fools && !$is_mobile) {
-    if(mt_rand(1, 6) == 5) {
+    if(mt_rand(1, 36) == 5) {
         $april_link = $_SERVER["REQUEST_URI"];
         $fn = "aprilfools";
-    } else if(mt_rand(1, 5) == 2) {
+    } else if(mt_rand(1, 24) == 2) {
         require("april-fools/internet/index.html");
         return;
     }
