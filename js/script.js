@@ -217,6 +217,16 @@ function loadUpperHeader(theurl, placeTo, immediate) {
             p.append(obj);
             obj.velocity("transition.slideDownIn", {duration: 400});
         }
+        if(theurl.indexOf("contacts") != -1) {
+            var $tbody = $('.contacts');
+            $tbody.find('tr').sort(function(a, b) {
+                var tda = $(a).find('td:eq(0)').text();
+                var tdb = $(b).find('td:eq(0)').text();
+                return tda > tdb ? 1
+                       : tda < tdb ? -1
+                       : 0;
+            }).appendTo($tbody);
+        }
     }).fail(function (jqXHR, textStatus) {
         //alert( "페이지를 불러 오는 데 실패하였습니다" );
     });
