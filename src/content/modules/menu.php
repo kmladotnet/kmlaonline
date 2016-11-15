@@ -21,7 +21,7 @@ function printMenu($allDay = false) {
             $res->close();
             if($mysqli->more_results())$mysqli->next_result();
         }
-        echo "<div style='font-weight:bold;font-size:11pt;padding:4px;padding-bottom:0'>{$curMonth}월 {$curDay}일</div>";
+        echo "<div style='font-weight:bold;font-size:11pt;'>{$curMonth}월 {$curDay}일</div>";
         ?>
 		<div style="font-size:11pt;padding-bottom:4px;">
 			<a class="btn btn-default btn-xs" onclick="
