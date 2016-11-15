@@ -20,6 +20,14 @@ $kmla-footer-color: #ffefd2;
 $kmla-wave-button-hover-color: #ddefff;
 $kmla-profile-nav-color: #a3cfff;
 
+//chart colors
+$food-5: #13BD2A;
+$food-4: #7BBD2A;
+$food-3: #D6C92E;
+$food-2: #EDB527;
+$food-1: #E37F24;
+$food-0: #F25134;
+
 //fonts
 $kmla-fonts: 'Open Sans','arial','Apple SD Gothic Neo','Noto Sans Korean','본고딕','KoPubDotum Medium','나눔바른고딕','나눔고딕','NanumGothic','맑은고딕', 'Malgun Gothic', 'sans-serif';
 
@@ -779,23 +787,27 @@ ul#top_notification_list {
   background-color: #fff;
   border-color: #ccc;
 }
+
 .btn-flat:focus,
 .btn-flat.focus {
   color: #333;
   background-color: #e6e6e6;
   border-color: #8c8c8c;
 }
+
 .btn-flat:hover {
   color: #333;
   background-color: #e6e6e6;
   border-color: #adadad;
 }
+
 .btn-flat:active,
 .btn-flat.active {
   color: #333;
   background-color: #e6e6e6;
   border-color: #adadad;
 }
+
 .btn-flat:active:hover,
 .btn-flat.active:hover,
 .btn-flat:active:focus,
@@ -806,6 +818,7 @@ ul#top_notification_list {
   background-color: #d4d4d4;
   border-color: #8c8c8c;
 }
+
 .comment-num {
     color: $brand-success;
     border: 1px solid $brand-success;
@@ -817,6 +830,7 @@ ul#top_notification_list {
     line-height: 0.99;
     font-size: 0.9em;
 }
+
 .positive-vote-num {
     color: $brand-info;
     border: 1px solid $brand-info;
@@ -827,6 +841,7 @@ ul#top_notification_list {
     line-height: 0.99;
     font-size: 0.9em;
 }
+
 .negative-vote-num {
     color: $brand-danger;
     border: 1px solid $brand-danger;
@@ -837,6 +852,7 @@ ul#top_notification_list {
     line-height: 0.99;
     font-size: 0.9em;
 }
+
 .court-face {
     text-align: center;
     font-size: 40pt;
@@ -851,10 +867,12 @@ ul#top_notification_list {
         color: $brand-success;
     }
 }
+
 .court-text {
     text-align: center;
     font-size: 13pt;
 }
+
 span.court-location {
     font-weight: bold;
     display: block;
@@ -865,5 +883,41 @@ span.court-location {
     }
     &.gym {
         color: $brand-danger;
+    }
+}
+
+ul.food-chart {
+    margin: 0;
+    padding: 0 10px;
+
+    li.food-chart-item {
+        height: 12px;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    li.food-0 {
+        background-color: $food-0;
+    }
+
+    li.food-1 {
+        background-color: $food-1;
+    }
+
+    li.food-2 {
+        background-color: $food-2;
+    }
+
+    li.food-3 {
+        background-color: $food-3;
+    }
+
+    li.food-4 {
+        background-color: $food-4;
+    }
+
+    li.food-5 {
+        background-color: $food-5;
     }
 }
