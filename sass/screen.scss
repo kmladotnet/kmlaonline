@@ -577,6 +577,7 @@ div {
 		}
 	}
 }
+
 .upper-file {
 	display: inline-block;
 	margin: 0;
@@ -596,21 +597,26 @@ div {
 		cursor: default;
 	}
 }
+
 select {
 	margin: 6px 0;
 }
+
 #total-content {
 	background: $white;
 }
+
 #total-footer {
     @include background-image(linear-gradient(white, $kmla-footer-color));
 	padding: 32px;
 }
+
 .main-block {
 	display: block;
 	height: 100%;
 	box-sizing: border-box;
 }
+
 .main-block-title {
 	font-size: 15pt;
 	font-weight: bold;
@@ -619,6 +625,7 @@ select {
 	text-align: left;
 	white-space: nowrap;
 }
+
 .main-block-title-content {
 	overflow: hidden;
     a::after {
@@ -642,17 +649,21 @@ select {
         transform: translateX(0px);
     }
 }
+
 .main-block-body {
 	padding: 10px;
 	height: calc(100% - 42px);
 	overflow: auto;
 }
+
 .main-block-options-pane {
 	display: none;
 }
+
 .main-block-button-group {
 	float: right;
 }
+
 .main-block-button {
 	margin: 0;
 	padding: 0;
@@ -678,6 +689,7 @@ select {
 		color: $brand-danger;
 	}
 }
+
 .main-block-reload {
 	color: $brand-success;
 	&:hover {
@@ -687,6 +699,7 @@ select {
 		color: $brand-success;
 	}
 }
+
 .main-block-options {
 	color: $brand-primary;
 	&:hover {
@@ -696,29 +709,36 @@ select {
 	   color: $brand-primary;
 	}
 }
+
 .userinfo_border {
 	border: 1px solid $very-very-light-gray;
 }
+
 #profile_nav {
 	font-weight: bold;
 	color: $kmla-profile-nav-color;
 }
+
 #nav_everyday {
 	color: $gray;
 }
+
 #login_title {
 	margin-bottom: 20px;
 }
+
 #menu_img {
 	padding-left: 10px;
 	width: 40px;
 }
+
 #downform_login {
 	z-index: 999999999999;
 	position: relative;
 	left: calc(50% - 130px);
 	width: 280px;
 }
+
 ul#top_notification_list {
 	display: block;
 	width: 100%;
