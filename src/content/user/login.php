@@ -101,6 +101,7 @@ function printContent(){
                 <div id="food-breakfast" class="morning">
                     <?php
                         $voteData = getFoodVoteData($curYear, $curMonth, $curDay, 1);
+						$voteCount = getFoodVoteCount($curYear, $curMonth, $curDay, 1);
                     ?>
                     <div class="food-votes">
                         <?php if($voteData['count'] > 0) { ?>
@@ -112,11 +113,19 @@ function printContent(){
                     </div>
                     로그인해서 평점을 매기세요.
                     <hr style="margin-top: 5px;margin-bottom: 5px;">
-                    <?php echo isset($scheduleData['food:0'])?nl2br($scheduleData['food:0']):"<span style='color:#DDD'>(입력되지 않음)</span>"; ?>
+					<?php if($voteData['count'] > 0) { ?>
+						<ul class="food-chart" style="display:block">
+							<?php for($i = 5; $i >= 0; $i--) {
+								echo '<li class="food-chart-item food-'.$i.'" style="width: '.intval(100 * $voteCount[$i] / $voteData['count']).'%"></li>';
+							} ?>
+						</ul>
+					<?php }
+					echo isset($scheduleData['food:0'])?nl2br($scheduleData['food:0']):"<span style='color:#DDD'>(입력되지 않음)</span>"; ?>
                 </div>
                 <div id="food-lunch" class="afternoon">
                     <?php
                         $voteData = getFoodVoteData($curYear, $curMonth, $curDay, 2);
+						$voteCount = getFoodVoteCount($curYear, $curMonth, $curDay, 2);
                     ?>
                     <div class="food-votes">
                         <?php if($voteData['count'] > 0) { ?>
@@ -128,11 +137,19 @@ function printContent(){
                     </div>
                     로그인해서 평점을 매기세요.
                     <hr style="margin-top: 5px;margin-bottom: 5px;">
-                    <?php echo isset($scheduleData['food:1'])?nl2br($scheduleData['food:1']):"<span style='color:#DDD'>(입력되지 않음)</span>"; ?>
+					<?php if($voteData['count'] > 0) { ?>
+						<ul class="food-chart" style="display:block">
+							<?php for($i = 5; $i >= 0; $i--) {
+								echo '<li class="food-chart-item food-'.$i.'" style="width: '.intval(100 * $voteCount[$i] / $voteData['count']).'%"></li>';
+							} ?>
+						</ul>
+					<?php }
+					echo isset($scheduleData['food:1'])?nl2br($scheduleData['food:1']):"<span style='color:#DDD'>(입력되지 않음)</span>"; ?>
                 </div>
                 <div id="food-dinner" class="night">
                     <?php
                         $voteData = getFoodVoteData($curYear, $curMonth, $curDay, 3);
+						$voteCount = getFoodVoteCount($curYear, $curMonth, $curDay, 3);
                     ?>
                     <div class="food-votes">
                         <?php if($voteData['count'] > 0) { ?>
@@ -144,7 +161,14 @@ function printContent(){
                     </div>
                     로그인해서 평점을 매기세요.
                     <hr style="margin-top: 5px;margin-bottom: 5px;">
-                    <?php echo isset($scheduleData['food:2'])?nl2br($scheduleData['food:2']):"<span style='color:#DDD'>(입력되지 않음)</span>"; ?>
+					<?php if($voteData['count'] > 0) { ?>
+						<ul class="food-chart" style="display:block">
+							<?php for($i = 5; $i >= 0; $i--) {
+								echo '<li class="food-chart-item food-'.$i.'" style="width: '.intval(100 * $voteCount[$i] / $voteData['count']).'%"></li>';
+							} ?>
+						</ul>
+					<?php }
+					echo isset($scheduleData['food:2'])?nl2br($scheduleData['food:2']):"<span style='color:#DDD'>(입력되지 않음)</span>"; ?>
                 </div>
                 <br>
             </div>
