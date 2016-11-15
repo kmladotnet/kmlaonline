@@ -131,4 +131,18 @@ function printMenu($allDay = false) {
             });
         }
     </script>
-<?php } ?>
+<?php }
+
+//later
+/*
+<ul class="food-chart">
+	<li class="food-chart-item food-5" style="width: 80%;"></li>
+	<li class="food-chart-item food-4" style="width: 8%;"></li>
+	<li class="food-chart-item food-3" style="width: 4%;"></li>
+	<li class="food-chart-item food-2" style="width: 5%;"></li>
+	<li class="food-chart-item food-1" style="width: 7%;"></li>
+	<li class="food-chart-item food-0" style="width: 11%;"></li>
+</ul>
+*/
+
+?>
