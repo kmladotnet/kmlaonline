@@ -25,7 +25,7 @@ function printMenu($allDay = false) {
 			<a class="btn btn-default btn-xs" style="
 			    border: none;
 			    color: white;
-			    background: white!important;
+			    background: transparent!important;
 			">분포</a>
         	<?php echo " {$curMonth}월 {$curDay}일 "; ?>
 			<a class="btn btn-default btn-xs" onclick="
