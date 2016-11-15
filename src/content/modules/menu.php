@@ -20,20 +20,22 @@ function printMenu($allDay = false) {
             }
             $res->close();
             if($mysqli->more_results())$mysqli->next_result();
-        }
-        echo "<div style='font-weight:bold;font-size:11pt;'>{$curMonth}월 {$curDay}일</div>";
-        ?>
-		<div style="font-size:11pt;padding-bottom:4px;">
+        } ?>
+		<div style='font-weight:bold;font-size:11pt;'>
+			<a class="btn btn-default btn-xs" style="
+			    border: none;
+			    color: white;
+			    background: white!important;
+			">분포</a>
+        	<?php echo " {$curMonth}월 {$curDay}일 "; ?>
 			<a class="btn btn-default btn-xs" onclick="
-				if($(this).text().indexOf('보기') != -1) {
+				if($(this).text().indexOf('분') != -1) {
 				    $('ul.food-chart').velocity('slideDown', {duration: 200, easing: 'ease'});
-				    console.log('ayy lmao');
-				    $(this).html('점수 분포 숨기기');
+				    $(this).html('닫기');
 				} else {
 				    $('ul.food-chart').velocity('slideUp', {duration: 200, easing: 'ease'});
-				    $(this).html('점수 분포 보기');
-				}">
-				점수 분포 보기
+				    $(this).html('분포');
+				}">분포
 			</a>
 		</div>
         <div <?php if(!$allDay) echo 'id="food-breakfast" class="morning"'; else echo 'class="food"';?>>
@@ -50,7 +52,7 @@ function printMenu($allDay = false) {
                 ?>
                 <div class="food-votes">
                     <?php if($voteData['count'] > 0) { ?>
-                        <span style="font-size: 1.2em"><?php echo(round($voteData['sum'] / $voteData['count'], 1));?>점</span>
+                        <span style="font-size: 1.15em"><?php echo(round($voteData['sum'] / $voteData['count'], 1));?>점</span>
                         (<?php echo $voteData['count']; ?>명)
                     <?php } else { ?>
                         평점 없음
@@ -83,7 +85,7 @@ function printMenu($allDay = false) {
                 ?>
                 <div class="food-votes">
                     <?php if($voteData['count'] > 0) { ?>
-                        <span style="font-size: 1.2em"><?php echo(round($voteData['sum'] / $voteData['count'], 1));?>점</span>
+                        <span style="font-size: 1.15em"><?php echo(round($voteData['sum'] / $voteData['count'], 1));?>점</span>
                         (<?php echo $voteData['count']; ?>명)
                     <?php } else { ?>
                         평점 없음
@@ -116,7 +118,7 @@ function printMenu($allDay = false) {
                 ?>
                 <div class="food-votes">
                     <?php if($voteData['count'] > 0) { ?>
-                        <span style="font-size: 1.2em"><?php echo(round($voteData['sum'] / $voteData['count'], 1));?>점</span>
+                        <span style="font-size: 1.15em"><?php echo(round($voteData['sum'] / $voteData['count'], 1));?>점</span>
                         (<?php echo $voteData['count']; ?>명)
                     <?php } else { ?>
                         평점 없음
