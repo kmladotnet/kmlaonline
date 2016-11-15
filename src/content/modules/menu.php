@@ -23,6 +23,19 @@ function printMenu($allDay = false) {
         }
         echo "<div style='font-weight:bold;font-size:11pt;padding:4px;'>{$curMonth}월 {$curDay}일</div>";
         ?>
+		<div style="font-size:11pt;padding:4px;">
+			<a class="btn btn-default btn-xs" onclick="
+				if($(this).text().indexOf('보기') != -1) {
+				    $('ul.food-chart').velocity('slideDown', {duration: 200, easing: 'ease'});
+				    console.log('ayy lmao');
+				    $(this).html('점수 분포 숨기기');
+				} else {
+				    $('ul.food-chart').velocity('slideUp', {duration: 200, easing: 'ease'});
+				    $(this).html('점수 분포 보기');
+				}">
+				점수 분포 보기
+			</a>
+		</div>
         <div <?php if(!$allDay) echo 'id="food-breakfast" class="morning"'; else echo 'class="food"';?>>
             <?php
                 if($allDay) {
@@ -33,6 +46,7 @@ function printMenu($allDay = false) {
                     <?php
                 }
                 $voteData = getFoodVoteData($curYear, $curMonth, $curDay, 1);
+				$voteCount = getFoodVoteCount($curYear, $curMonth, $curDay, 1);
                 ?>
                 <div class="food-votes">
                     <?php if($voteData['count'] > 0) { ?>
@@ -45,7 +59,13 @@ function printMenu($allDay = false) {
                 <div class="rate" id="fv<?php echo $curYear,$curMonth,$curDay;?>1" style="inline-block"></div>
                 <button type="button" id="b<?php echo $curYear,$curMonth,$curDay;?>1" onclick="foodVotes(1)" class="btn btn-default btn-xs">제출</button>
                 <hr style="margin-top: 5px;margin-bottom: 5px;">
-                <?php
+				<?php if($voteData['count'] > 0) { ?>
+					<ul class="food-chart">
+						<?php for($i = 5; $i >= 0; $i--) {
+							echo '<li class="food-chart-item food-'.$i.'" style="width: '.intval(100 * $voteCount[$i] / $voteData['count']).'"></li>';
+						} ?>
+					</ul>
+				<?php }
                 echo isset($scheduleData['food:0'])?nl2br($scheduleData['food:0']):"<span style='color:#DDD'>(입력되지 않음)</span>";
             ?>
         </div>
@@ -59,6 +79,7 @@ function printMenu($allDay = false) {
                     <?php
                 }
                 $voteData = getFoodVoteData($curYear, $curMonth, $curDay, 2);
+				$voteCount = getFoodVoteCount($curYear, $curMonth, $curDay, 2);
                 ?>
                 <div class="food-votes">
                     <?php if($voteData['count'] > 0) { ?>
@@ -71,7 +92,13 @@ function printMenu($allDay = false) {
                 <div class="rate" id="fv<?php echo $curYear,$curMonth,$curDay;?>2" style="inline-block"></div>
                 <button type="button" id="b<?php echo $curYear,$curMonth,$curDay;?>2" onclick="foodVotes(2)" class="btn btn-default btn-xs">제출</button>
                 <hr style="margin-top: 5px;margin-bottom: 5px;">
-                <?php
+				<?php if($voteData['count'] > 0) { ?>
+					<ul class="food-chart">
+						<?php for($i = 5; $i >= 0; $i--) {
+							echo '<li class="food-chart-item food-'.$i.'" style="width: '.intval(100 * $voteCount[$i] / $voteData['count']).'"></li>';
+						} ?>
+					</ul>
+				<?php }
                 echo isset($scheduleData['food:1'])?nl2br($scheduleData['food:1']):"<span style='color:#DDD'>(입력되지 않음)</span>";
             ?>
         </div>
@@ -85,6 +112,7 @@ function printMenu($allDay = false) {
                     <?php
                 }
                 $voteData = getFoodVoteData($curYear, $curMonth, $curDay, 3);
+				$voteCount = getFoodVoteCount($curYear, $curMonth, $curDay, 3);
                 ?>
                 <div class="food-votes">
                     <?php if($voteData['count'] > 0) { ?>
@@ -97,7 +125,13 @@ function printMenu($allDay = false) {
                 <div class="rate" id="fv<?php echo $curYear,$curMonth,$curDay;?>3" style="inline-block"></div>
                 <button type="button" id="b<?php echo $curYear,$curMonth,$curDay;?>3" onclick="foodVotes(3)" class="btn btn-default btn-xs">제출</button>
                 <hr style="margin-top: 5px;margin-bottom: 5px;">
-                <?php
+				<?php if($voteData['count'] > 0) { ?>
+					<ul class="food-chart">
+						<?php for($i = 5; $i >= 0; $i--) {
+							echo '<li class="food-chart-item food-'.$i.'" style="width: '.intval(100 * $voteCount[$i] / $voteData['count']).'"></li>';
+						} ?>
+					</ul>
+				<?php }
                 echo isset($scheduleData['food:2'])?nl2br($scheduleData['food:2']):"<span style='color:#DDD'>(입력되지 않음)</span>";
             ?>
         </div>

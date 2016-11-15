@@ -909,7 +909,8 @@ span.court-location {
 ul.food-chart {
     margin: 0;
     padding: 0 10px;
-
+    display: none;
+    
     li.food-chart-item {
         height: 12px;
         list-style-type: none;

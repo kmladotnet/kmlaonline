@@ -822,6 +822,20 @@ function getFoodVoteData($y, $m, $d, $t) {
     }
 }
 
+function getFoodVoteCount($y, $m, $d, $t) {
+    $fName = "data/food/votes/{$y}.{$m}.{$d}.{$t}";
+	$votecount = array(0, 0, 0, 0, 0, 0);
+    if(file_exists($fName)) {
+        $data = json_decode(file_get_contents($fName), true);
+    } else {
+		return $votecount;
+    }
+	foreach($data as $name => $val) {
+		$votecount[$val]++;
+	}
+	return $votecount;
+}
+
 function foodVote($y, $m, $d, $t, $stars, $user) {
     global $me;
     $fName = "data/food/votes/{$y}.{$m}.{$d}.{$t}";
