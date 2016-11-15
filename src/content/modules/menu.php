@@ -62,7 +62,7 @@ function printMenu($allDay = false) {
 				<?php if($voteData['count'] > 0) { ?>
 					<ul class="food-chart">
 						<?php for($i = 5; $i >= 0; $i--) {
-							echo '<li class="food-chart-item food-'.$i.'" style="width: '.intval(100 * $voteCount[$i] / $voteData['count']).'"></li>';
+							echo '<li class="food-chart-item food-'.$i.'" style="width: '.intval(100 * $voteCount[$i] / $voteData['count']).'%"></li>';
 						} ?>
 					</ul>
 				<?php }
@@ -95,7 +95,7 @@ function printMenu($allDay = false) {
 				<?php if($voteData['count'] > 0) { ?>
 					<ul class="food-chart">
 						<?php for($i = 5; $i >= 0; $i--) {
-							echo '<li class="food-chart-item food-'.$i.'" style="width: '.intval(100 * $voteCount[$i] / $voteData['count']).'"></li>';
+							echo '<li class="food-chart-item food-'.$i.'" style="width: '.intval(100 * $voteCount[$i] / $voteData['count']).'%"></li>';
 						} ?>
 					</ul>
 				<?php }
@@ -128,7 +128,7 @@ function printMenu($allDay = false) {
 				<?php if($voteData['count'] > 0) { ?>
 					<ul class="food-chart">
 						<?php for($i = 5; $i >= 0; $i--) {
-							echo '<li class="food-chart-item food-'.$i.'" style="width: '.intval(100 * $voteCount[$i] / $voteData['count']).'"></li>';
+							echo '<li class="food-chart-item food-'.$i.'" style="width: '.intval(100 * $voteCount[$i] / $voteData['count']).'%"></li>';
 						} ?>
 					</ul>
 				<?php }
