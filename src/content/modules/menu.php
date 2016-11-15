@@ -23,7 +23,7 @@ function printMenu($allDay = false) {
         }
         echo "<div style='font-weight:bold;font-size:11pt;padding:4px;'>{$curMonth}월 {$curDay}일</div>";
         ?>
-		<div style="font-size:11pt;padding:4px;">
+		<div style="font-size:11pt;padding-bottom:4px;">
 			<a class="btn btn-default btn-xs" onclick="
 				if($(this).text().indexOf('보기') != -1) {
 				    $('ul.food-chart').velocity('slideDown', {duration: 200, easing: 'ease'});
