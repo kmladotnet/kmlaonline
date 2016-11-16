@@ -547,3 +547,40 @@ span.court-location.gym {
     color: #D14B52;
 }
 
+ul.food-chart {
+    margin: 0;
+    padding: 0 10px 6px 10px;
+    display: none;
+}
+
+li.food-chart-item {
+    height: 12px;
+    list-style-type: none;
+    padding: 0;
+    margin: auto;
+    border-left: #ccc 1px solid;
+}
+
+li.food-0 {
+    background-color: #F25134;
+}
+
+li.food-1 {
+    background-color: #E37F24;
+}
+
+li.food-2 {
+    background-color: #EEB627;
+}
+
+li.food-3 {
+    background-color: #DDDD33;
+}
+
+li.food-4 {
+    background-color: #7BBD2A;
+}
+
+li.food-5 {
+    background-color: #13BD2A;
+}
