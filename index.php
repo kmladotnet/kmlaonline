@@ -11,6 +11,8 @@ switch(isset($_GET['action']) ? $_GET['action'] : "main"){
 if(!file_exists("src/content/$fn.php"))
     $fn = "404";
 include "src/lib.php";
+if($m['s_name'] === '이동민') {
+
 if($april_fools && !$is_mobile) {
     if(mt_rand(1, 36) == 5) {
         $april_link = $_SERVER["REQUEST_URI"];
@@ -48,4 +50,6 @@ if(isAjax()) {
 		require("index.mobile.php");
 	else
 		require("index.direct.php");
+}
+
 }
