@@ -111,7 +111,7 @@ function printUpDownVotes($id, $hide = true) {
         </span>
     </div>
     <a onclick='$("#likers-<?php echo $id;?>").toggle("show");'>좋아요/싫어요 누른 사람</a>
-    <span id='likers-<?php echo $id;?>' style="display:none">
+    <span id='likers-<?php echo $id;?>' style="display:none; vertical-align: top">
         <div style='color: forestgreen'> <strong>좋아요:</strong> <?php foreach(upvoters($id) as $p => $v) echo $member->getMember($p)['s_name'].' ';?> </div>
         <div style='color: crimson'> <strong>싫어요:</strong> <?php foreach(downvoters($id) as $p => $v) echo $member->getMember($p)['s_name'].' ';?> </div>
     </span>
