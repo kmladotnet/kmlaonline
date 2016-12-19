@@ -230,7 +230,7 @@ function putCommentTree($parent,$root){
                 <div style="display:block;">
                     <?php
                     $votes = getVotes($comment['n_id']);
-                    if($b_comment_anonymous) echo '<span style="font-weight:bold;color:crimson;vertical-align:middle">'.($m['n_id']===1 ? '진짜 ':'').'익명</span>';
+                    if($b_comment_anonymous) echo '<span style="font-weight:bold;color:crimson;vertical-align:middle">'.($comment['n_writer']===1 ? '진짜 ':'').'익명</span>';
                     else { ?>
                         <span style="font-weight:bold;vertical-align:middle"><a style="color:black!important" href="<?php echo "/user/view/{$m['n_id']}/".htmlspecialchars($m['s_id'])?>"><?php putUserCard($m)?></a></span>
                     <?php }
@@ -446,7 +446,7 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
 				<?php
                 $votes = getVotes($article['n_id']);
 				if($b_anonymous){
-                    echo '<span style="font-weight:bold;color:crimson;vertical-align:middle">'.($m['n_id']===1 ? '진짜 ':'').'익명</span>';
+                    echo '<span style="font-weight:bold;color:crimson;vertical-align:middle">'.($article['n_writer']===1 ? '진짜 ':'').'익명</span>';
 				} else {
                     ?>
                     <span style="font-weight:bold">
@@ -499,7 +499,7 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
                 <?php
                 $votes = getVotes($article['n_id']);
                 if($b_anonymous) {
-                    echo '<span style="font-weight:bold;color:crimson;vertical-align:middle">'.($m['n_id']===1 ? '진짜 ':'').'익명</span>';
+                    echo '<span style="font-weight:bold;color:crimson;vertical-align:middle">'.($article['n_writer']===1 ? '진짜 ':'').'익명</span>';
                 } else { ?>
                     <span style="font-weight:bold">
                         <a style="color:black!important;vertical-align:middle" href="<?php echo "/user/view/{$m['n_id']}/{$m['s_id']}" ?>"><?php putUserCard($m); ?></a>
