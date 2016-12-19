@@ -795,6 +795,14 @@ function unvote($id, $user, $down = false) {
     }
 }
 
+function upvoters($id) {
+	return file_exists('data/board/votes/up'.$id) ? json_decode(file_get_contents('data/board/votes/up'.$id), true) : array());
+}
+
+function downvoters($id) {
+	return file_exists('data/board/votes/down'.$id) ? json_decode(file_get_contents('data/board/votes/down'.$id), true) : array());
+}
+
 function cleanSymbols($str) {
     return trim(preg_replace('/[\\p{S}]+/u', '', $str));
 }

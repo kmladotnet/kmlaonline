@@ -110,6 +110,11 @@ function printUpDownVotes($id, $hide = true) {
             </button>
         </span>
     </div>
+    <a onclick='$("#likers-<?php echo $id;?>").toggle("show");'>좋아요/싫어요 누른 사람</a>
+    <span id='likers-<?php echo $id;?>' style="display:none">
+        좋아요: <?php foreach(upvoters($id) as $p => $v) echo $p.' ';??>
+        싫어요: <?php foreach(downvoters($id) as $p => $v) echo $p.' ';??>
+    </span>
     <?php
 }
 
@@ -123,7 +128,7 @@ function printAttachList($article, $cat, $mode=0){
 	if($attaches!==false && count($attaches)>0){
 		if($mode==2) echo "<hr />";
 		$fsize=0;
-		foreach($attaches as $v){ 
+		foreach($attaches as $v){
 			$fsize+=filesize($v['s_path']);
 		}
 		?>
@@ -345,7 +350,7 @@ function printViewPageHeader($usr, $cat){
             </div>
 		</div>
 		<div style="clear:both"></div>
-	</div>	
+	</div>
 	<?php
 }
 function parseSurveyForm($aid, $b64data){
@@ -479,7 +484,7 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
                 ?></div>
                 <div style="display:none" class="item_hidden" id="item_hidden_<?php echo $article['n_id'];?>">(숨김) - 좌측 상단의 '+' 버튼을 눌러서 표시할 수 있습니다.</div>
                 <?php
-				printAttachList($article, $board_cat, 0);			
+				printAttachList($article, $board_cat, 0);
 				?>
 				<div class="forum_comment_area">
 					<?php if($article['n_comments']>0 && !$suppress_comments){ putCommentTree($article['n_id'],$article['n_id']); } ?>
@@ -570,7 +575,7 @@ function printViewPageModeForum($usr, $cat){
 			<li class="head">
 				<div class="total_title">
 					<?php echo formatTitle($article['s_title']); ?><span style="color:#DDD"> | <a style="color:#DDD" href="/board/<?php echo $cat['s_id']?>"><?php echo $cat['s_name']?></a>
-					<?php 
+					<?php
 					if(doesAdminBypassEverythingAndIsAdmin($me['n_id']==$article['n_writer']) || checkCategoryAccess($board_cat['n_id'], "manage modify")){
 						$boardbilities=array();
 						$exists=false;
@@ -599,10 +604,10 @@ function printViewPageModeForum($usr, $cat){
 	</div>
 	<div style="text-align:center">
 		<?php $disp=array(1=>true); ?>
-		<a href="<?php echo "/board/$board_id/view/{$article['n_id']}/1$additional_query_string" ;?>" <?php if($pagenumber==1) echo "style='color:black'" ?>>[1]</a> 
+		<a href="<?php echo "/board/$board_id/view/{$article['n_id']}/1$additional_query_string" ;?>" <?php if($pagenumber==1) echo "style='color:black'" ?>>[1]</a>
 		<?php if(2<$pagenumber-10) echo "..."; ?>
 		<?php for($i=max(2,$pagenumber-10); $i<=min($page_count-1, $pagenumber+10); $i++){ ?>
-			<a href="<?php echo "/board/$board_id/view/{$article['n_id']}/$i$additional_query_string" ;?>" <?php if($pagenumber==$i) echo "style='color:black'" ?>>[<?php echo $i; $disp[$i]=true;?>]</a> 
+			<a href="<?php echo "/board/$board_id/view/{$article['n_id']}/$i$additional_query_string" ;?>" <?php if($pagenumber==$i) echo "style='color:black'" ?>>[<?php echo $i; $disp[$i]=true;?>]</a>
 		<?php } ?>
 		<?php if($i<$page_count && $i!=max(2,$pagenumber-10)) echo "..."; ?>
 		<?php if(!isset($disp[$page_count]) && $page_count>1){ ?><a href="<?php echo "/board/$board_id/view/{$article['n_id']}/$page_count$additional_query_string" ;?>" <?php if($pagenumber==$page_count) echo "style='color:black'" ?>>[<?php echo $page_count?>]</a><?php } ?>
