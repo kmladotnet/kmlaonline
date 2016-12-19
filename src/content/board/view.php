@@ -230,15 +230,16 @@ function putCommentTree($parent,$root){
                 <div style="display:block;">
                     <?php
                     $votes = getVotes($comment['n_id']);
+                    if($b_comment_anonymous) echo '<span style="font-weight:bold;color:crimson;">익명</span>';
+                    else { ?>
+                        <span style="font-weight:bold"><a style="color:black!important" href="<?php echo "/user/view/{$m['n_id']}/".htmlspecialchars($m['s_id'])?>"><?php putUserCard($m)?></a></span>
+                    <?php }
                     if($b_comment_anonymous) {
                         printUpDownVotes($comment['n_id']);
                     } else {
                         printVotes($comment['n_id']);
                     }
-                    if($b_comment_anonymous) echo '<span style="font-weight:bold;color:crimson;">익명</span>';
-                    else { ?>
-                        <span style="font-weight:bold"><a style="color:black!important" href="<?php echo "/user/view/{$m['n_id']}/".htmlspecialchars($m['s_id'])?>"><?php putUserCard($m)?></a></span>
-                    <?php } ?>
+                    ?>
                     <span style="font-size:8pt;color:gray;"><?php echo date("Y-m-d H:i:s", $comment['n_writedate'])?></span>
                     <?php if($board_id!='picexhibit') { ?>
                         <div id="item_contents_<?php echo $comment['n_id'];?>" style="margin-top: 6px">
@@ -444,11 +445,6 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
 			<div class="item_head" style="padding:6px">
 				<?php
                 $votes = getVotes($article['n_id']);
-                if($b_anonymous) {
-                    printUpDownVotes($article['n_id']);
-                } else {
-                    printVotes($article['n_id']);
-                }
 				if($b_anonymous){
                     echo '<span style="font-weight:bold;color:crimson;">익명</span>';
 				} else {
@@ -456,7 +452,14 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
                     <span style="font-weight:bold">
                         <a style="color:black!important" href="<?php echo "/user/view/{$m['n_id']}/{$m['s_id']}" ?>"><?php putUserCard($m); ?></a>
                     </span>
-                <?php } ?>
+                <?php }
+
+                if($b_anonymous) {
+                    printUpDownVotes($article['n_id']);
+                } else {
+                    printVotes($article['n_id']);
+                }
+                ?>
 
                 <span style='font-size:8pt;color:gray'>
                     <?php
@@ -496,17 +499,19 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
                 <?php
                 $votes = getVotes($article['n_id']);
                 if($b_anonymous) {
-                    printUpDownVotes($article['n_id']);
-                } else {
-                    printVotes($article['n_id']);
-                }
-                if($b_anonymous) {
                     echo '<span style="font-weight:bold;color:crimson;">익명</span>';
                 } else { ?>
                     <span style="font-weight:bold">
                         <a style="color:black!important" href="<?php echo "/user/view/{$m['n_id']}/{$m['s_id']}" ?>"><?php putUserCard($m); ?></a>
                     </span>
-                <?php } ?>
+                <?php }
+
+                if($b_anonymous) {
+                    printUpDownVotes($article['n_id']);
+                } else {
+                    printVotes($article['n_id']);
+                }
+                ?>
                 <span style='font-size:8pt;color:gray'>
                     <?php
                     echo date("Y년 m월 d일 H시 i분 s초", $article['n_writedate']);
