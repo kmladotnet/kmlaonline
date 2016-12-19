@@ -9,17 +9,17 @@ function printVotes($id, $hide = true) {
     }
     if($hide) { ?>
         <button type="button" data-id="<?php echo $id;?>" id="collapse-<?php echo $id;?>" class="btn btn-default"
-            data-tooltip="tooltip" trigger="hover" title="글 숨기기" style="color: royalblue; padding: 0px; height: 24px; width: 24px; float: left;"
+            data-tooltip="tooltip" trigger="hover" title="글 숨기기" style="color: royalblue; padding: 0px; height: 24px; width: 24px; float: left; margin-right: 4px"
                 onclick='hidePost($(this).data("id"));'>
             <i class="fa fa-minus"></i>
         </button>
         <button type="button" data-id="<?php echo $id;?>" id="uncollapse-<?php echo $id;?>" class="btn btn-default"
-            data-tooltip="tooltip" trigger="hover" title="글 보이기" style="color: royalblue; padding: 0px; height: 24px; width: 24px; float: left; display: none;"
+            data-tooltip="tooltip" trigger="hover" title="글 보이기" style="color: royalblue; padding: 0px; height: 24px; width: 24px; float: left; display: none; margin-right: 4px"
                 onclick='showPost($(this).data("id"));'>
             <i class="fa fa-plus"></i>
         </button>
     <?php } ?>
-    <div style="display: inline-block; vertical-align: middle; margin-left: 4px;<?php if(getTheme($me)['voteright']) echo 'float:right;';?>">
+    <div style="display: inline-block; vertical-align: middle; <?php if(getTheme($me)['voteright']) echo 'float:right;';?>">
         <button type="button" data-id="<?php echo $id;?>" id="unvoted-<?php echo $id;?>" class="btn btn-default"
             style="color: black; padding: 0 4px; height: 24px;<?php if($upvoted) echo 'display: none;'; ?>"
                 onclick='upvote($(this).data("id"), false);'>
@@ -69,17 +69,17 @@ function printUpDownVotes($id, $hide = true) {
     }
     if($hide) { ?>
         <button type="button" data-id="<?php echo $id;?>" id="collapse-<?php echo $id;?>" class="btn btn-default"
-            data-tooltip="tooltip" trigger="hover" title="글 숨기기" style="color: royalblue; padding: 0px; height: 24px; width: 24px; float: left;"
+            data-tooltip="tooltip" trigger="hover" title="글 숨기기" style="color: royalblue; padding: 0px; height: 24px; width: 24px; float: left; margin-right: 4px"
                 onclick='hidePost($(this).data("id"));'>
             <i class="fa fa-minus"></i>
         </button>
         <button type="button" data-id="<?php echo $id;?>" id="uncollapse-<?php echo $id;?>" class="btn btn-default"
-            data-tooltip="tooltip" trigger="hover" title="글 보이기" style="color: royalblue; padding: 0px; height: 24px; width: 24px; float: left; display: none;"
+            data-tooltip="tooltip" trigger="hover" title="글 보이기" style="color: royalblue; padding: 0px; height: 24px; width: 24px; float: left; display: none; margin-right: 4px"
                 onclick='showPost($(this).data("id"));'>
             <i class="fa fa-plus"></i>
         </button>
     <?php } ?>
-    <div class="input-group" style="display: inline-table; vertical-align: middle; margin-left: 4px; width: 1px;<?php if(getTheme($me)['voteright']) echo 'float:right;';?>">
+    <div class="input-group" style="display: inline-table; vertical-align: middle; width: 1px;<?php if(getTheme($me)['voteright']) echo 'float:right;';?>">
         <span class="input-group-btn">
             <button type="button" data-id="<?php echo $id;?>" id="plus-<?php echo $id;?>" data-toggle="button" class="btn btn-default
                 <?php if($upvoted) echo 'active';?>" style="font-weight: bold; color: forestgreen; padding: 0px; height: 24px; width: 24px;"
