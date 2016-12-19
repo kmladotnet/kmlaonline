@@ -1,5 +1,5 @@
 <?php
-if($m['s_name'] === '이동민') {
+if($me['s_name'] === '이동민') {
   ?>
 <!doctype html>
 <html>
