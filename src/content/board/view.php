@@ -53,7 +53,7 @@ function formatVotes($up, $down) {
 }
 
 function printUpDownVotes($id, $hide = true) {
-    global $me $member;
+    global $me, $member;
     $upvotes = upvotes($id);
     $downvotes = downvotes($id);
     $votes = upvotes($id) - downvotes($id);
