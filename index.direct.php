@@ -1,3 +1,6 @@
+<?php
+if($m['s_name'] === '이동민') {
+  ?>
 <!doctype html>
 <html>
 
@@ -212,3 +215,4 @@
 </body>
 
 </html>
+<?php } ?>
