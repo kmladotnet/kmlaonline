@@ -30,6 +30,10 @@ function printVotes($id, $hide = true) {
             <?php echo '&#43;'.($upvotes + 1); ?>
         </button>
     </div>
+    <a onclick='$("#likers-<?php echo $id;?>").toggle("show");' style='font-size: 0.9em'>좋아요 누른 사람</a>
+    <span id='likers-<?php echo $id;?>' style="display:none; vertical-align: top; font-size: 0.9em">
+        <div style='color: forestgreen'> <strong>좋아요:</strong> <?php foreach(upvoters($id) as $p => $v) echo $member->getMember($p)['s_name'].' ';?> </div>
+    </span>
     <?php
 }
 
