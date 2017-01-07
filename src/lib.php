@@ -919,18 +919,18 @@ function report($post) {
 	$uv = upvotes($post);
 	$dv = downvotes($post);
 	$arr = array();
-	if(file_exists("data/board/peek/{$post[n_id]}")) {
-		$arr = json_decode(file_get_contents("data/board/peek/{$post[n_id]}"), true);
+	if(file_exists("data/board/report/{$post}")) {
+		$arr = json_decode(file_get_contents("data/board/report/{$post}"), true);
 	}
 	if(isset($arr['s_name'])) return;
 	$arr['s_name'] = $me[time()];
-	file_put_contents("data/board/peek/{$post[n_id]}", json_encode($arr));
+	file_put_contents("data/board/report/{$post}", json_encode($arr));
 }
 
 function reporters($post) {
 	$arr = array();
-	if(file_exists("data/board/peek/{$post[n_id]}")) {
-		$arr = json_decode(file_get_contents("data/board/peek/{$post[n_id]}"), true);
+	if(file_exists("data/board/report/{$post}")) {
+		$arr = json_decode(file_get_contents("data/board/report/{$post}"), true);
 	}
 	foreach($arr as $t => $n) { ?>
 		<tr> <?php echo "<td>{$n}</td><td>".date("Y-m-d H:i:s", $t).'</td>'; ?> </tr>
@@ -939,8 +939,8 @@ function reporters($post) {
 
 function reportNum($post) {
 	$arr = array();
-	if(file_exists("data/board/peek/{$post[n_id]}")) {
-		$arr = json_decode(file_get_contents("data/board/peek/{$post[n_id]}"), true);
+	if(file_exists("data/board/report/{$post}")) {
+		$arr = json_decode(file_get_contents("data/board/report/{$post}"), true);
 	}
 	return count($arr);
 }
