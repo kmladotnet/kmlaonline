@@ -918,6 +918,7 @@ function report($post) {
 	}
 	$uv = upvotes($post);
 	$dv = downvotes($post);
+	if(!reportable($uv, $dv)) return;
 	$arr = array();
 	if(file_exists("data/board/report/{$post}")) {
 		$arr = json_decode(file_get_contents("data/board/report/{$post}"), true);
