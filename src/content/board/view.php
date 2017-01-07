@@ -237,7 +237,16 @@ function putCommentTree($parent,$root){
                 <div style="display:block;">
                     <?php
                     $votes = getVotes($comment['n_id']);
-                    if($b_comment_anonymous) echo '<span style="font-weight:bold;color:crimson;vertical-align:middle">'.($comment['n_writer']==1 ? '진짜 ':'').'익명</span>';
+                    if($b_comment_anonymous) { ?>
+                        <span style="font-weight:bold;color:crimson!important;vertical-align:middle">
+                            <?php if($comment['n_writer'] == 1) echo '진짜 익명';
+                            else {
+                                if(reportNum($comment['n_id']) >= 1) {
+                                    putUserCard($m);
+                                }
+                            } ?>
+                        </span> <?php
+                    }
                     else { ?>
                         <span style="font-weight:bold;vertical-align:middle"><a style="color:black!important" href="<?php echo "/user/view/{$m['n_id']}/".htmlspecialchars($m['s_id'])?>"><?php putUserCard($m)?></a></span>
                     <?php }
@@ -452,8 +461,15 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
 			<div class="item_head" style="padding:6px">
 				<?php
                 $votes = getVotes($article['n_id']);
-				if($b_anonymous){
-                    echo '<span style="font-weight:bold;color:crimson;vertical-align:middle">'.($article['n_writer']==1 ? '진짜 ':'').'익명</span>';
+                if($b_anonymous) { ?>
+                    <span style="font-weight:bold;color:crimson!important;vertical-align:middle">
+                        <?php if($article['n_writer'] == 1) echo '진짜 익명';
+                        else {
+                            if(reportNum($article['n_id']) >= 1) {
+                                putUserCard($m);
+                            }
+                        } ?>
+                    </span> <?php
 				} else {
                     ?>
                     <span style="font-weight:bold">
@@ -505,9 +521,16 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
             <div class="item_head" style="padding:6px">
                 <?php
                 $votes = getVotes($article['n_id']);
-                if($b_anonymous) {
-                    echo '<span style="font-weight:bold;color:crimson;vertical-align:middle">'.($article['n_writer']==1 ? '진짜 ':'').'익명</span>';
-                } else { ?>
+                if($b_anonymous) { ?>
+                    <span style="font-weight:bold;color:crimson!important;vertical-align:middle">
+                        <?php if($article['n_writer'] == 1) echo '진짜 익명';
+                        else {
+                            if(reportNum($article['n_id']) >= 1) {
+                                putUserCard($m);
+                            }
+                        } ?>
+                    </span> <?php
+				} else { ?>
                     <span style="font-weight:bold">
                         <a style="color:black!important;vertical-align:middle" href="<?php echo "/user/view/{$m['n_id']}/{$m['s_id']}" ?>"><?php putUserCard($m); ?></a>
                     </span>
@@ -539,7 +562,11 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
             </div>
             <div class="item_contents" style="padding:10px;padding-bottom:7px;overflow:auto">
                 <div id="item_contents_<?php echo $article['n_id'];?>"><?php
-                    filterContent($article['s_data']);
+                    if(reportNum($article['n_id']) >= 1) {
+                        ?> 신고가 10개 이상 접수되어서 삭제되었습니다. <?php
+                    } else {
+                        filterContent($article['s_data']);
+                    }
                 ?></div>
                 <div style="display:none" class="item_hidden" id="item_hidden_<?php echo $article['n_id'];?>">(숨김) - 좌측 상단의 '+' 버튼을 눌러서 표시할 수 있습니다.</div>
                 <?php
