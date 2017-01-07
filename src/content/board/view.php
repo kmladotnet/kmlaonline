@@ -120,7 +120,7 @@ function printUpDownVotes($id, $hide = true) {
         <div style='color: crimson'> <strong>싫어요:</strong> <?php $dv = downvoters($id); if(empty($dv)) echo '-'; else foreach($dv as $p => $v) echo $member->getMember($p)['s_name'].' ';?> </div>
     </span>
     <?php if(reportable($upvotes, $downvotes)) { ?>
-        <a onclick='' style='font-size: 0.9em; color:orangered'>신고자(<?php echo reportNum($id); ?>)</a>
+        <a href='ajax/board/reporters?id=<?php echo $id;?>' data-toggle='lightbox' style='font-size: 0.9em; color:orangered'>신고자(<?php echo reportNum($id); ?>)</a>
         <a onclick='$.post("ajax/board/report", {"id" : <?php echo $id;?>, "ajax": 1})' style='font-size: 0.9em; color:crimson'>신고하기</a>
     <?php }
 }
