@@ -923,7 +923,7 @@ function report($post) {
 		$arr = json_decode(file_get_contents("data/board/report/{$post}"), true);
 	}
 	if(isset($arr['s_name'])) return;
-	$arr['s_name'] = $me[time()];
+	$arr[$me['s_name']] = time();
 	file_put_contents("data/board/report/{$post}", json_encode($arr));
 }
 
