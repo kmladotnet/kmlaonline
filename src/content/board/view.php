@@ -30,7 +30,7 @@ function printVotes($id, $hide = true) {
             <?php echo '&#43;'.($upvotes + 1); ?>
         </button>
     </div>
-    <a onclick='$("#likers-<?php echo $id;?>").toggle(200);' style='font-size: 0.9em'>좋아요 누른 사람</a>
+    <a onclick='$("#likers-<?php echo $id;?>").toggle(200);' style='font-size: 0.9em'>(명단)</a>
     <span id='likers-<?php echo $id;?>' style="display:none; vertical-align: top; font-size: 0.9em">
         <div style='color: forestgreen'> <strong>좋아요:</strong> <?php foreach(upvoters($id) as $p => $v) echo $member->getMember($p)['s_name'].' ';?> </div>
     </span>
@@ -114,7 +114,7 @@ function printUpDownVotes($id, $hide = true) {
             </button>
         </span>
     </div>
-    <a onclick='$("#likers-<?php echo $id;?>").toggle(200);' style='font-size: 0.9em'>좋아요/싫어요 누른 사람</a>
+    <a onclick='$("#likers-<?php echo $id;?>").toggle(200);' style='font-size: 0.9em'>(명단)</a>
     <span id='likers-<?php echo $id;?>' style="display:none; vertical-align: top; font-size: 0.9em">
         <div style='color: forestgreen'> <strong>좋아요:</strong> <?php foreach(upvoters($id) as $p => $v) echo $member->getMember($p)['s_name'].' ';?> </div>
         <div style='color: crimson'> <strong>싫어요:</strong> <?php foreach(downvoters($id) as $p => $v) echo $member->getMember($p)['s_name'].' ';?> </div>
