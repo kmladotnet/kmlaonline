@@ -931,10 +931,12 @@ function reporters($post) {
 	$arr = array();
 	if(file_exists("data/board/report/{$post}")) {
 		$arr = json_decode(file_get_contents("data/board/report/{$post}"), true);
-	}
-	foreach($arr as $t => $n) { ?>
-		<tr> <?php echo "<td>{$n}</td><td>".date("Y-m-d H:i:s", $t).'</td>'; ?> </tr>
-	<?php }
+	} ?>
+	<table class='table table-hover'> <?php
+		foreach($arr as $n => $t) { ?>
+			<tr> <?php echo "<td>{$n}</td><td>".date("Y-m-d H:i:s", $t).'</td>'; ?> </tr>
+		<?php } ?>
+	</table> <?php
 }
 
 function reportNum($post) {
