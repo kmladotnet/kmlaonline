@@ -948,7 +948,7 @@ function reportNum($post) {
 }
 
 function reportable($upvotes, $downvotes) {
-	return true;
+	return $downvotes * 2 > $upvotes && $downvotes > 5;
 }
 
 $maxUploadFileSize = convertToBytes( ini_get( 'upload_max_filesize' ) );
