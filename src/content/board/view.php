@@ -32,7 +32,7 @@ function printVotes($id, $hide = true) {
     </div>
     <a onclick='$("#likers-<?php echo $id;?>").toggle(200);' style='font-size: 0.9em'>(명단)</a>
     <span id='likers-<?php echo $id;?>' style="display:none; vertical-align: top; font-size: 0.9em">
-        <div style='color: forestgreen'> <strong>좋아요:</strong> <?php foreach(upvoters($id) as $p => $v) echo $member->getMember($p)['s_name'].' ';?> </div>
+        <div style='color: forestgreen'> <strong>좋아요:</strong> <?php $uv = upvoters($id); if(empty($uv)) echo '-'; else foreach(upvoters($id) as $p => $v) echo $member->getMember($p)['s_name'].' ';?> </div>
     </span>
     <?php
 }
