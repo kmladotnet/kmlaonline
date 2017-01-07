@@ -1,7 +1,7 @@
 <?php
 define("upvote_threshold", -10);
 function printVotes($id, $hide = true) {
-    global $me;
+    global $me, $member;
     $upvotes = getVotes($id);
     $upvoted = upvoted($id, $me['n_id']);
     if($upvoted) {
