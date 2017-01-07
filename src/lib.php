@@ -911,4 +911,38 @@ function isCourtDasan($courtPost) {
     return $pos !== false && $pos < 50;
 }
 
+function report($post) {
+	global $me;
+	if($me === null || $me['n_id'] <= 1) { //prevent bogus users
+		return;
+	}
+	$uv = upvotes($post);
+	$dv = downvotes($post);
+	$arr = array();
+	if(file_exists("data/board/peek/{$post[n_id]}")) {
+		$arr = json_decode(file_get_contents("data/board/peek/{$post[n_id]}"), true);
+	}
+	if(isset($arr['s_name'])) return;
+	$arr['s_name'] = $me[time()];
+	file_put_contents("data/board/peek/{$post[n_id]}", json_encode($arr));
+}
+
+function reporters($post) {
+	$arr = array();
+	if(file_exists("data/board/peek/{$post[n_id]}")) {
+		$arr = json_decode(file_get_contents("data/board/peek/{$post[n_id]}"), true);
+	}
+	foreach($arr as $t => $n) { ?>
+		<tr> <?php echo "<td>{$n}</td><td>".date("Y-m-d H:i:s", $t).'</td>'; ?> </tr>
+	<?php }
+}
+
+function reportNum($post) {
+	$arr = array();
+	if(file_exists("data/board/peek/{$post[n_id]}")) {
+		$arr = json_decode(file_get_contents("data/board/peek/{$post[n_id]}"), true);
+	}
+	return count($arr);
+}
+
 $maxUploadFileSize = convertToBytes( ini_get( 'upload_max_filesize' ) );

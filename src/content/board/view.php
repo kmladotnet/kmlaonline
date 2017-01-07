@@ -119,6 +119,7 @@ function printUpDownVotes($id, $hide = true) {
         <div style='color: forestgreen'> <strong>좋아요:</strong> <?php $uv = upvoters($id); if(empty($uv)) echo '-'; else foreach($uv as $p => $v) echo $member->getMember($p)['s_name'].' ';?> </div>
         <div style='color: crimson'> <strong>싫어요:</strong> <?php $dv = downvoters($id); if(empty($dv)) echo '-'; else foreach($dv as $p => $v) echo $member->getMember($p)['s_name'].' ';?> </div>
     </span>
+    <a onclick='$.post("ajax/board/report", {"id" : <?php echo $id;?>, "ajax": 1}' style='font-size: 0.9em; color:crimson'>신고하기</a>
     <?php
 }
 
