@@ -31,7 +31,7 @@ function printVotes($id, $hide = true) {
         </button>
     </div>
     <a onclick='$("#likers-<?php echo $id;?>").toggle(200);' style='font-size: 0.9em'>(명단)</a>
-    <span id='likers-<?php echo $id;?>' style="display:none; vertical-align: top; font-size: 0.9em">
+    <span id='likers-<?php echo $id;?>' style="display:inline; display:none; vertical-align: top; font-size: 0.9em;">
         <div style='color: forestgreen'> <strong>좋아요:</strong> <?php $uv = upvoters($id); if(empty($uv)) echo '-'; else foreach($uv as $p => $v) echo $member->getMember($p)['s_name'].' ';?> </div>
     </span>
     <?php
