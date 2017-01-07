@@ -945,4 +945,8 @@ function reportNum($post) {
 	return count($arr);
 }
 
+function reportable($upvotes, $downvotes) {
+	return true;
+}
+
 $maxUploadFileSize = convertToBytes( ini_get( 'upload_max_filesize' ) );
