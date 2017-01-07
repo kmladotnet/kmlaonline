@@ -241,7 +241,7 @@ function putCommentTree($parent,$root){
                         <span style="font-weight:bold;color:crimson!important;vertical-align:middle">
                             <?php if($comment['n_writer'] == 1) echo '진짜 익명';
                             else {
-                                if(reportNum($comment['n_id']) >= 1) {
+                                if(reportNum($comment['n_id']) >= 10) {
                                     putUserCard($m);
                                 } else {
                                     echo '익명';
@@ -262,7 +262,7 @@ function putCommentTree($parent,$root){
                     <?php if($board_id!='picexhibit') { ?>
                         <div id="item_contents_<?php echo $comment['n_id'];?>" style="margin-top: 6px">
                             <?php
-                                if(reportNum($comment['n_id']) >= 1) {
+                                if(reportNum($comment['n_id']) >= 10) {
                                     ?> 신고가 10개 이상 접수되어서 삭제되었습니다. <?php
                                 } else {
                                     filterContent($comment['s_data']);
@@ -473,7 +473,7 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
                     <span style="font-weight:bold;color:crimson!important;vertical-align:middle">
                         <?php if($article['n_writer'] == 1) echo '진짜 익명';
                         else {
-                            if(reportNum($article['n_id']) >= 1) {
+                            if(reportNum($article['n_id']) >= 10) {
                                 putUserCard($m);
                             } else {
                                 echo '익명';
@@ -516,7 +516,11 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
 			</div>
             <div class="item_contents" style="padding:10px;padding-bottom:7px;overflow:auto">
                 <div id="item_contents_<?php echo $article['n_id'];?>"><?php
-                    filterContent($article['s_data']);
+                    if(reportNum($article['n_id']) >= 10) {
+                        ?> 신고가 10개 이상 접수되어서 삭제되었습니다. <?php
+                    } else {
+                        filterContent($article['s_data']);
+                    }
                 ?></div>
                 <div style="display:none" class="item_hidden" id="item_hidden_<?php echo $article['n_id'];?>">(숨김) - 좌측 상단의 '+' 버튼을 눌러서 표시할 수 있습니다.</div>
                 <?php
@@ -535,7 +539,7 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
                     <span style="font-weight:bold;color:crimson!important;vertical-align:middle">
                         <?php if($article['n_writer'] == 1) echo '진짜 익명';
                         else {
-                            if(reportNum($article['n_id']) >= 1) {
+                            if(reportNum($article['n_id']) >= 10) {
                                 putUserCard($m);
                             } else {
                                 echo '익명';
@@ -574,7 +578,7 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
             </div>
             <div class="item_contents" style="padding:10px;padding-bottom:7px;overflow:auto">
                 <div id="item_contents_<?php echo $article['n_id'];?>"><?php
-                    if(reportNum($article['n_id']) >= 1) {
+                    if(reportNum($article['n_id']) >= 10) {
                         ?> 신고가 10개 이상 접수되어서 삭제되었습니다. <?php
                     } else {
                         filterContent($article['s_data']);
