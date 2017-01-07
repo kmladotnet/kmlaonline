@@ -243,6 +243,8 @@ function putCommentTree($parent,$root){
                             else {
                                 if(reportNum($comment['n_id']) >= 1) {
                                     putUserCard($m);
+                                } else {
+                                    echo '익명';
                                 }
                             } ?>
                         </span> <?php
@@ -467,6 +469,8 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
                         else {
                             if(reportNum($article['n_id']) >= 1) {
                                 putUserCard($m);
+                            } else {
+                                echo '익명';
                             }
                         } ?>
                     </span> <?php
@@ -527,6 +531,8 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
                         else {
                             if(reportNum($article['n_id']) >= 1) {
                                 putUserCard($m);
+                            } else {
+                                echo '익명';
                             }
                         } ?>
                     </span> <?php
