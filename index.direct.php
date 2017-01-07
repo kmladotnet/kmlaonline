@@ -1,6 +1,3 @@
-<?php
-if($me['s_name'] === '이동민') {
-  ?>
 <!doctype html>
 <html>
 
@@ -215,4 +212,3 @@ if($me['s_name'] === '이동민') {
 </body>
 
 </html>
-<?php } ?>
