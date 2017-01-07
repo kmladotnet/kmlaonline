@@ -261,7 +261,13 @@ function putCommentTree($parent,$root){
                     <span style="font-size:8pt;color:gray;"><?php echo date("Y-m-d H:i:s", $comment['n_writedate'])?></span>
                     <?php if($board_id!='picexhibit') { ?>
                         <div id="item_contents_<?php echo $comment['n_id'];?>" style="margin-top: 6px">
-                            <?php filterContent($comment['s_data']);?>
+                            <?php
+                                if(reportNum($comment['n_id']) >= 1) {
+                                    ?> 신고가 10개 이상 접수되어서 삭제되었습니다. <?php
+                                } else {
+                                    filterContent($comment['s_data']);
+                                }
+                            ?>
                         </div>
                         <div style="display:none" class="item_hidden" id="item_hidden_<?php echo $comment['n_id'];?>">(숨김) - 좌측 상단의 '+' 버튼을 눌러서 표시할 수 있습니다.</div>
                     <?php } ?>
