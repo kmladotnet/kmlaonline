@@ -362,7 +362,7 @@ function showHeader() {
     $("div.total-header-menu-extend").velocity("slideDown", {duration: 250, easing: "ease"});
     $("div.menu-shadow").velocity("slideDown", {duration: 250, easing: "ease"});
     $("#total-header-menu").velocity("slideDown", {duration: 250, easing: "ease"});
-    $("div.menu1_text").velocity("finish", true).velocity("transition.slideLeftIn", {display: null, duration: 250, stagger: 40});
+    $("div.menu1_text").velocity("finish", true).css("transform", "").velocity("transition.slideLeftIn", {display: null, duration: 250, stagger: 40});
     $("#menu-logo").velocity({
         opacity: 1
     }, 250, "ease");
