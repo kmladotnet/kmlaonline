@@ -161,7 +161,7 @@ function printAttachList($article, $cat, $mode=0){
 									"+<i class='fa fa-file-audio-o fa-2x' style='margin-top:48px;'></i>",
 								"ppt;pptx;xls;xlsx;doc;docx;docm;dotm;xlsb;xlsm;ppsx;pps;pptm;potm;ppam;potx;ppsm;"=> // MS Office
 									"<a class='block' style='min-height:126px;border:1px solid #DDD;display:block;' ".
-												"href='https://view.officeapps.live.com/op/view.aspx?src=".htmlspecialchars("https://kmlaonline.net".$path_force)."' target='_blank' ".
+												"href='https://view.officeapps.live.com/op/view.aspx?src=".htmlspecialchars($path_force)."' target='_blank' ".
 												"onclick='window.open(this.href); return false;'>".
 										"<i class='fa fa-file-text-o fa-2x' style='margin-top:40px;'></i><br />".
 										"미리보기".
@@ -346,7 +346,7 @@ function printViewPageHeader($usr, $cat){
 				};
 				$res=$mysqli->query("SELECT * FROM import_matches WHERE n_id={$article['n_id']}");
 				while($row=$res->fetch_array())
-					echo "<a href='http://www.kmlaonline.net".dirname($row['s_dat'])."/".htmlspecialchars(basename($row['s_dat']))."' style='font-weight:bold'>임시 파일 받기: ".htmlspecialchars(basename($row['s_dat']))."</a><br />";
+					echo "<a href='".dirname($row['s_dat'])."/".htmlspecialchars(basename($row['s_dat']))."' style='font-weight:bold'>임시 파일 받기: ".htmlspecialchars(basename($row['s_dat']))."</a><br />";
 				?>
 				<div style="position:absolute;bottom:0;right:0;"><?php echo $b_anonymous?"":htmlspecialchars($usr['s_status_message'])?> - </div>
 			</div>

@@ -27,7 +27,7 @@ function printContent(){
         <input type="hidden" id="downform_login_action" name="action" value="login" />
         <input type="hidden" name="returnto" value="<?php echo ((isset($_REQUEST['returnto']) && $_REQUEST['returnto']!=" ")?$_REQUEST['returnto']:"/ ")?>" />
         <div style="text-align:center;width:100%">
-            <a href="https://kmlaonline.net">
+            <a href="/">
                 <h1 id="login_title" style="color:white">
                     <img id="menu-logo-image-2" src="/images/logo.png" alt="KMLAONLINE" style="width: 30px;height: 30px;margin: 10px;margin-top: 0;">KMLA Online
                 </h1>
