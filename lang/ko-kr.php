@@ -115,6 +115,7 @@ $_LANGUAGE=array(
 		"homepage"=>"홈페이지",
 		"phone"=>"전화번호",
 		"interest"=>"관심사",
+        "suggest"=>"선택 사항도 최대한 자세히 입력해주세요. 학교 생활 시 유용합니다.",
 		"gender"=>"성별",
 		"unspecified"=>"지정하지 않음",
 		"male"=>"남자",
