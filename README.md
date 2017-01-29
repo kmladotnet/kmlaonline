@@ -4,18 +4,14 @@
 
 ## git pull 방법 ##
 
-```
-#!bash
-
+```bash
 cd /srv/http/kmla
 git pull
 ```
 
 ## 서버 재부팅 후 할 것 정리 ##
 
-```
-#!bash
-
+```bash
 cd /srv/http/gems
 source ./init
 ./watch
@@ -27,9 +23,7 @@ source ./init
 
 ## 서버 업데이트 방법 ##
 
-```
-#!bash
-
+```bash
 sudo pacman -Syu
 ```
 
@@ -37,9 +31,7 @@ sudo pacman -Syu
 
 (이론적으로 절대로 만기되지 않겠지만)
 
-```
-#!bash
-
+```bash
 sudo /usr/bin/certbot renew --email kmladotnet@gmail.com --agree-tos
 ```
 
@@ -47,9 +39,7 @@ sudo /usr/bin/certbot renew --email kmladotnet@gmail.com --agree-tos
 
 서비스를 재시작해야지 설정이 적용됩니다
 
-```
-#!bash
-
+```bash
 sudo systemctl restart mysqld
 sudo systemctl restart nginx
 ```
