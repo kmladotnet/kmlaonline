@@ -85,7 +85,7 @@ if(count($failReason)>0){
 		$member->setAdditionalData($mid, "s_room", $_POST['s_room']);
 		$member->setAdditionalData($mid, "n_grade", $_POST['n_grade']);
 		$member->setAdditionalData($mid, "s_class", $_POST['s_class']);
-		file_put_contents("data/user_pending_list/$mid.txt", json_encode($_POST));	
+		file_put_contents("data/user_pending_list/$mid.txt", json_encode($_POST));
 		if(isAjax()){
 			ajaxOk(array(), "/user/welcome");
 		}else{
