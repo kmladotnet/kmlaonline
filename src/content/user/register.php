@@ -5,8 +5,11 @@ function printContent(){ ?>
     <script src='https://www.google.com/recaptcha/api.js'></script>
 	<!--<script type="text/javascript">alert("가입 기간이 아닙니다.");location.href="/";</script>-->
 	<?php
-	global $max_level;
+	/*
+    *
+    global $max_level;
 	insertOnLoadScript("putAlertOnLeave();");
+    */
 	?>
 	<form data-toggle="validator" data-delay="100" action="/ajax/user/register" method="post" enctype="multipart/form-data" onsubmit="window.onbeforeunload=null;">
 		<input type="hidden" name="prev_url" value="<?php echo htmlspecialchars($_SERVER['REQUEST_URI'])?>" />
