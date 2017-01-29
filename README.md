@@ -32,7 +32,7 @@ sudo pacman -Syu
 (이론적으로 절대로 만기되지 않겠지만)
 
 ```bash
-sudo /usr/bin/certbot renew --email kmladotnet@gmail.com --agree-tos
+sudo certbot renew --email kmladotnet@gmail.com --agree-tos
 ```
 
 ## mysql, nginx 등의 설정을 바꾼 후 ##
