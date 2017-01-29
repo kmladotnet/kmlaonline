@@ -176,13 +176,11 @@ function printContent(){ ?>
 								<th style="width:120px;"><?php echo lang("generic","interest")?></th>
 								<td><input class="form-control" type="text" name="s_interest" style="width:100%" <?php echo isset($_POST['s_interest'])?"value='".htmlspecialchars($_POST['s_interest'])."'":""?> /></td>
 							</tr>
-                            <tr>
-                                <td align="center" style="width:100%"><?php echo lang("generic", "suggest")?></td>
-                            </tr>
 						</table>
 					</td>
 				</tr>
 			</table>
+            <?php echo lang("generic", "suggest")?>
 			<input type="submit" class="btn btn-primary btn-lg" value="<?php echo lang("user","register","ok")?>" style="margin: 10px" />
 		</div>
 	</form>
