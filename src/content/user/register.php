@@ -180,7 +180,7 @@ function printContent(){ ?>
 					</td>
 				</tr>
 			</table>
-            <?php echo lang("generic", "suggest")?>
+            <p style="width:120px"><?php echo lang("generic", "suggest")."<br />"?></p>
 			<input type="submit" class="btn btn-primary btn-lg" value="<?php echo lang("user","register","ok")?>" style="margin: 10px" />
 		</div>
 	</form>
