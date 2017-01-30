@@ -170,7 +170,7 @@ function printContent(){ ?>
 							</tr>
 							<tr>
 								<th style="width:120px;"><?php echo lang("generic","phone")?></th>
-								<td><input class="form-control" type="text" name="s_phone" style="width:100%" <?php echo isset($_POST['s_phone'])?"value='".htmlspecialchars($_POST['s_phone'])."'":""?> /></td>
+								<td><input class="form-control" type="text" name="s_phone" placeholder="e.g. 010-1234-5678"> style="width:100%" <?php echo isset($_POST['s_phone'])?"value='".htmlspecialchars($_POST['s_phone'])."'":""?> /></td>
 							</tr>
 							<tr>
 								<th style="width:120px;"><?php echo lang("generic","interest")?></th>
