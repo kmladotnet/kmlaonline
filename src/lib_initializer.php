@@ -10,11 +10,11 @@ function _grant_access($iid, $level=false,$readonly=true){
 		"delete"=>0,
 		"manage modify"=>2,
 		"manage permission"=>2,
-		"comment view"=>1, 
-		"comment write"=>0, 
-		"comment edit"=>0, 
-		"comment delete"=>0, 
-		"attach upload"=>0, 
+		"comment view"=>1,
+		"comment write"=>0,
+		"comment edit"=>0,
+		"comment delete"=>0,
+		"attach upload"=>0,
 		"attach download"=>1,
 		"flag anonymous"=>1,
 		"flag bold title"=>1,
@@ -33,17 +33,17 @@ $mysqli->query("CREATE TABLE kmlaonline_important_notices_table(n_id BIGINT NOT 
 $mysqli->query("CREATE TABLE kmlaonline_special_permissions_table(n_user BIGINT, s_type VARCHAR(32), n_permission INT, FOREIGN KEY(n_user) REFERENCES `kmlaonline_member_data`(n_id) ON DELETE CASCADE, KEY s_type (s_type))");
 $mysqli->query("CREATE TABLE kmlaonline_schedule_table(n_year INT, n_month INT, n_day INT, s_mode VARCHAR(32), s_data TEXT, KEY n_year (n_year), KEY n_month (n_month), KEY n_day (n_day), KEY s_mode (s_mode))");
 $iid=$board->addCategory("all_announce", "전체 공지사항", "", 0);
-_grant_access($iid); _grant_access($iid,18,false);  _grant_access($iid,17,false);  _grant_access($iid,16,false); 
+_grant_access($iid); _grant_access($iid,18,false);  _grant_access($iid,17,false);  _grant_access($iid,16,false);
 $iid=$board->addCategory("all_gallery", "전체 갤러리", "", 1);
-_grant_access($iid); _grant_access($iid,18,false);  _grant_access($iid,17,false);  _grant_access($iid,16,false); 
+_grant_access($iid); _grant_access($iid,18,false);  _grant_access($iid,17,false);  _grant_access($iid,16,false);
 $iid=$board->addCategory("all_pds", "전체 자료실", "", 0);
-_grant_access($iid); _grant_access($iid,18,false);  _grant_access($iid,17,false);  _grant_access($iid,16,false); 
+_grant_access($iid); _grant_access($iid,18,false);  _grant_access($iid,17,false);  _grant_access($iid,16,false);
 $iid=$board->addCategory("site_suggestions", "건의사항", "", 0);
-_grant_access($iid); _grant_access($iid,18,false);  _grant_access($iid,17,false);  _grant_access($iid,16,false); 
+_grant_access($iid); _grant_access($iid,18,false);  _grant_access($iid,17,false);  _grant_access($iid,16,false);
 $iid=$board->addCategory("forum", "포럼", "", 2);
-_grant_access($iid); _grant_access($iid,18,false);  _grant_access($iid,17,false);  _grant_access($iid,16,false); 
+_grant_access($iid); _grant_access($iid,18,false);  _grant_access($iid,17,false);  _grant_access($iid,16,false);
 //*/
-for($i=19;$i>=1;$i--){
+for($i=22;$i>=1;$i--){
 	$iid=$board->addCategory("wave{$i}_free", "{$i}기 자유게시판", "", 0);
 	_grant_access($iid,$i,false);
 }
