@@ -55,7 +55,7 @@ function printContent(){
 												<td><?php echo htmlspecialchars($usr['s_id'])?></td>
 												<td><?php echo $usr['n_level']?></td>
 												<td><?php echo $usr['s_name']?></td>
-												<td><?php echo $usr['n_student_id']?></td>
+												<td><?php echo $usr['s_email']?></td>
 											</tr>
 											<?php
 										}
