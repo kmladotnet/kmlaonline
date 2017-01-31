@@ -34,7 +34,7 @@ function searchForUsers(restart){
 						o.append($("<td></td>").text(usr['s_id']));
 						o.append($("<td></td>").text(usr['n_level']));
 						o.append($("<td></td>").text(usr['s_name']));
-						o.append($("<td></td>").text(usr['n_point']));
+						o.append($("<td></td>").text(usr['n_student_id']));
 						$('#search_results').append(o);
 						o=$("<option></option>");
 						o.text(usr['n_level'] + "기 " + usr['s_name'] + " (" + usr['s_id'] + ")");
