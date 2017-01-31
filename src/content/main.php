@@ -275,8 +275,8 @@ function printEverydayLinks(){
             <option value="/board/student_mpt">MPT</option>
             <option value="/board/student_ambassador">대외홍보단</option>
             <option value="/util/lectureroom">공강신청</option>
-            <option value="/util/donation-cloth">교복 신청</option>
-            <option value="/util/donation-book">서적 신청</option>
+            <!--<option value="/util/donation-cloth">교복 신청</option>
+            <option value="/util/donation-book">서적 신청</option>-->
         </select>
     </div>
     <?php
