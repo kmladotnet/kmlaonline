@@ -40,7 +40,7 @@ function printContent(){
 											<th style="width:80px;text-align:left"><?php echo lang("generic","id")?></th>
 											<th style="width:36px;text-align:left"><?php echo lang("generic","level")?></th>
 											<th style="width:80px;text-align:left"><?php echo lang("generic","name")?></th>
-											<th style="text-align:left"><?php echo lang("generic","email")?></th>
+											<th style="text-align:left"><?php echo lang("generic","student_id")?></th>
 										</tr>
 									</thead>
 									<tbody id="search_results">
@@ -55,7 +55,7 @@ function printContent(){
 												<td><?php echo htmlspecialchars($usr['s_id'])?></td>
 												<td><?php echo $usr['n_level']?></td>
 												<td><?php echo $usr['s_name']?></td>
-												<td><?php echo $usr['s_email']?></td>
+												<td><?php echo $usr['n_point']?></td>
 											</tr>
 											<?php
 										}
@@ -195,7 +195,7 @@ function printContent(){
 										<input type="hidden" name="cat_act" value="edit_default_permission" />
 										<input type="hidden" name="what" id="cat_perm_what" value="" />
 										<div style="float:left;display:block;width:180px;">
-											<div style="padding:5px;font-weight:bold;font-size:11pt;">기수 선택</div>	
+											<div style="padding:5px;font-weight:bold;font-size:11pt;">기수 선택</div>
 											<div style="padding:3px;">
 												<input type="radio" onclick="fetchCategoryPermission();$('#n_level_select').removeAttr('disabled');$('#n_user_select').attr('disabled','disabled');" name="n_permission_type" value="category" id="n_permission_type_category" checked="checked" /><label for="n_permission_type_category"> 분류 전체 설정</label><br />
 												<select name="n_level" id="n_level_select" onchange="fetchCategoryPermission();">

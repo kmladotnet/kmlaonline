@@ -122,6 +122,7 @@ $_LANGUAGE=array(
 		"female"=>"여자",
 		"other"=>"기타",
 		"email"=>"E-Mail",
+        "student_id"=>"학번",
 		"find"=>"찾기",
 		"findnext"=>"계속 찾기",
 		"misc"=>"기타",
