@@ -2,7 +2,7 @@
 isset($_GET['p1']) || $_GET['p1']="";
 isset($_GET['p2']) && $mode=$_GET['p2'];
 
-$findwhat=$_GET['p1']; 
+$findwhat=$_GET['p1'];
 
 switch($findwhat){
 	case "id":
@@ -12,7 +12,7 @@ switch($findwhat){
 		$title = "비밀번호 재설정 - $title";
 		break;
 	default:
-		redirectAlert(false,"?");
+		//redirectAlert(false,"?");
 }
 function printContent(){
 	global $findwhat, $mode;
