@@ -12,7 +12,7 @@ switch($findwhat){
 		$title = "비밀번호 재설정 - $title";
 		break;
 	default:
-		//redirectAlert(false,"?");
+		redirectAlert(false,"?");
 }
 function printContent(){
 	global $findwhat, $mode;
