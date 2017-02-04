@@ -1,5 +1,5 @@
 <?php
-$ROOT_DIR = $_SERVER["DOCUEMENT_ROOT"];
+$ROOT_DIR = $_SERVER["DOCUMENT_ROOT"];
 echo $ROOT_DIR;
 //include ("$ROOT_DIR"./XmppPrebind.php);
 
