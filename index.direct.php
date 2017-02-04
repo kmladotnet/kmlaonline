@@ -69,8 +69,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.1.1/jquery.rateyo.min.js"></script>
 
     <!-- converse.js-->
-    <!--link rel="stylesheet" type="text/css" media = "screen" href="css/converse/converse.css"/>
-    <script data-main="main" src="js/converse/requirejs/require.js"></script-->
+    <link rel="stylesheet" type="text/css" media = "screen" href="css/converse/converse.css"/>
+    <script data-main="main" src="js/converse/requirejs/require.js"></script>
 
     <!-- other -->
     <script src="/swfupload/swfupload.js"></script>
