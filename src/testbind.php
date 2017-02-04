@@ -1,5 +1,5 @@
 <?php
-$ROOT_DIR = $_SERVER["DOCUMENT_ROOT"]."/src/prebind/lib";
+$ROOT_DIR = $_SERVER["DOCUMENT_ROOT"]."/src/prebind/lib/";
 echo $ROOT_DIR;
 include ("$ROOT_DIR"."XmppPrebind.php");
 
