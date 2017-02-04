@@ -262,6 +262,14 @@ JSON
                 });
             })
         });
+        converse.initialize({
+            bosh_service_url: 'http://kmlaonline.net/admin',
+            keepalive: true,
+            message_carbons:true,
+            play_sounds: true,
+            roster_group: true,
+            show_controlbox_by_default: true,
+        });
 	<?php
 }
 
