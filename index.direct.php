@@ -70,9 +70,9 @@
 
     <!-- test converse.js-->
     <link rel="shortcut icon" type="image/ico" href="css/images/favicon.ico"/>
-    <link type="text/css" rel="stylesheet" media="screen" href="components/bootstrap/dist/css/bootstrap.min.css" />
-    <link type="text/css" rel="stylesheet" media="screen" href="components/fontawesome/css/font-awesome.min.css" />
-    <link type="text/css" rel="stylesheet" media="screen" href="css/theme.min.css" />
+    <link type="text/css" rel="stylesheet" media="screen" href="js/converse/bootstrap/dist/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" media="screen" href="js/converse/fontawesome/css/font-awesome.min.css" />
+    <link type="text/css" rel="stylesheet" media="screen" href="js/converse/bootstrap/dist/css/theme.min.css" />
     <link type="text/css" rel="stylesheet" media="screen" href="css/converse.min.css" />
 
     <!-- other -->
