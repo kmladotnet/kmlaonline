@@ -31,4 +31,4 @@ require({
     document.body.innerHTML += template({message: 'Hello World!'});
 });
 
-define("main_2", function(){});
+define("main", function(){});
