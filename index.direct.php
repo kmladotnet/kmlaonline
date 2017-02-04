@@ -80,6 +80,10 @@
     <link rel="stylesheet" href="/css/font.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="/sass-compiled/screen.css?v=6" type="text/css" media="screen" />
 
+    <!-- converse.js-->
+    <link rel="stylesheet" type="text/css" media = "screen" href="css/converse/converse.css"/>
+    <script data-main="main" src="js/converse/requirejs/require.js"></script>
+
     <?php
     if($april_fools) {
         switch(mt_rand(1, 17)) {
@@ -136,9 +140,7 @@
         ?>
     </style>
 
-    <!-- converse.js-->
-    <link rel="stylesheet" type="text/css" media = "screen" href="css/converse/converse.css"/>
-    <script data-main="main" src="js/converse/requirejs/require.js"></script>
+
 </head>
 
 <body>
