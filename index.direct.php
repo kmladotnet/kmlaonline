@@ -68,6 +68,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.1.1/jquery.rateyo.min.css">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.1.1/jquery.rateyo.min.js"></script>
 
+    <!-- test converse.js-->
+    <link rel="shortcut icon" type="image/ico" href="css/images/favicon.ico"/>
+    <link type="text/css" rel="stylesheet" media="screen" href="components/bootstrap/dist/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" media="screen" href="components/fontawesome/css/font-awesome.min.css" />
+    <link type="text/css" rel="stylesheet" media="screen" href="css/theme.min.css" />
+    <link type="text/css" rel="stylesheet" media="screen" href="css/converse.min.css" />
+
     <!-- other -->
     <script src="/swfupload/swfupload.js"></script>
     <script src="/swfupload/swfupload.queue.js"></script>
