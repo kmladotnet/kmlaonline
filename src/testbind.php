@@ -1,7 +1,7 @@
 <?php
 $ROOT_DIR = $_SERVER["DOCUMENT_ROOT"]."/src/";
 echo $ROOT_DIR;
-include ("$ROOT_DIR"."/src/XmppPrebind.php");
+include ("$ROOT_DIR"."XmppPrebind.php");
 
 $username = "present42";
 $password = "guswo1";
