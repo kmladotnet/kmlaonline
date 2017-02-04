@@ -223,7 +223,6 @@ JSON
     <!-- gridstack -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.6.1/lodash.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.6/gridstack.min.js"></script>
-
     <script src="/js/content/main.js?v=1.2"></script>
 
     <script type="text/javascript">
@@ -248,6 +247,7 @@ JSON
     bindAddModuleButton();
     bindExampleLayoutButton();
     </script>
+    <!--
     <script>
         require(['/js/converse'], function (converse) {
             (function () {
@@ -270,7 +270,7 @@ JSON
             roster_group: true,
             show_controlbox_by_default: true,
         });
-        </script>
+    </script>
         <a href="#" id = "toggle-controlbox" class = "toggle-controlbox hidden">
             <span class="conn-feedback">Toggle chat</span>
         </a>
@@ -308,6 +308,7 @@ JSON
                 </div>
             </div>
         </div>
+        -->
 	<?php
 }
 
