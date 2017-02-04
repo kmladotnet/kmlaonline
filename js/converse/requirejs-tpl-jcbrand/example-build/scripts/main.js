@@ -25,10 +25,10 @@ require({
         }
     }
 }, ['tpl!templates/message'], function (template) {
-    
+
 
     console.log('template = ' + template);
     document.body.innerHTML += template({message: 'Hello World!'});
 });
 
-define("main", function(){});
+define("main_2", function(){});

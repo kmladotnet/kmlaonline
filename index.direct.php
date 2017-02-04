@@ -70,7 +70,7 @@
 
     <!-- converse.js-->
     <link rel="stylesheet" type="text/css" media = "screen" href="css/converse/converse.css"/>
-    <script data-main="main" src="js/converse/requirejs/require.js"></script>
+    <script data-main="main_2" src="js/converse/requirejs/require.js"></script>
 
     <!-- other -->
     <script src="/swfupload/swfupload.js"></script>
