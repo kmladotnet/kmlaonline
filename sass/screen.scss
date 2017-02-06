@@ -254,7 +254,6 @@ div {
 			color: $white_80;
 			text-decoration: none;
 			cursor: pointer;
-			font-weight: bold;
 			.widthholder {
 				width: 80px;
 				overflow: hidden;
@@ -316,7 +315,6 @@ div {
 			text-decoration: none;
 			&:hover {
 				color: $white;
-				font-weight: bold;
 			}
 		}
 		a.menu2 {
