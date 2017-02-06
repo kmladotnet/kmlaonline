@@ -179,6 +179,13 @@ function printContent(){
     if(!is_null($weather) && (200 <= $weather->weather->id) && ($weather->weather->id < 600)) {
         ?>
         <script src="//cdnjs.cloudflare.com/ajax/libs/rainyday.js/0.1.2/rainyday.min.js"></script>
+    <div>
+    <form method="post" action="./check" id="downform_login" onsubmit="return true;">
+        <input type="hidden" id="downform_login_action" name="action" value="resetpwd" />
+        <input type="hidden" name="returnto" value="<?php echo ((isset($_REQUEST['returnto']) && $_REQUEST['returnto']!=" ")?$_REQUEST['returnto']:"/ ")?>" />
+        <div style="float:right"><button class="btn btn-default" style="margin-right:5px;border-radius:5px;" onclick="$('#downform_login_action').val('resetpwd');$('#downform_login').submit();">회원가입</button></div>
+    </form>
+    </div>
         <?php
     }
 }
