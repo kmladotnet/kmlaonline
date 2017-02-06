@@ -174,11 +174,6 @@ function printContent(){
             </div>
 		</div>
 	</form>
-    <script src="/js/content/user/login.js"></script>
-    <?php
-    if(!is_null($weather) && (200 <= $weather->weather->id) && ($weather->weather->id < 600)) {
-        ?>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/rainyday.js/0.1.2/rainyday.min.js"></script>
     <div>
     <form method="post" action="./check" id="downform_login" onsubmit="return true;">
         <input type="hidden" id="downform_login_action" name="action" value="resetpwd" />
@@ -186,6 +181,11 @@ function printContent(){
         <div style="float:right"><button class="btn btn-default" style="margin-right:5px;border-radius:5px;" onclick="$('#downform_login_action').val('resetpwd');$('#downform_login').submit();">회원가입</button></div>
     </form>
     </div>
+    <script src="/js/content/user/login.js"></script>
+    <?php
+    if(!is_null($weather) && (200 <= $weather->weather->id) && ($weather->weather->id < 600)) {
+        ?>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/rainyday.js/0.1.2/rainyday.min.js"></script>
         <?php
     }
 }
