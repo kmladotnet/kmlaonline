@@ -25,6 +25,7 @@ if(!isset($_SESSION['user'])) {
 		switch($_GET['sub']) {
 			case 'register':
 			case 'lost':
+            case 'resetpwd':
 				break;
 			default:
 				$_REQUEST['returnto'] = $_SERVER["REQUEST_URI"];
