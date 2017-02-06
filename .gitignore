@@ -5,3 +5,4 @@ db-config.php
 .sass-cache/*
 sass-compiled
 sass-compiled/*
+/intranet/*
