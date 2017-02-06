@@ -9,14 +9,14 @@
         $searchtype = $_POST['searchtype'];
         $searchterm = trim($_POST['serachterm']);
 
-        if(!$searchterm || !$serachterm) {
+        if(!$searchterm || !$searchterm) {
             echo 'You have not entered search details. Please go back and try again.';
             exit;
         }
 
         //Gets the current configuration setting of magic_quotes_gpc
         if(!get_magic_quotes_gpc()) {
-            $serachtype = addslashes($searchtype);
+            $searchtype = addslashes($searchtype);
             $searchterm = addslashes($searchterm);
         }
 
