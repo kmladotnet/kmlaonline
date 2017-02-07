@@ -27,7 +27,29 @@
         if(mysqli_connect_errno()) {
             echo 'Error: Could not connect to database. Please try again later.';
             exit;
-        }//123
-?>
+        }
+
+        $query = "select * from books where ".$searchtype." like '%".%searchterm."%'";
+        $result = $db -> query($query);
+        $num_results = $result->num_rows;
+
+        echo "<p>Number of books found: ".$num_results."</p";
+
+        for ($i=0; $i < $num_results; $i++){
+            $row = $result->fetch_assoc();
+            echo "<p><strong>".($i + 1).". Titel: ";
+            echo htmlspecialchars(stripslashes($row['title']));
+            echo "</strong><br />Author: ";
+            echo stripcslashes($row['author']);
+            echo "<br />ISBN: ";
+            echo stripcslashes($row['isbn']);
+            echo "<br />PRICE: ";
+            echo stripcslashes($row['price']);
+            echo "</p>";
+        }
+
+        $result -> free();
+        $db -> close();
+    ?>
 </body>
 </html>
