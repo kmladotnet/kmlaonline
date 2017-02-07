@@ -34,12 +34,12 @@
         }
 
         $query = "CREATE TABLE dept_justice_article (
-                article_id BIGINT NOT NULL AUTO_INCREMENT,
+                article_id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
                 st_grade int NOT NULL,
                 st_id int DEFAULT 0,
                 st_name TINYTEXT NOT NULL,
                 ac_name TINYTEXT NOT NULL,
-                article char(255) NOT NULL)";
+                article char(255) NOT NULL);";
 
         $result = $db -> query($query);
         if($result === TRUE) echo "<p>WOW</p>";
