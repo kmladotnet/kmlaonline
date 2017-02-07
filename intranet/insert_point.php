@@ -22,7 +22,7 @@
             $grade = addslashes($grade);
             $name = addslashes($name);
             $accuse_date = addslashes($accuse_date);
-            $accuser = addslashes($accuser)
+            $accuser = addslashes($accuser);
             $article = addslashes($article);
         }
 
