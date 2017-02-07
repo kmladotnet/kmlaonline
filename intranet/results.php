@@ -9,7 +9,7 @@
         $searchtype = $_POST['searchtype'];
         $searchterm = trim($_POST['serachterm']);
 
-        if(!$searchterm || !$searchterm) {
+        if(!$searchtype || !$searchterm) {
             echo 'You have not entered search details. Please go back and try again.';
             exit;
         }
