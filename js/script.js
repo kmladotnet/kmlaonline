@@ -130,7 +130,7 @@ function saveAjax(obj, opername, ckeditor, callafter) {
                     if (doit) {
                         window.onbeforeunload = null;
                         location.href = ret["redirect_to"];
-                        $(window).unload(function () {
+                        $(window).on("unload", function () {
                             if (window.leaving) clearTimeout(window.leaving);
                             window.leaving = null;
                         });
