@@ -16,7 +16,8 @@ $kmla-notification-hover-color: #e1eeff;
 $kmla-header-extend-color: #bed6ea;
 $kmla-menu-color: #074275;
 $kmla-highlight-color: $panel-info-heading-bg;
-$kmla-footer-color: #ffefd2;
+// $kmla-footer-color: #ffefd2;
+$kmla-footer-color: lighten($kmla-header-extend-color, 70%);
 $kmla-wave-button-hover-color: #ddefff;
 $kmla-profile-nav-color: #a3cfff;
 
@@ -390,7 +391,7 @@ div {
 			}
 		}
 	}
-    
+
 	&.tab_wrap {
 		margin-left: 160px;
 		overflow: hidden;
@@ -607,6 +608,7 @@ select {
 
 #total-footer {
     @include background-image(linear-gradient(white, $kmla-footer-color));
+    color: $kmla-menu-color;
 	padding: 32px;
 }
 
