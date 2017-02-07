@@ -33,7 +33,7 @@
             exit;
         }
 
-        $query = "CREATE TABLE dept_justice_article (
+        $query = "CREATE TABLE IF NOT EXISTS dept_justice_article (
                 article_id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
                 st_grade int NOT NULL,
                 st_id int DEFAULT 0,
@@ -44,7 +44,8 @@
         $result = $db -> query($query);
         if($result === TRUE) echo "<p>WOW</p>";
         else echo "<p>What happened?</p>";
-        /*$query = "insert into dept_justice_article ".
+
+        $query = "insert into dept_justice_article ".
                 "(st_grade, st_name, ac_name, article) ".
                 "VALUES ".
                 "('".$grade."', '".$name."', '".$accuser."', '".$article."')";
