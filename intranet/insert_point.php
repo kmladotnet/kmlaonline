@@ -33,17 +33,18 @@
             exit;
         }
 
-        $query = "CREATE TABLE IF NOT EXISTS dept_justice_article (".
+        $query = "CREATE TABLE dept_justice_article (".
                 "article_id BIGINT NOT NULL AUTO_INCREMENT,".
                 "st_grade int NOT NULL,".
                 "st_id int DEFAULT 0,".
                 "st_name TINYTEXT NOT NULL,".
                 "ac_name TINYTEXT NOT NULL,".
                 "article char(255) NOT NULL)";
+
         $result = $db -> query($query);
         if($result) echo "<p>WOW</p>";
-
-        $query = "insert into dept_justice_article ".
+        else echo "<p>What happened?</p>";
+        /*$query = "insert into dept_justice_article ".
                 "(st_grade, st_name, ac_name, article) ".
                 "VALUES ".
                 "('".$grade."', '".$name."', '".$accuser."', '".$article."')";
@@ -56,7 +57,7 @@
             echo "An error has occured. The item was not added.";
         }
 
-        $db->close();
+        $db->close();*/
     ?>
 </body>
 </html>
