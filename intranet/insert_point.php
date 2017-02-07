@@ -58,7 +58,26 @@
             echo "An error has occured. The item was not added.";
         }
 
-        $db->close();
+        $query = "select * from dept_justice_article";
+        $result = $db -> query($query);
+        $num_results = $result->num_rows;
+
+        echo "<p>Number of articles found: ".$num_results."</ p>";
+
+        for ($i=0; $i < $num_results; $i++){
+            $row = $result->fetch_assoc();
+            echo "<p><strong>".($i + 1).". Grade: ";
+            echo htmlspecialchars(stripslashes($row['st_grade']));
+            echo "</strong><br />Name: ";
+            echo stripcslashes($row['st_name']);
+            echo "<br />Accuser";
+            echo stripcslashes($row['ac_name']);
+            echo "<br />Article: ";
+            echo stripcslashes($row['article']);
+            echo "</p>";
+        }
+
+        $result -> free();
     ?>
 </body>
 </html>
