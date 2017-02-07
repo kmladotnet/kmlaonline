@@ -176,7 +176,7 @@ function printContentPc(){
                     </div>
                     <div class="btn-group" style="margin-top: 4px">
                         <button type="button" class="btn btn-danger" onclick="cancelLayout();"><i class="fa fa-trash-o"></i> 모든 변경사항 취소</button>
-                        <button type="button" class="btn btn-danger" onclick="resetMainLayout();"><i class="fa fa-times"></i> 초기화</button>
+                        <button type="button" class="btn btn-danger" onclick="resetMainLayout();"><i class="fa fa-times"></i> 기본 레이아웃으로 초기화</button>
                     </div>
                 </div>
                 <div style="margin-top: 6px;">
