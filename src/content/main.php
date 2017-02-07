@@ -102,7 +102,7 @@ function printContentPc(){
                     <div>
                         <h3>기타</h3>
                         <div class="form-group">
-                            글 제목 특수문자:
+                            글 제목 내 특수문자/반복된 문자:
                             <div class="btn-group" data-toggle="buttons">
                                 <label class="btn btn-default <?php if(!getTheme($me)['notitlesymbols']) echo "active"; ?>">
                                     <input type="radio" name="titlesymbols" id="titlesymbols-option" autocomplete="off"

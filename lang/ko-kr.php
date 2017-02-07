@@ -180,10 +180,7 @@ $_LANGUAGE=array(
 				"remove"=>"숨기기"
 			)
 		),
-		"footer"=>'KMLA Online 2007 - 2016<br />
-			<a href="http://www.minjok.hs.kr/">학교 홈페이지</a> | <a href="http://www.minjok.hs.kr/members/">인트라넷</a><br />
-			<br />
-			25268 강원도 횡성군 안흥면 봉화로 800 (소사리 1300) 민족사관고등학교 <a href="http://www.minjok.hs.kr/school_tel.html">[연락처]</a><br />'
+		"footer"=>'<img src="/images/kmlaonline.png" style="display: block;margin: auto;height: 30px;">'
 	),
     "weather"=>array(
         200 => '뇌우',
