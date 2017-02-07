@@ -29,7 +29,7 @@
             exit;
         }
 
-        $query = "select * from books where ".$searchtype." like '%".%searchterm."%'";
+        $query = "select * from books where ".$searchtype." like '%".$searchterm."%'";
         $result = $db -> query($query);
         $num_results = $result->num_rows;
 
