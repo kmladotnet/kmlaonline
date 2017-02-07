@@ -33,13 +33,13 @@
             exit;
         }
 
-        $query = "CREATE TABLE dept_justice_article (".
-                "article_id BIGINT NOT NULL AUTO_INCREMENT,".
-                "st_grade int NOT NULL,".
-                "st_id int DEFAULT 0,".
-                "st_name TINYTEXT NOT NULL,".
-                "ac_name TINYTEXT NOT NULL,".
-                "article char(255) NOT NULL)";
+        $query = "CREATE TABLE dept_justice_article (
+                article_id BIGINT NOT NULL AUTO_INCREMENT,
+                st_grade int NOT NULL,
+                st_id int DEFAULT 0,
+                st_name TINYTEXT NOT NULL,
+                ac_name TINYTEXT NOT NULL,
+                article char(255) NOT NULL)";
 
         $result = $db -> query($query);
         if($result) echo "<p>WOW</p>";
