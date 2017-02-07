@@ -58,7 +58,7 @@
             echo "An error has occured. The item was not added.";
         }
 
-        $db->close();*/
+        $db->close();
     ?>
 </body>
 </html>
