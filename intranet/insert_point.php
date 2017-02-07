@@ -41,8 +41,22 @@
                 "ac_name TINYTEXT NOT NULL,".
                 "article char(255) NOT NULL)";
         $result = $db -> query($query);
+        if($result) echo "<p>WOW</p>";
 
-        echo $result;
+        $query = "insert into dept_justice_article ".
+                "(st_grade, st_name, ac_name, article) ".
+                "VALUES ".
+                "('".$grade."', '".$name."', '".$accuser."', '".$article."')";
+
+        $result = $db -> query($query);
+
+        if($result) {
+            echo $db->affected_rows." article inserted into database.";
+        } else {
+            echo "An error has occured. The item was not added.";
+        }
+
+        $db->close();
     ?>
 </body>
 </html>
