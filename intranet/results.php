@@ -33,11 +33,11 @@
         $result = $db -> query($query);
         $num_results = $result->num_rows;
 
-        echo "<p>Number of books found: ".$num_results."</p";
+        echo "<p>Number of books found: ".$num_results."</p>";
 
         for ($i=0; $i < $num_results; $i++){
             $row = $result->fetch_assoc();
-            echo "<p><strong>".($i + 1).". Titel: ";
+            echo "<p><strong>".($i + 1).". Title: ";
             echo htmlspecialchars(stripslashes($row['title']));
             echo "</strong><br />Author: ";
             echo stripcslashes($row['author']);
