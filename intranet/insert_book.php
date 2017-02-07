@@ -35,7 +35,7 @@
                 ('".$isbn."', '".$author."', '".$title."', '".$price."')";
         $result = $db -> query($query);
 
-        if($result){
+        if($result) {
             echo $db->affected_rows." book inserted into database.";
         } else {
             echo "An error has occured. The item was not added.";

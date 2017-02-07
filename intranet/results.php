@@ -33,7 +33,7 @@
         $result = $db -> query($query);
         $num_results = $result->num_rows;
 
-        echo "<p>Number of books found: ".$num_results."</p>";
+        echo "<p>Number of books found: ".$num_results."</ p>";
 
         for ($i=0; $i < $num_results; $i++){
             $row = $result->fetch_assoc();
