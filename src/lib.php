@@ -804,7 +804,7 @@ function downvoters($id) {
 }
 
 function cleanSymbols($str) {
-    return trim(preg_replace('/(\\w)(\\w)(\\w)(\\1+)/', '$1$2$3', preg_replace('/[\\p{S}]+/u', '', $str)));
+    return trim(preg_replace('/([^a-zA-Z\d\s:])(\\1+)/', '$1$1', preg_replace('/[\\p{S}]+/u', '', $str)));
 }
 
 function formatTitle($title) {
