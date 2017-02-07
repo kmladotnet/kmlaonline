@@ -42,7 +42,7 @@
                 article char(255) NOT NULL)";
 
         $result = $db -> query($query);
-        if($result) echo "<p>WOW</p>";
+        if($result === TRUE) echo "<p>WOW</p>";
         else echo "<p>What happened?</p>";
         /*$query = "insert into dept_justice_article ".
                 "(st_grade, st_name, ac_name, article) ".
