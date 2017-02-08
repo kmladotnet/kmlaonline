@@ -44,7 +44,7 @@ function printContent(){
 			</tr>
 		</thead>
 		<tbody>
-			<?php for($num=1;$num<=265;$num++){ ?>
+			<?php for($num=1;$num<=172;$num++){ ?>
 				<tr style="background:#FFF">
 
 					<td><?php echo $currentTable[$category][$num][0]; ?></td>
