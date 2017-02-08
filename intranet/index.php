@@ -5,7 +5,7 @@
 </head>
 <body>
     <p>This is just a test page.</p>
-    <?
+    <?php
         include 'lib.php';
 
         if($db) echo "WOW";
