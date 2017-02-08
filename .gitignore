@@ -6,3 +6,4 @@ db-config.php
 sass-compiled
 sass-compiled/*
 /intranet/lib.php
+/intranet/db-config.php
