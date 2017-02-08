@@ -1,7 +1,7 @@
 <?php
 redirectLoginIfRequired();
 if(!isset($_POST['util_action'])) die();
-if(time()<1486553460) ajaxDie(array(), "12시 이후에 신청 바랍니다.");
+if(time()<1486998000) ajaxDie(array(), "12시 이후에 신청 바랍니다.");
 switch($_POST['util_action']){
 	case "add":
 		$category=$_POST['category'];
