@@ -35,18 +35,18 @@ function printContent(){
 	</div>
 	<?php $category=6 ?>   <!--Category 6: 여자 교복 -->
 	<div style="clear:both;padding:5px;"></div>
-	<table id="donation_table_etc" style="width: 100%;">
+	<table id="donation_table_etc" style="width: 100%;" class="table table-condensed table-striped">
 		<thead>
-			<tr style="background:#DDD">
-				<th style="text-align: center; height: 50px; width:10%;">종류</th>
-				<th style="text-align: center; height: 50px; width:40%;">색(장의+치마)</th>
-				<th style="text-align: center; height: 50px; width:20%;">기부자</th>
-                <th style="text-align: center; height: 50px; wdith:30%;">신청자</th>
+			<tr>
+				<th style="text-align: center; width:10%;">종류</th>
+				<th style="text-align: center; width:40%;">색(장의+치마)</th>
+				<th style="text-align: center; width:20%;">기부자</th>
+                <th style="text-align: center; width:30%;">신청자</th>
 			</tr>
 		</thead>
 		<tbody style="text-align: center;">
 			<?php for($num=1;$num<=157;$num++){ ?>
-				<tr style="background:#FFF">
+				<tr>
 
 					<td><?php echo $currentTable[$category][$num][2]; ?></td>
 
@@ -83,7 +83,7 @@ function printContent(){
 								<input type="hidden" name="category" value="<?php echo $category ?>" />
 								<input type="hidden" name="num" value="<?php echo $num ?>" />
 								<input type="hidden" name="util_action" value="add" />
-								<input type="submit" value="신청" />
+								<input type="submit" class="btn btn-sm btn-default" value="신청" />
 							</form>
 		<?php }else{ ?>
 							<p style="width: 150px;">기한이 아닙니다</p>
@@ -102,18 +102,18 @@ function printContent(){
 	</div>
 	<?php $category=7 ?>   <!--Category 7: 여자 교복 -->
 	<div style="clear:both;padding:5px;"></div>
-	<table id="donation_table_etc" style="width: 100%;">
+	<table id="donation_table_etc" style="width: 100%;" class="table table-condensed table-striped">
 		<thead>
-			<tr style="background:#DDD">
-				<th style="text-align: center; height: 50px; width:10%;">종류</th>
-				<th style="text-align: center; height: 50px; width:40%;">색(장의+바지)</th>
-				<th style="text-align: center; height: 50px; width:20%;">기부자</th>
-                <th style="text-align: center; height: 50px; wdith:30%;">신청자</th>
+			<tr>
+				<th style="text-align: center; width:10%;">종류</th>
+				<th style="text-align: center; width:40%;">색(장의+바지)</th>
+				<th style="text-align: center; width:20%;">기부자</th>
+                <th style="text-align: center; width:30%;">신청자</th>
 			</tr>
 		</thead>
 		<tbody style="text-align: center;">
 			<?php for($num=1;$num<=91;$num++){ ?>
-				<tr style="background:#FFF">
+				<tr>
 
 					<td><?php echo $currentTable[$category][$num][2]; ?></td>
 
@@ -150,7 +150,7 @@ function printContent(){
 								<input type="hidden" name="category" value="<?php echo $category ?>" />
 								<input type="hidden" name="num" value="<?php echo $num ?>" />
 								<input type="hidden" name="util_action" value="add" />
-								<input type="submit" value="신청" />
+								<input type="submit" class="btn btn-sm btn-default" value="신청" />
 							</form>
 		<?php }else{ ?>
 							<p style="width: 150px;">기한이 아닙니다</p>
@@ -163,5 +163,4 @@ function printContent(){
 	</table
 	</br>
     </br>
-
 <?php } ?>
