@@ -35,17 +35,17 @@ function printContent(){
 	</div>
 	<?php $category=0 ?>
 	<div style="clear:both;padding:5px;"></div>
-	<table style="text-align:center;" id="donation_table_dom">
+	<table style="text-align:center;" id="donation_table_dom" class="table table-striped">
 		<thead style>
-			<tr style="background:#DDD">
-				<th style="height:50px; width:50%; text-align:center;">책제목</th>
-				<th style="height:50px; width:20%; text-align:center;">출판사</th>
-				<th style="height:50px; width:30%; text-align:center;">신청자</th>
+			<tr>
+				<th style="width:50%; text-align:center;">책제목</th>
+				<th style="width:20%; text-align:center;">출판사</th>
+				<th style="width:30%; text-align:center;">신청자</th>
 			</tr>
 		</thead>
 		<tbody>
 			<?php for($num=1;$num<=172;$num++){ ?>
-				<tr style="background:#FFF">
+				<tr>
 
 					<td><?php echo $currentTable[$category][$num][0]; ?></td>
 
@@ -91,17 +91,17 @@ function printContent(){
 	</div>
 	<?php $category=1 ?>
 	<div style="clear:both;padding:5px;"></div>
-	<table id="donation_table_int" style="text-align: center;">
+	<table id="donation_table_int" style="text-align: center;" class="table table-striped">
 		<thead>
-			<tr style="background:#DDD">
-				<th style="height: 50px; text-align: center;  width:70%;">책제목</th>
+			<tr>
+				<th style="text-align: center;  width:70%;">책제목</th>
 		<!--		<th style="height: 50px; text-align: center;  width:300px;">상태</th>	-->
-				<th style="height: 50px; text-align: center;  width:30%;">신청자</th>
+				<th style="text-align: center;  width:30%;">신청자</th>
 			</tr>
 		</thead>
 		<tbody>
 			<?php for($num=1;$num<=133;$num++){ ?>
-				<tr style="background:#FFF">
+				<tr>
 
 					<td><?php echo $currentTable[$category][$num][1]; ?></td>
 
@@ -147,17 +147,17 @@ function printContent(){
 	</div>
 	<?php $category=2 ?>
 	<div style="clear:both;padding:5px;"></div>
-	<table id="donation_table_book" style="text-align: center;">
+	<table id="donation_table_book" style="text-align: center;" class="table table-striped">
 		<thead>
-			<tr style="background:#DDD; text-align: center;">
-				<th style="height: 50px; text-align:center; width:70%;">책제목</th>
+			<tr style="text-align: center;">
+				<th style="text-align:center; width:70%;">책제목</th>
 		<!--		<th style="height: 50px; width:300px;">저자</th>	-->
-				<th style="height: 50px; text-align:center; width:30%;">신청자</th>
+				<th style="text-align:center; width:30%;">신청자</th>
 			</tr>
 		</thead>
 		<tbody>
 			<?php for($num=1;$num<=37;$num++){ ?>
-				<tr style="background:#FFF">
+				<tr>
 
 					<td><?php echo $currentTable[$category][$num][0]; ?></td>
 
@@ -261,17 +261,17 @@ function printContent(){
 	</div>
 	<?php $category=4 ?>
 	<div style="clear:both;padding:5px;"></div>
-	<table id="donation_table_etc">
+	<table id="donation_table_etc" class="table table-striped">
 		<thead>
-			<tr style="background:#DDD">
-				<th style="text-align: center; height: 50px; width:70%;">책제목</th>
+			<tr>
+				<th style="text-align: center; width:70%;">책제목</th>
 			<!--	<th style="text-align: center; height: 50px; width:300px;">상태</th>	-->
-				<th style="text-align: center; height: 50px; width :30%;">신청자</th>
+				<th style="text-align: center; width :30%;">신청자</th>
 			</tr>
 		</thead>
 		<tbody style="text-align: center;">
 			<?php for($num=1;$num<=61;$num++){ ?>
-				<tr style="background:#FFF">
+				<tr>
 
 					<td><?php echo $currentTable[$category][$num][0]; ?></td>
 
@@ -316,17 +316,17 @@ function printContent(){
 	</div>
 	<?php $category=5 ?>
 	<div style="clear:both;padding:5px;"></div>
-	<table id="donation_table_etc">
+	<table id="donation_table_etc" class="table table-striped">
 		<thead>
 			<tr style="background:#DDD">
-				<th style="text-align: center; height: 50px; width:50%;">물품명</th>
-				<th style="text-align: center; height: 50px; width:20%;">비고</th>
-				<th style="text-align: center; height: 50px; width:30%;">신청자</th>
+				<th style="text-align: center; width:50%;">물품명</th>
+				<th style="text-align: center; width:20%;">비고</th>
+				<th style="text-align: center; width:30%;">신청자</th>
 			</tr>
 		</thead>
 		<tbody style="text-align: center;">
 			<?php for($num=1;$num<=120;$num++){ ?>
-				<tr style="background:#FFF">
+				<tr>
 
 					<td><?php echo $currentTable[$category][$num][1]; ?></td>
 
