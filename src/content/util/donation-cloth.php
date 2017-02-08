@@ -112,7 +112,7 @@ function printContent(){
 			</tr>
 		</thead>
 		<tbody style="text-align: center;">
-			<?php for($num=1;$num<=92;$num++){ ?>
+			<?php for($num=1;$num<=91;$num++){ ?>
 				<tr style="background:#FFF">
 
 					<td><?php echo $currentTable[$category][$num][2]; ?></td>
