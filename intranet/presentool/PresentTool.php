@@ -22,7 +22,7 @@ function initializeCourtTools($server, $id, $pw, $dbname, $force_renew=false){
         $mysqli->set_charset("utf8");
     }
 
-    return $mysqli
+    return $mysqli;
     /*$member = new Soreemember($mysqli, "{$dbname}_member");
     $board = new Soreeboard($mysqli,"{$dbname}_board", $member);
     if($newdb || $force_renew){
