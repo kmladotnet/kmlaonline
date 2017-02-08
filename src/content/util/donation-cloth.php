@@ -83,7 +83,7 @@ function printContent(){
 								<input type="hidden" name="category" value="<?php echo $category ?>" />
 								<input type="hidden" name="num" value="<?php echo $num ?>" />
 								<input type="hidden" name="util_action" value="add" />
-								<input type="submit" value="신청" />
+								<input type="submit" class="btn btn-sm btn-default" value="신청" />
 							</form>
 		<?php }else{ ?>
 							<p style="width: 150px;">기한이 아닙니다</p>
@@ -104,7 +104,7 @@ function printContent(){
 	<div style="clear:both;padding:5px;"></div>
 	<table id="donation_table_etc" style="width: 100%;" class="table table-striped">
 		<thead>
-			<tr style="background:#DDD">
+			<tr>
 				<th style="text-align: center; width:10%;">종류</th>
 				<th style="text-align: center; width:40%;">색(장의+바지)</th>
 				<th style="text-align: center; width:20%;">기부자</th>
@@ -150,7 +150,7 @@ function printContent(){
 								<input type="hidden" name="category" value="<?php echo $category ?>" />
 								<input type="hidden" name="num" value="<?php echo $num ?>" />
 								<input type="hidden" name="util_action" value="add" />
-								<input type="submit" value="신청" />
+								<input type="submit" class="btn btn-sm btn-default" value="신청" />
 							</form>
 		<?php }else{ ?>
 							<p style="width: 150px;">기한이 아닙니다</p>

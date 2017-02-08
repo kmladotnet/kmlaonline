@@ -73,7 +73,7 @@ function printContent(){
 								<input type="hidden" name="category" value="<?php echo $category ?>" />
 								<input type="hidden" name="num" value="<?php echo $num ?>" />
 								<input type="hidden" name="util_action" value="add" />
-								<input type="submit" value="신청" />
+								<input type="submit" class="btn btn-sm btn-default" value="신청" />
 							</form>
 		<?php }else{ ?>
 							<p style="width: 150px;">기한이 아닙니다</p>
@@ -129,7 +129,7 @@ function printContent(){
 								<input type="hidden" name="category" value="<?php echo $category ?>" />
 								<input type="hidden" name="num" value="<?php echo $num ?>" />
 								<input type="hidden" name="util_action" value="add" />
-								<input type="submit" value="신청" />
+								<input type="submit" class="btn btn-sm btn-default" value="신청" />
 							</form>
 		<?php }else{ ?>
 							<p style="width: 150px;">기한이 아닙니다</p>
@@ -185,7 +185,7 @@ function printContent(){
 								<input type="hidden" name="category" value="<?php echo $category ?>" />
 								<input type="hidden" name="num" value="<?php echo $num ?>" />
 								<input type="hidden" name="util_action" value="add" />
-								<input type="submit" value="신청" />
+								<input type="submit" class="btn btn-sm btn-default" value="신청" />
 							</form>
 		<?php }else{ ?>
 							<p style="width: 150px;">기한이 아닙니다</p>
@@ -299,7 +299,7 @@ function printContent(){
 								<input type="hidden" name="category" value="<?php echo $category ?>" />
 								<input type="hidden" name="num" value="<?php echo $num ?>" />
 								<input type="hidden" name="util_action" value="add" />
-								<input type="submit" value="신청" />
+								<input type="submit" class="btn btn-sm btn-default" value="신청" />
 							</form>
 		<?php }else{ ?>
 							<p style="width: 150px;">기한이 아닙니다</p>
@@ -360,7 +360,7 @@ function printContent(){
 								<input type="hidden" name="category" value="<?php echo $category ?>" />
 								<input type="hidden" name="num" value="<?php echo $num ?>" />
 								<input type="hidden" name="util_action" value="add" />
-								<input type="submit" value="신청" />
+								<input type="submit" class="btn btn-sm btn-default" value="신청" />
 							</form>
 		<?php }else{ ?>
 							<p style="width: 150px;">기한이 아닙니다</p>
