@@ -163,7 +163,7 @@ function printContent(){
 				</tr>
 			<?php } ?>
 		</tbody>
-	</table
+	</table>
 	</br>
     </br>
 
