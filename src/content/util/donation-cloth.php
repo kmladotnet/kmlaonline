@@ -35,7 +35,7 @@ function printContent(){
 	</div>
 	<?php $category=6 ?>   <!--Category 6: 여자 교복 -->
 	<div style="clear:both;padding:5px;"></div>
-	<table id="donation_table_etc" style="width: 100%;" class="table table-striped">
+	<table id="donation_table_etc" style="width: 100%;" class="table table-condensed table-striped">
 		<thead>
 			<tr>
 				<th style="text-align: center; width:10%;">종류</th>
@@ -102,7 +102,7 @@ function printContent(){
 	</div>
 	<?php $category=7 ?>   <!--Category 7: 여자 교복 -->
 	<div style="clear:both;padding:5px;"></div>
-	<table id="donation_table_etc" style="width: 100%;" class="table table-striped">
+	<table id="donation_table_etc" style="width: 100%;" class="table table-condensed table-striped">
 		<thead>
 			<tr>
 				<th style="text-align: center; width:10%;">종류</th>

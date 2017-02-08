@@ -35,7 +35,7 @@ function printContent(){
 	</div>
 	<?php $category=0 ?>
 	<div style="clear:both;padding:5px;"></div>
-	<table style="text-align:center;" id="donation_table_dom" class="table table-striped">
+	<table style="text-align:center;" id="donation_table_dom" class="table table-condensed table-striped">
 		<thead style>
 			<tr>
 				<th style="width:50%; text-align:center;">책제목</th>
@@ -91,7 +91,7 @@ function printContent(){
 	</div>
 	<?php $category=1 ?>
 	<div style="clear:both;padding:5px;"></div>
-	<table id="donation_table_int" style="text-align: center;" class="table table-striped">
+	<table id="donation_table_int" style="text-align: center;" class="table table-condensed table-striped">
 		<thead>
 			<tr>
 				<th style="text-align: center;  width:70%;">책제목</th>
@@ -147,7 +147,7 @@ function printContent(){
 	</div>
 	<?php $category=2 ?>
 	<div style="clear:both;padding:5px;"></div>
-	<table id="donation_table_book" style="text-align: center;" class="table table-striped">
+	<table id="donation_table_book" style="text-align: center;" class="table table-condensed table-striped">
 		<thead>
 			<tr style="text-align: center;">
 				<th style="text-align:center; width:70%;">책제목</th>
@@ -261,7 +261,7 @@ function printContent(){
 	</div>
 	<?php $category=4 ?>
 	<div style="clear:both;padding:5px;"></div>
-	<table id="donation_table_etc" class="table table-striped">
+	<table id="donation_table_etc" class="table table-condensed table-striped">
 		<thead>
 			<tr>
 				<th style="text-align: center; width:70%;">책제목</th>
@@ -316,7 +316,7 @@ function printContent(){
 	</div>
 	<?php $category=5 ?>
 	<div style="clear:both;padding:5px;"></div>
-	<table id="donation_table_etc" class="table table-striped">
+	<table id="donation_table_etc" class="table table-condensed table-striped">
 		<thead>
 			<tr style="background:#DDD">
 				<th style="text-align: center; width:50%;">물품명</th>
