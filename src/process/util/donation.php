@@ -1,7 +1,7 @@
 <?php
 redirectLoginIfRequired();
 if(!isset($_POST['util_action'])) die();
-if(time()<1486998000) ajaxDie(array(), "2017년 기부 물품 신청은 2월 14일에서 15일로 넘어가는 자정부터 신청가능합니다. :D");
+if(time()<1486998000) ajaxDie(array(), "2017년 기부 물품 신청은 2월 13일에서 14일로 넘어가는 자정부터 신청가능합니다. :D");
 switch($_POST['util_action']){
 	case "add":
 		$category=$_POST['category'];
