@@ -270,7 +270,7 @@ function printContent(){
 			</tr>
 		</thead>
 		<tbody style="text-align: center;">
-			<?php for($num=1;$num<=37;$num++){ ?>
+			<?php for($num=1;$num<=61;$num++){ ?>
 				<tr style="background:#FFF">
 
 					<td><?php echo $currentTable[$category][$num][0]; ?></td>
@@ -325,7 +325,7 @@ function printContent(){
 			</tr>
 		</thead>
 		<tbody style="text-align: center;">
-			<?php for($num=1;$num<=63;$num++){ ?>
+			<?php for($num=1;$num<=121;$num++){ ?>
 				<tr style="background:#FFF">
 
 					<td><?php echo $currentTable[$category][$num][1]; ?></td>
