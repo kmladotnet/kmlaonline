@@ -21,7 +21,7 @@ class TotalArticleList{
                                 "Primary Key (article_id),".
                                 "Foreign Key (student_id) REFERENCES test_student_data (n_id)");
 
-        array_push($query, "INSERT INTO `$this->table_category` (")
+        //array_push($query, "INSERT INTO `$this->table_category` (")
     }
 
     function __construct($db, $table_prefix){
