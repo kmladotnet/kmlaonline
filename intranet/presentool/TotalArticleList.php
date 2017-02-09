@@ -47,4 +47,27 @@ class TotalArticleList{
         $this->db = $db;
         $this->table_data = $this->escape($this->table_prefix . "_list");
     }
+
+    function __destruct(){
+    }
+
+    function addArticle($student_id, $article_kind, $accuse_date, $pending = 0, $court_num = 0){
+        if(!is_number($student_id) || !is_number($article_kind)) return false;
+        $query = "INSERT INTO `$this->table_data` (student_id, article_kind, accuse_date, pending, court_num) VALUES (" .
+                $student_id . ", " .
+                $article_kind . ", " .
+                $accuse_date . ", " .
+                $pending . ", " .
+                $court_num . ")";
+        if($this->db->query($query) === true){
+            $ins_id = $this -> db -> insert_id;
+            $this -> db -> commit();
+            $this -> db -> autocommit(true);
+            return $ins_id;
+        } else {
+            $this -> db -> rollback();
+            $this -> db -> autocommit(true);
+            return false;
+        }
+    }
 }
