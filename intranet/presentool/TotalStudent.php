@@ -49,7 +49,7 @@ class TotalStudent{
                 echo $val . ": " . $this->db->error;
                 $this->db->rollback();
                 $this->db->autocommit(true);
-                return true;
+                return false;
             }
         }
         $this->db->commit();

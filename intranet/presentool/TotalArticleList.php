@@ -21,7 +21,18 @@ class TotalArticleList{
                                 "Primary Key (article_id),".
                                 "Foreign Key (student_id) REFERENCES test_student_data (n_id)");
 
-        //array_push($query, "INSERT INTO `$this->table_category` (")
+        $this->db->autocommit(false);
+        foreach($query as $val){
+            if($this->db->query($val)===false){
+                echo $val . ": " . $this->db->error;
+                $this->db->rollback();
+                $this->db->autocommit(true);
+                return false;
+            }
+        }
+        $this->db->commit();
+        $this->db->autocommit(true);
+        return true;
     }
 
     function __construct($db, $table_prefix){
