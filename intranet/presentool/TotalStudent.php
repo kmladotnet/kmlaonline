@@ -14,7 +14,7 @@ class TotalStudent{
     function prepareFirstUse(){
         $query = array();
         array_push($query, "CREATE TABLE IF NOT EXISTS `$this->table_data` (".
-                                "n_id BIGINT NOT NULL AUTO_INCREMENT,".
+                                "n_id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,".
 
                                 /* temporary TODO
                                 "email char(255), ".
