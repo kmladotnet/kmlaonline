@@ -47,7 +47,7 @@ class TotalStudent{
             if($this->db->query($val)===false){
                 echo $val . ": " . $this->db->error;
                 $this->db->rollback();
-                $this->db->autocommit(true);
+                //$this->db->autocommit(true);
                 return true;
             }
         }
