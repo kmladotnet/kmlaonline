@@ -19,7 +19,8 @@ class TotalArticleList{
                                 "article_kind INT NOT NULL, ".
                                 "accuse_date DATE, ".
                                 "Primary Key (article_id), ".
-                                "Foreign Key (student_id) REFERENCES test_student_data (n_id))");
+                                "Foreign Key (student_id) REFERENCES test_student_data (n_id), ".
+                                "Foreign Key (article_kind) REFERENCES test_article_kind (ak_id))");
 
         $this->db->autocommit(false);
         foreach($query as $val){
