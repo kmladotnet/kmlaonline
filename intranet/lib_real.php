@@ -5,5 +5,5 @@ include "presentool/PresentTool.php";
 session_start();
 $dbInit = true;
 require "db-config.php";
-session_close();
+session_write_close();
 ?>
