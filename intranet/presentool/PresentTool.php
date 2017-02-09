@@ -25,7 +25,7 @@ function initializeCourtTools($server, $id, $pw, $dbname, $force_renew=false){
     }
 
     $student = new TotalStudent($mysqli, "{$dbname}_student");
-    $article = new TotalArticleList($mysqli, "{$dbname}_total_article");
+    //$article = new TotalArticleList($mysqli, "{$dbname}_total_article");
 
     return $mysqli;
     /*$member = new Soreemember($mysqli, "{$dbname}_member");
