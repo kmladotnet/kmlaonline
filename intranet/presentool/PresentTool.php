@@ -1,6 +1,7 @@
 <?php
 require_once(dirname(__FILE__)."/TotalStudent.php");
 require_once(dirname(__FILE__)."/TotalArticleList.php");
+require_once(dirname(__FILE__)."/ArticleKindList.php");
 function initializeCourtTools($server, $id, $pw, $dbname, $force_renew=false){
 
     if($force_renew){
@@ -25,10 +26,13 @@ function initializeCourtTools($server, $id, $pw, $dbname, $force_renew=false){
     }
 
     $student = new TotalStudent($mysqli, "{$dbname}_student");
+    $article_kidn = new ArticleKindList($mysqli, "{$dbname}_article");
     $article = new TotalArticleList($mysqli, "{$dbname}_total_article");
+
 
     if($newdb || $force_renew){
         $student->prepareFirstUse();
+        $article->prepareFirstUse();
         $article->prepareFirstUse();
     }
 
