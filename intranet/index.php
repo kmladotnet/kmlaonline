@@ -11,6 +11,6 @@
         if($db) echo "WOW";
         else echo "There is a problem";
     ?>
-    <a href=<?php echo "https://kmlaonline.net/" . dirname(__FILE__) . "/user/accuse" ?>>기소하기(테스트)</a>
+    <a href="https://kmlaonline.net/intranet/user/accuse">기소하기(테스트)</a>
 </body>
 </html>
