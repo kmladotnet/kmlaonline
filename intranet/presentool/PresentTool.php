@@ -1,4 +1,6 @@
 <?php
+require_once(dirname(__FILE__)."/TotalStudent.php");
+require_once(dirname(__FILE__)."/TotalArticleList.php");
 function initializeCourtTools($server, $id, $pw, $dbname, $force_renew=false){
 
     if($force_renew){
@@ -22,8 +24,8 @@ function initializeCourtTools($server, $id, $pw, $dbname, $force_renew=false){
         $mysqli->set_charset("utf8");
     }
 
-    $student = new TotalStudent($mysqli, "{$dbname}_students");
-    $article = new TotalArticleList($mysqli, "{$dbname}_total_articles");
+    $student = new TotalStudent($mysqli, "{$dbname}_student");
+    $article = new TotalArticleList($mysqli, "{$dbname}_total_article");
 
     return $mysqli;
     /*$member = new Soreemember($mysqli, "{$dbname}_member");
