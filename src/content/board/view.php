@@ -151,9 +151,9 @@ function printAttachList($article, $cat, $mode=0){
 					$c_cnt=0;
 					foreach($attaches as $v){
 						?><div class="<?php echo $classname?>"><?php
-							$path="/files/bbs/{$cat['n_id']}/{$article['n_id']}/{$v['n_id']}/{$v['s_key']}/".rawurlencode($v['s_name']);
-							$path_thumb="/files/bbs/{$cat['n_id']}/{$article['n_id']}/{$v['n_id']}/{$v['s_key']}/$thumbmode/".rawurlencode($v['s_name']);
-							$path_force="/files/bbs/{$cat['n_id']}/{$article['n_id']}/{$v['n_id']}/{$v['s_key']}/force/".rawurlencode($v['s_name']);
+							$path="https://kmlaonline.net/files/bbs/{$cat['n_id']}/{$article['n_id']}/{$v['n_id']}/{$v['s_key']}/".rawurlencode($v['s_name']);
+							$path_thumb="https://kmlaonline.net/files/bbs/{$cat['n_id']}/{$article['n_id']}/{$v['n_id']}/{$v['s_key']}/$thumbmode/".rawurlencode($v['s_name']);
+							$path_force="https://kmlaonline.net/files/bbs/{$cat['n_id']}/{$article['n_id']}/{$v['n_id']}/{$v['s_key']}/force/".rawurlencode($v['s_name']);
 							$file_types=array(
 								"bmp;png;jpg;jpeg;tif;tiff;gif;svg;"=>
 									"<a data-toggle=\"lightbox\" href=\"".htmlspecialchars($path)."\" title=\"".htmlspecialchars($v['s_name']).(htmlspecialchars($v['s_comment'])?": ".$v['s_comment']:"")."\"><img style=\"display:block;margin:0 auto;max-width:100%;\" src=\"".htmlspecialchars($path_thumb)."\" /></a>",
