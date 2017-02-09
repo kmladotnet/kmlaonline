@@ -42,12 +42,13 @@ class TotalStudent{
                                 "first_special INT DEFAULT 0,".
                                 "second_special INT DEFAULT 0,".
                                 "third_special INT DEFAULT 0)");
+
         $this->db->autocommit(false);
         foreach($query as $val){
             if($this->db->query($val)===false){
                 echo $val . ": " . $this->db->error;
                 $this->db->rollback();
-                //$this->db->autocommit(true);
+                $this->db->autocommit(true);
                 return true;
             }
         }
