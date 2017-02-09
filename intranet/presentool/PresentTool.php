@@ -24,7 +24,7 @@ function initializeCourtTools($server, $id, $pw, $dbname, $force_renew=false){
         $mysqli->set_charset("utf8");
     }
 
-    $student = new TotalStudent($mysqli, "{$dbname}_student");
+    //$student = new TotalStudent($mysqli, "{$dbname}_student");
     //$article = new TotalArticleList($mysqli, "{$dbname}_total_article");
 
     return $mysqli;
