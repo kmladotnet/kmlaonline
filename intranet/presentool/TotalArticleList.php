@@ -25,7 +25,7 @@ class TotalArticleList{
     }
 
     function __construct($db, $table_prefix){
-        $this->table_prefix = $tableprefix;
+        $this->table_prefix = $table_prefix;
         $this->db = $db;
         $this->table_data = $this->escape($this->table_prefix . "_list");
     }
