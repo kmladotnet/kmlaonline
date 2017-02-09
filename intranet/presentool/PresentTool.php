@@ -26,13 +26,13 @@ function initializeCourtTools($server, $id, $pw, $dbname, $force_renew=false){
     }
 
     $student = new TotalStudent($mysqli, "{$dbname}_student");
-    $article_kidn = new ArticleKindList($mysqli, "{$dbname}_article");
+    $article_kind = new ArticleKindList($mysqli, "{$dbname}_article");
     $article = new TotalArticleList($mysqli, "{$dbname}_total_article");
 
 
     if($newdb || $force_renew){
         $student->prepareFirstUse();
-        $article->prepareFirstUse();
+        $article_kind->prepareFirstUse();
         $article->prepareFirstUse();
     }
 
