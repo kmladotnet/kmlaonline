@@ -13,6 +13,12 @@ class ArticleKindList{
 
     function prepareFirstUse(){
         $query = array();
+        array_push($query, "CREATE TABLE IF NOT EXISTS `$this->table_data` (".
+                                "ak_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, ".
+                                "ak_kor TEXT NOT NULL, ".
+                                "ak_eng TEXT NOT NULL, ".
+                                "point INT UNSIGNED NOT NULL)");
+
         array_push($query, "LOAD DATA INFILE 'article_kind.txt' into table test_article_kind(".
                             "ak_id, ak_kor, ak_eng, point);");
 
