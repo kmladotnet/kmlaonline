@@ -18,9 +18,12 @@ class TotalArticleList{
                                 "student_id BIGINT NOT NULL, ".
                                 "article_kind INT NOT NULL, ".
                                 "accuse_date DATE, ".
+
                                 /*This is used for pending article
                                   0 for none, 1 for delayed article, 2 for probation*/
                                 "pending INT DEFAULT 0, ".
+
+                                "court_num INT NOT NULL DEFAULT 0, ".
                                 "Primary Key (article_id), ".
                                 "Foreign Key (student_id) REFERENCES test_student_data (n_id), ".
                                 "Foreign Key (article_kind) REFERENCES test_article_kind (ak_id))");

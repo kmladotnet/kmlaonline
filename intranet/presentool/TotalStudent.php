@@ -31,7 +31,8 @@ class TotalStudent{
                                    1 for 입사행 위원, 위원장
                                    2 for 법무부
                                    3 for 선도부
-                                   4 for 식영부*/
+                                   4 for 식영부
+                                   141042 for admin*/
                                 "n_council INT NOT NULL DEFAULT 0, ".
 
                                 "n_room INT DEFAULT 0, ".
@@ -47,6 +48,9 @@ class TotalStudent{
                                 "first_special INT DEFAULT 0, ".
                                 "second_special INT DEFAULT 0, ".
                                 "third_special INT DEFAULT 0)");
+
+        array_push($query, "LOAD DATA INFILE 'student_info_2017.txt' into table test_student_data(".
+                            "n_id, name, student_id, n_grade, n_class, n_council)");
 
         $this->db->autocommit(false);
         foreach($query as $val){
