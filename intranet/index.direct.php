@@ -12,6 +12,8 @@
 
     <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
     <script src="../src/jquery_ui/jquery-ui.js"></script>
+    <link rel="stylesheet" href="../src/jquery_ui/jquery-ui.structure.css"></link>
+    <link rel="stylesheet" href="../src/jquery_ui/jquery-ui.theme.css"></link>
     <link rel="stylesheet" href="../src/jquery_ui/jquery-ui.css"></link>
     <script type="text/javascript">
     $(document).ready(function($){
@@ -39,8 +41,9 @@
     });
     </script>
 
-    <link rel="stylesheet" href="../css/font.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="../sass-compiled/screen.css?v=6" type="text/css" media="screen" />
+    <!--link rel="stylesheet" href="../css/font.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../sass-compiled/screen.css?v=6" type="text/css" media="screen" /-->
+
 
 
     <title>
