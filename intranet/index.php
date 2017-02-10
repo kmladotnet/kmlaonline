@@ -19,6 +19,7 @@ do {
 session_write_close();
 
 require("index.direct.php");
+echo "<p>$fn</p>";
 ?>
 
 
