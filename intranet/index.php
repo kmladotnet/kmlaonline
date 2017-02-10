@@ -8,13 +8,13 @@ switch(isset($_GET['action']) ? $_GET['action'] : "main"){
         $fn = basename($_GET['action']);
         break;
 }
-if(!file_exists("intranet/src/content/$fn.php"))
+if(!file_exists("src/content/$fn.php"))
     $fn = "404";
 include "lib_real.php";
 
 do {
     $_fn = $fn;
-    include "intranet/src/content/$fn.php";
+    include "src/content/$fn.php";
 } while($_fn != $fn);
 session_write_close();
 
