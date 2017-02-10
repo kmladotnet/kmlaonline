@@ -5,8 +5,10 @@ function printContent(){ ?>
     <script src="//cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.9.0/validator.min.js"></script>
     <script type="text/javascript">
         $(function() {
-            $( ".date_picker" ).datepicker({
-                dateFormat: 'mm-dd'
+            $( ".date_picker" ).each(function(){
+                $(this).datepicker({
+                    dateFormat: 'mm-dd'
+                });
             });
         });
     </script>
