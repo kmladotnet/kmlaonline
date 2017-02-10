@@ -18,10 +18,19 @@
         $('#name').autocomplete({
             source:"../src/content/user/suggest_name.php",
             minLength:1,
-            select: function(event, ui){
-                var code = ui.item.id;
-                location.href = '../src/content/user/suggest_name.php?id=' + code;
-            },
+            html: true,
+            open: function(event, ui) {
+                $(".ui-autocomplete").css("z-index", 5);
+            }
+        });
+    });
+    </script>
+
+    <script type="text/javascript">
+    $(document).ready(function($){
+        $('#article_kind').autocomplete({
+            source:"../src/content/user/suggest_article_kind.php",
+            minLength:2,
             html: true,
             open: function(event, ui) {
                 $(".ui-autocomplete").css("z-index", 5);
