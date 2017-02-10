@@ -10,11 +10,11 @@ function printContent(){ ?>
         <script type="text/javascript">
         $(document).ready(function($){
             $('#name').autocomplete({
-                source:'suggest_name',
+                source:'suggest_name.php',
                 minLength:1,
                 select: function(event, ui){
                     var code = ui.item.id;
-                    location.href = '/suggest_name.php?n_id=' + code;
+                    location.href = '/suggest_name.php?id=' + code;
                 },
                 html: true,
                 open: function(event, ui) {
