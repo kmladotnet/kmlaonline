@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="../src/jquery_ui/jquery-ui.css"></link>
     <script type="text/javascript">
     $(document).ready(function($){
-        $('#name').autocomplete({
+        $('.auto_name').autocomplete({
             source:"../src/content/user/suggest_name.php",
             minLength:1,
             html: true,
@@ -33,7 +33,10 @@
         $('#article_kind').autocomplete({
             source:"../src/content/user/suggest_article_kind.php",
             minLength:2,
-            html: true
+            html: true,
+            open: function(event, ui) {
+                $(".ui-autocomplete").css("z-index", 5);
+            }
         });
     });
     </script>

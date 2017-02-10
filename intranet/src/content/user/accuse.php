@@ -47,7 +47,7 @@ function printContent(){ ?>
                 </tr>
                 <tr>
                     <td style="width:190px;">
-                        <input type="text" placeholder="이름" id="name" class="ui-autocomplete-input" autocomplete="on" />
+                        <input type="text" placeholder="이름" id="name" class="ui-autocomplete-input auto_name" autocomplete="on" />
                         <input type="hidden" id="n_student" class="ui-input" value="0" />
                     </td>
                     <td style="width:190px;">
@@ -63,7 +63,7 @@ function printContent(){ ?>
                 </tr>
                 <tr>
                     <td style="width:190px;">
-                        <input type="text" placeholder="이름" id="name" class="ui-autocomplete-input" autocomplete="on" />
+                        <input type="text" placeholder="이름" id="name" class="ui-autocomplete-input auto_name" autocomplete="on" />
                         <input type="hidden" id="n_student" class="ui-input" value="0" />
                     </td>
                     <td style="width:190px;">
