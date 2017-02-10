@@ -16,8 +16,7 @@ include "lib_real.php";
 if(isset($_GET['sub']) && $_GET['action'] == 'user') {
     switch($_GET['sub']) {
         case 'accuse':
-        case 'lost':
-        case 'resetpwd':
+            $fn = "user/" . $fn;
             break;
         default:
             $_REQUEST['returnto'] = $_SERVER["REQUEST_URI"];
