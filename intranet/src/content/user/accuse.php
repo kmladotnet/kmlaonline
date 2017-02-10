@@ -14,7 +14,7 @@ function printContent(){ ?>
                 minLength:1,
                 select: function(event, ui){
                     var code = ui.item.id;
-                    location.href = '/autocomplete/suggest_name.php?term=' + code;
+                    location.href = '/suggest_name.php?n_id=' + code;
                 },
                 html: true,
                 open: function(event, ui) {
@@ -22,7 +22,7 @@ function printContent(){ ?>
                 }
             });
         });
-    </script>
+        </script>
     </form>
 
 <?php
