@@ -19,6 +19,8 @@
         }
     }
 
-    echo json_encode($a_json, JSON_ENESCAPED_UNICODE);
+    echo $result = json_encode($a_json);
+    $result = urldecode($result);
+    echo iconv("CP949","UTF-8",$result);
     flush();
 ?>
