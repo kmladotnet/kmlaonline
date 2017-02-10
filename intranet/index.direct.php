@@ -12,7 +12,7 @@
 
     <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
     <script src="../src/jquery_ui/jquery-ui.js"></script>
-    <script src="../src/jquery_ui/jquery-ui.css"></script>
+    <link rel="stylesheet" href="../src/jquery_ui/jquery-ui.css"></link>
     <script type="text/javascript">
     $(document).ready(function($){
         $('#name').autocomplete({
