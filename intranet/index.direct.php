@@ -41,6 +41,15 @@
     });
     </script>
 
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(document).on("focus", '#article_table tr:last-child td:last-child', function() {
+                var table = $("#article_table");
+                table.append('<tr><p>WOW</p></tr>');
+            });
+        });
+    </script>
+
     <!--link rel="stylesheet" href="../css/font.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="../sass-compiled/screen.css?v=6" type="text/css" media="screen" /-->
 

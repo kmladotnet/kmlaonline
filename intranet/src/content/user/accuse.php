@@ -13,7 +13,7 @@ function printContent(){ ?>
 
     <script type="text/javascript">
         $(document).ready(function(){
-            $(document).on("focus", '#table tr:last-child td:last-child', function() {
+            $(document).on("focus", '#article_table tr:last-child td:last-child', function() {
                 var table = $("#article_table");
                 table.append('<tr><p>WOW</p></tr>');
             });
