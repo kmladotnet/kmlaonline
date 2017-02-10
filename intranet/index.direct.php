@@ -11,7 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
     <title>
-        <?php echo formatTitle($title); ?>
+        <?php echo $title ?>
     </title>
 
     <?php
