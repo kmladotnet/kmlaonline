@@ -6,7 +6,6 @@ switch(isset($_GET['action']) ? $_GET['action'] : "main"){
         break;
     default:
         $fn = basename($_GET['action']);
-        echo "<p>$fn</p>";
         break;
 }
 
@@ -32,7 +31,6 @@ do {
 session_write_close();
 
 require("index.direct.php");
-echo "<p>$fn</p>";
 ?>
 
 
