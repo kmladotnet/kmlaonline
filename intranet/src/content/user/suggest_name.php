@@ -8,7 +8,7 @@
             $student_id = htmlentities(stripcslashes($row['student_id']));
             $name = htmlentities(stripcslashes($row['name']));
             $n_id = intval($row['n_id']);
-            $a_json_row["id"] = $n_id;
+            $a_json_row["code"] = $n_id;
             $a_json_row["value"] = $name;
             $a_json_row["label"] = $grade . "학년" . $name . "($student_id)";
             array_push($a_json, $a_json_row);
