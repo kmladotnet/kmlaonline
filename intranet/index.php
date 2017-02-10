@@ -15,7 +15,7 @@ include "lib_real.php";
 
 if(isset($_GET['sub']) && $_GET['action'] == 'user') {
     switch($_GET['sub']) {
-        case 'register':
+        case 'accuse':
         case 'lost':
         case 'resetpwd':
             break;
