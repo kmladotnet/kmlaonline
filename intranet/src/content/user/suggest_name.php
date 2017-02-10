@@ -1,5 +1,5 @@
 <?php
-    include "../db-config.php";
+    echo basename(__DIR__);
     $term = trim(strip_tags($_GET["term"]));
     $a_json = array();
     $a_json_row = array();
