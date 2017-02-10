@@ -15,11 +15,11 @@
     <script type="text/javascript">
     $(document).ready(function($){
         $('#name').autocomplete({
-            source:'../src/content/user/suggest_name.php',
+            source:"../src/content/user/suggest_name.php",
             minLength:1,
             select: function(event, ui){
                 var code = ui.item.id;
-                location.href = '/suggest_name.php?id=' + code;
+                location.href = '../src/content/user/suggest_name.php?id=' + code;
             },
             html: true,
             open: function(event, ui) {
