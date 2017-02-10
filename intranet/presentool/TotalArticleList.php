@@ -17,12 +17,21 @@ class TotalArticleList{
                                 "article_id BIGINT NOT NULL AUTO_INCREMENT, ".
                                 "student_id BIGINT NOT NULL, ".
                                 "article_kind INT NOT NULL, ".
+                                /* TODO accuser would be teachers, 선도부, 법무부, 식품영양부.
+                                   Accuser Table을 만들던가 나중에 이들이 직접 이 시스템에 참여할 수 있는 방법을 마련했으면 좋겠음.
+                                   어찌됐든 reference로 저장
+                                */
+                                "accuser CHAR(25) NOT NULL, ".
                                 "accuse_date DATE, ".
 
                                 /*This is used for pending article
                                   0 for none, 1 for delayed article, 2 for probation*/
                                 "pending INT DEFAULT 0, ".
-
+                                /* TODO
+                                    -record registered time
+                                    -record final revised time
+                                    -record who registered or who revised it
+                                */
                                 "court_num INT NOT NULL DEFAULT 0, ".
                                 "Primary Key (article_id), ".
                                 "Foreign Key (student_id) REFERENCES test_student_data (n_id), ".
@@ -51,12 +60,13 @@ class TotalArticleList{
     function __destruct(){
     }
 
-    function addArticle($student_id, $article_kind, $accuse_date, $pending = 0, $court_num = 0){
+    function addArticle($student_id, $article_kind, $accuse_date, $accuser, $pending = 0, $court_num = 0){
         if(!is_number($student_id) || !is_number($article_kind)) return false;
-        $query = "INSERT INTO `$this->table_data` (student_id, article_kind, accuse_date, pending, court_num) VALUES (" .
+        $query = "INSERT INTO `$this->table_data` (student_id, article_kind, accuse_date, accuser, pending, court_num) VALUES (" .
                 $student_id . ", " .
                 $article_kind . ", " .
                 $accuse_date . ", " .
+                "'" . $this->escape($accuser) . "', " .
                 $pending . ", " .
                 $court_num . ")";
         if($this->db->query($query) === true){
