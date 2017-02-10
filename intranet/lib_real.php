@@ -4,7 +4,7 @@ include "presentool/PresentTool.php";
 
 session_start();
 
-include "intranet/lang/ko-kr.php";
+include "lang/ko-kr.php";
 $title = "KMLA Court";
 
 $dbInit = false;
