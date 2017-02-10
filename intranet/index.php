@@ -10,7 +10,7 @@ switch(isset($_GET['action']) ? $_GET['action'] : "main"){
 }
 if(!file_exists("intranet/src/content/$fn.php"))
     $fn = "404";
-include "intranet/lib_real.php";
+include "lib_real.php";
 
 do {
     $_fn = $fn;
