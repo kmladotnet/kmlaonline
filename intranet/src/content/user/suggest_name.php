@@ -5,7 +5,7 @@
     $a_json = array();
     $a_json_row = array();
     $query = "SELECT * FROM test_student_data WHERE name LIKE '%$term%' ORDER BY n_id";
-    echo $query . "<br /> " . phpversion();
+    //echo $query . "<br /> " . phpversion();
     if($data = $db -> query($query)) {
         while($row = mysqli_fetch_array($data)) {
             $grade = intval($row['n_grade']);
