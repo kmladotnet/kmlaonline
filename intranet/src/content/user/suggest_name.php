@@ -19,6 +19,6 @@
         }
     }
 
-    echo json_encode($a_json);
+    echo json_encode($a_json, JSON_ENESCAPED_UNICODE);
     flush();
 ?>
