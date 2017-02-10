@@ -30,7 +30,7 @@
 
     <script type="text/javascript">
     $(document).ready(function($){
-        $('#article_kind').autocomplete({
+        $('.auto_article').autocomplete({
             source:"../src/content/user/suggest_article_kind.php",
             minLength:2,
             html: true,

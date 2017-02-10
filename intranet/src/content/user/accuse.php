@@ -33,16 +33,16 @@ function printContent(){ ?>
             <table style="margin:20px auto; width:800px;" id="article_table">
                 <tr>
                     <th style="width:200px;">
-                        <h3>학생 이름</h2>
+                        <h3>학생 이름</h3>
                     </th>
                     <th style="width:200px;">
-                        <h3>기소 일자</h2>
+                        <h3>기소 일자</h3>
                     </th>
                     <th style="width:200px;">
-                        <h3>기소자</h2>
+                        <h3>기소자</h3>
                     </th>
                     <th style="width:600px;">
-                        <h3>기소 항목</h2>
+                        <h3>기소 항목</h3>
                     </th>
                 </tr>
                 <tr>
@@ -54,10 +54,10 @@ function printContent(){ ?>
                         <input type="text" placeholder="기소자" id="accuser" class="ui-autocomplete-input" autocomplete="off" />
                     </td>
                     <td style="width:190px;">
-                        <input type="text" placeholder="기소일" id="datepicker1" class="ui-autocomplete-input" autocomplete="off" />
+                        <input type="text" placeholder="기소일" id="datepicker1" class="ui-autocomplete-input data_picker" autocomplete="off" />
                     </td>
                     <td style="width:580px;">
-                        <input type="text" placeholder="항목" id="article_kind" class="ui-autocomplete-input" autocomplete="on" />
+                        <input type="text" placeholder="항목" id="article_kind" class="ui-autocomplete-input auto_article" autocomplete="on" />
                         <input type="hidden" id="article_id" value="0" />
                     </td>
                 </tr>
@@ -70,15 +70,15 @@ function printContent(){ ?>
                         <input type="text" placeholder="기소자" id="accuser" class="ui-autocomplete-input" autocomplete="off" />
                     </td>
                     <td style="width:190px;">
-                        <input type="text" placeholder="기소일" id="datepicker1" class="ui-autocomplete-input" autocomplete="off" />
+                        <input type="text" placeholder="기소일" id="datepicker1" class="ui-autocomplete-input date_picker" autocomplete="off" />
                     </td>
                     <td style="width:580px;">
-                        <input type="text" placeholder="항목" id="article_kind" class="ui-autocomplete-input" autocomplete="on" />
+                        <input type="text" placeholder="항목" id="article_kind" class="ui-autocomplete-input auto_article" autocomplete="on" />
                         <input type="hidden" id="article_id" value="0" />
                     </td>
                 </tr>
             </table>
+        </div>
     </form>
-
 <?php
 }
