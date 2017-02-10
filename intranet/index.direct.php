@@ -24,7 +24,7 @@
             },
             html: true,
             open: function(event, ui) {
-                $(".ui-autocomplete").css("z-index", 1000);
+                $(".ui-autocomplete").css("z-index", 5);
             }
         });
     });
