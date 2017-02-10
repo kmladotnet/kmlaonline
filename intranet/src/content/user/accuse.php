@@ -14,6 +14,7 @@ function printContent(){ ?>
                 minLength:1,
                 select: function(event, ui){
                     var code = ui.item.id;
+                    location.href = '/suggest_name.php?id=' + code;
                 },
                 html: true,
                 open: function(event, ui) {
