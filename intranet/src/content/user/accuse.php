@@ -19,16 +19,16 @@ function printContent(){ ?>
             <table style="margin:20px auto; width:800px;">
                 <tr>
                     <th style="width:200px;">
-                        <h2>학생 이름</h2>
+                        <h3>학생 이름</h2>
                     </th>
                     <th style="width:200px;">
-                        <h2>기소 일자</h2>
+                        <h3>기소 일자</h2>
                     </th>
                     <th style="width:200px;">
-                        <h2>기소자</h2>
+                        <h3>기소자</h2>
                     </th>
                     <th style="width:600px;">
-                        <h2>기소 항목</h2>
+                        <h3>기소 항목</h2>
                     </th>
                 </tr>
                 <tr>
