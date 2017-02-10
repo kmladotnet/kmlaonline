@@ -14,9 +14,9 @@
             $a_json_row["label"] = $grade . "학년" . $name . "($student_id)";
             array_push($a_json, $a_json_row);
         }
-        echo "<p>나름 success..</p>"
+        echo "<p>나름 success..</p>";
     } else {
-        echo "<p>fail</p>"
+        echo "<p>fail</p>";
     }
 
     echo json_encode($a_json);
