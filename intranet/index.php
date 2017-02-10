@@ -9,20 +9,21 @@ switch(isset($_GET['action']) ? $_GET['action'] : "main"){
         echo "<p>$fn</p>";
         break;
 }
-if(!file_exists("src/content/$fn.php"))
-    $fn = "404";
-include "lib_real.php";
 
 if(isset($_GET['sub']) && $_GET['action'] == 'user') {
     switch($_GET['sub']) {
         case 'accuse':
-            $fn = "user/" . $fn;
+            $fn = "user/" . $_GET['sub'];
             break;
         default:
             $_REQUEST['returnto'] = $_SERVER["REQUEST_URI"];
             $_GET['sub'] = "login";
     }
 }
+
+if(!file_exists("src/content/$fn.php"))
+    $fn = "404";
+include "lib_real.php";
 
 do {
     $_fn = $fn;
