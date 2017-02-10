@@ -21,6 +21,6 @@
 
     echo $result = json_encode($a_json);
     $result = urldecode($result);
-    echo iconv("CP949","UTF-8",$result);
+    echo $result;
     flush();
 ?>
