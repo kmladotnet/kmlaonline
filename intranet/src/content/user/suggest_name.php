@@ -1,5 +1,5 @@
 <?php
-    include "intranet/db-config.php";
+    include "../../../db-config.php";
 
     $term = trim(strip_tags($_GET["term"]));
     $a_json = array();
