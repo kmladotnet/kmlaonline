@@ -128,7 +128,7 @@
         ?>
     </style>
 
-    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js"</script>
+
 
 </head>
 
