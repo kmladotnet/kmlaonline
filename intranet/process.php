@@ -1,6 +1,6 @@
 <?php
-include "intranet/lib_real.php";
-$fn="intranet/src/process/".basename($_REQUEST['actiontype'])."/".basename($_REQUEST['action']).".php";
+include "lib_real.php";
+$fn="src/process/".basename($_REQUEST['actiontype'])."/".basename($_REQUEST['action']).".php";
 if(file_exists($fn)) {
     include($fn);
 }
