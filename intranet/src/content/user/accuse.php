@@ -30,7 +30,7 @@ function printContent(){ ?>
         <div style="text-align:center; width:100%">
             <h1><?php echo "새로운 기소 신청"; ?></h1>
             <h2><?php echo "기소 항목" ?></h2>
-            <table style="margin:200px auto; width:1200px;" id="article_table">
+            <table style="margin:50px auto; width:1200px;" id="article_table">
                 <tr>
                     <th style="width:200px;">
                         <h3>학생 이름</h3>
