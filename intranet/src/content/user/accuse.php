@@ -56,8 +56,8 @@ function printContent(){ ?>
                         <input type="text" style="text-align:center" placeholder="기소자" id="accuser_1" class="ui-autocomplete-input" autocomplete="off" />
                     </td>
                     </td>
-                    <td style="width:380px;">
-                        <input type="text" placeholder="항목" id="article_kind_1" class="ui-autocomplete-input auto_article" autocomplete="on" />
+                    <td style="width:400px;">
+                        <input type="text" style="width:380px" placeholder="항목" id="article_kind_1" class="ui-autocomplete-input auto_article" autocomplete="on" />
                         <input type="hidden" id="article_id" value="0" />
                     </td>
                 </tr>
@@ -73,8 +73,8 @@ function printContent(){ ?>
                         <input type="text" style="text-align:center" placeholder="기소자" id="accuser_2" class="ui-autocomplete-input" autocomplete="off" />
                     </td>
 
-                    <td style="width:580px;">
-                        <input type="text" placeholder="항목" id="article_kind_2" class="ui-autocomplete-input auto_article" autocomplete="on" />
+                    <td style="width:400px;">
+                        <input type="text" style="width:380px" placeholder="항목" id="article_kind_2" class="ui-autocomplete-input auto_article" autocomplete="on" />
                         <input type="hidden" id="article_id" value="0" />
                     </td>
                 </tr>
