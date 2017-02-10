@@ -1,5 +1,5 @@
 <?php
-    include "../../../db-config.php";
+    include "../../../lib.php";
 
     $term = trim(strip_tags($_GET["term"]));
     $a_json = array();
