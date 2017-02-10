@@ -12,7 +12,14 @@ function printContent(){ ?>
         $(document).ready(function($){
             $('#name').autocomplete({
                 source:'suggest_name.php',
-                minLength:2
+                minLength:2,
+                select: function(event, ui){
+                    var code = ui.item.id;
+                },
+                html: true,
+                open: function(event, ui) {
+                    $(".ui-autocomplete").css("z-index", 1000);
+                }
             });
         });
     </script>
