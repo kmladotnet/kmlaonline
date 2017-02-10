@@ -1,5 +1,5 @@
 <?php
-    echo $_SERVER['DOCUMENT_ROOT'];
+    include "intranet/db-config.php"
     $term = trim(strip_tags($_GET["term"]));
     $a_json = array();
     $a_json_row = array();
