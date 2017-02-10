@@ -61,6 +61,22 @@ function printContent(){ ?>
                         <input type="hidden" id="article_id" value="0" />
                     </td>
                 </tr>
+                <tr>
+                    <td style="width:190px;">
+                        <input type="text" placeholder="이름" id="name" class="ui-autocomplete-input" autocomplete="on" />
+                        <input type="hidden" id="n_student" class="ui-input" value="0" />
+                    </td>
+                    <td style="width:190px;">
+                        <input type="text" placeholder="기소자" id="accuser" class="ui-autocomplete-input" autocomplete="off" />
+                    </td>
+                    <td style="width:190px;">
+                        <input type="text" placeholder="기소일" id="datepicker1" class="ui-autocomplete-input" autocomplete="off" />
+                    </td>
+                    <td style="width:580px;">
+                        <input type="text" placeholder="항목" id="article_kind" class="ui-autocomplete-input" autocomplete="on" />
+                        <input type="hidden" id="article_id" value="0" />
+                    </td>
+                </tr>
             </table>
     </form>
 
