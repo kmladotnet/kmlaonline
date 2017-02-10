@@ -5,20 +5,13 @@ function printContent(){ ?>
     <script src="//cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.9.0/validator.min.js"></script>
     <script type="text/javascript">
         $(function() {
-            $( "#datepicker1" ).datepicker({
+            $( ".date_picker" ).datepicker({
                 dateFormat: 'mm-dd'
             });
         });
     </script>
 
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $(document).on("focus", '#article_table tr:last-child td:last-child', function() {
-                var table = $("#article_table");
-                table.append('<tr><p>WOW</p></tr>');
-            });
-        });
-    </script>
+
 
     <form data-toggle="validator" data-delay="100" action="ajax/user/accuse" method="post" enctype="multipart/form-data" onsubmit="window.onbeforeunload=null;">
         <input type="hidden" name="prev_url" value="<?php echo htmlspecialchars($_SERVER['REQUEST_URI']) ?>" />
@@ -49,7 +42,7 @@ function printContent(){ ?>
                         <input type="text" placeholder="기소자" id="accuser" class="ui-autocomplete-input" autocomplete="off" />
                     </td>
                     <td style="width:190px;">
-                        <input type="text" placeholder="기소일" id="datepicker1" class="ui-autocomplete-input data_picker" autocomplete="off" />
+                        <input type="text" placeholder="기소일" id="datepicker1" class="ui-autocomplete-input date_picker" autocomplete="off" />
                     </td>
                     <td style="width:580px;">
                         <input type="text" placeholder="항목" id="article_kind" class="ui-autocomplete-input auto_article" autocomplete="on" />
