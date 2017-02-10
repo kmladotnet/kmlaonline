@@ -6,6 +6,7 @@ switch(isset($_GET['action']) ? $_GET['action'] : "main"){
         break;
     default:
         $fn = basename($_GET['action']);
+        echo "<p>$fn</p>";
         break;
 }
 if(!file_exists("src/content/$fn.php"))
