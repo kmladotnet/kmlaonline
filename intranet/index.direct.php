@@ -33,10 +33,7 @@
         $('#article_kind').autocomplete({
             source:"../src/content/user/suggest_article_kind.php",
             minLength:2,
-            html: true,
-            open: function(event, ui) {
-                $(".ui-autocomplete").css("z-index", 5);
-            }
+            html: true
         });
     });
     </script>
