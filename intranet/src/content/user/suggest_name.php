@@ -1,5 +1,5 @@
 <?php
-    echo basename(__DIR__);
+    echo $_SERVER['DOCUMENT_ROOT'];
     $term = trim(strip_tags($_GET["term"]));
     $a_json = array();
     $a_json_row = array();
