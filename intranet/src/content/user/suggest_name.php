@@ -19,8 +19,6 @@
         }
     }
 
-    echo $result = json_encode($a_json);
-    $result = urldecode($result);
-    echo $result;
+    echo json_encode($a_json, JSON_UNESCAPED_UNICODE);
     flush();
 ?>
