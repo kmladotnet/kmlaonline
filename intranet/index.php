@@ -13,6 +13,18 @@ if(!file_exists("src/content/$fn.php"))
     $fn = "404";
 include "lib_real.php";
 
+if(isset($_GET['sub']) && $_GET['action'] == 'user') {
+    switch($_GET['sub']) {
+        case 'register':
+        case 'lost':
+        case 'resetpwd':
+            break;
+        default:
+            $_REQUEST['returnto'] = $_SERVER["REQUEST_URI"];
+            $_GET['sub'] = "login";
+    }
+}
+
 do {
     $_fn = $fn;
     include "src/content/$fn.php";
