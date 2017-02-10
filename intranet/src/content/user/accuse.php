@@ -34,6 +34,7 @@ function printContent(){ ?>
                 <tr>
                     <th style="width:190px;">
                         <input type="text" placeholder="이름" id="name" class="ui-autocomplete-input" autocomplete="on" />
+                        <input type="hidden" id="n_student" class="ui-input" value="0" />
                     </th>
                     <th style="width:190px;">
                         <input type="text" placeholder="기소자" id="accuser" class="ui-autocomplete-input" autocomplete="off" />
