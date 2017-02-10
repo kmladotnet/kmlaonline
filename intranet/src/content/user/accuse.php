@@ -7,22 +7,6 @@ function printContent(){ ?>
     <p>It works!!</p>
     <form action="ajax/user/accuse">
         <input type="text" placeholder="이름" id="name" class="ui-autocomplete-input" autocomplete="off" />
-        <script type="text/javascript">
-        $(document).ready(function($){
-            $('#name').autocomplete({
-                source:'../src/content/user/suggest_name.php',
-                minLength:1,
-                select: function(event, ui){
-                    var code = ui.item.id;
-                    location.href = '/suggest_name.php?id=' + code;
-                },
-                html: true,
-                open: function(event, ui) {
-                    $(".ui-autocomplete").css("z-index", 1000);
-                }
-            });
-        });
-        </script>
     </form>
 
 <?php
