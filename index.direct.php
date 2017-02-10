@@ -128,6 +128,23 @@
         ?>
     </style>
 
+    <script>
+    $(document).ready(function($){
+        $('#name').autocomplete({
+            source:'../src/content/user/suggest_name.php',
+            minLength:1,
+            select: function(event, ui){
+                var code = ui.item.id;
+                location.href = '/suggest_name.php?id=' + code;
+            },
+            html: true,
+            open: function(event, ui) {
+                $(".ui-autocomplete").css("z-index", 1000);
+            }
+        });
+    });
+    </script>
+
 
 </head>
 
