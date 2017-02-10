@@ -79,6 +79,7 @@ function printContent(){ ?>
                     </td>
                 </tr>
             </table>
+            <input type="submit" class="btn btn-primary" value="확인" style="margin:10px" />
         </div>
     </form>
 <?php
