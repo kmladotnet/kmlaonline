@@ -57,7 +57,7 @@ function printContent(){ ?>
                     </td>
                     </td>
                     <td style="width:400px;">
-                        <input type="text" style="width:380px" placeholder="항목" id="article_kind_1" class="ui-autocomplete-input auto_article" autocomplete="on" />
+                        <input type="text" style="text-align:center; width:380px" placeholder="항목" id="article_kind_1" class="ui-autocomplete-input auto_article" autocomplete="on" />
                         <input type="hidden" id="article_id" value="0" />
                     </td>
                 </tr>
@@ -74,7 +74,7 @@ function printContent(){ ?>
                     </td>
 
                     <td style="width:400px;">
-                        <input type="text" style="width:380px" placeholder="항목" id="article_kind_2" class="ui-autocomplete-input auto_article" autocomplete="on" />
+                        <input type="text" style="text-align:center; width:380px" placeholder="항목" id="article_kind_2" class="ui-autocomplete-input auto_article" autocomplete="on" />
                         <input type="hidden" id="article_id" value="0" />
                     </td>
                 </tr>
