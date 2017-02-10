@@ -10,7 +10,7 @@ function printContent(){ ?>
         <script type="text/javascript">
         $(document).ready(function($){
             $('#name').autocomplete({
-                source:'suggest_name.php',
+                source:'suggest_name',
                 minLength:1,
                 select: function(event, ui){
                     var code = ui.item.id;
