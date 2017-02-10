@@ -36,4 +36,8 @@ function redirectTo($link){
         <?php
     die();
 }
+
+function isAjax(){
+    return isset($_POST['ajax']) || (isset($_SERVER['HTTP_X_CONTENT_ONLY']) && $_SERVER['HTTP_X_CONTENT_ONLY']);
+}
 ?>
