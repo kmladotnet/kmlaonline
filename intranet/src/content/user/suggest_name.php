@@ -8,6 +8,7 @@
     echo $query;
     if($data = $db -> query($query)) {
         while($row = mysqli_fetch_array($data)) {
+            echo $row;
             $grade = intval($row['grade']);
             $student_id = htmlentities(stripcslashes($row['student_id']));
             $name = htmlentities(stripcslashes($row['name']));
