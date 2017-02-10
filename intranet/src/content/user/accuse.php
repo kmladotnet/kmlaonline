@@ -60,7 +60,7 @@ function printContent(){ ?>
                         <input type="text" placeholder="기소자" id="accuser" class="ui-autocomplete-input" autocomplete="off" />
                     </td>
                     <td style="width:190px;">
-                        <input type="text" placeholder="기소일" id="datepicker1" class="ui-autocomplete-input date_picker" autocomplete="off" />
+                        <input type="text" placeholder="기소일" id="datepicker2" class="ui-autocomplete-input date_picker" autocomplete="off" />
                     </td>
                     <td style="width:580px;">
                         <input type="text" placeholder="항목" id="article_kind" class="ui-autocomplete-input auto_article" autocomplete="on" />
