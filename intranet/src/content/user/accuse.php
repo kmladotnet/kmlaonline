@@ -96,6 +96,7 @@ function printContent(){ ?>
         }
         console.log(event.which);
         console.log($(this).closest("tr"));
+        console.log($("#article_table").children().last());
     });
     </script>
 <?php
