@@ -61,4 +61,3 @@ function redirectWith($str, $dat=""){
 function isAjax(){
     return isset($_POST['ajax']) || (isset($_SERVER['HTTP_X_CONTENT_ONLY']) && $_SERVER['HTTP_X_CONTENT_ONLY']);
 }
-?>
