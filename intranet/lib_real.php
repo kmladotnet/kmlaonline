@@ -55,6 +55,7 @@ function redirectWith($str, $dat=""){
             ?>
         </body>
         </html>
+    <?
 }
 
 function isAjax(){
