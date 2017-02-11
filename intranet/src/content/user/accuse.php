@@ -94,7 +94,7 @@ function printContent(){ ?>
         if (event.which == 9 && $(this).closest("tr").is(":last-child")) {
             addNewRow();
         }
-        $.print(event.which);
+        console.log(event.which);
     });
     </script>
 <?php
