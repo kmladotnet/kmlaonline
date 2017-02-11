@@ -14,13 +14,6 @@ function printContent(){ ?>
             var table = $("#article_table");
             table.append("<tr>\r\n                    <td style=\"width:190px;\">\r\n                        <input type=\"text\" style=\"text-align:center\" placeholder=\"\uC774\uB984\" id=\"name_1\" class=\"ui-autocomplete-input auto_name\" autocomplete=\"on\" \/>\r\n                        <input type=\"hidden\" id=\"n_student\" class=\"ui-input\" value=\"0\" \/>\r\n                    <\/td>\r\n                    <td style=\"width:190px;\">\r\n                        <input type=\"text\" style=\"text-align:center\" placeholder=\"\uAE30\uC18C\uC77C\" id=\"datepicker_2\" class=\"ui-autocomplete-input date_picker\" autocomplete=\"off\" \/>\r\n                    <\/td>\r\n                    <td style=\"width:190px;\">\r\n                        <input type=\"text\" style=\"text-align:center\" placeholder=\"\uAE30\uC18C\uC790\" id=\"accuser_2\" class=\"ui-autocomplete-input\" autocomplete=\"off\" \/>\r\n                    <\/td>\r\n\r\n                    <td style=\"width:400px;\">\r\n                        <input type=\"text\" style=\"text-align:center; width:380px\" placeholder=\"\uD56D\uBAA9\" id=\"article_kind_2\" class=\"ui-autocomplete-input auto_article\" autocomplete=\"on\" \/>\r\n                        <input type=\"hidden\" id=\"article_id\" value=\"0\" \/>\r\n                    <\/td>\r\n                <\/tr>");
         }
-        $(document).ready(function(){
-            $(".auto_article").keydown(function(event){
-                if (event.which == 9 && $(this).closest("tr").is(":last-child")) {
-                    addNewRow();
-                }
-            });
-        });
     </script>
 
     <script type="text/javascript">
@@ -93,5 +86,15 @@ function printContent(){ ?>
             <input type="submit" class="btn btn-primary" value="확인" style="margin:10px" />
         </div>
     </form>
+
+    <!--script type="text/javascript" src="/"></script-->
+
+    <script>
+    $(".auto_article").keydown(function(event){
+        if (event.which == 9 && $(this).closest("tr").is(":last-child")) {
+            addNewRow();
+        }
+    });
+    </script>
 <?php
 }
