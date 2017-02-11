@@ -83,8 +83,8 @@ function printContent(){ ?>
                             <input type="hidden" id="article_id" value="0" />
                         </td>
                     </tr>
-                </table>
-            </tbody>
+                </tbody>
+            </table>
             <input type="submit" class="btn btn-primary" value="확인" style="margin:10px" />
         </div>
     </form>
