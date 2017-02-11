@@ -95,6 +95,7 @@ function printContent(){ ?>
             addNewRow();
         }
         console.log(event.which);
+        console.log($(this).closest("tr"));
     });
     </script>
 <?php
