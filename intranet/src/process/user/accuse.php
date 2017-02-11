@@ -20,7 +20,7 @@ function redirWithBody($failReason){
     if(strpos($name, ')') === false) return false;
     return true;
  }
-$name = $_POST['name_1']);
+$name = $_POST['name_1'];
 $failReason = array();
 
 if(!validName($name)) echo "<p>Your entry is wrong</p>";
