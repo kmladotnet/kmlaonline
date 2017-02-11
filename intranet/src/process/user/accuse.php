@@ -18,7 +18,7 @@ function redirWithBody($failReason){
  function validName($name){
     if(strpos($name, '(') === false) return false;
     if(strpos($name, ')') === false) return false;
-    if($student->isValidStudent($name) === false) return false;
+    if($student->getIdByStudentId(substr($name, strpos($name, '(') + 1, 6)) === false) return false;
  }
 
  $failReason = array();
