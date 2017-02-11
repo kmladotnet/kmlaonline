@@ -93,9 +93,9 @@ function printContent(){ ?>
 
     <script>
     $(".auto_article").keydown(function(event){
-        if (event.which == 9 && $(this).closest("tr").is(":last-child")) {
+        //if (event.which == 9 && $(this).closest("tr").is(":last-child")) {
             //addNewRow();
-        }
+        //}
         console.log(event.which);
         console.log($(this).closest("tr").is(":last-child"));
         console.log($("#article_table_body").children().last());
