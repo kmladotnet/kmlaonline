@@ -59,7 +59,7 @@ function printContent(){ ?>
                         <td style="width:190px;">
                             <input type="text" style="text-align:center" placeholder="이름" id="name_1" class="ui-autocomplete-input auto_name" autocomplete="on" />
                             <input type="hidden" id="n_student" class="ui-input" value="0" />
-                            <?php echo "<p>" . strpos("김현재 (141042)", "(") . "</p>"; ?>
+                            <p><?php strpos("김현재 (141042)", "("); ?></p>
                         </td>
                         <td style="width:190px;">
                             <input type="text" style="text-align:center" placeholder="기소일" id="datepicker_1" class="ui-autocomplete-input date_picker" autocomplete="off" />
