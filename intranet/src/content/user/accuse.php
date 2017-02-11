@@ -97,9 +97,11 @@ function printContent(){ ?>
         if (event.which == 9 && $(this).closest("tr").index() != 2 && $(this).closest("tr").index() == num - 1) {
             addNewRow();
         }
+        console.log($(this).closest("tr").index());
+        console.log(num - 1);
         console.log(event.which);
-        console.log($(this).closest("tr").is(":last-child"));
-        console.log($("#article_table_body").children().last());
+        //console.log($(this).closest("tr").is(":last-child"));
+        //console.log($("#article_table_body").children().last());
     });
     </script>
 <?php
