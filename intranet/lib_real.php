@@ -37,6 +37,26 @@ function redirectTo($link){
     die();
 }
 
+function redirectWith($str, $dat=""){
+    ?>
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8" />
+            <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+            <title> Redirecting ... </title>
+            <base href="/" />
+            <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+                <script type="text/javascript" src="/js/script.js" charset="utf-8"></script>
+        </head>
+        <body>
+            <?php
+                call_user_func($str, $dat);
+            ?>
+        </body>
+        </html>
+}
+
 function isAjax(){
     return isset($_POST['ajax']) || (isset($_SERVER['HTTP_X_CONTENT_ONLY']) && $_SERVER['HTTP_X_CONTENT_ONLY']);
 }

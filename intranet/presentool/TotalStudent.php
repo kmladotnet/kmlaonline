@@ -74,5 +74,18 @@ class TotalStudent{
 
     function __destruct(){
     }
+
+    function isValidStudent($student_id){
+        $query = "SELECT * FROM `$this->table_data` WHERE student_id = '" . $student_id . "'";
+
+        $res = $this->db->query($query);
+
+        if($res) {
+            echo "<p>$res</p>";
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 ?>
