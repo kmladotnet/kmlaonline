@@ -94,7 +94,7 @@ function printContent(){ ?>
     <script>
     $(".auto_article").keydown(function(event){
         var num = $("#article_table_body").children().length;
-        if (event.which == 9 && $(this).closest("tr").index() != 2 && $(this).closest("tr").index() = num - 1) {
+        if (event.which == 9 && $(this).closest("tr").index() != 2 && $(this).closest("tr").index() == num - 1) {
             addNewRow();
         }
         console.log(event.which);
