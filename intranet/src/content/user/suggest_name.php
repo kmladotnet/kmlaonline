@@ -14,7 +14,7 @@
             $n_id = intval($row['n_id']);
             $a_json_row["grade"] = $grade;
             $a_json_row["id"] = $n_id;
-            $a_json_row["value"] = $n_id;
+            $a_json_row["value"] = $name . " (" . $student_id. ")";
             $a_json_row["label"] = $grade . "학년 " . $name . "(" . $student_id . ")";
             array_push($a_json, $a_json_row);
         }

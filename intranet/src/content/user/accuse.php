@@ -14,7 +14,10 @@ function printContent(){ ?>
             var num = $("#article_table_body").children().length - 1;
 
             var last_tr = $("#article_table_body").children().last();
-            last_tr.append("<td style=\"width:190px;\">\r\n                        <input type=\"text\" style=\"text-align:center\" placeholder=\"\uC774\uB984\" id=\"name_" + num + "\" class=\"ui-autocomplete-input auto_name\" autocomplete=\"on\" \/>\r\n                        <input type=\"hidden\" id=\"n_student\" class=\"ui-input\" value=\"0\" \/>\r\n                    <\/td>\r\n                    <td style=\"width:190px;\">\r\n                        <input type=\"text\" style=\"text-align:center\" placeholder=\"\uAE30\uC18C\uC77C\" id=\"datepicker_" + num + "\" class=\"ui-autocomplete-input date_picker\" autocomplete=\"off\" \/>\r\n                    <\/td>\r\n                    <td style=\"width:190px;\">\r\n                        <input type=\"text\" style=\"text-align:center\" placeholder=\"\uAE30\uC18C\uC790\" id=\"accuser_" + num + "\" class=\"ui-autocomplete-input\" autocomplete=\"off\" \/>\r\n                    <\/td>\r\n\r\n                    <td style=\"width:400px;\">\r\n                        <input type=\"text\" style=\"text-align:center; width:380px\" placeholder=\"\uD56D\uBAA9\" id=\"article_kind_" + num + "\" class=\"ui-autocomplete-input auto_article\" autocomplete=\"on\" \/>\r\n                        <input type=\"hidden\" id=\"article_id\" value=\"0\" \/>\r\n                    <\/td>");
+            var newtr = "<td style=\"width:190px;\">\r\n                        <input type=\"text\" style=\"text-align:center\" placeholder=\"\uC774\uB984\" id=\"name_" + num + "\" class=\"ui-autocomplete-input auto_name\" autocomplete=\"on\" \/>\r\n                        <input type=\"hidden\" id=\"n_student\" class=\"ui-input\" value=\"0\" \/>\r\n                    <\/td>\r\n                    <td style=\"width:190px;\">\r\n                        <input type=\"text\" style=\"text-align:center\" placeholder=\"\uAE30\uC18C\uC77C\" id=\"datepicker_" + num + "\" class=\"ui-autocomplete-input date_picker\" autocomplete=\"off\" \/>\r\n                    <\/td>\r\n                    <td style=\"width:190px;\">\r\n                        <input type=\"text\" style=\"text-align:center\" placeholder=\"\uAE30\uC18C\uC790\" id=\"accuser_" + num + "\" class=\"ui-autocomplete-input\" autocomplete=\"off\" \/>\r\n                    <\/td>\r\n\r\n                    <td style=\"width:400px;\">\r\n                        <input type=\"text\" style=\"text-align:center; width:380px\" placeholder=\"\uD56D\uBAA9\" id=\"article_kind_" + num + "\" class=\"ui-autocomplete-input auto_article\" autocomplete=\"on\" \/>\r\n                        <input type=\"hidden\" id=\"article_id\" value=\"0\" \/>\r\n                    <\/td>";
+            $('.')
+            last_tr.append(newtr);
+
         }
     </script>
 
@@ -68,7 +71,7 @@ function printContent(){ ?>
                             <input type="hidden" id="article_id" value="0" />
                         </td>
                     </tr>
-                    <tr>
+                    <!--tr>
                         <td style="width:190px;">
                             <input type="text" style="text-align:center" placeholder="이름" id="name_2" class="ui-autocomplete-input auto_name" autocomplete="on" />
                             <input type="hidden" id="n_student" class="ui-input" value="0" />
@@ -84,7 +87,7 @@ function printContent(){ ?>
                             <input type="text" style="text-align:center; width:380px" placeholder="항목" id="article_kind_2" class="ui-autocomplete-input auto_article" autocomplete="on" />
                             <input type="hidden" id="article_id" value="0" />
                         </td>
-                    </tr>
+                    </tr-->
                 </tbody>
             </table>
             <input type="submit" class="btn btn-primary" value="확인" style="margin:10px" />
