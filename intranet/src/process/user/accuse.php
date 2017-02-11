@@ -1,5 +1,4 @@
 <?php
-include "../../../db-config.php";
 function redirWithBody($failReason){
     ?>
     <form method="post" action="<?php echo htmlspecialchars($_POST['prev_url'])?>" id="poster">
@@ -19,8 +18,10 @@ function redirWithBody($failReason){
  function validName($name){
     if(strpos($name, '(') === false) return false;
     if(strpos($name, ')') === false) return false;
-    if($student->getIdByStudentId(substr($name, strpos($name, '(') + 1, 6)) === false) return false;
+    return true;
  }
+$name = $_POST['name_1']);
+$failReason = array();
 
- $failReason = array();
- if(!validName($_POST['name_1'])) echo "<p>Your entry is wrong</p>";
+if(!validName($name)) echo "<p>Your entry is wrong</p>";
+if($student->getIdByStudentId(substr($name, strpos($name, '(') + 1, 6)) === false) echo "<p> Invalid entry </p>";
