@@ -1,4 +1,5 @@
 <?php
+include "../../db-config.php";
 function redirWithBody($failReason){
     ?>
     <form method="post" action="<?php echo htmlspecialchars($_POST['prev_url'])?>" id="poster">
