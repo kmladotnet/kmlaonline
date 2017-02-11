@@ -38,16 +38,16 @@ function printContent(){ ?>
                 <tbody id="article_table_body">
                     <tr>
                         <th style="width:200px;">
-                            <h3>학생 이름</h3>
+                            <p>학생 이름</p>
                         </th>
                         <th style="width:200px;">
-                            <h3>기소 일자</h3>
+                            <p>기소 일자</p>
                         </th>
                         <th style="width:200px;">
-                            <h3>기소자</h3>
+                            <p>기소자</p>
                         </th>
                         <th style="width:400px;">
-                            <h3>기소 항목</h3>
+                            <p>기소 항목</p>
                         </th>
                     </tr>
                     <tr>
