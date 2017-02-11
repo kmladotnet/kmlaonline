@@ -181,6 +181,7 @@ function printContentPc(){
                 </div>
                 <div style="margin-top: 6px;">
                     <i class="fa fa-exclamation-triangle"></i> 편집 모드를 종료하거나 레이아웃 저장 버튼을 누르기 전엔 레이아웃이 저장되지 않습니다.
+					또한, 새로 추가된 패널의 색을 변경하려면 저장하고 새로고침해야 합니다.
                 </div>
             </div>
         </div>
