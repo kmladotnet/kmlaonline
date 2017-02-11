@@ -97,7 +97,7 @@ function printContent(){ ?>
             addNewRow();
         }
         console.log(event.which);
-        console.log($(this).closest("tr"));
+        console.log($(this).closest("tr").is(":last-child"));
         console.log($("#article_table_body").children().last());
     });
     </script>
