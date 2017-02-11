@@ -93,7 +93,7 @@ class TotalStudent{
         $student_id = $this->escape($student_id);
         $query .= "student_id=$student_id";
         if($res = $this->db->query($query)){
-            return $res->fetch_array(MYSQLI_ASSOC)
+            return $res->fetch_array(MYSQLI_ASSOC);
         }
         return false;
     }
