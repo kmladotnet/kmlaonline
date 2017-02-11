@@ -99,6 +99,7 @@ function printContent(){ ?>
         }
         console.log(event.which == 9);
         console.log($(this).closest("tr").index() != 1);
+        console.log($(this).closest("tr").index() - num);
         console.log($(this).closest("tr").index() == (num - 1));
         //console.log($(this).closest("tr").is(":last-child"));
         //console.log($("#article_table_body").children().last());
