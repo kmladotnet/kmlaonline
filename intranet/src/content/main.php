@@ -1,7 +1,7 @@
 <?php
 $title="Main - " . $title;
 function printContent(){
-    global $member, $me, $is_morning, $is_afternoon, $is_night, $db, $board, $user;
+    global $student, $me, $is_morning, $is_afternoon, $is_night, $db, $board, $user;
     ?>
     <div>
         <form method="post" action="./check" id="downform_accuse" onsubmit="return true;">
