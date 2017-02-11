@@ -88,12 +88,12 @@ class TotalStudent{
         }
     }
 
-    function getMemberIdByStudentId($student_id) {
+    function getIdByStudentId($student_id) {
         $query = "SELECT n_id FROM `$this->table_data` WHERE ";
         $student_id = $this->escape($student_id);
         $query .= "student_id=$student_id";
         if($res = $this->db->query($query)){
-            return $res->fetch_array(MYSQLI_ASSOC)){
+            return $res->fetch_array(MYSQLI_ASSOC){
         }
         return false;
     }
