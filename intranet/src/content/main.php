@@ -1,6 +1,8 @@
 <?php
 $title="Main - " . $title;
-function printContent(){ ?>
+function printContent(){
+    global $member, $me, $is_morning, $is_afternoon, $is_night, $db, $board, $user;
+    ?>
     <div>
         <form method="post" action="./check" id="downform_accuse" onsubmit="return true;">
             <input type="hidden" id="downform_accuse_action" name="action" value="default" />
