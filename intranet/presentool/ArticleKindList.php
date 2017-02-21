@@ -69,7 +69,7 @@ class ArticleKindList{
         $article_name = $this->escape($article_name);
         //echo $article_name;
         $query .= "ak_kor = $article_name";
-        //echo $query;
+        echo $query;
         if($res = $this->db->query($query)){
             return $res->fetch_array(MYSQLI_ASSOC);
         }
