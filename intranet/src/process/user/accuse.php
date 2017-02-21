@@ -27,5 +27,6 @@ $name = $_POST['name_1'];
 $failReason = array();
 
 if(!validName($name)) echo "<p>Your entry is wrong</p>";
-if($student->getIdByStudentId(substr($name, strpos($name, '(') + 1, 6)) === false) echo "<p> Invalid entry </p>";
-else echo substr($name, strpos($name, '(') + 1, 6);
+$n_student = $student->getIdByStudentId(substr($name, strpos($name, '(') + 1, 6));
+if($n_student === false) echo "<p> Invalid entry </p>";
+else echo $n_student;
