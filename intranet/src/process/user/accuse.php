@@ -21,8 +21,11 @@ function redirWithBody($failReason){
     return true;
  }
 
+global $db;
+
 $name = $_POST['name_1'];
 $failReason = array();
 
 if(!validName($name)) echo "<p>Your entry is wrong</p>";
 if($student->getIdByStudentId(substr($name, strpos($name, '(') + 1, 6)) === false) echo "<p> Invalid entry </p>";
+else echo $student->getIdByStudentId(substr($name, strpos($name, '(') + 1, 6));
