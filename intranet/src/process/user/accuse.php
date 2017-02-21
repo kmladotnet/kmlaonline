@@ -24,13 +24,13 @@ function redirWithBody($failReason){
 global $db;
 
 $name = $_POST['name_1'];
-$article_kind = $_POST['article_kind_1'];
+$article_var = $_POST['article_kind_1'];
 $failReason = array();
 
 if(!validName($name)) echo "<p>Your entry is wrong</p>";
 $n_student = $student->getIdByStudentId(substr($name, strpos($name, '(') + 1, 6));
 if($n_student === false) echo "<p> Invalid entry </p>";
 else echo $n_student["n_id"];
-$n_article = $article_kind->getArticleIdByExplicitName($article_kind);
+$n_article = $article_kind->getArticleIdByExplicitName($article_var);
 if($n_article === false) echo "<p> Invalid article kind </p>";
 else echo $n_article["ak_eng"] . " " . $n_article["ak_id"];
