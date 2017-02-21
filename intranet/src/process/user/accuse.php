@@ -29,4 +29,4 @@ $failReason = array();
 if(!validName($name)) echo "<p>Your entry is wrong</p>";
 $n_student = $student->getIdByStudentId(substr($name, strpos($name, '(') + 1, 6));
 if($n_student === false) echo "<p> Invalid entry </p>";
-elseif(isset($n_student) === false) echo "<p> the value isn't set yet... </p>";
+else var_dump($n_nump);
