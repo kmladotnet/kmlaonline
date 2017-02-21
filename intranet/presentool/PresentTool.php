@@ -10,7 +10,7 @@ function initializeCourtTools($server, $id, $pw, $dbname, $force_renew=false){
         $mysqli -> close();
     }
 
-    //global $board, $member, $mysqli;
+    global $student, $mysqli;
     $mysqli = @new mysqli($server, $id, $pw, $dbname);
     $newdb = false;
 
