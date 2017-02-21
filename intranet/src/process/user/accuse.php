@@ -15,13 +15,11 @@ function redirWithBody($failReason){
     <?php
 }
 
- function validName($name){
+function validName($name){
     if(strpos($name, '(') === false) return false;
     if(strpos($name, ')') === false) return false;
     return true;
- }
-
-global $db;
+}
 
 $name = $_POST['name_1'];
 $article_var = $_POST['article_kind_1'];
