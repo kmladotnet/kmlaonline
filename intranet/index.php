@@ -8,7 +8,7 @@ switch(isset($_GET['action']) ? $_GET['action'] : "main"){
         $fn = basename($_GET['action']);
         break;
 }
-
+include "lib_real.php";
 if(isset($_GET['sub']) && $_GET['action'] == 'user') {
     switch($_GET['sub']) {
         case 'accuse':
@@ -22,7 +22,6 @@ if(isset($_GET['sub']) && $_GET['action'] == 'user') {
 
 if(!file_exists("src/content/$fn.php"))
     $fn = "404";
-include "lib_real.php";
 
 do {
     $_fn = $fn;
