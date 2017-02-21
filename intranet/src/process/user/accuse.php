@@ -25,6 +25,7 @@ global $db;
 
 $name = $_POST['name_1'];
 $article_var = $_POST['article_kind_1'];
+echo $article_var;
 $failReason = array();
 
 if(!validName($name)) echo "<p>Your entry is wrong</p>";
