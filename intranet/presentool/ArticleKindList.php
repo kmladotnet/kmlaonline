@@ -67,6 +67,7 @@ class ArticleKindList{
     function getArticleIdByExplicitName($article_name){
         $query = "SELECT ak_id, ak_eng FROM `$this->table_data` WHERE ";
         $article_name = $this->escape($article_name);
+        echo $article_name;
         $query .= "ak_kor = $article_name";
         if($res = $this->db->query($query)){
             return $res->fetch_array(MYSQLI_ASSOC);
