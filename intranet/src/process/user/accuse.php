@@ -32,4 +32,4 @@ if($n_student === false) echo "<p> Invalid entry </p>";
 else echo $n_student["n_id"];
 $n_article = $article_kind->getArticleIdByExplicitName($article_var);
 if($n_article === false) echo "<p> Invalid article kind </p>";
-else echo $n_article["ak_eng"] . " " . $n_article["ak_id"];
+else echo "<p>" . $n_article["ak_eng"] . " " . $n_article["ak_id"] . "</p>";
