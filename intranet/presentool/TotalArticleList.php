@@ -65,7 +65,7 @@ class TotalArticleList{
         $query = "INSERT INTO `$this->table_data` (student_id, article_kind, accuse_date, accuser, pending, court_num) VALUES (" .
                 $student_id . ", " .
                 $article_kind . ", " .
-                "\"" . $this->escape($accuse_date) . "\", " .
+                $this->escape($accuse_date) . ", " .
                 "\"" . $this->escape($accuser) . "\", " .
                 $pending . ", " .
                 $court_num . ")";
