@@ -69,6 +69,7 @@ class TotalArticleList{
                 "\"" . $this->escape($accuser) . "\", " .
                 $pending . ", " .
                 $court_num . ")";
+        echo $query;
         if($this->db->query($query) === true){
             echo "<p> I guess it works properly..?!! </p>";
             $ins_id = $this -> db -> insert_id;
