@@ -56,10 +56,10 @@ if(count($failReason) > 0){
             }
     }else{
         if(isAjax()){
-            ajaxDie(array(), "알 수 없는 오류가 발생하였습니다.");
+            //ajaxDie(array(), "알 수 없는 오류가 발생하였습니다.");
         }else{
             $failReason['__other']="알 수 없는 오류가 발생하였습니다.";
-            redirectWith("redirWithBody",$failReason);
+            //redirectWith("redirWithBody",$failReason);
         }
     }
 }
