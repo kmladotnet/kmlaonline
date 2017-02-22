@@ -20,12 +20,12 @@ if(isset($_GET['sub']) && $_GET['action'] == 'user') {
     }
 }
 
-if(!file_exists("src/content/$fn.php"))
+if(!file_exists("intranet/src/content/$fn.php"))
     $fn = "404";
 
 do {
     $_fn = $fn;
-    include "src/content/$fn.php";
+    include "intranet/src/content/$fn.php";
 } while($_fn != $fn);
 session_write_close();
 
