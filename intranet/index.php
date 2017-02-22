@@ -23,6 +23,17 @@ if(isset($_GET['sub']) && $_GET['action'] == 'user') {
 if(!file_exists("src/content/$fn.php"))
     $fn = "404";
 
+/* TODO : login page (after this page be made)
+if(!isset($_SESSION['user'])){
+    if(isset($_GET['sub']) && $_GET['action'] == 'user'){
+        switch($_GET['sub']){
+            default:
+
+        }
+    }
+}
+*/
+
 do {
     $_fn = $fn;
     include "src/content/$fn.php";
