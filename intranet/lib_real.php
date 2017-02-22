@@ -7,7 +7,7 @@ session_start();
 include "lang/ko-kr.php";
 $title = "KMLA Court";
 
-$dbInit = false;
+$dbInit = true;
 require "db-config.php";
 session_write_close();
 
