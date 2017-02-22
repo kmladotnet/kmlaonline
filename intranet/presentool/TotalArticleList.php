@@ -61,7 +61,7 @@ class TotalArticleList{
     }
 
     function addArticle($student_id, $article_kind, $accuse_date, $accuser, $pending = 0, $court_num = 0){
-        if(!is_number($student_id) || !is_number($article_kind)) return false;
+        if(!is_int($student_id) || !is_int($article_kind)) return false;
         $query = "INSERT INTO `$this->table_data` (student_id, article_kind, accuse_date, accuser, pending, court_num) VALUES (" .
                 $student_id . ", " .
                 $article_kind . ", " .
