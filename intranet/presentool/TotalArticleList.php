@@ -70,11 +70,13 @@ class TotalArticleList{
                 $pending . ", " .
                 $court_num . ")";
         if($this->db->query($query) === true){
+            echo "<p> I guess it works properly..?!!";
             $ins_id = $this -> db -> insert_id;
             $this -> db -> commit();
             $this -> db -> autocommit(true);
             return $ins_id;
         } else {
+            echo "<p> I guess it works NOT properly..?!!";
             $this -> db -> rollback();
             $this -> db -> autocommit(true);
             return false;
