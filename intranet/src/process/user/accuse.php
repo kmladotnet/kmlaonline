@@ -41,16 +41,18 @@ if($n_article === false){
 else echo "<p>" . $n_article["ak_eng"] . " " . $n_article["ak_id"] . "</p>";
 if(count($failReason) > 0){
     if(isAjax()){
-        ajaxDie($failReason);
+        //ajaxDie($failReason);
     }else{
-        redirectWith("redirectWithBody", $failReason);
+        //redirectWith("redirectWithBody", $failReason);
     }
 } else{
     if(false !== $mid = $article->addArticle($n_student["n_id"], $n_article["ak_id"], $_POST["accuse_date"], $_POST["accuser"])){
             if(isAjax()){
-                ajaxOK(array(), "/user/success");
+                //ajaxOK(array(), "/user/success");
+                echo "<p> NOT FAIL?!! </p>";
             }else {
                 //redirectTo("/user/success");
+                echo "<p> NOT FAIL?!! </p>";
             }
     }else{
         if(isAjax()){
