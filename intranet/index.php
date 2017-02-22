@@ -8,8 +8,11 @@ switch(isset($_GET['action']) ? $_GET['action'] : "main"){
         $fn = basename($_GET['action']);
         break;
 }
+if(!file_exists("src/content/$fn.php"))
+    $fn = "404";
 include "lib_real.php";
-if(isset($_GET['sub']) && $_GET['action'] == 'user') {
+
+/*if(isset($_GET['sub']) && $_GET['action'] == 'user') {
     switch($_GET['sub']) {
         case 'accuse':
             $fn = "user/" . $_GET['sub'];
@@ -18,10 +21,9 @@ if(isset($_GET['sub']) && $_GET['action'] == 'user') {
             $_REQUEST['returnto'] = $_SERVER["REQUEST_URI"];
             $_GET['sub'] = "login";
     }
-}
+}*/
 
-if(!file_exists("src/content/$fn.php"))
-    $fn = "404";
+
 
 /* TODO : login page (after this page be made)
 if(!isset($_SESSION['user'])){
