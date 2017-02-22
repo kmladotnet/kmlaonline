@@ -61,9 +61,9 @@ function printContent(){ ?>
                             <input type="hidden" id="n_student" class="ui-input" value="0" />
                         </td>
                         <td style="width:190px;">
-                            <input type="text" style="text-align:center" placeholder="기소일" id="datepicker_1" class="ui-autocomplete-input date_picker" autocomplete="off" />
+                            <input type="text" style="text-align:center" placeholder="기소일" id="datepicker_1" name="accuse_date" class="ui-autocomplete-input date_picker" autocomplete="off" />
                         <td style="width:190px;">
-                            <input type="text" style="text-align:center" placeholder="기소자" id="accuser_1" class="ui-autocomplete-input" autocomplete="off" />
+                            <input type="text" style="text-align:center" placeholder="기소자" id="accuser_1" name="accuser" class="ui-autocomplete-input" autocomplete="off" />
                         </td>
                         </td>
                         <td style="width:400px;">
