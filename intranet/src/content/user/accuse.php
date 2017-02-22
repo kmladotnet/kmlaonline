@@ -25,7 +25,7 @@ function printContent(){ ?>
         $(function() {
             $( ".date_picker" ).each(function(){
                 $(this).datepicker({
-                    dateFormat: 'yyyy-mm-dd'
+                    dateFormat: 'yy-mm-dd'
                 });
             });
         });
