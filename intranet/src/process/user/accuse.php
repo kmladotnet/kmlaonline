@@ -48,11 +48,11 @@ if(count($failReason) > 0){
 } else{
     if(false !== $mid = $article->addArticle(intval($n_student["n_id"]), intval($n_article["ak_id"]), $_POST["accuse_date"], $_POST["accuser"])){
             if(isAjax()){
-                //ajaxOK(array(), "/user/success");
-                echo "<p> NOT FAIL?!! </p>";
+                ajaxOK(array(), "/user/success");
+                //echo "<p> NOT FAIL?!! </p>";
             }else {
-                //redirectTo("/user/success");
-                echo "<p> NOT FAIL?!! </p>";
+                redirectTo("/user/success");
+                //echo "<p> NOT FAIL?!! </p>";
             }
     }else{
         if(isAjax()){
