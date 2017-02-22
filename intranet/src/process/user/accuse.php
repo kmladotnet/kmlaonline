@@ -46,7 +46,7 @@ if(count($failReason) > 0){
         //redirectWith("redirectWithBody", $failReason);
     }
 } else{
-    if(false !== $mid = $article->addArticle($n_student["n_id"], $n_article["ak_id"], $_POST["accuse_date"], $_POST["accuser"])){
+    if(false !== $mid = $article->addArticle(intval($n_student["n_id"]), intval($n_article["ak_id"]), $_POST["accuse_date"], $_POST["accuser"])){
             if(isAjax()){
                 //ajaxOK(array(), "/user/success");
                 echo "<p> NOT FAIL?!! </p>";
