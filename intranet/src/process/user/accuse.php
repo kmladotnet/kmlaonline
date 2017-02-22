@@ -50,7 +50,7 @@ if(count($failReason) > 0){
             if(isAjax()){
                 ajaxOK(array(), "/user/success");
             }else {
-                redirectTo("/user/success");
+                //redirectTo("/user/success");
             }
     }else{
         if(isAjax()){
