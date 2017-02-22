@@ -60,6 +60,7 @@ if(count($failReason) > 0){
         }else{
             $failReason['__other']="알 수 없는 오류가 발생하였습니다.";
             //redirectWith("redirWithBody",$failReason);
+            echo "<p> WHY FAIL???!!!! </p>";
         }
     }
 }
