@@ -65,12 +65,12 @@ class TotalArticleList{
         $query = "INSERT INTO `$this->table_data` (student_id, article_kind, accuse_date, accuser, pending, court_num) VALUES (" .
                 $student_id . ", " .
                 $article_kind . ", " .
-                "'" . $this->escape($accuse_date) . "', " .
-                "'" . $this->escape($accuser) . "', " .
+                "\"" . $this->escape($accuse_date) . "\", " .
+                "\"" . $this->escape($accuser) . "\", " .
                 $pending . ", " .
                 $court_num . ")";
         if($this->db->query($query) === true){
-            echo "<p> I guess it works properly..?!!";
+            echo "<p> I guess it works properly..?!! </p>";
             $ins_id = $this -> db -> insert_id;
             $this -> db -> commit();
             $this -> db -> autocommit(true);
