@@ -87,9 +87,9 @@ if(count($failReason)>0){
 		$member->setAdditionalData($mid, "s_class", $_POST['s_class']);
 		file_put_contents("data/user_pending_list/$mid.txt", json_encode($_POST));
 		if(isAjax()){
-			ajaxOk(array(), "intranet/user/welcome");
+			ajaxOk(array(), "user/welcome");
 		}else{
-			redirectTo("intranet/user/welcome");
+			redirectTo("user/welcome");
 		}
 	}else{
 		if(isAjax()){
