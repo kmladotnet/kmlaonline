@@ -37,8 +37,8 @@ function printContent(){ ?>
                 //langauge: "ko",
                 ajax: {
                     dataType: "json",
-                    url: "./suggest_article_kind.php",
-                    /*delay: 100,
+                    url: "suggest_article_kind.php",
+                    delay: 100/*,
                     data: function (params) {
                         return {
                             term: params.term
