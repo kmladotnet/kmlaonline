@@ -55,9 +55,7 @@ function printContent(){ ?>
                     },
                     cache: true
                 },
-                escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
-                minimumInputLength: 1, // omitted for brevity, see the source of this page
-                templateSelection: formatRepoSelection // omitted for brevity, see the source of this page
+                escapeMarkup: function (markup) { return markup; } // let our custom formatter work
             });
         });
     </script>
