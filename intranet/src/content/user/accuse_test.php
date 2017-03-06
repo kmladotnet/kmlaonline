@@ -37,11 +37,28 @@ function printContent(){ ?>
                 ajax: {
                     dataType: "json",
                     url: "../src/content/user/suggest_article_kind.php",
-                    results: function (data) {
-                        return {results: data};
-                    }
+                    data: function (params) {
+                        return {
+                            ak_kor: params.ak_kor,
+                            page: params.page
+                        };
+                    },
+                    processResults: function (data, params) {
+                        params.page = params.page || 1;
+
+                        return {
+                            results: data.items,
+                            pagination: {
+                                more: (params.page * 30) < data.total_count
+                            }
+                        };
+                    },
+                    cache: true
                 },
-                formatResult: formatValues;
+                escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
+                minimumInputLength: 1,
+                templateResult: formatRepo, // omitted for brevity, see the source of this page
+                templateSelection: formatRepoSelection // omitted for brevity, see the source of this page
             });
         });
     </script>
