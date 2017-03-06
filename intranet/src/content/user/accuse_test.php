@@ -35,10 +35,10 @@ function printContent(){ ?>
         $(document).ready(function($){
             $(".js-example-basic-multiple").select2({
                 //langauge: "ko",
-                /*ajax: {
+                ajax: {
                     dataType: "json",
                     url: "suggest_article_kind.php",
-                    delay: 100,
+                    /*delay: 100,
                     data: function (params) {
                         return {
                             term: params.term
@@ -55,8 +55,8 @@ function printContent(){ ?>
                             //}
                         };
                     },
-                    cache: true
-                },*/
+                    cache: true*/
+                },
                 escapeMarkup: function (markup) { return markup; } // let our custom formatter work
             });
         });
