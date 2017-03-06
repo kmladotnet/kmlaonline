@@ -57,7 +57,7 @@ function printContent(){ ?>
                         <th style="width:200px;">
                             <p>기소자</p>
                         </th>
-                        <th style="width:400px;">
+                        <th style="width:800px;">
                             <p>기소 항목</p>
                         </th>
                     </tr>
