@@ -22,7 +22,13 @@ function printContent(){ ?>
     </script>
 
     <script type="text/javascript">
-        $(".js-example-basic-multiple").select2();
+        $(function() {
+            $( ".date_picker" ).each(function(){
+                $(this).datepicker({
+                    dateFormat: 'yy-mm-dd'
+                });
+            });
+        });
     </script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.9.0/validator.min.js"></script>
@@ -66,13 +72,7 @@ function printContent(){ ?>
                         </td-->
                         <td>
                             <script type="text/javascript">
-                                $(function() {
-                                    $( ".date_picker" ).each(function(){
-                                        $(this).datepicker({
-                                            dateFormat: 'yy-mm-dd'
-                                        });
-                                    });
-                                });
+                                $(".js-example-basic-multiple").select2();
                             </script>
                             <select class="js-example-basic-multiple" multiple="multiple">
                                 <option value="AL">Alabama</option>
