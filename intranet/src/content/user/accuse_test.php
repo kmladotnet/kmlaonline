@@ -31,6 +31,12 @@ function printContent(){ ?>
         });
     </script>
 
+    <script type="text/javascript">
+        $(function() {
+            $(".js-example-basic-multiple").select2();
+        });
+    </script>
+
     <script src="//cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.9.0/validator.min.js"></script>
 
 
@@ -71,9 +77,6 @@ function printContent(){ ?>
                             <input type="hidden" id="article_id" value="0" />
                         </td-->
                         <td>
-                            <script type="text/javascript">
-                                $(".js-example-basic-multiple").select2();
-                            </script>
                             <select class="js-example-basic-multiple" multiple="multiple">
                                 <option value="AL">Alabama</option>
                                 <option value="CA">California</option>
