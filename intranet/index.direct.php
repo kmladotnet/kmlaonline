@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="../src/jquery_ui/jquery-ui.structure.css"></link>
     <link rel="stylesheet" href="../src/jquery_ui/jquery-ui.theme.css"></link>
     <link rel="stylesheet" href="../src/jquery_ui/jquery-ui.css"></link>
-    <link rel="stylesheet" href="../src/select2-4.0.3/dist/css/select2.min.css"></link>
+    <link rel="stylesheet" href="../src/select2-4.0.3/dist/css/select2.min.c1s"></link>
 
     <script type="text/javascript">
     $(document).ready(function($){
