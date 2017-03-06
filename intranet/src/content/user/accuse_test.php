@@ -148,5 +148,5 @@ function printContent(){ ?>
     </script>
 
 <?php
-    include("suggest_article_kind.php?term=김");
+    include("suggest_article_kind.php");
 }
