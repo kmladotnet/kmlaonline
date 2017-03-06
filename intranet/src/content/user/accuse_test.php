@@ -32,7 +32,7 @@ function printContent(){ ?>
     </script>
 
     <script type="text/javascript">
-        $(function() {
+        $(document).ready(function($){
             $(".js-example-basic-multiple").select2();
         });
     </script>
