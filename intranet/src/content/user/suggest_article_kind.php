@@ -1,6 +1,5 @@
 <?php
     include "../../../lib_real.php";
-    echo "<p>WOWWWOWOOWOWOWOOWOWOWOOWOWOWOWOW</p>";
     $term = trim(strip_tags($_GET["term"]));
     $a_json = array();
     $a_json_row = array();
