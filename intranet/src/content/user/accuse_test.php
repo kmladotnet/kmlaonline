@@ -34,6 +34,7 @@ function printContent(){ ?>
     <script type="text/javascript">
         $(document).ready(function($){
             $(".js-example-basic-multiple").select2({
+                langauge: "ko",
                 ajax: {
                     dataType: "json",
                     url: "../src/content/user/suggest_article_kind.php",
