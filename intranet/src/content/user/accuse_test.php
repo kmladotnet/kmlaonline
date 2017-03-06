@@ -41,18 +41,18 @@ function printContent(){ ?>
                     delay: 100,
                     data: function (params) {
                         return {
-                            term: params.term,
-                            page: params.page
+                            term: params.term
+                            //page: params.page
                         };
                     },
                     processResults: function (data, params) {
-                        params.page = params.page || 1;
+                        //params.value = params.value || 1;
 
                         return {
                             results: data.value,
-                            pagination: {
-                                more: (params.page * 30) < data.total_count
-                            }
+                            //pagination: {
+                            //    more: (params.page * 30) < data.total_count
+                            //}
                         };
                     },
                     cache: true
