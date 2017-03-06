@@ -74,10 +74,12 @@ function printContent(){ ?>
                             <input type="text" style="text-align:center; width:380px" placeholder="항목" id="article_kind_1" name="article_kind_1" class="ui-autocomplete-input auto_article" autocomplete="on" />
                             <input type="hidden" id="article_id" value="0" />
                         </td-->
-                        <select class="js-example-basic-multiple" multiple="multiple">
-                            <option value="AL">Alabama</option>
-                            <option value="CA">California</option>
-                        </select>
+                        <td>
+                            <select class="js-example-basic-multiple" multiple="multiple">
+                                <option value="AL">Alabama</option>
+                                <option value="CA">California</option>
+                            </select>
+                        </td>
                     </tr>
                     <!--tr>
                         <td style="width:190px;">
