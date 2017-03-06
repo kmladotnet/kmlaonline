@@ -31,6 +31,10 @@ function printContent(){ ?>
         });
     </script>
 
+    <script type="text/javascript">
+        $(".js-example-basic-multiple").select2();
+    </script>
+
     <script src="//cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.9.0/validator.min.js"></script>
 
 
@@ -66,10 +70,14 @@ function printContent(){ ?>
                             <input type="text" style="text-align:center" placeholder="기소자" id="accuser_1" name="accuser" class="ui-autocomplete-input" autocomplete="off" />
                         </td>
                         </td>
-                        <td style="width:400px;">
+                        <!--td style="width:400px;">
                             <input type="text" style="text-align:center; width:380px" placeholder="항목" id="article_kind_1" name="article_kind_1" class="ui-autocomplete-input auto_article" autocomplete="on" />
                             <input type="hidden" id="article_id" value="0" />
-                        </td>
+                        </td-->
+                        <select class="js-example-basic-multiple" multiple="multiple">
+                            <option value="AL">Alabama</option>
+                            <option value="CA">California</option>
+                        </select>
                     </tr>
                     <!--tr>
                         <td style="width:190px;">
