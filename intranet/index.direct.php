@@ -12,9 +12,12 @@
 
     <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
     <script src="../src/jquery_ui/jquery-ui.js"></script>
+    <script src="../src/select2-4.0.3/dist/js/select2.min.js"></script>
     <link rel="stylesheet" href="../src/jquery_ui/jquery-ui.structure.css"></link>
     <link rel="stylesheet" href="../src/jquery_ui/jquery-ui.theme.css"></link>
     <link rel="stylesheet" href="../src/jquery_ui/jquery-ui.css"></link>
+    <link rel="stylesheet" href="../src/select2-4.0.3/dist/css/select2.min.css"></link>
+
     <script type="text/javascript">
     $(document).ready(function($){
         $('.auto_name').autocomplete({
