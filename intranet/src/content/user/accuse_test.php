@@ -35,7 +35,7 @@ function printContent(){ ?>
         $(document).ready(function($){
             $(".js-example-basic-multiple").select2({
                 //langauge: "ko",
-                ajax: {
+                /*ajax: {
                     dataType: "json",
                     url: "suggest_article_kind.php",
                     delay: 100,
@@ -57,7 +57,8 @@ function printContent(){ ?>
                     },
                     cache: true
                 },
-                escapeMarkup: function (markup) { return markup; } // let our custom formatter work
+                escapeMarkup: function (markup) { return markup; } // let our custom formatter work*/
+                results: [{id: 1, text: 'Test'}];
             });
         });
     </script>
