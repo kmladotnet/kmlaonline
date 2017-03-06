@@ -56,9 +56,8 @@ function printContent(){ ?>
                         };
                     },
                     cache: true
-                },
-                escapeMarkup: function (markup) { return markup; } // let our custom formatter work*/
-                results: [{id: 1, text: 'Test'}];
+                },*/
+                escapeMarkup: function (markup) { return markup; } // let our custom formatter work
             });
         });
     </script>
