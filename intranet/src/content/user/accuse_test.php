@@ -49,7 +49,7 @@ function printContent(){ ?>
                         //params.value = params.value || 1;
 
                         return {
-                            results: data.value,
+                            results: [{id: 1, text: "TEST"}]
                             //pagination: {
                             //    more: (params.page * 30) < data.total_count
                             //}
