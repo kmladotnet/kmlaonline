@@ -33,7 +33,16 @@ function printContent(){ ?>
 
     <script type="text/javascript">
         $(document).ready(function($){
-            $(".js-example-basic-multiple").select2();
+            $(".js-example-basic-multiple").select2({
+                ajax: {
+                    dataType: "json",
+                    url: "../src/content/user/suggest_article_kind.php",
+                    results: function (data) {
+                        return {results: data};
+                    }
+                },
+                formatResult: formatValues;
+            });
         });
     </script>
 
