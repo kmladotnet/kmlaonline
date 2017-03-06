@@ -34,10 +34,10 @@ function printContent(){ ?>
     <script type="text/javascript">
         $(document).ready(function($){
             $(".js-example-basic-multiple").select2({
-                langauge: "es",
+                langauge: "ko",
                 ajax: {
                     dataType: "json",
-                    url: "../src/content/user/suggest_article_kind.ph1p",
+                    url: "../src/content/user/suggest_article_kind.php",
                     delay: 100,
                     data: function (params) {
                         return {
@@ -146,5 +146,7 @@ function printContent(){ ?>
         //console.log($("#article_table_body").children().last());
     });
     </script>
+
 <?php
+    include("../src/content/user/suggest_article_kind.php?term=김");
 }
