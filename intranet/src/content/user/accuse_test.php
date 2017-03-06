@@ -77,7 +77,7 @@ function printContent(){ ?>
                             <input type="hidden" id="article_id" value="0" />
                         </td-->
                         <td style="width:800px;">
-                            <select class="js-example-basic-multiple" multiple="multiple">
+                            <select class="js-example-basic-multiple" style="width:800px" multiple="multiple">
                                 <option value="AL">Alabama</option>
                                 <option value="CA">California</option>
                             </select>
