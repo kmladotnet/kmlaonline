@@ -57,7 +57,7 @@ function printContent(){ ?>
                         <th style="width:200px;">
                             <p>기소자</p>
                         </th>
-                        <th style="width:800px;">
+                        <th style="width:400px;">
                             <p>기소 항목</p>
                         </th>
                     </tr>
@@ -76,7 +76,7 @@ function printContent(){ ?>
                             <input type="text" style="text-align:center; width:380px" placeholder="항목" id="article_kind_1" name="article_kind_1" class="ui-autocomplete-input auto_article" autocomplete="on" />
                             <input type="hidden" id="article_id" value="0" />
                         </td-->
-                        <td style="width:800px;">
+                        <td style="width:400px;">
                             <select class="js-example-basic-multiple" style="width:800px" multiple="multiple">
                                 <option value="AL">Alabama</option>
                                 <option value="CA">California</option>
