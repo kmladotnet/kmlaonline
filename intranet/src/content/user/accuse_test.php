@@ -38,6 +38,7 @@ function printContent(){ ?>
                 ajax: {
                     dataType: "json",
                     url: "../src/content/user/suggest_article_kind.php",
+                    delay: 100,
                     data: function (params) {
                         return {
                             term: params.term,
@@ -48,7 +49,7 @@ function printContent(){ ?>
                         params.page = params.page || 1;
 
                         return {
-                            results: data.items,
+                            results: data.value,
                             pagination: {
                                 more: (params.page * 30) < data.total_count
                             }
