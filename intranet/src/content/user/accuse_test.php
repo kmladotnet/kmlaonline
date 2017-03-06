@@ -40,7 +40,7 @@ function printContent(){ ?>
                     url: "../src/content/user/suggest_article_kind.php",
                     data: function (params) {
                         return {
-                            ak_kor: params.ak_kor,
+                            term: params.term,
                             page: params.page
                         };
                     },
