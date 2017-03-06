@@ -103,7 +103,6 @@ function printContent(){ ?>
                         </td-->
                         <td style="width:400px;">
                             <select class="js-example-basic-multiple" style="width:400px" multiple="multiple">
-                                <option value="3620194" selected="selected">select2/select2</option>
                             </select>
                         </td>
                     </tr>
