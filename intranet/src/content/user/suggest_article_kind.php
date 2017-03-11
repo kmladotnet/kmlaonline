@@ -16,7 +16,7 @@
             $a_json_row["id"] = $ak_id;
             $a_json_row["text"] = $ak_eng;
             //$a_json_row["value"] = $ak_eng;
-            $a_json_row["label"] = $ak_eng;
+            //$a_json_row["label"] = $ak_eng;
             array_push($a_json, $a_json_row);
         }
     }
