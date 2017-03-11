@@ -1,6 +1,7 @@
 <?php
-    //include "../../../lib_real.php";
+    include "../../../lib_real.php";
     $term = trim(strip_tags($_GET["q"]));
+    $term_2 = trim(strip_tags($_GET["term"]));
     $a_json = array();
     //$a_json_final = array();
     //$a
