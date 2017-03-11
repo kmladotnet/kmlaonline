@@ -37,9 +37,9 @@ function printContent(){ ?>
                 //langauge: "ko",
                 placeholder: '기소 항목을 선택하세요.',
                 ajax: {
-                    url: "suggest_article_kind.php",
+                    url: "/suggest_article_kind.php",
                     dataType: "json",
-                    delay: 100,
+                    delay: 250,
                     data: function (term, page) {
                         return {
                             term: term,
@@ -49,18 +49,18 @@ function printContent(){ ?>
                     },
                     results: function (data, page) {
                         return { results: data.results };
-                    }/*,
-                    processResults: function (data, params) {
+                    },
+                    processResults: function (data) {
                         //params.value = params.value || 1;
 
                         return {
-                            results: [{id: 1, text: "TEST"}]
+                            results: data
                             //pagination: {
                             //    more: (params.page * 30) < data.total_count
                             //}
                         };
                     },
-                    cache: true*/
+                    cache: true
                 },
                 escapeMarkup: function (markup) { return markup; } // let our custom formatter work
             });

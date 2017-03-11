@@ -2,6 +2,8 @@
     //include "../../../lib_real.php";
     $term = trim(strip_tags($_GET["term"]));
     $a_json = array();
+    //$a_json_final = array();
+    //$a
     $a_json_row = array();
     $query = "SELECT * FROM test_article_kind WHERE ak_kor LIKE '%$term%' ORDER BY point";
     //echo $query . "<br /> " . phpversion();
@@ -12,8 +14,8 @@
             $ak_id = intval($row['ak_id']);
             $point = intval($row['point']);
             $a_json_row["id"] = $ak_id;
-            $a_json_row["value"] = $ak_kor;
-            $a_json_row["label"] = $ak_kor;
+            $a_json_row["value"] = $ak_eng;
+            $a_json_row["label"] = $ak_eng;
             array_push($a_json, $a_json_row);
         }
     }
