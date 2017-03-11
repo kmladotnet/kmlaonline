@@ -108,7 +108,7 @@ function printContent(){ ?>
             //langauge: "ko",
             placeholder: '기소 항목을 선택하세요.',
             ajax: {
-                url: "suggest_article_kind",
+                url: "suggest_article_kind1",
                 dataType: "json",
                 delay: 250,
                 /*data: function (term, page) {
