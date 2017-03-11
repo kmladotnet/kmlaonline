@@ -5,7 +5,7 @@
     //$a_json_final = array();
     //$a
     $a_json_row = array();
-    $query = "SELECT * FROM test_article_kind WHERE ak_kor LIKE '%$term%' ORDER BY point";
+    $query = "SELECT * FROM test_article_kind WHERE ak_eng LIKE '%$term%' ORDER BY point";
     //echo $query . "<br /> " . phpversion();
     if($data = $db -> query($query)) {
         while($row = mysqli_fetch_array($data)) {
