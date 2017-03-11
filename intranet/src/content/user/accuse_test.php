@@ -35,6 +35,7 @@ function printContent(){ ?>
         $(document).ready(function($){
             $(".js-example-basic-multiple").select2({
                 //langauge: "ko",
+                placeholder: 'Search for a category',
                 ajax: {
                     dataType: "json",
                     //url: "suggest_article_kind.php",
