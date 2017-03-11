@@ -35,17 +35,21 @@ function printContent(){ ?>
         $(document).ready(function($){
             $(".js-example-basic-multiple").select2({
                 //langauge: "ko",
-                placeholder: 'Search for a category',
+                placeholder: '기소 항목을 선택하세요.',
                 ajax: {
                     dataType: "json",
                     //url: "suggest_article_kind.php",
-                    delay: 100/*,
-                    data: function (params) {
+                    delay: 100,
+                    data: function (term, page) {
                         return {
-                            term: params.term
+                            term: term,
+                            page_limit: 10
                             //page: params.page
                         };
                     },
+                    results: function (data, page) {
+                        return { results: data.results };
+                    }/*,
                     processResults: function (data, params) {
                         //params.value = params.value || 1;
 
