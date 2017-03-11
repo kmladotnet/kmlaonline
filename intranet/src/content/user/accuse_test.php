@@ -55,7 +55,7 @@ function printContent(){ ?>
                             <input type="hidden" id="article_id" value="0" />
                         </td-->
                         <td style="width:400px;">
-                            <select class="js-accuse-multiple-articles" style="width:400px" multiple="multiple">
+                            <select class="js-example-basic-multiple" style="width:400px" multiple="multiple">
                             </select>
                         </td>
                     </tr>
@@ -84,7 +84,7 @@ function printContent(){ ?>
 
     <!--script type="text/javascript" src="/"></script-->
     <script type="text/javascript">
-        $('.js-accuse-multiple-articles').select2({
+        $('.js-example-basic-multiple').select2({
             //langauge: "ko",
             placeholder: '기소 항목을 선택하세요.',
             ajax: {
