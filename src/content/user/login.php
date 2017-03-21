@@ -174,13 +174,7 @@ function printContent(){
             </div>
 		</div>
 	</form>
-    <div>
-    <form method="post" action="./check" id="downform_login" onsubmit="return true;">
-        <input type="hidden" id="downform_login_action" name="action" value="resetpwd" />
-        <input type="hidden" name="returnto" value="<?php echo ((isset($_REQUEST['returnto']) && $_REQUEST['returnto']!=" ")?$_REQUEST['returnto']:"/ ")?>" />
-        <div style="float:right"><button class="btn btn-default" style="margin-right:5px;border-radius:5px;" onclick="$('#downform_login_action').val('resetpwd');$('#downform_login').submit();">테스팅 버튼</button></div>
-    </form>
-    </div>
+
     <script src="/js/content/user/login.js"></script>
     <?php
     if(!is_null($weather) && (200 <= $weather->weather->id) && ($weather->weather->id < 600)) {
