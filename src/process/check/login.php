@@ -27,12 +27,12 @@ switch($member->authMember($_POST['id'],$_POST['pwd'])){
 			redirectWith("loginRedirection",-1);
 			break;
 		}*/
-		/* if(file_exists("data/user_pending_list/{$m['n_id']}.txt")){
-			redirectWith("loginRedirection",2);
+		if(file_exists("data/user_pending_list/{$m['n_id']}.txt")){
+			redirectWith("loginRedirection", 2);
 			break;
-		}*/
+		}
 		/*if($m['n_id']==1426){
-			redirectWith("loginRedirection",-1);	
+			redirectWith("loginRedirection",-1);
 		}*/
 		if(isset($_POST['remember_me'])){
 			do{
