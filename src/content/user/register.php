@@ -166,7 +166,7 @@ function printContent(){ ?>
 							</tr>
 							<tr>
 								<th style="width:120px;"><?php echo lang("generic","homepage")?></th>
-								<td><input class="form-control" type="text" name="s_homepage" style="width:100%" <?php echo isset($_POST['s_homepage'])?"value='".htmlspecialchars($_POST['s_homepage'])."'":""?> /></td>
+								<td><input class="form-control" type="text" name="s_homepage" placeholder="www.facebook.com/your_id" style="width:100%" <?php echo isset($_POST['s_homepage'])?"value='".htmlspecialchars($_POST['s_homepage'])."'":""?> /></td>
 							</tr>
 							<tr>
 								<th style="width:120px;"><?php echo lang("generic","phone")?></th>
