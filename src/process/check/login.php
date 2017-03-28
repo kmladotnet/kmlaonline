@@ -3,7 +3,7 @@ function loginRedirection($a){
 	if($a==0){
 		?><script type="text/javascript">alert("<?php echo addslashes(lang("generic","unknown error")." ".lang("generic","try later")) ?>");location.href="/";</script><?php
 	}else if($a==2){
-		?><script type="text/javascript">alert("인증이 아직 되지 않은 사용자입니다.");location.href="/";</script><?php
+		?><script type="text/javascript">alert("가입 승인 절차가 진행 중입니다. 관리자 승인 이후 로그인이 가능하오니 양해 부탁드립니다.");location.href="/";</script><?php
 	}else if($a==1){
 		?>
 		<form method="post" action="user/login/bad" id="poster">
