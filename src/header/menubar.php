@@ -22,7 +22,19 @@
             </div>
         </div>
     </div>
-
+    <?php
+            if($me['n_level'] <= 19){
+                echo '<div class="menu1">';
+                echo '<div class="widthholder">';
+                echo '<div class="menu1_text">졸업생</div>';
+                echo '<div class="menu1_sub">';
+                echo '<a href="board/student_council" class="menu2">학생회</a>';
+                echo '<a href="board/student_legislative" class="menu2">입법</a>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+            }
+    ?>
     <div class="menu1">
         <div class="widthholder">
             <div class="menu1_text">전체</div>
