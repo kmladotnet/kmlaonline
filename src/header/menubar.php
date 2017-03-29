@@ -3,6 +3,36 @@
 
     <div class="menu1 menu1-logo" style="width:40px;padding-left:10px">
     </div>
+    <?php
+        if($me['n_level'] <= 19){
+            echo '<div class="menu1">';
+            echo '<div class="widthholder">';
+            echo '<div class="menu1_text">졸업생</div>';
+            echo '<div class="menu1_sub">';
+            echo '<a href="board/noticeallS" class="menu2">공지</a>';
+            echo '<a href="board/boardallS" class="menu2">게시판</a>';
+            echo '</div>';
+            echo '</div>';
+            echo '</div>';
+        }
+    ?>
+    <?php
+        if($me['n_level'] >= 0){
+            echo '<div class="menu1">';
+            echo '<div class="widthholder">';
+            echo '<div class="menu1_text">교내</div>';
+            echo '<div class="menu1_sub">';
+            echo '<a href="board/student_council" class="menu2">학생회</a>';
+            echo '<a href="board/student_legislative" class="menu2">입법</a>';
+            echo '<a href="board/student_judicial" class="menu2">사법</a>';
+            echo '<a href="board/student_executive" class="menu2">행정</a>';
+            echo '<a href="board/student_discuss" class="menu2">학급회의</a>';
+            echo '<a href="board/student_clubs" class="menu2">동아리</a>';
+            echo '</div>';
+            echo '</div>';
+            echo '</div>';
+        }
+    ?>
     <div class="menu1">
         <div class="widthholder">
             <div class="menu1_text">교내</div>
@@ -22,19 +52,6 @@
             </div>
         </div>
     </div>
-    <?php
-        if($me['n_level'] <= 19){
-            echo '<div class="menu1">';
-            echo '<div class="widthholder">';
-            echo '<div class="menu1_text">졸업생</div>';
-            echo '<div class="menu1_sub">';
-            echo '<a href="board/student_council" class="menu2">학생회</a>';
-            echo '<a href="board/student_legislative" class="menu2">입법</a>';
-            echo '</div>';
-            echo '</div>';
-            echo '</div>';
-        }
-    ?>
     <div class="menu1">
         <div class="widthholder">
             <div class="menu1_text">전체</div>
