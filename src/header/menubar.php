@@ -3,6 +3,18 @@
 
     <div class="menu1 menu1-logo" style="width:40px;padding-left:10px">
     </div>
+    <div class="menu1">
+        <div class="widthholder">
+            <div class="menu1_text">전체</div>
+            <div class="menu1_sub">
+                <a href="board/forum" class="menu2">포럼</a>
+                <a href="board/all_announce" class="menu2">공지</a>
+                <a href="board/all_pds" class="menu2">자료실</a>
+                <a href="board/all_gallery" class="menu2">갤러리</a>
+                <a href="https://docs.google.com/spreadsheets/d/1VZ5F17bSimEeEAHaZV6WJYI7kbp5mlx9mcJKk_2eAOo/edit#gid=0" class="menu2">ARCHIVE</a>
+            </div>
+        </div>
+    </div>
     <?php
         if($me['n_level'] <= 19){
             echo '<div class="menu1">';
@@ -33,37 +45,6 @@
             echo '</div>';
         }
     ?>
-    <!--div class="menu1">
-        <div class="widthholder">
-            <div class="menu1_text">교내</div>
-            <div class="menu1_sub">
-                <a href="board/student_council" class="menu2">학생회</a>
-                <a href="board/student_legislative" class="menu2">입법</a>
-                <a href="board/student_judicial" class="menu2">사법</a>
-                <a href="board/student_executive" class="menu2">행정</a>
-
-                <?php
-                    if($me['n_level'] >= 19){
-                        echo '<a href="board/student_discuss" class="menu2">학급회의</a>';
-                        echo '<a href="board/student_clubs" class="menu2">동아리</a>';
-
-                    }
-                ?>
-            </div>
-        </div>
-    </div-->
-    <div class="menu1">
-        <div class="widthholder">
-            <div class="menu1_text">전체</div>
-            <div class="menu1_sub">
-                <a href="board/forum" class="menu2">포럼</a>
-                <a href="board/all_announce" class="menu2">공지</a>
-                <a href="board/all_pds" class="menu2">자료실</a>
-                <a href="board/all_gallery" class="menu2">갤러리</a>
-                <a href="https://docs.google.com/spreadsheets/d/1VZ5F17bSimEeEAHaZV6WJYI7kbp5mlx9mcJKk_2eAOo/edit#gid=0" class="menu2">ARCHIVE</a>
-            </div>
-        </div>
-    </div>
     <div class="menu1">
         <div class="widthholder">
             <div class="menu1_text">
