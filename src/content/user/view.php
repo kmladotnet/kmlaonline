@@ -41,10 +41,10 @@ function printContent(){
 			<?php } ?>
 		</div>
 		<div class="user_action">
-			<a href="/board/special:list-all?search_mode=or&amp;search_writer=true&amp;search=<?php echo urlencode($user_to['n_level']."기 ".$user_to['s_name']); ?>">찾아보기</a> | 
+			<a href="/board/special:list-all?search_mode=or&amp;search_writer=true&amp;search=<?php echo urlencode($user_to['n_level']."기 ".$user_to['s_name']); ?>">찾아보기</a> |
 			<?php if($is_self){ ?>
-				<a href="/user/settings">정보 수정</a> | 
-				<a href="/user/message">쪽지</a> | 
+				<a href="/user/settings">정보 수정</a> |
+				<a href="/user/message">쪽지</a> |
 				<a href="/user/logout" onclick="return true; $('#logout_form').submit(); return false;"><?php echo lang("generic","logout"); ?></a>
 				<form method="post" action="/user/logout" id="logout_form" onsubmit="return true;"><input type="hidden" name="returnto" value="/" /></form>
 			<?php }else{ ?>
@@ -57,7 +57,7 @@ function printContent(){
 				<?php if($user_to['s_icon']){ ?><img src="<?php echo htmlspecialchars($user_to['s_icon']) ?>" style="width:18pt;height:18pt;" /> <?php } ?>
 				<span style="font-weight:bold;font-size:18pt;"><?php echo htmlspecialchars($user_to['s_name']); ?></span>
 				<span style="font-size:12pt;color:gray;"><?php echo htmlspecialchars($user_to['s_real_name']); ?></span>
-				<span style="font-size:12pt;color:gray;">(<?php echo htmlspecialchars($user_to['n_level']."기".($user_to['n_gender']==1?" 남":($user_to['n_gender']==1?" 녀":" 기타"))); ?>)</span>
+				<span style="font-size:12pt;color:gray;">(<?php echo htmlspecialchars($user_to['n_level']."기".($user_to['n_gender']==1?" 남자":($user_to['n_gender']==2?" 여자":" 기타"))); ?>)</span>
 			</div>
 			<div style="margin-top:5px;margin-bottom:5px;">
 				<?php echo htmlspecialchars($user_to['s_status_message']) ?>
