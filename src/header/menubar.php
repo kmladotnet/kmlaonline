@@ -17,7 +17,7 @@
         }
     ?>
     <?php
-        if($me['n_level'] >= 0){
+        if($me['n_level'] >= 19){
             echo '<div class="menu1">';
             echo '<div class="widthholder">';
             echo '<div class="menu1_text">교내</div>';
