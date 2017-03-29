@@ -22,6 +22,18 @@
             </div>
         </div>
     </div>
+    <?php if($me['n_levlel'] <= 19){
+        echo '
+            <div class="menu1">
+                <div class="widthholder">
+                    <div class="menu1_text">졸업생</div>
+                    <div class="menu1_sub">
+                        <a href="board/noticeallS" class="menu2">공지</a>
+                        <a href="board/boardallS" class="menu2">게시판</a>
+                    </div>
+                </div>
+            </div>';
+    ?>
     <div class="menu1">
         <div class="widthholder">
             <div class="menu1_text">전체</div>
