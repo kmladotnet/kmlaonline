@@ -33,7 +33,7 @@
             echo '</div>';
         }
     ?>
-    <div class="menu1">
+    <!--div class="menu1">
         <div class="widthholder">
             <div class="menu1_text">교내</div>
             <div class="menu1_sub">
@@ -51,7 +51,7 @@
                 ?>
             </div>
         </div>
-    </div>
+    </div-->
     <div class="menu1">
         <div class="widthholder">
             <div class="menu1_text">전체</div>
