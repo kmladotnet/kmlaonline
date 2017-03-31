@@ -25,7 +25,7 @@
 		</div>
 	<?php } else {
         if(!(!!$me && getTheme($me)['hidedasan'])) { ?>
-            <div id="total-header" <?php if($april_fools) echo 'height:311px; background: url(/images/bamboozle.png) no-repeat;'; ?>>
+            <div id="total-header" <?php if($april_fools_2) echo 'height:311px; background: url(/images/bamboozle.png) no-repeat;'; ?>>
                 <?php if (isset($_SESSION['user'])) { ?>
                     <div class="userarea"><?php include "src/header/userarea.php"; ?></div>
                 <?php } ?>
