@@ -12,6 +12,8 @@ function loginRedirection($a){
 		</form>
 		<script type="text/javascript">$('#poster').submit();$('#submitter').css("visibility", "hidden");</script>
 		<?php
+	}else if($a==4){
+		?><script type="text/javascript">alert("오늘은 큼온이 좀 쉬고 싶다고 하는데.. 다시 한 번 시도해보세요 ㅇㅅㅇ");location.href="/";</script><?php
 	}
 }
 function generateRandomString($length = 32) {
