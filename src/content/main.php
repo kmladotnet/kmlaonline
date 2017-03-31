@@ -127,7 +127,7 @@ function printContentPc(){
                                 </label>
                             </div>
                         </div>
-                        <?php if ($april_fools) { ?>
+                        <?php if ($april_main) { ?>
                             <div class="form-group">
                                 노잼 모드 (만우절 장난 해제):
                                 <div class="btn-group" data-toggle="buttons">

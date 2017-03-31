@@ -65,8 +65,8 @@ if(!isset($_SESSION['tmp_password']) || !file_exists('/tmp/passwords/'.$me['s_id
 session_write_close();
 /********************** END INITIALIZATION SESSION ************************/
 setlocale(LC_TIME, 'ko_KR.UTF-8');
-
-$april_fools = true;
+$april_main = true;
+$april_fools = $april_main;
 $april_fools_2 = false;
 if($april_fools) {
 	if(mt_rand(1, 12) == 4) {
