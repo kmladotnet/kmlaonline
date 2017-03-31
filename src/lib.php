@@ -66,7 +66,7 @@ session_write_close();
 /********************** END INITIALIZATION SESSION ************************/
 setlocale(LC_TIME, 'ko_KR.UTF-8');
 
-$april_fools = false;
+$april_fools = true;
 $april_fools_2 = false;
 if($april_fools) {
 	if(mt_rand(1, 12) == 4) {
