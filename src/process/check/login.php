@@ -41,10 +41,7 @@ switch($member->authMember($_POST['id'],$_POST['pwd'])){
 		}*/
 
 
-		if(mt_rand(1, 2) == 1){
-			redirectWith("loginRedirection", 4);
-			break;
-		}
+
 
 
 		if(isset($_POST['remember_me'])){
