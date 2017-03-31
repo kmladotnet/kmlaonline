@@ -149,7 +149,7 @@
             <div class="total-header-extend-1" style="position:absolute;background:#074275;left:0;width:100%;right:0;display:block;height:40px;"></div>
         </div>
         <div class="hide-on-upper-panel" style="position:absolute;left:0;width:100%;right:0;display:block;height:160px;top:40px;z-index:-5;">
-            <div class="total-header-extend-1" style="position:absolute;left:0;width:100%;right:0;display:block;height:160px; <?php if($april_fools_2) echo 'height:331px; background: url(/images/bamboozle-bg.png) repeat-x center bottom;'; ?>"></div>
+            <div class="total-header-extend-1" style="position:absolute;left:0;width:100%;right:0;display:block;height:160px; <?php if($april_fools_2) echo 'height:311px; background: url(/images/bamboozle-bg.png) repeat-x center bottom;'; ?>"></div>
             <div class="total-header-extend-2" style="position:absolute;left:0;width:100%;right:0;display:block;height:160px;"></div>
         </div>
     <?php } ?>
