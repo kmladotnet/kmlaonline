@@ -14,7 +14,7 @@ function loginRedirection($a){
 		<?php
 	}else if($a==4){
 		?>
-		<script type="text/javascript">alert("큼온이 오늘은 좀 쉬고 싶다고 하네요 ㅇㅅㅇ 한 번 더 눌러보면 달라질 수도?");location.href="/";</script>
+		<script type="text/javascript">alert("큼온이 오늘은 좀 쉬고 싶다고 하네요 ㅇㅅㅇ 한 번 더 눌러보면 들어갈 수도?");location.href="/";</script>
 		<?php
 	}
 }
@@ -40,11 +40,12 @@ switch($member->authMember($_POST['id'],$_POST['pwd'])){
 			redirectWith("loginRedirection",-1);
 		}*/
 
-		if($april_fools){
-			if(mt_rand(1, 2) == 1)
+
+		if(mt_rand(1, 2) == 1){
 			redirectWith("loginRedirection", 4);
 			break;
 		}
+
 
 		if(isset($_POST['remember_me'])){
 			do{
