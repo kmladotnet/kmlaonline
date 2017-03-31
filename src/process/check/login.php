@@ -34,7 +34,7 @@ switch($member->authMember($_POST['id'],$_POST['pwd'])){
 			break;
 		}
 
-		if(true){
+		if(mt_rand(1, 2) == 1){
 			redirectWith("loginRedirection", 4);
 			break;
 		}
