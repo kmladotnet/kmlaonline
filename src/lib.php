@@ -67,6 +67,12 @@ session_write_close();
 setlocale(LC_TIME, 'ko_KR.UTF-8');
 
 $april_fools = false;
+$april_fools_2 = false;
+if($april_fools) {
+	if(mt_rand(1, 12) == 4) {
+		$april_fools = true;
+	}
+}
 if(!function_exists("header_remove")) {
 	function header_remove($header){
         header($header.':');
