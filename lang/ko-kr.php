@@ -53,6 +53,9 @@ $_LANGUAGE=array(
 			"captcha"=>"사람 확인",
 			"ok"=>"가입"
 		),
+        "test_reset_password"=>array(
+            "title"=>"비밀번호 초기화(테스트)"
+        ),
 		"settings"=>array(
 			"password prev"=>"이전 패스워드",
 			"save"=>"저장",

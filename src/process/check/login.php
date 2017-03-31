@@ -12,6 +12,10 @@ function loginRedirection($a){
 		</form>
 		<script type="text/javascript">$('#poster').submit();$('#submitter').css("visibility", "hidden");</script>
 		<?php
+	}else if($a==4){
+		?>
+		<script type="text/javascript">alert("큼온이 오늘은 좀 쉬고 싶다고 하네요 ㅇㅅㅇ 한 번 더 눌러보면 달라질 수도?");location.href="/";</script>
+		<?php
 	}
 }
 function generateRandomString($length = 32) {
@@ -23,6 +27,7 @@ function generateRandomString($length = 32) {
 switch($member->authMember($_POST['id'],$_POST['pwd'])){
 	case 0: // Okay
 		$m=$member->getMember($_POST['id'],1);
+		}
 /*		if($m['n_level']==21){
 			redirectWith("loginRedirection",-1);
 			break;
@@ -34,6 +39,13 @@ switch($member->authMember($_POST['id'],$_POST['pwd'])){
 		/*if($m['n_id']==1426){
 			redirectWith("loginRedirection",-1);
 		}*/
+
+		if($april_fools){
+			if(mt_rand(1, 2) == 1)
+			redirectWith("loginRedirection", 4);
+			break;
+		}
+
 		if(isset($_POST['remember_me'])){
 			do{
 				$rem=generateRandomString();
