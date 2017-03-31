@@ -12,7 +12,7 @@ function printContentPc(){
 	<div style="min-height: 400px">
         <div style="padding: 3px; padding-bottom: 6px; padding-top: 6px">
             <button type="button" id="main-edit-button" class="btn btn-default" onclick="toggleLayoutEditing();"><i class="fa fa-pencil" aria-hidden="true"></i> 편집 모드 시작</button>
-            <button type="button" id="main-theme-button" class="btn btn-default" onclick="toggleThemeEditing();"><i class='fa fa-wrench' aria-hidden='true'></i> 큼온 설정<?php if($april_fools) echo '만우절 장난을 보기 싫다면 누르세요!'; ?></button>
+            <button type="button" id="main-theme-button" class="btn btn-default" onclick="toggleThemeEditing();"><i class='fa fa-wrench' aria-hidden='true'></i> 큼온 설정<?php if($april_fools) echo ' (만우절 장난을 보기 싫다면 누르세요!)'; ?></button>
             <?php printEverydayLinks(); ?>
             <div id="main-theme-pane" style="margin-top: 6px; display:none">
                 <form id="theme-form">
