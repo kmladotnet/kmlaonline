@@ -63,7 +63,7 @@
 	<title><?php echo htmlspecialchars($title); ?></title>
 	<?php head_theme();
     if($april_fools) {
-        switch(mt_rand(1, 7)) {
+        switch(mt_rand(1, 77)) {
             case 1:
                 echo '<link rel="stylesheet" href="/css/april-fools/blur.css" type="text/css" media="screen" />';
                 break;

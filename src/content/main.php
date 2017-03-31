@@ -129,7 +129,7 @@ function printContentPc(){
                         </div>
                         <?php if ($april_fools) { ?>
                             <div class="form-group">
-                                노잼 모드:
+                                노잼 모드 (만우절 장난 해제):
                                 <div class="btn-group" data-toggle="buttons">
                                     <label class="btn btn-default <?php if(getTheme($me)['nojam']) echo "active"; ?>">
                                         <input type="radio" name="nojam" id="nojam-option" autocomplete="off"
