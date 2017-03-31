@@ -70,7 +70,7 @@ $april_fools = $april_main;
 $april_fools_2 = false;
 if($april_fools) {
 	if(mt_rand(1, 12) == 4) {
-		$april_fools = true;
+		$april_fools_2 = true;
 	}
 }
 if(!function_exists("header_remove")) {
