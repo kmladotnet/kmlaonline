@@ -74,6 +74,13 @@
 
     <?php
     if($april_fools) {
+        ?>
+        <style>
+            @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+            @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+            @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+        </style>
+        <?php
         switch(mt_rand(1, 16)) {
             case 1:
                 echo '<link rel="stylesheet" href="/css/april-fools/blur.css" type="text/css" media="screen" />';
@@ -163,10 +170,10 @@
         <div id="total-header-menu-outer">
             <?php //TODO: 스타일 밖으로 뺄 것 ?>
             <div id="menu-logo" style="width:40px;padding-left:10px;left:-40px;float:left;position:absolute;z-index:9999999">
-                <a href="/" style="border-"><img id="menu-logo-image" src="/images/logo-s.png" alt="KMLAONLINE" style="width:20px;height:20px;margin-top:10px"></a>
+                <a href="/" style="border-"><img id="menu-logo-image" src="/images/logo-s.png" alt="KMLAONLINE" style="width:20px;height:20px;margin-top:10px<?php if($april_fools) echo ';-webkit-animation:spin 1s linear infinite;-moz-animation:spin 1s linear infinite;animation:spin 1s linear infinite;'; ?>"></a>
             </div>
             <div id="menu-logo-2" style="width:40px;padding-left:10px;left:-40px;float:left;position:absolute;opacity:0;z-index:9999999">
-                <a href="/" style="border-"><img id="menu-logo-image-2" src="/images/logo-inverse-s.png" alt="KMLAONLINE" style="width:20px;height:20px;margin-top:10px"></a>
+                <a href="/" style="border-"><img id="menu-logo-image-2" src="/images/logo-inverse-s.png" alt="KMLAONLINE" style="width:20px;height:20px;margin-top:10px<?php if($april_fools) echo ';-webkit-animation:spin 1s linear infinite;-moz-animation:spin 1s linear infinite;animation:spin 1s linear infinite;'; ?>"></a>
             </div>
             <div id="total-header-menu" ondragstart="return false">
                 <?php include "src/header/menubar.php";?>
