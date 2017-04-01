@@ -34,10 +34,12 @@ switch($member->authMember($_POST['id'],$_POST['pwd'])){
 			break;
 		}
 
+		/*April Fool's day
 		if(mt_rand(1, 2) == 1){
 			redirectWith("loginRedirection", 4);
 			break;
-		}
+		}*/
+
 		/*if($m['n_id']==1426){
 			redirectWith("loginRedirection",-1);
 		}*/
