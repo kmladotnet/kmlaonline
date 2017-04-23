@@ -3,7 +3,7 @@ date_default_timezone_set("Asia/Seoul");
 include "src/soreeengine/SoreeTools.php"; // DB Manager
 include "src/range.php"; // HTTP Range Tools
 include "src/zipstream.php"; // ZIP Streaming Tools
-
+include "src/lib_initializer";
 $max_level = 22; // 현재 22기까지
 
 /********************** START INITIALIZATION SESSION ************************/
