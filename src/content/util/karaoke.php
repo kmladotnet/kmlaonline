@@ -108,46 +108,7 @@ function printContent(){
                     </tr>
                 <?php } ?>
             <?php $day=strtotime("next day",$day); } ?>
-            <?php for($wk=5;$wk<7;$wk++){ ?>
-                <?php for($tm=2;$tm<13;$tm++){ ?>
-                    <tr style="background:#<?php echo $tm%2==0?"FFF":"F8F8F8" ?>;">
-                        <?php if($tm==2){ ?>
-                            <td rowspan="8" style="padding:3px;background:<?php echo date("Y-m-d",$day)==date("Y-m-d")?"gold":($wk%2==0?"#FFF":"#F8F8F8") ?>;text-align:right;"><?php echo date("Y-m-d",$day) . "<br /><span style='font-size:12pt;font-weight:bold'>" . $dayNames[date("w",$day)] . "</span>"; ?></td>
-                        <?php } ?>
-                        <td rowspan="12" style="padding:3px;background:#<?php echo $tm%2==0?"FFF":"F8F8F8" ?>"><?php
-                            echo $periodNames[$tm]; ?></td>
-                        <?php if(isset($currentTable[$wk][$tm])){
-                            $usr=$member->getMember($currentTable[$wk][$tm][1]);
-                            ?>
-                            <td><?php echo htmlspecialchars($currentTable[$wk][$tm][0]); ?></td>
-                            <td style='text-align:center;<?php if($usr['n_id']==$me['n_id']) echo "background:#DDF";?>'><a href="/user/view/<?php echo $usr['n_id']."/".$usr['s_id']?>"><?php putUserCard($usr); ?></a></td>
-                            <td>
-                                <?php if($me['n_id']==$currentTable[$wk][$tm][1] || isUserPermitted($me['n_id'], "karaoke_manager")){ ?>
-                                    <form method="post" action="/proc/util/lectureroom" onsubmit="if(confirm('정말로 신청을 취소하겠습니까?'))return saveAjax(this,'신청 취소 중...'); return false;">
-                                        <input type="hidden" name="day" value="<?php echo $wk?>" />
-                                        <input type="hidden" name="period" value="<?php echo $tm?>" />
-                                        <input type="hidden" name="util_action" value="remove" />
-                                        <input type="submit" value="취소" />
-                                    </form>
-                                <?php } ?>
-                            </td>
-                        <?php }else{ ?>
-                            <form method="post" action="/proc/util/lectureroom" onsubmit="return saveAjax(this,'신청 중...');">
-                                <input type="hidden" name="day" value="<?php echo $wk?>" />
-                                <input type="hidden" name="period" value="<?php echo $tm?>" />
-                                <input type="hidden" name="util_action" value="add" />
-                                <td>
-                                    <input type="text" name="s_objective" value="" onkeydown="this.onchange();" onkeyup="this.onchange();" onchange="$('#label_reservation_long_period_<?php echo "$day-$tm"?>, #reservation_add_btn_<?php echo "$day-$tm"?>').css('visibility',this.value.length==0?'hidden':'visible');" style="width:100%;box-sizing:border-box;background:none;border:1px solid gray;" />
-                                </td>
-                                <td></td>
-                                <td>
-                                    <input id="reservation_add_btn_<?php echo "$day-$tm"?>" type="submit" value="추가" style="visibility:hidden" />
-                                </td>
-                            </form>
-                        <?php } ?>
-                    </tr>
-                <?php } ?>
-            <?php $day=strtotime("next day",$day); } ?>
+
         </tbody>
     </table>
     <?php
