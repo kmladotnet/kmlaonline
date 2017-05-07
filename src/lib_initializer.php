@@ -28,9 +28,9 @@ function _grant_access($iid, $level=false,$readonly=true){
 	}
 }
 
-$mysqli->query("CREATE TABLE kmlaonline_karaoke_table(n_date INT, n_period INT, s_objective TEXT, n_who BIGINT, KEY n_date (n_date), KEY n_period ( n_period ), FOREIGN KEY (n_who) REFERENCES `kmlaonline_member_data`(n_id) ON DELETE CASCADE)");
-/*
 
+/*
+query("CREATE TABLE kmlaonline_karaoke_table(n_date INT, n_period INT, s_objective TEXT, n_who BIGINT, KEY n_date (n_date), KEY n_period ( n_period ), FOREIGN KEY (n_who) REFERENCES `kmlaonline_member_data`(n_id) ON DELETE CASCADE)");
 $mysqli->query("CREATE TABLE kmlaonline_lectureroom_table(n_date INT, n_period INT, n_floor INT, s_objective TEXT, n_who BIGINT, KEY n_date (n_date), KEY n_period (n_period), KEY n_floor (n_floor), FOREIGN KEY (n_who) REFERENCES `kmlaonline_member_data`(n_id) ON DELETE CASCADE)");
 $mysqli->query("CREATE TABLE kmlaonline_important_notices_table(n_id BIGINT NOT NULL AUTO_INCREMENT, n_user BIGINT, n_article BIGINT, n_date BIGINT, s_reason TEXT, s_process_reason TEXT, n_state INT NOT NULL DEFAULT 0, PRIMARY KEY (n_id), KEY (n_date), KEY (n_state), FOREIGN KEY (n_user) REFERENCES `kmlaonline_member_data`(n_id) ON DELETE CASCADE, FOREIGN KEY (n_article) REFERENCES `kmlaonline_board_data`(n_id) ON DELETE CASCADE)");
 $mysqli->query("CREATE TABLE kmlaonline_special_permissions_table(n_user BIGINT, s_type VARCHAR(32), n_permission INT, FOREIGN KEY(n_user) REFERENCES `kmlaonline_member_data`(n_id) ON DELETE CASCADE, KEY s_type (s_type))");
