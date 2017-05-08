@@ -13,7 +13,6 @@ table#reservation_table th {
     border-color: gray;
 }
 table#reservation_table td {
-    text-align:center;
     border-width: 1px;
     padding: 4px;
     border-style: inset;

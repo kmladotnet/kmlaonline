@@ -254,6 +254,7 @@ function printContent(){
 						"important_article_chooser"=>"필수공지글 관리",
 						"edit_food_table"=>"식단표 관리",
 						"lectureroom_manager"=>"공동강의실 관리",
+						"karaoke_manager"=>"민교관 노래방 관리",
 						"kmlaboard_changer"=>"큼라보드 수정",
 					);
 					?>
