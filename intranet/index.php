@@ -8,7 +8,7 @@ switch(isset($_GET['action']) ? $_GET['action'] : "main"){
         $fn = basename($_GET['action']);
         break;
 }
-if(!file_exists("intranet/src/content/$fn.php"))
+if(!file_exists("src/content/$fn.php"))
     $fn = "404";
 include "lib_real.php";
 
