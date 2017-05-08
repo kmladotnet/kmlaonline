@@ -40,13 +40,6 @@ function printContent(){
                             <input type="submit" value="초기화" /></td>
                         </form>
                     </td>
-                    <td>
-                        <form method="post" action="/proc/util/karaoke" onsubmit="if(confirm('정말로 전부 초기화하시겠습니까?')) return saveAjax(this,'전부 비우는 중...'); return false;">
-                            <input type="hidden" name="util_action" value="clear_week" />
-                            <input type="hidden" name="clear_everything" value="1" />
-                            <input type="submit" value="전부 초기화" /></td>
-                        </form>
-                    </td>
                 </tr>
             </table>
             <?php
