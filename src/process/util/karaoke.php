@@ -4,10 +4,7 @@ if(!isset($_POST['util_action'])) die();
 switch($_POST['util_action']){
     case "clear_week":
         if(isUserPermitted($me['n_id'], "karaoke_manager")){
-            if(isset($_POST['clear_everything']))
-                $mysqli->query("truncate table kmlaonline_karaoke_table");
-            else
-                $mysqli->query("delete from kmlaonline_karaoke_table where n_long_period=0");
+            $mysqli->query("truncate table kmlaonline_karaoke_table");
             ajaxOk(array(), "/util/karaoke","초기화하였습니다.");
         }else{
             ajaxDie(array(), "권한이 없습니다.");
