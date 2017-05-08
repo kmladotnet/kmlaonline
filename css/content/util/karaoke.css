@@ -1,0 +1,20 @@
+table#reservation_table {
+    border-width: 1px;
+    border-spacing: 2px;
+    border-style: solid;
+    border-color: gray;
+    border-collapse: collapse;
+    width:100%;
+}
+table#reservation_table th {
+    border-width: 1px;
+    padding: 4px;
+    border-style: inset;
+    border-color: gray;
+}
+table#reservation_table td {
+    border-width: 1px;
+    padding: 4px;
+    border-style: inset;
+    border-color: gray;
+}
