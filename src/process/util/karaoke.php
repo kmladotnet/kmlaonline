@@ -25,7 +25,7 @@ switch($_POST['util_action']){
         }
         $objective=$mysqli->real_escape_string($_POST['s_objective']);
         $who=$me['n_id'];
-        $mysqli->query("INSERT INTO kmlaonline_lectureroom_table (n_date, n_period, s_objective, n_who) VALUES ($day, $period, '$objective', $who)");
+        $mysqli->query("INSERT INTO kmlaonline_karaoke_table (n_date, n_period, s_objective, n_who) VALUES ($day, $period, '$objective', $who)");
         if($mysqli->affected_rows>0) ajaxOk(array(), "/util/karaoke","예약하였습니다.");
         else ajaxDie(array(), "오류가 발생하였습니다.");
         break;
@@ -34,7 +34,7 @@ switch($_POST['util_action']){
         $period=$_POST['period'];
         if(!is_numeric($day) || !is_numeric($period))
             ajaxDie(array(), "무언가가 잘못되었습니다.");
-        $mysqli->query("DELETE FROM kmlaonline_lectureroom_table WHERE n_date=$day AND n_period=$period");
+        $mysqli->query("DELETE FROM kmlaonline_karaoke_table WHERE n_date=$day AND n_period=$period");
         ajaxOk(array(), "/util/karaoke","삭제하였습니다.");
         break;
     default:
