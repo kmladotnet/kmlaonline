@@ -336,9 +336,8 @@ function printEverydayLinks(){
             <option value="/board/department_environment">환경부</option>
             <option value="/board/student_mpt">MPT</option>
             <option value="/board/student_ambassador">대외홍보단</option>
-            <option value="/util/lectureroom">공강신청</option>
-            <option value="/util/donation-cloth">기부 물품 신청(교복)</option>
-            <option value="/util/donation-book">기부 물품 신청(서적)</option>
+            <option value="/util/lectureroom">공강 신청</option>
+            <option value="/util/karaoke">노래방 신청</option>
         </select>
     </div>
     <?php
