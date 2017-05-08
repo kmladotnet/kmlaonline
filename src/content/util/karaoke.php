@@ -47,7 +47,7 @@ function printContent(){
         ?>
     </div>
     <div style="text-align:right;">
-        노래방 마스터: <br />
+        노래방 마스터: 21기 정태웅<br />
         매주 월요일 0시에 초기화됩니다. (시범 운영: 5월 15일 - 5월 21일)
     </div>
     <div style="clear:both;padding:5px;"></div>
