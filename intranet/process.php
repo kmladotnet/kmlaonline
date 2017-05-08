@@ -1,7 +1,7 @@
 <?php
 global $student;
 include "lib_real.php";
-$fn="src/process/".basename($_REQUEST['actiontype'])."/".basename($_REQUEST['action']).".php";
+$fn="intranet/src/process/".basename($_REQUEST['actiontype'])."/".basename($_REQUEST['action']).".php";
 if(file_exists($fn)) {
     include($fn);
 }
