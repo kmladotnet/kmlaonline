@@ -112,9 +112,9 @@ function printContent(){
                 <?php for($tm=2;$tm<13;$tm++){ ?>
                     <tr style="background:#<?php echo $tm%2==0?"FFF":"F8F8F8" ?>;">
                         <?php if($tm==2){ ?>
-                            <td rowspan="11" style="padding:3px;background:<?php echo date("Y-m-d",$day)==date("Y-m-d")?"gold":($wk%2==0?"#FFF":"#F8F8F8") ?>;text-align:right;"><?php echo date("Y-m-d",$day) . "<br /><span style='font-size:12pt;font-weight:bold'>" . $dayNames[date("w",$day)] . "</span>"; ?></td>
+                            <td rowspan="11" style="padding:3px;background:<?php echo date("Y-m-d",$day)==date("Y-m-d")?"gold":($wk % 2 == 0?"#FFF":"#F8F8F8") ?>;text-align:right;"><?php echo date("Y-m-d",$day) . "<br /><span style='font-size:12pt;font-weight:bold'>" . $dayNames[date("w",$day)] . "</span>"; ?></td>
                         <?php } ?>
-                        <td rowspan="1" style="padding:3px;text-align:center;background:#<?php echo $tm%2==0?"FFF":"F8F8F8" ?>"><?php echo $periodNames[$tm]; ?></td>
+                        <td rowspan="1" style="padding:3px;text-align:center;background:#<?php echo ($tm + $wk + 1)%2==0?"FFF":"F8F8F8" ?>"><?php echo $periodNames[$tm]; ?></td>
                         <?php if(isset($currentTable[$wk][$tm])){
                             $usr=$member->getMember($currentTable[$wk][$tm][1]);
                             ?>
