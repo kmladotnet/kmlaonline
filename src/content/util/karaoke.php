@@ -61,10 +61,10 @@ function printContent(){
     <table id="reservation_table">
         <thead>
             <tr style="background:#DDD">
-                <th style="width:90px;">날짜</th>
-                <th style="width:180px;">시간</th>
-                <th>사용자 명단</th>
-                <th style="width:100px;">신청자</th>
+                <th style="width:90px;text-align:center;">날짜</th>
+                <th style="width:180px;text-align:center;">시간</th>
+                <th style="text-align:center;">사용자 명단</th>
+                <th style="width:100px;text-align:center;">신청자</th>
                 <th style="width:110px;"></th>
             </tr>
         </thead>
