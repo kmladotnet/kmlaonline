@@ -48,7 +48,9 @@ function printContent(){
     </div>
     <div style="text-align:right;">
         노래방 마스터: 21기 정태웅<br />
-        매주 월요일 0시에 초기화됩니다. (시범 운영: 5월 15일 - 5월 21일)
+        매주 월요일 0시에 초기화됩니다. (시범 운영: 5월 15일 - 5월 21일)<br />
+        1. 만약 노래방을 사용하지 않는다면 혼란이 생기지 않게 바로 취소해주세요. <br />
+        2. 노래방의 청결 상태가 문제된다면 예약자 명단을 통해 책임자를 적발할 예정입니다. <br />
     </div>
     <div style="clear:both;padding:5px;"></div>
     <table id="reservation_table">
