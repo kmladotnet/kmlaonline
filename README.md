@@ -2,6 +2,10 @@
 
 큼온 git 저장소
 
+## Linux 기초 Ref ##
+
+https://www.linode.com/docs/tools-reference/linux-system-administration-basics
+
 ## git pull 방법 ##
 
 ```bash
