@@ -54,7 +54,7 @@ function printContent(){
 		?>
 	</div>
 	<div style="text-align:right;">
-		공강마스터: 20기 김근영<br />
+		공강마스터: 21기 곽민기<br />
 		매주 월요일 0시에 초기화됩니다.
 	</div>
 	<div style="clear:both;padding:5px;"></div>
