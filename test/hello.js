@@ -39,7 +39,7 @@ $(document).ready(function (){
 $(document).bind('connect', function(ev, data){
 
     //creates a new connection object
-    var conn = new Strophe.Connection("http://kmlaonline.net:5280/http-bind");
+    var conn = new Strophe.Connection("https://kmlaonline.net:5281/http-bind");
 
     //calls connect() with a callback function that merely triggers new custom events
     conn.connect(data.jid, data.password, function(status){
