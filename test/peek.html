@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Peek - Chapter 4</title>
+
+        <link rel="stylesheet" type="text/css" href="js/jquery-ui-1.12.1/jquery-ui.theme.css">
+        <script src="js/jquery-3.2.1.js"></script>
+        <script src="js/jquery-ui-1.12.1/jquery-ui.js"></script>
+        <script src="js/strophejs-1.2.14/strophe.js"></script>
+        <script src="js/flXHR-master/code/flensed-1.0/deploy/flXHR.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="peek.css">
+        <script src="peek.js"></script>
+    </head>
+    <body>
+        <h1>Peek</h1>
+
+        <div id='console'></div>
+        <textarea id ='input' class='disabled' disabled='disabled'></textarea>
+
+        <div id='buttonbar'>
+            <input id='send_button' type='submit' value='Send Data' disabled='disabled' class='button'>
+            <input id='disconnect_button' type='submit' value='Disconnect' disabled='disabled' class='button'>
+        </div>
+
+        <!-- login dialog -->
+        <div id='login_dialog' class='hidden'>
+            <label>JID:</label><input text='text' id='jid'>
+            <label>Password:</label><input type='password' id='password'>
+        </div>
+    </body>
+</html>
