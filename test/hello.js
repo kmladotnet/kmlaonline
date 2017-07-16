@@ -4,9 +4,33 @@ var Hello = {
     // connection will store the active connection object so that it can be accessed later
     connection: null,
 
+    start_time: null,
+
     //log() function simply updates the logging area with a message
     log: function(msg){
         $('#log').append("<p>" + msg + "</p>");
+    },
+
+    send_ping: function (to){
+        var ping = $iq({
+            to: to,
+            type: "get",
+            id: "ping1"}).c("ping", {xmlns: "urn:xmpp:ping"});
+
+        Hello.log("Sending ping to " + to + ".");
+
+        Hello.start_time = (new Date()).getTime();
+
+        Hello.connection.send(ping);
+    },
+
+    handle_pong: function(iq){
+        var elapsed = (new Date()).getTime() - Hello.start_time;
+        Hello.log("Received pong from server in " + elapsed + "ms");
+
+        Hello.connection.disconnect();
+
+        return false;
     }
 };
 
@@ -56,6 +80,11 @@ $(document).bind('connect', function(ev, data){
 $(document).bind('connected', function(){
     // inform the user
     Hello.log("Connection established");
+
+    Hello.connection.addHandler(Hello.handle_pong, null, "iq", null, "ping1");
+
+    var domain = Strophe.getDomainFromJid(Hello.connection.jid);
+    Hello.send_ping(domain);
 });
 
 $(document).bind('disconnected', function(){
