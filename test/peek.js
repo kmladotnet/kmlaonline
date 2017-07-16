@@ -127,9 +127,45 @@ $(document).ready(function(){
     });
 });
 
+$(document).bind('connect', function(ev, data){
+    var conn = new Strophe.Connection('https://kmlaonline.net:5281/http-bind');
+
+    conn.xmlInput = function(body){
+        Peek.show_traffic(body, 'incoming');
+    };
+
+    conn.xmlOuput = function(body){
+        Peek.show_traffic(body, 'outgoing');
+    };
+
+    conn.connect(data.jid, data.password, function(status){
+        if(status === Strophe.Status.CONNECTED){
+            $(document).trigger('connected');
+        } else if (status === Strophe.Status.DISCONNECTED){
+            $(document).trigger('disconnected');
+        }
+    });
+    Peek.connection = conn;
+});
+
+$(document).bind('connected', function(){
+    $('.button').removeAttr('disabled');
+    $('#input').removeAttr('disabled').removeAttr('disabled');
+});
+
+$(document).bind('disconnected', function(){
+    $('.button').attr('disabled', 'disabled');
+    $('#input').addClass('disabled').attr('disabled', 'disabled');
+});
+
 $('#disconnect_button').click(function(){
     Peek.connection.disconnect();
 });
+
+$('#input').keypress(function(){
+    $(this).css({backgroundColor: "#fff"});
+});
+
 
 $('#send_button').click(function(){
 
@@ -161,39 +197,4 @@ $('#send_button').click(function(){
         }
     }
 
-});
-
-$('#input').keypress(function(){
-    $(this).css({backgroundColor: "#fff"});
-});
-
-$(document).bind('connect', function(ev, data){
-    var conn = new Strophe.Connection('https://kmlaonline.net:5281/http-bind');
-
-    conn.xmlInput = function(body){
-        Peek.show_traffic(body, 'incoming');
-    };
-
-    conn.xmlOuput = function(body){
-        Peek.show_traffic(body, 'outgoing');
-    };
-
-    conn.connect(data.jid, data.password, function(status){
-        if(status === Strophe.Status.CONNECTED){
-            $(document).trigger('connected');
-        } else if (status === Strophe.Status.DISCONNECTED){
-            $(document).trigger('disconnected');
-        }
-    });
-    Peek.connection = conn;
-});
-
-$(document).bind('connected', function(){
-    $('.button').removeAttr('disabled');
-    $('#input').removeAttr('disabled').removeAttr('disabled');
-});
-
-$(document).bind('disconnected', function(){
-    $('.button').attr('disabled', 'disabled');
-    $('#input').addClass('disabled').attr('disabled', 'disabled');
 });
