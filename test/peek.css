@@ -1,0 +1,47 @@
+body {
+    font-family: Helvetica;
+}
+
+h1 {
+    text-align: center;
+}
+
+#console {
+    padding: 10px;
+    height: 300px;
+    border: solid 1px #aaa;
+
+    background-color: #000;
+    color: #eee;
+    font-family: monospace;
+
+    overflow: auto;
+}
+
+#input {
+    width: 100%;
+    height: 100px;
+    font-family: monospace;
+}
+
+.incoming {
+    background-color: #bbb;
+}
+
+textarea.disabled {
+    background-color: #bbb;
+}
+
+#buttonbar {
+    margin: 10px;
+}
+
+#disconnect_button {
+    float: left;
+    width: 100px;
+}
+
+#send_button {
+    float: right;
+    width: 100px;
+}
