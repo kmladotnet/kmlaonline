@@ -158,16 +158,16 @@ $(document).bind('disconnected', function(){
     $('#input').addClass('disabled').attr('disabled', 'disabled');
 });
 
-$('#disconnect_button').click(function(){
+$(document).on("click", "#disconnect_button", function(){
     Peek.connection.disconnect();
 });
 
-$('#input').keypress(function(){
+
+$(document).on("keypress", "#input", function(){
     $(this).css({backgroundColor: "#fff"});
 });
 
-
-$('#send_button').click(function(){
+$(document).on("click", "#input", function(){
 
     var input = $('#input').val();
     var error = false;
