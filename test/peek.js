@@ -56,7 +56,7 @@ var Peek = {
             }
         }
 
-        if（xml.childNodes.length === 0 ) {
+        if(xml.childNodes.length === 0 ) {
             result.push("<span class='xml_punc'>/&gt;</span></div>");
         } else {
             result.push("<span class='xml_punc'>&gt;</span></div>");
