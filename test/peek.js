@@ -80,6 +80,30 @@ var Peek = {
         }
 
         return result.join("");
+    },
+
+    text_to_xml: function (text){
+        var doc = null;
+        if (window['DOMParser']) {
+            var parser = new DOMParser();
+            doc = parser.parseFromString(text, 'text/xml');
+        } else if (window['ActiveXObject']) {
+            var doc = new ActiveXObject("MSXML2.DOMDocument");
+            doc.async = false;
+            doc.loadXML(text);
+        } else {
+            throw {
+                type: 'PeekError',
+                message: 'No DOMParser object found'
+            };
+        }
+
+        var elem = doc.documentElement;
+        if ($(elem).filter('parsererror').length > 0) {
+            return null;
+        }
+
+        return elem;
     }
 };
 
@@ -107,6 +131,19 @@ $('#disconnect_button').click(function(){
     Peek.connection.disconnect();
 });
 
+$('#send_button').click(function(){
+    var xml = Peek.text_to_xml($('#input').val());
+    if (xml) {
+        Peek.connection.send(xml);
+        $('#input').val('');
+    } else {
+        $('#input').animate({backgroundColor: "#faa"}, 200);
+    }
+});
+
+$('#input').keypress(function(){
+    $(this).css({backgroundColor: "#fff"});
+});
 
 $(document).bind('connect', function(ev, data){
     var conn = new Strophe.Connection('https://kmlaonline.net:5281/http-bind');
@@ -130,9 +167,11 @@ $(document).bind('connect', function(ev, data){
 });
 
 $(document).bind('connected', function(){
-    $('#disconnect_button').removeAttr('disabled');
+    $('.button').removeAttr('disabled');
+    $('#input').removeAttr('disabled').removeAttr('disabled');
 });
 
 $(document).bind('disconnected', function(){
-    $('#disconnect_button').attr('disabled', 'disabled');
+    $('.button').attr('disabled', 'disabled');
+    $('#input').addClass('disabled').attr('disabled', 'disabled');
 });
