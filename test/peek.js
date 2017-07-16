@@ -132,13 +132,35 @@ $('#disconnect_button').click(function(){
 });
 
 $('#send_button').click(function(){
-    var xml = Peek.text_to_xml($('#input').val());
-    if (xml) {
-        Peek.connection.send(xml);
-        $('#input').val('');
-    } else {
-        $('#input').animate({backgroundColor: "#faa"}, 200);
+
+    var input = $('#input').val();
+    var error = false;
+    if(input.length > 0) {
+        if(input[0] === '<'){
+            var xml = Peek.text_to_xml($('#input').val());
+            if (xml) {
+                Peek.connection.send(xml);
+                $('#input').val('');
+            } else {
+                error = true;
+            }
+        } else if (input[0] === '$') {
+            try {
+                var builder = eval(input);
+                Peek.connection.send(builder);
+                $('#input').val('');
+            } catch(e) {
+                error = true;
+            }
+        } else {
+            error = true
+        }
+
+        if (error) {
+            $('#input').animate({backgroundColor: "#faa"});
+        }
     }
+
 });
 
 $('#input').keypress(function(){
