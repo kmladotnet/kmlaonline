@@ -71,7 +71,7 @@ var Peek = {
                 }
             });
 
-            result.push("div class='xml xml_level" + level + "'>");
+            result.push("<div class='xml xml_level" + level + "'>");
             result.push("<span class='xml_punc'>&lt;/</span>");
             result.push("<span class='xml_tag'>");
             result.push(xml.tagName);
