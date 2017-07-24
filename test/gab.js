@@ -1,5 +1,8 @@
 var Gab = {
     connection: null,
+
+    pending_subscriber: null,
+
     on_roster: function(iq){
         $(iq).find('item').each(function(){
             var jid = $(this).attr('jid');
@@ -22,11 +25,49 @@ var Gab = {
             Gab.connection.send($pres());
         });
     },
+
+    on_roster_changed: function(iq){
+        $(iq).find('item').each(function(){
+            var sub = $(this).attr('subscription');
+            var jid = $(this).attr('jid');
+            var name = $(this).attr('name');
+            var jid_id = Gab.jid_to_id(jid);
+
+            if(sub === 'remove'){
+                //contact is being removed
+                $('#' + jid_id).remove();
+            } else {
+                //contact is being added or modified
+                var contact_html = "<li id='" + jid_id + "'>" +
+                    "<div class'" + ($('#' + jid_id).attr('class') || "roster-contact offline") +
+                    "'>" +
+                    "<div class='roster-name'>" +
+                    name +
+                    "</div><div class='roster-jid'>" +
+                    jid +
+                    "</div></div></li>";
+
+                    if($('#' + jid_id).length > 0){
+                        $('#' + jid_id).replaceWith(contact_html);
+                    } else {
+                        Gab.insert_contact(contact_html);
+                    }
+            }
+        });
+        return true;
+    },
+
     on_presence: function(presence){
         var ptype = $(presence).attr('type');
         var from = $(presence).attr('from');
+        if(ptype === 'subscribe'){
+            //populate pending_subscriber, the approve-jid span, and
+            //open the dialog
 
-        if(ptype !== 'error'){
+            Gab.pending_subscriber = from;
+            $("#approve-jid").text(Strophe.getBareJidFromJid(from));
+            $("approve-dialog").dialoge('open');
+        } else if(ptype !== 'error'){
             var contact = $('#roster-area li#' + Gab.jid_to_id(from))
                 .removeClass("online")
                 .removeClass("away")
@@ -115,6 +156,61 @@ $(document).ready(function(){
             }
         }
     });
+
+    $('#contact_dialog').dialog({
+        autoOpen: false,
+        draggable: false,
+        modal: true,
+        title: "Add a Contact",
+        buttons: {
+            "Add": function() {
+                $(document).trigger('contact-added', {
+                    jid: $("#contact-jid").val(),
+                    name: $("#contact-name").val()
+                });
+
+                $('#contact-jid').val('');
+                $('#contact-name').val('');
+
+                $(this).dialog('close');
+            }
+        }
+    });
+
+    $('#new-contact').click(function (en) {
+        $('#contact_dialog').dialog('open');
+    });
+
+    $('#approve-dialog').dialog({
+        autoOpen: false,
+        draggable: false,
+        modal: true,
+        title: "Subscription Request",
+        buttons: {
+            "Deny": function() {
+                Gab.connection.send($pres({
+                    to: Gab.pending_subscriber,
+                    type: "unsubscribed"}));
+                Gab.pending_subscriber = null;
+
+                $(this).dialog('close');
+            },
+
+            "Approve": function(){
+                Gab.connection.send($pres({
+                    to: Gab.pending_subscriber,
+                    type: "subscribed"}));
+                //Make sure that the connection is bi-directional
+                Gab.connection.send($pres({
+                    to: Gab.pending_subscriber,
+                    type: "subscribe"}));
+
+                Gab.pending_subscriber = null;
+
+                $(this).dialog('close');
+            }
+        }
+    });
 });
 
 $(document).bind('connect', function(en, data){
@@ -134,8 +230,19 @@ $(document).bind('connected', function(){
     //Retrieve the roster
     var iq = $iq({type: 'get'}).c('query', {xmlns: 'jabber:iq:roster'});
     Gab.connection.sendIQ(iq, Gab.on_roster);
+
+    Gab.connection.addHandler(Gab.on_roster_changed, "jabber:iq:roster", "iq", "set");
 });
 
 $(document).bind('disconnected', function(){
     //Nothing here yet
+});
+
+$(document).bind('contact_added', function(ev, data){
+    var iq = $iq({type: 'set'}).c('query', {xmlns: 'jabber:iq:roster'})
+                .c("item", data);
+    Gab.connection.sendIQ(iq);
+
+    var subscribe = $pres({to: data.jid, type: "subscribe"});
+    Gab.connection.send(subscribe);
 });
