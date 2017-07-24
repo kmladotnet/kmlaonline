@@ -35,8 +35,7 @@ var Gab = {
         var ptype = $(presence).attr('type');
         var from = $(presence).attr('from');
         if(ptype === 'subscribe'){
-            //populate pending_subscriber, the approve-jid span, and
-            //open the dialog
+            //populate pending_subscriber, the approve-jid span, and open the dialog
 
             Gab.pending_subscriber = from;
             $("#approve-jid").text(Strophe.getBareJidFromJid(from));
@@ -166,7 +165,7 @@ $(document).ready(function(){
         modal: true,
         title: "Add a Contact",
         buttons: {
-            "Add": function() {
+            'Add': function() {
                 $(document).trigger('contact_added', {
                     jid: $("#contact-jid").val(),
                     name: $("#contact-name").val()
@@ -244,8 +243,10 @@ $(document).bind('disconnected', function(){
 $(document).bind('contact_added', function(ev, data){
     var iq = $iq({type: 'set'}).c('query', {xmlns: 'jabber:iq:roster'})
                 .c("item", data);
+    console.log(iq);
     Gab.connection.sendIQ(iq);
 
     var subscribe = $pres({to: data.jid, "type": "subscribe"});
+    console.log(subscribe);
     Gab.connection.send(subscribe);
 });
