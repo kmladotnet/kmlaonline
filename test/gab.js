@@ -69,7 +69,7 @@ var Gab = {
         $(iq).find('item').each(function(){
             var sub = $(this).attr('subscription');
             var jid = $(this).attr('jid');
-            var name = $(this).attr('name');
+            var name = $(this).attr('name') || jid;
             var jid_id = Gab.jid_to_id(jid);
 
             if(sub === 'remove'){
@@ -106,6 +106,7 @@ var Gab = {
 
         return 0;
     },
+
     insert_contact: function(elem){
         var jid = elem.find('.roster-jid').text();
         var pres = Gab.presence_value(elem.find('.roster-contact'));
@@ -166,7 +167,7 @@ $(document).ready(function(){
         title: "Add a Contact",
         buttons: {
             "Add": function() {
-                $(document).trigger('contact-added', {
+                $(document).trigger('contact_added', {
                     jid: $("#contact-jid").val(),
                     name: $("#contact-name").val()
                 });
@@ -179,7 +180,7 @@ $(document).ready(function(){
         }
     });
 
-    $('#new-contact').click(function (en) {
+    $('#new-contact').click(function (ev) {
         $('#contact_dialog').dialog('open');
     });
 
@@ -215,7 +216,7 @@ $(document).ready(function(){
     });
 });
 
-$(document).bind('connect', function(en, data){
+$(document).bind('connect', function(ev, data){
     var conn = new Strophe.Connection('https://kmlaonline.net:5281/http-bind');
     conn.connect(data.jid, data.password, function(status){
         if(status === Stophe.Connection.CONNECTED) {
