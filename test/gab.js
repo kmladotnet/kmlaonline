@@ -40,7 +40,7 @@ var Gab = {
 
             Gab.pending_subscriber = from;
             $("#approve-jid").text(Strophe.getBareJidFromJid(from));
-            $("#approve-dialog").dialog('open');
+            $("#approve_dialog").dialog('open');
         } else if(ptype !== 'error'){
             var contact = $('#roster-area li#' + Gab.jid_to_id(from))
                 .removeClass("online")
@@ -179,11 +179,11 @@ $(document).ready(function(){
         }
     });
 
-    $('#new-contact').click(function (en) {
+    $('#new_contact').click(function (en) {
         $('#contact_dialog').dialog('open');
     });
 
-    $('#approve-dialog').dialog({
+    $('#approve_dialog').dialog({
         autoOpen: false,
         draggable: false,
         modal: true,
