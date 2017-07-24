@@ -23,11 +23,10 @@ var Gab = {
                             "</div></div></li>");
 
             Gab.insert_contact(contact);
-
-            // Set up presence handler and send initial presence
-            Gab.connection.addHandler(Gab.on_presence, null, "presence");
-            Gab.connection.send($pres());
         });
+        // Set up presence handler and send initial presence
+        Gab.connection.addHandler(Gab.on_presence, null, "presence");
+        Gab.connection.send($pres());
     },
 
     pending_subscriber: null,
