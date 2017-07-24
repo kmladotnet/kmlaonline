@@ -1,7 +1,11 @@
 var Gab = {
     connection: null,
 
-    pending_subscriber: null,
+    jid_to_id: function(jid){
+        return Strophe.getBareJidFromJid(jid)
+                .replace("@", "-")
+                .replace(".", "-");
+    },
 
     on_roster: function(iq){
         $(iq).find('item').each(function(){
@@ -24,6 +28,42 @@ var Gab = {
             Gab.connection.addHandler(Gab.on_presence, null, "presence");
             Gab.connection.send($pres());
         });
+    },
+
+    pending_subscriber: null,
+
+    on_presence: function(presence){
+        var ptype = $(presence).attr('type');
+        var from = $(presence).attr('from');
+        if(ptype === 'subscribe'){
+            //populate pending_subscriber, the approve-jid span, and
+            //open the dialog
+
+            Gab.pending_subscriber = from;
+            $("#approve-jid").text(Strophe.getBareJidFromJid(from));
+            $("#approve-dialog").dialog('open');
+        } else if(ptype !== 'error'){
+            var contact = $('#roster-area li#' + Gab.jid_to_id(from))
+                .removeClass("online")
+                .removeClass("away")
+                .removeClass("offline");
+            if(ptype === 'unavailable') {
+                contact.addClass('offline');
+            } else {
+                var show = $(presence).find("show").text();
+                if (show === "" || show === "chat") {
+                    contact.addClass("online");
+                } else {
+                    contact.addClass("away");
+                }
+            }
+
+            var li = contact.parent();
+            li.remove();
+            Gab.insert_contact(li);
+        }
+
+        return true;
     },
 
     on_roster_changed: function(iq){
@@ -57,44 +97,7 @@ var Gab = {
         return true;
     },
 
-    on_presence: function(presence){
-        var ptype = $(presence).attr('type');
-        var from = $(presence).attr('from');
-        if(ptype === 'subscribe'){
-            //populate pending_subscriber, the approve-jid span, and
-            //open the dialog
 
-            Gab.pending_subscriber = from;
-            $("#approve-jid").text(Strophe.getBareJidFromJid(from));
-            $("approve-dialog").dialoge('open');
-        } else if(ptype !== 'error'){
-            var contact = $('#roster-area li#' + Gab.jid_to_id(from))
-                .removeClass("online")
-                .removeClass("away")
-                .removeClass("offline");
-            if(ptype === 'unavailable') {
-                contact.addClass('offline');
-            } else {
-                var show = $(presence).find("show").text();
-                if (show === "" || show === "chat") {
-                    contact.addClass("online");
-                } else {
-                    contact.addClass("away");
-                }
-            }
-
-            var li = contact.parent();
-            li.remove();
-            Gab.insert_contact(li);
-        }
-
-        return true;
-    },
-    jid_to_id: function(jid){
-        return Strophe.getBareJidFromJid(jid)
-                .replace("@", "-")
-                .replace(".", "-");
-    },
     presence_value: function(elem){
         if(elem.hasClass('online')) {
             return 2;
