@@ -179,7 +179,7 @@ $(document).ready(function(){
         }
     });
 
-    $('#new_contact').click(function (en) {
+    $('#new-contact').click(function (en) {
         $('#contact_dialog').dialog('open');
     });
 
