@@ -193,7 +193,7 @@ $(document).ready(function(){
             "Deny": function() {
                 Gab.connection.send($pres({
                     to: Gab.pending_subscriber,
-                    type: "unsubscribed"}));
+                    "type": "unsubscribed"}));
                 Gab.pending_subscriber = null;
 
                 $(this).dialog('close');
@@ -202,11 +202,11 @@ $(document).ready(function(){
             "Approve": function(){
                 Gab.connection.send($pres({
                     to: Gab.pending_subscriber,
-                    type: "subscribed"}));
+                    "type": "subscribed"}));
                 //Make sure that the connection is bi-directional
                 Gab.connection.send($pres({
                     to: Gab.pending_subscriber,
-                    type: "subscribe"}));
+                    "type": "subscribe"}));
 
                 Gab.pending_subscriber = null;
 
@@ -246,6 +246,6 @@ $(document).bind('contact_added', function(ev, data){
                 .c("item", data);
     Gab.connection.sendIQ(iq);
 
-    var subscribe = $pres({to: data.jid, type: "subscribe"});
+    var subscribe = $pres({to: data.jid, "type": "subscribe"});
     Gab.connection.send(subscribe);
 });
