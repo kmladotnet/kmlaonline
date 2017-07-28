@@ -2,9 +2,13 @@
 require('korean.php');
 
 $pdf = new PDF_Korean();
-$pdf->AddUHChwFont();
+
+$pdf->AddUHCFont('ëª…ì¡°');
+$pdf->Open();
 $pdf->AddPage();
-$pdf->SetFont('UHC-hw','',18);
-$pdf->Write(8,'PHP 3.0Àº 1998³â 6¿ù¿¡ °ø½ÄÀûÀ¸·Î ¸±¸®ÁîµÇ¾ú´Ù. °ø°³ÀûÀÎ Å×½ºÆ® ÀÌÈÄ¾à 9°³¿ù¸¸ÀÌ¾ú´Ù.');
+
+$pdf->SetFont('ëª…ì¡°','',18);
+$pdf->Write(8,'PHP 3.0ì€ 1998ë…„ 6ì›”ì— ê³µì‹ì ìœ¼ë¡œ ë¦´ë¦¬ì¦ˆë˜ì—ˆë‹¤. ê³µê°œì ì¸ í…ŒìŠ¤íŠ¸ ì´í›„ì•½ 9ê°œì›”ë§Œì´ì—ˆë‹¤.');
+
 $pdf->Output();
 ?>
