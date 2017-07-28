@@ -4,7 +4,7 @@ require('korean.php');
 $pdf = new PDF_Korean();
 
 $pdf->AddUHCFont('명조');
-$pdf->Open();
+//$pdf->Open();
 $pdf->AddPage();
 
 $pdf->SetFont('명조','',18);
