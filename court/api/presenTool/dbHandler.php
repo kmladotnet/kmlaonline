@@ -75,7 +75,7 @@ class DbHandler {
             }
             $msg = "성공적으로 로그아웃 되었습니다.";
         } else {
-            $msg = "로그인되어 있지 않습니다."
+            $msg = "로그인되어 있지 않습니다.";
         }
 
         return $msg;
