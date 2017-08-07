@@ -40,7 +40,7 @@ $app->post('/login', function() use ($app){
         }
     } else {
         $response['status'] = "error";
-        $response['message'] = "해당 ID가 존재하지 않습니다."
+        $response['message'] = "해당 ID가 존재하지 않습니다.";
     }
     echoResponse(200, $response);
 })
