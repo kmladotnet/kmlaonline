@@ -24,8 +24,8 @@ class DbHandler {
         foreach($column_names as $desired_key){
             if(!in_array($desired_key, $keys)) {
                 $$desired_key = '';
-            }else {
-                $$desired_key = $c[$desired_key]
+            } else {
+                $$desired_key = $c[$desired_key];
             }
             $columns = $columns.$desired_key.', ';
             $values = $values."'".$desired_key."',";
