@@ -43,7 +43,7 @@ $app->post('/login', function() use ($app){
         $response['message'] = "해당 ID가 존재하지 않습니다.";
     }
     echoResponse(200, $response);
-})
+});
 
 $app->get('/logout', function(){
     $db = new DbHandler();
@@ -51,5 +51,5 @@ $app->get('/logout', function(){
     $response['status'] = "info";
     $response['message'] = '성공적으로 로그아웃되었습니다.';
     echoResponse(200, $response);
-})
+});
 ?>
