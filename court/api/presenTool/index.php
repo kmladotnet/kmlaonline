@@ -4,7 +4,7 @@ require_once 'dbHandler.php';
 require_once 'passwordHash.php';
 require '.././libs/Slim/Slim.php';
 
-\Slim\Slim::registerAutoLoader();
+\Slim\Slim::registerAutoloader();
 
 $app = new \Slim\Slim();
 
