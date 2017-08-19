@@ -29,7 +29,7 @@
                 <?php if (isset($_SESSION['user'])) { ?>
                     <div class="userarea"><?php include "src/header/userarea.php"; ?></div>
                 <?php } ?>
-                <a id="back-to-main" href="./"></a><br />
+                <a id="back-to-main" href="board/all_announce/view/470237"></a><br />
             </div>
         <?php } ?>
 		<script type="text/javascript">prepareHeader();</script>
