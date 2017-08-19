@@ -51,7 +51,7 @@ if(!isset($_SESSION['user'])) {
 	}
 }
 
-if(!(isUserPermitted($me['n_id'], "judicial_council") || isUserPermitted($me['n_id'], "justice_department") || isUserPermitted($me['n_id'], "student_guide_department") || isUserPermitted($me['n_id'], "food_and_nutrition_department"))) {?>
+if(isset($type) && $type === "judicial" && !(isUserPermitted($me['n_id'], "judicial_council") || isUserPermitted($me['n_id'], "justice_department") || isUserPermitted($me['n_id'], "student_guide_department") || isUserPermitted($me['n_id'], "food_and_nutrition_department"))) {?>
 <script type="text/javascript">alert("현재 개발 중으로 허가 받은 사람만 접근 가능합니다.");location.href="/";</script>
 <?php
 }
