@@ -12,7 +12,7 @@ switch(isset($_GET['action']) ? $_GET['action'] : "main"){
         $fn = basename($_GET['action']);
         break;
 }
-if($type ==="judicial"){
+if(isset($type) && $type === "judicial"){
     if(!file_exists("judicial/content/$jd_type.php"))
         $fn = "404";
 } else if(!file_exists("src/content/$fn.php")) {
