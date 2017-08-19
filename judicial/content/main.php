@@ -40,8 +40,8 @@
                     <li><a href="#">이번 주 법정</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="../.."><span class="glyphicon glyphicon-home"></span> kmlaonline</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> 로그아웃</a></li>
+                    <li><a href="/"><span class="glyphicon glyphicon-home"></span> kmlaonline</a></li>
+                    <li><a href="/user/logout"><span class="glyphicon glyphicon-log-out"></span> 로그아웃</a></li>
                 </ul>
             </div>
         </div>
