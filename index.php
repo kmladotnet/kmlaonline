@@ -6,7 +6,8 @@ switch(isset($_GET['action']) ? $_GET['action'] : "main"){
         break;
     case "judicial":
         $type = "judicial";
-        $fn = $_GET['action_type'];
+        if(isset($_GET['action_type'])) $fn = $_GET['action_type'];
+        else $fn = "main";
         break;
 	default:
         $fn = basename($_GET['action']);
