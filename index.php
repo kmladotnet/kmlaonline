@@ -13,7 +13,7 @@ switch(isset($_GET['action']) ? $_GET['action'] : "main"){
         break;
 }
 if(isset($type) && $type === "judicial"){
-    if(!file_exists("judicial/content/$type.php"))
+    if(!file_exists("judicial/content/$fn.php"))
         $fn = "404";
 } else if(!file_exists("src/content/$fn.php")) {
     $fn = "404";
