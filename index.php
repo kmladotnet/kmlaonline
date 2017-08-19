@@ -8,6 +8,7 @@ switch(isset($_GET['action']) ? $_GET['action'] : "main"){
         $type = "judicial";
         $fn = $_GET['action_type'];
         echo "WOW";
+        return;
         break;
 	default:
         $fn = basename($_GET['action']);
