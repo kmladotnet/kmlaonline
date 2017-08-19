@@ -256,6 +256,10 @@ function printContent(){
 						"lectureroom_manager"=>"공동강의실 관리",
 						"karaoke_manager"=>"민교관 노래방 관리",
 						"kmlaboard_changer"=>"큼라보드 수정",
+						"judicial_council"=>"사법 위원회",
+						"justice_department"=>"법무부",
+						"student_guide_department"=>"선도부",
+						"food_and_nutrition_department"=>"식영부",
 					);
 					?>
 					<form method="post" action="/check" onsubmit="return saveAjax(this,'특별 권한 설정 중...');">
