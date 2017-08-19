@@ -5,13 +5,13 @@
     <title>온라인 사법부에 오신 것을 환영합니다.</title>
 
 
-    <link rel="stylesheet" type="text/css" href="src/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="src/dashboard.css">
+    <link rel="stylesheet" type="text/css" href="../src/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../src/dashboard.css">
 
-    <script type="text/javascript" src="src/jquery-3.2.1.js"></script>
-    <script type="text/javascript" src="src/bootstrap.js"></script>
-    <script type="text/javascript" src="src/angular.js"></script>
-    <script type="text/javascript" src="src/court.js"></script>
+    <script type="text/javascript" src="../src/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="../src/bootstrap.js"></script>
+    <script type="text/javascript" src="../src/angular.js"></script>
+    <script type="text/javascript" src="../src/court.js"></script>
 
 </head>
 <body ng-cloak="" ng-controller="courtCtrl">
