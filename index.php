@@ -4,14 +4,24 @@ switch(isset($_GET['action']) ? $_GET['action'] : "main"){
 	case "main":
         $fn = "main";
         break;
+    case "judicial":
+        $type = "judicial";
+        $fn = $_GET['action_type'];
+        break;
 	default:
         $fn = basename($_GET['action']);
         break;
 }
-if(!file_exists("src/content/$fn.php"))
+if($type ==="judicial"){
+    if(!file_exists("judicial/content/$jd_type.php"))
+        $fn = "404";
+} else if(!file_exists("src/content/$fn.php")) {
     $fn = "404";
+}
+
 include "src/lib.php";
-if($april_fools && !$is_mobile) {
+
+if(!isset($type) && $april_fools && !$is_mobile) {
     if(mt_rand(1, 47) == 5) {
         $april_link = $_SERVER["REQUEST_URI"];
         $fn = "aprilfools";
@@ -39,14 +49,17 @@ if(!isset($_SESSION['user'])) {
 }
 do {
 	$_fn = $fn;
-	include "src/content/$fn.php";
+	if(!isset($type)) include "src/content/$fn.php";
+    else if($type === "judicial") include "judicial/content/$fn.php";
 } while($_fn != $fn);
 session_write_close();
-if(isAjax()) {
-	require("index.ajax.php");
-} else {
-	if($is_mobile)
-		require("index.mobile.php");
-	else
-		require("index.direct.php");
+if(!isset($type)){
+    if(isAjax()) {
+    	require("index.ajax.php");
+    } else {
+    	if($is_mobile)
+    		require("index.mobile.php");
+    	else
+    		require("index.direct.php");
+    }
 }
