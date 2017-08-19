@@ -42,7 +42,9 @@ if(!isset($_SESSION['user'])) {
 				$_REQUEST['returnto'] = $_SERVER["REQUEST_URI"];
 				$_GET['sub'] = "login";
 		}
-	} else {
+	} else if(isset($type) && $type === "judicial"){
+        redirectLoginIfRequired();
+    } else {
 		$_REQUEST['returnto'] = $_SERVER["REQUEST_URI"];
 		$fn = $_GET['action'] = "user";
 		$_GET['sub'] = "login";
