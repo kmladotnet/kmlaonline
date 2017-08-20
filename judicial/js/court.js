@@ -1,6 +1,6 @@
 var app = angular.module("kmla_court", []);
 
-app.controller("courtCtrl", function($scope){
+app.controller("courtCtrl", ['$scope', '$http', '$templateCache', function($scope, $http, $templateCache){
     var articleList = [];
 
     $scope.articleList = articleList;
@@ -15,4 +15,21 @@ app.controller("courtCtrl", function($scope){
 
         console.log($scope.accused_date);
     };
-});
+
+    $scope.fetch = function() {
+        $scope.code = null;
+        $scope.response = null;
+
+
+        $http({
+            method: 'GET',
+            url: '/test/users.json'
+        }).then(function(response){
+            $scope.status = response.status;
+            $scope.data = response.data;
+        }, function(response){
+            $scope.data = response.data || 'Request failed';
+            $scope.status = response.status;
+        });
+    };
+}]);

@@ -108,6 +108,8 @@
                             </table>
                             <p>{{newArticle.grade.$valid}}</p>
                             <p>{{newArticle.name.$valid}}</p>
+                            <p>{{status}}</p>
+                            <p>{{data}}</p>
                         </form>
                     </div>
                     <button type="button" class="btn btn-info pull-right" ng-click="addNewArticle(accused_grade, accused_name, accused_date, accuser, accused_article, accused_point)">기소</button>
