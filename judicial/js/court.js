@@ -26,7 +26,7 @@ app.controller("courtCtrl", function($scope, $http){
 
             $http({
                 method: "GET",
-                url: "test/user.json"
+                url: "/test/user.json"
             }).then(function mySuccess(response){
                 $scope.status = response.statusText;
                 $scope.data = response.data;
