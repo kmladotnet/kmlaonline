@@ -1,0 +1,5 @@
+var test = {
+    "test": "you",
+    "name": "me",
+    "variety": 3
+}
