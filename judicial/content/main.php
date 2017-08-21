@@ -138,7 +138,7 @@
                                 <tbody>
                                     <tr>
                                         <td>
-                                            <div class="form-group has-feedback">
+                                            <div class="form-group">
                                             <tags-input type="text" class="form-control" ng-model="accused_name2" name="name2"></tags-input>
                                             </div>
                                         </td>
