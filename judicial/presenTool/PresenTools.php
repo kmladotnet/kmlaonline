@@ -8,7 +8,7 @@ function initializePresenTools($server, $id, $pw, $dbname, $force_renew=false){
         $db->close();
     }
 
-    global $board, $member, $db;
+    global $board, $member, $db, $article;
     $db=@new mysqli($server, $id, $pw, $dbname);
     /*$newdb=false;
     if($db->connect_error){
