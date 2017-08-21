@@ -135,9 +135,7 @@
                                 <tbody>
                                     <tr>
                                         <td>
-                                            <div class="form-group">
-                                                <tags-input type="text" class="form-control" ng-model="accused_name2" name="name2"></tags-input>
-                                            </div>
+                                            <tags-input type="text" ng-model="accused_name2" name="name2"></tags-input>
                                         </td>
                                         <td><input type="date" class="form-control" ng-model="accused_date2"></td>
                                         <td><input type="text" class="form-control" ng-model="accuser2"></td>
