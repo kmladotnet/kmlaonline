@@ -152,7 +152,7 @@
                     <br/>
 
                 </div>
-                <div>
+                <!--div>
                     <h2>지금까지 추가한 내용 <button type="button" class="btn btn-success pull-right">제출</button></h2>
                     <div class="table-responsive">
                         <table class="table table-striped">
@@ -178,7 +178,7 @@
                             </tbody>
                         </table>
                     </div>
-                </div>
+                </div-->
             </div>
         </div>
     </div>
