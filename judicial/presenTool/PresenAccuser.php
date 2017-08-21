@@ -22,7 +22,6 @@ class PresenAccuser{
         if($result = $this->db->query($query)){
             if($result->num_rows === 1){
                 $row = $result->fetch_assoc();
-                echo $row["a_id"];
                 return $row["a_id"];
             } else {
                 echo "ERROR[accuserName2Id] : MORE THAN 1 or NO RESULT";
