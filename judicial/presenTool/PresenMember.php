@@ -20,7 +20,7 @@ class PresenMember{
         if(!is_int($grade)) return false;
         $query = "SELECT n_id FROM " . $this->table_data . " WHERE "
                     . "grade = " . $grade . " and "
-                    . "name = " . $this->escape($name) . ";";
+                    . "name = '" . $this->escape($name) . "';";
         echo $query;
         if($result = $this->db->query($query) === true){
             if($result->num_rows === 1){
