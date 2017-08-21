@@ -29,6 +29,7 @@ function initializePresenTools($server, $id, $pw, $dbname, $force_renew=false){
     } */
     if($db->connect_error){
         echo "<b>Error occured when connecting db</b>";
+        return false;
     }
     $article=new PresenArticle($db);
     return $db;
