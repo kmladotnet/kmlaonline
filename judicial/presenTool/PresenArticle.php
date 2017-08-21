@@ -16,7 +16,7 @@ class PresenArticle{
 
     }
 
-    function addCourtAritlce($accused, $accused_date, $accuser, $article_kind, $status=0, $manager=317, $court_num=1){
+    function addCourtArticle($accused, $accused_date, $accuser, $article_kind, $status=0, $manager=317, $court_num=1){
         if(!is_int($accused) || !is_int($accuser) || !is_int($article_kind) || !is_int($status) || !is_int($manager) || !is_int($court_num)) return false;
         $query = "INSERT INTO `$this->table_data` (accused_id, accused_date, accuser_id, ak_id, status, manager_id, court_num) VALUES (" .
                 $accused . ", " .
