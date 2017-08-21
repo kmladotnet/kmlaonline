@@ -12,5 +12,7 @@
     array_push($final, $test);
     $test = array("text" => "강건");
     array_push($final, $test);
+    $test = array("text" => "김ㅅ김");
+    array_push($final, $test);
     echo json_encode($final);
 ?>
