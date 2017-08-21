@@ -9,11 +9,7 @@
     <link rel="stylesheet" type="text/css" href="css/dashboard.css">
     <link rel="stylesheet" type="text/css" href="css/ng-tags-input.css">
     <link rel="stylesheet" type="text/css" href="css/ng-tags-input.bootstrap.css">
-    <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
-    <script type="text/javascript" src="js/bootstrap.js"></script>
-    <script type="text/javascript" src="js/angular.js"></script>
-    <script type="text/javascript" src="js/ng-tags-input.js"></script>
-    <script type="text/javascript" src="js/court.js"></script>
+
 
 
 </head>
@@ -186,5 +182,11 @@
             </div>
         </div>
     </div>
+
+    <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/angular.js"></script>
+    <script type="text/javascript" src="js/ng-tags-input.js"></script>
+    <script type="text/javascript" src="js/court.js"></script>
 </body>
 </html>
