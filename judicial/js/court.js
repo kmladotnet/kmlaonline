@@ -27,7 +27,7 @@ app.controller("courtCtrl", function($scope, $http){
             }).then(function mySuccess(response){
                 $scope.status = response.data;
             }, function myError(response){
-                $scope.status = response || "Request failed";
+                $scope.status = "Request failed";
             });
             return false;
         };
