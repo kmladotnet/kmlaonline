@@ -1,12 +1,12 @@
 [
-  { "id": 1, "name": "Tag1" },
-  { "id": 2, "name": "Tag2" },
-  { "id": 3, "name": "Tag3" },
-  { "id": 4, "name": "Tag4" },
-  { "id": 5, "name": "Tag5" },
-  { "id": 6, "name": "Tag6" },
-  { "id": 7, "name": "Tag7" },
-  { "id": 8, "name": "Tag8" },
-  { "id": 9, "name": "Tag9" },
-  { "id": 10, "name": "Tag10" }
+  { "text": "Tag1" },
+  { "text": "Tag2" },
+  { "text": "Tag3" },
+  { "text": "Tag4" },
+  { "text": "Tag5" },
+  { "text": "Tag6" },
+  { "text": "Tag7" },
+  { "text": "Tag8" },
+  { "text": "Tag9" },
+  { "text": "Tag10" }
 ]
