@@ -25,14 +25,13 @@ function getAllArticles(){
     if($raw = $article->getAllRawArticles()){
         $result = array();
         while($row = $raw->fetch_assoc()){
+            echo json_encode($row);
             $temp_grade = $member->courtId2GradeName($row['accused_id'])['grade'];
             $temp_name = $member->courtId2GradeName($row['accused_id'])['name'];
             $temp_accuser = $accuser->accuserId2Name($row['accuser_id']);
             $temp_article = $article_kind->articleId2Desc($row['ak_id']);
             $temp_point = $article_kind->articleId2Point($row['ak_id']);
-            echo "$row['accused_id'] $temp_grade";
-            echo "$row['accuser_id'] $temp_name ";
-            echo "$temp_accuser ";
+
             $temp = array('grade' => $temp_grade,
                     'name' => $temp_name,
                     'accused_date' => $row['accused_date'],
