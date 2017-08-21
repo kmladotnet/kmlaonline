@@ -29,5 +29,5 @@ function initializePresenTools($server, $id, $pw, $dbname, $force_renew=false){
     } */
     $article=new PresenArticle($db);
     return $db;
-}
+};
 ?>
