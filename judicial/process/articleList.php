@@ -1,4 +1,7 @@
 <?php
     include("../lib.php");
-    echo $article->getAllRawArticles();
+    $temp = $article->getAllRawArticles();
+    while($row = $temp->fetch_assoc()){
+        echo $row['accuser_id'] . "<br/>";
+    }
 ?>
