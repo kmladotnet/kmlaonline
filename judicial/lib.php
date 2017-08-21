@@ -23,7 +23,7 @@ function createNewArticle($grade, $accused_name, $accuser_name, $article_kind_na
 function getAllArticles(){
     global $member, $accuser, $article_kind, $article;
     if($raw = $article->getAllRawArticles()){
-        $result = array();
+        $result = [];
         while($row = $raw->fetch_assoc()){
             $result.push(
                 array('grade' => $member->courtId2GradeName($row['accused_id'])['grade'],
