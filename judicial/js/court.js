@@ -17,16 +17,19 @@ app.controller("courtCtrl", function($scope, $http){
                 }
             };
 
-            $http.post('process/accuse.php', temp_data, config)
-            .success(function (data, status, headers, config){
-                $scope.PostDataResponse = data;
-            })
-            .error(function(data, status, header, config){
-                $scope.ResponseDetails = "Data: " + data +
-                    "<hr />status: " + status +
-                    "<hr />headers: " + header +
-                    "<hr />config: " + config;
+            $http({
+                method: 'POST',
+                url: 'process/accuse.php',
+                data: temp_data,
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+                }
+            }).success(function(response){
+                $scope.status = response.data;
+            }).error(function(response){
+                $scope.status = response || "Request failed";
             });
+            return false;
         };
 
         $scope.addNewArticle = function(_grade, _name, _accuse_date, _accuser, _article, _point){
