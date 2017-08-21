@@ -2,6 +2,7 @@
 require_once(dirname(__FILE__)."/PresenArticle.php");
 require_once(dirname(__FILE__)."/PresenMember.php");
 require_once(dirname(__FILE__)."/PresenAccuser.php");
+require_once(dirname(__FILE__)."/PresenArticleKind.php");
 function initializePresenTools($server, $id, $pw, $dbname, $force_renew=false){
 
     if($force_renew){
@@ -10,7 +11,7 @@ function initializePresenTools($server, $id, $pw, $dbname, $force_renew=false){
         $db->close();
     }
 
-    global $board, $member, $db, $article, $accuser;
+    global $article_kind, $member, $db, $article, $accuser;
     $db=@new mysqli($server, $id, $pw, $dbname);
     /*$newdb=false;
     if($db->connect_error){
@@ -36,6 +37,7 @@ function initializePresenTools($server, $id, $pw, $dbname, $force_renew=false){
     $article = new PresenArticle($db);
     $member = new PresenMember($db);
     $accuser = new PresenAccuser($db);
+    $article_kind = new PresenAccuser($article_kind);
     return $db;
 };
 ?>
