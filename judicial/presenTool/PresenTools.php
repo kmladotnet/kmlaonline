@@ -37,7 +37,7 @@ function initializePresenTools($server, $id, $pw, $dbname, $force_renew=false){
     $article = new PresenArticle($db);
     $member = new PresenMember($db);
     $accuser = new PresenAccuser($db);
-    $article_kind = new PresenArticleKind($article_kind);
+    $article_kind = new PresenArticleKind($db);
     return $db;
 };
 ?>
