@@ -71,7 +71,7 @@
             </div>
             <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
                 <div>
-                    <h2>지금까지 추가한 내용 <button type="button" class="btn btn-success pull-right" onclick="fetch()">보기</button></h2>
+                    <h2>지금까지 추가한 내용 <button type="button" class="btn btn-success pull-right" ng-click="fetch()">보기</button></h2>
                     <div class="table-responsive">
                         <table class="table table-striped">
                             <thead>
