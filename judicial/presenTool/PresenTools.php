@@ -1,5 +1,6 @@
 <?php
 require_once(dirname(__FILE__)."/PresenArticle.php");
+require_once(dirname(__FILE__)."/PresenMember.php");
 function initializePresenTools($server, $id, $pw, $dbname, $force_renew=false){
 
     if($force_renew){
