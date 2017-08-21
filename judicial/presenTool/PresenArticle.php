@@ -43,7 +43,7 @@ class PresenArticle{
 
     function getAllRawArticles(){
         $query = "SELECT * FROM " . $this->table_data . ";";
-        if($result = $this->db->query($query) === true) {
+        if($result = $this->db->query($query)) {
             return $result;
         } else {
             echo "ERROR[getAllRawArticles] : sql query wrong!!";
