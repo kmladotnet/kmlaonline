@@ -25,14 +25,13 @@ function getAllArticles(){
     if($raw = $article->getAllRawArticles()){
         $result = array();
         while($row = $raw->fetch_assoc()){
-            echo json_encode($member->courtId2GradeName($row['accused_id']));
-            //$temp_grade = $member->courtId2GradeName($row['accused_id'])['grade'];
-            //$temp_name = $member->courtId2GradeName($row['accused_id'])['name'];
-            //$temp_accuser = $accuser->accuserId2Name($row['accuser_id']);
-            //$temp_article = $article_kind->articleId2Desc($row['ak_id']);
-            //$temp_point = $article_kind->articleId2Point($row['ak_id']);
+            $temp_grade = $member->courtId2GradeName((int) $row['accused_id'])['grade'];
+            $temp_name = $member->courtId2GradeName((int) $row['accused_id'])['name'];
+            $temp_accuser = $accuser->accuserId2Name((int) $row['accuser_id']);
+            $temp_article = $article_kind->articleId2Desc((int) $row['ak_id']);
+            $temp_point = $article_kind->articleId2Point((int) $row['ak_id']);
 
-            /*$temp = array('grade' => $temp_grade,
+            $temp = array('grade' => $temp_grade,
                     'name' => $temp_name,
                     'accused_date' => $row['accused_date'],
                     'accuser' => $temp_accuser,
@@ -40,8 +39,7 @@ function getAllArticles(){
                     'point' => $temp_point);
             array_push($result, $temp);
         }
-        return json_encode($result); */
-        }
+        return json_encode($result);
     } else {
         echo "ERROR OCCURED - getAllArticles";
     }
