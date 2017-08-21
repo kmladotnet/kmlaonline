@@ -66,3 +66,7 @@ app.controller("courtCtrl", function($scope, $http){
             });
         };
 });
+
+app.controller("listCtrl", function($scope, $http){
+
+});

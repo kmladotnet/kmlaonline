@@ -11,10 +11,10 @@
     <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
     <script type="text/javascript" src="js/angular.js"></script>
-    <script type="text/javascript" src="js/court_list.js"></script>
+    <script type="text/javascript" src="js/court.js"></script>
 
 </head>
-<body ng-cloak="" ng-controller="courtCtrl">
+<body ng-cloak="" ng-controller="listCtrl">
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
