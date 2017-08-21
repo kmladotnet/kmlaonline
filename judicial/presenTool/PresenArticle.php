@@ -41,5 +41,15 @@ class PresenArticle{
         }
     }
 
+    function getAllRawArticles(){
+        $query = "SELECT * FROM " . $this->table . ";";
+        if($result = $this->db->query($query) === true) {
+            return $result;
+        } else {
+            echo "ERROR[getAllRawArticles] : sql query wrong!!";
+            return false;
+        }
+    }
+
 }
 ?>
