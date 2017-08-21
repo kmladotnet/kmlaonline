@@ -25,14 +25,14 @@ function getAllArticles(){
     if($raw = $article->getAllRawArticles()){
         $result = array();
         while($row = $raw->fetch_assoc()){
-            $result.array_push(
-                array('grade' => $member->courtId2GradeName($row['accused_id'])['grade'],
+            $temp = array('grade' => $member->courtId2GradeName($row['accused_id'])['grade'],
                     'name' => $member->courtId2GradeName($row['accused_id'])['name'],
                     'accused_date' => $row['accused_date'],
                     'accuser' => $accuser->accuserId2Name($row['accuser_id']),
                     'article' => $article_kind->articleId2Desc($row['ak_id']),
                     'point' => $article_kind->articleId2Point($row['ak_id'])
-                ));
+                );
+            array_push($result, $temp);
         }
         return json_encode($result);
     } else {
