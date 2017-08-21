@@ -114,7 +114,7 @@
                             <p>{{ResponseDetails}}</p>
                         </form>
                     </div>
-                    <button type="button" class="btn btn-default pull-right" ng-click="submitNewArticle()">테스트</button>
+                    <button type="button" class="btn btn-default pull-right" ng-click="submitNewArticle(accused_grade, accused_name, accused_date, accuser, accused_article, accused_point)">테스트</button>
                     <button type="button" class="btn btn-info pull-right" ng-click="addNewArticle(accused_grade, accused_name, accused_date, accuser, accused_article, accused_point)">기소</button>
                     <br/>
 
