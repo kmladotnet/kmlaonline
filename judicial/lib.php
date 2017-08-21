@@ -24,7 +24,7 @@ function getAllArticles(){
     global $member, $accuser, $article_kind, $article;
     if($raw = $article->getAllRawArticles()){
         $result = array();
-        while($row = $temp->fetch_assoc()){
+        while($row = $raw->fetch_assoc()){
             $result.push(
                 array('grade' => $member->courtId2GradeName($row['accused_id'])['grade'],
                     'name' => $member->courtId2GradeName($row['accused_id'])['name'],
