@@ -9,7 +9,7 @@ function createNewArticle($grade, $accused_name, $accuser_name, $article_kind_na
         && ($accuser_id = $accuser->accuserName2Id($accuser_name)) && ($article_kind_id = $article_kind->articleDesc2Id($article_kind_name))){
         echo $member->gradeName2CourtId($grade, $accused_name) . "<br />";
         echo " $accused_id $accuser_id $article_kind_id $accuse_date";
-        if($article->addCourtArticle($accused_id, $accuse_date, $accuser_id, $article_kind_id)) echo "OKAY";
+        if($article->addCourtArticle((int) $accused_id, $accuse_date, (int) $accuser_id, (int) $article_kind_id)) echo "OKAY";
         else echo "NOT OKAY";
     }
     else echo "ERROR OCCURED";
