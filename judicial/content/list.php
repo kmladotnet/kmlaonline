@@ -73,7 +73,7 @@
                 <div>
                     <h2>지금까지 추가한 내용 <button type="button" class="btn btn-success pull-right" ng-click="fetch()">보기</button></h2>
                     <div class="table-responsive">
-                        <table class="table table-striped" align="center">
+                        <table class="table table-striped">
                             <thead>
                                 <tr>
                                     <th class="col-md-1">학년</th>
@@ -84,7 +84,7 @@
                                     <th class="col-md-1">벌점</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody align="center">
                                 <tr ng-repeat="list in articleList">
                                     <td>{{list.grade}}</td>
                                     <td>{{list.name}}</td>
