@@ -30,6 +30,9 @@ function getAllArticles(){
             $temp_accuser = $accuser->accuserId2Name($row['accuser_id']);
             $temp_article = $article_kind->articleId2Desc($row['ak_id']);
             $temp_point = $article_kind->articleId2Point($row['ak_id']);
+            echo $temp_grade;
+            echo $temp_name;
+            echo $temp_accuser;
             $temp = array('grade' => $temp_grade,
                     'name' => $temp_name,
                     'accused_date' => $row['accused_date'],
