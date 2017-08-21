@@ -22,7 +22,7 @@ class PresenMember{
                     . "grade = " . $grade . " and "
                     . "name = '" . $this->escape($name) . "';";
         echo $query;
-        if($result = $this->db->query($query) === true){
+        if($result = $this->db->query($query)){
             if($result->num_rows === 1){
                 $row = $result->fetch_assoc();
                 echo "It's okay! " . $row["n_id"] . " !!! ";
