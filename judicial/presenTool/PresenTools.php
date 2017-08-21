@@ -27,6 +27,9 @@ function initializePresenTools($server, $id, $pw, $dbname, $force_renew=false){
         $member->prepareFirstUse();
         $board->prepareFirstUse();
     } */
+    if($db->connect_error){
+        echo "<b>Error occured when connecting db</b>";
+    }
     $article=new PresenArticle($db);
     return $db;
 };
