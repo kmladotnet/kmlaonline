@@ -41,6 +41,7 @@ function getAllArticles(){
             array_push($result, $temp);
         }
         return json_encode($result); */
+        }
     } else {
         echo "ERROR OCCURED - getAllArticles";
     }
