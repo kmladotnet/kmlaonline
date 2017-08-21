@@ -52,7 +52,7 @@
             <div class="col-sm-3 col-md-2 sidebar">
                 <ul class="nav nav-sidebar">
                     <li class="active"><a href="">기소하기 <span class="sr-only">(current)</span></a></li>
-                    <li><a href="#">이번 주 법정</a></li>
+                    <li><a href="list">이번 주 법정</a></li>
                     <li><a href="#">통계</a></li>
                     <li><a href="#">Export</a></li>
                 </ul>
