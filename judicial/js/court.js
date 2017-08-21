@@ -68,5 +68,22 @@ app.controller("courtCtrl", function($scope, $http){
 });
 
 app.controller("listCtrl", function($scope, $http){
+    var articleList = [];
+    $scope.articleList = articleList;
 
+    $scope.fetch = function(){
+        $scope.code = null;
+        $scope.response = null;
+
+        $http({
+            method: "GET",
+            url: "/judicial/process/articleList.php"
+        }).then(function mySuccess(response){
+            $scope.status = response.statusText;
+            $scope.data = response.data;
+        }, function myError(response){
+            $scope.data = response.data || 'Request failed';
+            $scope.status = response.statusText;
+        });
+    };
 });

@@ -51,8 +51,8 @@
         <div class="row">
             <div class="col-sm-3 col-md-2 sidebar">
                 <ul class="nav nav-sidebar">
-                    <li class="active"><a href="">기소하기 <span class="sr-only">(current)</span></a></li>
-                    <li><a href="#">이번 주 법정</a></li>
+                    <li><a href="main">기소하기</a></li>
+                    <li class="active"><a href="">이번 주 법정 <span class="sr-only">(current)</span></a></li>
                     <li><a href="#">통계</a></li>
                     <li><a href="#">Export</a></li>
                 </ul>
@@ -71,7 +71,7 @@
             </div>
             <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
                 <div>
-                    <h2>지금까지 추가한 내용 <button type="button" class="btn btn-success pull-right">제출</button></h2>
+                    <h2>지금까지 추가한 내용 <button type="button" class="btn btn-success pull-right" onclick="fetch()">보기</button></h2>
                     <div class="table-responsive">
                         <table class="table table-striped">
                             <thead>
