@@ -22,7 +22,6 @@ class PresenArticleKind {
         if($result = $this->db->query($query)){
             if($result->num_rows === 1){
                 $row = $result->fetch_assoc();
-                echo $row['ak_id'];
                 return $row["ak_id"];
             } else {
                 echo "ERROR[articleDesc2Id] : MORE THAN 1 or NO RESULT";
