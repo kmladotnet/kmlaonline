@@ -34,7 +34,7 @@ function getAllArticles(){
                     'point' => $article_kind->articleId2Point($row['ak_id'])
                 ));
         }
-        return $result;
+        return json_encode($result);
     } else {
         echo "ERROR OCCURED - getAllArticles";
     }
