@@ -5,4 +5,5 @@
     $article->addCourtArticle(317, "2017-08-21", 75, 3);
     $accuser->accuserName2Id("김명순");
     $article_kind->articleDesc2Id("Late for school");
+    createNewArticle(12, "김현재");
 ?>
