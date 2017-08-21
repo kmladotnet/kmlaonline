@@ -73,7 +73,7 @@
                 <div>
                     <h2>지금까지 추가한 내용 <button type="button" class="btn btn-success pull-right" ng-click="fetch()">보기</button></h2>
                     <div class="table-responsive">
-                        <table class="table table-striped">
+                        <table class="table table-striped" align="center">
                             <thead>
                                 <tr>
                                     <th class="col-md-1">학년</th>
