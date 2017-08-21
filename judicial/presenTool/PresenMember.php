@@ -41,7 +41,7 @@ class PresenMember{
                     ."n_id = " . $id . ";";
         if($result = $this->db->query($query)){
             $row = $result->fetch_assoc();
-            return $row["n_id"];
+            return $row;
         } else {
             echo "ERROR[courtId2GradeName] : 1";
             return false;

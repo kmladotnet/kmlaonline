@@ -1,4 +1,4 @@
 <?php
     include("../lib.php");
-    echo $member->courtId2GradeName(317);
+    echo $member->courtId2GradeName(317)['name'];
 ?>
