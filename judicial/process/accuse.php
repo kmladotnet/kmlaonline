@@ -5,6 +5,7 @@
     $data_name = $data->name;
     //$data_date = $data->accuse_date;
     $data_accuser = $data->accuser;
+    echo $data_accuser;
     $data_article = $data->article;
     //$data_point = $data->point;
 
