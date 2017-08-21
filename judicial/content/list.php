@@ -96,6 +96,8 @@
                             </tbody>
                         </table>
                     </div>
+                    <p>{{status}}</p>
+                    <p>{{data}}</p>
                 </div>
             </div>
         </div>
