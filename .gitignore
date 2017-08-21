@@ -8,3 +8,4 @@ sass-compiled/*
 /intranet/lib.php
 /intranet/db-config.php
 /court/api/config.php
+/judicial/presenTool/config.php
