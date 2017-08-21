@@ -80,7 +80,7 @@ app.controller("listCtrl", function($scope, $http){
             url: "/judicial/process/articleList.php"
         }).then(function mySuccess(response){
             $scope.status = response.statusText;
-            $scope.data = response.data;
+            $scope.articleList = response.data;
         }, function myError(response){
             $scope.data = response.data || 'Request failed';
             $scope.status = response.statusText;

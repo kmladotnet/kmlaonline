@@ -88,7 +88,7 @@
                                 <tr ng-repeat="list in articleList">
                                     <td>{{list.grade}}</td>
                                     <td>{{list.name}}</td>
-                                    <td>{{list.accuse_date}}</td>
+                                    <td>{{list.accused_date}}</td>
                                     <td>{{list.accuser}}</td>
                                     <td>{{list.article}}</td>
                                     <td>{{list.point}}</td>
