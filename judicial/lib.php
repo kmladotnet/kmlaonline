@@ -8,5 +8,6 @@ function createNewArticle($grade, $accused_name, $accuser_name, $article_kind_na
     if($accused_id = $member->gradeName2CourtId($grade, $accused_name)
         && $accuser_id = $accuser->accuserName2Id($accuser_name) && $article_kind_id = $article_kind->articleDesc2Id($article_kind_name))
         $article->addCourtArticle($accused_id, $accuse_date, $accuser_id, $article_kind_id);
+    else echo "ERROR OCCURED";
 }
 ?>
