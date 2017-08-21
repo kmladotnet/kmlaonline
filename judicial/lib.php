@@ -16,8 +16,27 @@ function createNewArticle($grade, $accused_name, $accuser_name, $article_kind_na
         else echo "NOT OKAY";
     }
     else{
-        echo " $accused_id $accuser_id $article_kind_id $accuse_date";
-        echo "ERROR OCCURED";
+        echo "ERROR OCCURED - createNewArticle";
+    }
+}
+
+function getAllArticles(){
+    global $member, $accuser, $article_kind, $article;
+    if($raw = $article->getAllRawArticles()){
+        $result = array();
+        while($row = $temp->fetch_assoc()){
+            $result.push(
+                array('grade' => $member->courtId2GradeName($row['accused_id'])['grade'],
+                    'name' => $member->courtId2GradeName($row['accused_id'])['name'],
+                    'accused_date' => $row['accused_date'],
+                    'accuser' => $accuser->accuserId2Name($row['accuser_id']),
+                    'article' => $article_kind->articleId2Desc($row['ak_id']),
+                    'point' => $article_kind->articleId2Point($row['ak_id'])
+                ));
+        }
+        return $result;
+    } else {
+        echo "ERROR OCCURED - getAllArticles";
     }
 }
 ?>

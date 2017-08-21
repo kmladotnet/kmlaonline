@@ -45,6 +45,19 @@ class PresenArticleKind {
             return false;
         }
     }
+
+    function articleId2Point($id){
+        if(!is_int($id)) return false;
+        $query = "SELECT point FROM " . $this->table_data . " WHERE "
+                    . "ak_id = " . $id . ";";
+        if($result = $this->db->query($query)){
+            $row = $result->fetch_assoc();
+            return $row["point"];
+        } else {
+            echo "ERROR[articleId2Desc] : sql query wrong!!";
+            return false;
+        }
+    }
 }
 
 ?>
