@@ -17,7 +17,7 @@ class PresenMember{
     }
 
     function gradeName2CourtId($grade, $name){
-        if(!is_int(grade)) return false;
+        if(!is_int($grade)) return false;
         $query = "SELECT n_id FROM " . $this->table_data . " WHERE "
                     . "grade = " . $grade . " and "
                     . "name = " . $this->escape($name) . ";";
