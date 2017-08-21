@@ -69,35 +69,33 @@
                     <li><a href="">Another nav item</a></li>
                 </ul>
             </div>
-
-            <div>
-                <h2>지금까지 추가한 내용 <button type="button" class="btn btn-success pull-right">제출</button></h2>
-                <div class="table-responsive">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th class="col-md-1">학년</th>
-                                <th class="col-md-2">학생 이름</th>
-                                <th class="col-md-2">기소 일자</th>
-                                <th class="col-md-2">기소자</th>
-                                <th class="col-md-4">기소 항목</th>
-                                <th class="col-md-1">벌점</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr ng-repeat="list in articleList">
-                                <td>{{list.grade}}</td>
-                                <td>{{list.name}}</td>
-                                <td>{{list.accuse_date}}</td>
-                                <td>{{list.accuser}}</td>
-                                <td>{{list.article}}</td>
-                                <td>{{list.point}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
         </div>
+        <div>
+            <h2>지금까지 추가한 내용 <button type="button" class="btn btn-success pull-right">제출</button></h2>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th class="col-md-1">학년</th>
+                            <th class="col-md-2">학생 이름</th>
+                            <th class="col-md-2">기소 일자</th>
+                            <th class="col-md-2">기소자</th>
+                            <th class="col-md-4">기소 항목</th>
+                            <th class="col-md-1">벌점</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="list in articleList">
+                            <td>{{list.grade}}</td>
+                            <td>{{list.name}}</td>
+                            <td>{{list.accuse_date}}</td>
+                            <td>{{list.accuser}}</td>
+                            <td>{{list.article}}</td>
+                            <td>{{list.point}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </body>
