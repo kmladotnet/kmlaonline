@@ -32,5 +32,18 @@ class PresenAccuser{
             return false;
         }
     }
+
+    function accuserId2Name($id){
+        if(!is_int($id)) return false;
+        $query = "SELECT name FROM " . $this->table_data . " WHERE "
+                    . "a_id = " . $id . ";";
+        if($result = $this->db->query($query)){
+            $row = $result->fetch_assoc();
+            return $row["name"];
+        } else {
+            echo "ERROR[accuserId2Name] : sql query wrong!!";
+            return false;
+        }
+    }
 }
 ?>
