@@ -21,6 +21,7 @@ class PresenMember{
         $query = "SELECT n_id FROM " . $this->table_data . " WHERE "
                     . "grade = " . $grade . " and "
                     . "name = " . $this->escape($name) . ";";
+        echo $query;
         if($result = $this->db->query($query) === true){
             if($result->num_rows === 1){
                 $row = $result->fetch_assoc();
