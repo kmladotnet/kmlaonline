@@ -1,4 +1,4 @@
-var app = angular.module("kmla_court", []);
+var app = angular.module("kmla_court", ['ngTagsInput']);
 
 app.controller("courtCtrl", function($scope, $http){
         var articleList = [];
