@@ -26,6 +26,11 @@ app.controller("courtCtrl", function($scope, $http){
                 }
             }).then(function mySuccess(response){
                 $scope.status = response.data;
+                $scope.accused_grade = "";
+                $scope.accused_name = "";
+                $scope.accuser = "";
+                $scope.accused_article = "";
+                $scope.accused_point = "";
             }, function myError(response){
                 $scope.status = "Request failed";
             });
