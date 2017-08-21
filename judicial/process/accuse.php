@@ -2,6 +2,7 @@
     include("../lib.php");
     $data = json_decode(file_get_contents("php://input"));
     $data_grade = $data->grade;
+    echo is_numeric($data_grade);
     $data_name = $data->name;
     //$data_date = $data->accuse_date;
     $data_accuser = $data->accuser;
