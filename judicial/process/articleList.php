@@ -1,4 +1,4 @@
 <?php
     include("../lib.php");
-    echo getAllArticles();
+    echo json_encode(getAllArticles());
 ?>

@@ -39,7 +39,7 @@ function getAllArticles(){
                     'point' => $temp_point);
             array_push($result, $temp);
         }
-        return json_encode($result);
+        return $result;
     } else {
         echo "ERROR OCCURED - getAllArticles";
     }
