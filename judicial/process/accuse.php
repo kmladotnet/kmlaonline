@@ -1,9 +1,12 @@
 <?php
     include("../lib.php");
     $data = json_decode(file_get_contents("php://input"));
+    $data_grade = $data->grade;
+    $data_name = $data->name;
+    $data_date = $data->accuse_date;
+    $data_accuser = $data->accuser;
+    $data_article = $data->article;
+    $data_point = $data->point;
 
-    $article->addCourtArticle(317, "2017-08-21", 75, 3);
-    $accuser->accuserName2Id("김명순");
-    $article_kind->articleDesc2Id("Late for school");
-    createNewArticle(12, "김현재", "김명순", "Late for school");
+    createNewArticle($data_grade, $data_name, $data_accuser, $data_article);
 ?>
