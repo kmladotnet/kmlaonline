@@ -9,7 +9,7 @@
     $data_article = $data->article;
     //$data_point = $data->point;
 
-    createNewArticle($data_grade, $data_name, $data_accuser, $data_article);
+    createNewArticle((int) $data_grade, $data_name, $data_accuser, $data_article);
 
     //createNewArticle(12, '김현재', '성헌제', 'Auditory disturbance');
 ?>
