@@ -5,7 +5,7 @@ class PresenArticle{
 
     private function escape($str) {
         return $this->db->real_escape_string($str);
-    };
+    }
 
     function __construct($db){
         $this->db = $db;
