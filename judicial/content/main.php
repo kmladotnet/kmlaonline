@@ -136,7 +136,7 @@
                                     <tr>
                                         <td>
                                             <tags-input type="text" ng-model="accused_name2" name="name2">
-                                                <auto-complete source="loadTags($query)" min-length="0" load-on-focus="true" max-results-to-show="5"></auto-complete>
+                                                <auto-complete source="loadTags($query)" min-length="0" load-on-focus="true" max-results-to-show="8"></auto-complete>
                                             </tags-input>
                                         </td>
                                         <td><input type="date" class="form-control" ng-model="accused_date2"></td>
