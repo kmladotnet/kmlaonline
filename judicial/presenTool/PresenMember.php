@@ -34,5 +34,18 @@ class PresenMember{
             return false;
         }
     }
+
+    function courtId2GradeName($id){
+        if(!is_int($id)) return false;
+        $query = "SELECT grade, name FROM " . $this->table_data . " WHERE "
+                    ."n_id = " . $id . ";";
+        if($result = $this->db->query($query)){
+            $row = $result->fetch_assoc();
+            return $row["n_id"];
+        } else {
+            echo "ERROR[courtId2GradeName] : 1";
+            return false;
+        }
+    }
 }
 ?>
