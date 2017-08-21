@@ -5,7 +5,9 @@ include "presenTool/dbHandler.php";
 
 function createNewArticle($grade, $accused_name, $accuser_name, $article_kind_name, $accuse_date="2017-08-21"){
     global $member, $accuser, $article_kind, $article;
-
+    echo $member->gradeName2CourtId($grade, $accused_name);
+    echo $accuser->accuserName2Id($accuser_name);
+    echo $article_kind->articleDesc2Id($article_kind_name);
     if(($accused_id = $member->gradeName2CourtId($grade, $accused_name))
         && ($accuser_id = $accuser->accuserName2Id($accuser_name)) && ($article_kind_id = $article_kind->articleDesc2Id($article_kind_name))){
         echo $member->gradeName2CourtId($grade, $accused_name) . "<br />";
