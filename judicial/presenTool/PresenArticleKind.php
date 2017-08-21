@@ -32,6 +32,19 @@ class PresenArticleKind {
             return false;
         }
     }
+
+    function articleId2Desc($id){
+        if(!is_int($id)) return false;
+        $query = "SELECT ak_eng FROM " . $this->table_data . " WHERE "
+                    . "ak_id = " . $id . ";";
+        if($result = $this->db->query($query)){
+            $row = $result->fetch_assoc();
+            return $row["ak_eng"];
+        } else {
+            echo "ERROR[articleId2Desc] : sql query wrong!!";
+            return false;
+        }
+    }
 }
 
 ?>
