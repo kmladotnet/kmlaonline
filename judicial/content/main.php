@@ -120,6 +120,36 @@
 
                 </div>
                 <div>
+                    <h1 class="page-header">새로운 항목 기소(2)</h1>
+                    <div class="table-responsive">
+                        <form name="newArticle">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th class="col-md-2 col-sm-2">학생 이름</th>
+                                        <th class="col-md-2 col-sm-3">기소 일자</th>
+                                        <th class="col-md-2 col-sm-2">기소자</th>
+                                        <th class="col-md-4 col-sm-3">기소 항목</th>
+                                        <th class="col-md-2 col-sm-2">벌점</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="text" class="form-control" ng-model="accused_name2" name="name2"></td>
+                                        <td><input type="date" class="form-control" ng-model="accused_date2"></td>
+                                        <td><input type="text" class="form-control" ng-model="accuser2"></td>
+                                        <td><input type="text" class="form-control" ng-model="accused_article2"></td>
+                                        <td><input type="text" class="form-control" ng-model="accused_point2"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                    <button type="button" class="btn btn-default pull-right" ng-click="submitNewArticle2(accused_name2, accused_date2, accuser2, accused_article2, accused_point2)">테스트 제출</button>
+                    <br/>
+
+                </div>
+                <div>
                     <h2>지금까지 추가한 내용 <button type="button" class="btn btn-success pull-right">제출</button></h2>
                     <div class="table-responsive">
                         <table class="table table-striped">
