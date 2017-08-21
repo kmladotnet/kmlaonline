@@ -21,11 +21,9 @@ class PresenMember{
         $query = "SELECT n_id FROM " . $this->table_data . " WHERE "
                     . "grade = " . $grade . " and "
                     . "name = '" . $this->escape($name) . "';";
-        echo $query;
         if($result = $this->db->query($query)){
             if($result->num_rows === 1){
                 $row = $result->fetch_assoc();
-                echo "It's okay! " . $row["n_id"] . " !!! ";
                 return $row["n_id"];
             } else {
                 echo "ERROR : MORE THAN 1 or NO RESULT";
@@ -33,6 +31,24 @@ class PresenMember{
             }
         } else {
             echo "ERROR : sql query wrong!!";
+            return false;
+        }
+    }
+
+    function accuserName2Id($name){
+        $query = "SELECT a_id FROM " . $this->table_data . " WHERE "
+                    . "name = '" . $this->escape($name) . "';";
+        if($result = $this->db->query($query)){
+            if($result->num_rows === 1){
+                $row = $result->fetch_assoc();
+                echo $row["n_id"];
+                return $row["n_id"];
+            } else {
+                echo "ERROR[accuserName2Id] : MORE THAN 1 or NO RESULT";
+                return false;
+            }
+        } else {
+            echo "ERROR[accuserName2Id] : sql query wrong!!";
             return false;
         }
     }
