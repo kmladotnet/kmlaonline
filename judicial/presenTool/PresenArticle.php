@@ -42,7 +42,7 @@ class PresenArticle{
     }
 
     function getAllRawArticles(){
-        $query = "SELECT * FROM " . $this->table . ";";
+        $query = "SELECT * FROM " . $this->table_data . ";";
         if($result = $this->db->query($query) === true) {
             return $result;
         } else {
