@@ -120,7 +120,7 @@
                 </div>
                 <div>
                     <h1 class="page-header">새로운 항목 기소(2)</h1>
-                    <div class="table-responsive">
+                    <div class="table">
                         <form name="newArticle">
                             <table class="table table-striped">
                                 <thead>
