@@ -24,9 +24,9 @@ app.controller("courtCtrl", function($scope, $http){
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
                 }
-            }).success(function(response){
+            }).then(function mySuccess(response){
                 $scope.status = response.data;
-            }).error(function(response){
+            }, function myError(response){
                 $scope.status = response || "Request failed";
             });
             return false;
