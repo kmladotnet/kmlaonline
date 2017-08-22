@@ -156,20 +156,9 @@ app.controller("courtCtrl", function($scope, $http){
             var temp_result = [];
             var temp_data;
             var date = $scope.dateTest();
-            console.log("date: " + date);
-            /*var data = $scope.accusedSelect;
-            console.log($scope.accusedSelect[0]);
-            console.log(data.length);
-            console.log(data['0']);
-            for(var i = 0; i < data.length; i++){
-                console.log(data[i].grade);
-                temp_data = {grade: data[i].grade, name: data[i].name, accuse_date: date, accuser: $scope.accuserSelect.name, article: $scope.articleKindSelect.ak_eng, point: ""};
-                //submitNewArticle(item['grade'], item['name'], date, $scope.accuserSelect['name'], $scope.$scope.articleKindSelect['ak_eng']);
-                console.log(temp_data);
-                temp_result.push(temp_data);
-            }*/
+
             $scope.accusedSelect.selectedPeople.forEach(function(item){
-                temp_data = {grade: item['grade'], name: item['name'], accuse_date: date, accuser: $scope.accuserSelect['name'], article: $scope.articleKindSelect['ak_eng'], point: ""};
+                temp_data = {grade: item['grade'], name: item['name'], accuse_date: date, accuser: $scope.accuserSelect.selected['name'], article: $scope.articleKindSelect.selected['ak_eng'], point: ""};
                 //submitNewArticle(item['grade'], item['name'], date, $scope.accuserSelect['name'], $scope.$scope.articleKindSelect['ak_eng']);
                 temp_result.push(temp_data);
 
