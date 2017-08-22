@@ -1,5 +1,5 @@
 <?php
 
 include('../lib.php');
-echo getAllAccusers();
+echo json_encode(getAllAccusers());
 ?>
