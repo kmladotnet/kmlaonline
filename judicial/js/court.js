@@ -60,13 +60,6 @@ app.controller("courtCtrl", function($scope, $http){
         $scope.accuserArray = [];
         $scope.articleKindArray = [];
 
-        $scope.test = function(){
-            console.log($scope.accusedSelect);
-            console.log($scope.accuserSelect);
-            console.log($scope.articleKindSelect);
-            console.log($scope.accused_date2);
-        }
-
         $scope.accusedFetch = function() {
             $scope.code = null;
             $scope.response = null;
@@ -115,38 +108,14 @@ app.controller("courtCtrl", function($scope, $http){
             });
         };
 
-        var articleList = [];
-
-        $scope.articleList = articleList;
-
-        $scope.method = 'GET';
-        $scope.url = '/test/users.json';
-
-        $scope.accused_name2 = [];
-        $scope.popup = false;
-
         $scope.today = function() {
             $scope.accused_date2 = new Date();
         };
 
+        $scope.popup = false;
         $scope.openCalender = function(){
             $scope.popup = true;
         }
-
-        $scope.dateTest = function(){
-            var date = new Date($scope.accused_date);
-            var result = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
-            console.log(result);
-        }
-
-        $scope.loadTags = function($query){
-            return $http.get('process/suggest.php').then(function(response){
-                var result = response.data;
-                return result.filter(function(accused){
-                    return accused.text.indexOf($query) != -1;
-                })
-            });
-        };
 
         $scope.submitNewArticle = function(_grade, _name, _accuse_date, _accuser, _article, _point){
             var temp_data = {grade: _grade, name: _name, accuse_date: _accuse_date, accuser: _accuser, article: _article, point: _point};
@@ -176,16 +145,63 @@ app.controller("courtCtrl", function($scope, $http){
             return false;
         };
 
-        $scope.addNewArticle = function(_grade, _name, _accuse_date, _accuser, _article, _point){
-            $scope.articleList.push({grade: _grade, name: _name, accuse_date: _accuse_date, accuser: _accuser, article: _article, point: _point});
-            $scope.accused_grade = "";
-            $scope.accused_name = "";
-            $scope.accuser = "";
-            $scope.accused_article = "";
-            $scope.accused_point = "";
+        $scope.test = function(){
+            console.log($scope.accusedSelect);
+            console.log($scope.accuserSelect);
+            console.log($scope.articleKindSelect);
+            console.log($scope.accused_date2);
+        }
 
-            console.log($scope.accused_date);
+        $scope.submitListofArticle = function(){
+            var temp_result = new array();
+            var temp_data;
+            var date = dateTest();
 
+            $scope.accusedSelect.forEach(function(item){
+                temp_data = {grade: item['grade'], name: item['name'], accuse_date: date, accuser: $scope.accuserSelect['name'], article: $scope.articleKindSelect['ak_eng'], point: ""};
+                //submitNewArticle(item['grade'], item['name'], date, $scope.accuserSelect['name'], $scope.$scope.articleKindSelect['ak_eng']);
+                temp_result.push(temp_data);
+            });
+
+            var config = {
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+                }
+            };
+
+            $http({
+                method: 'POST',
+                url: 'process/accuse.php',
+                data: temp_result,
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+                }
+            }).then(function mySuccess(response){
+                $scope.status = response.data;
+                $scope.accused_grade = "";
+                $scope.accused_name = "";
+                $scope.accuser = "";
+                $scope.accused_article = "";
+                $scope.accused_point = "";
+            }, function myError(response){
+                $scope.status = "Request failed";
+            });
+            return false;
+        };
+
+        $scope.dateTest = function(){
+            var date = new Date($scope.accused_date2);
+            var result = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+            return result;
+        }
+
+        $scope.loadTags = function($query){
+            return $http.get('process/suggest.php').then(function(response){
+                var result = response.data;
+                return result.filter(function(accused){
+                    return accused.text.indexOf($query) != -1;
+                })
+            });
         };
 
         $scope.fetch = function() {
@@ -203,6 +219,20 @@ app.controller("courtCtrl", function($scope, $http){
                 $scope.data = response.data || 'Request failed';
                 $scope.status = response.statusText;
             });
+        };
+
+        var articleList = [];
+        $scope.articleList = articleList;
+        $scope.addNewArticle = function(_grade, _name, _accuse_date, _accuser, _article, _point){
+            $scope.articleList.push({grade: _grade, name: _name, accuse_date: _accuse_date, accuser: _accuser, article: _article, point: _point});
+            $scope.accused_grade = "";
+            $scope.accused_name = "";
+            $scope.accuser = "";
+            $scope.accused_article = "";
+            $scope.accused_point = "";
+
+            console.log($scope.accused_date);
+
         };
 });
 
