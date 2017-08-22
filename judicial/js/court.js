@@ -2,6 +2,17 @@ var app = angular.module("kmla_court", ['ngTagsInput', 'ngSanitize', 'ui.select'
 
 
 app.controller("courtCtrl", function($scope, $http, $timeout, $interval){
+
+        $scope.itemArray = [
+            {id: 1, name: 'first'},
+            {id: 2, name: 'second'},
+            {id: 3, name: 'third'},
+            {id: 4, name: 'fourth'},
+            {id: 5, name: 'fifth'},
+        ];
+
+        $scope.selected = { value: $scope.itemArray[0] };
+
         var articleList = [];
 
         $scope.articleList = articleList;

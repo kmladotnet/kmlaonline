@@ -179,10 +179,12 @@
                                         </td>
                                         <td><input type="date" class="form-control" ng-model="accused_date2"></td>
                                         <td>
-                                            <ui-select ng-model="accuser.selected" theme="bootstrap">
-                                                <ui-select-match placeholder="기소자 입력">{{$select.selected.name}}</ui-select-match>
-                                                <ui-select-choices repeat="item in accuser | filter: $select.search">
-                                                    <div ng-bind-html="item.name | highlight: $select.search"></div>
+                                            <ui-select ng-model="selected.value" theme="bootstrap">
+                                                <ui-select-match>
+                                                    <span ng-bind="$select.selected.name"></span>
+                                                </ui-select-match>
+                                                <ui-select-choices repeat="item in (itemArray | filter: $select.search) track by item.id">
+                                                    <span ng-bind="item.name"></span>
                                                 </ui-select-choices>
                                             </ui-select>
                                         <td><input type="text" class="form-control" ng-model="accused_article2"></td>
