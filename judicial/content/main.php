@@ -210,7 +210,7 @@
                                                 </ui-select-choices>
                                             </ui-select>
                                         </td>
-                                        <td><input type="text" class="form-control" ng-model="selected.point" ng-disabled="point_disabled"></td>
+                                        <td><input type="text" class="form-control" ng-model="$select.selected.ak_eng" ng-disabled="point_disabled"></td>
                                     </tr>
                                 </tbody>
                             </table>
