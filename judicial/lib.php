@@ -78,6 +78,11 @@ function getAllArticleKinds(){
     }
 }
 
+function getAllMembers(){
+    global $member;
+    return $member->searchMember();
+}
+
 function suggestMemberByQuery($query){
     global $member;
     return json_encode($member->searchMember($query));
