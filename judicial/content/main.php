@@ -19,6 +19,32 @@
     <script type="text/javascript" src="js/select.js"></script>
     <script type="text/javascript" src="js/court.js"></script>
 
+    <style>
+        body {
+            padding: 15px;
+        }
+
+        .select2 > .select2-choice.ui-select-match {
+            /* Because of the inclusion of Bootstrap */
+            height: 29px;
+        }
+
+        .selectize-control > .selectize-dropdown {
+            top: 36px;
+        }
+        /* Some additional styling to demonstrate that append-to-body helps achieve the proper z-index layering. */
+        .select-box {
+          background: #fff;
+          position: relative;
+          z-index: 1;
+        }
+        .alert-info.positioned {
+          margin-top: 1em;
+          position: relative;
+          z-index: 10000; /* The select2 dropdown has a z-index of 9999 */
+        }
+    </style>
+
 </head>
 <body ng-cloak="" ng-controller="courtCtrl">
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -152,7 +178,13 @@
                                             </script>
                                         </td>
                                         <td><input type="date" class="form-control" ng-model="accused_date2"></td>
-                                        <td><input type="text" class="form-control" ng-model="accuser2"></td>
+                                        <td>
+                                            <ui-select ng-model="accuser.selected" theme="bootstrap">
+                                                <ui-select-match placeholder="기소자 입력">{{$select.selected.name}}</ui-select-match>
+                                                <ui-select-choices repeat="item in accuser | filter: $select.search">
+                                                    <div ng-bind-html="item.name | highlight: $select.search"></div>
+                                                </ui-select-choices>
+                                            </ui-select>
                                         <td><input type="text" class="form-control" ng-model="accused_article2"></td>
                                         <td><input type="text" class="form-control" ng-model="accused_point2"></td>
                                     </tr>
