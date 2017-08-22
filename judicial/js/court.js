@@ -161,8 +161,7 @@ app.controller("courtCtrl", function($scope, $http){
                 temp_data = {grade: item['grade'], name: item['name'], accuse_date: date, accuser: $scope.accuserSelect.selected['name'], article: $scope.articleKindSelect.selected['ak_eng']};
                 temp_result.push(temp_data);
             });
-            console.log(temp_result);
-            /*
+
             var config = {
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
@@ -178,14 +177,12 @@ app.controller("courtCtrl", function($scope, $http){
                 }
             }).then(function mySuccess(response){
                 $scope.status = response.data;
-                $scope.accused_grade = "";
-                $scope.accused_name = "";
-                $scope.accuser = "";
-                $scope.accused_article = "";
-                $scope.accused_point = "";
+                $scope.accusedSelect.selectedPeople = [];
+                $scope.accuserSelect.selected = [];
+                $scope.articleKindSelect.selected = [];
             }, function myError(response){
                 $scope.status = "Request failed";
-            });*/
+            });
             return false;
         };
 
