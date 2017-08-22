@@ -9,11 +9,14 @@
     <link rel="stylesheet" type="text/css" href="css/dashboard.css">
     <link rel="stylesheet" type="text/css" href="css/ng-tags-input.css">
     <link rel="stylesheet" type="text/css" href="css/ng-tags-input.bootstrap.css">
-
+    <link rel="stylesheet" type="text/css" href="css/select.css">
     <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.4.5/select2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.8.5/css/selectize.default.css">
     <script type="text/javascript" src="js/angular.js"></script>
     <script type="text/javascript" src="js/ng-tags-input.js"></script>
+    <script type="text/javascript" src="js/select.js"></script>
     <script type="text/javascript" src="js/court.js"></script>
 
 </head>

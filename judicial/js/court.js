@@ -1,4 +1,4 @@
-var app = angular.module("kmla_court", ['ngTagsInput']);
+var app = angular.module("kmla_court", ['ngTagsInput', 'ngSanitize', 'ui.select']);
 
 app.controller("courtCtrl", function($scope, $http){
         var articleList = [];
