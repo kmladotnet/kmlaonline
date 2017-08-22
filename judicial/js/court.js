@@ -122,6 +122,11 @@ app.controller("courtCtrl", function($scope, $http){
 
         $scope.accused_name2 = [];
         $scope.popup = false;
+
+        $scope.today = function() {
+            $scope.accused_date2 = new Date();
+        };
+
         $scope.openCalender = function(){
             $scope.popup = true;
         }
