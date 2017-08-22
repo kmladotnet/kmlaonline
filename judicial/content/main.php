@@ -141,7 +141,7 @@
 
                                             <script type="text/ng-template" id="grade-name">
                                                 <span>{{data.grade}}</span>
-                                                <span>{{data.name}}</span>
+                                                <span>{{data.text}}</span>
                                             </script>
                                         </td>
                                         <td><input type="date" class="form-control" ng-model="accused_date2"></td>
