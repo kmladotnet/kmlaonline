@@ -48,7 +48,7 @@
     </style>
 
 </head>
-<body ng-cloak="" ng-controller="courtCtrl">
+<body ng-cloak="" ng-controller="courtCtrl" ng-init="init()">
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">

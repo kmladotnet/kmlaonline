@@ -3,6 +3,10 @@ var app = angular.module("kmla_court", ['ngTagsInput', 'ui.select', 'ngSanitize'
 
 app.controller("courtCtrl", function($scope, $http){
 
+        $scope.init = function(){
+            $scope.accuserFetch();
+        }
+
         $scope.accuserArray = [
             /*{id: 1, name: '김명순'},
             {id: 2, name: '박주영'},
@@ -27,7 +31,7 @@ app.controller("courtCtrl", function($scope, $http){
                 url: "process/getAccuserList.php"
             }).then(function mySuccess(response){
                 $scope.status2 = response.statusText;
-                $scope.data2 = response.data;
+                $scope.accuserArray = response.data;
             }, function myError(response){
                 $scope.data2 = response.data || 'Request failed';
                 $scope.status2 = response.statusText;
