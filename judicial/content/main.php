@@ -153,7 +153,7 @@
                             </table>
                         </form>
                     </div>
-                    <button type="button" class="btn btn-default pull-right" ng-click="submitNewArticle2(accused_name2, accused_date2, accuser2, accused_article2, accused_point2)">테스트 제출</button>
+                    <button type="button" class="btn btn-default pull-right" ng-click="dateTest()">테스트 제출</button>
                     <br/>
 
                 </div>

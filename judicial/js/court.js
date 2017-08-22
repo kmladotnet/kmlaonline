@@ -10,6 +10,11 @@ app.controller("courtCtrl", function($scope, $http){
 
         $scope.accused_name2 = [];
 
+        $scope.dateTest = function(){
+            var date = new Date($scope.accused_date);
+            console.log(date.toLocaleDateString('en-US'));
+        }
+
         $scope.loadTags = function($query){
             return $http.get('process/suggest.php').then(function(response){
                 var result = response.data;
