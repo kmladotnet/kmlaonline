@@ -54,7 +54,7 @@ class PresenMember{
         $res_row = array();
         $query = "SELECT grade, name FROM `$this->table_data` WHERE name LIKE '%$q%' ORDER BY student_id";
         if($result = $this->db->query($query)){
-            while($row = fetch_assoc($result)){
+            while($row = $result->fetch_assoc($result)){
                 $res_row['text'] = $row['name'];
                 $res_row['grade'] = $row['grade'];
                 array_push($res, $res_row);
