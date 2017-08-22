@@ -1,5 +1,5 @@
 <?php
     include("../lib.php");
-    $q = $_GET['q'];
+    if(!($q = $_GET['q'])) $q = "";
     suggestMemberByQuery($q);
 ?>
