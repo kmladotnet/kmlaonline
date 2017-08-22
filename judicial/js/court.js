@@ -1,3 +1,5 @@
+'use strict';
+
 var app = angular.module("kmla_court", ['ngTagsInput', 'ui.select', 'ngSanitize']);
 
 app.filter('propsFilter', function() {
@@ -50,6 +52,7 @@ app.controller("courtCtrl", function($scope, $http){
             $scope.articleKindFetch();
         }
 
+        $scope.accusedSelect = {};
         $scope.accusedArray = [];
         $scope.accuserArray = [];
         $scope.articleKindArray = [];
