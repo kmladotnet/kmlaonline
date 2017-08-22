@@ -45,5 +45,15 @@ class PresenAccuser{
             return false;
         }
     }
+
+    function getAllRawAccusers(){
+        $query = "SELECT * FROM " . $this->table_data . ";";
+        if($result = $this->db->query($query)) {
+            return $result;
+        } else {
+            echo "ERROR[getAllRawAccusers] : sql query wrong!!";
+            return false;
+        }
+    }
 }
 ?>

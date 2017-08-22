@@ -3,8 +3,8 @@ var app = angular.module("kmla_court", ['ngTagsInput', 'ui.select', 'ngSanitize'
 
 app.controller("courtCtrl", function($scope, $http){
 
-        $scope.itemArray = [
-            {id: 1, name: '김명순'},
+        $scope.accuserArray = [
+            /*{id: 1, name: '김명순'},
             {id: 2, name: '박주영'},
             {id: 3, name: '김대기'},
             {id: 4, name: '민소정'},
@@ -13,10 +13,26 @@ app.controller("courtCtrl", function($scope, $http){
             {id: 7, name: '법무부'},
             {id: 8, name: 'eighth'},
             {id: 9, name: 'nineth'},
-            {id: 10, name: 'tenth'},
+            {id: 10, name: 'tenth'},*/
         ];
 
         $scope.selected = { value: $scope.itemArray[0] };
+
+        $scope.accuserFetch = function() {
+            $scope.code = null;
+            $scope.response = null;
+
+            $http({
+                method: "GET",
+                url: "process/getAccuserList.php"
+            }).then(function mySuccess(response){
+                $scope.status = response.statusText;
+                $scope.data = response.data;
+            }, function myError(response){
+                $scope.data = response.data || 'Request failed';
+                $scope.status = response.statusText;
+            });
+        };
 
         var articleList = [];
 

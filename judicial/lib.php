@@ -45,6 +45,22 @@ function getAllArticles(){
     }
 }
 
+function getAllAccusers(){
+    global $accuser;
+    if($raw = $accuser->getAllRawAccusers()){
+        $result = array();
+        $temp = array();
+        while($row = $raw->fetch_assoc()){
+            $temp['a_id'] = $row['a_id'];
+            $temp['name'] = $row['name'];
+            array_push($result, $temp);
+        }
+        return $result;
+    } else {
+        echo "ERROR OCCURED - getAllAccusers";
+    }
+}
+
 function suggestMemberByQuery($query){
     global $member;
     return json_encode($member->searchMember($query));
