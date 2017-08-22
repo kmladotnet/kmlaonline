@@ -189,7 +189,7 @@
                                                 </ui-select-choices>
                                             </ui-select>
                                         </td>
-                                        <td><input type="date" class="form-control" datepicker-popup="{{format}}" ng-model="accused_date2"></td>
+                                        <td><input type="date" class="form-control" datepicker-popup="{{dateFormat}}" ng-model="accused_date2"></td>
                                         <td>
                                             <ui-select ng-model="accuserSelect.selected" theme="bootstrap">
                                                 <ui-select-match>
