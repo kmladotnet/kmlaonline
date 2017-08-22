@@ -59,7 +59,11 @@ app.controller("courtCtrl", function($scope, $http){
         $scope.accuserArray = [];
         $scope.articleKindArray = [];
 
-        //$scope.selected = { value: $scope.itemArray[0] };
+        $scope.test = function(){
+            console.log($scope.accusedSelect);
+            console.log($scope.accuserSelect);
+            console.log($scope.articleKindSelect);
+        }
 
         $scope.accusedFetch = function() {
             $scope.code = null;
