@@ -158,7 +158,7 @@ app.controller("courtCtrl", function($scope, $http){
             var date = $scope.dateTest();
             console.log("date: " + date);
             var data = $scope.accusedSelect;
-            console.log(data);
+            console.log(typeof data);
             for(var i = 0; i < data.length; i++){
                 console.log(data[i].grade);
                 temp_data = {grade: data[i].grade, name: data[i].name, accuse_date: date, accuser: $scope.accuserSelect.name, article: $scope.articleKindSelect.ak_eng, point: ""};
