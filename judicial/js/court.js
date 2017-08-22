@@ -5,20 +5,11 @@ app.controller("courtCtrl", function($scope, $http){
 
         $scope.init = function(){
             $scope.accuserFetch();
+            $scope.articleKindFetch();
         }
 
-        $scope.accuserArray = [
-            /*{id: 1, name: '김명순'},
-            {id: 2, name: '박주영'},
-            {id: 3, name: '김대기'},
-            {id: 4, name: '민소정'},
-            {id: 5, name: '오명남'},
-            {id: 6, name: '선도부'},
-            {id: 7, name: '법무부'},
-            {id: 8, name: 'eighth'},
-            {id: 9, name: 'nineth'},
-            {id: 10, name: 'tenth'},*/
-        ];
+        $scope.accuserArray = [];
+        $scope.articleKindArray = [];
 
         //$scope.selected = { value: $scope.itemArray[0] };
 
@@ -32,6 +23,22 @@ app.controller("courtCtrl", function($scope, $http){
             }).then(function mySuccess(response){
                 $scope.status2 = response.statusText;
                 $scope.accuserArray = response.data;
+            }, function myError(response){
+                $scope.data2 = response.data || 'Request failed';
+                $scope.status2 = response.statusText;
+            });
+        };
+
+        $scope.articleKindFetch = function() {
+            $scope.code = null;
+            $scope.response = null;
+
+            $http({
+                method: "GET",
+                url: "process/getArticleKindList.php"
+            }).then(function mySuccess(response){
+                $scope.status2 = response.statusText;
+                $scope.articleKindArray = response.data;
             }, function myError(response){
                 $scope.data2 = response.data || 'Request failed';
                 $scope.status2 = response.statusText;

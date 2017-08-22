@@ -190,7 +190,16 @@
                                                 </ui-select-choices>
                                             </ui-select>
                                         </td>
-                                        <td><input type="text" class="form-control" ng-model="accused_article2"></td>
+                                        <td>
+                                            <ui-select ng-model="selected.value2" theme="bootstrap">
+                                                <ui-select-match>
+                                                    <span ng-bind="$select.selected.ak_eng"></span>
+                                                </ui-select-match>
+                                                <ui-select-choices repeat="kind in (articleKindArray | filter: $select.search) track by kind.ak_id">
+                                                    <span ng-bind="kind.ak_eng"></span>
+                                                </ui-select-choices>
+                                            </ui-select>
+                                        </td>
                                         <td><input type="text" class="form-control" ng-model="accused_point2"></td>
                                     </tr>
                                 </tbody>
