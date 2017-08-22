@@ -199,7 +199,7 @@
                             <p>{{data2}}</p>
                         </form>
                     </div>
-                    <button type="button" class="btn btn-default pull-right" ng-click="dateTest()">테스트 제출</button>
+                    <button type="button" class="btn btn-default pull-right" ng-click="accuserFetch()">테스트 제출</button>
                     <br/>
 
                 </div>
