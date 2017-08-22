@@ -155,7 +155,7 @@ app.controller("courtCtrl", function($scope, $http){
         $scope.submitListofArticle = function(){
             var temp_result = [];
             var temp_data;
-            var date = dateTest();
+            var date = $scope.dateTest();
 
             $scope.accusedSelect.forEach(function(item){
                 temp_data = {grade: item['grade'], name: item['name'], accuse_date: date, accuser: $scope.accuserSelect['name'], article: $scope.articleKindSelect['ak_eng'], point: ""};
