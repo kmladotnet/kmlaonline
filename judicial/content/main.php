@@ -181,7 +181,7 @@
                                         </td>
                                         <td>
                                             <div class="input-group">
-                                                <input type="text" class="form-control" uib-datepicker-popup ng-model="accused_date2" is-open="true" datepicker-options="dateOptions" ng-required="true" close-text="Close">
+                                                <input type="text" class="form-control" uib-datepicker-popup ng-model="accused_date2" is-open="popup.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close">
                                                 <span class="input-group-btn">
                                                     <button type="button" class="btn btn-default" ng-click="openCalender()">
                                                         <i class="glyphicon glyphicon-calendar"></i>
