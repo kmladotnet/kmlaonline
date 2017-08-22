@@ -153,7 +153,7 @@ app.controller("courtCtrl", function($scope, $http){
         }
 
         $scope.submitListofArticle = function(){
-            var temp_result = new array();
+            var temp_result = [];
             var temp_data;
             var date = dateTest();
 
