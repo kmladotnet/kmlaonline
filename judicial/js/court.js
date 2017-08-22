@@ -9,6 +9,11 @@ app.controller("courtCtrl", function($scope, $http){
             {id: 3, name: 'third'},
             {id: 4, name: 'fourth'},
             {id: 5, name: 'fifth'},
+            {id: 6, name: 'sixth'},
+            {id: 7, name: 'seventh'},
+            {id: 8, name: 'eighth'},
+            {id: 9, name: 'nineth'},
+            {id: 10, name: 'tenth'},
         ];
 
         $scope.selected = { value: $scope.itemArray[0] };
