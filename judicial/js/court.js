@@ -10,8 +10,13 @@ app.controller("courtCtrl", function($scope, $http){
 
         $scope.accused_name2 = [];
 
-        $scope.loadTags = function(query){
-            return $http.get('process/suggest.php?q=' + $scope.newTag.text);
+        $scope.loadTags = function($query){
+            return $http.get('process/suggest.php').then(function(response){
+                var result = response.data;
+                return result.filter(function(accused){
+                    return accused.text.indexOf($query) != -1;
+                })
+            });
         };
 
         $scope.submitNewArticle = function(_grade, _name, _accuse_date, _accuser, _article, _point){
