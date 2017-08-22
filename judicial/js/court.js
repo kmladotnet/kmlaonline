@@ -158,7 +158,7 @@ app.controller("courtCtrl", function($scope, $http){
             var date = $scope.dateTest();
             console.log("date: " + date);
             var data = $scope.accusedSelect;
-            console.log(data);
+            console.log($scope.accusedSelect[0]);
             console.log(data.length);
             console.log(data['0']);
             for(var i = 0; i < data.length; i++){
