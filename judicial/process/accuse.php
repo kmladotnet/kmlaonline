@@ -8,8 +8,7 @@
         $data_date = $data->accuse_date;
         $data_accuser = $data->accuser;
         $data_article = $data->article;
-        //$data_point = $data->point;
-        createNewArticle((int) $data_grade, $data_name, $data_accuser, $data_article);
+        createNewArticle((int) $data_grade, $data_name, $data_accuser, $data_article, $accuse_date);
     }
 
 
