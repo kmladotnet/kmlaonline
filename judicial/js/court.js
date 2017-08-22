@@ -121,9 +121,9 @@ app.controller("courtCtrl", function($scope, $http){
         $scope.url = '/test/users.json';
 
         $scope.accused_name2 = [];
-        $scope.popup.opened = false;
+        $scope.popup = false;
         $scope.openCalender = function(){
-            $scope.popup.opened = true;
+            $scope.popup = true;
         }
 
         $scope.dateTest = function(){
