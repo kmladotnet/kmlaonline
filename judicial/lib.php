@@ -67,7 +67,7 @@ function getAllArticleKinds(){
         $result = array();
         $temp = array();
         while($row = $raw->fetch_assoc()){
-            $temp['ak_id'] = $row['a_id'];
+            $temp['ak_id'] = $row['ak_id'];
             $temp['ak_eng'] = $row['ak_eng'];
             $temp['point'] = $row['point'];
             array_push($result, $temp);
