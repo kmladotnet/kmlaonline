@@ -63,7 +63,7 @@ function getAllAccusers(){
 
 function getAllArticleKinds(){
     global $article_kind;
-    if($raw = $article_kind->getAllRawArticles()){
+    if($raw = $article_kind->getAllRawArticleKinds()){
         $result = array();
         $temp = array();
         while($row = $raw->fetch_assoc()){
