@@ -159,11 +159,11 @@
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
-                                        <th class="col-md-4 col-sm-2">학생 이름</th>
+                                        <th class="col-md-4 col-sm-4">학생 이름</th>
                                         <th class="col-md-2 col-sm-3">기소 일자</th>
-                                        <th class="col-md-2 col-sm-2">기소자</th>
+                                        <th class="col-md-2 col-sm-1">기소자</th>
                                         <th class="col-md-3 col-sm-3">기소 항목</th>
-                                        <th class="col-md-1 col-sm-2">벌점</th>
+                                        <th class="col-md-1 col-sm-1">벌점</th>
                                     </tr>
                                 </thead>
                                 <tbody>
