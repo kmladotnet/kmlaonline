@@ -156,6 +156,7 @@ app.controller("courtCtrl", function($scope, $http){
             var temp_result = [];
             var temp_data;
             var date = $scope.dateTest();
+            console.log("date: " + date);
             var data = $scope.accusedSelect;
             console.log(data);
             for(var i = 0; i < data.length; i++){
