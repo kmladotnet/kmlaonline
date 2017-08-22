@@ -50,6 +50,7 @@ app.controller("courtCtrl", function($scope, $http){
             $scope.accusedFetch();
             $scope.accuserFetch();
             $scope.articleKindFetch();
+            $scope.today();
         }
 
         $scope.accusedSelect = {};
