@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="css/ng-tags-input.css">
     <link rel="stylesheet" type="text/css" href="css/ng-tags-input.bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/select.css">
+
     <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.4.5/select2.css">
@@ -187,6 +188,7 @@
                                                     <span ng-bind="item.name"></span>
                                                 </ui-select-choices>
                                             </ui-select>
+                                        </td>
                                         <td><input type="text" class="form-control" ng-model="accused_article2"></td>
                                         <td><input type="text" class="form-control" ng-model="accused_point2"></td>
                                     </tr>
