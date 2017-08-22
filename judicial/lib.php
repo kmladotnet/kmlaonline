@@ -47,6 +47,6 @@ function getAllArticles(){
 
 function suggestMemberByQuery($query){
     global $member;
-    return json_encode($member->searchMember($query));
+    return json_encode($member->searchMember("김"));
 }
 ?>
