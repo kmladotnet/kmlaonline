@@ -184,7 +184,7 @@
                                                 <ui-select-choices repeat="accused in accusedArray">
                                                     <div ng-bind-html="accused.name | highlight: $select.search"></div>
                                                     <small>
-                                                        {{accused.grade}}학년
+                                                        {{accused.grade}}학년 {{accused.name}}
                                                     </small>
                                                 </ui-select-choices>
                                             </ui-select>
