@@ -68,7 +68,7 @@ app.controller("courtCtrl", function($scope, $http){
         $scope.accusedFetch = function() {
             $scope.code = null;
             $scope.response = null;
-
+            $scope.dateFormat = 'MM-dd';
             $http({
                 method: "GET",
                 url: "process/getMemberList.php"
