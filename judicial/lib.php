@@ -61,6 +61,23 @@ function getAllAccusers(){
     }
 }
 
+function getAllArticleKinds(){
+    global $article_kind;
+    if($raw = $article_kind->getAllRawArticles()){
+        $result = array();
+        $temp = array();
+        while($row = $raw->fetch_assoc()){
+            $temp['ak_id'] = $row['a_id'];
+            $temp['ak_eng'] = $row['ak_eng'];
+            $temp['point'] = $row['point'];
+            array_push($result, $temp);
+        }
+        return $result;
+    } else {
+        echo "ERROR OCCURED - getAllArticleKinds";
+    }
+}
+
 function suggestMemberByQuery($query){
     global $member;
     return json_encode($member->searchMember($query));

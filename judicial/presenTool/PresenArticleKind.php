@@ -58,6 +58,16 @@ class PresenArticleKind {
             return false;
         }
     }
+
+    function getAllRawArticleKinds(){
+        $query = "SELECT * FROM " . $this->table_data . ";";
+        if($result = $this->db->query($query)) {
+            return $result;
+        } else {
+            echo "ERROR[getAllRawArticleKinds] : sql query wrong!!";
+            return false;
+        }
+    }
 }
 
 ?>
