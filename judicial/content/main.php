@@ -7,8 +7,6 @@
 
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/dashboard.css">
-    <link rel="stylesheet" type="text/css" href="css/ng-tags-input.css">
-    <link rel="stylesheet" type="text/css" href="css/ng-tags-input.bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/select.css">
 
     <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
@@ -17,11 +15,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.8.5/css/selectize.default.css">
     <script type="text/javascript" src="js/angular.js"></script>
     <script type="text/javascript" src="js/angular-sanitize.js"></script>
-    <script type="text/javascript" src="js/ng-tags-input.js"></script>
+    <script type="text/javascript" src="js/ui-bootstrap.js"></script>
     <script type="text/javascript" src="js/select.js"></script>
     <script type="text/javascript" src="js/court.js"></script>
 
-    <style>
+
+    <!--style>
         body {
             padding: 15px;
         }
@@ -45,7 +44,7 @@
           position: relative;
           z-index: 10000; /* The select2 dropdown has a z-index of 9999 */
         }
-    </style>
+    </style-->
 
 </head>
 <body ng-cloak="" ng-controller="courtCtrl" ng-init="init()">
@@ -170,15 +169,6 @@
                                 <tbody>
                                     <tr>
                                         <td>
-                                            <!--tags-input type="text" ng-model="accused_name2" name="name2">
-                                                <auto-complete source="loadTags($query)" min-length="0" load-on-focus="true" max-results-to-show="8" template="grade-name"></auto-complete>
-                                            </tags-input>
-
-                                            <script type="text/ng-template" id="grade-name">
-                                                <span>{{data.grade}}</span>
-                                                <span>{{data.text}}</span>
-
-                                            </script-->
                                             <ui-select multiple ng-model="accusedSelect.selectedPeople" theme="bootstrap" ng-disabled="disabled" sortable="true" close-on-select="false">
                                                 <ui-select-match placeholder="기소할 학생을 선택해주세요...">{{$item.grade}}-{{$item.name}}</ui-select-match>
                                                 <ui-select-choices repeat="accused in (accusedArray | filter: $select.search) track by accused.student_id">

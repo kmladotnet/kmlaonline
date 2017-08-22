@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module("kmla_court", ['ngTagsInput', 'ui.select', 'ngSanitize']);
+var app = angular.module("kmla_court", ['ui.select', 'ngSanitize', 'ui.bootstrap']);
 
 app.filter('propsFilter', function() {
   return function(items, props) {
