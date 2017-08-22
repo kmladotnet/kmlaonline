@@ -52,11 +52,12 @@ class PresenMember{
         $q = $this->escape($term);
         $res = array();
         $res_row = array();
-        $query = "SELECT grade, name FROM `$this->table_data` WHERE name LIKE '%$q%' ORDER BY student_id";
+        $query = "SELECT grade, name, student_id FROM `$this->table_data` WHERE name LIKE '%$q%' ORDER BY student_id";
         if($result = $this->db->query($query)){
             while($row = $result->fetch_assoc()){
                 $res_row['name'] = $row['name'];
                 $res_row['grade'] = $row['grade'];
+                $res_row['student_id'] = $row['student_id'];
                 array_push($res, $res_row);
             }
         }
