@@ -1,7 +1,7 @@
-var app = angular.module("kmla_court", ['ngTagsInput', 'ngSanitize', 'ui.select']);
+var app = angular.module("kmla_court", ['ngTagsInput', 'ui.select', 'ngSanitize']);
 
 
-app.controller("courtCtrl", function($scope, $http, $timeout, $interval){
+app.controller("courtCtrl", function($scope, $http){
 
         $scope.itemArray = [
             {id: 1, name: 'first'},
