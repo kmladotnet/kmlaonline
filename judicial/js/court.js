@@ -12,7 +12,8 @@ app.controller("courtCtrl", function($scope, $http){
 
         $scope.dateTest = function(){
             var date = new Date($scope.accused_date);
-            console.log(date.toLocaleDateString('en-US'));
+            var result = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+            console.log(result);
         }
 
         $scope.loadTags = function($query){
