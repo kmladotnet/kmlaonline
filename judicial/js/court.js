@@ -16,7 +16,7 @@ app.controller("courtCtrl", function($scope, $http){
             {id: 10, name: 'tenth'},*/
         ];
 
-        $scope.selected = { value: $scope.itemArray[0] };
+        //$scope.selected = { value: $scope.itemArray[0] };
 
         $scope.accuserFetch = function() {
             $scope.code = null;
