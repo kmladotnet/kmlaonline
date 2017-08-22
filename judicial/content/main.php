@@ -195,6 +195,8 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            <p>{{status2}}</p>
+                            <p>{{data2}}</p>
                         </form>
                     </div>
                     <button type="button" class="btn btn-default pull-right" ng-click="dateTest()">테스트 제출</button>

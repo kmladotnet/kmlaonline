@@ -26,11 +26,11 @@ app.controller("courtCtrl", function($scope, $http){
                 method: "GET",
                 url: "process/getAccuserList.php"
             }).then(function mySuccess(response){
-                $scope.status = response.statusText;
-                $scope.data = response.data;
+                $scope.status2 = response.statusText;
+                $scope.data2 = response.data;
             }, function myError(response){
-                $scope.data = response.data || 'Request failed';
-                $scope.status = response.statusText;
+                $scope.data2 = response.data || 'Request failed';
+                $scope.status2 = response.statusText;
             });
         };
 
