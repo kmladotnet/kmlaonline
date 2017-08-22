@@ -191,7 +191,7 @@
                                         </td>
                                         <td><input type="date" class="form-control" ng-model="accused_date2"></td>
                                         <td>
-                                            <ui-select ng-model="selected.value" theme="bootstrap">
+                                            <ui-select ng-model="accuserSelect.selected" theme="bootstrap">
                                                 <ui-select-match>
                                                     <span ng-bind="$select.selected.name"></span>
                                                 </ui-select-match>
@@ -201,7 +201,7 @@
                                             </ui-select>
                                         </td>
                                         <td>
-                                            <ui-select ng-model="selected.value2" theme="bootstrap">
+                                            <ui-select ng-model="articleKindSelect.selected" theme="bootstrap">
                                                 <ui-select-match>
                                                     <span ng-bind="$select.selected.ak_eng"></span>
                                                 </ui-select-match>
@@ -210,7 +210,7 @@
                                                 </ui-select-choices>
                                             </ui-select>
                                         </td>
-                                        <td><input type="text" class="form-control" ng-model="value2.selected.point" ng-disabled="point_disabled"></td>
+                                        <td><input type="text" class="form-control" ng-model="articleKindSelect.selected.point" ng-disabled="point_disabled"></td>
                                     </tr>
                                 </tbody>
                             </table>

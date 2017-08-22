@@ -53,6 +53,8 @@ app.controller("courtCtrl", function($scope, $http){
         }
 
         $scope.accusedSelect = {};
+        $scope.accuserSelect = {};
+        $scope.articleKindSelect = {};
         $scope.accusedArray = [];
         $scope.accuserArray = [];
         $scope.articleKindArray = [];
