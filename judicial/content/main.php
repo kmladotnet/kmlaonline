@@ -170,14 +170,24 @@
                                 <tbody>
                                     <tr>
                                         <td>
-                                            <tags-input type="text" ng-model="accused_name2" name="name2">
+                                            <!--tags-input type="text" ng-model="accused_name2" name="name2">
                                                 <auto-complete source="loadTags($query)" min-length="0" load-on-focus="true" max-results-to-show="8" template="grade-name"></auto-complete>
                                             </tags-input>
 
                                             <script type="text/ng-template" id="grade-name">
                                                 <span>{{data.grade}}</span>
                                                 <span>{{data.text}}</span>
-                                            </script>
+
+                                            </script-->
+                                            <ui-select multiple ng-model="accusedObj.selectedPeople" theme="bootstrap" ng-disabled="disabled" sortable="true" close-on-select="false">
+                                                <ui-select-match placeholder="기소할 학생을 선택해주세요...">{{$item.grade}}-{{$item.name}}</ui-select-match>
+                                                <ui-select-choices repeat="accused in suggestedList | propsFilter: {name: $select.search, grade: $select.search}">
+                                                    <div ng-bind-html="accused.name | highlight: $select.search"></div>
+                                                    <small>
+                                                        {{accused.grade}}학년
+                                                    </small>
+                                                </ui-select-choices>
+                                            </ui-select>
                                         </td>
                                         <td><input type="date" class="form-control" ng-model="accused_date2"></td>
                                         <td>
