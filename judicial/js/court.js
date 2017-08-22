@@ -172,7 +172,9 @@ app.controller("courtCtrl", function($scope, $http){
                 temp_data = {grade: item['grade'], name: item['name'], accuse_date: date, accuser: $scope.accuserSelect['name'], article: $scope.articleKindSelect['ak_eng'], point: ""};
                 //submitNewArticle(item['grade'], item['name'], date, $scope.accuserSelect['name'], $scope.$scope.articleKindSelect['ak_eng']);
                 temp_result.push(temp_data);
+
             });
+            console.log(temp_result);
             /*
             var config = {
                 headers: {
