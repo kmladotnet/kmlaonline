@@ -34,6 +34,7 @@ app.filter('propsFilter', function() {
 
 app.controller("courtCtrl", function($scope, $http){
         $scope.disabled = undefined;
+        $scope.point_disabled = true;
 
         $scope.enable = function(){
             $scope.disabled = true;
@@ -44,15 +45,32 @@ app.controller("courtCtrl", function($scope, $http){
         }
 
         $scope.init = function(){
+            $scope.accusedFetch();
             $scope.accuserFetch();
             $scope.articleKindFetch();
         }
 
-        $scope.accusedObj = {};
+        $scope.accusedArray = [];
         $scope.accuserArray = [];
         $scope.articleKindArray = [];
 
         //$scope.selected = { value: $scope.itemArray[0] };
+
+        $scope.accusedFetch = function() {
+            $scope.code = null;
+            $scope.response = null;
+
+            $http({
+                method: "GET",
+                url: "process/getMemberList.php"
+            }).then(function mySuccess(response){
+                $scope.status2 = response.statusText;
+                $scope.accusedArray = response.data;
+            }, function myError(response){
+                $scope.data2 = response.data || 'Request failed';
+                $scope.status2 = response.statusText;
+            });
+        }
 
         $scope.accuserFetch = function() {
             $scope.code = null;
