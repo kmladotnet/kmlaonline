@@ -64,6 +64,7 @@ app.controller("courtCtrl", function($scope, $http){
             console.log($scope.accusedSelect);
             console.log($scope.accuserSelect);
             console.log($scope.articleKindSelect);
+            console.log($scope.accused_date2);
         }
 
         $scope.accusedFetch = function() {
