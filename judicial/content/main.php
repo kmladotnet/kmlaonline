@@ -179,7 +179,14 @@
                                                 </ui-select-choices>
                                             </ui-select>
                                         </td>
-                                        <td><input type="text" class="form-control" uib-datepicker-popup="mm-dd" ng-model="accused_date2"></td>
+                                        <td>
+                                            <input type="text" class="form-control" uib-datepicker-popup="yyyy-MM-dd" ng-model="accused_date2" is-open="popup.opened" datepicker-options="dateOptions" ng-required="true">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-default" ng-click="openCalender()">
+                                                    <i class="glyphicon glyphicon-calendar"></i>
+                                                </button>
+                                            </span>
+                                        </td>
                                         <td>
                                             <ui-select ng-model="accuserSelect.selected" theme="bootstrap">
                                                 <ui-select-match>

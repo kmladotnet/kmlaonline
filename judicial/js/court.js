@@ -122,6 +122,10 @@ app.controller("courtCtrl", function($scope, $http){
 
         $scope.accused_name2 = [];
 
+        $scope.openCalender = function(){
+            $scope.popup.opened = true;
+        }
+
         $scope.dateTest = function(){
             var date = new Date($scope.accused_date);
             var result = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
