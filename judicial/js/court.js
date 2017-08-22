@@ -11,6 +11,7 @@ app.controller("courtCtrl", function($scope, $http){
         $scope.accused_name2 = [];
 
         $scope.loadTags = function(query){
+            console.log(query);
             return $http.get('process/suggest.php');
         };
 

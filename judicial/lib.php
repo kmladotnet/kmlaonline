@@ -44,4 +44,9 @@ function getAllArticles(){
         echo "ERROR OCCURED - getAllArticles";
     }
 }
+
+function suggestMemberByQuery($query){
+    global $member;
+    return json_encode($member->searchMember($query));
+}
 ?>

@@ -47,5 +47,21 @@ class PresenMember{
             return false;
         }
     }
+
+    function searchMember($term=""){
+        $q = $this->escape($term);
+        $res = array();
+        $res_row = array();
+        $query = "SELECT grade, name FROM `$this->table_data` WHERE name LIKE '%$q%' ORDER BY student_id";
+        if($result = $this->db->query($query)){
+            while($row = fetch_assoc($result)){
+                $res_row['text'] = $row['name'];
+                $res_row['grade'] = $row['grade'];
+                array_push($res, $res_row);
+            }
+        }
+
+        return $res;
+    }
 }
 ?>

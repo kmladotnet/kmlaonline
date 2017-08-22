@@ -51,5 +51,22 @@ class PresenArticle{
         }
     }
 
+    /*
+    function searchArticle($term){
+        $json = array();
+        $json_row = array();
+        $query = "SELECT * FROM `$this->table_data` WHERE ak_eng LIKE '%$term%' ORDER BY point";
+        if($data = $this->db->query($query)) {
+            while($row = mysqli_fetch_array($data)) {
+                $ak_kor = htmlentities(stripslashes($row['ak_kor']));
+                $ak_eng = htmlentities(stripslashes($row['ak_eng']));
+                $ak_id = intval($row['ak_id']);
+                $point = intval($row['point']);
+                $a_json_row['text'] = $row['ak_kor'];
+                array_push($a_json, $a_json_row);
+            }
+        }
+    }*/
+
 }
 ?>

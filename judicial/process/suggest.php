@@ -1,5 +1,5 @@
 <?php
-    $final = array();
+    /*$final = array();
     $test = array("text" => "김현재");
     array_push($final, $test);
     $test = array("text" => "조성민");
@@ -14,5 +14,9 @@
     array_push($final, $test);
     $test = array("text" => "김ㅅ김");
     array_push($final, $test);
-    echo json_encode($final);
+    echo json_encode($final);*/
+
+    include("../lib.php");
+    $q = $_GET['q'];
+    suggestMemberByQuery($q);
 ?>
