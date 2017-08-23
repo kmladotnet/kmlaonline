@@ -260,13 +260,14 @@ app.controller("listCtrl", function($scope, $http){
     };
 
     $scope.calculateRows = function(){
-        var row_span, sum;
+        var row_span, sum, num;
         if($scope.articleList.length > 0){
             $scope.articleList[0].matchPreviousRow = false;
             for(var i = 0; i < $scope.articleList.length; i += row_span){
                 var name = $scope.articleList[i].name;
                 row_span = 1;
                 sum = parseInt($scope.articleList[i].point);
+                num = 1;
                 for(var j = i + 1; j < $scope.articleList.length; j++){
                     if($scope.articleList[j].name === name){
                         $scope.articleList[j].matchPreviousRow = true;
@@ -279,6 +280,7 @@ app.controller("listCtrl", function($scope, $http){
                 }
                 $scope.articleList[i].row_span = row_span;
                 $scope.articleList[i].sum = sum;
+                $scope.articleList[i].num = num++;
             }
 
             /*for(var i = 0; i < $scope.articleList.length; i += rows){

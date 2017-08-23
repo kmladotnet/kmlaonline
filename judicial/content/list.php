@@ -82,8 +82,9 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
+                                    <th class="col-md-1">no</th>
                                     <th class="col-md-1">학년</th>
-                                    <th class="col-md-2">학생 이름</th>
+                                    <th class="col-md-1">학생 이름</th>
                                     <th class="col-md-2">기소 일자</th>
                                     <th class="col-md-1">기소자</th>
                                     <th class="col-md-4">기소 항목</th>
@@ -93,6 +94,7 @@
                             </thead>
                             <tbody align="center">
                                 <tr ng-repeat="list in articleList">
+                                    <td rowSpan="{{list.row_span}}" ng-if="! list.matchPreviousRow" style="vertical-align: middle;">{{list.num}}</td>
                                     <td rowSpan="{{list.row_span}}" ng-if="! list.matchPreviousRow" style="vertical-align: middle;">{{list.grade}}</td>
                                     <td rowSpan="{{list.row_span}}" ng-if="(! list.matchPreviousRow )" style="vertical-align: middle;">{{list.name}}</td>
                                     <td>{{list.accused_date}}</td>
