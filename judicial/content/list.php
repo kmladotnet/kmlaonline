@@ -96,7 +96,7 @@
                                     <th class="col-md-12" colSpan="7">재판결</th>
                                 </tr>
                                 <tr ng-repeat="list in articleList">
-                                    <td rowSpan="{{list.row_span}}" ng-if="! list.matchPreviousRow" style="vertical-align: middle;">{{list.grade}}</td>
+                                    <td rowSpan="{{list.row_span}}" ng-if="! list.matchPreviousRow && ng.status < 20000 " style="vertical-align: middle;">{{list.grade}}</td>
                                     <td rowSpan="{{list.row_span}}" ng-if="! list.matchPreviousRow" style="vertical-align: middle;">{{list.name}}</td>
                                     <td>{{list.accused_date}}</td>
                                     <td>{{list.accuser}}</td>
