@@ -259,9 +259,26 @@ app.controller("listCtrl", function($scope, $http){
     };
 
     $scope.calculateRows = function(){
+        var row_span;
         if($scope.articleList.length > 0){
             $scope.articleList[0].matchPreviousRow = false;
-            for(var i = 0; i < $scope.articleList.length; i++){
+            for(var i = 0; i < $scope.articleList.length; i += row_span){
+                var name = $scope.articleList[i].name;
+                row_span = 1;
+                for(var j = i + 1; j < $scope.articleList.length; j++){
+                    if($scope.articleList[j].name === name){
+                        $scope.articleList[j].matchPreviousRow = true;
+                        row_span++;
+                    } else {
+                        $scope.articleList[j].matchPreviousRow = false;
+                        break;
+                    }
+                }
+                $scope.articleList[i].row_span = row_span;
+                console.log(row_span);
+            }
+
+            /*for(var i = 0; i < $scope.articleList.length; i += rows){
                 var name = $scope.articleList[i].name;
                 var rows = 1;
                 for (var j = i + 1; j < $scope.articleList.length; j++) {
@@ -275,7 +292,7 @@ app.controller("listCtrl", function($scope, $http){
                 }
                 $scope.articleList[i].rows = rows;
                 console.log(rows);
-            }
+            }*/
         }
     };
 });

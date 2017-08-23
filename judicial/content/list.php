@@ -92,7 +92,7 @@
                             </thead>
                             <tbody align="center">
                                 <tr ng-repeat="list in articleList">
-                                    <td rowSpan="{{list.rows}}" ng-if="! list.matchPreviousRow">{{list.grade}}</td>
+                                    <td rowSpan="{{list.row_span}}" ng-if="! list.matchPreviousRow">{{list.grade}}</td>
                                     <td>{{list.name}}</td>
                                     <td>{{list.accused_date}}</td>
                                     <td>{{list.accuser}}</td>
