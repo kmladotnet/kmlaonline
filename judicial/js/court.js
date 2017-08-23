@@ -269,7 +269,7 @@ app.controller("listCtrl", function($scope, $http){
                         rows++;
                         $scope.articleList[j].matchPreviousRow = true;
                     } else {
-                        $scope.articleLIst[j].matchPreviousRow = false;
+                        $scope.articleList[j].matchPreviousRow = false;
                         break;
                     }
                 }
