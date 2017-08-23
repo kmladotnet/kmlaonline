@@ -82,14 +82,14 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th class="col-md-1">no</th>
-                                    <th class="col-md-1">학년</th>
-                                    <th class="col-md-1">학생 이름</th>
-                                    <th class="col-md-2">기소 일자</th>
-                                    <th class="col-md-1">기소자</th>
-                                    <th class="col-md-4">기소 항목</th>
-                                    <th class="col-md-1">벌점</th>
-                                    <th class="col-md-1">총점</th>
+                                    <th class="col-md-1">No.</th>
+                                    <th class="col-md-1">Grade</th>
+                                    <th class="col-md-1">Name</th>
+                                    <th class="col-md-2">Date</th>
+                                    <th class="col-md-1">Accused by</th>
+                                    <th class="col-md-4">Violated Article</th>
+                                    <th class="col-md-1">Points</th>
+                                    <th class="col-md-1">Sum</th>
                                 </tr>
                             </thead>
                             <tbody align="center">
