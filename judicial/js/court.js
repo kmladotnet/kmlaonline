@@ -274,6 +274,7 @@ app.controller("listCtrl", function($scope, $http){
                     }
                 }
                 $scope.articleList[i].rows = rows;
+                console.log(rows);
             }
         }
     };
