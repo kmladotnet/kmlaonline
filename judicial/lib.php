@@ -69,9 +69,9 @@ function getAllSortedArticles(){
         for($t = 0; $t < count($value['article_array']); $t++){
             $temp_grade = $value['article_array'][$t]['grade'];
             $temp_name = $value['article_array'][$t]['name'];
-            $temp_accuse_date = $article->getDateById($value['article_array'][$t]['ar_id']);
-            $temp_accuser = $accuser->accuserId2Name((int) $value['article_array'][$t]['ar_id']);
-            $temp_article = $article_kind->articleId2Desc((int) $value['article_array'][$t]['ak_id']);
+            $temp_accuse_date = $article->getDateById($value['article_array'][$t]['article']);
+            $temp_accuser = $accuser->accuserId2Name((int) $value['article_array'][$t]['article']);
+            $temp_article = $article_kind->articleId2Desc((int) $value['article_array'][$t]['article_kind']);
             $temp_point = $value['article_array'][$t]['point'];
             $temp_status = $value['status'];
             $temp = array('grade' => $temp_grade,
