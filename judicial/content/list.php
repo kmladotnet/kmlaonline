@@ -94,7 +94,7 @@
                             </thead>
                             <tbody align="center">
                                 <tr ng-repeat="list in articleList" ng-class"">
-                                    <td rowSpan="{{list.row_span}}" ng-if="(! list.matchPreviousRow) && articleList.status < 20000" style="vertical-align: middle;">{{list.num}}</td>
+                                    <td rowSpan="{{list.row_span}}" ng-if="(! list.matchPreviousRow) && articleList.status === '10000'" style="vertical-align: middle;">{{list.num}}</td>
                                     <td rowSpan="{{list.row_span}}" ng-if="! list.matchPreviousRow" style="vertical-align: middle;">{{list.grade}}</td>
                                     <td rowSpan="{{list.row_span}}" ng-if="(! list.matchPreviousRow )" style="vertical-align: middle;">{{list.name}}</td>
                                     <td>{{list.accused_date}}</td>
