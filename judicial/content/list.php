@@ -85,9 +85,10 @@
                                     <th class="col-md-1">학년</th>
                                     <th class="col-md-2">학생 이름</th>
                                     <th class="col-md-2">기소 일자</th>
-                                    <th class="col-md-2">기소자</th>
+                                    <th class="col-md-1">기소자</th>
                                     <th class="col-md-4">기소 항목</th>
                                     <th class="col-md-1">벌점</th>
+                                    <th class="col-md-1">총점</th>
                                 </tr>
                             </thead>
                             <tbody align="center">
@@ -98,6 +99,7 @@
                                     <td>{{list.accuser}}</td>
                                     <td>{{list.article}}</td>
                                     <td>{{list.point}}</td>
+                                    <td rowSpan="{{list.row_span}}" ng-if="! list.matchPreviousRow" style="vertical-align: middle;">{{list.sum}}</td>
                                 </tr>
                             </tbody>
                         </table>
