@@ -312,4 +312,25 @@ app.controller("listCtrl", function($scope, $http){
             }
         }
     };
+
+    $scope.isRT = function($status){
+        if($status < 20000) return true;
+        else false;
+    }
+
+    $scope.isFD = function($status){
+        if($status >= 20000 && $status < 30000) return true;
+        else false;
+    }
+
+    $scope.isOD = function($status){
+        if($status >= 30000 && $status < 50000) return true;
+        else false;
+    }
+
+    $scope.isCL = function($status){
+        if($status >= 50000) return true;
+        else false;
+    }
+
 });

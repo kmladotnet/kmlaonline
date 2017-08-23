@@ -106,6 +106,45 @@
                                     <td ng-if="list.status < 20000">{{list.point}}</td>
                                     <td rowSpan="{{list.row_span}}" ng-if="(! list.matchPreviousRow ) && list.status < 20000" style="vertical-align: middle;">{{list.sum}}</td>
                                 </tr>
+                                <tr>
+                                    <th class="col-md-12 warning" colspan="8">최후변론</th>
+                                </tr>
+                                <tr ng-repeat="list in articleList" ng-class"">
+                                    <td rowSpan="{{list.row_span}}" ng-if="(! list.matchPreviousRow) && isFD($status)" style="vertical-align: middle;">{{list.num}}</td>
+                                    <td rowSpan="{{list.row_span}}" ng-if="(! list.matchPreviousRow) && isFD($status)" style="vertical-align: middle;">{{list.grade}}</td>
+                                    <td rowSpan="{{list.row_span}}" ng-if="(! list.matchPreviousRow ) && isFD($status)" style="vertical-align: middle;">{{list.name}}</td>
+                                    <td ng-if="isFD($status)">{{list.accused_date}}</td>
+                                    <td ng-if="isFD($status)">{{list.accuser}}</td>
+                                    <td ng-if="isFD($status)">{{list.article}}</td>
+                                    <td ng-if="isFD($status)">{{list.point}}</td>
+                                    <td rowSpan="{{list.row_span}}" ng-if="(! list.matchPreviousRow ) && isFD($status)" style="vertical-align: middle;">{{list.sum}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="col-md-12 success" colspan="8">일반 판결</th>
+                                </tr>
+                                <tr ng-repeat="list in articleList" ng-class"">
+                                    <td rowSpan="{{list.row_span}}" ng-if="(! list.matchPreviousRow) && isOD($status)" style="vertical-align: middle;">{{list.num}}</td>
+                                    <td rowSpan="{{list.row_span}}" ng-if="(! list.matchPreviousRow) && isOD($status)" style="vertical-align: middle;">{{list.grade}}</td>
+                                    <td rowSpan="{{list.row_span}}" ng-if="(! list.matchPreviousRow ) && isOD($status)" style="vertical-align: middle;">{{list.name}}</td>
+                                    <td ng-if="isOD($status)">{{list.accused_date}}</td>
+                                    <td ng-if="isOD($status)">{{list.accuser}}</td>
+                                    <td ng-if="isOD($status)">{{list.article}}</td>
+                                    <td ng-if="isOD($status)">{{list.point}}</td>
+                                    <td rowSpan="{{list.row_span}}" ng-if="(! list.matchPreviousRow ) && isOD($status)" style="vertical-align: middle;">{{list.sum}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="col-md-12 info" colspan="8">법정 진행자</th>
+                                </tr>
+                                <tr ng-repeat="list in articleList" ng-class"">
+                                    <td rowSpan="{{list.row_span}}" ng-if="(! list.matchPreviousRow) && isCL($status)" style="vertical-align: middle;">{{list.num}}</td>
+                                    <td rowSpan="{{list.row_span}}" ng-if="(! list.matchPreviousRow) && isCL($status)" style="vertical-align: middle;">{{list.grade}}</td>
+                                    <td rowSpan="{{list.row_span}}" ng-if="(! list.matchPreviousRow ) && isCL($status)" style="vertical-align: middle;">{{list.name}}</td>
+                                    <td ng-if="isCL($status)">{{list.accused_date}}</td>
+                                    <td ng-if="isCL($status)">{{list.accuser}}</td>
+                                    <td ng-if="isCL($status)">{{list.article}}</td>
+                                    <td ng-if="isCL($status)">{{list.point}}</td>
+                                    <td rowSpan="{{list.row_span}}" ng-if="(! list.matchPreviousRow ) && isCL($status)" style="vertical-align: middle;">{{list.sum}}</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
