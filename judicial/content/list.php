@@ -93,7 +93,7 @@
                             </thead>
                             <tbody align="center">
                                 <tr>
-                                    <th class="col-md-12">재판결</th>
+                                    <th class="col-md-12" colSpan="7">재판결</th>
                                 </tr>
                                 <tr ng-repeat="list in articleList">
                                     <td rowSpan="{{list.row_span}}" ng-if="! list.matchPreviousRow" style="vertical-align: middle;">{{list.grade}}</td>
