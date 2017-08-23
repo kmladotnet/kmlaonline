@@ -39,7 +39,8 @@ class PresenAccuser{
                     . "a_id = " . $id . ";";
         if($result = $this->db->query($query)){
             $row = $result->fetch_assoc();
-            return $row["name"];
+            if(($id >= 73 && $id <=75) || $id ===77) return $row["name"];
+            else return $row["name"] . "tr"
         } else {
             echo "ERROR[accuserId2Name] : sql query wrong!!";
             return false;
