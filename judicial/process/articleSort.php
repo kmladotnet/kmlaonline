@@ -25,7 +25,7 @@
                             if($ar1['article_array'][0]['name'] === $ar2['article_array'][0]['name']) {
                                 return 0;
                             } else {
-                                return strcmp($ar1['article_array'][0]['name'], $ar2['article_array'][0]['name'])
+                                return strcmp($ar1['article_array'][0]['name'], $ar2['article_array'][0]['name']);
                             }
                         } else {
                             if($ar1['article_array'][0]['grade'] < $ar2['article_array'][0]['grade']) return -1;
