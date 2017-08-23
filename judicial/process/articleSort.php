@@ -36,8 +36,8 @@
                         return 1;
                     }
                 } else {
-                    if($sum1 < $sum2) return -1;
-                    else return 1;
+                    if($sum1 < $sum2) return 1;
+                    else return -1;
                 }
             } else {
                 if(count($ar1['article_array']) < count($ar2['article_array'])) return 1;
