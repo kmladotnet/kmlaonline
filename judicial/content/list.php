@@ -79,7 +79,7 @@
                 <div>
                     <h2>지금까지 추가한 내용 <button type="button" class="btn btn-success pull-right" ng-click="fetch()">보기</button></h2>
                     <div class="table-responsive">
-                        <table class="table table-bordered table-checkered">
+                        <table class="table table-bordered table-condensed">
                             <thead>
                                 <tr>
                                     <th class="col-md-1">No.</th>
@@ -96,7 +96,7 @@
                                 <tr>
                                     <th class="col-md-12 danger" colspan="8">재판결</th>
                                 </tr>
-                                <tr ng-repeat="list in articleList" ng-class"">
+                                <tr ng-repeat="list in articleList" class"table-striped">
                                     <td rowSpan="{{list.row_span}}" ng-if="(! list.matchPreviousRow) && list.status < 20000" style="vertical-align: middle;">{{list.num}}</td>
                                     <td rowSpan="{{list.row_span}}" ng-if="(! list.matchPreviousRow) && list.status < 20000" style="vertical-align: middle;">{{list.grade}}</td>
                                     <td rowSpan="{{list.row_span}}" ng-if="(! list.matchPreviousRow ) && list.status < 20000" style="vertical-align: middle;">{{list.name}}</td>
