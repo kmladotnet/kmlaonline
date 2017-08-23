@@ -1,5 +1,19 @@
 <?php
 date_default_timezone_set("Asia/Seoul");
+
+/**
+article status constant
+ARTICLE_STATUS_FD 최변: 53788
+ARTICLE_STATUS_RT 재판결: 37084
+ARTICLE_STATUS_ORD 일반 판결: 26124
+ARTICLE_STATUS_CP 법정 진행자: 19997
+*/
+
+define('ARTICLE_STATUS_FD', 53788);
+define('ARTICLE_STATUS_RT', 37084);
+define('ARTICLE_STATUS_ORD', 26124);
+define('ARTICLE_STATUS_CP', 19997);
+
 include "presenTool/PresenTools.php";
 include "presenTool/dbHandler.php";
 
@@ -30,18 +44,56 @@ function getAllArticles(){
             $temp_accuser = $accuser->accuserId2Name((int) $row['accuser_id']);
             $temp_article = $article_kind->articleId2Desc((int) $row['ak_id']);
             $temp_point = $article_kind->articleId2Point((int) $row['ak_id']);
-
+            $temp_status = (int) $row['status'];
             $temp = array('grade' => $temp_grade,
                     'name' => $temp_name,
                     'accused_date' => $row['accused_date'],
                     'accuser' => $temp_accuser,
                     'article' => $temp_article,
-                    'point' => $temp_point);
+                    'point' => $temp_point,
+                    'status' => $temp_status);
             array_push($result, $temp);
         }
         return $result;
     } else {
         echo "ERROR OCCURED - getAllArticles";
+    }
+}
+
+function getAllProcessingArticles(){
+    global $member, $accuser, $article_kind, $article;
+    if($raw = $article->getAllRawArticles()){
+        $result = array();
+        while($row = $raw->fetch_assoc()){
+
+            $temp_grade = $member->courtId2GradeName((int) $row['accused_id'])['grade'];
+            $temp_name = $member->courtId2GradeName((int) $row['accused_id'])['name'];
+            $temp_article_id = (int) $row['ar_id'];
+            $temp_article_kind = (int) $row['ak_id'];
+            $temp_point = $article_kind->articleId2Point((int) $row['ak_id']);
+
+            $temp_article_element = array('grade' => $temp_grade,
+                    'name' => $temp_name,
+                    'article' => $temp_article_id,
+                    'article_kind' => $temp_article_kind,
+                    'point' => $temp_point);
+            $temp_status = (int) $row['status'];
+
+            $temp_accused_id = (int) $row['accused_id'];
+
+            if(empty($result[$temp_accused_id])){
+                $result[$temp_accused_id] = array("article_array" => array(),
+                    "status" => $temp_status);
+                array_push($result[$temp_accused_id]["article_array"], $temp_article_element);
+            } else {
+                array_push($result[$temp_accused_id]["article_array"], $temp_article_element);
+                if($temp_status !== ARTICLE_STATUS_ORD) $result[$temp_accused_id]["status"] = $temp_status;
+            }
+        }
+        echo json_encode($result);
+        return $result;
+    } else {
+        echo "ERROR OCCURED - getAllProcessingArticles";
     }
 }
 

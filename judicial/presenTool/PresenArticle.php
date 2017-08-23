@@ -16,7 +16,14 @@ class PresenArticle{
 
     }
 
-    function addCourtArticle($accused, $accused_date, $accuser, $article_kind, $status=0, $manager=317, $court_num=1){
+    /**
+    $status variable
+    ARTICLE_STATUS_FD 최변: 53788
+    ARTICLE_STATUS_RT 재판결: 37084
+    ARTICLE_STATUS_ORD 일반 판결: 26124
+    ARTICLE_STATUS_CP 법정 진행자: 19997
+    */
+    function addCourtArticle($accused, $accused_date, $accuser, $article_kind, $status=ARTICLE_STATUS_ORD, $manager=317, $court_num=1){
         if(!is_int($accused) || !is_int($accuser) || !is_int($article_kind) || !is_int($status) || !is_int($manager) || !is_int($court_num)) return false;
         $query = "INSERT INTO `$this->table_data` (accused_id, accused_date, accuser_id, ak_id, status, manager_id, court_num) VALUES (" .
                 $accused . ", " .
