@@ -79,7 +79,7 @@
                 <div>
                     <h2>지금까지 추가한 내용 <button type="button" class="btn btn-success pull-right" ng-click="fetch()">보기</button></h2>
                     <div class="table-responsive">
-                        <table class="table table-striped">
+                        <table class="table table-bordered">
                             <thead>
                                 <tr>
                                     <th class="col-md-1">학년</th>
@@ -93,7 +93,7 @@
                             <tbody align="center">
                                 <tr ng-repeat="list in articleList">
                                     <td rowSpan="{{list.row_span}}" ng-if="! list.matchPreviousRow">{{list.grade}}</td>
-                                    <td>{{list.name}}</td>
+                                    <td rowSpan="{{list.row_span}}" ng-if="! list.matchPreviousRow">{{list.name}}</td>
                                     <td>{{list.accused_date}}</td>
                                     <td>{{list.accuser}}</td>
                                     <td>{{list.article}}</td>
