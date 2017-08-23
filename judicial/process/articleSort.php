@@ -20,7 +20,7 @@
                     array_push($points_2, $ar2['article_array'][$i]['article_kind']);
                 }
                 if($sum1 === $sum2){
-                    if(count(array_diff(array_merge($points_1, $points2), array_intersect($points_1, $points_2))) === 0) {
+                    if(count(array_diff(array_merge($points_1, $points_2), array_intersect($points_1, $points_2))) === 0) {
                         if($ar1['article_array'][0]['grade'] === $ar2['article_array'][0]['grade']) {
                             if($ar1['article_array'][0]['name'] === $ar2['article_array'][0]['name']) {
                                 return 0;
