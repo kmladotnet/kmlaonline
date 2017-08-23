@@ -20,7 +20,7 @@
     <script type="text/javascript" src="js/court.js"></script>
 
 </head>
-<body ng-cloak="" ng-controller="listCtrl" ng-init="init()">
+<body ng-cloak="" ng-controller="listCtrl">
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
