@@ -251,10 +251,10 @@ app.controller("listCtrl", function($scope, $http){
         }).then(function mySuccess(response){
             $scope.status = response.statusText;
             $scope.articleList = response.data;
+            $scope.calculateRows();
         }, function myError(response){
             $scope.data = response.data || 'Request failed';
             $scope.status = response.statusText;
-            $scope.calculateRows();
         });
     };
 
