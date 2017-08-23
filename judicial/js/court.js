@@ -303,7 +303,7 @@ app.controller("listCtrl", function($scope, $http){
         if($scope.articleList.length > 0){
             $scope.articleList[0].matchPreviousRow = false;
             for(var i = 0; i < $scope.articleList.length; i++){
-                if($scope.tempBuffList.includes($scope.articleList[i].grade + $scope.articleList[i].name)) $scope.articleList[i].point += 1;
+                if($scope.tempBuffList.includes($scope.articleList[i].grade + $scope.articleList[i].name)) $scope.articleList[i].point = int($scope.articleList[i].point) + 1;
             }
         }
     };
