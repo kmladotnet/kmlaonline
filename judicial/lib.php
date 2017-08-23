@@ -3,10 +3,10 @@ date_default_timezone_set("Asia/Seoul");
 
 /**
 article status constant
-ARTICLE_STATUS_FD 최변: 53788
-ARTICLE_STATUS_RT 재판결: 37084
-ARTICLE_STATUS_ORD 일반 판결: 26124
-ARTICLE_STATUS_CP 법정 진행자: 19997
+ARTICLE_STATUS_FD 최변: 19997
+ARTICLE_STATUS_RT 재판결: 26124
+ARTICLE_STATUS_ORD 일반 판결: 37084
+ARTICLE_STATUS_CP 법정 진행자: 53788
 */
 
 define('ARTICLE_STATUS_CP', 53788);
@@ -84,7 +84,7 @@ function getAllSortedArticles(){
             array_push($result, $temp);
         }
     }
-    //echo json_encode($result);
+    echo json_encode($result);
 
     return $result;
 
