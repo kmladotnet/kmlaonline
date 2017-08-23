@@ -90,7 +90,7 @@ function getAllProcessingArticles(){
                 if($temp_status !== ARTICLE_STATUS_ORD) $result[$temp_accused_id]["status"] = $temp_status;
             }
         }
-        echo json_encode($result);
+        echo print_r($result);
         return $result;
     } else {
         echo "ERROR OCCURED - getAllProcessingArticles";
