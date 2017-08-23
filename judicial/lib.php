@@ -60,6 +60,80 @@ function getAllArticles(){
     }
 }
 
+function getAllSortedArticles(){
+    global $article_kind, $article;
+    $process = getAllProcessingArticles();
+    uasort($process, 'article_cmp');
+    $result = array();
+    foreach ($process as $key => $value) {
+        for($t = 0; $t < count($value['article_array']); $t++){
+            $temp_grade = $value['article_array'][$t]['grade'];
+            $temp_name = $value['article_array'][$t]['name'];
+            $temp_accuse_date = $article->getDateById($value['article_array'][$t]['ar_id']);
+            $temp_accuser = $accuser->accuserId2Name((int) $value['article_array'][$t]['ar_id']);
+            $temp_article = $article_kind->articleId2Desc((int) $value['article_array'][$t]['ak_id']);
+            $temp_point = $value['article_array'][$t]['point'];
+            $temp_status = $value['status'];
+            $temp = array('grade' => $temp_grade,
+                    'name' => $temp_name,
+                    'accused_date' => $temp_accuse_date,
+                    'accuser' => $temp_accuser,
+                    'article' => $temp_article,
+                    'point' => $temp_point,
+                    'status' => $temp_status);
+            array_push($result, $temp);
+        }
+    }
+
+    echo json_encode($result);
+    return $result;
+
+
+}
+
+function article_cmp($ar1, $ar2){
+    if($ar1['status'] === $ar2['status']){
+        if(count($ar1['article_array']) === count($ar2['article_array'])) {
+            $sum1 = 0;
+            $sum2 = 0;
+            $points_1 = array();
+            $points_2 = array();
+            for($i = 0; $i < count($ar1['article_array']); $i++){
+                $sum1 += $ar1['article_array'][$i]['point'];
+                array_push($points_1, $ar1['article_array'][$i]['article_kind']);
+                $sum2 += $ar2['article_array'][$i]['point'];
+                array_push($points_2, $ar2['article_array'][$i]['article_kind']);
+            }
+            if($sum1 === $sum2){
+                if(count(array_diff(array_merge($points_1, $points_2), array_intersect($points_1, $points_2))) === 0) {
+                    if($ar1['article_array'][0]['grade'] === $ar2['article_array'][0]['grade']) {
+                        if($ar1['article_array'][0]['name'] === $ar2['article_array'][0]['name']) {
+                            return 0;
+                        } else {
+                            return strcmp($ar1['article_array'][0]['name'], $ar2['article_array'][0]['name']);
+                        }
+                    } else {
+                        if($ar1['article_array'][0]['grade'] < $ar2['article_array'][0]['grade']) return -1;
+                        else return 1;
+                    }
+                } else {
+                    if(array_sum($points_1) < array_sum($points_2)) return -1;
+                    return 1;
+                }
+            } else {
+                if($sum1 < $sum2) return 1;
+                else return -1;
+            }
+        } else {
+            if(count($ar1['article_array']) < count($ar2['article_array'])) return 1;
+            else return -1;
+        }
+    } else {
+        if($ar1['status'] < $ar2['status']) return -1;
+        else return 1;
+    }
+}
+
 function getAllProcessingArticles(){
     global $member, $accuser, $article_kind, $article;
     if($raw = $article->getAllRawArticles()){

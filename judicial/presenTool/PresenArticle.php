@@ -58,6 +58,30 @@ class PresenArticle{
         }
     }
 
+    function getDateById($id){
+        $id = $this->escape($id);
+        $query = "SELECT accused_date FROM `$this->table_data` WHERE ar_id = $id;";
+        if($result = $this->db->query($query)) {
+            return $result['accused_date'];
+        } else {
+            echo "ERROR[getDateById] : sql query wrong!!";
+            return false;
+        }
+    }
+
+    function getAccuserById($id){
+        $id = $this->escape($id);
+        $query = "SELECT accuser_id FROM `$this->table_data` WHERE ar_id = $id;";
+        if($result = $this->db->query($query)) {
+            return $result['accuser_id'];
+        } else {
+            echo "ERROR[getDateById] : sql query wrong!!";
+            return false;
+        }
+    }
+
+
+
     /*
     function searchArticle($term){
         $json = array();
