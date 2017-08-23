@@ -79,7 +79,7 @@
                 <div>
                     <h2>지금까지 추가한 내용 <button type="button" class="btn btn-success pull-right" ng-click="fetch()">보기</button></h2>
                     <div class="table-responsive">
-                        <table class="table table-bordered">
+                        <table class="table table-bordered table-checkered">
                             <thead>
                                 <tr>
                                     <th class="col-md-1">No.</th>
@@ -93,8 +93,8 @@
                                 </tr>
                             </thead>
                             <tbody align="center">
-                                <tr ng-repeat="list in articleList">
-                                    <td rowSpan="{{list.row_span}}" ng-if="! list.matchPreviousRow" style="vertical-align: middle;">{{list.num}}</td>
+                                <tr ng-repeat="list in articleList" ng-class"">
+                                    <td rowSpan="{{list.row_span}}" ng-if="(! list.matchPreviousRow) && articleList.status < 10000" style="vertical-align: middle;">{{list.num}}</td>
                                     <td rowSpan="{{list.row_span}}" ng-if="! list.matchPreviousRow" style="vertical-align: middle;">{{list.grade}}</td>
                                     <td rowSpan="{{list.row_span}}" ng-if="(! list.matchPreviousRow )" style="vertical-align: middle;">{{list.name}}</td>
                                     <td>{{list.accused_date}}</td>
