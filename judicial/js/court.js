@@ -239,7 +239,6 @@ app.controller("listCtrl", function($scope, $http){
 
     $scope.init = function(){
         $scope.fetch();
-        $scope.calculateRows();
     }
 
     $scope.fetch = function(){
@@ -255,6 +254,7 @@ app.controller("listCtrl", function($scope, $http){
         }, function myError(response){
             $scope.data = response.data || 'Request failed';
             $scope.status = response.statusText;
+            $scope.calculateRows();
         });
     };
 
