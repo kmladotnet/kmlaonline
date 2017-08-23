@@ -93,6 +93,9 @@
                                 </tr>
                             </thead>
                             <tbody align="center">
+                                <tr>
+                                    <th class="col-md-12 danger">재판결</th>
+                                </tr>
                                 <tr ng-repeat="list in articleList" ng-class"">
                                     <td rowSpan="{{list.row_span}}" ng-if="(! list.matchPreviousRow) && list.status < 20000" style="vertical-align: middle;">{{list.num}}</td>
                                     <td rowSpan="{{list.row_span}}" ng-if="(! list.matchPreviousRow) && list.status < 20000" style="vertical-align: middle;">{{list.grade}}</td>
