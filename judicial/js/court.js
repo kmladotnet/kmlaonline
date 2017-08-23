@@ -278,6 +278,7 @@ app.controller("listCtrl", function($scope, $http){
                     }
                 }
                 $scope.articleList[i].row_span = row_span;
+                $scope.articleList[i].sum = sum;
             }
 
             /*for(var i = 0; i < $scope.articleList.length; i += rows){
