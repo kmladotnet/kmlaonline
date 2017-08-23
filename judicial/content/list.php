@@ -20,7 +20,7 @@
     <script type="text/javascript" src="js/court.js"></script>
 
 </head>
-<body ng-cloak="" ng-controller="listCtrl">
+<body ng-cloak="" ng-controller="listCtrl" ng-init="init()">
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -92,7 +92,7 @@
                             </thead>
                             <tbody align="center">
                                 <tr ng-repeat="list in articleList">
-                                    <td>{{list.grade}}</td>
+                                    <td rowSpan="{{list.rows}}" ng-if="! list.matchPreviousRow">{{list.grade}}</td>
                                     <td>{{list.name}}</td>
                                     <td>{{list.accused_date}}</td>
                                     <td>{{list.accuser}}</td>
