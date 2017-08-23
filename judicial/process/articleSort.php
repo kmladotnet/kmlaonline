@@ -2,7 +2,7 @@
     include('../lib.php');
 
     $result = getAllProcessingArticles();
-    /*uasort($result, 'article_cmp');
+    uasort($result, 'article_cmp');
     print_r($result);
 
     function article_cmp($ar1, $ar2){
@@ -20,7 +20,21 @@
                     $points_2.push($ar1['article_array'][$i]['article_kind']);
                 }
                 if($sum1 === $sum2){
-                    $points_1
+                    if(count(array_diff(array_merge($points_1, $points2), array_intersect($points_1, $points_2))) === 0) {
+                        if($ar1['article_array'][0]['grade'] === $ar2['article_array'][0]['grade']) {
+                            if($ar1['article_array'][0]['name'] === $ar2['article_array'][0]['name']) {
+                                return 0;
+                            } else {
+                                return strcmp($ar1['article_array'][0]['name'], $ar2['article_array'][0]['name'])
+                            }
+                        } else {
+                            if($ar1['article_array'][0]['grade'] < $ar2['article_array'][0]['grade']) return -1;
+                            else return 1;
+                        }
+                    } else {
+                        if(array_sum($points_1) < array_sum($points_1)) return -1;
+                        return 1;
+                    }
                 } else {
                     if($sum1 < $sum2) return -1;
                     else return 1;
@@ -33,10 +47,5 @@
             if($ar1['status'] < $ar2['status']) return -1;
             else return 1;
         }
-    }*/
-    $test1 = [30, 12, 13];
-    $test2 = [30, 13, 12];
-    if($test1 == $test2) echo "<p> true </p>";
-    else echo "<p> false </p>";
-    echo $test1 === $test2;
+    }
 ?>
