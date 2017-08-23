@@ -3,16 +3,16 @@ date_default_timezone_set("Asia/Seoul");
 
 /**
 article status constant
-ARTICLE_STATUS_FD 최변: 19997
-ARTICLE_STATUS_RT 재판결: 26124
+ARTICLE_STATUS_FD 최변: 26124 18회 테스트는 20001, 20002, 20003, ... 20010
+ARTICLE_STATUS_RT 재판결: 19997 18회 테스트는 10000
 ARTICLE_STATUS_ORD 일반 판결: 37084
 ARTICLE_STATUS_CP 법정 진행자: 53788
 */
 
 define('ARTICLE_STATUS_CP', 53788);
 define('ARTICLE_STATUS_ORD', 37084);
-define('ARTICLE_STATUS_RT', 26124);
-define('ARTICLE_STATUS_FD', 19997);
+define('ARTICLE_STATUS_RT', 19997);
+define('ARTICLE_STATUS_FD', 26124);
 
 include "presenTool/PresenTools.php";
 include "presenTool/dbHandler.php";
