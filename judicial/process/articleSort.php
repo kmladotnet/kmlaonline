@@ -11,8 +11,8 @@
             if(count($ar1['article_array']) === count($ar2['article_array'])) {
                 return 0;
             } else {
-                if(count($ar1['article_array']) < count($ar2['article_array'])) return -1;
-                else return 1;
+                if(count($ar1['article_array']) < count($ar2['article_array'])) return 1;
+                else return -1;
             }
         } else {
             if($ar1['status'] < $ar2['status']) return -1;
