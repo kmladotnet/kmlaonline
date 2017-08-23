@@ -97,12 +97,12 @@
                                 </tr>
                                 <tr ng-repeat="list in articleList">
                                     <td rowSpan="{{list.row_span}}" ng-if="! list.matchPreviousRow && ng.status < 20000 " style="vertical-align: middle;">{{list.grade}}</td>
-                                    <td rowSpan="{{list.row_span}}" ng-if="! list.matchPreviousRow" style="vertical-align: middle;">{{list.name}}</td>
-                                    <td>{{list.accused_date}}</td>
-                                    <td>{{list.accuser}}</td>
-                                    <td>{{list.article}}</td>
-                                    <td>{{list.point}}</td>
-                                    <td rowSpan="{{list.row_span}}" ng-if="! list.matchPreviousRow" style="vertical-align: middle;">{{list.sum}}</td>
+                                    <td rowSpan="{{list.row_span}}" ng-if="! list.matchPreviousRow && ng.status < 20000" style="vertical-align: middle;">{{list.name}}</td>
+                                    <td ng-if="ng.status < 20000 ">{{list.accused_date}}</td>
+                                    <td ng-if="ng.status < 20000">{{list.accuser}}</td>
+                                    <td ng-if="ng.status < 20000">{{list.article}}</td>
+                                    <td ng-if="ng.status < 20000">{{list.point}}</td>
+                                    <td rowSpan="{{list.row_span}}" ng-if="! list.matchPreviousRow && ng.status < 20000" style="vertical-align: middle;">{{list.sum}}</td>
                                 </tr>
                             </tbody>
                         </table>
