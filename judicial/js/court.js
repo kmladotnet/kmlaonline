@@ -243,7 +243,7 @@ app.controller("listCtrl", function($scope, $http){
 
         $http({
             method: "GET",
-            url: "/judicial/process/articleList.php"
+            url: "/judicial/process/articleSort.php"
         }).then(function mySuccess(response){
             $scope.status = response.statusText;
             $scope.articleList = response.data;
