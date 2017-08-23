@@ -237,9 +237,9 @@ app.controller("listCtrl", function($scope, $http){
     var articleList = [];
     $scope.articleList = articleList;
 
-    $scope.init();
+    $scope.setup();
 
-    $scope.init = function(){
+    $scope.setup = function(){
         $scope.fetch();
     };
 
