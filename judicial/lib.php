@@ -82,6 +82,7 @@ function getAllSortedArticles(){
                     'point' => $temp_point,
                     'status' => $temp_status);
             array_push($result, $temp);
+            echo json_encode($result);
         }
     }
 
