@@ -258,7 +258,7 @@ app.controller("listCtrl", function($scope, $http){
         });
     };
 
-    function calculateRows(){
+    $scope.calculateRows = function(){
         if($scope.articleList.length > 0){
             $scope.articleList[0].matchPreviousRow = false;
             for(var i = 0; i < $scope.articleList.length; i++){
