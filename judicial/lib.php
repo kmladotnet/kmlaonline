@@ -84,7 +84,7 @@ function getAllSortedArticles(){
             array_push($result, $temp);
         }
     }
-    echo json_encode($result);
+    //echo json_encode($result);
 
     return $result;
 
