@@ -62,7 +62,11 @@ class PresenArticle{
         $id = $this->escape($id);
         $query = "SELECT accused_date FROM `$this->table_data` WHERE ar_id = $id;";
         if($result = $this->db->query($query)) {
-            return $result['accused_date'];
+            $value;
+            while($t = $result->fetch_assoc()){
+                $value = $t['accused_date'];
+            }
+            return $value;
         } else {
             echo "ERROR[getDateById] : sql query wrong!!";
             return false;
@@ -73,7 +77,11 @@ class PresenArticle{
         $id = $this->escape($id);
         $query = "SELECT accuser_id FROM `$this->table_data` WHERE ar_id = $id;";
         if($result = $this->db->query($query)) {
-            return $result['accuser_id'];
+            $value;
+            while($t = $result->fetch_assoc()){
+                $value = $t['accuser_id'];
+            }
+            return $value;
         } else {
             echo "ERROR[getDateById] : sql query wrong!!";
             return false;

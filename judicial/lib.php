@@ -61,7 +61,7 @@ function getAllArticles(){
 }
 
 function getAllSortedArticles(){
-    global $article_kind, $article;
+    global $article_kind, $article, $accuser;
     $process = getAllProcessingArticles();
     uasort($process, 'article_cmp');
     $result = array();
