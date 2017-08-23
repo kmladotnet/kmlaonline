@@ -251,6 +251,7 @@ app.controller("listCtrl", function($scope, $http){
         }).then(function mySuccess(response){
             $scope.status = response.statusText;
             $scope.articleList = response.data;
+            $scope.identifyCouncilMember();
             $scope.calculateRows();
         }, function myError(response){
             $scope.data = response.data || 'Request failed';
@@ -275,7 +276,6 @@ app.controller("listCtrl", function($scope, $http){
                     }
                 }
                 $scope.articleList[i].row_span = row_span;
-                console.log(row_span);
             }
 
             /*for(var i = 0; i < $scope.articleList.length; i += rows){
@@ -293,6 +293,18 @@ app.controller("listCtrl", function($scope, $http){
                 $scope.articleList[i].rows = rows;
                 console.log(rows);
             }*/
+        }
+    };
+
+    $scope.tempBuffList = ["11신주혁", "11김정현", "11정태웅", "10김민주", "11남진우",
+                            "11이지인", "10김태준", "10심소현", "11김성진", "11박대해", "11김채영"];
+
+    $scope.identifyCouncilMember = function(){
+        if($scope.articleList.length > 0){
+            $scope.articleList[0].matchPreviousRow = false;
+            for(var i = 0; i < $scope.articleList.length; i++){
+                if($scope.tempBuffList.includes($scope.articleList[i].grade + $scope.articleList[i].name)) $scope.articleList[i].point += 1;
+            }
         }
     };
 });
