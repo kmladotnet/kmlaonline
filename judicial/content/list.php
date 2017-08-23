@@ -122,9 +122,6 @@
                                 <tr>
                                     <th class="col-md-12 success" colspan="8">일반 판결</th>
                                 </tr>
-                                <tr>
-                                    <th class="col-md-12 warning" colspan="8">최후변론</th>
-                                </tr>
                                 <tr ng-repeat="list in articleList" ng-class"">
                                     <td rowSpan="{{list.row_span}}" ng-if="(! list.matchPreviousRow) && isOD(list.status)" style="vertical-align: middle;">{{list.num}}</td>
                                     <td rowSpan="{{list.row_span}}" ng-if="(! list.matchPreviousRow) && isOD(list.status)" style="vertical-align: middle;">{{list.grade}}</td>
@@ -136,7 +133,7 @@
                                     <td rowSpan="{{list.row_span}}" ng-if="(! list.matchPreviousRow ) && isOD(list.status)" style="vertical-align: middle;">{{list.sum}}</td>
                                 </tr>
                                 <tr>
-                                    <th class="col-md-12 warning" colspan="8">최후변론</th>
+                                    <th class="col-md-12 info" colspan="8">법정 진행</th>
                                 </tr>
                                 <tr ng-repeat="list in articleList" ng-class"">
                                     <td rowSpan="{{list.row_span}}" ng-if="(! list.matchPreviousRow) && isCL(list.status)" style="vertical-align: middle;">{{list.num}}</td>
