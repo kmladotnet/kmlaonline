@@ -9,10 +9,10 @@ ARTICLE_STATUS_ORD 일반 판결: 26124
 ARTICLE_STATUS_CP 법정 진행자: 19997
 */
 
-define('ARTICLE_STATUS_FD', 53788);
-define('ARTICLE_STATUS_RT', 37084);
-define('ARTICLE_STATUS_ORD', 26124);
-define('ARTICLE_STATUS_CP', 19997);
+define('ARTICLE_STATUS_CP', 53788);
+define('ARTICLE_STATUS_ORD', 37084);
+define('ARTICLE_STATUS_RT', 26124);
+define('ARTICLE_STATUS_FD', 19997);
 
 include "presenTool/PresenTools.php";
 include "presenTool/dbHandler.php";
@@ -90,7 +90,7 @@ function getAllProcessingArticles(){
                 if($temp_status !== ARTICLE_STATUS_ORD) $result[$temp_accused_id]["status"] = $temp_status;
             }
         }
-        echo print_r($result);
+        //echo print_r($result);
         return $result;
     } else {
         echo "ERROR OCCURED - getAllProcessingArticles";
