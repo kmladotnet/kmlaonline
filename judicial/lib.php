@@ -70,7 +70,7 @@ function getAllSortedArticles(){
             $temp_grade = $value['article_array'][$t]['grade'];
             $temp_name = $value['article_array'][$t]['name'];
             $temp_accuse_date = $article->getDateById($value['article_array'][$t]['article']);
-            $temp_accuser = $accuser->accuserId2Name((int) $value['article_array'][$t]['article']);
+            $temp_accuser = $accuser->accuserId2Name((int) $article->getAccuserById((int) $value['article_array'][$t]['article']));
             $temp_article = $article_kind->articleId2Desc((int) $value['article_array'][$t]['article_kind']);
             $temp_point = $value['article_array'][$t]['point'];
             $temp_status = $value['status'];
