@@ -262,7 +262,7 @@ app.controller("listCtrl", function($scope, $http){
         if($scope.articleList.length > 0){
             $scope.articleList[0].matchPreviousRow = false;
             for(var i = 0; i < $scope.articleList.length; i++){
-                var name = $scope.articleList.name;
+                var name = $scope.articleList[i].name;
                 var rows = 1;
                 for (var j = i + 1; j < $scope.articleList.length; j++) {
                     if($scope.articleList[j].name === name && ! $scope.articleList[j].matchPreviousRow){
