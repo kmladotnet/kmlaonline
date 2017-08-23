@@ -241,7 +241,7 @@ app.controller("listCtrl", function($scope, $http){
 
     $scope.init = function(){
         $scope.fetch();
-    }
+    };
 
     $scope.fetch = function(){
         $scope.code = null;
