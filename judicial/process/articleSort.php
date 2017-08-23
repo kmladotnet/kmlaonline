@@ -1,6 +1,6 @@
 <?php
     include('../lib.php');
 
-    getAllArticles();
+    echo json_encode(getAllArticles());
 
 ?>
