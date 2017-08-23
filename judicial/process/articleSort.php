@@ -36,6 +36,6 @@
     }*/
     $test1 = [30, 12, 13];
     $test2 = [30, 13, 12];
-    echo $test1 == $test2;
+    echo "<p> " . $test1 == $test2 . "</p>";
     echo $test1 === $test2;
 ?>
