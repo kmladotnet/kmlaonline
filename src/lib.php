@@ -461,7 +461,7 @@ function isUserJudicialMember($user){
 function isUserDotnetApplicant($user){
     if(!is_numeric($user)) return false;
     if(doesAdminBypassEverythingAndIsAdmin()) return true;
-    if(isUserPermitted($me['n_id'], "dotnet_applicant")) return true;
+    if(isUserPermitted($user, "dotnet_applicant")) return true;
     return false;
 }
 function permitUser($user, $actName, $access){
