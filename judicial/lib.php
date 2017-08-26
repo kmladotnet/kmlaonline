@@ -91,6 +91,9 @@ function getAllSortedArticles(){
 
 }
 
+/**
+* 좌석용 article 정렬
+*/
 function article_cmp($ar1, $ar2){
     if($ar1['status'] === $ar2['status']){
         if(count($ar1['article_array']) === count($ar2['article_array'])) {
@@ -130,6 +133,33 @@ function article_cmp($ar1, $ar2){
         }
     } else {
         if($ar1['status'] < $ar2['status']) return -1;
+        else return 1;
+    }
+}
+
+
+/**
+* KMLA Online 전용 분류 (항목, 학년, 이름 순)
+*/
+function article_cmp_kmla($ar1, $ar2){
+    if(($ar1['status'] !== ARTICLE_STATUS_CP && $ar2['status'] !== ARTICLE_STATUS_CP) || ($ar1['status'] === ARTICLE_STATUS_CP && $ar2['status'] === ARTICLE_STATUS_CP)) {
+        if(count($ar1['article_array']) === count($ar2['article_array'])) {
+            if($ar1['article_array'][0]['grade'] === $ar2['article_array'][0]['grade']) {
+                if($ar1['article_array'][0]['name'] === $ar2['article_array'][0]['name']) {
+                    return 0;
+                } else {
+                    return strcmp($ar1['article_array'][0]['name'], $ar2['article_array'][0]['name']);
+                }
+            } else {
+                if($ar1['article_array'][0]['grade'] < $ar2['article_array'][0]['grade']) return -1;
+                else return 1;
+            }
+        } else {
+            if(count($ar1['article_array']) < count($ar2['article_array'])) return 1;
+            else return -1;
+        }
+    } else {
+        if($ar1['status'] !== ARTICLE_STATUS_CP) return -1;
         else return 1;
     }
 }
