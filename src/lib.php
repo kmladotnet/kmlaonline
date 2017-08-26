@@ -455,7 +455,7 @@ function isUserPermitted($user, $actName){
 function isUserJudicialMember($user){
     if(!is_numeric($user)) return false;
     if(doesAdminBypassEverythingAndIsAdmin()) return true;
-    if(isUserPermitted($me['n_id'], "judicial_council") || isUserPermitted($me['n_id'], "justice_department") || isUserPermitted($me['n_id'], "student_guide_department") || isUserPermitted($me['n_id'], "food_and_nutrition_department")) return true;
+    if(isUserPermitted($user, "judicial_council") || isUserPermitted($user, "justice_department") || isUserPermitted($user, "student_guide_department") || isUserPermitted($user, "food_and_nutrition_department")) return true;
     return false;
 }
 function isUserDotnetApplicant($user){
@@ -472,6 +472,19 @@ function permitUser($user, $actName, $access){
 	$mysqli->query("DELETE FROM kmlaonline_special_permissions_table WHERE n_user=$user AND s_type='$actName'");
 	if($access==0) return false;
 	return (false!==$res=$mysqli->query("INSERT INTO kmlaonline_special_permissions_table (n_user, s_type, n_permission) VALUES ($user, '$actName', $access)"));
+}
+function listDotnetApplicants(){
+    global $mysqli, $member;
+    if(false!==$res=$mysqli->query("SELECT * FROM kmlaonline_special_permissions_table WHERE s_type='dotnet_applicant'")){
+        $arr=array();
+        while ($row = $res->fetch_array(MYSQLI_BOTH)){
+            $m=$member->getMember($row['n_user']);
+            $arr[$m['n_id']]=$m;
+        }
+        $res->close();
+        return $arr;
+    }
+    return false;
 }
 function convertFromBytes($value){
 	if($value<1024) return $value . " B";
