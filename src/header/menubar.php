@@ -29,7 +29,7 @@
         }
     ?>
     <?php
-        if($me['n_level'] >= 19){
+        if($me['n_level'] >= 19) {
             echo '<div class="menu1">';
             echo '<div class="widthholder">';
             echo '<div class="menu1_text">교내</div>';
@@ -40,6 +40,18 @@
             echo '<a href="board/student_executive" class="menu2">행정</a>';
             echo '<a href="board/jinro" class="menu2">진로 탐색</a>';
             echo '<a href="board/student_clubs" class="menu2">동아리</a>';
+            echo '</div>';
+            echo '</div>';
+            echo '</div>';
+        }
+    ?>
+    <?php
+        if(isUserDotnetApplicant($me['n_id'])){
+            echo '<div class="menu1">';
+            echo '<div class="widthholder">';
+            echo '<div class="menu1_text">닷넷</div>';
+            echo '<div class="menu1_sub">';
+            echo '<a href="board/kmladotnet" class="menu2">HTML/CSS</a>';
             echo '</div>';
             echo '</div>';
             echo '</div>';

@@ -458,6 +458,12 @@ function isUserJudicialMember($user){
     if(isUserPermitted($me['n_id'], "judicial_council") || isUserPermitted($me['n_id'], "justice_department") || isUserPermitted($me['n_id'], "student_guide_department") || isUserPermitted($me['n_id'], "food_and_nutrition_department")) return true;
     return false;
 }
+function isUserDotnetApplicant($user){
+    if(!is_numeric($user)) return false;
+    if(doesAdminBypassEverythingAndIsAdmin()) return true;
+    if(isUserPermitted($me['n_id'], "dotnet_applicant")) return true;
+    return false;
+}
 function permitUser($user, $actName, $access){
 	global $mysqli;
 	$actName=$mysqli->real_escape_string($actName);
