@@ -132,7 +132,7 @@ if(count($errors)==0){
 		if((int) $cat['n_id'] === 576){
 			$triggered=array();
 			foreach(listDotnetApplicants() as $usr){
-				$member->addNotice($usr['n_id'], "uploaded:article:$article_id", "{$me['s_name']}님이 닷넷 <b>" . htmlspecialchars($_POST['s_cat']) . "</b> 그룹에 게시글을 올렸습니다.","article:".$article_id);
+				$member->addNotice($usr['n_id'], "uploaded:article:$article_id", "{$me['s_name']}님이 닷넷 <b>HTML/CSS</b> 그룹에 게시글을 올렸습니다.","article:".$article_id);
 			}
 		}
 
