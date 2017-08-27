@@ -116,7 +116,7 @@ app.controller("courtCtrl", function($scope, $http){
         $scope.openCalender = function(){
             $scope.popup = true;
         }
-        $scope.format="yyyy-mm-dd";
+        $scope.format="yyyy-MM-dd";
 
         $scope.submitNewArticle = function(_grade, _name, _accuse_date, _accuser, _article, _point){
             var temp_data = {grade: _grade, name: _name, accuse_date: _accuse_date, accuser: _accuser, article: _article, point: _point};
