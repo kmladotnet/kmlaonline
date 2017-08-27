@@ -29,7 +29,7 @@
                 <?php if (isset($_SESSION['user'])) { ?>
                     <div class="userarea"><?php include "src/header/userarea.php"; ?></div>
                 <?php } ?>
-                <a id="back-to-main" href="goo.gl/forms/U0I3FKQTHGk6iqbP2"></a><br />
+                <a id="back-to-main" href="https://goo.gl/forms/U0I3FKQTHGk6iqbP2"></a><br />
             </div>
         <?php } ?>
 		<script type="text/javascript">prepareHeader();</script>
