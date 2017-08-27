@@ -25,11 +25,11 @@
 		</div>
 	<?php } else {
         if(!(!!$me && getTheme($me)['hidedasan'])) { ?>
-            <div id="total-header" style="background: url('/images/big-logo-ad.png') no-repeat;" <?php if($april_fools_2) echo 'style="height:311px; background: url(/images/bamboozle.png) no-repeat;"'; ?>>
+            <div id="total-header" style="background: url('/images/big-logo.png') no-repeat;" <?php if($april_fools_2) echo 'style="height:311px; background: url(/images/bamboozle.png) no-repeat;"'; ?>>
                 <?php if (isset($_SESSION['user'])) { ?>
                     <div class="userarea"><?php include "src/header/userarea.php"; ?></div>
                 <?php } ?>
-                <a id="back-to-main" href="/board/all_announce/view/470644"></a><br />
+                <a id="back-to-main" href="/"></a><br />
             </div>
         <?php } ?>
 		<script type="text/javascript">prepareHeader();</script>
