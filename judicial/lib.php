@@ -61,8 +61,17 @@ function getAllArticles(){
 }
 
 function getAllSortedArticles2(){
+    global $article_kind, $article, $accuser;
     $process = getAllProcessingArticles();
     uasort($process, 'article_cmp');
+
+    foreach ($process as $key => &$value) {
+        for($t = 0; $t < count($value['article_array']); $t++){
+            $value['article_array'][$t]['accused_date'] = $article->getDateById($value['article_array'][$t]['article']);
+            $value['article_array'][$t]['accuser'] = $accuser->accuserId2Name((int) $article->getAccuserById((int) $value['article_array'][$t]['article']));
+            $value['article_array'][$t]['article'] = $article_kind->articleId2Desc((int) $value['article_array'][$t]['article_kind']);
+        }
+    }
 
     return $process;
 }
