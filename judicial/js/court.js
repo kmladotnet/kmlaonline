@@ -290,7 +290,7 @@ app.factory('Excel', function($window){
     };
 
     $scope.divideData = function(){
-        console.log($scope.articleList[0])
+        console.log($scope.articleList);
         for(var i = 0; i < $scope.articleList.length; i ++){
             console.log($scope.articleList[i].status);
             if(isRT(parseInt($scope.articleList[i].status))){
