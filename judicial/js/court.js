@@ -279,6 +279,7 @@ app.factory('Excel', function($window){
             $scope.calculateRows();
             */
             $scope.divideData();
+            console.log(articleList_OD);
             $scope.calculateRows2();
 
         }, function myError(response){
