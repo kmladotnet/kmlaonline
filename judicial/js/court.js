@@ -288,6 +288,7 @@ app.factory('Excel', function($window){
     };
 
     $scope.divideData = function(){
+        let $scope.articleList;
         for (let accused of $scope.articleList){
             if(isRT(parseInt(accused.status))){
                 for (let article of accused.article_array) {
