@@ -286,7 +286,7 @@ app.factory('Excel', function($window){
             $scope.status = response.statusText;
         });
     };
-
+    /*
     $scope.divideData = function(){
         for each (var accused in $scope.articleList){
             if(isRT(parseInt(accused.status))){
@@ -307,7 +307,7 @@ app.factory('Excel', function($window){
                 }
             }
         }
-    }
+    }; */
 
     $scope.calculateRows2 = function(){
         var row_span, sum;
