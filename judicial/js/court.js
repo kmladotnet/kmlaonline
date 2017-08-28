@@ -307,7 +307,7 @@ app.factory('Excel', function($window){
                 }
             }
         }
-    }; */
+    };
 
     $scope.calculateRows2 = function(){
         var row_span, sum;
