@@ -60,6 +60,13 @@ function getAllArticles(){
     }
 }
 
+function getAllSortedArticles2(){
+    $process = getAllProcessingArticles();
+    uasort($process, 'article_cmp');
+
+    return $process;
+}
+
 function getAllSortedArticles(){
     global $article_kind, $article, $accuser;
     $process = getAllProcessingArticles();
@@ -175,13 +182,15 @@ function getAllProcessingArticles(){
             $temp_article_id = (int) $row['ar_id'];
             $temp_article_kind = (int) $row['ak_id'];
             $temp_point = $article_kind->articleId2Point((int) $row['ak_id']);
+            $temp_status = (int) $row['status'];
 
             $temp_article_element = array('grade' => $temp_grade,
                     'name' => $temp_name,
                     'article' => $temp_article_id,
                     'article_kind' => $temp_article_kind,
-                    'point' => $temp_point);
-            $temp_status = (int) $row['status'];
+                    'point' => $temp_point,
+                    'status' => $temp_status);
+
 
             $temp_accused_id = (int) $row['accused_id'];
 

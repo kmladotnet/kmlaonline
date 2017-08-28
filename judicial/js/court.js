@@ -249,7 +249,16 @@ app.factory('Excel', function($window){
     };
 }).controller("listCtrl", function($scope, $http, Excel, $timeout){
     var articleList = [];
+    var articleList_RT = [];
+    var articleList_FD = [];
+    var articleList_OD = [];
+    var articleList_CL = [];
+
     $scope.articleList = articleList;
+    $scope.articleList_RT = articleList_RT;
+    $scope.articleList_FD = articleList_FD;
+    $scope.articleList_OD = articleList_OD;
+    $scope.articleList_CL = articleList_CL;
 
     $scope.setup = function(){
         $scope.fetch();
@@ -265,12 +274,134 @@ app.factory('Excel', function($window){
         }).then(function mySuccess(response){
             $scope.status = response.statusText;
             $scope.articleList = response.data;
+            /* 고치기 전!
             $scope.identifyCouncilMember();
             $scope.calculateRows();
+            */
+            $scope.divideData();
+            $scope.calculateRows2();
+
         }, function myError(response){
             $scope.data = response.data || 'Request failed';
             $scope.status = response.statusText;
         });
+    };
+
+    $scope.divideData = function(){
+        for each (accused in $scope.articleList){
+            if(isRT(parseInt(accused.status))){
+                for each (article in accused.article_array) {
+                    $scope.articleList_RT.push(article);
+                }
+            } else if (isFD(parseInt(accused.status))){
+                for each (article in accused.article_array) {
+                    $scope.articleList_FD.push(article);
+                }
+            } else if (isOD(parseInt(accused.status))){
+                for each (article in accused.article_array) {
+                    $scope.articleList_OD.push(article);
+                }
+            } else {
+                for each (article in accused.article_array) {
+                    $scope.articleList_CL.push(article);
+                }
+            }
+        }
+    }
+
+    $scope.calculateRows2 = function(){
+        var row_span, sum;
+        var num = 1;
+        if($scope.articleList_RT.length > 0){
+            $scope.articleList_RT[0].matchPreviousRow = false;
+            for(var i = 0; i < $scope.articleList_RT.length; i += row_span){
+                var name = $scope.articleList_RT[i].name;
+                row_span = 1;
+                sum = parseInt($scope.articleList_RT[i].point);
+                for(var j = i + 1; j < $scope.articleList_RT.length; j++){
+                    if($scope.articleList_RT[j].name === name){
+                        $scope.articleList_RT[j].matchPreviousRow = true;
+                        row_span++;
+                        sum += parseInt($scope.articleList_RT[j].point);
+                    } else {
+                        $scope.articleList_RT[j].matchPreviousRow = false;
+                        break;
+                    }
+                }
+                $scope.articleList_RT[i].row_span = row_span;
+                $scope.articleList_RT[i].sum = sum;
+                $scope.articleList_RT[i].num = num++;
+            }
+        }
+
+        num = 1;
+        if($scope.articleList_FD.length > 0){
+            $scope.articleList_FD[0].matchPreviousRow = false;
+            for(var i = 0; i < $scope.articleList_FD.length; i += row_span){
+                var name = $scope.articleList_FD[i].name;
+                row_span = 1;
+                sum = parseInt($scope.articleList_FD[i].point);
+                for(var j = i + 1; j < $scope.articleList_FD.length; j++){
+                    if($scope.articleList_FD[j].name === name){
+                        $scope.articleList_FD[j].matchPreviousRow = true;
+                        row_span++;
+                        sum += parseInt($scope.articleList_FD[j].point);
+                    } else {
+                        $scope.articleList_FD[j].matchPreviousRow = false;
+                        break;
+                    }
+                }
+                $scope.articleList_FD[i].row_span = row_span;
+                $scope.articleList_FD[i].sum = sum;
+                $scope.articleList_FD[i].num = num++;
+            }
+        }
+
+        num = 1;
+        if($scope.articleList_OD.length > 0){
+            $scope.articleList_OD[0].matchPreviousRow = false;
+            for(var i = 0; i < $scope.articleList_OD.length; i += row_span){
+                var name = $scope.articleList_OD[i].name;
+                row_span = 1;
+                sum = parseInt($scope.articleList_OD[i].point);
+                for(var j = i + 1; j < $scope.articleList_OD.length; j++){
+                    if($scope.articleList_OD[j].name === name){
+                        $scope.articleList_OD[j].matchPreviousRow = true;
+                        row_span++;
+                        sum += parseInt($scope.articleList_OD[j].point);
+                    } else {
+                        $scope.articleList_OD[j].matchPreviousRow = false;
+                        break;
+                    }
+                }
+                $scope.articleList_OD[i].row_span = row_span;
+                $scope.articleList_OD[i].sum = sum;
+                $scope.articleList_OD[i].num = num++;
+            }
+        }
+
+        num = 1;
+        if($scope.articleList_CL.length > 0){
+            $scope.articleList_CL[0].matchPreviousRow = false;
+            for(var i = 0; i < $scope.articleList_CL.length; i += row_span){
+                var name = $scope.articleList_CL[i].name;
+                row_span = 1;
+                sum = parseInt($scope.articleList_CL[i].point);
+                for(var j = i + 1; j < $scope.articleList_CL.length; j++){
+                    if($scope.articleList_CL[j].name === name){
+                        $scope.articleList_CL[j].matchPreviousRow = true;
+                        row_span++;
+                        sum += parseInt($scope.articleList_CL[j].point);
+                    } else {
+                        $scope.articleList_CL[j].matchPreviousRow = false;
+                        break;
+                    }
+                }
+                $scope.articleList_CL[i].row_span = row_span;
+                $scope.articleList_CL[i].sum = sum;
+                $scope.articleList_CL[i].num = num++;
+            }
+        }
     };
 
     $scope.calculateRows = function(){
@@ -296,22 +427,6 @@ app.factory('Excel', function($window){
                 $scope.articleList[i].sum = sum;
                 $scope.articleList[i].num = num++;
             }
-
-            /*for(var i = 0; i < $scope.articleList.length; i += rows){
-                var name = $scope.articleList[i].name;
-                var rows = 1;
-                for (var j = i + 1; j < $scope.articleList.length; j++) {
-                    if($scope.articleList[j].name === name && ! $scope.articleList[j].matchPreviousRow){
-                        rows++;
-                        $scope.articleList[j].matchPreviousRow = true;
-                    } else {
-                        $scope.articleList[j].matchPreviousRow = false;
-                        break;
-                    }
-                }
-                $scope.articleList[i].rows = rows;
-                console.log(rows);
-            }*/
         }
     };
 
