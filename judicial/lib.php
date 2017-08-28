@@ -73,7 +73,7 @@ function getAllSortedArticles2(){
         }
     }
     //echo json_encode($process);
-    return $process;
+    return array_values($process);
 }
 
 function getAllSortedArticles(){
