@@ -261,7 +261,7 @@ app.factory('Excel', function($window){
     $scope.articleList_CL = articleList_CL;
 
     $scope.setup = function(){
-        //$scope.fetch();
+        $scope.fetch();
     };
 
     $scope.fetch = function(){
