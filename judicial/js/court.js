@@ -290,7 +290,11 @@ app.factory('Excel', function($window){
     };
 
     $scope.divideData = function(){
-        console.log($scope.articleList);
+        for (var accused in $scope.articleList){
+            if($scope.articleList.hasOwnProperty(accused)){
+                console.log(accused);
+            }
+        }
         for(var i = 0; i < $scope.articleList.length; i ++){
             console.log($scope.articleList[i].status);
             if(isRT(parseInt($scope.articleList[i].status))){
