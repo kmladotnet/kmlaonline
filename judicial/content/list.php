@@ -66,8 +66,11 @@
             <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
                 <div>
                     <h2>18회 법정리스트 (좌석용) - beta</h2>
+                    <button class="btn btn-link" ng-click="exportToExcel('#courtList')">
+                        <span class="glyphicon glyphicon-share"></span> 엑셀로 추출
+                    </button>
                     <div class="table-responsive">
-                        <table class="table table-bordered table-condensed">
+                        <table class="table table-bordered table-condensed" id="courtList">
                             <thead>
                                 <tr>
                                     <th class="col-md-1">No.</th>
