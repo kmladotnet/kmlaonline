@@ -305,6 +305,7 @@ app.factory('Excel', function($window){
             } else if ($scope.isOD(parseInt($scope.articleList[i].status))){
                 for(var j = 0; j < $scope.articleList[i].article_array.length; j++){
                     $scope.articleList_OD.push($scope.articleList[i].article_array[j]);
+                    console.log($scope.articleList[i].article_array[j]);
                 }
             } else {
                 for(var j = 0; j < $scope.articleList[i].article_array.length; j++){
