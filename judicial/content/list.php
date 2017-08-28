@@ -69,8 +69,8 @@
                     <button class="btn btn-link" ng-click="exportToExcel('#courtList')">
                         <span class="glyphicon glyphicon-share"></span> 엑셀로 추출
                     </button>
-                    <div class="table-responsive">
-                        <table class="table table-bordered table-condensed" id="courtList">
+                    <div class="table-responsive" id="courtList">
+                        <table class="table table-bordered table-condensed">
                             <thead>
                                 <tr>
                                     <th class="col-md-1">No.</th>
