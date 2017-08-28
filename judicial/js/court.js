@@ -278,8 +278,9 @@ app.factory('Excel', function($window){
             $scope.identifyCouncilMember();
             $scope.calculateRows();
             */
+            console.log($scope.articleList);
             $scope.divideData();
-            console.log(articleList_OD);
+            console.log($scope.articleList_OD);
             $scope.calculateRows2();
 
         }, function myError(response){
