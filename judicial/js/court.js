@@ -292,6 +292,7 @@ app.factory('Excel', function($window){
     $scope.divideData = function(){
 
         for(var i = 0; i < $scope.articleList.length; i ++){
+            console.log($scope.articleList[i].status);
             if(isRT(parseInt($scope.articleList[i].status))){
                 for(var j = 0; j < $scope.articleList[i].article_array.length; j++){
                     $scope.articleList_RT.push($scope.articleList[i].article_array[j]);
