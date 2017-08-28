@@ -278,9 +278,10 @@ app.factory('Excel', function($window){
             $scope.identifyCouncilMember();
             $scope.calculateRows();
             */
-            console.log($scope.articleList);
+            //console.log($scope.articleList);
             $scope.divideData();
-            console.log($scope.articleList_OD);
+            //console.log($scope.articleList_OD);
+            $scope.identifyCouncilMember();
             $scope.calculateRows2();
 
         }, function myError(response){
@@ -440,10 +441,28 @@ app.factory('Excel', function($window){
                             "11이지인", "10김태준", "10심소현", "11김성진", "11박대해", "11김채영"];
 
     $scope.identifyCouncilMember = function(){
-        if($scope.articleList.length > 0){
-            $scope.articleList[0].matchPreviousRow = false;
-            for(var i = 0; i < $scope.articleList.length; i++){
-                if($scope.tempBuffList.includes($scope.articleList[i].grade + $scope.articleList[i].name)) $scope.articleList[i].point = parseInt($scope.articleList[i].point) + 1;
+        if($scope.articleList_RT.length > 0){
+            $scope.articleList_RT[0].matchPreviousRow = false;
+            for(var i = 0; i < $scope.articleList_RT.length; i++){
+                if($scope.tempBuffList.includes($scope.articleList_RT[i].grade + $scope.articleList_RT[i].name)) $scope.articleList_RT[i].point = parseInt($scope.articleList_RT[i].point) + 1;
+            }
+        }
+        if($scope.articleList_FD.length > 0){
+            $scope.articleList_FD[0].matchPreviousRow = false;
+            for(var i = 0; i < $scope.articleList_FD.length; i++){
+                if($scope.tempBuffList.includes($scope.articleList_FD[i].grade + $scope.articleList_FD[i].name)) $scope.articleList_FD[i].point = parseInt($scope.articleList_FD[i].point) + 1;
+            }
+        }
+        if($scope.articleList_OD.length > 0){
+            $scope.articleList_OD[0].matchPreviousRow = false;
+            for(var i = 0; i < $scope.articleList_OD.length; i++){
+                if($scope.tempBuffList.includes($scope.articleList_OD[i].grade + $scope.articleList_OD[i].name)) $scope.articleList_OD[i].point = parseInt($scope.articleList_OD[i].point) + 1;
+            }
+        }
+        if($scope.articleList_CL.length > 0){
+            $scope.articleList_CL[0].matchPreviousRow = false;
+            for(var i = 0; i < $scope.articleList_CL.length; i++){
+                if($scope.tempBuffList.includes($scope.articleList_CL[i].grade + $scope.articleList_CL[i].name)) $scope.articleList_CL[i].point = parseInt($scope.articleList_CL[i].point) + 1;
             }
         }
     };
