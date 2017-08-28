@@ -45,9 +45,9 @@ app.factory('Excel', function($window){
                     ctx={worksheet:worksheetName,table:table.html()},
                     href=uri+base64(format(template,ctx));
                 return href;
-            }
-        };
-    });
+        }
+    };
+});
 
 app.controller("courtCtrl", function($scope, $http){
         $scope.disabled = undefined;
@@ -355,6 +355,6 @@ app.controller("listCtrl", function($scope, $http, Excel, $timeout){
         console.log(exportHref);
         $timeout(function(){
             location.href = exportHref;
-        }, 100);
+        }, 1000);
     };
 });
