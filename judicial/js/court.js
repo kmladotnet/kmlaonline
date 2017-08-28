@@ -288,25 +288,26 @@ app.factory('Excel', function($window){
     };
 
     $scope.divideData = function(){
-        $scope.articleList.forEach(function(accused){
-            if(isRT(parseInt(accused.status))){
-                accused.article_array.forEach(function(article){
-                    $scope.articleList_RT.push(article);
-                });
-            } else if (isFD(parseInt(accused.status))){
-                accused.article_array.forEach(function(article){
-                    $scope.articleList_FD.push(article);
-                });
-            } else if (isOD(parseInt(accused.status))){
-                accused.article_array.forEach(function(article){
-                    $scope.articleList_OD.push(article);
-                });
+
+        for(var i = 0; i < $scope.articleList.length; i ++){
+            if(isRT(parseInt($scope.articleList[i].status))){
+                for(var j = 0; j < $scope.articleList[i].article_array.length; j++){
+                    $scope.articleList_RT.push($scope.articleList[i].article_array[j]);
+                }
+            } else if (isFD(parseInt($scope.articleList[i]))){
+                for(var j = 0; j < $scope.articleList[i].article_array.length; j++){
+                    $scope.articleList_FD.push($scope.articleList[i].article_array[j]);
+                }
+            } else if (isOD(parseInt($scope.articleList[i]))){
+                for(var j = 0; j < $scope.articleList[i].article_array.length; j++){
+                    $scope.articleList_OD.push($scope.articleList[i].article_array[j]);
+                }
             } else {
-                accused.article_array.forEach(function(article){
-                    $scope.articleList_CL.push(article);
-                });
+                for(var j = 0; j < $scope.articleList[i].article_array.length; j++){
+                    $scope.articleList_CL.push($scope.articleList[i].article_array[j]);
+                }
             }
-        });
+        }
     };
 
     $scope.calculateRows2 = function(){
