@@ -288,26 +288,25 @@ app.factory('Excel', function($window){
     };
 
     $scope.divideData = function(){
-        let $scope.articleList;
-        for (let accused of $scope.articleList){
+        $scope.articleList.forEach(function(accused){
             if(isRT(parseInt(accused.status))){
-                for (let article of accused.article_array) {
+                accused.article_array.forEach(function(article){
                     $scope.articleList_RT.push(article);
-                }
+                });
             } else if (isFD(parseInt(accused.status))){
-                for (let article of accused.article_array) {
+                accused.article_array.forEach(function(article){
                     $scope.articleList_FD.push(article);
-                }
+                });
             } else if (isOD(parseInt(accused.status))){
-                for (let article of accused.article_array) {
+                accused.article_array.forEach(function(article){
                     $scope.articleList_OD.push(article);
-                }
+                });
             } else {
-                for (let article of accused.article_array) {
+                accused.article_array.forEach(function(article){
                     $scope.articleList_CL.push(article);
-                }
+                });
             }
-        }
+        });
     };
 
     $scope.calculateRows2 = function(){
