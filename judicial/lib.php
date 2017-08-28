@@ -72,7 +72,7 @@ function getAllSortedArticles2(){
             $value['article_array'][$t]['article'] = $article_kind->articleId2Desc((int) $value['article_array'][$t]['article_kind']);
         }
     }
-
+    echo json_encode($process);
     return $process;
 }
 
