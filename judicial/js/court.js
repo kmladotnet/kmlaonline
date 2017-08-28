@@ -278,7 +278,7 @@ app.factory('Excel', function($window){
             $scope.identifyCouncilMember();
             $scope.calculateRows();
             */
-            console.log($scope.articleList);
+            $scope.articleList = $scope.articleList.values();
             $scope.divideData();
             console.log($scope.articleList_OD);
             $scope.calculateRows2();
@@ -290,11 +290,6 @@ app.factory('Excel', function($window){
     };
 
     $scope.divideData = function(){
-        for (var accused in $scope.articleList){
-            if($scope.articleList.hasOwnProperty(accused)){
-                console.log(accused);
-            }
-        }
         for(var i = 0; i < $scope.articleList.length; i ++){
             console.log($scope.articleList[i].status);
             if(isRT(parseInt($scope.articleList[i].status))){
