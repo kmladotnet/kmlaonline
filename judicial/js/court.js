@@ -293,16 +293,16 @@ app.factory('Excel', function($window){
         for(var i = 0; i < $scope.articleList.length; i ++){
             console.log($scope.articleList[i]);
             console.log(typeof $scope.articleList[i]);
-            console.log($scope.isOD(parseInt($scope.articleList[i])));
+            console.log($scope.isOD(parseInt($scope.articleList[i].status)));
             if($scope.isRT(parseInt($scope.articleList[i].status))){
                 for(var j = 0; j < $scope.articleList[i].article_array.length; j++){
                     $scope.articleList_RT.push($scope.articleList[i].article_array[j]);
                 }
-            } else if ($scope.isFD(parseInt($scope.articleList[i]))){
+            } else if ($scope.isFD(parseInt($scope.articleList[i].status))){
                 for(var j = 0; j < $scope.articleList[i].article_array.length; j++){
                     $scope.articleList_FD.push($scope.articleList[i].article_array[j]);
                 }
-            } else if ($scope.isOD(parseInt($scope.articleList[i]))){
+            } else if ($scope.isOD(parseInt($scope.articleList[i].status))){
                 for(var j = 0; j < $scope.articleList[i].article_array.length; j++){
                     $scope.articleList_OD.push($scope.articleList[i].article_array[j]);
                 }
