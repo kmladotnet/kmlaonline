@@ -286,23 +286,23 @@ app.factory('Excel', function($window){
             $scope.status = response.statusText;
         });
     };
-    /*
+
     $scope.divideData = function(){
-        for each (var accused in $scope.articleList){
+        for (accused in $scope.articleList){
             if(isRT(parseInt(accused.status))){
-                for each (var article in accused.article_array) {
+                for (article in accused.article_array) {
                     $scope.articleList_RT.push(article);
                 }
             } else if (isFD(parseInt(accused.status))){
-                for each (var article in accused.article_array) {
+                for (article in accused.article_array) {
                     $scope.articleList_FD.push(article);
                 }
             } else if (isOD(parseInt(accused.status))){
-                for each (var article in accused.article_array) {
+                for (article in accused.article_array) {
                     $scope.articleList_OD.push(article);
                 }
             } else {
-                for each (var article in accused.article_array) {
+                for (article in accused.article_array) {
                     $scope.articleList_CL.push(article);
                 }
             }
