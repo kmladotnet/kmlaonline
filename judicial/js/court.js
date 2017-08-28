@@ -351,9 +351,9 @@ app.controller("listCtrl", function($scope, $http, Excel, $timeout){
 
     $scope.exportToExcel = function(tableId){
         var exportHref = Excel.tableToExcel(tableId, 'Court List');
+        console.log(exportHref);
         $timeout(function(){
             location.href = exportHref;
-            console.log(exportHref);
         }, 100);
     };
 });
