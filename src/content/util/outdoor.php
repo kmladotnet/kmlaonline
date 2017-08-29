@@ -74,7 +74,7 @@ function printContent(){
                         </td>
                     </tr>
                     <tr>
-                        <td style="vertical-align: middle; text-align:center;">핸드폰<br/>번호</td>
+                        <td style="vertical-align: middle; text-align:center;" value='<?php echo htmlspecialchars($me['s_phone']) ?>'>핸드폰<br/>번호</td>
                         <td colspan="4">
                             <input class="form-control" type="text"></input>
                         </td>
