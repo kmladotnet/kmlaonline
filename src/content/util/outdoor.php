@@ -15,8 +15,8 @@ function printContent(){
                     </td>
                     <td>
                         <div class="btn-group">
-                            <input type="number" name="grade" class="form-control">
-                            <label>학년</label>
+
+                            <label> <span><input type="number" name="grade" class="form-control"></span>학년</label>
                         </div>
                     </td>
                 </tr>
