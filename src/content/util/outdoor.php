@@ -106,6 +106,7 @@ function printContent(){
             </div>
         </form>
         <p><?php echo $member->getAdditionalData($me['n_id'], 'n_grade')?></p>
+        <p><?php echo $me['n_id']?></p>
 <?php
 }
 ?>
