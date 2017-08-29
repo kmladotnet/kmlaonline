@@ -28,5 +28,6 @@ function printContent(){
             </table>
         </form>
     </div>
+<?php
 }
 ?>
