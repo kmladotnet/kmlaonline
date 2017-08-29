@@ -29,21 +29,20 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/judicial/main">KMLA 사법</a>
+                <a class="navbar-brand" href="accuse">KMLA 사법</a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="accuse">기소하기</a></li>
                     <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">기소하기
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">이번 주 법정
                         <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">인트라넷 기소</a></li>
-                            <li><a href="#">학생회 기소</a></li>
+                            <li><a href="#">큼온용</a></li>
+                            <li><a href="#">좌석용</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">내 기소 목록</a></li>
-                    <li><a href="#">이번 주 법정</a></li>
+                    <li><a href="#">테스트</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/"><span class="glyphicon glyphicon-home"></span> kmlaonline</a></li>
@@ -58,7 +57,8 @@
             <div class="col-sm-3 col-md-2 sidebar">
                 <ul class="nav nav-sidebar">
                     <li><a href="#">기소하기</a></li>
-                    <li class="active"><a href="">이번 주 법정 <span class="sr-only">(current)</span></a></li>
+                    <li><a href="courtlist_kmla">이번 주 법정(큼온용)<span class="sr-only">(current)</span></a></li>
+                    <li class="active"><a href="courtlist_seat">이번 주 법정(좌석용)</a></li>
                     <li><a href="#">통계</a></li>
                 </ul>
 

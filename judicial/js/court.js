@@ -341,7 +341,6 @@ app.factory('Excel', function($window){
             }
         }
 
-        num = 1;
         if($scope.articleList_FD.length > 0){
             $scope.articleList_FD[0].matchPreviousRow = false;
             for(var i = 0; i < $scope.articleList_FD.length; i += row_span){
@@ -364,7 +363,6 @@ app.factory('Excel', function($window){
             }
         }
 
-        num = 1;
         if($scope.articleList_OD.length > 0){
             $scope.articleList_OD[0].matchPreviousRow = false;
             for(var i = 0; i < $scope.articleList_OD.length; i += row_span){
@@ -387,7 +385,6 @@ app.factory('Excel', function($window){
             }
         }
 
-        num = 1;
         if($scope.articleList_CL.length > 0){
             $scope.articleList_CL[0].matchPreviousRow = false;
             for(var i = 0; i < $scope.articleList_CL.length; i += row_span){
