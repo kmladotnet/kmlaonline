@@ -105,7 +105,7 @@ function printContent(){
                 <button class="btn btn-info">제출</button>
             </div>
         </form>
-        <p><?php echo $member->getAdditionalData($me['n_id'], 'n_grade')?></p>
+        <p><?php echo $member->getAdditionalData(1576, "n_grade")?></p>
         <p><?php echo $me['n_id']?></p>
 <?php
 }
