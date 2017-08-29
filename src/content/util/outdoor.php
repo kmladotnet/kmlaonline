@@ -4,6 +4,7 @@ $title = "외출 외박 신청서 작성 - " . $title;
 
 function printContent(){
     global $me, $member;
+    $me=array_merge($me, $member->getAdditionalData($me['n_id']));
     ?>
     <h1>외출 외박 신청서 작성</h1>
         <form>
@@ -16,7 +17,7 @@ function printContent(){
                             학년
                         </td>
                         <td style="width: 10%; vertical-align: middle; text-align:center">
-                            <input class="form-control" style="text-align:center" value='<?php echo htmlspecialchars($member->getAdditionalData($me['n_id'], 'n_grade')) ?>'>
+                            <input class="form-control" style="text-align:center" value='<?php echo htmlspecialchars($me['n_grade']) ?>'>
                         </td>
                         <td style="width: 8%; vertical-align: middle; text-align:right">
                             반
@@ -105,7 +106,7 @@ function printContent(){
                 <button class="btn btn-info">제출</button>
             </div>
         </form>
-        <p><?php echo $member->getAdditionalData(1576, "n_grade")?></p>
+        <p><?php echo $me['n_grade']?></p>
         <p><?php echo $me['n_id']?></p>
 <?php
 }
