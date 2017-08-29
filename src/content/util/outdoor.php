@@ -107,5 +107,6 @@ function printContent(){
             </div>
         </form>
 <?php
+echo $_SERVER["REQUEST_URI"];
 }
 ?>
