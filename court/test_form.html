@@ -1,11 +1,13 @@
-<?php
-redirectLoginIfRequired();
-$title = "외출 외박 신청서 작성 - " . $title;
-
-function printContent(){
-    global $member, $me;
-    ?>
-    <h1>외출 외박 신청서 작성</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Form</title>
+    <link rel="stylesheet" type="text/css" href="src/bootstrap.css">
+</head>
+<body>
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <h1>외출 외박 신청서 작성</h1>
         <form>
             <table class="table table-striped">
                 <tbody>
@@ -105,6 +107,7 @@ function printContent(){
                 <button class="btn btn-info">제출</button>
             </div>
         </form>
-<?php
-}
-?>
+    </div>
+    <div class="col-md-2"></div>
+</body>
+</html>
