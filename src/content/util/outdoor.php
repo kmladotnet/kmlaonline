@@ -16,7 +16,7 @@ function printContent(){
                             학년
                         </td>
                         <td style="width: 10%; vertical-align: middle; text-align:center">
-                            <input class="form-control" style="text-align:center" value='<?php echo $member->getAdditionalData($me['n_id'], 'n_grade') ?>'>
+                            <input class="form-control" style="text-align:center" value='<?php echo htmlspecialchars($member->getAdditionalData($me['n_id'], 'n_grade')) ?>'>
                         </td>
                         <td style="width: 8%; vertical-align: middle; text-align:right">
                             반
