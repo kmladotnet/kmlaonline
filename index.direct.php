@@ -36,6 +36,11 @@
     <!-- angular-ui / bootstrap -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.min.js"></script>
 
+    <?php
+    if($_SERVER["REQUEST_URI"] === '/util/outdoor'){ ?>
+        <script src="/js/content/util/outdoor.js"></script>
+    <?php } ?>
+
     <!-- velocity -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.4.1/velocity.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.4.1/velocity.ui.min.js"></script>
