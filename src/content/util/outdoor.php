@@ -3,9 +3,7 @@ redirectLoginIfRequired();
 $title = "외출 외박 신청서 작성 - " . $title;
 
 function printContent(){
-    global $user_to, $me, $user_s_id, $member;
-    $is_self=$me==$user_to;
-    $user_to=array_merge($user_to, $member->getAdditionalData($user_to['n_id']));
+    global $me, $member;
     ?>
     <h1>외출 외박 신청서 작성</h1>
         <form>
@@ -18,7 +16,7 @@ function printContent(){
                             학년
                         </td>
                         <td style="width: 10%; vertical-align: middle; text-align:center">
-                            <input class="form-control" style="text-align:center" value=<?php "\"" . $user_to['n_grade'] . "\""  ?>>
+                            <input class="form-control" style="text-align:center" value=<?php "\"" . $member->getAdditionalData($me['n_id']) . "\""  ?>>
                         </td>
                         <td style="width: 8%; vertical-align: middle; text-align:right">
                             반
