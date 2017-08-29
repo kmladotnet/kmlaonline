@@ -23,7 +23,7 @@ function printContent(){
                             반
                         </td>
                         <td style="width: 10%; vertical-align: middle; text-align:center">
-                            <input class="form-control" style="text-align:center" value='<?php echo htmlspecialchars($me['n_class']) ?>'>
+                            <input class="form-control" style="text-align:center" value='<?php echo htmlspecialchars($me['s_class']) ?>'>
                         </td>
                         <td style="width: 8%; vertical-align: middle; text-align:right">
                             성명
