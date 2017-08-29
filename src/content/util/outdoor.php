@@ -7,7 +7,7 @@ function printContent(){
     ?>
     <h1>외출 외박 신청서 작성</h1>
     <div class="table" style="margin-top:20px">
-        <form name="newOutdoor">
+        <form name="newOutdoor" class="form-inline">
             <table class="table table-striped table-bordered">
                 <tr>
                     <td>
@@ -15,8 +15,8 @@ function printContent(){
                     </td>
                     <td>
                         <div class="btn-group">
-
-                            <label> <span><input type="number" name="grade" class="form-control"></span>학년</label>
+                            <label>학년</label>
+                            <input type="number" name="grade" class="form-control">
                         </div>
                     </td>
                 </tr>
