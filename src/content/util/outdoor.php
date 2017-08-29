@@ -42,13 +42,13 @@ function printContent(){
                         <td style="vertical-align: middle; text-align:center;">기간
                         </td>
                         <td colspan="3" style="vertical-align: middle; text-align:center">
-                            <input class="form-control" type="time" style="text-align:center">
+                            <input class="form-control" type="datetime" style="text-align:center">
                         </td>
                         <td style="vertical-align: middle; text-align:left">
                             부터
                         </td>
                         <td colspan="2" style="vertical-align: middle; text-align:center">
-                            <input class="form-control" type="time" style="text-align:center">
+                            <input class="form-control" type="datetime" style="text-align:center">
                         </td>
                         <td colspan="2" style="vertical-align: middle; text-align:left">
                             까지
