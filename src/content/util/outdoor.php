@@ -19,11 +19,11 @@ function printContent(){
                         <td style="width: 10%; vertical-align: middle; text-align:center">
                             <input class="form-control" style="text-align:center" value='<?php echo htmlspecialchars($me['n_grade']) ?>'>
                         </td>
-                        <td style="width: 8%; vertical-align: middle; text-align:right">
+                        <td style="width: 8%; vertical-align: middle; text-align:right" value='<?php echo htmlspecialchars($me['n_class']) ?>'>
                             반
                         </td>
                         <td style="width: 10%; vertical-align: middle; text-align:center">
-                            <input class="form-control" style="text-align:center">
+                            <input class="form-control" style="text-align:center" value='<?php echo htmlspecialchars($me['s_name']) ?>'>
                         </td>
                         <td style="width: 8%; vertical-align: middle; text-align:right">
                             성명
@@ -106,8 +106,6 @@ function printContent(){
                 <button class="btn btn-info">제출</button>
             </div>
         </form>
-        <p><?php echo $me['n_grade']?></p>
-        <p><?php echo $me['n_id']?></p>
 <?php
 }
 ?>
