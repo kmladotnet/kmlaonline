@@ -14,7 +14,7 @@ function printContent(){
                         <p>인적 정보</p>
                     </td>
                     <td>
-                        <div class="btn-group">
+                        <div class="btn-group" class="form-inline">
                             <label>학년</label>
                             <input type="number" name="grade" class="form-control">
                         </div>
