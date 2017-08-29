@@ -107,5 +107,6 @@ function printContent(){
             </div>
         </form>
 <?php
+print_r($me);
 }
 ?>
