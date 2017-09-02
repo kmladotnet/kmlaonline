@@ -141,6 +141,15 @@ if(count($errors)==0){
 			foreach($member->listMembers(0,0,19) as $usr){
 				$member->addNotice($usr['n_id'], "upload:article:$article_id", "<b>{$_POST['s_title']}</b>가 업로드되었습니다.", "article:".$article_id);
 			}
+			foreach($member->listMembers(0,0,20) as $usr){
+				$member->addNotice($usr['n_id'], "upload:article:$article_id", "<b>{$_POST['s_title']}</b>가 업로드되었습니다.", "article:".$article_id);
+			}
+			foreach($member->listMembers(0,0,21) as $usr){
+				$member->addNotice($usr['n_id'], "upload:article:$article_id", "<b>{$_POST['s_title']}</b>가 업로드되었습니다.", "article:".$article_id);
+			}
+			foreach($member->listMembers(0,0,22) as $usr){
+				$member->addNotice($usr['n_id'], "upload:article:$article_id", "<b>{$_POST['s_title']}</b>가 업로드되었습니다.", "article:".$article_id);
+			}
 		}
 
 		if(isset($_POST['n_parent'])){
