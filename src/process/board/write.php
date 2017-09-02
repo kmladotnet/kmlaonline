@@ -139,8 +139,7 @@ if(count($errors)==0){
 		/* Election Season - 서면 과제 게시판에 글 올리면 notification 뜨게 하기*/
 		if((int) $cat['n_id'] === 578 && isset($_POST['s_title'])){
 			foreach($member->listMembers(0,0,19) as $usr){
-				$member->addNotice($usr['n_id'], "upload:article:$article_id", "{$me['s_name']}님이 닷넷 <b>HTML/CSS</b> 그룹에 게시글을 올렸습니다.","article:".$article_id);
-				$member->addNoitce($usr['n_id'], "upload:article:$article_id", $_POST['s_title'] . "가 업로드되었습니다.", "article:".$article_id);
+				$member->addNotice($usr['n_id'], "upload:article:$article_id", $_POST['s_title'] . "가 업로드되었습니다.", "article:".$article_id);
 			}
 		}
 
