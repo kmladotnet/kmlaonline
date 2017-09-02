@@ -5,19 +5,19 @@ function printArticleListTypeBoard($board_data, $additional_query_string){
 	<table style="width:100%">
 		<thead>
 			<tr style="height:32px;">
-				<th class="no-mobile" style="width:48px;">번호</th>
+				<th class="no-mobile" style="width:48px; text-align:center">번호</th>
 				<th class="no-mobile" style="width:120px;">분류</th>
 				<th>제목</th>
-				<th style="width:120px;">글쓴이</th>
-				<th style="width:80px;">날짜</th>
-				<th class="no-mobile" style="width:48px;">조회수</th>
+				<th style="width:120px; text-align:center">글쓴이</th>
+				<th style="width:80px; text-align:center">날짜</th>
+				<th class="no-mobile" style="width:48px; text-align:center">조회수</th>
 			</tr>
 		</thead>
 		<tbody>
-			<?php foreach($board_data as $item){ 
+			<?php foreach($board_data as $item){
 				$board_cat=$board->getCategory($item['n_cat']);
 				$board_id=$board_cat['s_id'];
-				$memb=$member->getMember($item['n_writer']); 
+				$memb=$member->getMember($item['n_writer']);
 				$flag=$item['n_flag']; $b_public_article=$flag&0x1; $b_no_comment=$flag&0x2; $b_anonymous=$flag&0x4; $b_bold_title=$flag&0x8;
 				$b_public_article=$b_public_article && checkCategoryAccess($board_cat['n_id'], "flag public");
 				$b_no_comment=$b_no_comment && checkCategoryAccess($board_cat['n_id'], "flag no comment");
@@ -89,6 +89,7 @@ function printArticleList(){
 	else if($pagenumber!=0) $pagenumber--;
 	if($pagenumber<0) $pagenumber=0;
 	$page_count=intval(($article_count+$articleperpage-1)/$articleperpage);
+	if($board_id === "student_council_election") $orderby_name = "s_title";
 	$board_data=$board->getArticleList($accessible_categories, false, 0, $pagenumber, $articleperpage, $orderby_name, $orderby_desc, $incl_text, $search, $search_mode_and, $search_submode_and, $search_title, $search_data, $search_tag, $search_writer);
 	if($search!==false){
 		foreach($board_data as $key=>$val){
@@ -115,10 +116,10 @@ function printArticleList(){
 	<?php } ?>
 	<div style="text-align:center">
 		<?php $disp=array(1=>true); ?>
-		<a href="<?php echo "/board/$board_id/page/1$additional_query_string" ;?>" <?php if($pagenumber==1) echo "style='color:black'" ?>>[1]</a> 
+		<a href="<?php echo "/board/$board_id/page/1$additional_query_string" ;?>" <?php if($pagenumber==1) echo "style='color:black'" ?>>[1]</a>
 		<?php if(2<$pagenumber-10) echo "..."; ?>
 		<?php for($i=max(2,$pagenumber-10); $i<=min($page_count-1, $pagenumber+10); $i++){ ?>
-			<a href="<?php echo "/board/$board_id/page/$i$additional_query_string" ;?>" <?php if($pagenumber==$i) echo "style='color:black'" ?>>[<?php echo $i; $disp[$i]=true;?>]</a> 
+			<a href="<?php echo "/board/$board_id/page/$i$additional_query_string" ;?>" <?php if($pagenumber==$i) echo "style='color:black'" ?>>[<?php echo $i; $disp[$i]=true;?>]</a>
 		<?php } ?>
 		<?php if($i<$page_count && $i!=max(2,$pagenumber-10)) echo "..."; ?>
 		<?php if(!isset($disp[$page_count]) && $page_count>1){ ?><a href="<?php echo "/board/$board_id/page/$page_count$additional_query_string" ;?>" <?php if($pagenumber==$page_count) echo "style='color:black'" ?>>[<?php echo $page_count?>]</a><?php } ?>
