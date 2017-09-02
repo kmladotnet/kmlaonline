@@ -778,7 +778,6 @@ class Soreeboard{
 		$select_what="n_id, n_parent, n_sticky, n_cat, n_writedate, n_editdate, n_total_views, n_views, n_out_views, n_comments, s_title, n_attach1, s_tag, s_writer, n_writer, n_flag" . ($with_data?", s_data":"");
 		$query="SELECT $select_what $incl_data FROM `$this->table_data` $whereq ORDER BY $orderby $limits";
 		//echo htmlspecialchars($query);
-		if($orderby_name === "s_title") $query="SELECT $select_what $incl_data FROM `$this->table_data` $whereq ORDER BY $orderby DESC $limits";
 		if($res=$this->mysqli->query($query)){
 			$arr=array();$i=0;
 			while ($row = $res->fetch_array(MYSQLI_ASSOC)){
