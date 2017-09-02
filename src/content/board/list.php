@@ -186,7 +186,7 @@ function printArticleList(){
 	else if($pagenumber!=0) $pagenumber--;
 	if($pagenumber<0) $pagenumber=0;
 	$page_count=intval(($article_count+$articleperpage-1)/$articleperpage);
-	if($board_id === "student_council_election") $orderby_name="s_title";
+	if($board_id === "student_council_election") $orderby_name="s_title DESC";
 	$board_data=$board->getArticleList(array($board_cat['n_id']), false, 0, $pagenumber, $articleperpage, $orderby_name, $orderby_desc, $incl_text, $search, $search_mode_and, $search_submode_and, $search_title, $search_data, $search_tag, $search_writer);
 	if($search!==false){
 		foreach($board_data as $key=>$val){
