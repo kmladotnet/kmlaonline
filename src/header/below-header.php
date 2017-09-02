@@ -25,11 +25,11 @@
 		</div>
 	<?php } else {
         if(!(!!$me && getTheme($me)['hidedasan'])) { ?>
-            <div id="total-header" style="background: url('/images/big-logo-ad-2.png') no-repeat;" <?php if($april_fools_2) echo 'style="height:311px; background: url(/images/bamboozle.png) no-repeat;"'; ?>>
+            <div id="total-header" style="background: url('/images/big-logo-ad-election.png') no-repeat;" <?php if($april_fools_2) echo 'style="height:311px; background: url(/images/bamboozle.png) no-repeat;"'; ?>>
                 <?php if (isset($_SESSION['user'])) { ?>
                     <div class="userarea"><?php include "src/header/userarea.php"; ?></div>
                 <?php } ?>
-                <a id="back-to-main" href="https://goo.gl/forms/U0I3FKQTHGk6iqbP2" target="_blank"></a><br />
+                <a id="back-to-main" href="/board/student_council_election"></a><br />
             </div>
         <?php } ?>
 		<script type="text/javascript">prepareHeader();</script>
