@@ -139,7 +139,7 @@ if(count($errors)==0){
 		if((int) $cat['n_id'] === 578 && isset($_POST['s_title'])){
 			$triggered=array();
 			foreach($member->listMembers(0,0,19) as $usr){
-				$member->addNoitce($usr['n_id'], "upload:article:$article_id", "<b>$_POST['s_title']</b>가 업로드되었습니다.", "article:".$article_id);
+				$member->addNoitce($usr['n_id'], "upload:article:$article_id", "<b>{$_POST['s_title']}</b>가 업로드되었습니다.", "article:".$article_id);
 			}
 		}
 		if(isset($_POST['n_parent'])){
