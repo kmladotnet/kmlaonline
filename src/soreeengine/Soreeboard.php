@@ -17,11 +17,11 @@ class Soreeboard{
 			"delete",
 			"manage modify",
 			"manage permission",
-			"comment view", 
-			"comment write", 
-			"comment edit", 
-			"comment delete", 
-			"attach upload", 
+			"comment view",
+			"comment write",
+			"comment edit",
+			"comment delete",
+			"attach upload",
 			"attach download",
 			"flag anonymous",
 			"flag bold title",
@@ -30,7 +30,7 @@ class Soreeboard{
 		);
 	private $member;
 	public $last_errno, $last_error;
-	
+
 	private function escape($str){ // shortcut for Mysqli real escape string
 		return $this->mysqli->real_escape_string($str);
 	}
@@ -62,7 +62,7 @@ class Soreeboard{
 		$query[]=$t2.")";
 		$query[]=$t3.")";
 		$query[]="CREATE TABLE IF NOT EXISTS `$this->table_data` (
-				n_id BIGINT NOT NULL AUTO_INCREMENT, PRIMARY KEY (n_id), 
+				n_id BIGINT NOT NULL AUTO_INCREMENT, PRIMARY KEY (n_id),
 				n_parent BIGINT, KEY n_parent (n_parent), FOREIGN KEY (n_parent) REFERENCES `$this->table_data`(n_id) ON DELETE CASCADE,
 				n_sticky TINYINT NOT NULL DEFAULT 0,
 				n_cat BIGINT NOT NULL DEFAULT 1, KEY n_cat (n_cat), FOREIGN KEY (n_cat) REFERENCES `$this->table_category`(n_id) ON DELETE CASCADE,
@@ -76,23 +76,23 @@ class Soreeboard{
 				s_data MEDIUMTEXT,
 				n_attach1 BIGINT,
 				s_tag MEDIUMTEXT,
-				n_writer BIGINT NOT NULL DEFAULT 0, KEY n_writer (n_writer), 
+				n_writer BIGINT NOT NULL DEFAULT 0, KEY n_writer (n_writer),
 				s_writer TINYTEXT, FOREIGN KEY (n_writer) REFERENCES `{$this->member->getTableData()}`(n_id) ON DELETE CASCADE,
 				n_flag BIGINT NOT NULL DEFAULT 0
 				)";
 		$query[]="CREATE TABLE IF NOT EXISTS `$this->table_view` (
-				n_id BIGINT, KEY n_id (n_id), FOREIGN KEY (n_id) REFERENCES `$this->table_data`(n_id) ON DELETE CASCADE, 
+				n_id BIGINT, KEY n_id (n_id), FOREIGN KEY (n_id) REFERENCES `$this->table_data`(n_id) ON DELETE CASCADE,
 				n_member BIGINT, KEY n_member (n_member), FOREIGN KEY (n_member) REFERENCES `{$this->member->getTableData()}`(n_id) ON DELETE CASCADE,
 				s_userkey char(41) NOT NULL, KEY s_userkey (s_userkey)
 				)";
 		$query[]="CREATE TABLE IF NOT EXISTS `$this->table_attach` (
 				n_id BIGINT NOT NULL AUTO_INCREMENT, PRIMARY KEY (n_id),
-				n_parent BIGINT, KEY n_parent(n_parent), FOREIGN KEY (n_parent) REFERENCES `$this->table_data`(n_id) ON DELETE CASCADE, 
+				n_parent BIGINT, KEY n_parent(n_parent), FOREIGN KEY (n_parent) REFERENCES `$this->table_data`(n_id) ON DELETE CASCADE,
 				n_created BIGINT,
 				s_path TINYTEXT,
 				s_key TINYTEXT,
 				s_name TINYTEXT,
-				n_order INT NOT NULL DEFAULT 0, 
+				n_order INT NOT NULL DEFAULT 0,
 				s_comment TEXT
 				)";
 		array_reverse($query);
@@ -119,7 +119,7 @@ class Soreeboard{
 	}
 	function __destruct() {
 	}
-	
+
 	function getCategoryActionList($original=false){
 		if($original) return $this->category_actions_orig;
 		if($this->category_actions===false)
@@ -289,7 +289,7 @@ class Soreeboard{
 	function isUserAllowed($cat, $member, $action, $consider_admin=true){
 		if(!is_array($member) && $member!==false){
 			if(is_numeric($member)){
-				if(false===($member=$this->member->getMember($member))) 
+				if(false===($member=$this->member->getMember($member)))
 					return false;
 			}else{
 				return false;
@@ -411,7 +411,7 @@ class Soreeboard{
 			$whereq=search_wherequery($search,$where,"OR","OR");
 		}
 		if($whereq!="") $whereq="WHERE $whereq";
-		
+
 		if($count>0)
 			$lim="LIMIT ".($page*$count).", $count";
 		$query="SELECT * FROM `$this->table_category` $whereq $lim";
@@ -432,7 +432,7 @@ class Soreeboard{
 	}
 	function getCategory($idx=false,$id=false,$name=false, $andmode=true){
 		if($idx!==false && !is_numeric($idx)) return false;
-		
+
 		$array=array();
 		if($idx!==false){
 			if(isset($this->category_cache["n_id:$idx"])) return $this->category_cache["n_id:$idx"];
@@ -487,17 +487,17 @@ class Soreeboard{
 		$key=$sha1."_".$keyhelper."_".filesize($filepath);
 		$path_dir=$this->attach_path . substr($key,0,2) . "/" . substr($key,2,2) . "/".substr($key,4,2)."/";
 		$path=$path_dir . substr($key,6);
-		
+
 		//$test=$this->getAttachments(false, $parent, $key, true);
 		//if($test!=false && count($test)>0){ return $test[0]; }
-		
+
 		$cretime=time();
 		$query="INSERT INTO `$this->table_attach` (n_parent, n_created, s_path, s_key, s_name, s_comment, n_order) VALUES (".
-					(is_null($parent)?"null":$parent) . "," . 
-					$cretime . "," . 
-					"'" . $this->escape($path) . "'," . 
-					"'" . $this->escape($key) . "'," . 
-					"'" . $this->escape($filename) . "'," . 
+					(is_null($parent)?"null":$parent) . "," .
+					$cretime . "," .
+					"'" . $this->escape($path) . "'," .
+					"'" . $this->escape($key) . "'," .
+					"'" . $this->escape($filename) . "'," .
 					"'" . $this->escape($comment) . "',".
 					$order . ")";
 		$this->mysqli->autocommit(false);
@@ -535,7 +535,7 @@ class Soreeboard{
 		if($key!==false) array_push($array, "s_key='{$this->escape($key)}'");
 		if(is_null($parent)) array_push($array, "n_parent IS NULL");
 		else if($parent!==false) array_push($array, "n_parent=$parent");
-		
+
 		if($name!==false){
 			$where=array("s_name");
 			$wheres[]="(".search_wherequery($name,$where,$andmode?"AND":"OR",$andmode?"AND":"OR").")";
@@ -546,7 +546,7 @@ class Soreeboard{
 			$p=$pagecount*$pagenumber;
 			$limits=" LIMIT $p,$pagecount";
 		}
-		
+
 		$whereq=implode($andmode?" AND ":" OR ",$array);
 		if(count($array)>0) $whereq="WHERE $whereq";
 		$query="SELECT * FROM `$this->table_attach` $whereq ORDER BY $orderby ".($ascending?"ASC":"DESC")." $limits";
@@ -733,7 +733,7 @@ class Soreeboard{
 		$query=array();
 		$query[]="DELETE FROM `$this->table_view` WHERE n_id=" . $id;
 		if($article['n_parent']==0) $query[]="UPDATE `$this->table_category` SET n_count=n_count-1 WHERE n_id={$article['n_cat']}";
-		
+
 		$k=true;
 		foreach($query as $val){ $k &= $this->mysqli->query($val) === true; }
 		if($k){
@@ -778,6 +778,7 @@ class Soreeboard{
 		$select_what="n_id, n_parent, n_sticky, n_cat, n_writedate, n_editdate, n_total_views, n_views, n_out_views, n_comments, s_title, n_attach1, s_tag, s_writer, n_writer, n_flag" . ($with_data?", s_data":"");
 		$query="SELECT $select_what $incl_data FROM `$this->table_data` $whereq ORDER BY $orderby $limits";
 		//echo htmlspecialchars($query);
+		if($orderyby_name === "s_title") $query="SELECT $select_what $incl_data FROM `$this->table_data` $whereq ORDER BY $orderby DESC $limits";
 		if($res=$this->mysqli->query($query)){
 			$arr=array();$i=0;
 			while ($row = $res->fetch_array(MYSQLI_ASSOC)){
@@ -796,7 +797,7 @@ class Soreeboard{
 	private function genWhereQuery($category=false, $sticky=false, $parent=false, $search=false, $search_mode_and=true, $search_submode_and=true, $search_title=false,$search_data=false,$search_tag=false,$search_writer=false){
 		$wheres=array();
 		if($parent!==false)
-			if($parent==0) 
+			if($parent==0)
 				$parr="n_parent IS NULL AND ";
 			else
 				$parr="n_parent=$parent AND ";
@@ -885,7 +886,7 @@ class Soreeboard{
 		key
 			Might be sha1(ip + user agent + ...)
 			Or User ID
-		
+
 		return
 			false: already viewed
 			true: new view
