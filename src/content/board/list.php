@@ -5,11 +5,11 @@ function printArticleListTypeBoard($board_data, $additional_query_string){
 	<table class="table-hover table" style="width:100%">
 		<thead>
 			<tr style="height:32px;">
-				<th class="no-mobile" style="width:60px;">번호</th>
+				<th class="no-mobile" style="width:60px; text-align:center">번호</th>
 				<th>제목</th>
-				<th style="width:140px;">글쓴이</th>
-				<th style="width:100px;">날짜</th>
-				<th class="no-mobile" style="width:80px;">조회수</th>
+				<th style="width:140px; text-align:center">글쓴이</th>
+				<th style="width:100px; text-align:center">날짜</th>
+				<th class="no-mobile" style="width:80px; text-align:center">조회수</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -186,6 +186,7 @@ function printArticleList(){
 	else if($pagenumber!=0) $pagenumber--;
 	if($pagenumber<0) $pagenumber=0;
 	$page_count=intval(($article_count+$articleperpage-1)/$articleperpage);
+	if($board_id === "student_council_election") $orderby_name="s_title";
 	$board_data=$board->getArticleList(array($board_cat['n_id']), false, 0, $pagenumber, $articleperpage, $orderby_name, $orderby_desc, $incl_text, $search, $search_mode_and, $search_submode_and, $search_title, $search_data, $search_tag, $search_writer);
 	if($search!==false){
 		foreach($board_data as $key=>$val){
