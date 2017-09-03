@@ -113,7 +113,7 @@ if($me['n_level']!=0){
                 </div>
             </div>
             <div class="menu1">
-                <div class="menu1_text"><a href="board/student_suggestions" class="menu2">건의사항</a></div>
+                <div class="menu1_text"><a href="https://goo.gl/forms/PE7uoXFqkVocZhBA3" class="menu2">건의사항</a></div>
             </div>
 </div>
 <div id="slidedown2" class="slidedown_holder">
