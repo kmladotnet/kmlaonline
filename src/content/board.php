@@ -75,7 +75,9 @@ if($board_id=="special:list-all"){
 			checkCategoryAccess($board_cat['n_id'], "edit", true);
 			redirectLoginIfRequired();
 			if(($article=$board->getArticle($board_item))===false) redirectAlert(false, lang("board","article","nonexist"));
-			if((!isset($me) || $article['n_writer']!=$me['n_id']) && !($me['n_id'] == 1576) && !checkCategoryAccess($board_cat['n_id'], "manage modify")) redirectAlert(false,lang("board","article","notmine") . !($me['n_id'] == 1576) . (!isset($me) || $article['n_writer']!=$me['n_id']) . !checkCategoryAccess($board_cat['n_id'], "manage modify"));
+			/*24대 학생회 선거 기간 중 임시로 각 위원장에게 "student_council_election" 게시판 글 수정 권한을 부여함 (시작)*/
+			$temp_authority = ($board_cat['n_id'] == 578) && checkCategoryAccess($board_cat['n_id'], "edit");
+			if((!isset($me) || $article['n_writer']!=$me['n_id']) && !$temp_authority && !checkCategoryAccess($board_cat['n_id'], "manage modify")) redirectAlert(false,lang("board","article","notmine") . !($me['n_id'] == 1576) . (!isset($me) || $article['n_writer']!=$me['n_id']) . !checkCategoryAccess($board_cat['n_id'], "manage modify"));
 			$title=lang("link titles", "board", "edit") . " - {$article["s_title"]} - $title";
 			//Prepare
 			break;
