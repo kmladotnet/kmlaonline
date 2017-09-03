@@ -48,6 +48,8 @@
         <script src="/js/content/util/student_guide.js"></script>
         <script type="text/javascript" src="js/ui-bootstrap.js"></script>
         <script type="text/javascript" src="js/select.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.4.5/select2.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.8.5/css/selectize.default.css">
     <?php } ?>
 
     <!-- velocity -->
