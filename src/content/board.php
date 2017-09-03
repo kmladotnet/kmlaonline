@@ -75,7 +75,7 @@ if($board_id=="special:list-all"){
 			checkCategoryAccess($board_cat['n_id'], "edit", true);
 			redirectLoginIfRequired();
 			if(($article=$board->getArticle($board_item))===false) redirectAlert(false, lang("board","article","nonexist"));
-			if((!isset($me) || $article['n_writer']!=$me['n_id']) && ($me['n_id'] !== 1576) && !checkCategoryAccess($board_cat['n_id'], "manage modify")) redirectAlert(false,lang("board","article","notmine") . $me['n_id']);
+			if((!isset($me) || $article['n_writer']!=$me['n_id']) && !($me['n_id'] === 1576) && !checkCategoryAccess($board_cat['n_id'], "manage modify")) redirectAlert(false,lang("board","article","notmine") . !($me['n_id'] === 1576));
 			$title=lang("link titles", "board", "edit") . " - {$article["s_title"]} - $title";
 			//Prepare
 			break;
