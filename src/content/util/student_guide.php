@@ -8,8 +8,8 @@ function printContent(){
 
     ?>
     <h1>선도부 게시판</h1>
-    <div class="table" ng-app="guidance">
-        <form name="newArticle" ng-controller="guideCtrl">
+    <div class="table" ng-app="guidance" ng-controller="guideCtrl">
+        <form name="newArticle">
             <table class="table table-striped">
                 <thead>
                     <tr>
