@@ -7,6 +7,7 @@ function printContent(){
     $me=array_merge($me, $member->getAdditionalData($me['n_id']));
 
     ?>
+    <h1>선도부 게시판</h1>
     <div class="table" ng-app="guidance">
         <form name="newArticle" ng-controller="guideCtrl">
             <table class="table table-striped">
