@@ -42,6 +42,11 @@
         <script src="/js/content/util/outdoor.js"></script>
     <?php } ?>
 
+    <?php
+    if($_SERVER["REQUEST_URI"] === '/util/student_guide.js') { ?>
+        <script src="/js/content/util/student_guide.js"></script>
+    <?php } ?>
+
     <!-- velocity -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.4.1/velocity.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.4.1/velocity.ui.min.js"></script>
