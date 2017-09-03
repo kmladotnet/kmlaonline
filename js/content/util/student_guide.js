@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module("guidance", ['ui.select', 'ngSanitize']);
+var app = angular.module("guidance", ['ui.select', 'ngSanitize', 'ngRoute']);
 
 app.controller("guideCtrl", function($http, $scope){
     $scope.accusedSelect = {};
