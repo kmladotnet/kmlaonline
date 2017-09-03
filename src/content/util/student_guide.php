@@ -13,11 +13,10 @@ function printContent(){
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th class="col-md-4 col-sm-4">학생 이름</th>
+                        <th class="col-md-5 col-sm-5">학생 이름</th>
                         <th class="col-md-2 col-sm-3">기소 일자</th>
                         <th class="col-md-2 col-sm-1">기소자</th>
                         <th class="col-md-3 col-sm-3">기소 항목</th>
-                        <th class="col-md-1 col-sm-1">벌점</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -43,27 +42,8 @@ function printContent(){
                                 </span>
                             </div>
                         </td>
-                        <td>
-                            <ui-select ng-model="accuserSelect.selected" theme="bootstrap">
-                                <ui-select-match>
-                                    <span ng-bind="$select.selected.name"></span>
-                                </ui-select-match>
-                                <ui-select-choices repeat="accuser in (accuserArray | filter: $select.search) track by accuser.a_id">
-                                    <span ng-bind="accuser.name"></span>
-                                </ui-select-choices>
-                            </ui-select>
-                        </td>
-                        <td>
-                            <ui-select ng-model="articleKindSelect.selected" theme="bootstrap">
-                                <ui-select-match>
-                                    <span ng-bind="$select.selected.ak_eng"></span>
-                                </ui-select-match>
-                                <ui-select-choices repeat="kind in (articleKindArray | filter: $select.search) track by kind.ak_id">
-                                    <span ng-bind="kind.ak_eng"></span>
-                                </ui-select-choices>
-                            </ui-select>
-                        </td>
-                        <td><input type="text" class="form-control" ng-model="articleKindSelect.selected.point" ng-disabled="point_disabled"></td>
+                        <td><input type="text" class="form-control" value="<?php echo htmlspecialchars($me['s_name']) ?>" ng-disabled="point_disabled"></td>
+                        <td><input type="text" class="form-control" value="Late for School" ng-disabled="point_disabled"></td>
                     </tr>
                 </tbody>
             </table>
