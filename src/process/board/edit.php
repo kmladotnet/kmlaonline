@@ -29,7 +29,7 @@ else{
 	$article=$board->getArticle($_POST['n_id']);
 	if($article==false)
 		$errors["n_id"]="없는 글입니다.";
-	else if(($cat['n_id'] !== 578) && ($me['n_id'] !== 1576) && ($article["n_writer"]!=$me['n_id']) && !checkCategoryAccess($article['n_cat'], "manage modify"))
+	else if(($_POST['s_cat'] !== 'student_council_election') && ($me['n_id'] !== 1576) && ($article["n_writer"]!=$me['n_id']) && !checkCategoryAccess($article['n_cat'], "manage modify"))
 		$errors["n_id"]="내 글이 아닙니다!!";
 }
 if(isset($article) && !$article['n_parent'] && trim($_POST['s_title'])=="")
