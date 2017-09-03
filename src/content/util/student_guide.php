@@ -22,7 +22,7 @@ function printContent(){
                 <tbody>
                     <tr>
                         <td>
-                            <!--ui-select multiple ng-model="accusedSelect.selectedPeople" theme="bootstrap" ng-disabled="disabled" sortable="true" close-on-select="false">
+                            <ui-select multiple ng-model="accusedSelect.selectedPeople" theme="bootstrap" ng-disabled="disabled" sortable="true" close-on-select="false">
                                 <ui-select-match placeholder="기소할 학생을 선택해주세요...">{{$item.grade}}-{{$item.name}}</ui-select-match>
                                 <ui-select-choices repeat="accused in (accusedArray | filter: $select.search) track by accused.student_id">
                                     <div ng-bind-html="accused.name | highlight: $select.search"></div>
@@ -30,8 +30,7 @@ function printContent(){
                                         {{accused.grade}}학년 {{accused.name}}
                                     </small>
                                 </ui-select-choices>
-                            </ui-select-->
-                            <input type="text" class="form-control" value="<?php echo htmlspecialchars($me['s_name']) ?>" ng-disabled="point_disabled">
+                            </ui-select>
                         </td>
                         <td>
                             <!--div class="input-group">
