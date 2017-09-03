@@ -27,10 +27,6 @@ if(!isset($_POST['n_id']))
 	$errors["n_id"]="글이 지정되지 않았습니다.";
 else{
 	$article=$board->getArticle($_POST['n_id']);
-	/*24대 학생회 선거 기간 중 임시로 각 위원장에게 "student_council_election" 게시판 글 수정 권한을 부여함 (시작)
-	참고 - board.php, edit.php에 있는 부분을 모두 제거할 것
-
-	$temp_authority = ($_POST['s_cat'] === 'student_council_election') && checkCategoryAccess($article['n_cat'], "edit"); */
 	if($article==false)
 		$errors["n_id"]="없는 글입니다.";
 	else if(($article["n_writer"]!=$me['n_id']) && !checkCategoryAccess($article['n_cat'], "manage modify"))

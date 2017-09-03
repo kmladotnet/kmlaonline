@@ -75,10 +75,7 @@ if($board_id=="special:list-all"){
 			checkCategoryAccess($board_cat['n_id'], "edit", true);
 			redirectLoginIfRequired();
 			if(($article=$board->getArticle($board_item))===false) redirectAlert(false, lang("board","article","nonexist"));
-			/*24대 학생회 선거 기간 중 임시로 각 위원장에게 "student_council_election" 게시판 글 수정 권한을 부여함 (시작)
-			$temp_authority = ($board_cat['n_id'] == 578) && checkCategoryAccess($board_cat['n_id'], "edit"); */
 			if((!isset($me) || $article['n_writer']!=$me['n_id']) && !checkCategoryAccess($board_cat['n_id'], "manage modify")) redirectAlert(false,lang("board","article","notmine"));
-			/*(끝) - $temp_authority에 관한 부분을 제거할 것*/
 			$title=lang("link titles", "board", "edit") . " - {$article["s_title"]} - $title";
 			//Prepare
 			break;
