@@ -1,3 +1,5 @@
+'use strict';
+
 var app = angular.module("guidance", ['ui.select', 'ngSanitize']);
 
 app.controller("guideCtrl", function($http, $scope){
