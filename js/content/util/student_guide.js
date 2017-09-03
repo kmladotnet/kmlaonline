@@ -1,4 +1,4 @@
-var app = angular.module("guidance", ['ui.select', 'ngSanitize', 'ui.bootstrap']);
+var app = angular.module("guidance", ['ui.select', 'ngSanitize']);
 
 app.controller("guideCtrl", function($http, $scope){
     $scope.accusedSelect = {};
