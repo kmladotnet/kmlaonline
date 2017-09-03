@@ -44,7 +44,7 @@
     <?php } ?>
 
     <?php
-    if($_SERVER["REQUEST_URI"] === '/util/student_guide.js') { ?>
+    if($_SERVER["REQUEST_URI"] === '/util/student_guide') { ?>
         <script src="/js/content/util/student_guide.js"></script>
         <script type="text/javascript" src="js/ui-bootstrap.js"></script>
         <script type="text/javascript" src="js/select.js"></script>
