@@ -29,6 +29,7 @@
 
     <!-- angularjs / angularjs-sanitize -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-route.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.6.6/angular-sanitize.min.js"></script>
 
     <!-- bootstrap -->
@@ -45,6 +46,8 @@
     <?php
     if($_SERVER["REQUEST_URI"] === '/util/student_guide.js') { ?>
         <script src="/js/content/util/student_guide.js"></script>
+        <script type="text/javascript" src="js/ui-bootstrap.js"></script>
+        <script type="text/javascript" src="js/select.js"></script>
     <?php } ?>
 
     <!-- velocity -->
