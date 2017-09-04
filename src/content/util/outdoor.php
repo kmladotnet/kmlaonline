@@ -7,8 +7,9 @@ function printContent(){
     $me=array_merge($me, $member->getAdditionalData($me['n_id']));
     ?>
     <h1>외출 외박 신청서 작성</h1>
-        <form ng-app="outdoor" ng-controller="outdoorCtrl" ng-init="info.grade=<?php echo htmlspecialchars($me['n_grade']) ?>;">
-            <table class="table table-striped">
+        <form ng-app="outdoor" ng-controller="outdoorCtrl"
+        ng-init="info.grade=<?php echo htmlspecialchars($me['n_grade']) ?>;
+                info.class=<?php echo htmlspecialchars($me['s_class']) ?>; ">
                 <tbody>
                     <tr>
                         <td style="width: 10%; vertical-align: middle; text-align:center;">인적 사항
