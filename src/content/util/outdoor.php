@@ -7,7 +7,7 @@ function printContent(){
     $me=array_merge($me, $member->getAdditionalData($me['n_id']));
     ?>
     <h1>외출 외박 신청서 작성</h1>
-        <form ng-app="outdoor">
+        <form ng-app="outdoor" ng-controller="outdoorCtrl">
             <table class="table table-striped">
                 <tbody>
                     <tr>
