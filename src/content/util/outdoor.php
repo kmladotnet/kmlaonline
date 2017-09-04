@@ -17,7 +17,7 @@ function printContent(){
                             학년
                         </td>
                         <td style="width: 10%; vertical-align: middle; text-align:center">
-                            <input class="form-control" style="text-align:center" value='<?php echo htmlspecialchars($me['n_grade']) ?>'>
+                            <input class="form-control" style="text-align:center" ng-model="info.grade" value='<?php echo htmlspecialchars($me['n_grade']) ?>'>
                         </td>
                         <td style="width: 8%; vertical-align: middle; text-align:right">
                             반
@@ -70,7 +70,7 @@ function printContent(){
                         <td style="vertical-align: middle; text-align:center;">교통편
                         </td>
                         <td colspan="3">
-                            <input class="form-control" type="text"></input>
+                            <input class="form-control" type="text" ng-model="info.grade"></input>
                         </td>
                     </tr>
                     <tr>
