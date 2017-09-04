@@ -47,3 +47,7 @@ sudo certbot renew --email kmladotnet@gmail.com --agree-tos
 sudo systemctl restart mysqld
 sudo systemctl restart nginx
 ```
+
+## KMLA Online 멤버 관리 ##
+
+자퇴생의 경우 로그인시 대기 알림이 뜨게 함. (/srv/http/kmla/board/user_pending_list 에서 'n_id.txt' 형태의 파일을 만들어 저장.)
