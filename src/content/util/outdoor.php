@@ -7,7 +7,7 @@ function printContent(){
     $me=array_merge($me, $member->getAdditionalData($me['n_id']));
     ?>
     <h1>외출 외박 신청서 작성</h1>
-        <form ng-app="outdoor" ng-controller="outdoorCtrl" ng-init="info.grade=<?php echo htmlspecialchars($me['n_grade']) ?>">
+        <form ng-app="outdoor" ng-controller="outdoorCtrl" ng-init="info.grade=<?php echo htmlspecialchars($me['n_grade']) ?>; info.class = <?php echo htmlspecialchars($me['s_class']) ?>; info.name = <?php echo htmlspecialchars($me['s_name']) ?>; info.room = <?php echo htmlspecialchars($me['s_room']) ?>">
             <table class="table table-striped">
                 <tbody>
                     <tr>
@@ -23,19 +23,19 @@ function printContent(){
                             반
                         </td>
                         <td style="width: 10%; vertical-align: middle; text-align:center">
-                            <input class="form-control" style="text-align:center" value='<?php echo htmlspecialchars($me['s_class']) ?>'>
+                            <input class="form-control" style="text-align:center" ng-model="info.class" value='<?php echo htmlspecialchars($me['s_class']) ?>'>
                         </td>
                         <td style="width: 8%; vertical-align: middle; text-align:right">
                             성명
                         </td>
                         <td style="width: 20%; vertical-align: middle; text-align:center">
-                            <input class="form-control" style="text-align:center" value='<?php echo htmlspecialchars($me['s_name']) ?>'>
+                            <input class="form-control" style="text-align:center" ng-model="info.name" value='<?php echo htmlspecialchars($me['s_name']) ?>'>
                         </td>
                         <td style="width: 8%; vertical-align: middle; text-align:right">
                             호실
                         </td>
                         <td style="width: 18%; vertical-align: middle; text-align:center">
-                            <input class="form-control" style="text-align:center" value='<?php echo htmlspecialchars($me['s_room']) ?>'>
+                            <input class="form-control" style="text-align:center" ng-model="info.room" value='<?php echo htmlspecialchars($me['s_room']) ?>'>
                         </td>
                     </tr>
                     <tr>
@@ -70,7 +70,7 @@ function printContent(){
                         <td style="vertical-align: middle; text-align:center;">교통편
                         </td>
                         <td colspan="3">
-                            <input class="form-control" type="text" ng-model="info.grade"></input>
+                            <input class="form-control" type="text"></input>
                         </td>
                     </tr>
                     <tr>
