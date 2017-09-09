@@ -76,7 +76,7 @@ function printContent(){
                     <tr>
                         <td style="vertical-align: middle; text-align:center;">핸드폰<br/>번호</td>
                         <td colspan="4">
-                            <input class="form-control" type="text"></input>
+                            <input class="form-control" type="text" ng-model="info.phone_number"></input>
                         </td>
                         <td style="vertical-align: middle; text-align:center;">부모님<br/>번호
                         </td>
