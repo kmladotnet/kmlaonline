@@ -8,8 +8,8 @@
         $result['grade'] = $temp['n_grade'];
         $result['class'] = $temp['s_class'];
         $result['room'] = $temp['s_room'];
-        $result['phone_number'] = $temp['s_phone'];
+        $result['phone_number'] = $me['s_phone'];
 
-        echo json_encode($temp);
+        echo json_encode($result);
     }
 ?>
