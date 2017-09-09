@@ -10,7 +10,6 @@
         $result['room'] = $temp['s_room'];
         $result['phone_number'] = $temp['s_phone'];
 
-        echo json_encode($result);
-
+        echo json_encode($temp);
     }
 ?>
