@@ -40,7 +40,7 @@
 
     <?php
     if($_SERVER["REQUEST_URI"] === '/util/outdoor'){ ?>
-        <script src="/js/content/util/outdoor.js"></script>
+        <script src="/js/content/util/outdoor.js?v=2"></script>
     <?php } ?>
 
     <?php
