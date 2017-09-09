@@ -4,6 +4,7 @@ app.controller("outdoorCtrl", function($http, $scope){
     $scope.info = {};
 
     $scope.fetch = function(){
+        console.log("Successfully works");
         $http({
             method: 'GET',
             url: '/proc/util/outdoor-basic'
@@ -14,6 +15,6 @@ app.controller("outdoorCtrl", function($http, $scope){
             console.log($scope.info);
         }, function myError(response){
             $scope.status = response.statusText;
-        })
+        });
     };
 });
