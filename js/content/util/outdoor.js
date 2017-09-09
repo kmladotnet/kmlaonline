@@ -9,7 +9,7 @@ app.controller("outdoorCtrl", function($http, $scope){
             method: 'GET',
             url: '/proc/util/outdoor-basic'
         }).then(function mySuccess(response){
-            $scope.info = response;
+            $scope.info = response.data;
             $scope.status = response.statusText;
             console.log(response);
             console.log($scope.info);
