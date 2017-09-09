@@ -235,6 +235,15 @@ function putUserCard($m,$mode=0, $putNow=true){
 	if($putNow) echo $str;
 	return $str;
 }
+/**
+* function getMyBasicInfo - 외출 외박 신청시 유저의 기본 정보를 받아오기 위한 함수임
+*/
+function getMyBasicInfo(){
+    global $me;
+    $res = array();
+    $res['name'] = $me['s_name'];
+    $res['grade'] = $me['grade'];
+}
 function die404(){
 	global $fn; $fn="404"; return;
 	header("HTTP/1.1 404 Not Found");
