@@ -10,8 +10,10 @@ app.controller("outdoorCtrl", function($http, $scope){
         }).then(function mySuccess(response){
             $scope.info = response;
             $scope.status = response.statusText;
+            console.log(response);
+            console.log($scope.info);
         }, function myError(response){
             $scope.status = response.statusText;
         })
-    }
+    };
 });
