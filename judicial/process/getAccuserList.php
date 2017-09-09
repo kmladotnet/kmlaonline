@@ -1,5 +1,5 @@
 <?php
 
 include('../lib.php');
-echo json_encode(getAllAccusers());
+if(isset($_SESSION['user'])) echo json_encode(getAllAccusers());
 ?>
