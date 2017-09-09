@@ -16,7 +16,7 @@ define('ARTICLE_STATUS_FD', 26124);
 
 include "presenTool/PresenTools.php";
 include "presenTool/dbHandler.php";
-
+require "../src/lib.php";
 function createNewArticle($grade, $accused_name, $accuser_name, $article_kind_name, $accuse_date="2017-08-21"){
     global $member, $accuser, $article_kind, $article;
     echo $member->gradeName2CourtId($grade, $accused_name) . "<br />";
