@@ -9,6 +9,8 @@
     <script type="text/javascript">
         angular.module("exampleApp", [])
             .controller("defaultCtrl", function($scope){
+
+                $scope.data = {};
                 $scope.todos = [
                     { action: "Get groceries", complete: false },
                     { action: "Call plumber", complete: false },
@@ -39,15 +41,41 @@
     <div id="todoPanel" class="panel" ng-controller="defaultCtrl">
         <h3 class="panel-header">To Do List</h3>
         <div class="well">
-            <div class="checkbox">
+            <div class="radio" ng-repeat="button in ['None', 'Table', 'List']">
                 <label>
-                    <input type="checkbox" ng-model="showList">
-                    Use the list view
+                    <input type="radio" ng-model="data.mode"
+                        value="{{button}}" ng-checked="$first" />
+                    {{button}}
                 </label>
             </div>
         </div>
-
-        <ng-include src="viewFile()" onload="reportChange()"></ng-include>
+        <div ng-switch on="data.mode">
+            <div ng-switch-when="Table">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Action</th>
+                            <th>Complete</th>
+                        </tr>
+                    </thead>
+                    <tr ng-repeat="item in todos" ng-class="$odd ? 'odd' : 'even'">
+                        <td>{{$index + 1}}</td>
+                        <td ng-repeat="prop in item">{{prop}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div ng-switch-when="List">
+                <ol>
+                    <li ng-repeat="item in todos">
+                        {{item.action}}<span ng-if="item.complete"> (Done)</span>
+                    </li>
+                </ol>
+            </div>
+            <div ng-switch-default>
+                Select another option to display a layout
+            </div>
+        </div>
     </div>
 </body>
 </html>
