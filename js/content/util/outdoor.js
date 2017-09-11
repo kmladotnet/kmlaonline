@@ -2,7 +2,7 @@ var app = angular.module("outdoor", ['ui.bootstrap', 'ngSanitize']);
 
 app.controller("outdoorCtrl", function($http, $scope){
     $scope.info = {};
-
+    $scope.submitted = false;
     $scope.viewFile = function(){
         return $scope.submitted ? "/src/content/template/outdoor.html" : "/src/content/template/outdoor_print.html";
     };
