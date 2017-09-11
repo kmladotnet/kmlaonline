@@ -14,7 +14,7 @@ function printContent(){
                 </label>
             </div>
             <div style="text-align: center;">
-                <button class="btn btn-info" ng-onclick="printOut('print_area')">인쇄</button>
+                <button class="btn btn-info" ng-click="printOut('print_area')">인쇄</button>
             </div>
         </div>
         <ng-include src="viewFile()"></ng-include>
