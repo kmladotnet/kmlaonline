@@ -4,6 +4,8 @@ app.controller("outdoorCtrl", function($http, $scope){
     $scope.info = {};
     $scope.submitted = false;
     $scope.viewFile = function(){
+        console.log("wow");
+        console.log("$scope.submitted");
         return $scope.submitted ? "/src/content/template/outdoor.html" : "/src/content/template/outdoor_print.html";
     };
 
