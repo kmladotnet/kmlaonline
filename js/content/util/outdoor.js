@@ -1,4 +1,4 @@
-var app = angular.module("outdoor", ['ui.bootstrap', 'ngSanitize']);
+var app = angular.module("outdoor", ['ui.bootstrap', 'ngSanitize', 'ui.bootstrap.datetimepicker']);
 
 app.controller("outdoorCtrl", function($http, $scope){
     $scope.info = {};
