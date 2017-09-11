@@ -32,14 +32,15 @@
             <tr>
                 <td style="vertical-align: middle; text-align:center;">기간
                 </td>
-                <td colspan="3" style="vertical-align: middle; text-align:center">
-                    <div class="input-group">
-                        <input type="text" class="form-control" uib-datepicker-popup="yyyy-MM-dd" ng-model="accused_date2" is-open="popup" datepicker-options="dateOptions" ng-required="true" close-text="Close">
-                        <span class="input-group-btn">
-                            <button type="button" class="btn btn-default" ng-click="openCalender()">
-                                <i class="glyphicon glyphicon-calendar"></i>
-                            </button>
-                        </span>
+                <td colspan="3" style="vertical-align: middle; text-align:center" class="form-inline">
+                    <div class="form-group">
+                        <input class="form-control" type="number" style="text-align:center"><label>월</label>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="number" style="text-align:center"><label>일</label>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="number" style="text-align:center"><label>시</label>
                     </div>
                     <!--input class="form-control" type="datetime" style="text-align:center"-->
                 </td>
