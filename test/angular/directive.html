@@ -15,7 +15,12 @@
                     { action: "Buy running shoes", complete: true },
                     { action: "Buy flowers", complete: false },
                     { action: "Call family", complete: false }];
+
+                $scope.viewFile = function(){
+                    return $scope.showList ? "list.html" : "table.html";
+                };
         });
+
     </script>
     <style type="text/css">
         .odd {
@@ -29,7 +34,16 @@
 <body>
     <div id="todoPanel" class="panel" ng-controller="defaultCtrl">
         <h3 class="panel-header">To Do List</h3>
-        <ng-include src="'table.html'"></ng-include>
+        <div class="well">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" ng-model="showList">
+                    Use the list view
+                </label>
+            </div>
+        </div>
+
+        <ng-include src="viewFile()"></ng-include>
     </div>
 </body>
 </html>
