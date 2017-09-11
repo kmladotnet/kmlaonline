@@ -34,12 +34,13 @@
                 </td>
                 <td colspan="3" style="vertical-align: middle; text-align:center">
                     <div class="dropdown">
-                        <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#" href="#">
-                            <div class="input-group"><input type="text" class="form-control" data-ng-model="data.dataDropDownInput"><span class="input-group-addon"><i class="glyphicon glyphicon-calender"></i></span>
+                        <a class="dropdown-toggle" id="dropdown" role="button" data-toggle="dropdown" data-target=".dropdown" href="#">
+                            <div class="input-group">
+                                <input type="text" id="date" class="form-control" name="date" data-ng-model="data.date"><span class="input-group-addon"><i class="glyphicon glyphicon-calender"></i></span>
                             </div>
                         </a>
                         <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                            <datetimepicker data-ng-model="info.dateDropDownInput" data-datetimepicker-config="{ dropdownSelector: '#dropdown2' }"/>
+                            <datetimepicker data-ng-model="data.date" data-datetimepicker-config="{ dropdownSelector: '#dropdown' }"></datetimepicker>
                         </ul>
                     </div>
                     <!--input class="form-control" type="datetime" style="text-align:center"-->
