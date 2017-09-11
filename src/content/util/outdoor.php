@@ -7,7 +7,7 @@ function printContent(){
     <div ng-app="outdoor" ng-controller="outdoorCtrl" ng-init="fetch()">
         <h1>외출 외박 신청서 작성</h1>
         <ng-include src="src/content/template/outdoor.html"></ng-include>
-        <form>
+        <!--form>
             <table class="table table-striped">
                 <tbody>
                     <tr>
@@ -106,7 +106,7 @@ function printContent(){
                 <button class="btn btn-info">제출</button>
             </div>
             <h2>{{"STATUS : " + status}}</h2>
-        </form>
+        </form-->
     </div>
 <?php
 echo $_SERVER["REQUEST_URI"];
