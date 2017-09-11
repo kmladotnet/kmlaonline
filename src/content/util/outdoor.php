@@ -6,6 +6,7 @@ function printContent(){
     ?>
     <div ng-app="outdoor" ng-controller="outdoorCtrl" ng-init="fetch()">
         <h1>외출 외박 신청서 작성</h1>
+        <ng-include src="/src/template/outdoor.html"></ng-include>
         <form>
             <table class="table table-striped">
                 <tbody>
