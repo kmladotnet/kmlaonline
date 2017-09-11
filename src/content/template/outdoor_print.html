@@ -1,4 +1,7 @@
-<div ng-cloak>
+<div id="print_area" ng-cloak>
+    <div style="text-align: center;">
+        <button class="btn btn-info" ng-onclick="printOut()">인쇄</button>
+    </div>
     <table class="table table-bordered" style="text-align: center; vertical-align: middle;">
         <tr>
             <td class="col-md-6 col-sm-6" rowspan="3" colspan="3" style="text-align:center; "><h3 style="line-height: 1.5em">외출 • 외박 • 결석 <br/> 신청서 </h3></td>
@@ -13,7 +16,7 @@
         </tr>
         <tr></tr>
         <tr>
-            <td class="col-md-12 col-sm-12" rowspan="1" colspan="6"> {{info.grade}} 학년  {{info.class}} 반    성명 ( {{info.name}} ) 호실 ( {{info.room}} )
+            <td class="col-md-12 col-sm-12" rowspan="1" colspan="6" style="font-size="> {{info.grade}} 학년  {{info.class}} 반    성명 ( {{info.name}} ) 호실 ( {{info.room}} )
         </tr>
         <tr>
             <td class="col-md-2 col-sm-2" colspan="1">기      간</td>
