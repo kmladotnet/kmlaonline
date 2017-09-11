@@ -3,6 +3,10 @@ var app = angular.module("outdoor", ['ui.bootstrap', 'ngSanitize']);
 app.controller("outdoorCtrl", function($http, $scope){
     $scope.info = {};
 
+    $scope.viewFile = function(){
+        return $scope.submitted ? "/src/content/template/outdoor.html" : "/src/content/template/outdoor_print.html";
+    };
+
     $scope.fetch = function(){
         console.log("Successfully works");
         $http({
