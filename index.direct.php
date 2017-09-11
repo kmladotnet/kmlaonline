@@ -41,6 +41,9 @@
     <?php
     if($_SERVER["REQUEST_URI"] === '/util/outdoor'){ ?>
         <script src="/js/content/util/outdoor.js?v=3"></script>
+        <script src="/js/datetimepicker.js"></script>
+        <script type="/js/datetimepicker.template.js"></script>
+        <link rel="stylesheet" type="text/css" href="/css/datetimepicker.css">
     <?php } ?>
 
     <?php
