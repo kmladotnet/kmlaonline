@@ -34,17 +34,14 @@
 
     <!-- bootstrap -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" rel="stylesheet">
 
     <!-- angular-ui / bootstrap -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.min.js"></script>
 
     <?php
     if($_SERVER["REQUEST_URI"] === '/util/outdoor'){ ?>
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" rel="stylesheet">
         <script src="/js/content/util/outdoor.js?v=3"></script>
-        <script src="/js/datetimepicker.js"></script>
-        <script type="/js/datetimepicker.template.js"></script>
-        <link rel="stylesheet" type="text/css" href="/css/datetimepicker.css">
     <?php } ?>
 
     <?php
