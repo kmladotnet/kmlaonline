@@ -33,15 +33,13 @@
                 <td style="vertical-align: middle; text-align:center;">기간
                 </td>
                 <td colspan="3" style="vertical-align: middle; text-align:center">
-                    <div class="dropdown">
-                        <a class="dropdown-toggle" id="dropdown" role="button" data-toggle="dropdown" data-target=".dropdown" href="#">
-                            <div class="input-group">
-                                <input type="text" id="date" class="form-control" name="date" data-ng-model="data.date"><span class="input-group-addon"><i class="glyphicon glyphicon-calender"></i></span>
-                            </div>
-                        </a>
-                        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                            <datetimepicker data-ng-model="data.date" data-datetimepicker-config="{ dropdownSelector: '#dropdown' }"></datetimepicker>
-                        </ul>
+                    <div class="input-group">
+                        <input type="text" class="form-control" uib-datepicker-popup="yyyy-MM-dd" ng-model="accused_date2" is-open="popup" datepicker-options="dateOptions" ng-required="true" close-text="Close">
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="openCalender()">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                            </button>
+                        </span>
                     </div>
                     <!--input class="form-control" type="datetime" style="text-align:center"-->
                 </td>
