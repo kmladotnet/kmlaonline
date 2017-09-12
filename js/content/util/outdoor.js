@@ -24,29 +24,6 @@ app.controller("outdoorCtrl", function($http, $scope){
         {number: 7, text: "학교차량 이용을 위해 행정실에 차량지원신청서를 제출한 학생은 학생부장까지 날인을 받고 복사본 1부를 행정실에 제출합니다."}
     ];
 
-    $scope.getAnnounce = function(){
-        var temp = [];
-        temp.push($scope.annDefaultGroup[1]);
-        switch($scope.info.absent){
-            case "yes":
-                temp.push($scope.annDefaultGroup[0]);
-                temp.push($scope.annDefaultGroup[3]);
-                break;
-            case "no":
-                temp.push($scope.annDefaultGroup[2]);
-        }
-        switch($scope.info.type){
-            case "0":
-                temp.push($scope.annDefaultGroup[5]);
-                break;
-            case "1":
-                temp.push($scope.annDefaultGroup[4]);
-                break;
-        }
-        temp.push($scope.annDefaultGroup[7]);
-
-        return temp;
-    }
 
     for(var k = 1; k < 13; k++){
         $scope.monthArray.push({ name: k + "월", value: k});
@@ -60,14 +37,62 @@ app.controller("outdoorCtrl", function($http, $scope){
         $scope.timeArray.push({ name: (j < 12 ? "오전 " : "오후 ") + (j == 12 ? 12 : j % 12) + "시", value: j});
     }
 
+    $scope.getAnnounce = function(){
+        var temp = [];
+        temp.push($scope.annDefaultGroup[1]);
+        switch($scope.info.absent){
+            case "yes":
+                temp.push($scope.annDefaultGroup[0]);
+                temp.push($scope.annDefaultGroup[3]);
+                break;
+            case "no":
+                temp.push({number: 2, text: ($scope.annDefaultGroup[2] + $scope.getSignOrder())});
+        }
+        switch($scope.info.type){
+            case "0":
+                temp.push($scope.annDefaultGroup[5]);
+                break;
+            case "1":
+                temp.push($scope.annDefaultGroup[4]);
+                break;
+        }
+        temp.push($scope.annDefaultGroup[7]);
+
+        return temp;
+    };
+
+    $scope.specialActTeacher(){
+        return "인수연 tr.";
+    }
+
+    $scope.nurseTeacher(){
+        return "오명남 tr.";
+    }
+
+    $scope.getSignOrder = function(){
+        var temp = "어드바이저 tr. -> ";
+        switch($scope.info.type){
+            case "0":
+                temp += ($scope.nurseTeacher + " -> ");
+                break;
+            case "1":
+                temp += ($scope.headTeacher($scope.info.subject.value)  + " -> ");
+            case "2":
+                temp += ($scope.specialActTeacher() + " -> ");
+        }
+        temp += "김명순 tr.";
+        if($scope.info.absent == "yes") temp += " -> 김인석 tr.";
+        return temp;
+    }
+
     $scope.getDay = function(month, date){
         var temp = new Date(new Date().getYear(), month, date);
         return $scope.dayArray[temp.getDay()];
-    }
+    };
 
     $scope.getValidHour = function(hour){
         return (hour == 12 ? 12 : hour % 12);
-    }
+    };
 
     $scope.getReadableDateTime = function(month, date, hour){
         if(typeof month != 'undefined' && typeof date != 'undefined' && typeof hour != 'undefined'){
@@ -91,8 +116,8 @@ app.controller("outdoorCtrl", function($http, $scope){
     };
 
     $scope.headTeacher = function(subject){
-        console.log(subject);
-        console.log($scope.subjectHeadArray[parseInt(subject)]);
+        //console.log(subject);
+        //console.log($scope.subjectHeadArray[parseInt(subject)]);
         return $scope.subjectHeadArray[subject];
     };
 
