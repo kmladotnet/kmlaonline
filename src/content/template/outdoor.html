@@ -59,8 +59,8 @@
                         <ui-select-match placeholder="시">
                             <span ng-bind="$select.selected.name"></span>
                         </ui-select-match>
-                        <ui-select-choices repeat="time in (timeArray | filter: $select.search) track by time.value">
-                            <span ng-bind="time.value"></span>
+                        <ui-select-choices repeat="time in (timeArray | filter: $select.search) track by time.name">
+                            <span ng-bind="time.name"></span>
                         </ui-select-choices>
                     </ui-select>
                     <!--input class="form-control" type="datetime" style="text-align:center"-->
