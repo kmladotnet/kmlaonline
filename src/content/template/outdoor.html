@@ -32,12 +32,21 @@
             <tr>
                 <td style="vertical-align: middle; text-align:center;">기간
                 </td>
-                <td colspan="3" style="vertical-align: middle; text-align:center">
-                    <div class="form-horizontal">
-                        <input class="form-control" type="number" style="text-align:center"><label>월</label>
-                        <input class="form-control" type="number" style="text-align:center"><label>일</label>
-                        <input class="form-control" type="number" style="text-align:center"><label>시</label>
-                    </div>
+                <td colspan="1" style="vertical-align: middle; text-align:center">
+                    <ui-select ng-model="info.date.start" theme="bootstrap">
+                        <ui-select-match placeholder="월">
+                            <span ng-bind="$select.selected.name"></span>
+                        </ui-select-match>
+                        <ui-select-choices repeat="month in (monthArray | filter: $select.search) track by accuser.a_id">
+                            <span ng-bind="month.name"></span>
+                        </ui-select-choices>
+                    </ui-select>
+                    <!--input class="form-control" type="datetime" style="text-align:center"-->
+                </td>
+                <td colspan="1" style="vertical-align: middle; text-align:center">
+                    <!--input class="form-control" type="datetime" style="text-align:center"-->
+                </td>
+                <td colspan="1" style="vertical-align: middle; text-align:center">
                     <!--input class="form-control" type="datetime" style="text-align:center"-->
                 </td>
                 <td style="vertical-align: middle; text-align:left">
