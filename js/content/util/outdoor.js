@@ -43,7 +43,7 @@ app.controller("outdoorCtrl", function($http, $scope){
                 temp.push($scope.annDefaultGroup[4]);
                 break;
         }
-        temp.push($scope.annDefaultGroup[6]);
+        temp.push($scope.annDefaultGroup[7]);
 
         return temp;
     }
