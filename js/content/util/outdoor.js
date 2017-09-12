@@ -149,8 +149,8 @@ app.controller("outdoorCtrl", function($http, $scope){
 
     $scope.validity = function(){
         console.log($scope.info.type);
-        if(typeof $scope.info.type == 'undefined') return false;
-        if(typeof $scope.info.absent == 'undefined') return false;
+        if(typeof $scope.info.type == 'undefined') return true;
+        if(typeof $scope.info.absent == 'undefined') return true;
         return false;
     };
 
