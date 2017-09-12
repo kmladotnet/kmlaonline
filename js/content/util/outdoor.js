@@ -9,7 +9,7 @@ app.controller("outdoorCtrl", function($http, $scope){
     $scope.timeArray = [];
 
     for(var k = 1; k < 13; k++){
-        $scope.monthArray.push({ name: i + "월", value: i});
+        $scope.monthArray.push({ name: k + "월", value: k});
     }
 
     for(var i = 0; i < 31; i++){
