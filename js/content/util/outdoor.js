@@ -19,7 +19,7 @@ app.controller("outdoorCtrl", function($http, $scope){
     }
 
     for(var j = 0; j < 24; j++){
-        $scope.timeArray.push({ name: (j < 12 ? "오전 " : "오후 ") + (j == 12 : 12 ? j % 12) + "시", value: j});
+        $scope.timeArray.push({ name: (j < 12 ? "오전 " : "오후 ") + (j == 12 ? 12 : j % 12) + "시", value: j});
     }
 
     $scope.viewFile = function(){
