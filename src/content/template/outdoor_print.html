@@ -13,7 +13,10 @@
         </tr>
         <tr></tr>
         <tr>
-            <td class="col-md-12 col-sm-12" rowspan="1" colspan="6" style="font-size="> {{info.grade}} 학년  {{info.class}} 반    성명 ( {{info.name}} ) 호실 ( {{info.room}} )
+            <td class="col-md-12 col-sm-12" rowspan="1" colspan="6" style="text-align: center;"> {{info.grade}} 학년  {{info.class}} 반    성명 ( {{info.name}} ) 호실 ( {{info.room}} )</td>
+        </tr>
+        <tr>
+            <td class="col-md-12 col-sm-12" rowspan="1" colspan="6" style="text-align: center;">외출 • 외박 신청란</td>
         </tr>
         <tr>
             <td class="col-md-2 col-sm-2" colspan="1">기      간</td>
@@ -21,13 +24,13 @@
             {{getReadableDateTime(info.date.start_month.value, info.date.start_date.value, info.date.start_time.value)}}
             &nbsp; ~ &nbsp;
             {{getReadableDateTime(info.date.finish_month.value, info.date.finish_date.value, info.date.finish_time.value)}}
-            <!--{{info.date.start_month.value}}월  {{info.date.start_date.value}}일   {{getDay(info.date.start_month.value, info.date.start_date.value) || ""}}요일 {{info.date.start_time.value < 12 ? "(AM)" : "(PM)"}}  {{getValidHour(info.date.start_time.value) || ""}}시〜  {{info.date.finish_month.value}}월  {{info.date.finish_date.value}}일   요일 {{info.date.finish_time.value < 12 ? "(AM)" : "(PM)"}}   시--></td>
+            </td>
         </tr>
         <tr>
             <td class="col-md-2 col-sm-2" colspan="1" rowspan="3" style="vertical-align: middle">사      유</td>
             <td class="col-md-4 col-sm-4" colspan="2" rowspan="3" style="width:200px">{{info.reason}}</td>
             <td class="col-md-2 col-sm-2" colspan="1" rowspan="1">보건실장</td>
-            <td class="col-md-2 col-sm-2" colspan="1" rowspan="3" style="text-align: right; vertical-align: middle">싸인</td>
+            <td class="col-md-2 col-sm-2" colspan="1" rowspan="3" style="text-align: right; vertical-align: bottom;">{{getType()}} 싸인</td>
             <td class="col-md-2 col-sm-2" colspan="1" rowspan="1" style="font-size: 0.6em; width: 20%;">질병귀가는 보건실장의 날인을 받음. </td>
         </tr>
         <tr>

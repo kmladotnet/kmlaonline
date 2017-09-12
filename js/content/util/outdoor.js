@@ -46,6 +46,10 @@ app.controller("outdoorCtrl", function($http, $scope){
         return $scope.submitted ? "/src/content/template/outdoor.html" : "/src/content/template/outdoor_print.html";
     };
 
+    $scope.getType = function(){
+        if(info.type == "4") return "해당 없음";
+    }
+
     $scope.fetch = function(){
         console.log("Successfully works");
         $http({
