@@ -38,12 +38,20 @@
                             <span ng-bind="$select.selected.name"></span>
                         </ui-select-match>
                         <ui-select-choices repeat="month in (monthArray | filter: $select.search) track by month.value">
-                            <span ng-bind="month.name"></span>
+                            <span ng-bind="month.value"></span>
                         </ui-select-choices>
                     </ui-select>
                     <!--input class="form-control" type="datetime" style="text-align:center"-->
                 </td>
                 <td colspan="1" style="vertical-align: middle; text-align:center">
+                    <ui-select ng-model="info.date.final" theme="bootstrap">
+                        <ui-select-match placeholder="일">
+                            <span ng-bind="$select.selected.name"></span>
+                        </ui-select-match>
+                        <ui-select-choices repeat="date in (dateArray | filter: $select.search) track by date.value">
+                            <span ng-bind="date.value"></span>
+                        </ui-select-choices>
+                    </ui-select>
                     <!--input class="form-control" type="datetime" style="text-align:center"-->
                 </td>
                 <td colspan="1" style="vertical-align: middle; text-align:center">

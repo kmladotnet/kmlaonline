@@ -11,6 +11,11 @@ app.controller("outdoorCtrl", function($http, $scope){
                         { name: "9월", value: 9 }, { name: "10월", value: 10 },
                         { name: "11월", value: 11 }, { name: "12월", value: 12 }];
 
+    $scope.dateArray = [];
+    for(var i = 0; i < 31; i++){
+        $scope.dateArray.push({ name: (i + 1) + "일", value: (i + 1)});
+    }
+
     $scope.viewFile = function(){
         console.log("wow");
         console.log("$scope.submitted");
