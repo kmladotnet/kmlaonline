@@ -24,6 +24,7 @@ app.controller("outdoorCtrl", function($http, $scope){
         {number: 7, text: "학교차량 이용을 위해 행정실에 차량지원신청서를 제출한 학생은 학생부장까지 날인을 받고 복사본 1부를 행정실에 제출합니다."}
     ];
 
+    $scope.announceArr = [];
 
     for(var k = 1; k < 13; k++){
         $scope.monthArray.push({ name: k + "월", value: k});
@@ -58,7 +59,7 @@ app.controller("outdoorCtrl", function($http, $scope){
         }
         temp.push($scope.annDefaultGroup[7]);
 
-        return temp;
+        $scope.announceArr = temp;
     };
 
     $scope.specialActTeacher = function(){
