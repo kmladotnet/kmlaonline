@@ -73,9 +73,9 @@
             <td colspan="4" class="print important">      &nbsp;&nbsp;&nbsp;&nbsp;월 &nbsp;&nbsp;&nbsp;&nbsp;일 &nbsp;&nbsp;&nbsp;&nbsp;교시 &nbsp;&nbsp;&nbsp; 〜 &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;월 &nbsp;&nbsp;&nbsp;&nbsp;일 &nbsp;&nbsp;&nbsp;&nbsp;교시</td>
         </tr>
         <tr>
-            <td colspan="6" class="print" style="word-wrap: break-word;">
-                <ul ng-repeat="announcement in getAnnounce()">
-                    <li>{{announcement.text}}</li>
+            <td colspan="6" class="print" style="word-wrap: break-word; text-align: left">
+                <ul>
+                    <li ng-repeat="announcement in getAnnounce()" style="line-height: 100%">{{announcement.text}}</li>
                 </ul>
             </td>
         </tr>
