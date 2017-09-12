@@ -21,6 +21,5 @@ function printContent(){
         <ng-include src="viewFile()"></ng-include>
     </div>
 <?php
-echo $_SERVER["REQUEST_URI"];
 }
 ?>
