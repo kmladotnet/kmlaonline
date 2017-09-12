@@ -151,6 +151,12 @@ app.controller("outdoorCtrl", function($http, $scope){
         console.log($scope.info.type);
         if(typeof $scope.info.type == 'undefined') return true;
         if(typeof $scope.info.absent == 'undefined') return true;
+        if(typeof $scope.info.date.start_month == 'undefined' ||
+            typeof $scope.info.date.start_date == 'undefined' ||
+            typeof $scope.info.date.start_time == 'undefined') return true;
+        if(typeof $scope.info.date.finish_month == 'undefined' ||
+            typeof $scope.info.date.finish_date == 'undefined' ||
+            typeof $scope.info.date.finish_time == 'undefined') return true;
         return false;
     };
 

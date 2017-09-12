@@ -30,7 +30,7 @@
                 </td>
             </tr>
             <tr>
-                <td style="vertical-align: middle; text-align:center;">기간
+                <td style="vertical-align: middle; text-align:center;">기간*
                 </td>
                 <td style="vertical-align: middle; text-align:center">
                     <ui-select ng-model="info.date.start_month" theme="bootstrap">
@@ -136,7 +136,7 @@
                 </td>
             </tr>
             <tr>
-                <td style="vertical-align: middle; text-align:center;">종류</td>
+                <td style="vertical-align: middle; text-align:center;">종류*</td>
                 <td colspan="8">
                     <label class="radio-inline"><input type="radio" name="optradio" value="0" ng-model="info.type" ng-required="true">질병 귀가</label>
                     <label class="radio-inline"><input type="radio" name="optradio" value="1" ng-model="info.type" ng-required="true">대회/시험</label>
@@ -145,7 +145,7 @@
                 </td>
             </tr>
             <tr ng-if="info.type == 1">
-                <td style="vertical-align: middle; text-align: center;">과목 선택</td>
+                <td style="vertical-align: middle; text-align: center;">과목 선택*</td>
                 <td colspan="3">
                     <ui-select ng-model="info.subject" theme="bootstrap">
                         <ui-select-match placeholder="대회/시험에 해당하는 과목 선택">
