@@ -76,7 +76,7 @@ app.controller("outdoorCtrl", function($http, $scope){
                 temp += ($scope.nurseTeacher() + " -> ");
                 break;
             case "1":
-                temp += ($scope.headTeacher($scope.info.subject.value)  + " -> ");
+                temp += ($scope.headTeacher[$scope.info.subject.value]  + " -> ");
                 break;
             case "2":
                 temp += ($scope.specialActTeacher() + " -> ");
@@ -137,7 +137,7 @@ app.controller("outdoorCtrl", function($http, $scope){
                 return "오명남 tr.";
                 break;
             case "1":
-                return $scope.headTeacher($scope.info.subject.value);
+                return $scope.headTeacher[$scope.info.subject.value];
                 break;
             case "2":
                 return "인수연 tr.";
