@@ -61,11 +61,11 @@ app.controller("outdoorCtrl", function($http, $scope){
         return temp;
     };
 
-    $scope.specialActTeacher(){
+    $scope.specialActTeacher = function(){
         return "인수연 tr.";
     }
 
-    $scope.nurseTeacher(){
+    $scope.nurseTeacher = function(){
         return "오명남 tr.";
     }
 
