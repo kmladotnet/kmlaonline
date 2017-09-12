@@ -101,7 +101,7 @@ app.controller("outdoorCtrl", function($http, $scope){
         var printContents = document.getElementById(divName).innerHTML;
         var popupWin = window.open('', '_blank', 'width=800, height=400');
         popupWin.document.open();
-        popupWin.document.write('<html><head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" /><link rel="stylesheet" href="/css/content/util/outdoor.css"></head><body onload="window.print()">' + printContents + '</body></html>');
+        popupWin.document.write('<html><head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" /><link rel="stylesheet" href="/css/content/util/outdoor.css" media="all"></head><body onload="window.print()">' + printContents + '</body></html>');
         popupWin.document.close();
     };
 });
