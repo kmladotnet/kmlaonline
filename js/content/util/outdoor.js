@@ -48,7 +48,8 @@ app.controller("outdoorCtrl", function($http, $scope){
     };
 
     $scope.headTeacher = function(subject){
-        return $scope.subjectHeadArray[subject];
+        console.log($scope.subjectHeadArray[parseInt(subject)]);
+        return $scope.subjectHeadArray[parseInt(subject)];
     }
 
     $scope.getType = function(){
