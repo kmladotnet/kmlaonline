@@ -37,7 +37,7 @@
                         <ui-select-match placeholder="월">
                             <span ng-bind="$select.selected.name"></span>
                         </ui-select-match>
-                        <ui-select-choices repeat="month in (monthArray | filter: $select.search) track by accuser.a_id">
+                        <ui-select-choices repeat="month in (monthArray | filter: $select.search) track by month.value">
                             <span ng-bind="month.name"></span>
                         </ui-select-choices>
                     </ui-select>
