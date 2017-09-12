@@ -46,7 +46,7 @@ app.controller("outdoorCtrl", function($http, $scope){
                 temp.push($scope.annDefaultGroup[3]);
                 break;
             case "no":
-                temp.push({number: 2, text: ($scope.annDefaultGroup[2] + $scope.getSignOrder())});
+                temp.push({number: 2, text: ($scope.annDefaultGroup[2].text + $scope.getSignOrder())});
         }
         switch($scope.info.type){
             case "0":
