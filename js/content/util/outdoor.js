@@ -50,7 +50,7 @@ app.controller("outdoorCtrl", function($http, $scope){
     $scope.headTeacher = function(subject){
         console.log(subject);
         console.log($scope.subjectHeadArray[parseInt(subject)]);
-        return $scope.subjectHeadArray[parseInt(subject)];
+        return $scope.subjectHeadArray[subject];
     }
 
     $scope.getType = function(){
@@ -59,7 +59,7 @@ app.controller("outdoorCtrl", function($http, $scope){
                 return "오명남 tr.";
                 break;
             case "1":
-                return $scope.headTeacher($scope.info.subject);
+                return $scope.headTeacher($scope.info.subject.value);
                 break;
             case "2":
                 return "인수연 tr.";
