@@ -6,7 +6,7 @@
 
 #bootstrap-overrides td.print{
     border-color: black !important;
-    border-width: 0.7px !important;
+    border-width: 0.5px !important;
 }
 
 #bootstrap-overrides td.important {
