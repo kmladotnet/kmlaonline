@@ -58,8 +58,9 @@ app.controller("outdoorCtrl", function($http, $scope){
                 break;
         }
         temp.push($scope.annDefaultGroup[7]);
-
+        console.log(temp);
         $scope.announceArr = temp;
+        console.log($scope.announceArr);
     };
 
     $scope.specialActTeacher = function(){
@@ -149,7 +150,7 @@ app.controller("outdoorCtrl", function($http, $scope){
     };
 
     $scope.validity = function(){
-        console.log($scope.info.type);
+        //console.log($scope.info.type);
         if(typeof $scope.info.type == 'undefined') return true;
         if(typeof $scope.info.absent == 'undefined') return true;
         if(typeof $scope.info.date.start_month == 'undefined' ||
@@ -162,15 +163,15 @@ app.controller("outdoorCtrl", function($http, $scope){
     };
 
     $scope.fetch = function(){
-        console.log("Successfully works");
+        //console.log("Successfully works");
         $http({
             method: 'GET',
             url: '/proc/util/outdoor-basic'
         }).then(function mySuccess(response){
             $scope.info = response.data;
             $scope.status = response.statusText;
-            console.log(response);
-            console.log($scope.info);
+            //console.log(response);
+            //console.log($scope.info);
         }, function myError(response){
             $scope.status = response.statusText;
         });
