@@ -30,6 +30,12 @@ app.controller("outdoorCtrl", function($http, $scope){
         return (hour == 12 ? 12 : hour % 12);
     }
 
+    $scope.getReadableDateTime = function(month, date, hour){
+        return month + "월 " + date + "일 "
+        + $scope.getDay(month, date) + "요일"
+        + $scope.getValidHour(hour) + "시 " +  (hour < 12 ? "(AM)" : "(PM)");
+    }
+
     $scope.viewFile = function(){
         return $scope.submitted ? "/src/content/template/outdoor.html" : "/src/content/template/outdoor_print.html";
     };
