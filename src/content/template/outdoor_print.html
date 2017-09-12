@@ -17,7 +17,7 @@
         </tr>
         <tr>
             <td class="col-md-2 col-sm-2" colspan="1">기      간</td>
-            <td class="col-md-10 col-sm-10" colspan="5">{{info.date.start_month.value}}월  {{info.date.start_date.value}}일   {{getDay(info.date.start_month.value, info.date.start_date.value) || ""}}요일 {{info.date.start_time.value < 12 ? "(AM)" : "(PM)"}}  시〜  {{info.date.finish_month.value}}월  {{info.date.finish_date.value}}일   요일 {{info.date.finish_time.value < 12 ? "(AM)" : "(PM)"}}   시</td>
+            <td class="col-md-10 col-sm-10" colspan="5">{{info.date.start_month.value}}월  {{info.date.start_date.value}}일   {{getDay(info.date.start_month.value, info.date.start_date.value) || ""}}요일 {{info.date.start_time.value < 12 ? "(AM)" : "(PM)"}}  {{getValidHour(info.date.start_time.value)}}시〜  {{info.date.finish_month.value}}월  {{info.date.finish_date.value}}일   요일 {{info.date.finish_time.value < 12 ? "(AM)" : "(PM)"}}   시</td>
         </tr>
         <tr>
             <td class="col-md-2 col-sm-2" colspan="1" rowspan="3" style="vertical-align: middle">사      유</td>
