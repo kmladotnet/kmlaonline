@@ -15,7 +15,7 @@ function printContent(){
                 <p>작성을 완료하고 수정 모드를 해제하세요.</p>
             </div>
             <div style="text-align: center;">
-                <button class="btn btn-info" ng-if="submitted" ng-click="printOut('print_area')">인쇄</button>
+                <button class="btn btn-info" ng-if="!submitted" ng-click="printOut('print_area')">인쇄</button>
             </div>
         </div>
         <ng-include src="viewFile()"></ng-include>
