@@ -41,7 +41,15 @@ app.controller("outdoorCtrl", function($http, $scope){
                 + $scope.getValidHour(hour) + "시 " +  (hour < 12 ? "(AM)" : "(PM)");
         } else return "날짜와 시간을 지정해주세요";
 
-    }
+    };
+
+    $scope.getSubject = function(){
+        if($scope.info.type == "1"){
+            return $scope.subjectArray[$scope.info.subject.value].name;
+        } else {
+            return "&nbsp;과";
+        }
+    };
 
     $scope.viewFile = function(){
         return $scope.submitted ? "/src/content/template/outdoor.html" : "/src/content/template/outdoor_print.html";
@@ -51,6 +59,11 @@ app.controller("outdoorCtrl", function($http, $scope){
         console.log(subject);
         console.log($scope.subjectHeadArray[parseInt(subject)]);
         return $scope.subjectHeadArray[subject];
+    };
+
+    $scope.getGyomoo = function(){
+        if($scope.info.absent == "yes") return "김인석 tr.";
+        else "해당 없음";
     }
 
     $scope.getType = function(){
@@ -67,7 +80,7 @@ app.controller("outdoorCtrl", function($http, $scope){
             case "3":
                 return "해당 없음";
         }
-    }
+    };
 
     $scope.fetch = function(){
         console.log("Successfully works");
