@@ -8,9 +8,10 @@ app.controller("outdoorCtrl", function($http, $scope){
     $scope.dateArray = [];
     $scope.timeArray = [];
     $scope.dayArray = ["일", "월", "화", "수", "목", "금", "토"];
-    $scope.subjectArray = [{ name: "국어과", value: 0}, { name: "영어과", value: 1},
+    $scope.subjectArray = [{ name: "국어과", value: 0}, { name: "외국어과", value: 1},
         { name: "수학과", value: 2},{ name: "과학과", value: 3}, { name: "사회과", value: 4},
         { name: "예체능과", value: 5}];
+    $scope.subjectHeadArray = ["권택일 tr.", "엄세용 tr.", "이준석 tr.", "박홍제 tr.", "김태완 tr.", "곽노재 tr."];
 
     for(var k = 1; k < 13; k++){
         $scope.monthArray.push({ name: k + "월", value: k});
@@ -26,7 +27,7 @@ app.controller("outdoorCtrl", function($http, $scope){
 
     $scope.getDay = function(month, date){
         var temp = new Date(new Date().getYear(), month, date);
-        return $scope.dayArray[temp.getDay()]   ;
+        return $scope.dayArray[temp.getDay()];
     }
 
     $scope.getValidHour = function(hour){
@@ -46,8 +47,24 @@ app.controller("outdoorCtrl", function($http, $scope){
         return $scope.submitted ? "/src/content/template/outdoor.html" : "/src/content/template/outdoor_print.html";
     };
 
+    $scope.headTeacher = function(subject){
+        return subjectHeadArray[subject];
+    }
+
     $scope.getType = function(){
-        if($scope.info.type == "3") return "해당 없음";
+        switch($scope.info.type){
+            case "0":
+                return "오명남 tr.";
+                break;
+            case "1":
+                return $scope.headTeacher($scope.info.subject);
+                break;
+            case "2":
+                return "인수연 tr.";
+                break;
+            case "3":
+                return "해당 없음";
+        }
     }
 
     $scope.fetch = function(){
