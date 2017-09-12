@@ -1,5 +1,5 @@
 <div id="print_area" ng-cloak>
-    <table class="table table-bordered" style="text-align: center; vertical-align: middle;">
+    <table class="table table-bordered" style="text-align: center; vertical-align: middle; table-layout: fixed;">
         <tr>
             <td class="col-md-6 col-sm-6" rowspan="3" colspan="3" style="text-align:center; "><h3 style="line-height: 1.5em">외출 • 외박 • 결석 <br/> 신청서 </h3></td>
             <td class="col-md-2 col-sm-2" rowspan="1" colspan="1" style="width:16.6%;"> 어드바이저 </td>
@@ -27,10 +27,10 @@
             </td>
         </tr>
         <tr>
-            <td class="col-md-2 col-sm-2" colspan="1" rowspan="3" style="vertical-align: middle">사      유</td>
-            <td class="col-md-4 col-sm-4" colspan="2" rowspan="3" style="width:200px">{{info.reason}}</td>
+            <td class="col-md-2 col-sm-2" colspan="1" rowspan="3" style="vertical-align: middle; word-wrap: break-word">사      유</td>
+            <td class="col-md-4 col-sm-4" colspan="2" rowspan="3" style="width:200px; vertical-align: middle">{{info.reason}}</td>
             <td class="col-md-2 col-sm-2" colspan="1" rowspan="1">보건실장</td>
-            <td class="col-md-2 col-sm-2" colspan="1" rowspan="3" style="text-align: right; vertical-align: bottom;">{{getType()}} 싸인</td>
+            <td class="col-md-2 col-sm-2" colspan="1" rowspan="3" style="text-align: right; vertical-align: bottom;">{{getType()}}</td>
             <td class="col-md-2 col-sm-2" colspan="1" rowspan="1" style="font-size: 0.6em; width: 20%;">질병귀가는 보건실장의 날인을 받음. </td>
         </tr>
         <tr>
@@ -46,13 +46,13 @@
             <td class="col-md-10 col-sm-10" colspan="5">{{info.destination}}</td>
         </tr>
         <tr>
-            <td class="col-md-2 col-sm-2" colspan="1">교 통 편</td>
+            <td class="col-md-2 col-sm-2" colspan="1" style="vertical-align: middle">교 통 편</td>
             <td class="col-md-4 col-sm-4" colspan="2">{{info.transport}}</td>
             <td class="col-md-6 col-sm-6" colspan="3">* 행정실에 차량지원신청서를 제출한 학생은<br/> 학생부장의 날인 후에 복사본을 행정실에 제출함.</td>
         </tr>
         <tr>
             <td class="col-md-2 col-sm-2" colspan="1">핸드폰 번호</td>
-            <td class="col-md-10 col-sm-10" colspan="5">학생 ( {{info.phone_number}} )   부모님 ( {{info.parent_phone_number}} ) </td>
+            <td class="col-md-10 col-sm-10" colspan="5">학생 ( {{info.phone_number}} )  &nbsp;&nbsp;&nbsp;&nbsp; 부모님 ( {{info.parent_phone_number}} ) </td>
         </tr>
         <tr>
             <td class="col-md-2 col-sm-2" colspan="1">부모님 확인</td>

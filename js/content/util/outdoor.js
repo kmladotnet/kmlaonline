@@ -47,7 +47,7 @@ app.controller("outdoorCtrl", function($http, $scope){
         if($scope.info.type == "1"){
             return $scope.subjectArray[$scope.info.subject.value].name;
         } else {
-            return "(        과)";
+            return "        과";
         }
     };
 
