@@ -34,6 +34,7 @@ app.controller("outdoorCtrl", function($http, $scope){
     }
 
     $scope.getReadableDateTime = function(month, date, hour){
+        if(month && date && hour) return ;
         return month + "월 " + date + "일 "
         + $scope.getDay(month, date) + "요일 "
         + $scope.getValidHour(hour) + "시 " +  (hour < 12 ? "(AM)" : "(PM)");
