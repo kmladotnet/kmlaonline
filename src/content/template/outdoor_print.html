@@ -29,17 +29,17 @@
         <tr>
             <td class="col-md-2 col-sm-2 print" colspan="1" rowspan="3" style="vertical-align: middle; word-wrap: break-word">사      유</td>
             <td class="col-md-4 col-sm-4 print" colspan="2" rowspan="3" style="width:200px; vertical-align: middle">{{info.reason}}</td>
-            <td class="col-md-2 col-sm-2 print" colspan="1" rowspan="1">보건실장</td>
+            <td class="col-md-2 col-sm-2 print" colspan="1" rowspan="1" style="vertical-align: middle;">보건실장</td>
             <td class="col-md-2 col-sm-2 print" colspan="1" rowspan="3" style="text-align: right; vertical-align: bottom;">{{getType()}}</td>
-            <td class="col-md-2 col-sm-2 print" colspan="1" rowspan="1" style="font-size: 0.6em; width: 20%;">질병귀가는 보건실장의 날인을 받음. </td>
+            <td class="col-md-2 col-sm-2 print" colspan="1" rowspan="1" style="font-size: 0.55em; width: 20%;">질병귀가는 보건실장의 날인을 받음. </td>
         </tr>
         <tr>
-            <td class="col-md-2 col-sm-2 print" colspan="1" rowspan="1">( {{getSubject()}})<br/>수석교사</td>
-            <td class="col-md-2 col-sm-2 print" colspan="1" rowspan="1" style="font-size: 0.6em">각종 시험 및 대회는 성향에 따라 각 교과별 수석교사에게 날인을 받음. </td>
+            <td class="col-md-2 col-sm-2 print" colspan="1" rowspan="1" style="vertical-align: middle;">( {{getSubject()}})<br/>수석교사</td>
+            <td class="col-md-2 col-sm-2 print" colspan="1" rowspan="1" style="font-size: 0.55em">각종 시험 및 대회는 성향에 따라 각 교과별 수석교사에게 날인을 받음. </td>
         </tr>
         <tr>
-            <td class="col-md-2 col-sm-2 print" colspan="1" rowspan="1">특별활동<br/>지도실장</td>
-            <td class="col-md-2 col-sm-2 print" colspan="1" rowspan="1" style="font-size: 0.6em">동아리활동으로 인한 외출외박은 특별활동지도실장의 날인을 받음.</td>
+            <td class="col-md-2 col-sm-2 print" colspan="1" rowspan="1" style="vertical-align: middle;">특별활동<br/>지도실장</td>
+            <td class="col-md-2 col-sm-2 print" colspan="1" rowspan="1" style="font-size: 0.55em">동아리활동으로 인한 외출외박은 특별활동지도실장의 날인을 받음.</td>
         </tr>
         <tr>
             <td class="col-md-2 col-sm-2 print" colspan="1">행 선 지</td>
@@ -59,7 +59,7 @@
             <td class="col-md-10 col-sm-10 print" colspan="5">YES</td>
         </tr>
         <tr>
-            <td colspan="6" class="print">※ 아래 굵은 테두리에는 기재하지 마세요. (교육정보관리실에서 기재함)</td>
+            <td colspan="6" class="print notouch">※ 아래 굵은 테두리에는 기재하지 마세요. (교육정보관리실에서 기재함)</td>
         </tr>
         <tr>
             <td colspan="6" class="print important">공결 • 기타결 • 병결 신청란</td>
@@ -72,6 +72,12 @@
             <td colspan="2" class="print important">결석일시</td>
             <td colspan="4" class="print important">      &nbsp;&nbsp;&nbsp;&nbsp;월 &nbsp;&nbsp;&nbsp;&nbsp;일 &nbsp;&nbsp;&nbsp;&nbsp;교시 &nbsp;&nbsp;&nbsp; 〜 &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;월 &nbsp;&nbsp;&nbsp;&nbsp;일 &nbsp;&nbsp;&nbsp;&nbsp;교시</td>
         </tr>
-
+        <tr>
+            <td colspan="6" class="print" style="word-wrap: break-word;">
+                <ul ng-repeat="announcement in getAnnounce()">
+                    <li>{{announcement.text}}</li>
+                </ul>
+            </td>
+        </tr>
     </table>
 </div>

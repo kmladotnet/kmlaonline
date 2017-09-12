@@ -13,6 +13,42 @@ app.controller("outdoorCtrl", function($http, $scope){
         { name: "예체능과", value: 5}];
     $scope.subjectHeadArray = ["권택일 tr.", "엄세용 tr.", "이준석 tr.", "박홍제 tr.", "김태완 tr.", "곽노재 tr."];
 
+    $scope.annDefaultGroup = [
+        {number: 0, text: "학생이 직접 작성해서 1일 전까지 제출 완료합니다. (원본을 교육정보실에 사본은 사감실에 제출)"},
+        {number: 1, text: "결재 순서: "},
+        {number: 2, text: "수업 결손 없이 외출 • 외박만을 신청할 경우 학생부장까지 날인을 받고 사감실에 제출합니다."},
+        {number: 3, text: "공결, 기타결 신청 시에는 신청서에 증빙서류를 첨부합니다."},
+        {number: 4, text: "토플 응시로 인한 결석은 후에 점수표를 교육정보실에 제출합니다."},
+        {number: 5, text: "질병귀가는 귀교하여 보건실에 진단서를 제출합니다."},
+        {number: 6, text: "학기 중에 외부의 인턴, 봉사, 실험에 참가할 경우, 2주 전까지 <학기 중 외부활동 참가 계획서>를 제출하여 허락을 받고, 본 신청서에 허락 받은 참가 계획서와 활동기관에서 발급한 증빙서류를 첨부하여 1일 전까지 제출합니다. 귀교하여 활동기관에서 발행한 확인서를 교육정보실에 제출합니다."},
+        {number: 7, text: "학교차량 이용을 위해 행정실에 차량지원신청서를 제출한 학생은 학생부장까지 날인을 받고 복사본 1부를 행정실에 제출합니다."}
+    ];
+
+    $scope.getAnnounce = function(){
+        var temp = [];
+        temp.push($scope.annDefaultGroup[1]);
+        switch($scope.info.absent){
+            case "yes":
+                temp.push($scope.annDefaultGroup[0]);
+                temp.push($scope.annDefaultGroup[3]);
+                break;
+            case "no":
+                temp.push($scope.annDefaultGroup[2]);
+        }
+        switch($scope.info.type){
+            case "0":
+                temp.push($scope.annDefaultGroup[5]);
+                break;
+            case "1":
+                temp.push($scope.annDefaultGroup[4]);
+                break;
+        }
+        temp.push($scope.annDefaultGroup[7]);
+        temp.push($scope.annDefaultGroup[6]);
+
+        return temp;
+    }
+
     for(var k = 1; k < 13; k++){
         $scope.monthArray.push({ name: k + "월", value: k});
     }
