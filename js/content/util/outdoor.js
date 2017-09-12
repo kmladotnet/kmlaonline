@@ -119,7 +119,13 @@ app.controller("outdoorCtrl", function($http, $scope){
     };
 
     $scope.viewFile = function(){
-        return $scope.submitted ? "/src/content/template/outdoor.html" : "/src/content/template/outdoor_print.html";
+        if ($scope.submitted) {
+            return "/src/content/template/outdoor.html"
+        } else {
+            $scope.getAnnounce();
+            return "/src/content/template/outdoor_print.html";
+        }
+        //return $scope.submitted ? "/src/content/template/outdoor.html" : "/src/content/template/outdoor_print.html";
     };
 
     $scope.headTeacher = function(subject){
