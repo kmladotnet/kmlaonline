@@ -1,8 +1,8 @@
-.print td{
+#bootstrap-overrides td.print{
     border-color: black;
 }
 
-td.important {
+#bootstrap-overrides td.important {
     border-width: 1.5px;
 }
 
