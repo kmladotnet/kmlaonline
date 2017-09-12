@@ -1,4 +1,4 @@
-<form>
+<form name="outdoorForm">
     <table class="table table-striped">
         <tbody>
             <tr>
@@ -138,10 +138,10 @@
             <tr>
                 <td style="vertical-align: middle; text-align:center;">종류</td>
                 <td colspan="8">
-                    <label class="radio-inline"><input type="radio" name="optradio" value="0" ng-model="info.type">질병 귀가</label>
-                    <label class="radio-inline"><input type="radio" name="optradio" value="1" ng-model="info.type">대회/시험</label>
-                    <label class="radio-inline"><input type="radio" name="optradio" value="2" ng-model="info.type">동아리 활동</label>
-                    <label class="radio-inline"><input type="radio" name="optradio" value="3" ng-model="info.type">해당 사항 없음</label>
+                    <label class="radio-inline"><input type="radio" name="optradio" value="0" ng-model="info.type" ng-required="true">질병 귀가</label>
+                    <label class="radio-inline"><input type="radio" name="optradio" value="1" ng-model="info.type" ng-required="true">대회/시험</label>
+                    <label class="radio-inline"><input type="radio" name="optradio" value="2" ng-model="info.type" ng-required="true">동아리 활동</label>
+                    <label class="radio-inline"><input type="radio" name="optradio" value="3" ng-model="info.type" ng-required="true">해당 사항 없음</label>
                 </td>
             </tr>
             <tr ng-if="info.type == 1">
@@ -162,8 +162,8 @@
             <tr>
                 <td style="vertical-align: middle; text-align:center;">빠지는<br>수업이</td>
                 <td colspan="8">
-                    <label class="radio-inline"><input type="radio" name="op" value="yes" ng-model="info.absent">있다</label>
-                    <label class="radio-inline"><input type="radio" name="op" value="no" ng-model="info.absent">없다</label>
+                    <label class="radio-inline"><input type="radio" name="op" value="yes" ng-model="info.absent" ng-required="true">있다</label>
+                    <label class="radio-inline"><input type="radio" name="op" value="no" ng-model="info.absent" ng-required="true">없다</label>
                 </td>
             </tr>
         </tbody>
