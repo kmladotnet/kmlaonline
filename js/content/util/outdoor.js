@@ -8,6 +8,9 @@ app.controller("outdoorCtrl", function($http, $scope){
     $scope.dateArray = [];
     $scope.timeArray = [];
     $scope.dayArray = ["일", "월", "화", "수", "목", "금", "토"];
+    $scope.subjectArray = [{ name: "국어과", value: 0}, { name: "영어과", value: 1},
+        { name: "수학과", value: 2},{ name: "과학과", value: 3}, { name: "사회과", value: 4},
+        { name: "예체능과", value: 5}];
 
     for(var k = 1; k < 13; k++){
         $scope.monthArray.push({ name: k + "월", value: k});

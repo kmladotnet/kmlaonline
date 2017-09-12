@@ -145,6 +145,21 @@
                 </td>
             </tr>
             <tr>
+                <td style="vertical-align: middle; text-align: center;">과목 선택</td>
+                <td colspan="3">
+                    <ui-select ng-model="info.subject" theme="bootstrap">
+                        <ui-select-match placeholder="대회/시험에 해당하는 과목 선택">
+                            <span ng-bind="$select.selected.name"></span>
+                        </ui-select-match>
+                        <ui-select-choices repeat="subject in (subjectArray | filter: $select.search) track by subject.name">
+                            <span ng-bind="subject.name"></span>
+                        </ui-select-choices>
+                    </ui-select>
+                </td>
+                <td colspan="5">
+                </td>
+            </tr>
+            <tr>
                 <td style="vertical-align: middle; text-align:center;">빠지는<br>수업이</td>
                 <td colspan="8">
                     <label class="radio-inline"><input type="radio" name="op">있다</label>
