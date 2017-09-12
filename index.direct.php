@@ -44,6 +44,7 @@
         <script src="/js/content/util/outdoor.js?v=3"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.20.0/select.css"></link>
         <script type="text/javascript" src="js/select.js"></script>
+        <link rel="stylesheet" href="css/content/util/outdoor.css">
     <?php } ?>
 
     <?php
