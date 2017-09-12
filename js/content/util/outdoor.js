@@ -20,9 +20,12 @@ app.controller("outdoorCtrl", function($http, $scope){
         $scope.timeArray.push({ name: (j < 12 ? "오전 " : "오후 ") + (j == 12 ? 12 : j % 12) + "시", value: j});
     }
 
+    $scope.getDay = function(month, date){
+        var temp = new Date(new Date().getYear(), month, date);
+        return temp.getDay();
+    }
+
     $scope.viewFile = function(){
-        console.log("wow");
-        console.log("$scope.submitted");
         return $scope.submitted ? "/src/content/template/outdoor.html" : "/src/content/template/outdoor_print.html";
     };
 
