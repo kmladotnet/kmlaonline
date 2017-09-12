@@ -9,7 +9,7 @@ function printContent(){
         <div class="well">
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" ng-model="submitted" ng-disabled="outdoorForm.optradio.$invalid">
+                    <input type="checkbox" ng-model="submitted" ng-disabled="validity()">
                     수정 모드
                 </label>
                 <p>작성을 완료하고 수정 모드를 해제하세요.</p>
