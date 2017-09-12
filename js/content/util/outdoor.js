@@ -47,7 +47,7 @@ app.controller("outdoorCtrl", function($http, $scope){
     };
 
     $scope.getType = function(){
-        if(info.type == "4") return "해당 없음";
+        if($scope.info.type == "4") return "해당 없음";
     }
 
     $scope.fetch = function(){
