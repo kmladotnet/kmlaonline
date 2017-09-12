@@ -2,7 +2,7 @@ var app = angular.module("outdoor", ['ui.bootstrap', 'ngSanitize', 'ui.select'])
 
 app.controller("outdoorCtrl", function($http, $scope){
     $scope.info = {};
-    $scope.submitted = false;
+    $scope.submitted = true;
 
     $scope.monthArray = [];
     $scope.dateArray = [];
