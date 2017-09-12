@@ -7,6 +7,7 @@ app.controller("outdoorCtrl", function($http, $scope){
     $scope.monthArray = [];
     $scope.dateArray = [];
     $scope.timeArray = [];
+    $scope.dayArray = ["일", "월", "화", "수", "목", "금", "토"];
 
     for(var k = 1; k < 13; k++){
         $scope.monthArray.push({ name: k + "월", value: k});
@@ -22,7 +23,7 @@ app.controller("outdoorCtrl", function($http, $scope){
 
     $scope.getDay = function(month, date){
         var temp = new Date(new Date().getYear(), month, date);
-        return temp.getDay();
+        return $scope.dayArray[temp.getDay()];
     }
 
     $scope.viewFile = function(){
