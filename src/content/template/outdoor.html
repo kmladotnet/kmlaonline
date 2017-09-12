@@ -138,13 +138,13 @@
             <tr>
                 <td style="vertical-align: middle; text-align:center;">종류</td>
                 <td colspan="8">
-                    <label class="radio-inline"><input type="radio" name="optradio">질병 귀가</label>
-                    <label class="radio-inline"><input type="radio" name="optradio">대회/시험</label>
-                    <label class="radio-inline"><input type="radio" name="optradio">동아리 활동</label>
-                    <label class="radio-inline"><input type="radio" name="optradio">해당 사항 없음</label>
+                    <label class="radio-inline"><input type="radio" name="optradio" value="0" ng-model="info.type">질병 귀가</label>
+                    <label class="radio-inline"><input type="radio" name="optradio" value="1" ng-model="info.type">대회/시험</label>
+                    <label class="radio-inline"><input type="radio" name="optradio" value="2" ng-model="info.type">동아리 활동</label>
+                    <label class="radio-inline"><input type="radio" name="optradio" value="3" ng-model="info.type">해당 사항 없음</label>
                 </td>
             </tr>
-            <tr>
+            <tr ng-if="info.type == 1">
                 <td style="vertical-align: middle; text-align: center;">과목 선택</td>
                 <td colspan="3">
                     <ui-select ng-model="info.subject" theme="bootstrap">
