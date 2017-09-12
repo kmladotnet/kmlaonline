@@ -9,7 +9,7 @@ function printContent(){
         <div class="well">
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" ng-model="submitted" ng-disabled="validity()" ng-onclick="getAnnounce()">
+                    <input type="checkbox" ng-model="submitted" ng-disabled="validity()" ng-click="getAnnounce()">
                     수정 모드
                 </label>
                 <p>작성을 완료하고 수정 모드를 해제하세요. (필수 항목 * 을 모두 체크해야 인쇄할 수 있습니다.)</p>
