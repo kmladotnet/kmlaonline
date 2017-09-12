@@ -32,7 +32,7 @@
             <tr>
                 <td style="vertical-align: middle; text-align:center;">기간
                 </td>
-                <td colspan="1" style="vertical-align: middle; text-align:center">
+                <td style="vertical-align: middle; text-align:center">
                     <ui-select ng-model="info.date.start_month" theme="bootstrap">
                         <ui-select-match placeholder="월">
                             <span ng-bind="$select.selected.name"></span>
@@ -43,7 +43,7 @@
                     </ui-select>
                     <!--input class="form-control" type="datetime" style="text-align:center"-->
                 </td>
-                <td colspan="1" style="vertical-align: middle; text-align:center">
+                <td style="vertical-align: middle; text-align:center">
                     <ui-select ng-model="info.date.start_date" theme="bootstrap">
                         <ui-select-match placeholder="일">
                             <span ng-bind="$select.selected.name"></span>
@@ -54,7 +54,7 @@
                     </ui-select>
                     <!--input class="form-control" type="datetime" style="text-align:center"-->
                 </td>
-                <td colspan="1" style="vertical-align: middle; text-align:center">
+                <td style="vertical-align: middle; text-align:center">
                     <ui-select ng-model="info.date.start_time" theme="bootstrap">
                         <ui-select-match placeholder="시">
                             <span ng-bind="$select.selected.name"></span>
@@ -68,10 +68,40 @@
                 <td style="vertical-align: middle; text-align:left">
                     부터
                 </td>
-                <td colspan="2" style="vertical-align: middle; text-align:center">
-                    <input class="form-control" type="datetime" style="text-align:center">
+                <td style="vertical-align: middle; text-align:center">
+                    <ui-select ng-model="info.date.finish_month" theme="bootstrap">
+                        <ui-select-match placeholder="월">
+                            <span ng-bind="$select.selected.name"></span>
+                        </ui-select-match>
+                        <ui-select-choices repeat="month in (monthArray | filter: $select.search) track by month.value">
+                            <span ng-bind="month.value"></span>
+                        </ui-select-choices>
+                    </ui-select>
+                    <!--input class="form-control" type="datetime" style="text-align:center"-->
                 </td>
-                <td colspan="2" style="vertical-align: middle; text-align:left">
+                <td style="vertical-align: middle; text-align:center">
+                    <ui-select ng-model="info.date.finish_date" theme="bootstrap">
+                        <ui-select-match placeholder="일">
+                            <span ng-bind="$select.selected.name"></span>
+                        </ui-select-match>
+                        <ui-select-choices repeat="date in (dateArray | filter: $select.search) track by date.value">
+                            <span ng-bind="date.value"></span>
+                        </ui-select-choices>
+                    </ui-select>
+                    <!--input class="form-control" type="datetime" style="text-align:center"-->
+                </td>
+                <td style="vertical-align: middle; text-align:center">
+                    <ui-select ng-model="info.date.finish_time" theme="bootstrap">
+                        <ui-select-match placeholder="시">
+                            <span ng-bind="$select.selected.name"></span>
+                        </ui-select-match>
+                        <ui-select-choices repeat="time in (timeArray | filter: $select.search) track by time.name">
+                            <span ng-bind="time.name"></span>
+                        </ui-select-choices>
+                    </ui-select>
+                    <!--input class="form-control" type="datetime" style="text-align:center"-->
+                </td>
+                <td style="vertical-align: middle; text-align:left">
                     까지
                 </td>
             </tr>
