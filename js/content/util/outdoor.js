@@ -100,9 +100,9 @@ app.controller("outdoorCtrl", function($http, $scope){
     $scope.printOut = function(divName){
         var printContents = document.getElementById(divName).innerHTML;
         console.log(printContents);
-        var popupWin = window.open('', '_blank', 'width=900, height=600');
+        var popupWin = window.open('', '_blank', 'width=800, height=400');
         popupWin.document.open();
-        popupWin.document.write('<html><head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" /></head><body onload="window.print()">' + printContents + '</body></html>');
+        popupWin.document.write('<html><head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" /><link rel="stylesheet" href="/css/content/util/outdoor.css" type="text/css" /></head><body onload="window.print()">' + printContents + '</body></html>');
         popupWin.document.close();
     };
 });

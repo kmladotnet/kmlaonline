@@ -1,3 +1,11 @@
+td {
+    border-color: black;
+}
+
+td.important {
+    border-width: 1.5px;
+}
+
 td.hide {
     color: white;
 }
