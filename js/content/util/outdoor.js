@@ -73,7 +73,7 @@ app.controller("outdoorCtrl", function($http, $scope){
         var temp = "어드바이저 tr. -> ";
         switch($scope.info.type){
             case "0":
-                temp += ($scope.nurseTeacher + " -> ");
+                temp += ($scope.nurseTeacher() + " -> ");
                 break;
             case "1":
                 temp += ($scope.headTeacher($scope.info.subject.value)  + " -> ");
