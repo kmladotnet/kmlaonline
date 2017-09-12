@@ -33,7 +33,7 @@
                 <td style="vertical-align: middle; text-align:center;">기간
                 </td>
                 <td colspan="1" style="vertical-align: middle; text-align:center">
-                    <ui-select ng-model="info.date.start" theme="bootstrap">
+                    <ui-select ng-model="info.date.start_month" theme="bootstrap">
                         <ui-select-match placeholder="월">
                             <span ng-bind="$select.selected.name"></span>
                         </ui-select-match>
@@ -44,7 +44,7 @@
                     <!--input class="form-control" type="datetime" style="text-align:center"-->
                 </td>
                 <td colspan="1" style="vertical-align: middle; text-align:center">
-                    <ui-select ng-model="info.date.final" theme="bootstrap">
+                    <ui-select ng-model="info.date.start_date" theme="bootstrap">
                         <ui-select-match placeholder="일">
                             <span ng-bind="$select.selected.name"></span>
                         </ui-select-match>
@@ -55,6 +55,14 @@
                     <!--input class="form-control" type="datetime" style="text-align:center"-->
                 </td>
                 <td colspan="1" style="vertical-align: middle; text-align:center">
+                    <ui-select ng-model="info.date.start_time" theme="bootstrap">
+                        <ui-select-match placeholder="시">
+                            <span ng-bind="$select.selected.name"></span>
+                        </ui-select-match>
+                        <ui-select-choices repeat="time in (timeArray | filter: $select.search) track by time.value">
+                            <span ng-bind="time.value"></span>
+                        </ui-select-choices>
+                    </ui-select>
                     <!--input class="form-control" type="datetime" style="text-align:center"-->
                 </td>
                 <td style="vertical-align: middle; text-align:left">

@@ -12,8 +12,14 @@ app.controller("outdoorCtrl", function($http, $scope){
                         { name: "11월", value: 11 }, { name: "12월", value: 12 }];
 
     $scope.dateArray = [];
+    $scope.timeArray = [];
+
     for(var i = 0; i < 31; i++){
         $scope.dateArray.push({ name: (i + 1) + "일", value: (i + 1)});
+    }
+
+    for(var j = 0; j < 24; j++){
+        $scope.dateArray.push({ name: (j < 12 ? "오전 " : "오후 ") + (j % 12) + "시", value: j});
     }
 
     $scope.viewFile = function(){
