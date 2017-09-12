@@ -39,14 +39,14 @@ app.controller("outdoorCtrl", function($http, $scope){
 
     $scope.getAnnounce = function(){
         var temp = [];
-        temp.push($scope.annDefaultGroup[1]);
+        temp.push({number: 1, text: ($scope.annDefaultGroup[1].text + $scope.getSignOrder())});
         switch($scope.info.absent){
             case "yes":
                 temp.push($scope.annDefaultGroup[0]);
                 temp.push($scope.annDefaultGroup[3]);
                 break;
             case "no":
-                temp.push({number: 2, text: ($scope.annDefaultGroup[2].text + $scope.getSignOrder())});
+                temp.push($scope.annDefaultGroup[2]);
         }
         switch($scope.info.type){
             case "0":
@@ -77,11 +77,16 @@ app.controller("outdoorCtrl", function($http, $scope){
                 break;
             case "1":
                 temp += ($scope.headTeacher($scope.info.subject.value)  + " -> ");
+                break;
             case "2":
                 temp += ($scope.specialActTeacher() + " -> ");
+                break;
         }
+
         temp += "김명순 tr.";
+
         if($scope.info.absent == "yes") temp += " -> 김인석 tr.";
+
         return temp;
     }
 
