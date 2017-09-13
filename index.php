@@ -9,12 +9,20 @@ switch(isset($_GET['action']) ? $_GET['action'] : "main"){
         if(isset($_GET['action_type'])) $fn = $_GET['action_type'];
         else $fn = "main";
         break;
+    case "teacher":
+        $type = "teacher";
+        if(isset($_GET['action_type'])) $fn = $_GET['action_type'];
+        else $fn = "main";
+        break;
 	default:
         $fn = basename($_GET['action']);
         break;
 }
 if(isset($type) && $type === "judicial"){
     if(!file_exists("judicial/content/$fn.php"))
+        $fn = "404";
+} else if(isset($type) && $type === "teacher"){
+    if(!file_exists("teacher/content/$fn.php"))
         $fn = "404";
 } else if(!file_exists("src/content/$fn.php")) {
     $fn = "404";
