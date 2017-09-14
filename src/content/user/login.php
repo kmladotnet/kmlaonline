@@ -25,7 +25,7 @@ function printContent(){
     <div style="position: fixed;top: 0;left: 0;width: 100%;height: 100%;background: white;z-index: 99999;"></div>
     <form method="post" action="./check" id="downform_login" onsubmit="return true;">
         <input type="hidden" id="downform_login_action" name="action" value="login" />
-        <input type="hidden" name="returnto" value="<?php echo ((isset($_REQUEST['returnto']) && $_REQUEST['returnto']!=" ")?$_REQUEST['returnto']:"/ ")?>" />
+        <input type="hidden" id="return_loc" name="returnto" value="<?php echo ((isset($_REQUEST['returnto']) && $_REQUEST['returnto']!=" ")?$_REQUEST['returnto']:"/ ")?>" />
         <div style="text-align:center;width:100%">
             <a href="/">
                 <h1 id="login_title" style="color:white">
@@ -70,7 +70,12 @@ function printContent(){
                     }" /> 기억하기</label></div>
                     <div style="float:right;color:white;height:32px;vertical-align:middle;line-height:32px;margin-right:10px;">
                     <label for="chk_teacher" style="vertical-align:middle;">
-                        <input type="checkbox" name="teacher" id="chk_teacher_me" style="vertical-align:middle;" disabled>교직원
+                        <input type="checkbox" name="teacher" id="chk_teacher_me" style="vertical-align:middle;" onchange="
+                            if(this.checked) {
+                                document.getElementById('return_loc').value = '/teacher/main';
+                            } else {
+                                document.getElementById('return_loc').value = '/';
+                            }" disabled>교직원
                     </label>
                     </div>
                     <div style="clear:both;"></div>
