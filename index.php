@@ -71,7 +71,7 @@ do {
 	$_fn = $fn;
 	if(!isset($type)) include "src/content/$fn.php";
     else if($type === "judicial") include "judicial/content/$fn.php";
-    else if($type === "teacher") include "/teacher/content/$fn.php";
+    else if($type === "teacher") include "teacher/content/$fn.php";
 } while($_fn != $fn);
 session_write_close();
 if(!isset($type)){

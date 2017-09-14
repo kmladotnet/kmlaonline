@@ -74,8 +74,6 @@ if(!isset($_POST['teacher'])) {
 		case 0: // Okay
 			$t = $teacher->getTeacher($_POST['id'], 1);
 
-			echo print_r($t);
-			$f();
 			/* 로그인 기억 기능은 좀 나중에 구현
 			if(isset($_POST['remember_me'])){
 				do{
