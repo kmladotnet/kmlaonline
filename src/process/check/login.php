@@ -73,7 +73,9 @@ if(!isset($_POST['teacher'])) {
 	switch($teacher->authTeacher($_POST['id'], $_POST['pwd'])){
 		case 0: // Okay
 			$t = $teacher->getTeacher($_POST['id'], 1);
-
+			?>
+			<script type="text/javascript">alert(<?php print_r($t) ?>);</script>
+			<?php
 			/* 로그인 기억 기능은 좀 나중에 구현
 			if(isset($_POST['remember_me'])){
 				do{
