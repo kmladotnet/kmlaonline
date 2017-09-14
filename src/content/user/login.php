@@ -68,6 +68,7 @@ function printContent(){
                             check.checked = '';
                         });
                     }" /> 기억하기</label></div>
+                    <div style="clear:both;"></div>
 			</div>
             <div style="text-align:center; background: rgba(255, 255, 255, 0.9); border-radius: 5px; padding: 5px; margin: 5px;">
                 <?php
