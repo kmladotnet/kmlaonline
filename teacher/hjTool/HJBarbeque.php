@@ -39,7 +39,7 @@ class HJBarbeque {
         if(!is_numeric($t_id) || !is_numeric($rep_id)) return false;
         $query = "INSERT INTO `$this->table_data` (date, start_time, finish_time, teacher_id, title, student_list, rest_req, exeq_req, rep_student_id, status) " .
         "VALUES ($date, $s_time, $f_time, $t_id, $title, $student_list, $rest_req, $exeq_req, $rep_id, 100)";
-        echo $query + "\n";
+        echo $query . "\n";
         if($this->db->query($query)===true){
             $ins_id = $this->db->insert_id;
             $this->db->commit(); $this->db->autocommit(true);
