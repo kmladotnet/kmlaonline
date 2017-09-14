@@ -53,6 +53,8 @@ if(!isset($_SESSION['user'])) {
 		}
 	} else if(isset($type) && $type === "judicial"){
         redirectLoginIfRequired();
+    } else if(isset($type) && $type === "teacher"){
+        redirectLoginIfRequired();
     } else {
 		$_REQUEST['returnto'] = $_SERVER["REQUEST_URI"];
 		$fn = $_GET['action'] = "user";
