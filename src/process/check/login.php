@@ -68,5 +68,35 @@ if(!isset($_POST['teacher'])) {
 			break;
 	}
 } else {
-	?><script type="text/javascript">alert("새로운 기능을 추가하기 위한 테스트 중입니다. 체크 박스를 해제하고 다시 로그인 하시기 바랍니다.");location.href="/";</script><?php
+	?><!--script type="text/javascript">alert("새로운 기능을 추가하기 위한 테스트 중입니다. 체크 박스를 해제하고 다시 로그인 하시기 바랍니다.");location.href="/";</script-->
+	<?php
+	switch($teacher->authTeacher()){
+		case 0: // Okay
+			$t = $teacher->getTeacher($_POST['id'], 1);
+
+			/* 로그인 기억 기능은 좀 나중에 구현
+			if(isset($_POST['remember_me'])){
+				do{
+					$rem = generateRandomString();
+					$rempath="data/session/$rem";
+				}while(file_exists($rempath));
+				file_put_contents($rempath, $m['n_id']);
+				setcookie("remember_user", $rem, time()+60*60*24*30, "/", NULL, NULL, true); // 1 month
+			} else {
+				setcookie("remember_user", "", time()-3600, "/");
+			} */
+			session_start();
+			$_SESSION["teacher_user"] = $t['n_id'];
+			session_write_close();
+
+			redirectTo((isset($_REQUEST['returnto']) && $_REQUEST['returnto']!="") ? $_REQUEST['returnto'] : "/teacher/main");
+			break;
+		case -10: // Something's wrong
+			redirectWith("loginRedirection", 0);
+			break;
+		default: // Bad ID or PW
+			//redirectTo("user/login/bad");
+			redirectWith("loginRedirection", 1);
+			break;
+	}
 } ?>
