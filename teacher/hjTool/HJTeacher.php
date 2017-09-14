@@ -47,5 +47,24 @@ class HJTeacher{
         }
     }
 
+    function authTeacher($id, $pw=false, $pw_enc=false){
+        if($id=="") return -20;
+        $id=$this->escape($id);
+        $query="SELECT * FROM `$this->table_data` WHERE LCASE(s_id)=LCASE('$id') OR LCASE(s_email)=LCASE('$id')";
+        if($res=$this->mysqli->query($query)){
+            while ($row = $res->fetch_array(MYSQLI_BOTH)){
+                $res->close();
+                if($this->mysqli->more_results())$this->mysqli->next_result();
+                if($pw_enc !== false && $row['s_pw'] == hash($row['s_pw_hash'],$row['s_pw_salt']."|".$pw_enc."|".$row['s_pw_salt']))
+                    return 0; // Succeed
+                if($pw!==false && $row['s_pw']==hash($row['s_pw_hash'],$row['s_pw_salt']."|".hash($row["s_pw_hash"],$pw)."|".$row['s_pw_salt']))
+                    return 0; // Succeed
+                return -30; // Password error
+            }
+            return -20; // ID Error
+        }
+        return -10; // Something went wrong
+    }
+
 }
 ?>
