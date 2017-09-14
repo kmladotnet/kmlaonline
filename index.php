@@ -60,7 +60,8 @@ if(!isset($_SESSION['user']) && !isset($_SESSION['teacher_user'])) { // 학생 �
 		$fn = $_GET['action'] = "user";
 		$_GET['sub'] = "login";
 	}
-} /*else if(!isset($_SESSION['teacher']) && isset($_GET['action']) && $_GET['action'] === "teacher") { // 학생 유저가 교직원 페이지에 접근하려고 하는 경우
+} else if(!isset($_SESSION['teacher_user']) && isset($_GET['action']) && $_GET['action'] === "teacher") {
+     // 학생 유저가 교직원 페이지에 접근하려고 하는 경우
     ?>
     <script type="text/javascript">
         alert("학생 유저는 교직원 페이지에 접근할 수 없습니다.");
@@ -75,7 +76,7 @@ if(!isset($_SESSION['user']) && !isset($_SESSION['teacher_user'])) { // 학생 �
         location.href = "/teacher/main";
     </script>
     <?php
-}*/
+}
 
 if(isset($type) && $type === "judicial" && !(isUserPermitted($me['n_id'], "judicial_council") || isUserPermitted($me['n_id'], "justice_department") || isUserPermitted($me['n_id'], "student_guide_department") || isUserPermitted($me['n_id'], "food_and_nutrition_department"))) {?>
 <script type="text/javascript">alert("현재 개발 중으로 허가 받은 사람만 접근 가능합니다.");location.href="/";</script>
