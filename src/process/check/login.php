@@ -68,5 +68,5 @@ if(!isset($_POST['teacher'])) {
 			break;
 	}
 } else {
-	?><script type="text/javascript">alert("현재 테스트 상태입니다. 체크 박스를 해제하고 다시 로그인 하시기 바랍니다.");location.href="/";</script><?php
+	?><script type="text/javascript">alert("새로운 기능을 추가하기 위한 테스트 중입니다. 체크 박스를 해제하고 다시 로그인 하시기 바랍니다.");location.href="/";</script><?php
 } ?>

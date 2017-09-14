@@ -39,6 +39,7 @@ if(!isset($type) && $april_fools && !$is_mobile) {
         return;
     }
 }
+
 if(!isset($_SESSION['user'])) {
 	if(isset($_GET['sub']) && $_GET['action'] == 'user') {
 		switch($_GET['sub']) {
@@ -68,7 +69,7 @@ do {
 	$_fn = $fn;
 	if(!isset($type)) include "src/content/$fn.php";
     else if($type === "judicial") include "judicial/content/$fn.php";
-    else if($type === "teacher") include "teacher/content/$fn.php";
+    else if($type === "teacher") include "/teacher/content/$fn.php";
 } while($_fn != $fn);
 session_write_close();
 if(!isset($type)){
