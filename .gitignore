@@ -9,3 +9,4 @@ sass-compiled/*
 /intranet/db-config.php
 /court/api/config.php
 /judicial/presenTool/config.php
+/teacher/hjTool/config.php
