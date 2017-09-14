@@ -22,7 +22,7 @@ class HJTeacher{
         for($i=0;$i<768;$i++) $pw_salt .= substr($avail, rand(0, strlen($avail) - 1), 1);
         $pw_encoded=hash($pw_hash, $pw_salt . "|" . hash($pw_hash, $pw) . "|" . $pw_salt);
 
-        $this->mysqli->autocommit(false);
+        $this->db->autocommit(false);
         $query="INSERT INTO `$this->table_data` (s_id, s_pw, s_pw_salt, s_pw_hash, s_name, s_email, n_reg_date, n_access_date, s_phone, s_work, n_type) VALUES (" .
                     "'" . $this->escape($id) . "', ".
                     "'" . $this->escape($pw_encoded) . "', ".
@@ -36,13 +36,13 @@ class HJTeacher{
                     "'" . $this->escape($work) . "', ".
                     $type . ")";
         //echo nl2br($query) . "<br />";//return false;
-        if($this->mysqli->query($query)===true){
-            $ins_id = $this->mysqli->insert_id;
-            $this->mysqli->commit(); $this->mysqli->autocommit(true);
+        if($this->db->query($query)===true){
+            $ins_id = $this->db->insert_id;
+            $this->db->commit(); $this->db->autocommit(true);
             return $ins_id;
         }else{
-            //echo $this->mysqli->error;
-            $this->mysqli->rollback(); $this->mysqli->autocommit(true);
+            //echo $this->db->error;
+            $this->db->rollback(); $this->db->autocommit(true);
             return false;
         }
     }
