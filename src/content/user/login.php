@@ -70,7 +70,7 @@ function printContent(){
                     }" /> 기억하기</label></div>
                     <div style="float:right;color:white;height:32px;vertical-align:middle;line-height:32px;margin-right:10px;">
                     <label for="chk_teacher" style="vertical-align:middle;">
-                        <input type="checkbox" name="chk_teacher" id="chk_teacher_me" style="vertical-align:middle;" disabled>교직원
+                        <input type="checkbox" name="teacher" id="chk_teacher_me" style="vertical-align:middle;" disabled>교직원
                     </label>
                     </div>
                     <div style="clear:both;"></div>
