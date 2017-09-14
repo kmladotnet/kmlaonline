@@ -19,6 +19,6 @@ function initializeHJTools($server, $id, $pw, $dbname, $force_renew=false){
 
     $teacher = new HJTeacher($db);
 
-    return $mysqli;
+    return $db;
 }
 ?>
