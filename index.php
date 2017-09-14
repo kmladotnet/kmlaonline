@@ -71,9 +71,8 @@ if(!isset($_SESSION['user']) && !isset($_SESSION['teacher_user'])) { // 학생 �
 } else if(!isset($_SESSION['user']) && (!isset($_GET['action']) || isset($_GET['action']) && $_GET['action'] !== "teacher")){
     // 교직원 유저가 학생 페이지에 접근하려고 하는 경우
     if(isset($_GET['sub']) && $_GET['action'] == 'user') {
-        if($_GET['logout'] === 'logout') break;
-        else {
-            ?>
+        if($_GET['logout'] !== 'logout') {
+        ?>
             <script type="text/javascript">
                 alert("교직원 유저는 학생 페이지에 접근할 수 없습니다.");
                 location.href = "/teacher/main";
