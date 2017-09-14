@@ -73,7 +73,7 @@ class HJBarbeque {
     /*선생님 확인용*/
     function getBarbequeList($teacher = 0, $date = ""){
         if(!is_numeric($teacher)) return false;
-        $date = escape($date);
+        $date = $this->escape($date);
 
         if(empty($date) && empty($teacher)) {
             $query = "SELECT * FROM `$this->table_data`";
