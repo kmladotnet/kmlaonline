@@ -2,6 +2,7 @@
 class HJTeacher{
     private $db;
     private $table_data;
+    private $teacher_cache=array();
 
     private function escape($str){
         return $this->db->real_escape_string($str);
@@ -66,5 +67,47 @@ class HJTeacher{
         return -10; // Something went wrong
     }
 
+    function getTeacher($teacher, $by=0, $withpw=false) {
+        if($by==0 && !is_numeric($teacher)) return false;
+        else if($by==1 && strlen($teacher) == 0) return false;
+        else if($by > 2) return false;
+
+        $query = "SELECT * FROM `$this->table_data` WHERE ";
+        $teacher = $this->escape($teacher);
+
+        switch($by){
+            case 0:
+                if(isset($this->teacher_cache["n_id:" . $teacher])){
+                    return $this->teacher_cache["n_id:".$teacher];
+                }
+                $query .= "n_id = $teacher";
+                break;
+            case 1:
+                if(isset($this->teacher_cache["s_id:".$teacher])){
+                    return $this->teacher_cache["s_id:".$teacher];
+                }
+                $query .= "s_id='$teacher'";
+                break;
+            case 2:
+                if(isset($this->teacher_cache["s_email:" . $teacher])){
+                    return $this->teacher_cache["s_email:".$teacher];
+                }
+                $query.="s_email='$teacher'";
+                break;
+        }
+
+        if($res=$this->db->query($query)){
+            while ($row = $res->fetch_array(MYSQLI_ASSOC)){
+                $res->close();
+                if($this->db->more_results()) $this->db->next_result();
+                if($withpw === false){
+                    unset($row['s_pw'], $row['s_pw_salt'], $row['s_pw_hash']);
+                }
+                $this->teacher_cache["n_id:".$row['n_id']] = $this->teacher_cache["s_id:".$row['s_id']]=$this->teacher_cache["s_email:".$row['s_email']]=$row;
+                return $row;
+            }
+        }
+        return false;
+    }
 }
 ?>
