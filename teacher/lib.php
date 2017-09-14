@@ -8,5 +8,5 @@ require(__DIR__ . "/hjTool/dbHandler.php");
 //echo $teacher->authTeacher("hyeonjae", "guswo1") + "\n";
 //echo $teacher->authTeacher("hyeonjae2", "guswo1") + "\n";
 //echo "<p>test</p>";
-//echo $barbeque->addBarbeque("2017-09-14", "17:30", "18:40", 1, "test bbq", "1234|1923|2212", 1576);
+echo $barbeque->addBarbeque("2017-09-23", "17:30", "18:40", 1, "test bbq", "1234|1923|2212", 2010);
 ?>

@@ -69,5 +69,30 @@ class HJBarbeque {
             return false;
         }
     }
+
+    /*선생님 확인용*/
+    function getBarbequeList($teacher = 0, $date = ""){
+        if(!is_numeric($teacher)) return false;
+        $date = escape($date);
+
+        if(empty($date) && empty($teacher)) {
+            $query = "SELECT * FROM `$this->table_data`";
+        } else if(empty($date)) {
+            $query = "SELECT * FROM `$this->table_data` WHERE t_id = $teacher";
+        } else if(empty($teacher)) {
+            $query = "SELECT * FROM `$this->table_data` WHERE date = '$date'";
+        } else {
+            $query = "SELECT * FROM `$this->table_data` WHERE t_id = $teacher AND date = '$date'";
+        }
+
+        if($res = $this->db->query($query)){
+            return $res;
+        } else {
+            echo "ERROR[getBarbequeList] : sql query wrong!!";
+            return false;
+        }
+        return false;
+    }
+
 }
 ?>
