@@ -89,7 +89,7 @@ if(!isset($_POST['teacher'])) {
 			$_SESSION["teacher_user"] = $t['n_id'];
 			session_write_close();
 
-			redirectTo((isset($_REQUEST['returnto']) && $_REQUEST['returnto']!="") ? $_REQUEST['returnto'] : "/teacher/main");
+			redirectTo((isset($_REQUEST['returnto']) && $_REQUEST['returnto'] != "") ? $_REQUEST['returnto'] : "/teacher/main");
 			break;
 		case -10: // Something's wrong
 			redirectWith("loginRedirection", 0);
