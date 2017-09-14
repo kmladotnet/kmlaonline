@@ -9,7 +9,7 @@ require(__DIR__ . "/hjTool/dbHandler.php");
 //echo $teacher->authTeacher("hyeonjae2", "guswo1") + "\n";
 //echo "<p>test</p>";
 //echo $barbeque->addBarbeque("2017-09-23", "17:30", "18:40", 1, "test bbq", "1234|1923|2212", 2010);
-echo print_r($barbeque->getBarbequeList());
-echo print_r($barbeque->getBarbequeList(1));
-echo print_r($barbeque->getBarbequeList(0 , "2017-09-23"));
+//echo print_r($barbeque->getBarbequeList());
+//echo print_r($barbeque->getBarbequeList(1));
+//echo print_r($barbeque->getBarbequeList(0 , "2017-09-23"));
 ?>
