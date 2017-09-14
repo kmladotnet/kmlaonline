@@ -68,7 +68,11 @@ function printContent(){
                             check.checked = '';
                         });
                     }" /> 기억하기</label></div>
-				<div style="clear:both;"></div>
+				<div style="float:right;color:white;height:32px;vertical-align:middle;line-height:32px;margin-right:10px;">
+                    <label for="chk_teacher" style="vertical-align:middle;">
+                        <input type="checkbox" name="chk_teacher" id="chk_teacher_me" style="vertical-align:middle;" disabled>교직원
+                    </label>
+                </div>
 			</div>
             <div style="text-align:center; background: rgba(255, 255, 255, 0.9); border-radius: 5px; padding: 5px; margin: 5px;">
                 <?php
