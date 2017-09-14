@@ -74,7 +74,7 @@ class HJBarbeque {
     function getBarbequeList($teacher = 0, $date = ""){
         if(!is_numeric($teacher)) return false;
         $date = $this->escape($date);
-
+        $arr = array();
         if(empty($date) && empty($teacher)) {
             $query = "SELECT * FROM `$this->table_data`";
         } else if(empty($date)) {
@@ -86,7 +86,10 @@ class HJBarbeque {
         }
 
         if($res = $this->db->query($query)){
-            return $res;
+            while ($row = $res->fetch_array(MYSQLI_BOTH)){
+                $arr[$row['n_id']]=$row;
+            }
+            return $arr;
         } else {
             echo "ERROR[getBarbequeList] : sql query wrong!!";
             return false;
