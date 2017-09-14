@@ -22,7 +22,7 @@ function generateRandomString($length = 32) {
 	for ($i = 0; $i < $length; $i++) $randomString .= $characters[rand(0, strlen($characters) - 1)];
 	return $randomString;
 }
-if(!isset($_POST['teacher'])){
+if(!isset($_POST['teacher'])) {
 	switch($member->authMember($_POST['id'],$_POST['pwd'])){
 		case 0: // Okay
 			$m=$member->getMember($_POST['id'],1);
@@ -67,6 +67,6 @@ if(!isset($_POST['teacher'])){
 			redirectWith("loginRedirection",1);
 			break;
 	}
-} else if {
+} else {
 	?><script type="text/javascript">alert("현재 테스트 상태입니다. 체크 박스를 해제하고 다시 로그인 하시기 바랍니다.");location.href="/";</script><?php
 } ?>
