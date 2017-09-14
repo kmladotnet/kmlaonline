@@ -40,11 +40,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.min.js"></script>
 
     <?php
-    if($_SERVER["REQUEST_URI"] === '/util/outdoor'){ ?>
-        <script src="/js/content/util/outdoor.js?v=3"></script>
+    if($_SERVER["REQUEST_URI"] === '/util/outdoor' || $_SERVER["REQUEST_URI"] === '/util/barbeque'){ ?>
+        <script src=<?php echo "/js/content" . $_SERVER["REQUEST_URI"] .".js"?> ></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.20.0/select.css"></link>
         <script type="text/javascript" src="js/select.js"></script>
-        <link rel="stylesheet" href="css/content/util/outdoor.css">
+        <link rel="stylesheet" href=<?php "css/content" . $_SERVER["REQUEST_URI"] . ".css" ?>>
     <?php } ?>
 
     <?php

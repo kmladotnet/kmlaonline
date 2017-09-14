@@ -17,11 +17,11 @@ function printContent(){
             </div>
             <div class="collapse navbar-collapse" id="bbq-navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li><a class="navbar-brand" href="#">HOME</a></li>
-                    <li><a href="#">신청하기</a></li>
+                    <li><a class="navbar-brand" href="">HOME</a></li>
+                    <li><a href="">신청하기</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">내 바베큐</a></li>
+                    <li><a href="">내 바베큐</a></li>
                 </ul>
             </div>
         </div>
