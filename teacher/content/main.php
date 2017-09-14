@@ -33,14 +33,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">교사용 큼온</a>
+          <a class="navbar-brand" href="/teacher/main">교사용 큼온</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <!--li><a href="#">Dashboard</a></li-->
             <li><a href="#">설정</a></li>
             <li><a href="#">내 정보</a></li>
-            <li><a href="#">로그아웃</a></li>
+            <li><a href="/user/logout">로그아웃</a></li>
           </ul>
           <!--form class="navbar-form navbar-right">
             <input type="text" class="form-control" placeholder="Search...">

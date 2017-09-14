@@ -1,5 +1,6 @@
 <?php
 require_once(dirname(__FILE__)."/HJTeacher.php");
+require_once(dirname(__FILE__)."/HJBarbeque.php");
 function initializeHJTools($server, $id, $pw, $dbname, $force_renew=false){
 
     if($force_renew){
@@ -8,7 +9,7 @@ function initializeHJTools($server, $id, $pw, $dbname, $force_renew=false){
         $db->close();
     }
 
-    global $teacher, $db;
+    global $teacher, $barbeque, $db;
     $db = @new mysqli($server, $id, $pw, $dbname);
     $newdb = false;
 
@@ -18,6 +19,7 @@ function initializeHJTools($server, $id, $pw, $dbname, $force_renew=false){
     }
 
     $teacher = new HJTeacher($db);
+    $barbeque = new HJBarbeque($db);
 
     return $db;
 }
