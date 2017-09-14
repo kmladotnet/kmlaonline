@@ -70,7 +70,7 @@ if(!isset($_POST['teacher'])) {
 } else {
 	?><!--script type="text/javascript">alert("새로운 기능을 추가하기 위한 테스트 중입니다. 체크 박스를 해제하고 다시 로그인 하시기 바랍니다.");location.href="/";</script-->
 	<?php
-	switch($teacher->authTeacher()){
+	switch($teacher->authTeacher($_POST['id'], $_POST['pwd'])){
 		case 0: // Okay
 			$t = $teacher->getTeacher($_POST['id'], 1);
 
