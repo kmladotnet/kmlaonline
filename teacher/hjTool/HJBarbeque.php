@@ -47,7 +47,17 @@ class HJBarbeque {
         $exeq_req = $this->escape($exeq_req);
 
         $query = "INSERT INTO `$this->table_data` (date, start_time, finish_time, teacher_id, title, student_list, rest_req, exeq_req, rep_student_id, status) " .
-        "VALUES ($date, $s_time, $f_time, $t_id, $title, $student_list, $rest_req, $exeq_req, $rep_id, 100)";
+                    "VALUES ( " .
+                    "'" . $date "'," .
+                    "'" . $s_time "'," .
+                    "'" . $f_time "'," .
+                    $t_id . ", " .
+                    "'" . $title "'," .
+                    "'" . $student_list "'," .
+                    "'" . $rest_req "'," .
+                    "'" . $exeq_req "'," .
+                    $rep_id "," .
+                    "100)";
         echo $query . "\n";
         if($this->db->query($query)===true){
             $ins_id = $this->db->insert_id;
