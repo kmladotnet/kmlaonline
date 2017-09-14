@@ -60,14 +60,14 @@ if(!isset($_SESSION['user']) && !isset($_SESSION['teacher_user'])) { // 학생 �
 		$fn = $_GET['action'] = "user";
 		$_GET['sub'] = "login";
 	}
-} else if(!isset($_SESSION['teacher']) && isset($_GET['action']) && $_GET['action'] === "teacher") { // 학생 유저가 교직원 페이지에 접근하려고 하는 경우
+} /*else if(!isset($_SESSION['teacher']) && isset($_GET['action']) && $_GET['action'] === "teacher") { // 학생 유저가 교직원 페이지에 접근하려고 하는 경우
     ?>
     <script type="text/javascript">
         alert("학생 유저는 교직원 페이지에 접근할 수 없습니다.");
         location.href = "/";
     </script>
     <?php
-} /*else if(!isset($_SESSION['user']) && (!isset($_GET['action']) || isset($_GET['action']) && $_GET['action'] !== "teacher")){
+} else if(!isset($_SESSION['user']) && (!isset($_GET['action']) || isset($_GET['action']) && $_GET['action'] !== "teacher")){
     // 교직원 유저가 학생 페이지에 접근하려고 하는 경우
     ?>
     <script type="text/javascript">
