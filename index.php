@@ -72,13 +72,16 @@ if(!isset($_SESSION['user']) && !isset($_SESSION['teacher_user'])) { // 학생 �
     // 교직원 유저가 학생 페이지에 접근하려고 하는 경우
     if(isset($_GET['sub']) && $_GET['action'] == 'user') {
         if($_GET['logout'] === 'logout') break;
+        else {
+            ?>
+            <script type="text/javascript">
+                alert("교직원 유저는 학생 페이지에 접근할 수 없습니다.");
+                location.href = "/teacher/main";
+            </script>
+        <?php
+        }
     }
-    ?>
-    <script type="text/javascript">
-        alert("교직원 유저는 학생 페이지에 접근할 수 없습니다.");
-        location.href = "/teacher/main";
-    </script>
-    <?php
+
 }
 
 if(isset($type) && $type === "judicial" && !(isUserPermitted($me['n_id'], "judicial_council") || isUserPermitted($me['n_id'], "justice_department") || isUserPermitted($me['n_id'], "student_guide_department") || isUserPermitted($me['n_id'], "food_and_nutrition_department"))) {?>
