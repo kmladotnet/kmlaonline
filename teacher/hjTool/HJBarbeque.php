@@ -37,6 +37,15 @@ class HJBarbeque {
 
     function addBarbeque($date, $s_time, $f_time, $t_id, $title, $student_list, $rep_id, $rest_req="", $exeq_req=""){
         if(!is_numeric($t_id) || !is_numeric($rep_id)) return false;
+
+        $date = escape($date);
+        $s_time = escape($s_time);
+        $f_time = escape($f_time);
+        $title = escape($title);
+        $student_list = escape($student_list);
+        $rest_req = escape($rest_req);
+        $exeq_req = escape($exeq_req);
+
         $query = "INSERT INTO `$this->table_data` (date, start_time, finish_time, teacher_id, title, student_list, rest_req, exeq_req, rep_student_id, status) " .
         "VALUES ($date, $s_time, $f_time, $t_id, $title, $student_list, $rest_req, $exeq_req, $rep_id, 100)";
         echo $query . "\n";
