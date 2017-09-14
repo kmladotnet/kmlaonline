@@ -3,6 +3,7 @@ $includes = array();
 switch(isset($_GET['action']) ? $_GET['action'] : "main"){
 	case "main":
         $fn = "main";
+        if(isset($_SESSION['teacher_user'])) $type = "teacher";
         break;
     case "judicial":
         $type = "judicial";
