@@ -62,6 +62,6 @@ function printContent(){
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="/js/util/barbeque.js"></script>
+    <script type="text/javascript" src="/js/content/util/barbeque.js"></script>
 <?php }
 ?>
