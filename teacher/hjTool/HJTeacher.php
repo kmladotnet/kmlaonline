@@ -16,6 +16,20 @@ class HJTeacher{
     function __destruct(){
     }
 
+    /*
+    [type]
+    0 - test
+    1 - 국어과
+    2 - 외국어과
+    3 - 수학과
+    4 - 사회과
+    5 - 과학과
+    6 - 예체능과
+    7 - 사감실
+    8 - 도서실
+    9 - 보건실
+    10 - 행정실(바베큐)
+    */
     function addTeacher($id, $pw, $name, $email, $phone="", $work="", $type=0){
         $pw_hash="sha512"; // ripe320 is better
         $pw_salt="";
