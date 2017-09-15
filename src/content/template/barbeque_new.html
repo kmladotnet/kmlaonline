@@ -48,7 +48,15 @@
             </tr>
             <tr>
                 <td style="width:15%; vertical-align: middle;">담당 교사</td>
-                <td colspan="5"><input type="text" name="teacher" class="form-control" placeholder="선택해주세요" style="width: 50%">
+                <td colspan="5"><!--input type="text" name="teacher" class="form-control" placeholder="선택해주세요" style="width: 50%"-->
+                    <ui-select ng-model="teacherSelect.selected" theme="bootstrap">
+                        <ui-select-match>
+                            <span ng-bind="$select.selected.s_name"></span>
+                        </ui-select-match>
+                        <ui-select-choices repeat="teacher in (tArray | filter: $select.search) track by teacher.n_id">
+                            <span ng-bind="accuser.s_name"></span>
+                        </ui-select-choices>
+                    </ui-select>
                 </td>
             </tr>
             <tr>

@@ -9,7 +9,6 @@ app.controller("bbqCtrl", function($scope, $http){
 
     $scope.init = function() {
         $scope.config_calender();
-        console.log($scope.calender);
         $scope.changePage('home');
     }
 
@@ -44,8 +43,7 @@ app.controller("bbqCtrl", function($scope, $http){
     };
 
     $scope.teacherFetch = function() {
-        $scope.response = null;
-
+        /*http method 작동 시점 생각해보기*/
         $http({
             method: "GET",
             url: "/proc/util/barbeque_suggest_teacher"
