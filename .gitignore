@@ -1,5 +1,6 @@
 data*
 db-config.php
+db-test.php
 /images/gongmo/
 .sass-cache
 .sass-cache/*
