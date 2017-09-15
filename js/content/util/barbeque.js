@@ -5,6 +5,7 @@ app.controller("bbqCtrl", function($http, $scope){
     $scope.hourArray = [];
     $scope.minArray = [];
     $scope.new_bbq = {};
+    $scope.teacherArray = [];
     for(var j = 9; j < 21; j++){
         $scope.hourArray.push({ name: (j < 12 ? "오전 " : "오후 ") + (j == 12 ? 12 : j % 12) + "시", value: j});
     }
@@ -31,6 +32,7 @@ app.controller("bbqCtrl", function($http, $scope){
         console.log($scope.calender);
         $scope.teacherFetch();
         console.log($scope.teacherArray);
+        console.log($scope.status);
         $scope.changePage('home');
     };
 
