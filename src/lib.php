@@ -64,8 +64,6 @@ if(!isset($_SESSION['tmp_password']) || !file_exists('/tmp/passwords/'.$me['s_id
 */
 session_write_close();
 /********************** END INITIALIZATION SESSION ************************/
-include 'db-test.php';
-
 setlocale(LC_TIME, 'ko_KR.UTF-8');
 $april_main = false; // 4월 1일에 이 변수만 바꾸기 바람
 $april_fools = $april_main;
