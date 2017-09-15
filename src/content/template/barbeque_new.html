@@ -10,7 +10,7 @@
                             <span ng-bind="$select.selected.name"></span>
                         </ui-select-match>
                         <ui-select-choices repeat="hour in (hourArray | filter: $select.search) track by hour.value">
-                            <span ng-bind="hour.value"></span>
+                            <span ng-bind="hour.name"></span>
                         </ui-select-choices>
                     </ui-select>
                 </td>
@@ -20,7 +20,7 @@
                             <span ng-bind="$select.selected.name"></span>
                         </ui-select-match>
                         <ui-select-choices repeat="min in (minArray | filter: $select.search) track by min.value">
-                            <span ng-bind="min.value"></span>
+                            <span ng-bind="min.name"></span>
                         </ui-select-choices>
                     </ui-select>
                 </td>
@@ -31,7 +31,7 @@
                             <span ng-bind="$select.selected.name"></span>
                         </ui-select-match>
                         <ui-select-choices repeat="hour in (hourArray | filter: $select.search) track by hour.value">
-                            <span ng-bind="hour.value"></span>
+                            <span ng-bind="hour.name"></span>
                         </ui-select-choices>
                     </ui-select>
                 </td>
@@ -41,7 +41,7 @@
                             <span ng-bind="$select.selected.name"></span>
                         </ui-select-match>
                         <ui-select-choices repeat="min in (minArray | filter: $select.search) track by min.value">
-                            <span ng-bind="min.value"></span>
+                            <span ng-bind="min.name"></span>
                         </ui-select-choices>
                     </ui-select>
                 </td>
