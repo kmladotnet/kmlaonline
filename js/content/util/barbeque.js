@@ -2,18 +2,21 @@ var app = angular.module("bbqApp", ['ui.bootstrap', 'ngSanitize', 'ui.select']);
 
 app.controller("bbqCtrl", function($scope, $http){
 
-    $scope.hourArray = [];
-    $scope.minArray = [];
     $scope.new_bbq = {};
     $scope.status = "ready";
 
     $scope.init = function() {
         $scope.config_calender();
+        console.log($scope.calender);
         $scope.teacherFetch();
         $scope.changePage('home');
     }
 
     $scope.config_calender = function(){
+
+        $scope.hourArray = [];
+        $scope.minArray = [];
+
         for(var j = 9; j < 21; j++){
             $scope.hourArray.push({ name: (j < 12 ? "오전 " : "오후 ") + (j == 12 ? 12 : j % 12) + "시", value: j});
         }
@@ -31,6 +34,7 @@ app.controller("bbqCtrl", function($scope, $http){
         $scope.firstDay = new Date(now_year, now_month, 1).getDay();
         //$scope.numberOfWeeks = 1 + ($scope.numberOfDays - (7 - $scope.firstDay) - 1) / 7 + 1;
         $scope.calender = [];
+
         for(var i = -$scope.firstDay, j = 0; i < $scope.numberOfDays; i++, j++){
             if(typeof $scope.calender[Math.floor(j / 7)] === 'undefined') $scope.calender[Math.floor(j / 7)] = [];
             if(i >= 0) $scope.calender[Math.floor(j / 7)][j % 7] = i + 1;
