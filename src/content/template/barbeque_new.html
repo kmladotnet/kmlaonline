@@ -4,11 +4,47 @@
         <tbody>
             <tr>
                 <td style="width:15%; vertical-align: middle;">시간</td>
-                <td style="width:17.5%"><input type="text" name="start_hour" class="form-control" placeholder="시"></td>
-                <td style="width:17.5%"><input type="text" name="start_min" class="form-control" placeholder="분"></td>
+                <td style="width:17.5%">
+                    <ui-select ng-model="new_bbq.start_hour" theme="bootstrap">
+                        <ui-select-match placeholder="시">
+                            <span ng-bind="$select.selected.name"></span>
+                        </ui-select-match>
+                        <ui-select-choices repeat="hour in (hourArray | filter: $select.search) track by hour.value">
+                            <span ng-bind="hour.value"></span>
+                        </ui-select-choices>
+                    </ui-select>
+                </td>
+                <td style="width:17.5%">
+                    <ui-select ng-model="new_bbq.start_min" theme="bootstrap">
+                        <ui-select-match placeholder="분">
+                            <span ng-bind="$select.selected.name"></span>
+                        </ui-select-match>
+                        <ui-select-choices repeat="min in (minArray | filter: $select.search) track by min.value">
+                            <span ng-bind="min.value"></span>
+                        </ui-select-choices>
+                    </ui-select>
+                </td>
                 <td style="width:15%; text-align: center; vertical-align: middle;"> &nbsp;&nbsp;&nbsp; ~ &nbsp;&nbsp;&nbsp; </td>
-                <td style="width:17.5%"><input type="text" name="start_hour" class="form-control" placeholder="시"></td>
-                <td style="width:17.5%"><input type="text" name="start_min" class="form-control" placeholder="분"></td>
+                <td style="width:17.5%">
+                    <ui-select ng-model="new_bbq.finish_hour" theme="bootstrap">
+                        <ui-select-match placeholder="시">
+                            <span ng-bind="$select.selected.name"></span>
+                        </ui-select-match>
+                        <ui-select-choices repeat="hour in (hourArray | filter: $select.search) track by hour.value">
+                            <span ng-bind="hour.value"></span>
+                        </ui-select-choices>
+                    </ui-select>
+                </td>
+                <td style="width:17.5%">
+                    <ui-select ng-model="new_bbq.finish_min" theme="bootstrap">
+                        <ui-select-match placeholder="분">
+                            <span ng-bind="$select.selected.name"></span>
+                        </ui-select-match>
+                        <ui-select-choices repeat="min in (minArray | filter: $select.search) track by min.value">
+                            <span ng-bind="min.value"></span>
+                        </ui-select-choices>
+                    </ui-select>
+                </td>
             </tr>
             <tr>
                 <td style="width:15%; vertical-align: middle;">담당 교사</td>
