@@ -18,11 +18,11 @@ function printContent(){
                 </div>
                 <div class="collapse navbar-collapse" id="bbq-navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li><a class="navbar-brand" href="">HOME</a></li>
-                        <li><a href="">신청하기</a></li>
+                        <li><a class="navbar-brand" ng-click="changePage('home')">HOME</a></li>
+                        <li><a ng-click="changePage('new-barbeque')">신청하기</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="">내 바베큐</a></li>
+                        <li><a ng-click="changePage('my-barbeque')">내 바베큐</a></li>
                     </ul>
                 </div>
             </div>
@@ -30,9 +30,35 @@ function printContent(){
 
         <div class="container-fluid">
             <div class="col-xs-5">
+                <table id="calender" class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>일</th>
+                            <th>월</th>
+                            <th>화</th>
+                            <th>수</th>
+                            <th>목</th>
+                            <th>금</th>
+                            <th>토</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="week in calender">
+                            <td ng-repeat="day in week track by $index" ng-click="test(day)">
+                                <div>
+                                    <span>{{day || ""}}</span>
+                                    <div style="clear:both"></div>
+                                </div>
+                                <div style="width:100%; padding: 3px; text-align:center;">
+                                    {{day !== 'undefined' ? "-" : ""}}
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
             <div class="col-xs-7">
-                <ng-include src=""></ng-include>
+                <ng-include src="page"></ng-include>
             </div>
         </div>
     </div>

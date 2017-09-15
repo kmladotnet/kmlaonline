@@ -1,0 +1,32 @@
+<h2>새로운 바베큐 신청</h2>
+<form name="newBarbeque">
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <td style="width:15%; vertical-align: middle;">시간</td>
+                <td style="width:17.5%"><input type="text" name="start_hour" class="form-control" placeholder="시"></td>
+                <td style="width:17.5%"><input type="text" name="start_min" class="form-control" placeholder="분"></td>
+                <td style="width:15%; text-align: center; vertical-align: middle;"> &nbsp;&nbsp;&nbsp; ~ &nbsp;&nbsp;&nbsp; </td>
+                <td style="width:17.5%"><input type="text" name="start_hour" class="form-control" placeholder="시"></td>
+                <td style="width:17.5%"><input type="text" name="start_min" class="form-control" placeholder="분"></td>
+            </tr>
+            <tr>
+                <td style="width:15%; vertical-align: middle;">담당 교사</td>
+                <td colspan="5"><input type="text" name="teacher" class="form-control" placeholder="선택해주세요" style="width: 50%">
+                </td>
+            </tr>
+            <tr>
+                <td style="vertical-align: middle;">구별</td>
+                <td colspan="5">추가 구현 예정 (수업반별, 행정반별, 동아리별, 즐겨찾기, 친목 도모 등)</td>
+            </tr>
+            <tr>
+                <td style="vertical-align: middle;">참여 학생</td>
+                <td colspan="5"><textarea class="form-control" placeholder="auto-complete 등 추가 기능은 나중에 구현"></textarea></td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <button class="btn btn-default pull-right" ng-click="">임시 저장</button>
+        <button class="btn btn-success center-block" ng-click="">신청하기</button>
+    </div>
+</form>
