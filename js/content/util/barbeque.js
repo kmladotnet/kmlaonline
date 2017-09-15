@@ -29,8 +29,24 @@ app.controller("bbqCtrl", function($http, $scope){
             else $scope.calender[Math.floor(j / 7)][j % 7] = "";
         }
         console.log($scope.calender);
-
+        $scope.teacherFetch();
+        console.log($scope.teacherArray);
         $scope.changePage('home');
+    };
+
+    $scope.teacherFetch = function() {
+        $scope.response = null;
+
+        $http({
+            method: "GET",
+            url: "process/util/barbeque_suggest_teacher"
+        }).then(function mySuccess(response){
+            $scope.status = response.statusText;
+            $scope.teacherArray = response.data;
+        }, function myError(response){
+            $scope.data = response.data || 'Request failed';
+            $scope.status = response.statusText;
+        });
     };
 
     $scope.changePage = function(page){
