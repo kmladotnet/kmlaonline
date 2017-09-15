@@ -54,7 +54,7 @@
                             <span ng-bind="$select.selected.s_name"></span>
                         </ui-select-match>
                         <ui-select-choices repeat="teacher in (tArray | filter: $select.search) track by teacher.n_id">
-                            <span ng-bind="accuser.s_name"></span>
+                            <span ng-bind="teacher.s_name"></span>
                         </ui-select-choices>
                     </ui-select>
                 </td>
