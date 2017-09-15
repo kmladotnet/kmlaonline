@@ -4,7 +4,7 @@ $title = "바베큐 신청 - " . $title;
 
 function printContent(){
     ?>
-    <div ng-app="bbqApp" ng-controller="bbqCtrl" ng-init="config()">
+    <div ng-app="bbqApp" ng-controller="bbqCtrl" ng-init="init()">
         <h1>바베큐 신청</h1>
         <nav class="navbar navbar-default">
             <div class="container-fluid">
