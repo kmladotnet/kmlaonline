@@ -2,8 +2,25 @@ var app = angular.module("bbqApp", ['ui.bootstrap', 'ngSanitize', 'ui.select']);
 
 app.controller("bbqCtrl", function($scope, $http){
 
-    $scope.config = function(){
+    $scope.hourArray = [];
+    $scope.minArray = [];
+    $scope.new_bbq = {};
+    $scope.status = "ready";
+
+    $scope.init = function() {
+        $scope.config_calender();
         $scope.teacherFetch();
+        $scope.changePage('home');
+    }
+
+    $scope.config_calender = function(){
+        for(var j = 9; j < 21; j++){
+            $scope.hourArray.push({ name: (j < 12 ? "오전 " : "오후 ") + (j == 12 ? 12 : j % 12) + "시", value: j});
+        }
+
+        for(var i = 0; i < 6; i++){
+            $scope.minArray.push({ name: i + "0분", value: i * 10});
+        }
 
         var now = new Date();
 
@@ -19,25 +36,7 @@ app.controller("bbqCtrl", function($scope, $http){
             if(i >= 0) $scope.calender[Math.floor(j / 7)][j % 7] = i + 1;
             else $scope.calender[Math.floor(j / 7)][j % 7] = "";
         }
-        console.log($scope.calender);
-
-        console.log($scope.teacherArray);
-        console.log($scope.status);
-        $scope.changePage('home');
     };
-
-    $scope.hourArray = [];
-    $scope.minArray = [];
-    $scope.new_bbq = {};
-    $scope.status = "ready";
-
-    for(var j = 9; j < 21; j++){
-        $scope.hourArray.push({ name: (j < 12 ? "오전 " : "오후 ") + (j == 12 ? 12 : j % 12) + "시", value: j});
-    }
-
-    for(var i = 0; i < 6; i++){
-        $scope.minArray.push({ name: i + "0분", value: i * 10});
-    }
 
     $scope.teacherFetch = function() {
         $scope.response = null;
@@ -46,15 +45,14 @@ app.controller("bbqCtrl", function($scope, $http){
             method: "GET",
             url: "/proc/util/barbeque_suggest_teacher"
         }).then(function mySuccess(response){
-            console.log(response);
             $scope.status = response.statusText;
             $scope.teacherArray = response.data;
-            console.log(response.data);
         }, function myError(response){
             $scope.data = response.data || 'Request failed';
             $scope.status = response.statusText;
-            console.log(response.data);
         });
+
+        console.log($scope.teacherArray);
     };
 
     $scope.changePage = function(page){
