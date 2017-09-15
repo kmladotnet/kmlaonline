@@ -130,7 +130,7 @@ class HJTeacher{
         $arr = array();
         if($result = $this->db->query($query)){
             while($row = $result->fetch_array(MYSQLI_ASSOC)){
-                $arr[$row["n_id"]] = $row;
+                array_push($arr, $row);
             }
             return $arr;
         } else {
