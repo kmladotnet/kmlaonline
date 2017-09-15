@@ -18,6 +18,8 @@ app.controller("bbqCtrl", function($http, $scope){
             else $scope.calender[Math.floor(j / 7)][j % 7] = "";
         }
         console.log($scope.calender);
+
+        $scope.changePage('home');
     };
 
     $scope.changePage = function(page){
