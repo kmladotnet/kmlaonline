@@ -6,6 +6,7 @@ app.controller("bbqCtrl", function($scope, $http){
 
     $scope.new_bbq = {};
     $scope.status = "ready";
+    $scope.tArray = [];
 
     $scope.init = function() {
         $scope.config_calender();
@@ -51,13 +52,13 @@ app.controller("bbqCtrl", function($scope, $http){
             url: "/proc/util/barbeque_suggest_teacher"
         }).then(function mySuccess(response){
             $scope.status = response.statusText;
-            $scope.teacherArray = response.data;
+            $scope.tArray = response.data;
         }, function myError(response){
             $scope.data = response.data || 'Request failed';
             $scope.status = response.statusText;
         });
 
-        console.log($scope.teacherArray);
+        console.log($scope.tArray);
     };
 
     $scope.changePage = function(page){
