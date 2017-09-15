@@ -1,7 +1,8 @@
 <?php
 include 'lib.php';
+echo json_encode($teacher->getAllRawTeachers());
 //function addTeacher($id, $pw, $name, $email, $phone="", $work="", $type=0)
-$teacher->addTeacher('kjh','PW6pfDkeDS','김정환','kjh@minjok.hs.kr','','',1);
+/*$teacher->addTeacher('kjh','PW6pfDkeDS','김정환','kjh@minjok.hs.kr','','',1);
 $teacher->addTeacher('pksmh','0SKo4sDSJs','박관수','pksmh@minjok.hs.kr','','',1);
 $teacher->addTeacher('hosu','GeCGgE9L34','지광현','hosu@minjok.hs.kr','','',1);
 $teacher->addTeacher('colgut','xRP2CHxXQG','최관영','colgut@minjok.hs.kr','','',1);
@@ -71,6 +72,6 @@ $teacher->addTeacher('ktk2886','Zx1lJmG0Bv','김대기','ktk2886@minjok.hs.kr','
 $teacher->addTeacher('pjy','tXzy43eAZ5','박주영','pjy@minjok.hs.kr','','',7);
 $teacher->addTeacher('babybear','BelKlsC3S5','김동명','babybear@minjok.hs.kr','','',8);
 $teacher->addTeacher('danta1','Irscljv9wj','오명남','danta1@minjok.hs.kr','','',9);
-
+*/
 
 ?>

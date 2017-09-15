@@ -29,6 +29,7 @@ class HJTeacher{
     8 - 도서실
     9 - 보건실
     10 - 행정실(바베큐)
+    11 - 급식실
     */
     function addTeacher($id, $pw, $name, $email, $phone="", $work="", $type=0){
         $pw_hash="sha512"; // ripe320 is better
@@ -122,6 +123,20 @@ class HJTeacher{
             }
         }
         return false;
+    }
+
+    function getAllRawTeachers(){
+        $query = "SELECT n_id, s_email, s_id, s_name FROM `$this->table_data`";
+        $arr = array();
+        if($result = $this->db->query($query)){
+            while($row = $result->fetch_array(MYSQLI_ASSOC)){
+                $arr[$row["n_id"]] = $row;
+            }
+            return $arr;
+        } else {
+            echo "ERROR[getAllRawTeachers] : sql query wrong!!";
+            return false;
+        }
     }
 }
 ?>
