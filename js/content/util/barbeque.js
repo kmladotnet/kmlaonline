@@ -24,10 +24,13 @@ app.controller("bbqCtrl", function($http, $scope){
         switch(page){
             case 'home':
                 $scope.page = '/src/content/template/barbeque_home.html';
+                break;
             case 'new-barbeque':
                 $scope.page = '/src/content/template/barbeque_new.html';
+                break;
             case 'my-barbeque':
                 $scope.page = '/src/content/template/barbeque_list.html';
+                break;
         }
     };
 
