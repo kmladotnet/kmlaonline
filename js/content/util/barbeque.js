@@ -6,7 +6,6 @@ app.controller("bbqCtrl", function($scope, $http){
 
     $scope.new_bbq = {};
     $scope.status = "ready";
-    $scope.tArray = [];
 
     $scope.init = function() {
         $scope.config_calender();
