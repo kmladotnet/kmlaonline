@@ -43,6 +43,7 @@ app.controller("bbqCtrl", function($http, $scope){
             method: "GET",
             url: "/proc/util/barbeque_suggest_teacher"
         }).then(function mySuccess(response){
+            console.log(response);
             $scope.status = response.statusText;
             $scope.teacherArray = response.data;
             console.log(response.data);
