@@ -2,19 +2,6 @@ var app = angular.module("bbqApp", ['ui.bootstrap', 'ngSanitize', 'ui.select']);
 
 app.controller("bbqCtrl", function($http, $scope){
 
-    $scope.hourArray = [];
-    $scope.minArray = [];
-    $scope.new_bbq = {};
-    $scope.status = "ready";
-
-    for(var j = 9; j < 21; j++){
-        $scope.hourArray.push({ name: (j < 12 ? "오전 " : "오후 ") + (j == 12 ? 12 : j % 12) + "시", value: j});
-    }
-
-    for(var i = 0; i < 6; i++){
-        $scope.minArray.push({ name: i + "0분", value: i * 10});
-    }
-
     $scope.config = function(){
         var now = new Date();
 
@@ -36,6 +23,19 @@ app.controller("bbqCtrl", function($http, $scope){
         console.log($scope.status);
         $scope.changePage('home');
     };
+
+    $scope.hourArray = [];
+    $scope.minArray = [];
+    $scope.new_bbq = {};
+    $scope.status = "ready";
+
+    for(var j = 9; j < 21; j++){
+        $scope.hourArray.push({ name: (j < 12 ? "오전 " : "오후 ") + (j == 12 ? 12 : j % 12) + "시", value: j});
+    }
+
+    for(var i = 0; i < 6; i++){
+        $scope.minArray.push({ name: i + "0분", value: i * 10});
+    }
 
     $scope.teacherFetch = function() {
         $scope.response = null;
