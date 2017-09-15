@@ -45,9 +45,11 @@ app.controller("bbqCtrl", function($http, $scope){
         }).then(function mySuccess(response){
             $scope.status = response.statusText;
             $scope.teacherArray = response.data;
+            console.log(response.data);
         }, function myError(response){
             $scope.data = response.data || 'Request failed';
             $scope.status = response.statusText;
+            console.log(response.data);
         });
     };
 
