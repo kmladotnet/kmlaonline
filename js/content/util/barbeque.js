@@ -10,7 +10,6 @@ app.controller("bbqCtrl", function($scope, $http){
     $scope.init = function() {
         $scope.config_calender();
         console.log($scope.calender);
-        $scope.teacherFetch();
         $scope.changePage('home');
     }
 
@@ -68,6 +67,7 @@ app.controller("bbqCtrl", function($scope, $http){
                 break;
             case 'new-barbeque':
                 $scope.page = '/src/content/template/barbeque_new.html';
+                $scope.teacherFetch();
                 break;
             case 'my-barbeque':
                 $scope.page = '/src/content/template/barbeque_list.html';
