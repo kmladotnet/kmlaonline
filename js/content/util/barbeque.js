@@ -1,8 +1,10 @@
 var app = angular.module("bbqApp", ['ui.bootstrap', 'ngSanitize', 'ui.select']);
 
-app.controller("bbqCtrl", function($http, $scope){
+app.controller("bbqCtrl", function($scope, $http){
 
     $scope.config = function(){
+        $scope.teacherFetch();
+
         var now = new Date();
 
         var now_year = now.getFullYear();
@@ -18,7 +20,7 @@ app.controller("bbqCtrl", function($http, $scope){
             else $scope.calender[Math.floor(j / 7)][j % 7] = "";
         }
         console.log($scope.calender);
-        $scope.teacherFetch();
+
         console.log($scope.teacherArray);
         console.log($scope.status);
         $scope.changePage('home');
