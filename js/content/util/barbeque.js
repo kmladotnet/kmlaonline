@@ -107,7 +107,7 @@ app.controller("bbqCtrl", function($scope, $http){
         $http({
             method: 'POST',
             url: '/proc/util/barbeque_submit_new',
-            data: new_bbq,
+            data: $scope.new_bbq,
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
             }
