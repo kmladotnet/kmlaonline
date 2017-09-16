@@ -67,11 +67,11 @@
                 <td style="vertical-align: middle;">참여 학생</td>
                 <td colspan="5">
                     <ui-select multiple ng-model="new_bbq.selectedStudent" theme="bootstrap" ng-disabled="disabled" sortable="true" close-on-select="false">
-                        <ui-select-match placeholder="참여 학생을 선택해주세요">{{$item.grade}}{{$item.name}}</ui-select-match>
+                        <ui-select-match placeholder="참여 학생을 선택해주세요">{{$item.n_grade}}{{$item.s_name}}</ui-select-match>
                         <ui-select-choices repeat="student in (studentArray | filter: $select.search) track by student.n_student_id">
                             <div ng-bind-html="student.s_name | highlight: $select.search"></div>
                             <small>
-                                {{student.grade}}학년 {{student.name}}
+                                {{student.n_grade}}학년 {{student.s_class}}반
                             </small>
                         </ui-select-choices>
                     </ui-select>
