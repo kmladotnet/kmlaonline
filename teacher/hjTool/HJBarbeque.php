@@ -93,13 +93,15 @@ class HJBarbeque {
     function getMyRawBarbequeList($my_id, $rep=false){
         if(!is_numeric($my_id)) return false;
         if($rep){
-            $query = "SELECT * FROM `$this->table_data` WHERE rep_student_list = '$my_id'";
+            $query = "SELECT * FROM `$this->table_data` WHERE rep_student_id = '$my_id'";
         } else {
             $query = "SELECT * FROM `$this->table_data` WHERE student_list LIKE '$my_id|%' OR student_list LIKE '%|$my_id|%' OR student_list LIKE '%|$my_id'";
         }
+        echo $query;
 
         $temp = array();
         if($res = $this->db->query($query)){
+            echo "HJBarbeque - getMyRawBarbequeList()";
             print_r($res);
             return $res;
         } else {
