@@ -11,7 +11,23 @@ app.controller("bbqCtrl", function($scope, $http, $uibModal, $document, $log){
     $scope.items = ['item1', 'item2', 'item3'];
     $scope.animationEnabled = true;
 
-    $scope.open = function(size){
+
+    $scope.openModal=function(){
+        $scope.modalInstance=$modal.open({
+            templateUrl: 'myTestModal.tmpl.html',
+            scope:$scope
+        });
+    }
+
+    $scope.close=function(){
+        $scope.modalInstance.dismiss();//$scope.modalInstance.close() also works I think
+    };
+
+    $scope.doSomething=function(){
+        //any actions to take place
+        console.log("Do Something");
+    }
+    /*$scope.open = function(size){
          $scope.modalInstance = $uibModal.open({
             animation: $scope.animationEnabled,
             ariaLabelledBy: 'modal-title',
@@ -29,7 +45,7 @@ app.controller("bbqCtrl", function($scope, $http, $uibModal, $document, $log){
         }, function (){
             $log.info('Modal dismissed at: ' + new Date());
         });
-    };
+    };*/
 
     $scope.init = function() {
         $scope.config_calender();

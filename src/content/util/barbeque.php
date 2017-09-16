@@ -22,7 +22,23 @@ function printContent(){
                 <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
             </div>
         </script>
-        <h1>바베큐 신청</h1>
+        <script type="text/ng-template" id="myTestModal.tmpl.html">
+            <div class="modal-header">
+                <h3>Modal Header</h3>
+            </div>
+
+            <div class="modal-body">
+                <p>Modal Body</p>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" ng-click="close()" data-dismiss="modal">Close
+                </button>
+                <button type="button" class="btn btn-primary" ng-click="doSomething()">Do Something
+                </button>
+            </div>
+        </script>
+        <h1 ng-click="openModal()">바베큐 신청</h1>
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
