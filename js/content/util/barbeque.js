@@ -211,7 +211,7 @@ app.component('modalComponent', {
         this.onInit = function(){
             this.items = this.resolve.items;
             this.selected = {
-                item: this.items[0];
+                item: this.items[0]
             };
         };
 
