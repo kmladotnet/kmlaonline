@@ -139,5 +139,20 @@ app.controller("bbqCtrl", function($scope, $http){
             $scope.status = response.statusText;
             console.log("failed - fetchList");
         });
-    }
+    };
+
+    $scope.fetchRepList = function(){
+        $http({
+            method: "GET",
+            url: "/proc/util/barbeque_my_list_rep"
+        }).then(function mySuccess(response){
+            $scope.status = response.statusText;
+            $scope.bbqRepList = response.data;
+            console.log("success- fetchList");
+        }, function myError(response){
+            $scope.data = response.data || 'Request failed';
+            $scope.status = response.statusText;
+            console.log("failed - fetchList");
+        });
+    };
 });

@@ -11,13 +11,13 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>1</td>
-            <td>12학년 11반</td>
-            <td>11</td>
-            <td>2017-09-15</td>
-            <td>우창효 tr. (승인)</td>
-            <td>(승인)</td>
+        <tr ng-repeat="item in bbqRepList">
+            <td>{{$index + 1}}</td>
+            <td>{{item.title}}</td>
+            <td>{{bbq.student_list.split("|").length}}</td>
+            <td>{{bbq.date}}</td>
+            <td>{{bbq.teacher_name}}</td>
+            <td>{{bbq.status == 300 ? "(승인)" : "(미승인)"}}</td>
         </tr>
     </tbody>
 </table>
