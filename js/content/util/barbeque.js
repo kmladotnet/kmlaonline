@@ -49,7 +49,7 @@ app.controller("bbqCtrl", function($scope, $http){
             url: "/proc/util/barbeque_suggest_student"
         }).then(function mySuccess(response){
             $scope.status = response.statusText;
-            $scope.tArray = response.data;
+            $scope.studentArray = response.data;
         }, function myError(response){
             $scope.data = response.data || 'Request failed';
             $scope.status = response.statusText;
