@@ -1,12 +1,38 @@
 'use strict';
 
-var app = angular.module("bbqApp", ['ui.bootstrap', 'ngSanitize', 'ui.select']);
+var app = angular.module("bbqApp", ['ui.bootstrap', 'ngSanitize', 'ui.select', 'ngAnimate']);
 
-app.controller("bbqCtrl", function($scope, $http){
+app.controller("bbqCtrl", function($scope, $http, $uibModal, $document, $log){
 
     $scope.new_bbq = {};
     $scope.status = "ready";
     $scope.bbqList = [];
+
+    $scope.items = ['item1', 'item2', 'item3'];
+    $scope.animationEnabled = true;
+
+    /*$scope.open = function(size){
+        $uibModal.open({
+            animation: $scope.animationEnabled,
+            ariaLabelledBy: 'modal-title-bottom',
+            ariaDescribedBy: 'modal-body-bottom',
+            templateUrl: 'myModalContent.html',
+            controller: 'ModalInstanceCtrl',
+            controllerAs : '$ctrl',
+            size: size,
+            resolve: {
+                items: function (){
+                    return $ctrl.itmes;
+                }
+            }
+        });
+
+        modalInstance.result.then(function (selectedItem){
+            $scope.selected = selectedItem;
+        }, function(){
+            $log.info('Modal dismissed at: ' + new Date());
+        });
+    }; */
 
     $scope.init = function() {
         $scope.config_calender();

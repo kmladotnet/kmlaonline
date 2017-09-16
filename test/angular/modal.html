@@ -1,0 +1,57 @@
+<!doctype html>
+<html ng-app="ui.bootstrap.demo">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-animate.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-sanitize.js"></script>
+    <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+    <script src="modal.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div ng-controller="ModalDemoCtrl as $ctrl" class="modal-demo">
+        <script type="text/ng-template" id="myModalContent.html">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modal-title">I'm a modal!</h3>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <ul>
+                    <li ng-repeat="item in $ctrl.items">
+                        <a href="#" ng-click="$event.preventDefault(); $ctrl.selected.item = item">{{ item }}</a>
+                    </li>
+                </ul>
+                Selected: <b>{{ $ctrl.selected.item }}</b>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" type="button" ng-click="$ctrl.ok()">OK</button>
+                <button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">Cancel</button>
+            </div>
+        </script>
+        <script type="text/ng-template" id="stackedModal.html">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modal-title-{{name}}">The {{name}} modal!</h3>
+            </div>
+            <div class="modal-body" id="modal-body-{{name}}">
+                Having multiple modals open at once is probably bad UX but it's technically possible.
+            </div>
+        </script>
+
+        <button type="button" class="btn btn-default" ng-click="$ctrl.open()">Open me!</button>
+        <button type="button" class="btn btn-default" ng-click="$ctrl.open('lg')">Large modal</button>
+        <button type="button" class="btn btn-default" ng-click="$ctrl.open('sm')">Small modal</button>
+        <button type="button"
+            class="btn btn-default"
+            ng-click="$ctrl.open('sm', '.modal-parent')">
+                Modal appended to a custom parent
+        </button>
+        <button type="button" class="btn btn-default" ng-click="$ctrl.toggleAnimation()">Toggle Animation ({{ $ctrl.animationsEnabled }})</button>
+        <button type="button" class="btn btn-default" ng-click="$ctrl.openComponentModal()">Open a component modal!</button>
+        <button type="button" class="btn btn-default" ng-click="$ctrl.openMultipleModals()">
+            Open multiple modals at once
+        </button>
+        <div ng-show="$ctrl.selected">Selection from a modal: {{ $ctrl.selected }}</div>
+        <div class="modal-parent">
+        </div>
+    </div>
+</body>
+</html>
