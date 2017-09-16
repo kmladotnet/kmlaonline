@@ -121,5 +121,18 @@ app.controller("bbqCtrl", function($scope, $http){
         });
 
         return false;
+    };
+
+    $scope.fetchList = function(){
+        $http({
+            method: "GET",
+            url: "/proc/util/barbeque_my_list"
+        }).then(function mySuccess(response){
+            $scope.status = response.statusText;
+            $scope.bbqList = response.data;
+        }, function myError(response){
+            $scope.data = response.data || 'Request failed';
+            $scope.status = response.statusText;
+        });
     }
 });

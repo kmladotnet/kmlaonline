@@ -70,6 +70,43 @@ class HJBarbeque {
         }
     }
 
+    function getMyBarbequeList($my_id, $rep=false){
+        if(!is_numeric($my_id)) return false;
+        if($rep){
+            $query = "SELECT * FROM `$this->table_data` WHERE rep_student_list = '$my_id'";
+        } else {
+            $query = "SELECT * FROM `$this->table_data` WHERE student_list LIKE '$my_id|%' OR student_list LIKE '%|$my_id|%' OR student_list LIKE '%|$my_id'";
+        }
+
+        $temp = array();
+        if($res = $this->db->query($query)){
+            while($row = $res->fetch_assoc()){
+                array_push($temp, $row);
+            }
+            return $temp;
+        } else {
+            return false;
+        }
+
+    }
+
+    function getMyRawBarbequeList($my_id, $rep=false){
+        if(!is_numeric($my_id)) return false;
+        if($rep){
+            $query = "SELECT * FROM `$this->table_data` WHERE rep_student_list = '$my_id'";
+        } else {
+            $query = "SELECT * FROM `$this->table_data` WHERE student_list LIKE '$my_id|%' OR student_list LIKE '%|$my_id|%' OR student_list LIKE '%|$my_id'";
+        }
+
+        $temp = array();
+        if($res = $this->db->query($query)){
+            return $res;
+        } else {
+            return false;
+        }
+
+    }
+
     /*선생님 확인용*/
     function getBarbequeList($teacher = 0, $date = ""){
         if(!is_numeric($teacher)) return false;

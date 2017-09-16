@@ -125,6 +125,16 @@ class HJTeacher{
         return false;
     }
 
+    function getTeacherNameById($id){
+        if(!is_numeric($id)) return false;
+        $query = "SELECT s_name FROM `$this->table_data` WHERE n_id = $id";
+        if($res = $this->db->query($query)){
+            while($row = $result->fetch_assoc()){
+                return $row['s_name'];
+            }
+        }
+    }
+
     function getAllRawTeachers(){
         $query = "SELECT n_id, s_email, s_id, s_name FROM `$this->table_data`";
         $arr = array();
