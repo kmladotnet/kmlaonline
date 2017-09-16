@@ -11,28 +11,26 @@ app.controller("bbqCtrl", function($scope, $http, $uibModal, $document, $log){
     $scope.items = ['item1', 'item2', 'item3'];
     $scope.animationEnabled = true;
 
-    /*$scope.open = function(size){
-        $uibModal.open({
+    $scope.open = function(size){
+        var modalInstance = $uibModal.open({
             animation: $scope.animationEnabled,
-            ariaLabelledBy: 'modal-title-bottom',
-            ariaDescribedBy: 'modal-body-bottom',
-            templateUrl: 'myModalContent.html',
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+            templateUrl: 'viewDetails.html',
             controller: 'ModalInstanceCtrl',
-            controllerAs : '$ctrl',
+            controllerAs: '$mctrl',
             size: size,
-            resolve: {
-                items: function (){
-                    return $ctrl.itmes;
-                }
+            resolve: function() {
+                return $scope.items;
             }
         });
 
-        modalInstance.result.then(function (selectedItem){
+        modalInstance.result.then(function(selectedItem){
             $scope.selected = selectedItem;
-        }, function(){
+        }, function (){
             $log.info('Modal dismissed at: ' + new Date());
         });
-    }; */
+    };
 
     $scope.init = function() {
         $scope.config_calender();
@@ -182,4 +180,47 @@ app.controller("bbqCtrl", function($scope, $http, $uibModal, $document, $log){
             console.log("failed - fetchList");
         });
     };
+});
+
+app.controller('ModalInstanceCtrl', function($uibModalInstance, items){
+    $mctrl = this;
+    $mctrl.items = items;
+
+    $mctrl.selected = {
+        item: $mctrl.items[0]
+    };
+
+    $mctrl.ok = function(){
+        $uibModalInstance.close($ctrl.selected.item);
+    };
+
+    $mctrl.cancel = function(){
+        $uibModalInstance.dismiss('cancel');
+    };
+});
+
+app.component('modalComponent', {
+    templateUrl: 'viewDetails',
+    bindings: {
+        resolve: '<',
+        close: '&',
+        dismiss: '&'
+    },
+    controller: function(){
+
+        this.onInit = function(){
+            this.items = this.resolve.items;
+            this.selected = {
+                item: this.items[0];
+            };
+        };
+
+        this.ok = function(){
+            this.close({ $value: this.seletedItem});
+        };
+
+        this.cancel = function(){
+            this.dismiss({ $value: 'cancel'});
+        };
+    }
 });
