@@ -13,7 +13,7 @@ app.controller("bbqCtrl", function($scope, $http, $uibModal, $document, $log){
 
 
     $scope.openModal=function(){
-        $scope.modalInstance=$modal.open({
+        $scope.modalInstance=$uibModal.open({
             templateUrl: 'myTestModal.tmpl.html',
             scope:$scope
         });
