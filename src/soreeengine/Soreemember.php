@@ -273,7 +273,7 @@ class Soreemember{
 		else if($by==1 && strlen($member)==0) return false;
 		else if($by>2) return false;
 
-		$query="SELECT n_id, s_name, s_level, s_phone FROM `$this->table_data` WHERE ";
+		$query="SELECT n_id, s_name, n_level, s_phone FROM `$this->table_data` WHERE ";
 		$member=$this->escape($member);
 		switch($by){
 			case 0: if(isset($this->member_cache["n_id:".$member])){return $this->member_cache["n_id:".$member];} $query.="n_id=$member"; break;
