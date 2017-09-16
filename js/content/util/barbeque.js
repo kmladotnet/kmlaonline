@@ -90,7 +90,7 @@ app.controller("bbqCtrl", function($scope, $http){
 
     $scope.test = function(date){
         if(date != "") {
-            $scope.new_bbq.date = day;
+            $scope.new_bbq.date = date;
             $scope.dateSelected = true;
             alert(day + "일을 선택하셨습니다.");
         }
