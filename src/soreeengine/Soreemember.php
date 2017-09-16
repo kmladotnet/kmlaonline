@@ -275,19 +275,11 @@ class Soreemember{
 
 		$query="SELECT n_id, s_name, n_level, s_phone FROM `$this->table_data` WHERE ";
 		$member=$this->escape($member);
-		switch($by){
-			case 0: if(isset($this->member_cache["n_id:".$member])){return $this->member_cache["n_id:".$member];} $query.="n_id=$member"; break;
-			case 1: if(isset($this->member_cache["s_id:".$member])){return $this->member_cache["s_id:".$member];} $query.="s_id='$member'"; break;
-			case 2: if(isset($this->member_cache["s_email:".$member])){ return $this->member_cache["s_email:".$member];} $query.="s_email='$member'"; break;
-		}
+
 		if($res=$this->mysqli->query($query)){
 			while ($row = $res->fetch_array(MYSQLI_ASSOC)){
 				$res->close();
 				if($this->mysqli->more_results())$this->mysqli->next_result();
-				if($withpw===false){
-					unset($row['s_pw'], $row['s_pw_salt'], $row['s_pw_hash']);
-				}
-				$this->member_cache["n_id:".$row['n_id']]=$this->member_cache["s_id:".$row['s_id']]=$this->member_cache["s_email:".$row['s_email']]=$row;
 				return $row;
 			}
 		}
