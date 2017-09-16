@@ -5,18 +5,18 @@ class Soreemember{
 	private $attach_path="./data/member/";
 	private $table_data, $table_additional_data, $table_note, $table_block, $table_notice;
 	private $member_cache=array();
-	
+
 	private function escape($str){ // shortcut for Mysqli real escape string
 		return $this->mysqli->real_escape_string($str);
 	}
-	
+
 	public function getTableData(){ return $this->table_data; }
-	
+
 	function prepareFirstUse(){
 		$query=array();
 		array_push($query,"CREATE TABLE IF NOT EXISTS `$this->table_data` (".
 								"n_id BIGINT NOT NULL AUTO_INCREMENT,".
-								
+
 								/* Required */
 								"s_email char(255), KEY s_email (s_email), ".
 								"s_id char(64) NOT NULL, UNIQUE KEY s_id (s_id), ".
@@ -24,26 +24,26 @@ class Soreemember{
 								"s_pw_salt VARCHAR(1024) NOT NULL,".
 								"s_pw_hash TINYTEXT NOT NULL,".
 								"s_name TINYTEXT NOT NULL,".
-								
+
 								/* Internal */
 								"n_reg_date BIGINT NOT NULL DEFAULT 0,".
 								"n_access_date BIGINT NOT NULL DEFAULT 0,".
-								
+
 								"n_posts_started BIGINT NOT NULL DEFAULT 0,".
 								"n_posts_participated BIGINT NOT NULL DEFAULT 0,".
 								"n_point BIGINT NOT NULL DEFAULT 0,".
 								"n_level BIGINT NOT NULL DEFAULT 0,".
 								"n_admin INT NOT NULL DEFAULT 0,".
-								
+
 								/* Optional */
 								"s_real_name TINYTEXT,".
-								
+
 								"n_birth_date_yr INT NOT NULL DEFAULT 0,".
 								"n_birth_date_month TINYINT NOT NULL DEFAULT 0,".
 								"n_birth_date_day TINYINT NOT NULL DEFAULT 0,".
-								
+
 								"n_gender TINYINT NOT NULL DEFAULT 0,". // 0: Unspecified 1: Male 2: Female 3: Other
-								
+
 								"s_homepage TEXT,".
 								"s_phone VARCHAR(32),".
 								"s_selfintro TEXT,".
@@ -51,13 +51,13 @@ class Soreemember{
 								"s_interest TEXT,".
 								"s_pic TEXT,".
 								"s_icon TEXT,".
-								
+
 								/* Notes & Notices */ // TODO
 								"n_notices INT NOT NULL DEFAULT 0,".
 								"n_note_new INT NOT NULL DEFAULT 0,".
 								"n_note_got INT NOT NULL DEFAULT 0,".
 								"n_note_sent INT NOT NULL DEFAULT 0,".
-								
+
 								"PRIMARY KEY (n_id))");
 		array_push($query,"INSERT INTO `$this->table_data` (s_email, s_id, s_pw, s_pw_salt, s_pw_hash, s_name) VALUES ('',':anonymous','','','sha512','Anonymous')");
 		array_push($query,"CREATE TABLE IF NOT EXISTS `$this->table_additional_data` (".
@@ -112,7 +112,7 @@ class Soreemember{
 	}
 	function __destruct() {
 	}
-	
+
 	function modifyPostsStarted($id, $how){
 		if(!is_numeric($id) || !is_numeric($how)) return false;
 		return $this->mysqli->query("UPDATE `$this->table_data` SET n_posts_started=n_posts_started+$how WHERE n_id=$id");
@@ -121,7 +121,7 @@ class Soreemember{
 		if(!is_numeric($id) || !is_numeric($how)) return false;
 		return $this->mysqli->query("UPDATE `$this->table_data` SET n_posts_participated=n_posts_participated+$how WHERE n_id=$id");
 	}
-	
+
 	function setAdditionalData($id, $key, $value){
 		if(!is_numeric($id) || $key=="") return false;
 		$key=$this->escape($key);
@@ -136,7 +136,7 @@ class Soreemember{
 		$this->mysqli->rollback();$this->mysqli->autocommit(true);
 		return false;
 	}
-	
+
 	function getAdditionalData($id, $key=false){
 		if(!is_numeric($id)) return false;
 		$query="SELECT * FROM `$this->table_additional_data` WHERE n_id=$id";
@@ -155,7 +155,22 @@ class Soreemember{
 		if($key===false) return $arr;
 		return $val;
 	}
-	
+
+	//재학생 구별용 (학년 데이터를 가지고 있는지 확인)
+	function getCurrentMembers () {
+		$query = "SELECT * FROM `$this->table_additional_data` WHERE s_name = 'n_grade'";
+		$arr=array();
+		if($res = $this->mysqli->query($query)){
+			while ($row = $res->fetch_array(MYSQLI_ASSOC)){
+				$temp_id = (int) $row['n_id'];
+				$temp_member = $this->getMember($temp_id);
+				$temp = array_merge($temp_member, $this->getAdditionalData($temp_id));
+				array_push($arr, $temp);
+			}
+		}
+		return $arr;
+	}
+
 	function addMember($id, $pw, $name, $email, $point=0, $level=0, $homepage="", $phone="", $selfintro="", $pic="", $icon="", $s_real_name="", $n_birth_date_yr=0, $n_birth_date_month=0, $n_birth_date_day=0, $n_gender=0, $s_status_message="", $s_interest=""){
 		if(!is_numeric($point) || !is_numeric($level)) return false;
 		$pw_hash="sha512"; // ripe320 is better
@@ -164,7 +179,7 @@ class Soreemember{
 		for($i=0;$i<768;$i++) $pw_salt.=substr($avail,rand(0,strlen($avail)-1),1);
 		$pw_encoded=hash($pw_hash, $pw_salt . "|" . hash($pw_hash, $pw) . "|" . $pw_salt);
 		$this->mysqli->autocommit(false);
-		$query="INSERT INTO `$this->table_data` (s_id, s_pw, s_pw_salt, s_pw_hash, s_name, n_reg_date, n_access_date, n_point, n_level, s_email, s_homepage, s_phone, s_selfintro, s_pic, s_icon, s_real_name, n_birth_date_yr, n_birth_date_month, n_birth_date_day, n_gender, s_status_message, s_interest) VALUES (" . 
+		$query="INSERT INTO `$this->table_data` (s_id, s_pw, s_pw_salt, s_pw_hash, s_name, n_reg_date, n_access_date, n_point, n_level, s_email, s_homepage, s_phone, s_selfintro, s_pic, s_icon, s_real_name, n_birth_date_yr, n_birth_date_month, n_birth_date_day, n_gender, s_status_message, s_interest) VALUES (" .
 					"'" . $this->escape($id) . "', ".
 					"'" . $this->escape($pw_encoded) . "', ".
 					"'" . $this->escape($pw_salt) . "', ".
@@ -181,9 +196,9 @@ class Soreemember{
 					"'" . $this->escape($pic) . "', ".
 					"'" . $this->escape($icon) . "', ".
 					"'" . $this->escape($s_real_name) . "', ".
-					$n_birth_date_yr . ", " . 
-					$n_birth_date_month . ", " . 
-					$n_birth_date_day . ", " . 
+					$n_birth_date_yr . ", " .
+					$n_birth_date_month . ", " .
+					$n_birth_date_day . ", " .
 					$n_gender.", ".
 					"'" . $this->escape($s_status_message) ."', ".
 					"'" . $this->escape($s_interest) . "'".
@@ -231,7 +246,7 @@ class Soreemember{
 		if($by==0 && !is_numeric($member)) return false;
 		else if($by==1 && strlen($member)==0) return false;
 		else if($by>2) return false;
-		
+
 		$query="SELECT * FROM `$this->table_data` WHERE ";
 		$member=$this->escape($member);
 		switch($by){
@@ -335,7 +350,7 @@ class Soreemember{
 		$date=time();
 		if($member_from!=$member_to){
 			if(
-				($this->mysqli->query("INSERT INTO `$this->table_note` (n_owner, n_from, n_to, n_date, s_title, s_data) VALUES ($member_from, $member_from, $member_to, $date, '$title', '$data')")===true) && 
+				($this->mysqli->query("INSERT INTO `$this->table_note` (n_owner, n_from, n_to, n_date, s_title, s_data) VALUES ($member_from, $member_from, $member_to, $date, '$title', '$data')")===true) &&
 				($this->mysqli->query("INSERT INTO `$this->table_note` (n_owner, n_from, n_to, n_date, s_title, s_data) VALUES ($member_to, $member_from, $member_to, $date, '$title', '$data')")===true)
 				)
 				return $this->mysqli->insert_id;
@@ -470,7 +485,7 @@ class Soreemember{
 			$where=array("(".search_wherequery($search,$where,$search_mode_and?"AND":"OR",$search_submode_and?"AND":"OR").")");
 		}
 		if($level!==false) $where[]="(n_level=$level)";
-		
+
 		if(isset($where) && count($where)) $whereq="WHERE " . implode("AND", $where);
 		$query="SELECT * FROM `$this->table_data` $whereq";
 		if($count!=0) $query.=" LIMIT " . ($page*$count) . "," . $count;
@@ -549,7 +564,7 @@ class Soreemember{
 		return $this->mysqli->query($q)===true;
 	}
 	function purgeOldNotices($member=-1, $count=100){
-		// n_seen:1, 
+		// n_seen:1,
 	}
 
 }

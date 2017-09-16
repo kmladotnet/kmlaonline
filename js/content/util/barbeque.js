@@ -10,6 +10,7 @@ app.controller("bbqCtrl", function($scope, $http){
     $scope.init = function() {
         $scope.config_calender();
         $scope.changePage('home');
+
     }
 
     $scope.config_calender = function(){
@@ -41,6 +42,19 @@ app.controller("bbqCtrl", function($scope, $http){
             else $scope.calender[Math.floor(j / 7)][j % 7] = "";
         }
     };
+
+    $scope.studentFetch = function() {
+        $http({
+            method: "GET",
+            url: "/proc/util/barbeque_suggest_student"
+        }).then(function mySuccess(response){
+            $scope.status = response.statusText;
+            $scope.tArray = response.data;
+        }, function myError(response){
+            $scope.data = response.data || 'Request failed';
+            $scope.status = response.statusText;
+        });
+    }
 
     $scope.teacherFetch = function() {
         /*http method 작동 시점 생각해보기*/

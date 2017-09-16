@@ -49,7 +49,7 @@
             <tr>
                 <td style="width:15%; vertical-align: middle;">담당 교사</td>
                 <td colspan="5"><!--input type="text" name="teacher" class="form-control" placeholder="선택해주세요" style="width: 50%"-->
-                    <ui-select ng-model="teacherSelect.selected" theme="bootstrap">
+                    <ui-select ng-model="new_bbq.selectedTeacher" theme="bootstrap">
                         <ui-select-match>
                             <span ng-bind="$select.selected.s_name"></span>
                         </ui-select-match>
@@ -65,7 +65,17 @@
             </tr>
             <tr>
                 <td style="vertical-align: middle;">참여 학생</td>
-                <td colspan="5"><textarea class="form-control" placeholder="auto-complete 등 추가 기능은 나중에 구현"></textarea></td>
+                <td colspan="5">
+                    <ui-select multiple ng-model="new_bbq.selectedStudent" theme="bootstrap" ng-disabled="disabled" sortable="true" close-on-select="false">
+                        <ui-select-match placeholder="참여 학생을 선택해주세요">{{$item.grade}}{{$item.name}}</ui-select-match>
+                        <ui-select-choices repeat="student in (studentArray | filter: $select.search) track by student.student_id">
+                            <div ng-bind-html="student.name | highlight: $select.search"></div>
+                            <small>
+                                {{student.grade}}학년 {{student.name}}
+                            </small>
+                        </ui-select-choices>
+                    </ui-select>
+                </td>
             </tr>
         </tbody>
     </table>
