@@ -97,12 +97,9 @@ class HJBarbeque {
         } else {
             $query = "SELECT * FROM `$this->table_data` WHERE student_list LIKE '$my_id' OR student_list LIKE '$my_id|%' OR student_list LIKE '%|$my_id|%' OR student_list LIKE '%|$my_id'";
         }
-        echo $query;
 
         $temp = array();
         if($res = $this->db->query($query)){
-            echo "HJBarbeque - getMyRawBarbequeList()";
-            print_r($res);
             return $res;
         } else {
             return false;
