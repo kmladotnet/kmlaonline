@@ -95,6 +95,7 @@ app.controller("bbqCtrl", function($scope, $http){
             $scope.dateSelected = true;
             alert(date + "일을 선택하셨습니다.");
         }
+        console.log(bbqList);
     };
 
     $scope.submit = function(){
