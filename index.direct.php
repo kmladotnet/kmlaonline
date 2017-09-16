@@ -39,6 +39,7 @@
 
     <!-- angular-ui / bootstrap -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
 
     <?php
     if($_SERVER["REQUEST_URI"] === '/util/outdoor' || $_SERVER["REQUEST_URI"] === '/util/barbeque'){ ?>
