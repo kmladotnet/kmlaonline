@@ -132,9 +132,11 @@ app.controller("bbqCtrl", function($scope, $http){
         }).then(function mySuccess(response){
             $scope.status = response.statusText;
             $scope.bbqList = response.data;
+            console.log("success- fetchList");
         }, function myError(response){
             $scope.data = response.data || 'Request failed';
             $scope.status = response.statusText;
+            console.log("failed - fetchList");
         });
     }
 });

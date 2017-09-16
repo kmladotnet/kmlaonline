@@ -100,6 +100,7 @@ class HJBarbeque {
 
         $temp = array();
         if($res = $this->db->query($query)){
+            echo $res;
             return $res;
         } else {
             return false;
