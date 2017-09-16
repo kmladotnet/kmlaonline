@@ -92,7 +92,7 @@ app.controller("bbqCtrl", function($scope, $http){
         if(date != "") {
             $scope.new_bbq.date = date;
             $scope.dateSelected = true;
-            alert(day + "일을 선택하셨습니다.");
+            alert(date + "일을 선택하셨습니다.");
         }
     };
 });

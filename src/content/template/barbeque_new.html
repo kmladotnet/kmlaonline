@@ -1,4 +1,4 @@
-<h4>새로운 바베큐 신청 - {{new_bbq.date + "일" || "날짜를 선택하세요"}}</h4>
+<h4>새로운 바베큐 신청 - {{new_bbq.date == "" ? "날짜를 선택하세요" : new_bbq.date + "일"}}</h4>
 <form name="newBarbeque" ng-show="dateSelected">
     <table class="table table-striped">
         <tbody>
