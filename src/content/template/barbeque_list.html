@@ -1,21 +1,3 @@
-<script type="text/ng-template" id="viewDetails.html">
-    <div class="modal-header">
-        <h3 class="modal-title" id="modal-title">선택한 바베큐 보기</h3>
-    </div>
-    <div class="modal-body" id="modal-body">
-        <ul>
-            <li ng-repeat="item in items">
-                <a href="#" ng-click="$event.preventDefault(); selected.item = item">{{ item }}</a>
-            </li>
-        </ul>
-        Selected: <b>{{ selected.item }}</b>
-    </div>
-    <div class="modal-footer">
-        <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
-        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
-    </div>
-</script>
-
 <h2 ng-click="open('sm')">내가 신청한 바베큐 목록<span>3</span></h2>
 <table class="table">
     <thead>
