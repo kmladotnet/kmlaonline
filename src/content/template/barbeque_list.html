@@ -30,10 +30,18 @@
             <th style="width: 25%; text-align: center">제목</th>
             <th style="width: 15%; text-align: center">참가 인원</th>
             <th style="width: 25%; text-align: center">날짜</th>
-            <th style="width: 20%; text-align: center">담당 교사 승인</th>
-            <th style="width: 20%; text-align: center">행정실 승인</th>
+            <th style="width: 20%; text-align: center">담당 교사</th>
+            <th style="width: 20%; text-align: center">행정실</th>
         </tr>
     </thead>
     <tbody>
+        <tr ng-repeat="bbq in bbqList">
+            <td>{{$index + 1}}</td>
+            <td>{{bbq.title}}</td>
+            <td>{{bbq.student_list.split("|").length}}</td>
+            <td>{{bbq.date}}</td>
+            <td>{{bbq.teacher_name}}</td>
+            <td>{{bbq.status === 300 ? "승인" : "미승인"}}</td>
+        </tr>
     </tbody>
 </table>
