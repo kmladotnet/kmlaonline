@@ -95,7 +95,7 @@ class HJBarbeque {
         if($rep){
             $query = "SELECT * FROM `$this->table_data` WHERE rep_student_id = '$my_id'";
         } else {
-            $query = "SELECT * FROM `$this->table_data` WHERE student_list LIKE '$my_id|%' OR student_list LIKE '%|$my_id|%' OR student_list LIKE '%|$my_id'";
+            $query = "SELECT * FROM `$this->table_data` WHERE student_list LIKE '$my_id' OR student_list LIKE '$my_id|%' OR student_list LIKE '%|$my_id|%' OR student_list LIKE '%|$my_id'";
         }
         echo $query;
 

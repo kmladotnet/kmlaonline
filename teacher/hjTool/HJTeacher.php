@@ -129,7 +129,7 @@ class HJTeacher{
         if(!is_numeric($id)) return false;
         $query = "SELECT s_name FROM `$this->table_data` WHERE n_id = $id";
         if($res = $this->db->query($query)){
-            while($row = $result->fetch_assoc()){
+            while($row = $res->fetch_assoc()){
                 return $row['s_name'];
             }
         }
