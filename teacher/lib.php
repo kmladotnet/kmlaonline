@@ -12,6 +12,7 @@ function getMyProcessedBarbequeList($id){
         $row['teacher_name'] = $teacher->getTeacherNameById((int) $row['teacher_id']);
         unset($row['teacher_id']);
         array_push($arr, $row);
+        print_r($row);
     }
 
     return $arr;
