@@ -273,8 +273,9 @@ class Soreemember{
 		else if($by==1 && strlen($member)==0) return false;
 		else if($by>2) return false;
 
-		$query="SELECT n_id, s_name, n_level, s_phone FROM `$this->table_data` WHERE ";
 		$member=$this->escape($member);
+
+		$query="SELECT n_id, s_name, n_level, s_phone FROM `$this->table_data` WHERE n_id = $member";
 
 		if($res=$this->mysqli->query($query)){
 			while ($row = $res->fetch_array(MYSQLI_ASSOC)){
