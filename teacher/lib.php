@@ -6,7 +6,7 @@ require(__DIR__ . "/hjTool/dbHandler.php");
 function getMyProcessedBarbequeList($id){
     global $barbeque, $teacher;
 
-    $my_bbq_list = $barbeque->getMyBarbequeList($id);
+    $my_bbq_list = $barbeque->getMyRawBarbequeList($id);
     $arr = array();
     while($row = $my_bbq_list->fetch_assoc()){
         $row['teacher_name'] = $teacher->getTeacherNameById((int) $row['teacher_id']);
