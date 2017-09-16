@@ -28,6 +28,7 @@
         //TODO 연도 나중에 바꿔줄 것 (javascript로 받으세요)
         //function addBarbeque($date, $s_time, $f_time, $t_id, $title, $student_list, $rep_id, $rest_req="", $exeq_req="", $status)
         $barbeque->addBarbeque("2017" . $date, $start_hr . ":" . $start_min, $finish_hr . ":" . $finish_min, $teacher->n_id, "임시 테스트", $participant_f, $me['n_id'], "", "", 100);
+        echo print_r($result);
         http_response_code(200);
     } else {
         http_response_code(404);
