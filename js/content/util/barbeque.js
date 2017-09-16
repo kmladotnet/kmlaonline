@@ -12,20 +12,19 @@ app.controller("bbqCtrl", function($scope, $http, $uibModal, $document, $log){
     $scope.animationEnabled = true;
 
     $scope.open = function(size){
-        var modalInstance = $uibModal.open({
+         $scope.modalInstance = $uibModal.open({
             animation: $scope.animationEnabled,
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
             templateUrl: 'viewDetails.html',
-            controller: 'ModalInstanceCtrl',
-            controllerAs: '$mctrl',
+            scope: $scope,
             size: size,
             resolve: function() {
                 return $scope.items;
             }
         });
 
-        modalInstance.result.then(function(selectedItem){
+        $scope.modalInstance.result.then(function(selectedItem){
             $scope.selected = selectedItem;
         }, function (){
             $log.info('Modal dismissed at: ' + new Date());
@@ -182,7 +181,7 @@ app.controller("bbqCtrl", function($scope, $http, $uibModal, $document, $log){
     };
 });
 
-app.controller('ModalInstanceCtrl', function($uibModalInstance, items){
+/*app.controller('ModalInstanceCtrl', function($uibModalInstance, items){
     $mctrl = this;
     $mctrl.items = items;
 
@@ -191,7 +190,7 @@ app.controller('ModalInstanceCtrl', function($uibModalInstance, items){
     };
 
     $mctrl.ok = function(){
-        $uibModalInstance.close($ctrl.selected.item);
+        $uibModalInstance.close($mctrl.selected.item);
     };
 
     $mctrl.cancel = function(){
@@ -223,4 +222,4 @@ app.component('modalComponent', {
             this.dismiss({ $value: 'cancel'});
         };
     }
-});
+}); */
