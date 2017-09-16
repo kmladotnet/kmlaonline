@@ -35,8 +35,8 @@ class HJBarbeque {
     function __destruct(){
     }
 
-    function addBarbeque($date, $s_time, $f_time, $t_id, $title, $student_list, $rep_id, $rest_req="", $exeq_req=""){
-        if(!is_numeric($t_id) || !is_numeric($rep_id)) return false;
+    function addBarbeque($date, $s_time, $f_time, $t_id, $title, $student_list, $rep_id, $rest_req="", $exeq_req="", $status="100"){
+        if(!is_numeric($t_id) || !is_numeric($rep_id) || !is_numeric($status)) return false;
 
         $date = $this->escape($date);
         $s_time = $this->escape($s_time);
@@ -57,7 +57,7 @@ class HJBarbeque {
                     "'" . $rest_req . "'," .
                     "'" . $exeq_req . "'," .
                     $rep_id . "," .
-                    "100)";
+                    $status . ")";
         echo $query . "\n";
         if($this->db->query($query)===true){
             $ins_id = $this->db->insert_id;

@@ -95,4 +95,31 @@ app.controller("bbqCtrl", function($scope, $http){
             alert(date + "일을 선택하셨습니다.");
         }
     };
+
+    $scope.submit = function(){
+
+        var config = {
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+            }
+        };
+
+        $http({
+            method: 'POST',
+            url: '/proc/util/barbeque_submit_new',
+            data: new_bbq,
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+            }
+        }).then(function mySuccess(response){
+            $scope.new_bbq = {};
+            $scope.changePage('my-barbeque');
+            console.log("submit success");
+        }, function myError(response){
+            $scope.status = "Request failed";
+            console.log("submit failed");
+        });
+
+        return false;
+    }
 });
