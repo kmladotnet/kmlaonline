@@ -9,8 +9,8 @@ app.controller("bbqCtrl", function($scope, $http){
 
     $scope.init = function() {
         $scope.config_calender();
+        $scope.studentFetch();
         $scope.changePage('home');
-
     }
 
     $scope.config_calender = function(){
