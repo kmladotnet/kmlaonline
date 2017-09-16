@@ -11,6 +11,7 @@ app.controller("bbqCtrl", function($scope, $http){
         $scope.config_calender();
         $scope.studentFetch();
         $scope.changePage('home');
+        $scope.dateSelected = false;
     }
 
     $scope.config_calender = function(){
@@ -87,7 +88,11 @@ app.controller("bbqCtrl", function($scope, $http){
         }
     };
 
-    $scope.test = function(day){
-        if(day != "") alert(day + "일을 선택하셨습니다.");
+    $scope.test = function(date){
+        if(date != "") {
+            $scope.new_bbq.date = day;
+            $scope.dateSelected = true;
+            alert(day + "일을 선택하셨습니다.");
+        }
     };
 });
