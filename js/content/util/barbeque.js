@@ -85,6 +85,7 @@ app.controller("bbqCtrl", function($scope, $http){
                 break;
             case 'my-barbeque':
                 $scope.page = '/src/content/template/barbeque_list.html';
+                $scope.fetchRepList();
                 $scope.fetchList();
                 break;
         }
