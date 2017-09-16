@@ -3,10 +3,10 @@ date_default_timezone_set("Asia/Seoul");
 include "hjTool/HJTools.php";
 require(__DIR__ . "/hjTool/dbHandler.php");
 
-function getMyProcessedBarbequeList(){
+function getMyProcessedBarbequeList($id){
     global $barbeque, $teacher;
 
-    $my_bbq_list = $barbeque->getMyBarbequeList($me['n_id']);
+    $my_bbq_list = $barbeque->getMyBarbequeList($id);
     $arr = array();
     while($row = $my_bbq_list->fetch_assoc()){
         $row['teacher_name'] = $teacher->getTeacherNameById((int) $row['teacher_id']);
