@@ -1,5 +1,5 @@
 <?php
-    if(!isset($_SESSION['user'])){
+    if(isset($_SESSION['user'])){
         $bid = $_GET['bid'];
         $rep_id = $_GET['rep_id'];
 
