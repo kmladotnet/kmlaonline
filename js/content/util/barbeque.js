@@ -12,7 +12,7 @@ app.controller("bbqCtrl", function($scope, $http, $uibModal, $document, $log){
     $scope.animationEnabled = true;
 
 
-    $scope.openModal=function(){
+    $scope.openModal=function(bbq_id){
         $scope.modalInstance=$uibModal.open({
             ariaLabelledBy: 'detail-modal-header',
             ariaDescribedBy: 'detail-modal-body',
@@ -20,6 +20,8 @@ app.controller("bbqCtrl", function($scope, $http, $uibModal, $document, $log){
             size: 'lg',
             scope:$scope
         });
+
+        console.log(bbq_id);
     }
 
     $scope.close=function(){
