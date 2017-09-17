@@ -22,6 +22,8 @@ app.controller("bbqCtrl", function($scope, $http, $uibModal, $document, $log){
         });
 
         var _findBBQById = function(element){
+            console.log(typeof element.n_id);
+            console.log(typeof bbq_id);
             return element.n_id === bbq_id;
         }
 
