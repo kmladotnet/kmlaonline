@@ -11,12 +11,12 @@ app.controller("bbqCtrl", function($scope, $http, $uibModal, $document, $log){
     $scope.items = ['item1', 'item2', 'item3'];
     $scope.animationEnabled = true;
 
-    $scope.openModal=function(bbq_id){
+    $scope.openModal=function(bbq_id, size){
         $scope.modalInstance=$uibModal.open({
             ariaLabelledBy: 'detail-modal-header',
             ariaDescribedBy: 'detail-modal-body',
             templateUrl: 'myTestModal.tmpl.html',
-            size: 'lg',
+            size: size,
             scope:$scope
         });
 

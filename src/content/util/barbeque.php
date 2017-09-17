@@ -16,7 +16,7 @@ function printContent(){
                 <p>지도 교사: {{modalSelectedBBQ.teacher_name}} 선생님</p>
                 <p>참여 인원(지도 교사 제외): {{modalSelectedBBQ.student_list.split("|").length + 1}}</p>
                 <p>참가 학생 명단</p>
-                <p>{{modalSelectedBBQ.student_list.split("|").join(", ")}}</p>
+                <p>{{modalSelectedBBQ.student_name_list.split("|").join(", ")}}</p>
             </div>
 
             <div class="modal-footer">

@@ -36,7 +36,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="bbq in bbqList track by $index" ng-click="openModal(bbq.n_id)">
+        <tr ng-repeat="bbq in bbqList track by $index" ng-click="openModal(bbq.n_id, 'sm')">
             <td>{{$index + 1}}</td>
             <td>{{bbq.title}}</td>
             <td>{{bbq.student_list.split("|").length}}</td>
