@@ -27,6 +27,26 @@ app.controller("bbqCtrl", function($scope, $http, $uibModal, $document, $log){
         $scope.modalSelectedRepBBQ = Object.assign({}, $scope.bbqRepList.find(_findBBQById));
     }
 
+    $scope.closeViewModal = function(){
+        $scope.modalInstance2.dismiss();
+    };
+
+    $scope.delete = function(){
+        $http({
+            method: "GET",
+            url: "/proc/util/barbeque_delete?" + "bid=" + $scope.modalSelectedRepBBQ.n_id
+                + "&rep_id=" + $scope.modalSelectedRepBBQ.rep_student_id
+        }).then(function mySuccess(response){
+            $scope.status = response.statusText;
+            console.log(response.statusText);
+            $scope.modalInstance2.close();
+        }, function myError(response){
+            $scope.data = response.data || 'Request failed';
+            $scope.status = response.statusText;
+            console.log(response.statusText);
+        });
+    }
+
     $scope.openModal = function(bbq_id){
         $scope.modalInstance = $uibModal.open({
             ariaLabelledBy: 'detail-modal-header',
@@ -46,22 +66,6 @@ app.controller("bbqCtrl", function($scope, $http, $uibModal, $document, $log){
     $scope.close = function(){
         $scope.modalInstance.dismiss();
     };
-
-    $scope.delete = function(){
-        $http({
-            method: "GET",
-            url: "/proc/util/barbeque_delete?" + "bid=" + $scope.modalSelectedRepBBQ.n_id
-                + "&rep_id=" + $scope.modalSelectedRepBBQ.rep_student_id
-        }).then(function mySuccess(response){
-            $scope.status = response.statusText;
-            console.log(response.statusText);
-            $scope.modalInstance.close();
-        }, function myError(response){
-            $scope.data = response.data || 'Request failed';
-            $scope.status = response.statusText;
-            console.log(response.statusText);
-        });
-    }
 
     /*$scope.open = function(size){
          $scope.modalInstance = $uibModal.open({
