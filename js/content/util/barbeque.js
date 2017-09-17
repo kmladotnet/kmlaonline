@@ -21,8 +21,12 @@ app.controller("bbqCtrl", function($scope, $http, $uibModal, $document, $log){
             scope:$scope
         });
 
+        var _findBBQById = function(element){
+            return element.n_id === bbq_id;
+        }
+
         console.log(bbq_id);
-        console.log($scope.bbqList.find($scope._findBBQById));
+        console.log($scope.bbqList._findBBQById);
     }
 
     $scope.close=function(){
@@ -200,10 +204,6 @@ app.controller("bbqCtrl", function($scope, $http, $uibModal, $document, $log){
             $scope.status = response.statusText;
             console.log("failed - fetchList");
         });
-    };
-
-    $scope._findBBQById = function(id){
-        return element.n_id === id;
     };
 });
 
