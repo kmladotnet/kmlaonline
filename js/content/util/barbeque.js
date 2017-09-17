@@ -11,12 +11,28 @@ app.controller("bbqCtrl", function($scope, $http, $uibModal, $document, $log){
     $scope.items = ['item1', 'item2', 'item3'];
     $scope.animationEnabled = true;
 
-    $scope.openModal=function(bbq_id, size){
-        $scope.modalInstance=$uibModal.open({
+    $scope.openViewModal = function(bbq_id){
+        $scope.modalInstance2 = $uibModal.open({
+            ariaLabelledBy: 'detail-modal-header2',
+            ariaDescribedBy: 'detail-modal-body2',
+            templateUrl: 'myViewModal.tmpl.html',
+            size: 'lg',
+            scope:$scope
+        });
+
+        var _findBBQById = function(element){
+            return element.n_id === bbq_id;
+        }
+
+        $scope.modalSelectedRepBBQ = Object.assign({}, $scope.bbqRepList.find(_findBBQById));
+    }
+
+    $scope.openModal = function(bbq_id){
+        $scope.modalInstance = $uibModal.open({
             ariaLabelledBy: 'detail-modal-header',
             ariaDescribedBy: 'detail-modal-body',
-            templateUrl: 'myTestModal.tmpl.html',
-            size: size,
+            templateUrl: 'myModal.tmpl.html',
+            size: 'lg',
             scope:$scope
         });
 
@@ -28,13 +44,9 @@ app.controller("bbqCtrl", function($scope, $http, $uibModal, $document, $log){
     }
 
     $scope.close=function(){
-        $scope.modalInstance.dismiss();//$scope.modalInstance.close() also works I think
+        $scope.modalInstance.dismiss();
     };
 
-    $scope.doSomething=function(){
-        //any actions to take place
-        console.log("Do Something");
-    }
     /*$scope.open = function(size){
          $scope.modalInstance = $uibModal.open({
             animation: $scope.animationEnabled,

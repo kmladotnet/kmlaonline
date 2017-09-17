@@ -5,9 +5,9 @@ $title = "바베큐 신청 - " . $title;
 function printContent(){
     ?>
     <div ng-app="bbqApp" ng-controller="bbqCtrl" ng-init="init()" ng-cloak>
-        <script type="text/ng-template" id="myTestModal.tmpl.html">
+        <script type="text/ng-template" id="myModal.tmpl.html">
             <div class="modal-header" id="detail-modal-header">
-                <h3>선택한 바베큐 항목 (상세보기)</h3>
+                <h3>내가 참가 할 바베큐 항목 (상세보기)</h3>
             </div>
 
             <div class="modal-body" id="detail-modal-body">
@@ -15,18 +15,34 @@ function printContent(){
                 <p>시간: {{modalSelectedBBQ.start_time}} ~ {{modalSelectedBBQ.finish_time}}</p>
                 <p>지도 교사: {{modalSelectedBBQ.teacher_name}} 선생님</p>
                 <p>참여 인원(지도 교사 제외): {{modalSelectedBBQ.student_list.split("|").length + 1}}</p>
-                <p>참가 학생 명단</p>
-                <p>{{modalSelectedBBQ.student_name_list.split("|").join(", ")}}</p>
+                <p>참가 학생 명단: {{modalSelectedBBQ.student_name_list.split("|").join(", ")}}</p>
             </div>
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" ng-click="close()" data-dismiss="modal">Close
                 </button>
-                <button type="button" class="btn btn-primary" ng-click="doSomething()">Do Something
+            </div>
+        </script>
+
+        <script type="text/ng-template" id="myViewModal.tmpl.html">
+            <div class="modal-header" id="detail-modal-header2">
+                <h3>내가 신청한 바베큐 항목 (상세보기)</h3>
+            </div>
+
+            <div class="modal-body" id="detail-modal-body2">
+                <p>바베큐 진행일: {{modalSelectedBBQ.date}}</p>
+                <p>시간: {{modalSelectedBBQ.start_time}} ~ {{modalSelectedBBQ.finish_time}}</p>
+                <p>지도 교사: {{modalSelectedBBQ.teacher_name}} 선생님</p>
+                <p>참여 인원(지도 교사 제외): {{modalSelectedBBQ.student_list.split("|").length + 1}}</p>
+                <p>참가 학생 명단: {{modalSelectedBBQ.student_name_list.split("|").join(", ")}}</p>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" ng-click="close()" data-dismiss="modal">Close
                 </button>
             </div>
         </script>
-        <h1 ng-click="openModal()">바베큐 신청</h1>
+        <h1>바베큐 신청</h1>
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">

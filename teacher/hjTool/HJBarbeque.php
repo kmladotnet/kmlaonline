@@ -107,6 +107,16 @@ class HJBarbeque {
 
     }
 
+    function deleteBarbeque($bid){
+        if(!is_numeric($bid)) return fasle;
+        $query = "DELETE FROM `$this->table_data` WHERE n_id = $bid";
+        if($this->db->query($query)){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     /*선생님 확인용*/
     function getBarbequeList($teacher = 0, $date = ""){
         if(!is_numeric($teacher)) return false;

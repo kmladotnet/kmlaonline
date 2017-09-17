@@ -12,7 +12,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="item in bbqRepList">
+        <tr ng-repeat="item in bbqRepList" ng-click="openViewModal(item.n_id)">
             <td>{{$index + 1}}</td>
             <td>{{item.title}}</td>
             <td>{{item.student_list.split("|").length}}</td>
@@ -36,7 +36,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="bbq in bbqList track by $index" ng-click="openModal(bbq.n_id, 'sm')">
+        <tr ng-repeat="bbq in bbqList track by $index" ng-click="openModal(bbq.n_id)">
             <td>{{$index + 1}}</td>
             <td>{{bbq.title}}</td>
             <td>{{bbq.student_list.split("|").length}}</td>
