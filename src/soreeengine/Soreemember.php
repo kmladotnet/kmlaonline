@@ -217,12 +217,13 @@ class Soreemember{
 
 	function getMemberNameById($id){
 		if(!is_numeric($id)) return false;
+
 		$query = "SELECT s_name FROM `$this->table_data` WHERE n_id = $id";
+
 		if($res = $this->mysqli->query($query)){
-			whlie($row = $res->fetch_assoc()){
-				$temp = $row['s_name'];
+			while($row = $res->fetch_assoc()){
+				return $row['s_name'];
 			}
-			return $temp;
 		} else {
 			return false;
 		}
