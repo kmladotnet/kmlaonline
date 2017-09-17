@@ -214,6 +214,19 @@ class Soreemember{
 			return false;
 		}
 	}
+
+	function getMemberNameById($id){
+		if(!is_numeric($id)) return false;
+		$query = "SELECT s_name FROM `$this->table_data` WHERE n_id = $id";
+		if($res = $this->mysqli->query($query)){
+			whlie($row = $res->fetch_assoc()){
+				return $row['s_name'];
+			}
+		} else {
+			return false;
+		}
+	}
+
 	function recordMemberAccess($member){
 		if(!is_numeric($member)) return false;
 		$query="UPDATE `$this->table_data` SET n_access_date=".time()." WHERE n_id=$member";

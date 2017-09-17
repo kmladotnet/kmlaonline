@@ -1,15 +1,24 @@
 <?php
 date_default_timezone_set("Asia/Seoul");
 include "hjTool/HJTools.php";
+include "../src/soreeengine/SoreeTools.php";
 require(__DIR__ . "/hjTool/dbHandler.php");
 
 function getMyProcessedBarbequeList($id, $rep=false){
-    global $barbeque, $teacher;
+    global $barbeque, $teacher, $member;
 
     $my_bbq_list = $barbeque->getMyRawBarbequeList($id, $rep);
     $arr = array();
     while($row = $my_bbq_list->fetch_assoc()){
         $row['teacher_name'] = $teacher->getTeacherNameById((int) $row['teacher_id']);
+
+        $temp = explode("|", $row['student_list']);
+        $st_name_arr = array();
+        for($i = 0; $i < count($temp); $i++){
+            array_push($st_name_arr, $member->getMemberNameById((int) $temp[$i]));
+        }
+        $row['student_name_list'] = $st_name_arr.join("|");
+
         unset($row['teacher_id']);
         array_push($arr, $row);
     }
