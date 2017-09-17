@@ -14,7 +14,10 @@ app.controller("bbqCtrl", function($scope, $http, $uibModal, $document, $log){
 
     $scope.openModal=function(){
         $scope.modalInstance=$uibModal.open({
+            ariaLabelledBy: 'detail-modal-header',
+            ariaDescribedBy: 'detail-modal-body',
             templateUrl: 'myTestModal.tmpl.html',
+            size: 'lg',
             scope:$scope
         });
     }

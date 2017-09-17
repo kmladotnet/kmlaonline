@@ -5,30 +5,13 @@ $title = "바베큐 신청 - " . $title;
 function printContent(){
     ?>
     <div ng-app="bbqApp" ng-controller="bbqCtrl" ng-init="init()" ng-cloak>
-        <script type="text/ng-template" id="viewDetails.html">
-            <div class="modal-header">
-                <h3 class="modal-title" id="modal-title">선택한 바베큐 보기</h3>
-            </div>
-            <div class="modal-body" id="modal-body">
-                <ul>
-                    <li ng-repeat="item in items">
-                        <a href="#" ng-click="$event.preventDefault(); selected.item = item">{{ item }}</a>
-                    </li>
-                </ul>
-                Selected: <b>{{ selected.item }}</b>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
-                <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
-            </div>
-        </script>
         <script type="text/ng-template" id="myTestModal.tmpl.html">
-            <div class="modal-header">
-                <h3>Modal Header</h3>
+            <div class="modal-header" id="detail-modal-header">
+                <h3>선택한 바베큐 항목 (상세보기)</h3>
             </div>
 
-            <div class="modal-body">
-                <p>Modal Body</p>
+            <div class="modal-body" id="detail-modal-body">
+                <p>내용이 들어감</p>
             </div>
 
             <div class="modal-footer">
