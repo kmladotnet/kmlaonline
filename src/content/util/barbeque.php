@@ -38,7 +38,9 @@ function printContent(){
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" ng-click="close()" data-dismiss="modal">Close
+                <button type="button" class="btn btn-default" ng-click="close()" data-dismiss="modal">닫기
+                </button>
+                <button type="button" class="btn btn-warning" ng-click="delete()">신청 취소
                 </button>
             </div>
         </script>
