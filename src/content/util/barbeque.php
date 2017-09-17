@@ -11,7 +11,8 @@ function printContent(){
             </div>
 
             <div class="modal-body" id="detail-modal-body">
-                <p>내용이 들어감</p>
+                {{modalSelectedBBQ.n_id}}
+                {{modalSelectedBBQ.start_time}} ~ {{modalSelectedBBQ.finish_time}}
             </div>
 
             <div class="modal-footer">

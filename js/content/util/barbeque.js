@@ -11,7 +11,6 @@ app.controller("bbqCtrl", function($scope, $http, $uibModal, $document, $log){
     $scope.items = ['item1', 'item2', 'item3'];
     $scope.animationEnabled = true;
 
-
     $scope.openModal=function(bbq_id){
         $scope.modalInstance=$uibModal.open({
             ariaLabelledBy: 'detail-modal-header',
@@ -25,8 +24,7 @@ app.controller("bbqCtrl", function($scope, $http, $uibModal, $document, $log){
             return element.n_id === bbq_id;
         }
 
-        console.log(bbq_id);
-        console.log($scope.bbqList.find(_findBBQById));
+        $scope.modalSelectedBBQ = Object.assign({}, $scope.bbqList.find(_findBBQById));
     }
 
     $scope.close=function(){
