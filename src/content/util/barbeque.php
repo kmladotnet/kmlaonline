@@ -30,11 +30,11 @@ function printContent(){
             </div>
 
             <div class="modal-body" id="detail-modal-body2">
-                <p>바베큐 진행일: {{modalSelectedBBQ.date}}</p>
-                <p>시간: {{modalSelectedBBQ.start_time}} ~ {{modalSelectedBBQ.finish_time}}</p>
-                <p>지도 교사: {{modalSelectedBBQ.teacher_name}} 선생님</p>
-                <p>참여 인원(지도 교사 제외): {{modalSelectedBBQ.student_list.split("|").length + 1}}</p>
-                <p>참가 학생 명단: {{modalSelectedBBQ.student_name_list.split("|").join(", ")}}</p>
+                <p>바베큐 진행일: {{modalSelectedRepBBQ.date}}</p>
+                <p>시간: {{modalSelectedRepBBQ.start_time}} ~ {{modalSelectedRepBBQ.finish_time}}</p>
+                <p>지도 교사: {{modalSelectedRepBBQ.teacher_name}} 선생님</p>
+                <p>참여 인원(지도 교사 제외): {{modalSelectedRepBBQ.student_list.split("|").length + 1}}</p>
+                <p>참가 학생 명단: {{modalSelectedRepBBQ.student_name_list.split("|").join(", ")}}</p>
             </div>
 
             <div class="modal-footer">
