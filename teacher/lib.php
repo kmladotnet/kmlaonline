@@ -17,7 +17,7 @@ function getMyProcessedBarbequeList($id, $rep=false){
         for($i = 0; $i < count($temp); $i++){
             array_push($st_name_arr, $member->getMemberNameById((int) $temp[$i]));
         }
-        $row['student_name_list'] = $st_name_arr.join("|");
+        $row['student_name_list'] = implode("|", $st_name_arr);
 
         unset($row['teacher_id']);
         array_push($arr, $row);
