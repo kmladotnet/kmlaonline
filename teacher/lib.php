@@ -1,7 +1,7 @@
 <?php
 date_default_timezone_set("Asia/Seoul");
 include "hjTool/HJTools.php";
-include "../src/soreeengine/SoreeTools.php";
+//include "../src/soreeengine/SoreeTools.php";
 require(__DIR__ . "/hjTool/dbHandler.php");
 
 function getMyProcessedBarbequeList($id, $rep=false){
