@@ -22,13 +22,11 @@ app.controller("bbqCtrl", function($scope, $http, $uibModal, $document, $log){
         });
 
         var _findBBQById = function(element){
-            console.log(typeof element.n_id);
-            console.log(typeof bbq_id);
             return element.n_id === bbq_id;
         }
 
         console.log(bbq_id);
-        console.log($scope.bbqList._findBBQById);
+        console.log($scope.bbqList.find(_findBBQById));
     }
 
     $scope.close=function(){
