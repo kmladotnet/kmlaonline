@@ -43,7 +43,7 @@
 
     <?php
     if($_SERVER["REQUEST_URI"] === '/util/outdoor' || $_SERVER["REQUEST_URI"] === '/util/barbeque'){ ?>
-        <script src=<?php echo "/js/content" . $_SERVER["REQUEST_URI"] .".js"?> ></script>
+        <script src=<?php echo "/js/content" . $_SERVER["REQUEST_URI"] .".js?v=2"?> ></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.20.0/select.css"></link>
         <script type="text/javascript" src="js/select.js"></script>
         <link rel="stylesheet" href=<?php "css/content" . $_SERVER["REQUEST_URI"] . ".css" ?>>
