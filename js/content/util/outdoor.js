@@ -58,9 +58,9 @@ app.controller("outdoorCtrl", function($http, $scope){
                 break;
         }
         temp.push($scope.annDefaultGroup[7]);
-        console.log(temp);
+        //console.log(temp);
         $scope.announceArr = temp;
-        console.log($scope.announceArr);
+        //console.log($scope.announceArr);
     };
 
     $scope.specialActTeacher = function(){
