@@ -27,16 +27,14 @@ function printContent(){
                     <table style="width:100%; word-break: keep-all;" class="table table-striped table-hover contacts" cellspacing="0">
                         <thead>
                             <tr style="height:32px;">
-                                <th>이름</th>
-                                <th>방</th>
-                                <th>학번</th>
-                                <th>학년 반</th>
-                                <th>성별</th>
-                                <th>핸드폰</th>
-                                <th>생일</th>
-                                <th>E-Mail</th>
-                                <th>홈페이지</th>
-                                <th>상태 메시지</th>
+                                <th style="text-align:center">이름</th>
+                                <th style="text-align:center">방</th>
+                                <th style="text-align:center">학번</th>
+                                <th style="text-align:center">학년 반</th>
+                                <th style="text-align:center">성별</th>
+                                <th style="text-align:center">핸드폰</th>
+                                <th style="text-align:center">생일</th>
+                                <th style="text-align:center">E-Mail</th>
                             </tr>
                         </thead>
                         <tbody class="userlist-body">
@@ -84,19 +82,6 @@ function printContent(){
                                         <a href="mailto:<?php echo rawurlencode($m['s_email'])?>">
                                             <?php echo $m['s_email']; ?>
                                         </a>
-                                    </td>
-                                    <td style="text-align:center">
-                                        <?php if($m['s_homepage']!=""){ ?>
-                                            <?php if(filter_var($m['s_homepage'], FILTER_VALIDATE_URL) === false) {
-                                                echo htmlspecialchars($m['s_homepage']);
-                                            } else {?>
-                                                <a target="_blank" rel="closenow" href="<?php echo $m['s_homepage']; ?>">
-                                                    (바로가기)
-                                                </a>
-                                        <?php }}else{ ?><span style="color:gray">(없음)</span><?php } ?>
-                                    </td>
-                                    <td style="text-align:left">
-                                        <?php echo htmlspecialchars($m['s_status_message']) ?>
                                     </td>
                                 </tr>
                                 <?php } ?>
