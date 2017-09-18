@@ -77,7 +77,7 @@ function printContent(){
 								<th>전화번호</th>
 								<td><input class="form-control" type="text" name="s_phone" value='<?php echo htmlspecialchars(isset($_POST['s_phone'])?$_POST['s_phone']:$me['s_phone'])?>' /></td>
 							</tr>
-							<tr>
+							<!--tr>
 								<th>학년, 반, 방, 학번</th>
 								<td>
 									<input class="form-control" type="text" name="n_grade" value='<?php echo htmlspecialchars(isset($_POST['n_grade'])?$_POST['n_grade']:$me['n_grade'])?>' style="display: inline-block; width:64px;" /> 학년
@@ -85,7 +85,7 @@ function printContent(){
 									방: <input class="form-control" type="text" name="s_room" value='<?php echo htmlspecialchars(isset($_POST['s_room'])?$_POST['s_room']:$me['s_room'])?>' style="display: inline-block; width:64px;" /><br />
 									학번: <input class="form-control" type="text" name="n_student_id" style="display: inline-block; width:80px" value='<?php echo htmlspecialchars(isset($_POST['n_student_id'])?$_POST['n_student_id']:$me['n_student_id'])?>' />
 								</td>
-							</tr>
+							</tr-->
 							<tr>
 								<th>사진 변경</th>
 								<td>
