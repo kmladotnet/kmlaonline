@@ -183,7 +183,31 @@ app.controller("outdoorCtrl", function($http, $scope){
         });
     };
 
+    $scope.stat = function(){
+        var config = {
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+            }
+        };
+
+        $http({
+            method: 'POST',
+            url: '/proc/util/outdoor-stat',
+            data: $scope.info,
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+            }
+        }).then(function mySuccess(response){
+            console.log("stat success");
+        }, function myError(response){
+            console.log("stat failed");
+        });
+
+        return false;
+    }
+
     $scope.printOut = function(divName){
+        $scope.stat();
         var printContents = document.getElementById(divName).innerHTML;
         var popupWin = window.open('', '_blank', 'width=800, height=400');
         popupWin.document.open();
