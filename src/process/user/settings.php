@@ -50,7 +50,7 @@ function save($filename, $image_type=IMAGETYPE_JPEG, $compression=75, $permissio
         // need this for transparent png to work
     	imagesavealpha($this->image,true);
     	imagepng($this->image, $filename);
-  	}   
+  	}
   	if ($permissions != null) {
     	chmod($filename, $permissions);
   	}
@@ -63,17 +63,17 @@ function resize($width,$height,$forcesize='n') {
       	if ($width > $this->getWidth() && $height > $this->getHeight()){
           	return;
       	}
-  	}	
+  	}
 
   	$new_image = imagecreatetruecolor($width, $height);
-  	/* Check if this image is PNG or GIF, then set if Transparent*/  
+  	/* Check if this image is PNG or GIF, then set if Transparent*/
   	if(($this->image_type == IMAGETYPE_GIF) || ($this->image_type==IMAGETYPE_PNG)){
       	imagealphablending($new_image, false);
       	imagesavealpha($new_image,true);
   	}
   	imagecopyresampled($new_image, $this->image, 0, 0, 0, 0, $width, $height, $this->getWidth(), $this->getHeight());
 
-  	$this->image = $new_image; 
+  	$this->image = $new_image;
 }
 
 $failReason=array();
@@ -139,10 +139,10 @@ if(count($failReason)>0){
 			$icon="";
 		}
 		$member->editMember($me['n_id'], false, false, false, false, false, false, false, false, false, $pic, $icon);
-		$member->setAdditionalData($me['n_id'], "s_room", $_POST['s_room']);
-		$member->setAdditionalData($me['n_id'], "n_grade", $_POST['n_grade']);
-		$member->setAdditionalData($me['n_id'], "s_class", $_POST['s_class']);
-		$member->setAdditionalData($me['n_id'], "n_student_id", $_POST['n_student_id']);
+		//$member->setAdditionalData($me['n_id'], "s_room", $_POST['s_room']);
+		//$member->setAdditionalData($me['n_id'], "n_grade", $_POST['n_grade']);
+		//$member->setAdditionalData($me['n_id'], "s_class", $_POST['s_class']);
+		//$member->setAdditionalData($me['n_id'], "n_student_id", $_POST['n_student_id']);
 		$menu_data_out=array();
         if(isset($_POST['menu_data']))
 			$menu_data=$_POST['menu_data'];
