@@ -48,7 +48,7 @@
             <div class="row">
                 <div class="col-sm-3 col-md-2 sidebar">
                     <ul class="nav nav-sidebar">
-                        <li><a ng-click="changePage('main')">메인</li>
+                        <li><a ng-click="changePage('main')">메인</a></li>
                         <li><a ng-click="changePage('bbq')">바베큐 신청 현황</a></li>
                         <li><a href="#">공지 사항</a></li>
                         <li><a href="#">학생 건의 사항</a></li>
