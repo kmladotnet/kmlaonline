@@ -83,7 +83,9 @@ if(!isset($_SESSION['user']) && !isset($_SESSION['teacher_user'])) { // 학생 �
     } else {
         ?>
             <script type="text/javascript">
-                alert($_GET['action'] + "교직원 유저는 학생 페이지에 접근할 수 없습니다.");
+                if(isset($_GET['action'])) alert("test1");
+                else alert("test2");
+                alert("교직원 유저는 학생 페이지에 접근할 수 없습니다.");
                 location.href = "/teacher/main";
             </script>
         <?php
