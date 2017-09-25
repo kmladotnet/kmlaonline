@@ -117,19 +117,22 @@ class HJBarbeque {
         }
     }
 
-    /*선생님 확인용*/
-    function getBarbequeList($teacher = 0, $date = ""){
-        if(!is_numeric($teacher)) return false;
-        $date = $this->escape($date);
+    /*선생님 확인용
+    $type 100 - Requested List (요청 온 바베큐)
+    $type 200 - Accepted List (예정 바베큐)
+    $type 0 - Total History
+    */
+    function getBarbequeList_Teacher($teacher_id, $type){
+        if(!is_numeric($teacher_id) || !is_numeric($type)) return false;
         $arr = array();
-        if(empty($date) && empty($teacher)) {
-            $query = "SELECT * FROM `$this->table_data`";
-        } else if(empty($date)) {
-            $query = "SELECT * FROM `$this->table_data` WHERE t_id = $teacher";
-        } else if(empty($teacher)) {
-            $query = "SELECT * FROM `$this->table_data` WHERE date = '$date'";
+        $status = 0;
+
+        if($type === 100 || $type === 200){
+            $query = "SELECT n_id, date, title, student_list, rep_student_id, start_time, finish_time FROM `$this->table_data` WHERE teacher_id = $teacher_id AND status = $type";
+        } else if($type === 0){
+            $query = $query = "SELECT n_id, date, title, student_list, rep_student_id, start_time, finish_time, status FROM `$this->table_data` WHERE teacher_id = $teacher_id";
         } else {
-            $query = "SELECT * FROM `$this->table_data` WHERE t_id = $teacher AND date = '$date'";
+            return false;
         }
 
         if($res = $this->db->query($query)){
@@ -138,7 +141,7 @@ class HJBarbeque {
             }
             return $arr;
         } else {
-            echo "ERROR[getBarbequeList] : sql query wrong!!";
+            echo "ERROR[getBarbequeList_Teacher] : sql query wrong!!";
             return false;
         }
         return false;
