@@ -20,7 +20,7 @@ app.controller("teacherCtrl", function($scope, $rootScope){
 
 app.controller("bbqCtrl", function($scope, $rootScope){
     $scope.bbqRequestedList = [{title: '12학년 11반', student_list: '김현재|이영재|최우석', date: '2017-09-25', status: 300}];
-
+    $scope.bbqAcceptedList = [{title: '12학년 10반', rep_student: '김현재', student_list: '김현재|이영재|최우석', date: '2017-09-25', status: 300}];
     $scope.init = function(){
         $scope.config_calender();
     }
