@@ -5,7 +5,7 @@
             <tr>
                 <!-- 담당 교사 / 행정실 => 상태 항목 하나로 줄이기 -->
                 <th style="width: 5%;">#</th>
-                <th style="width: 25%; text-align: center">제목</th>
+                <th style="width: 25%; text-align: center">종류</th>
                 <th style="width: 10%; text-align: center">인원</th>
                 <th style="width: 25%; text-align: center">날짜</th>
                 <th style="width: 35%; text-align">선택</th>
@@ -24,4 +24,38 @@
             </tr>
         </tbody>
     </table>
+
+    <div class="container-fluid">
+        <div class="col-xs-5">
+            <table id="calender" class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>일</th>
+                        <th>월</th>
+                        <th>화</th>
+                        <th>수</th>
+                        <th>목</th>
+                        <th>금</th>
+                        <th>토</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="week in calender">
+                        <td ng-repeat="day in week track by $index" ng-click="test(day)">
+                            <div>
+                                <span>{{day || ""}}</span>
+                                <div style="clear:both"></div>
+                            </div>
+                            <div style="width:100%; padding: 3px; text-align:center;">
+                                {{day !== 'undefined' ? "-" : ""}}
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-xs-7">
+            <h4>이번 달 예약된 바베큐</h4>
+        </div>
+    </div>
 </div>
