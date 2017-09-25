@@ -1,7 +1,7 @@
 <?php
 include "src/lib.php";
 include "teacher/lib.php";
-if(isset($_REQUEST['teacher']) && $_REQUEST['teacher'] == 'yes'){
+if(isset($_REQUEST['isteacher']) && $_REQUEST['isteacher'] == 'yes'){
     $fn = "teacher/process/" . basename($_REQUEST['actiontype']) . ".php";
     echo $fn;
 } else {
