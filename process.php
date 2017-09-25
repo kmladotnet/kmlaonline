@@ -6,7 +6,6 @@ if(isset($_REQUEST['isteacher']) && $_REQUEST['isteacher'] == 'yes'){
     echo $fn;
 } else {
     $fn="src/process/".basename($_REQUEST['actiontype'])."/".basename($_REQUEST['action']).".php";
-    echo "Something wrong";
 }
 if(file_exists($fn)) {
 	include($fn);
