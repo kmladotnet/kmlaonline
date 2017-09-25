@@ -1,7 +1,7 @@
 var app = angular.module("teacherApp", []);
 
 app.controller("teacherCtrl", function($scope){
-    $scope.page = "../template/main.html";
+    $scope.page = "teacher/template/main.html";
 
     $scope.changePage = function(page){
         switch(page){
