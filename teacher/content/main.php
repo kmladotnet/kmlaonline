@@ -16,6 +16,8 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
+
+        <script type="text/javascript" src="../js/main.js"></script>
     </head>
     <body ng-controller="teacherCtrl">
         <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -46,7 +48,7 @@
             <div class="row">
                 <div class="col-sm-3 col-md-2 sidebar">
                     <ul class="nav nav-sidebar">
-                        <li><a href="#">바베큐 신청 현황</a></li>
+                        <li><a ng-click="changePage('bbq')">바베큐 신청 현황</a></li>
                         <li><a href="#">공지 사항</a></li>
                         <li><a href="#">학생 건의 사항</a></li>
                     </ul>

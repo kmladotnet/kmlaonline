@@ -1,0 +1,27 @@
+<div class="row" ng-controller="bbqCtrl">
+    <h3 class="panel-header">요청받은 바베큐 목록<span class="label label-info">{{bbqRequestedList.length}}</span></h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <!-- 담당 교사 / 행정실 => 상태 항목 하나로 줄이기 -->
+                <th style="width: 5%;">#</th>
+                <th style="width: 25%; text-align: center">제목</th>
+                <th style="width: 10%; text-align: center">인원</th>
+                <th style="width: 25%; text-align: center">날짜</th>
+                <th style="width: 35%; text-align">선택</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in bbqRequestedList">
+                <td>{{$index + 1}}</td>
+                <td>{{item.title}}</td>
+                <td>{{item.student_list.split("|").length}}</td>
+                <td>{{item.date}}</td>
+                <td>
+                    <button class="btn btn-success" type="button">수락</button>
+                    <button class="btn btn-warning" type="button">거절</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
