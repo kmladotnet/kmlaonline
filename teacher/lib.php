@@ -4,6 +4,7 @@ include "hjTool/HJTools.php";
 //include "../src/soreeengine/SoreeTools.php";
 require(__DIR__ . "/hjTool/dbHandler.php");
 
+//학생 전용
 function getMyProcessedBarbequeList($id, $rep=false){
     global $barbeque, $teacher, $member;
 
@@ -24,6 +25,25 @@ function getMyProcessedBarbequeList($id, $rep=false){
     }
 
     return $arr;
+}
+
+function getMyRequestedList($id, $type) {
+    global $barbeque, $teacher, $member;
+
+    $list = $barbeque->getBarbequeList_Teacher($id, $type);
+
+    for($i = 0; $i < count($list); $i++){
+        $temp = explode("|", $list[$i]->student_list);
+        $name_arr = array();
+        for($j = 0; $j < count($temp); $j++){
+            array_push($name_arr, $member->getMemberNameById((int) $temp[$j]));
+        }
+        $list[$i]->student_list = implode("|", $name_arr);
+
+        $list[$i]->rep_student = $member->getMemberNameById((int) $list[$i]->rep_student_id);
+    }
+
+    return $list;
 }
 //$teacher->addTeacher("hyeonjae", "guswo1", "김현재", "guswodkssud@naver.com", "010-3511-2376", "바베큐 마스터");
 //echo $teacher->authTeacher("hyeonjae", "guswo2") + "\n";

@@ -136,7 +136,7 @@ class HJBarbeque {
         }
 
         if($res = $this->db->query($query)){
-            while ($row = $res->fetch_array(MYSQLI_BOTH)){
+            while ($row = $res->fetch_assoc()){
                 $arr[$row['n_id']]=$row;
             }
             return $arr;
