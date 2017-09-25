@@ -17,7 +17,7 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-        <script type="text/javascript" src="../js/main.js"></script>
+        <script type="text/javascript" src="teacher/js/main.js"></script>
     </head>
     <body ng-controller="teacherCtrl">
         <nav class="navbar navbar-inverse navbar-fixed-top">
