@@ -1,15 +1,15 @@
 var app = angular.module("teacherApp", []);
 
 app.controller("teacherCtrl", function($scope){
-    $scope.page = "teacher/template/main.html";
+    $scope.page = "/teacher/template/main.html";
 
     $scope.changePage = function(page){
         switch(page){
             case 'main':
-                $scope.page = "teacher/template/main.html";
+                $scope.page = "/teacher/template/main.html";
                 break;
             case 'bbq':
-                $scope.page = 'teacher/template/bbq.html';
+                $scope.page = '/teacher/template/bbq.html';
                 break;
         }
     }
