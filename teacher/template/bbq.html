@@ -41,7 +41,7 @@
                 </thead>
                 <tbody>
                     <tr ng-repeat="week in calender">
-                        <td ng-repeat="day in week track by $index" ng-click="test(day)">
+                        <td ng-repeat="day in week track by $index">
                             <div>
                                 <span>{{day || ""}}</span>
                                 <div style="clear:both"></div>
