@@ -13,11 +13,11 @@
         </thead>
         <tbody>
             <tr ng-repeat="item in bbqRequestedList">
-                <td style="text-align: center">{{$index + 1}}</td>
-                <td style="text-align: center">{{item.title}}</td>
-                <td style="text-align: center">{{item.student_list.split("|").length}}</td>
-                <td style="text-align: center">{{item.date}}</td>
-                <td style="text-align: center">
+                <td style="text-align: center; vertical-align: middle">{{$index + 1}}</td>
+                <td style="text-align: center; vertical-align: middle">{{item.title}}</td>
+                <td style="text-align: center; vertical-align: middle">{{item.student_list.split("|").length}}</td>
+                <td style="text-align: center; vertical-align: middle">{{item.date}}</td>
+                <td style="text-align: center; vertical-align: middle">
                     <button class="btn btn-success" type="button">수락</button>
                     <button class="btn btn-warning" type="button">거절</button>
                 </td>
