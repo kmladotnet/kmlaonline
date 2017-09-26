@@ -136,8 +136,9 @@ class HJBarbeque {
         }
 
         if($res = $this->db->query($query)){
+            $count = 0;
             while ($row = $res->fetch_assoc()){
-                $arr[$row['n_id']]=$row;
+                $arr[$count++]=$row;
             }
             return $arr;
         } else {
