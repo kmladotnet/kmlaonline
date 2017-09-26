@@ -41,6 +41,7 @@ function getMyRequestedList($id, $type) {
         $list[$i]['student_list'] = implode("|", $name_arr);
 
         $list[$i]['rep_student'] = $member->getMemberNameById((int) $list[$i]['rep_student_id']);
+        unset($list[$i]['rep_student_id']);
     }
 
     return $list;
