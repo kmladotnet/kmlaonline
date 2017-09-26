@@ -148,5 +148,16 @@ class HJTeacher{
             return false;
         }
     }
+
+    function recordTeacherAccess($teacher){
+        if(!is_numeric($teacher)) return false;
+        $query = "UPDATE `$this->table_data` SET n_access_date=".time()." WHERE n_id=$teacher";
+        if($this->db->query($query) === true){
+            return true;
+        } else{
+            echo $this->db->error;
+            return false;
+        }
+    }
 }
 ?>
