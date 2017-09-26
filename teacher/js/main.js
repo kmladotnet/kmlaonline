@@ -97,10 +97,10 @@ app.controller("bbqCtrl", function($scope, $http){
         }).then(function mySuccess(response){
             $scope.fetchRequestedList();
             $scope.fetchAcceptedList();
-            console.log("submit success");
+            alert("성공적으로 처리되었습니다");
         }, function myError(response){
             $scope.status = "Request failed";
-            console.log("submit failed");
+            alert("문제가 발생하였습니다. 관리자에게 문의해주세요.");
         });
 
         return false;
@@ -117,10 +117,10 @@ app.controller("bbqCtrl", function($scope, $http){
         }).then(function mySuccess(response){
             $scope.fetchRequestedList();
             $scope.fetchAcceptedList();
-            console.log("submit success");
+            alert("성공적으로 처리되었습니다");
         }, function myError(response){
             $scope.status = "Request failed";
-            console.log("submit failed");
+            alert("문제가 발생하였습니다. 관리자에게 문의해주세요.");
         });
 
         return false;
