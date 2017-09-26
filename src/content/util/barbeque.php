@@ -67,7 +67,7 @@ function printContent(){
             </div>
         </nav>
 
-        <div class="container-fluid">
+        <div>
             <div class="col-xs-5">
                 <table id="calender" class="table table-bordered">
                     <thead>
