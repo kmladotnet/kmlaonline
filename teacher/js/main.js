@@ -22,6 +22,7 @@ app.controller("bbqCtrl", function($scope, $http){
     $scope.bbqRequestedList = [{title: '12학년 11반', rep_student: '이영재', student_list: '김현재|이영재|최우석', date: '2017-09-25', status: 300},
                                 {title: '12학년 9반', rep_student: '최우석', student_list: '김현재|이영재|최우석', date: '2017-09-25', status: 300}];
     $scope.bbqAcceptedList = [{title: '12학년 10반', rep_student: '김현재', student_list: '김현재|이영재|최우석', date: '2017-09-25', status: 300}];
+
     $scope.init = function(){
         $scope.config_calender();
     }
@@ -55,4 +56,36 @@ app.controller("bbqCtrl", function($scope, $http){
             else $scope.calender[Math.floor(j / 7)][j % 7] = "";
         }
     };
+
+    $scope.fetchRequestedList = function(){
+        $http({
+            method: "GET",
+            url: "/teacher/proc/getRequestedList?status=100"
+        }).then(function mySuccess(response){
+            $scope.status = response.statusText;
+            $scope.bbqList = response.data;
+            console.log("success- fetchList");
+        }, function myError(response){
+            $scope.data = response.data || 'Request failed';
+            $scope.status = response.statusText;
+            console.log("failed - fetchList");
+        });
+    };
+
+    $scope.fetchAcceptedList = function(){
+        $http({
+            method: "GET",
+            url: "/teacher/proc/getRequestedList?status=200"
+        }).then(function mySuccess(response){
+            $scope.status = response.statusText;
+            $scope.bbqList = response.data;
+            console.log("success- fetchList");
+        }, function myError(response){
+            $scope.data = response.data || 'Request failed';
+            $scope.status = response.statusText;
+            console.log("failed - fetchList");
+        });
+    };
+
+
 });
