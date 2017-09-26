@@ -4,6 +4,14 @@ include "hjTool/HJTools.php";
 //include "../src/soreeengine/SoreeTools.php";
 require(__DIR__ . "/hjTool/dbHandler.php");
 
+if(isset($_SESSION['teacher_user'])){
+    $me = $teacher->getTeacher($_SESSION['teacher_user']);
+    if($me === false) {
+        session_destroy();
+        session_start();
+    }
+}
+
 //학생 전용
 function getMyProcessedBarbequeList($id, $rep=false){
     global $barbeque, $teacher, $member;
