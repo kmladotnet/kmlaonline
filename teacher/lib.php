@@ -11,7 +11,7 @@ if(isset($_SESSION['teacher_user'])){
         session_start();
     } else {
         if($me['n_access_date'] + 60 <= time())
-            $teacher->recordMemberAccess($me['n_id']);
+            $teacher->recordTeacherAccess($me['n_id']);
     }
 }
 
