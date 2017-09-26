@@ -70,6 +70,20 @@ class HJBarbeque {
         }
     }
 
+    /*
+    type 0 - 대표 학생 이름 & 선생님
+    필요하면 더 만들기
+    */
+    function getBarbequeById($id, $type=0){
+        if(!is_numeric($id)) return false;
+        if($type === 0) $query = "SELECT rep_student_id, teacher_id FROM `$this->table_data` WHERE n_id =$id";
+        else false;
+
+        if($res = $this->db->query($query)){
+            return $res->fetch_assoc();
+        }
+    }
+
     function getMyBarbequeList($my_id, $rep=false){
         if(!is_numeric($my_id)) return false;
         if($rep){
@@ -148,5 +162,18 @@ class HJBarbeque {
         return false;
     }
 
+    function acceptBarbeque($id){
+        if(!is_numeric($id)) return false;
+        $query = "UPDATE `$this->table_data` SET status = 200 WHERE n_id = $id";
+
+        return $this->db->query($query);
+    }
+
+    function declineBarbeque($id){
+        if(!is_numeric($id)) return false;
+        $query = "UPDATE `$this->table_data` SET status = 50 WHERE n_id = $id";
+
+        return $this->db->query($query);
+    }
 }
 ?>

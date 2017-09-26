@@ -19,8 +19,8 @@
                 <td style="text-align: center; vertical-align: middle">{{item.student_list.split("|").length}}</td>
                 <td style="text-align: center; vertical-align: middle">{{item.date}}</td>
                 <td style="text-align: center; vertical-align: middle">
-                    <button class="btn btn-success" type="button">수락</button>
-                    <button class="btn btn-warning" type="button">거절</button>
+                    <button class="btn btn-success" type="button" ng-click="accept($index)">수락</button>
+                    <button class="btn btn-warning" type="button" ng-click="decline($index)">거절</button>
                 </td>
             </tr>
         </tbody>

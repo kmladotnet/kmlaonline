@@ -10,9 +10,6 @@ app.controller("teacherCtrl", function($scope, $http){
                 break;
             case 'bbq':
                 $scope.page = '/teacher/template/bbq.html';
-                $rootScope.$broadcast("bbqSelected", {
-                    page: 'bbq'
-                });
                 break;
         }
     }
@@ -86,6 +83,46 @@ app.controller("bbqCtrl", function($scope, $http){
             $scope.status = response.statusText;
             console.log("failed - fetchList");
         });
+    };
+
+    $scope.accept = function(idx){
+        $http({
+            method: 'POST',
+            url: '/teacher/proc/authBarbeque',
+            data: { id: $scope.bbqRequestedList[idx].n_id, answer: "yes"},
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+            }
+        }).then(function mySuccess(response){
+            $scope.fetchRequestedList();
+            $scope.fetchAcceptedList();
+            console.log("submit success");
+        }, function myError(response){
+            $scope.status = "Request failed";
+            console.log("submit failed");
+        });
+
+        return false;
+    };
+
+    $scope.decline = function(idx){
+        $http({
+            method: 'POST',
+            url: '/teacher/proc/authBarbeque',
+            data: { id: $scope.bbqRequestedList[idx].n_id, answer: "no"},
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+            }
+        }).then(function mySuccess(response){
+            $scope.fetchRequestedList();
+            $scope.fetchAcceptedList();
+            console.log("submit success");
+        }, function myError(response){
+            $scope.status = "Request failed";
+            console.log("submit failed");
+        });
+
+        return false;
     };
 
 

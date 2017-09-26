@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <link rel="icon" href="../../favicon.ico">
-        <title>Dashboard Template for Bootstrap</title>
+        <title>KMLA Online - 교직원 큼온</title>
         <!-- Bootstrap core CSS -->
         <link href="/teacher/css/bootstrap.css" rel="stylesheet">
         <!-- Custom styles for this template -->
@@ -29,7 +29,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/teacher/main">교사용 큼온</a>
+                    <a class="navbar-brand" href="/teacher/main">교직원 큼온</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
