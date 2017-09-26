@@ -33,14 +33,14 @@ function getMyRequestedList($id, $type) {
     $list = $barbeque->getBarbequeList_Teacher($id, $type);
 
     for($i = 0; $i < count($list); $i++){
-        $temp = explode("|", $list[$i]->student_list);
+        $temp = explode("|", $list[$i]['student_list']);
         $name_arr = array();
         for($j = 0; $j < count($temp); $j++){
             array_push($name_arr, $member->getMemberNameById((int) $temp[$j]));
         }
-        $list[$i]->student_list = implode("|", $name_arr);
+        $list[$i]['student_list'] = implode("|", $name_arr);
 
-        $list[$i]->rep_student = $member->getMemberNameById((int) $list[$i]->rep_student_id);
+        $list[$i]['rep_student'] = $member->getMemberNameById((int) $list[$i]['rep_student_id']);
     }
 
     return $list;
