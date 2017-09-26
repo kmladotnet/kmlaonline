@@ -1,7 +1,7 @@
 <?php
     if(isset($_SESSION['teacher_user'])){
         $result = json_decode(file_get_contents("php://input"));
-
+        print_r($result);
         if($barbeque->getBarbequeById((int) $result['id'])){
             if($barbeque->getBarbequeById((int) $result['id'])['teacher_id'] === $me['n_id']){
                 if($result['answer'] === 'yes') {
