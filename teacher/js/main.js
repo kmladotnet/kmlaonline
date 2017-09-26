@@ -86,6 +86,7 @@ app.controller("bbqCtrl", function($scope, $http){
     };
 
     $scope.accept = function(idx){
+        console.log(idx + "is checked");
         $http({
             method: 'POST',
             url: '/teacher/proc/authBarbeque',
