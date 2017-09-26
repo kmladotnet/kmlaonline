@@ -25,6 +25,8 @@ app.controller("bbqCtrl", function($scope, $http){
 
     $scope.init = function(){
         $scope.config_calender();
+        $scope.fetchRequestedList();
+        $scope.fetchAcceptedList();
     }
 
     $scope.config_calender = function(){
@@ -63,7 +65,7 @@ app.controller("bbqCtrl", function($scope, $http){
             url: "/teacher/proc/getRequestedList?status=100"
         }).then(function mySuccess(response){
             $scope.status = response.statusText;
-            $scope.bbqList = response.data;
+            $scope.bbqRequestedList = response.data;
             console.log("success- fetchList");
         }, function myError(response){
             $scope.data = response.data || 'Request failed';
@@ -78,7 +80,7 @@ app.controller("bbqCtrl", function($scope, $http){
             url: "/teacher/proc/getRequestedList?status=200"
         }).then(function mySuccess(response){
             $scope.status = response.statusText;
-            $scope.bbqList = response.data;
+            $scope.bbqAcceptedList = response.data;
             console.log("success- fetchList");
         }, function myError(response){
             $scope.data = response.data || 'Request failed';
