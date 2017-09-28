@@ -69,6 +69,16 @@ function printContent(){
 
         <div>
             <div class="col-xs-5">
+                <h2>
+                    <!--ui-select ng-model="." theme="bootstrap">
+                        <ui-select-match placeholder="Year">
+                            <span ng-bind="$select.selected.name"></span>
+                        </ui-select-match>
+                        <ui-select-choices repeat="hour in (hourArray | filter: $select.search) track by hour.value">
+                            <span ng-bind="hour.name"></span>
+                        </ui-select-choices>
+                    </ui-select-->
+                </h2>
                 <table id="calender" class="table table-bordered">
                     <thead>
                         <tr>

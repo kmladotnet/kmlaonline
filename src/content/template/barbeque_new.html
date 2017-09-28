@@ -4,7 +4,7 @@
         <tbody>
             <tr>
                 <td style="width:15%; vertical-align: middle;">시간</td>
-                <td style="width:17.5%">
+                <td style="width:22.5%">
                     <ui-select ng-model="new_bbq.start_hour" theme="bootstrap">
                         <ui-select-match placeholder="시">
                             <span ng-bind="$select.selected.name"></span>
@@ -24,8 +24,8 @@
                         </ui-select-choices>
                     </ui-select>
                 </td>
-                <td style="width:15%; text-align: center; vertical-align: middle;"> &nbsp;&nbsp;&nbsp; ~ &nbsp;&nbsp;&nbsp; </td>
-                <td style="width:17.5%">
+                <td style="width:5%; text-align: center; vertical-align: middle;"> ~ </td>
+                <td style="width:22.5%">
                     <ui-select ng-model="new_bbq.finish_hour" theme="bootstrap">
                         <ui-select-match placeholder="시">
                             <span ng-bind="$select.selected.name"></span>
@@ -40,7 +40,7 @@
                         <ui-select-match placeholder="분">
                             <span ng-bind="$select.selected.name"></span>
                         </ui-select-match>
-                        <ui-select-choices repeat="min in (minArray | filter: $select.search) track by min.value">
+                        <ui-select-choices repeat="min in (minArray | filter: $select.search) track by min.value" position="down">
                             <span ng-bind="min.name"></span>
                         </ui-select-choices>
                     </ui-select>
@@ -53,7 +53,7 @@
                         <ui-select-match>
                             <span ng-bind="$select.selected.s_name"></span>
                         </ui-select-match>
-                        <ui-select-choices repeat="teacher in (tArray | filter: $select.search) track by teacher.n_id">
+                        <ui-select-choices repeat="teacher in (tArray | filter: $select.search | limitTo: 5) track by teacher.n_id">
                             <span ng-bind="teacher.s_name"></span>
                         </ui-select-choices>
                     </ui-select>
@@ -68,7 +68,7 @@
                 <td colspan="5">
                     <ui-select multiple ng-model="new_bbq.selectedStudent" theme="bootstrap" ng-disabled="disabled" sortable="true" close-on-select="false">
                         <ui-select-match placeholder="참여 학생을 선택해주세요">{{$item.n_grade}}{{$item.s_name}}</ui-select-match>
-                        <ui-select-choices repeat="student in (studentArray | filter: $select.search) track by student.n_student_id">
+                        <ui-select-choices repeat="student in (studentArray | filter: $select.search | limitTo: 5) track by student.n_student_id">
                             <div ng-bind-html="student.s_name | highlight: $select.search"></div>
                             <small>
                                 {{student.n_grade}}학년 {{student.s_class}}반
