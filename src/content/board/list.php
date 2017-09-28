@@ -207,7 +207,7 @@ function printArticleList(){
 	<h1 style="padding:9px;text-align:left;">
 		<?php
 		if(file_exists("data/boardimg/".$board_cat['s_id'].".png"))
-			echo "<img src='/data/boardimg/".$board_cat['s_id'].".png' alt='".htmlspecialchars($board_cat['s_name'])."' style='max-width:100%; width: 100px' />";
+			echo "<img src='/data/boardimg/".$board_cat['s_id'].".png' alt='".htmlspecialchars($board_cat['s_name'])."' style='max-width:100%; height: 100px' />";
 		else
 			echo htmlspecialchars($board_cat['s_name']);
 		?>
