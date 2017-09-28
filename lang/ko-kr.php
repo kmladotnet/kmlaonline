@@ -183,7 +183,7 @@ $_LANGUAGE=array(
 				"remove"=>"숨기기"
 			)
 		),
-		"footer"=>'<div style="display: table;/* width: 100%; */margin: auto;width: calc(58% + 320px);"><div style="display: table-cell;text-align: left;">닷넷 2007 - 2017</div><div style="display: table-cell;text-align: right;"><img src="/images/kmlaonline.png" style="/* display: block; *//* margin: auto; */height: 24px;display: inline-block;/* float: right; */"></div></div>'
+		"footer"=>'<div style="display: table;/* width: 100%; */margin: auto;width: calc(58% + 320px);"><div style="display: table-cell;text-align: left;">닷넷 2007 - 2017</div><div style="display: table-cell;text-align: right;"><img src="/images/kmlaonline-p.png" style="/* display: block; *//* margin: auto; */height: 24px;display: inline-block;/* float: right; */"></div></div>'
 	),
     "weather"=>array(
         200 => '뇌우',
