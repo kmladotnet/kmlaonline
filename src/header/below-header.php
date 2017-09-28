@@ -14,7 +14,7 @@
 						if ($me['s_pic']) {
 							?><img src="<?php echo htmlspecialchars($me['s_pic'])?>" style="padding-right:2px" /><?php
 						} else {
-							?><img src="/images/no-image.png" style="padding-right:2px" /><?php
+							?><img src="/images/no-profile.png" style="padding-right:2px" /><?php
 						}
 						?><span style="line-height:48px;"><?php echo htmlspecialchars($me['s_name']);?></span><?php
 					?></a>
@@ -25,11 +25,11 @@
 		</div>
 	<?php } else {
         if(!(!!$me && getTheme($me)['hidedasan'])) { ?>
-            <div id="total-header" style="background: url('/images/big-logo-ad-outdoor2.png') no-repeat;" <?php if($april_fools_2) echo 'style="height:311px; background: url(/images/bamboozle.png) no-repeat;"'; ?>>
+            <div id="total-header" style="background: url('/images/big-logo-chuseok2.png') no-repeat;" <?php if($april_fools_2) echo 'style="height:311px; background: url(/images/bamboozle.png) no-repeat;"'; ?>>
                 <?php if (isset($_SESSION['user'])) { ?>
                     <div class="userarea"><?php include "src/header/userarea.php"; ?></div>
                 <?php } ?>
-                <a id="back-to-main" href="/util/outdoor"></a><br />
+                <a id="back-to-main" href="/"></a><br />
             </div>
         <?php } ?>
 		<script type="text/javascript">prepareHeader();</script>
