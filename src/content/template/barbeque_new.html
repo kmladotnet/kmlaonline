@@ -53,7 +53,7 @@
                         <ui-select-match>
                             <span ng-bind="$select.selected.s_name"></span>
                         </ui-select-match>
-                        <ui-select-choices repeat="teacher in (tArray | filter: $select.search | limitTo: 5) track by teacher.n_id">
+                        <ui-select-choices repeat="teacher in (tArray | filter: $select.search | limitTo: 10) track by teacher.n_id">
                             <span ng-bind="teacher.s_name"></span>
                         </ui-select-choices>
                     </ui-select>
@@ -68,7 +68,7 @@
                 <td colspan="5">
                     <ui-select multiple ng-model="new_bbq.selectedStudent" theme="bootstrap" ng-disabled="disabled" sortable="true" close-on-select="false">
                         <ui-select-match placeholder="참여 학생을 선택해주세요">{{$item.n_grade}}{{$item.s_name}}</ui-select-match>
-                        <ui-select-choices repeat="student in (studentArray | filter: $select.search | limitTo: 5) track by student.n_student_id">
+                        <ui-select-choices repeat="student in (studentArray | filter: $select.search | limitTo: 10) track by student.n_student_id">
                             <div ng-bind-html="student.s_name | highlight: $select.search"></div>
                             <small>
                                 {{student.n_grade}}학년 {{student.s_class}}반
