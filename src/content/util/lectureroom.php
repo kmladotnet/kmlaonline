@@ -27,7 +27,7 @@ function printContent(){
 	$floorNames=array("지하 1층", "2층", "4층", "10층");
 	$currentTable=getCurrentTable();
 	?>
-	<h1 style="padding:9px;text-align:center;"><img alt="공동강의실 이용 신청" src="/data/boardimg/lectureroom.png" /></h1>
+	<h1 style="padding:9px;text-align:center;"><img alt="공동강의실 이용 신청" src="/data/boardimg/lectureroom.png" style="height: 100px"/></h1>
 	<div style="float:left">
 		<?php
 		if(isUserPermitted($me['n_id'], "lectureroom_manager")){
