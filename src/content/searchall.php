@@ -11,7 +11,7 @@ function printSearchForm($srch=""){
 	?>
 	<form method="get" action="/searchall">
 		<div style="text-align:center;width:100%">
-			<h1><img alt="전체 검색" src="/data/boardimg/searchall.png" style="max-width:100%" /></h1>
+			<h1><img alt="전체 검색" src="/data/boardimg/searchall.png" style="max-width:100%; height:100px" /></h1>
 			<div style="width:340px;margin:0 auto;display:block;">
 				<table style="width:100%">
 					<tr style="height:32px;">
