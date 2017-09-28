@@ -22,7 +22,7 @@ function printContent(){
         <h1><i class="fa fa-users"></i>연락처</h1>
         <div style="padding-top:10px;">
             <?php for($i=$max_level; $i>=1; $i--){ ?>
-                <a rel="navigate" href="/contacts?wave=<?php echo $i?>" class="wavebutton" <?php if($i==$clevel) echo "style='background:#ddefff'"; ?>><?php echo $i?>기</a>
+                <a rel="navigate" href="/contacts?wave=<?php echo $i?>" class="wavebutton" <?php if($i==$clevel) echo "style='background:#fceede'"; ?>><?php echo $i?>기</a>
                 <?php } ?>
                     <table style="width:100%; word-break: keep-all;" class="table table-striped table-hover contacts" cellspacing="0">
                         <thead>
