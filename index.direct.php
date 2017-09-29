@@ -130,7 +130,7 @@
         if($theme['square']) { ?>
             <link rel="stylesheet" href="/sass-compiled/square.css" type="text/css" media="screen" />
         <?php }
-        if($theme['gradients']) { ?>
+        if(false) { ?>
             <link rel="stylesheet" href="/sass-compiled/gradients.css" type="text/css" media="screen" />
         <?php }
         if($theme['noanim']) { ?>
