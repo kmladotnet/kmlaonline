@@ -1,5 +1,5 @@
 <?php
-define('HOST_NAME',"kmlaonline.net");
+define('HOST_NAME',"106.187.34.53");
 define('PORT',"8090");
 $null = NULL;
 
