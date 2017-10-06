@@ -15,7 +15,7 @@
 	.chat-input{border: 1px solid #ffdddd;border-top: 0px;width: 100%;box-sizing: border-box;padding: 10px 8px;color: #191919;
 	}
 	</style>
-	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="https://code.jquery.com/jquery-1.9.1.js"></script>
 	<script>
 	function showMessage(messageHTML) {
 		$('#chat-box').append(messageHTML);
