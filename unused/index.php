@@ -22,7 +22,7 @@
 	}
 
 	$(document).ready(function(){
-		var websocket = new WebSocket("ws://localhost:8090/unused/php-socket.php");
+		var websocket = new WebSocket("ws://kmlaonline.net:8090/unused/php-socket.php");
 		websocket.onopen = function(event) {
 			showMessage("<div class='chat-connection-ack'>Connection is established!</div>");
 		}
