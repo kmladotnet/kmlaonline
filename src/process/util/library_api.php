@@ -14,7 +14,7 @@
 
         $file = @file_get_contents('https://openapi.naver.com/v1/search/book.json?query=' . $query, false, $context);
 
-        echo $file;
+        echo json_encode($file);
     } else {
         http_response_code(403);
     }
