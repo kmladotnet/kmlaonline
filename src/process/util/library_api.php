@@ -21,7 +21,8 @@
         $output = curl_exec($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
-        echo $output;
+        //echo $output;
+        echo $query;
     } else {
         http_response_code(403);
     }
