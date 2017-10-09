@@ -1,7 +1,7 @@
 <?php
     if(isset($_SESSION['user'])){
 
-        if(isset($_GET['query'])) $query = utf8_decode($_GET['query']);
+        if(isset($_GET['query'])) $query = urlencode($_GET['query']);
         else $query = '';
 
         $ch = curl_init();
@@ -18,8 +18,8 @@
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-        $output = curl_exec($ch);
-        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        //$output = curl_exec($ch);
+        //$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
         //echo $output;
         echo $query;
