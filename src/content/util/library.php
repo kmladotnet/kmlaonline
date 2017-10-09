@@ -31,7 +31,7 @@ function printContent(){
             <h2>테스트</h2>
             <form method="get">
                 <input name="test-query" ng-model="test" id="query" class="form-control">
-                <button class="btn btn-info" ng-click="bookFetch(test)">테스트</button>
+                <button class="btn btn-info" onclick="" type="button" method="get" ng-click="bookFetch(test)">테스트</button>
             </form>
             <p>status: {{status}}</p>
             <p>result: <br>{{testResult}}</p>
