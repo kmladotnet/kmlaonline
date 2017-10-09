@@ -1,7 +1,7 @@
 <?php
     if(isset($_SESSION['user'])){
 
-        if(isset($_GET['query'])) $query = utf8_encode($_GET['query']);
+        if(isset($_GET['query'])) $query = utf8_decode($_GET['query']);
         else $query = '';
 
         $ch = curl_init();
