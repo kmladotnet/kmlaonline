@@ -39,20 +39,17 @@ function printContent(){
                     <tr>
                         <th>#</th>
                         <th>도서 이미지</th>
-                        <th>책 이름</th>
-                        <th>저자</th>
-                        <th>출판사</th>
-                        <th>출판일</th>
+                        <th>책 정보</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr ng-repeat="book in bookList">
                         <td>{{$index + 1}}</td>
                         <td><img ng-src="{{book.image}}"></td>
-                        <td ng-bind-html="book.title"></td>
-                        <td ng-bind-html="book.author"></td>
+                        <td ng-bind-html="book.title + <br> + book.author + ' 지음 |' + book.publisher + ' | book.pubdate'"></td>
+                        <!--td ng-bind-html="book.author + "></td>
                         <td ng-bind-html="book.publisher"></td>
-                        <td>{{book.pubdate}}</td>
+                        <td>{{book.pubdate}}</td-->
                     </tr>
                 </tbody>
             </table>
