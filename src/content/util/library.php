@@ -49,9 +49,9 @@ function printContent(){
                     <tr ng-repeat="book in bookList">
                         <td>{{$index + 1}}</td>
                         <td><img ng-src="{{book.image}}"></td>
-                        <td>{{book.title}}</td>
-                        <td>{{book.author}}</td>
-                        <td>{{book.publisher}}</td>
+                        <td ng-bind-html="book.title"></td>
+                        <td ng-bind-html="book.author"></td>
+                        <td ng-bind-html="book.publisher"></td>
                         <td>{{book.pubdate}}</td>
                     </tr>
                 </tbody>
