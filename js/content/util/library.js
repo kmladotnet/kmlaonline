@@ -7,11 +7,11 @@ app.controller("libCtrl", function($scope, $http){
     $scope.bookFetch = function(query) {
         $http({
             method: "GET",
+            url: "https://openapi.naver.com/v1/search/book.json?query=" + query,
             headers: {
                 'X-Naver-Client-Id': 'UBWiQy6YaPCYeziwL2JW',
                 'X-Naver-Client-Secret': 'InvxlYEdmf'
-            },
-            url: "https://openapi.naver.com/v1/search/book.json?query=" + query
+            }
         }).then(function mySuccess(response){
             $scope.status = response.statusText;
             $scope.testResult = response.data;
