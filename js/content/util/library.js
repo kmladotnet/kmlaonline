@@ -23,7 +23,7 @@ app.controller("libCtrl", function($scope, $http){
         console.log("<p>" + book.title + "</p>"
                 + "<p>" + book.author + " 지음 | " + book.publisher + " | " + book.pubdate + "</p>");
         return "<p>" + book.title + "</p>"
-                + "<p>" + book.author + " 지음 | " + book.publisher + " | " + book.pubdate + "</p>";
+                + "<p>" + book.author + " 지음 | " + book.publisher + " | " + book.pubdate.substring(0, 4) + "</p>";
     }
 
     $scope.changePage = function(page){
