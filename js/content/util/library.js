@@ -6,7 +6,7 @@ app.controller("libCtrl", function($scope, $http){
 
     $scope.bookFetch = function(query) {
         $http({
-            method: "POST",
+            method: "GET",
             headers: {
                 'X-Naver-Client-Id': 'UBWiQy6YaPCYeziwL2JW',
                 'X-Naver-Client-Secret': 'InvxlYEdmf'
