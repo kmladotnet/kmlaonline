@@ -1,20 +1,27 @@
 <?php
     if(isset($_SESSION['user'])){
-        $opts = array(
-            'http'=>array(
-                'method'=>'GET',
-                'header'=>'X-Naver-Client-Id: UBWiQy6YaPCYeziwL2JW' .
-                    'X-Naver-Client-Secret: InvxlYEdmf'
-            )
-        );
-        $context = stream_context_create($opts);
 
         if(isset($_GET['query'])) $query = $_GET['query'];
         else $query = '';
 
-        $file = file_get_contents('https://openapi.naver.com/v1/search/book.json?query=' . $query, false, $context);
+        $ch = curl_init();
+        $url = 'https://openapi.naver.com/v1/search/book.json?query=' . $query;
 
-        echo json_encode($file);
+        curl_setopt($ch, CURLOPT_HTTPGET, true);
+        curl_setopt($ch, CURLOPT_URL, $url);
+
+        $headers = array(
+            "X-Naver-Client-Id: UBWiQy6YaPCYeziwL2JW",
+            "X-Naver-Client-Secret: InvxlYEdmf"
+        );
+
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        $output = curl_exec($ch);
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+        echo $output;
     } else {
         http_response_code(403);
     }
