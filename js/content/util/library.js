@@ -9,6 +9,9 @@ app.controller("libCtrl", function($scope, $http){
             method: "GET",
             url: "https://openapi.naver.com/v1/search/book.json?query=" + query,
             headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET',
+                'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
                 'X-Naver-Client-Id': 'UBWiQy6YaPCYeziwL2JW',
                 'X-Naver-Client-Secret': 'InvxlYEdmf'
             }
