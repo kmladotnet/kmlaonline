@@ -34,6 +34,28 @@ function printContent(){
                 <button class="btn btn-info" onclick="" type="button" method="get" ng-click="bookFetch(test)">테스트</button>
             </form>
             <p>status: {{status}}</p>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>도서 이미지</th>
+                        <th>책 이름</th>
+                        <th>저자</th>
+                        <th>출판사</th>
+                        <th>출판일</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="book in bookList">
+                        <td>{{$index + 1}}</td>
+                        <td><img ng-src="book.link"></td>
+                        <td>{{book.title}}</td>
+                        <td>{{book.author}}</td>
+                        <td>{{book.publisher}}</td>
+                        <td>{{book.pubdate}}</td>
+                    </tr>
+                </tbody>
+            </table>
             <p>result: <br>{{testResult}}</p>
         </div>
     </div>

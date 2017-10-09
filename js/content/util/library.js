@@ -11,6 +11,7 @@ app.controller("libCtrl", function($scope, $http){
         }).then(function mySuccess(response){
             $scope.status = response.statusText;
             $scope.testResult = response.data;
+            $scope.bookList = response.data.items;
         }, function myError(response){
             $scope.testResult = response.data || 'Request failed';
             $scope.status = response.statusText;
