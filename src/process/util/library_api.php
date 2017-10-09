@@ -18,11 +18,11 @@
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-        //$output = curl_exec($ch);
-        //$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $output = curl_exec($ch);
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
-        //echo $output;
-        echo $query;
+        echo $output;
+        //echo $query;
     } else {
         http_response_code(403);
     }
