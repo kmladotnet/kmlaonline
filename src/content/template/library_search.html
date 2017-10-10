@@ -1,0 +1,31 @@
+<div class="col-xs-6">
+    <form>
+        <div class="input-group">
+            <input name="test-query" ng-model="test" id="query" class="form-control">
+            <span class="input-group-btn"><button class="btn btn-info" onclick="" type="button" ng-click="bookFetch(test)"><i class="fa fa-search"></i></button></span>
+        </div>
+    </form>
+    <p>status: {{status}}</p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>도서 이미지</th>
+                <th>책 정보</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="book in bookList">
+                <td>{{$index + 1}}</td>
+                <td><img ng-src="{{book.image}}"></td>
+                <td ng-bind-html="bookDesc(book)"></td>
+                <!--td ng-bind-html="book.author + "></td>
+                <td ng-bind-html="book.publisher"></td>
+                <td>{{book.pubdate}}</td-->
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="col-xs-6">
+    <textarea class="form-control" placeholder="신청 사유를 입력해주세요.(1-3줄)"></textarea>
+</div>

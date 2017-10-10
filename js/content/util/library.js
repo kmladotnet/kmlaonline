@@ -4,6 +4,10 @@ var app = angular.module("libApp", ['ui.bootstrap', 'ngSanitize']);
 
 app.controller("libCtrl", function($scope, $http){
 
+    $scope.init = function(){
+        $scope.changePage('home');
+    };
+
     $scope.bookFetch = function(query) {
         $http({
             method: "GET",
@@ -33,7 +37,17 @@ app.controller("libCtrl", function($scope, $http){
     };
 
     $scope.changePage = function(page){
-
+        switch(page){
+            case 'home':
+                $scope.subpage = '/src/content/template/library_home.html';
+                break;
+            case 'search':
+                $scope.subpage = '/src/content/template/library_search.html';
+                break;
+            case 'my-page':
+                $scope.subpage = '/src/content/template/barbeque_home.html';
+                break;
+        }
     };
 
     $scope.submit = function(){

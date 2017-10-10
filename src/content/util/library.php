@@ -4,7 +4,7 @@ $title = "도서부 페이지 - " . $title;
 
 function printContent(){
 ?>
-    <div ng-app="libApp" ng-controller="libCtrl" ng-cloak>
+    <div ng-app="libApp" ng-controller="libCtrl" ng-init="init()" ng-cloak>
         <h2>도서부 Util {{submenu()}}</h2>
         <nav class="navbar navbar-default">
             <div class="container-fluid">
@@ -30,32 +30,6 @@ function printContent(){
 
         <div class="row">
             <ng-include src="subpage"></ng-include>
-            <form>
-                <div class="input-group">
-                    <input name="test-query" ng-model="test" id="query" class="form-control">
-                    <span class="input-group-btn"><button class="btn btn-info" onclick="" type="button" ng-click="bookFetch(test)"><i class="fa fa-search"></i></button></span>
-                </div>
-            </form>
-            <p>status: {{status}}</p>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>도서 이미지</th>
-                        <th>책 정보</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="book in bookList">
-                        <td>{{$index + 1}}</td>
-                        <td><img ng-src="{{book.image}}"></td>
-                        <td ng-bind-html="bookDesc(book)"></td>
-                        <!--td ng-bind-html="book.author + "></td>
-                        <td ng-bind-html="book.publisher"></td>
-                        <td>{{book.pubdate}}</td-->
-                    </tr>
-                </tbody>
-            </table>
         </div>
     </div>
     <script type="text/javascript" src="/js/content/util/library.js"></script>
