@@ -1,6 +1,6 @@
 <?php
     if(isset($_SESSION['user'])){
-
+        /*
         if(isset($_GET['query'])) $query = urlencode($_GET['query']);
         else $query = '';
 
@@ -24,7 +24,18 @@
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         $response = curl_getinfo($ch, CURLINFO_RESPONSE_CODE);
         echo $output;
-        echo $response;
+        echo $response; */
+        $_h = curl_init();
+        curl_setopt($_h, CURLOPT_HEADER, 1);
+        curl_setopt($_h, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($_h, CURLOPT_HTTPGET, 1);
+        curl_setopt($_h, CURLOPT_URL, 'https://openapi.naver.com/v1/search/book.json' );
+        curl_setopt($_h, CURLOPT_DNS_USE_GLOBAL_CACHE, false );
+        curl_setopt($_h, CURLOPT_DNS_CACHE_TIMEOUT, 2 );
+
+        var_dump(curl_exec($_h));
+        var_dump(curl_getinfo($_h));
+        var_dump(curl_error($_h));
     } else {
         http_response_code(403);
     }
