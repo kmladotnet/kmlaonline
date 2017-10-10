@@ -17,17 +17,20 @@ app.controller("libCtrl", function($scope, $http){
             $scope.testResult = response.data || 'Request failed';
             $scope.status = response.statusText;
         });
-    }
+    };
 
     $scope.bookDesc = function(book){
         return "<p>" + book.title + "</p>"
                 + "<p>" + $scope.authorRefined(book.author) + " 지음 | " + book.publisher + " | " + book.pubdate.substring(0, 4) + "</p>";
-    }
+    };
 
     $scope.authorRefined = function(author) {
         var temp = author.split("|");
         return temp.join(", ");
-    }
+    };
+
+    $scope.submenu = function(){
+    };
 
     $scope.changePage = function(page){
 

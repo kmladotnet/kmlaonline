@@ -5,6 +5,7 @@ $title = "도서부 페이지 - " . $title;
 function printContent(){
 ?>
     <div ng-app="libApp" ng-controller="libCtrl" ng-cloak>
+        <h2>도서부 Util {{submenu()}}</h2>
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -28,10 +29,12 @@ function printContent(){
         </nav>
 
         <div class="row">
-            <h2>테스트</h2>
-            <form method="get">
-                <input name="test-query" ng-model="test" id="query" class="form-control">
-                <button class="btn btn-info" onclick="" type="button" method="get" ng-click="bookFetch(test)">테스트</button>
+            <ng-include src="subpage"></ng-include>
+            <form>
+                <div class="input-group">
+                    <input name="test-query" ng-model="test" id="query" class="form-control">
+                    <span class="input-group-btn"><button class="btn btn-info" onclick="" type="button" ng-click="bookFetch(test)"><i class="fa fa-search"></i></button></span>
+                </div>
             </form>
             <p>status: {{status}}</p>
             <table class="table table-striped">
@@ -53,7 +56,6 @@ function printContent(){
                     </tr>
                 </tbody>
             </table>
-            <p>result: <br>{{testResult}}</p>
         </div>
     </div>
     <script type="text/javascript" src="/js/content/util/library.js"></script>
