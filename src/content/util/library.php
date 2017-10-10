@@ -19,7 +19,7 @@ function printContent(){
                 <div class="collapse navbar-collapse" id="bbq-navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li><a class="navbar-brand" ng-click="">HOME</a></li>
-                        <li><a ng-click="">도서 신청하기</a></li>
+                        <li><a ng-click="changePage('search')">도서 신청하기</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a ng-click="">My Page</a></li>
