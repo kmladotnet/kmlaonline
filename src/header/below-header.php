@@ -23,7 +23,7 @@
 				<?php } ?>
 			</div>
 		</div>
-	<?php } else {
+	<?php } else if($_SERVER["REQUEST_URI"] !== '/util/library'){
         if(!(!!$me && getTheme($me)['hidedasan'])) { ?>
             <div id="total-header" style="background: url('/images/big-logo-chuseok2.png') no-repeat;" <?php if($april_fools_2) echo 'style="height:311px; background: url(/images/bamboozle.png) no-repeat;"'; ?>>
                 <?php if (isset($_SESSION['user'])) { ?>

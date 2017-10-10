@@ -211,7 +211,7 @@
         </div>
         <div style="clear:both"></div>
         <div id="below-header-menu">
-            <?php if($_SERVER["REQUEST_URI"] !== '/util/library') include "src/header/below-header.php"; ?>
+            <?php include "src/header/below-header.php"; ?>
         </div>
     </div>
     <div id="total-footer" class="hide-on-upper-panel">
