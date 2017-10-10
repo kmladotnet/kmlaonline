@@ -11,6 +11,7 @@
         curl_setopt($ch, CURLOPT_URL, $url);
 
         $headers = array(
+            "Access-Control-Allow-Origin: *",
             "X-Naver-Client-Id: UBWiQy6YaPCYeziwL2JW",
             "X-Naver-Client-Secret: InvxlYEdmf"
         );
