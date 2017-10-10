@@ -20,8 +20,9 @@
 
         $output = curl_exec($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-
+        $response = curl_getinfo($ch, CURLINFO_RESPONSE_CODE);
         echo $output;
+        echo $response;
     } else {
         http_response_code(403);
     }
