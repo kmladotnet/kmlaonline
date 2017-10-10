@@ -11,6 +11,7 @@ if(isset($_POST["_CUSTOM_PHPSESSID"])) { // For Flash Upload Plugin
 	if(strlen($_POST["_CUSTOM_PHPSESSID"]) < 64)
 		session_id($_POST["_CUSTOM_PHPSESSID"]);
 }
+session_save_path('/tmp');
 session_start();
 $ua_mobile = preg_match('/Mobile|Android|BlackBerry/', $_SERVER['HTTP_USER_AGENT']);
 $is_android = preg_match('/Android/', $_SERVER['HTTP_USER_AGENT']);
