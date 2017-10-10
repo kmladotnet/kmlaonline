@@ -29,7 +29,7 @@
         curl_setopt($_h, CURLOPT_HEADER, 1);
         curl_setopt($_h, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($_h, CURLOPT_HTTPGET, 1);
-        curl_setopt($_h, CURLOPT_URL, 'https://openapi.naver.com/v1/search/book.json' );
+        curl_setopt($_h, CURLOPT_URL, 'http://www.minjok.hs.kr' );
         curl_setopt($_h, CURLOPT_DNS_USE_GLOBAL_CACHE, false );
         curl_setopt($_h, CURLOPT_DNS_CACHE_TIMEOUT, 2 );
 
@@ -39,4 +39,14 @@
     } else {
         http_response_code(403);
     }
+
+    /*
+    Openssl default config => /etc/ssl/openssl.cnf
+
+    Directive => Local Value => Master Value
+openssl.cafile => no value => no value
+openssl.capath => no value => no value
+
+    */
 ?>
+
