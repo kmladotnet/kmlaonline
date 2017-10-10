@@ -22,6 +22,7 @@
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
         echo $output;
+        echo $httpCode;
     } else {
         http_response_code(403);
     }
