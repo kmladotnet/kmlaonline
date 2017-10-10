@@ -20,6 +20,7 @@
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
         $output = curl_exec($ch);
+        print curl_error($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         $response = curl_getinfo($ch, CURLINFO_RESPONSE_CODE);
         echo $output;
