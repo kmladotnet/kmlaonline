@@ -20,10 +20,13 @@ app.controller("libCtrl", function($scope, $http){
     }
 
     $scope.bookDesc = function(book){
-        console.log("<p>" + book.title + "</p>"
-                + "<p>" + book.author + " 지음 | " + book.publisher + " | " + book.pubdate + "</p>");
         return "<p>" + book.title + "</p>"
-                + "<p>" + book.author + " 지음 | " + book.publisher + " | " + book.pubdate.substring(0, 4) + "</p>";
+                + "<p>" + $scope.authorRefined(book.author) + " 지음 | " + book.publisher + " | " + book.pubdate.substring(0, 4) + "</p>";
+    }
+
+    $scope.authorRefined = function(author) {
+        var temp = author.split("|");
+        return temp.join(", ");
     }
 
     $scope.changePage = function(page){
