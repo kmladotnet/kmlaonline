@@ -641,7 +641,8 @@ function __autoload($className) {
 
 class WeatherCache extends AbstractCache {
     private function urlToPath($url) {
-        $tmp = sys_get_temp_dir();
+        //$tmp = sys_get_temp_dir();
+        $tmp = "/tmp";
         echo $tmp;
         $dir = $tmp . DIRECTORY_SEPARATOR . "OpenWeatherMapPHPAPI";
         if (!is_dir($dir)) {
