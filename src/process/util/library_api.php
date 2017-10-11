@@ -23,7 +23,6 @@
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         $response = curl_getinfo($ch, CURLINFO_RESPONSE_CODE);
         echo $output;
-        echo $response;
         /* for debug
         $_h = curl_init();
         curl_setopt($_h, CURLOPT_HEADER, 1);
