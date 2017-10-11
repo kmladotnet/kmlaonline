@@ -33,6 +33,19 @@ app.controller("libCtrl", function($scope, $http){
         return temp.join(", ");
     };
 
+    $scope.login = function(pwd){
+        $http({
+            method: "GET",
+            url: "/proc/util/library_login?pwd=" + pwd
+        }).then(function mySuccess(response){
+            $scope.status = response.statusText;
+            $scope.output = response.data;
+        }, function myError(response){
+            $scope.output = response.data || 'Request failed';
+            $scope.status = response.statusText;
+        });
+    };
+
     $scope.submenu = function(){
     };
 
@@ -45,7 +58,7 @@ app.controller("libCtrl", function($scope, $http){
                 $scope.subpage = '/src/content/template/library_search.html';
                 break;
             case 'my-page':
-                $scope.subpage = '/src/content/template/barbeque_home.html';
+                $scope.subpage = '/src/content/template/library_my_page.html';
                 break;
         }
     };

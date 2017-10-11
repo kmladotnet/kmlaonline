@@ -22,7 +22,7 @@ function printContent(){
                         <li><a ng-click="changePage('search')">도서 신청하기</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a ng-click="">My Page</a></li>
+                        <li><a ng-click="changePage('my-page')">My Page</a></li>
                     </ul>
                 </div>
             </div>
