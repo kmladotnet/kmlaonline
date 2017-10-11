@@ -1,6 +1,5 @@
 <?php
     if(isset($_SESSION['user'])){
-        /*
         if(isset($_GET['query'])) $query = urlencode($_GET['query']);
         else $query = '';
 
@@ -24,7 +23,8 @@
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         $response = curl_getinfo($ch, CURLINFO_RESPONSE_CODE);
         echo $output;
-        echo $response; */
+        echo $response;
+        /* for debug
         $_h = curl_init();
         curl_setopt($_h, CURLOPT_HEADER, 1);
         curl_setopt($_h, CURLOPT_RETURNTRANSFER, 1);
@@ -36,17 +36,9 @@
         var_dump(curl_exec($_h));
         var_dump(curl_getinfo($_h));
         var_dump(curl_error($_h));
+        */
     } else {
         http_response_code(403);
     }
-
-    /*
-    Openssl default config => /etc/ssl/openssl.cnf
-
-    Directive => Local Value => Master Value
-openssl.cafile => no value => no value
-openssl.capath => no value => no value
-
-    */
 ?>
 
