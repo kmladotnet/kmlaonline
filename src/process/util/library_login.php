@@ -6,7 +6,7 @@
         $ch = curl_init();
         $url = 'http://lib.minjok.hs.kr/usweb/set16/USMN012.asp?mnid=' . $member->getAdditionalData($me['n_id'], 'n_student_id') . "&mnpw=" . $pwd;
 
-        curl_setopt($ch, CURLOPT_HTTPGET, true);
+        curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_URL, $url);
 
         $headers = array(
