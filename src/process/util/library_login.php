@@ -10,7 +10,8 @@
         curl_setopt($ch, CURLOPT_URL, $url);
 
         $headers = array(
-            "Access-Control-Allow-Origin: *"
+            "Access-Control-Allow-Origin: *",
+            "Content-Length: 0"
         );
 
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
