@@ -45,8 +45,8 @@
         $encoded_output = mb_convert_encoding($output, "UTF-8", "EUC-KR");
 
 
-        $dom = @new DOMDocument('1.0', 'utf-8');
-        $dom->loadHTML($output);
+        $dom = new DOMDocument('1.0', 'utf-8');
+        @$dom->loadHTML($output);
         $login_box = $dom->getElementById('mbody32');
         echo $login_box->nodeValue;
         //var_dump($login_box);
