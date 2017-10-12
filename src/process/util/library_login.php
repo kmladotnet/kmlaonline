@@ -8,6 +8,8 @@
         $url = 'http://lib.minjok.hs.kr/usweb/set16/USMN012.asp?mnid=' . $n_student_id . "&mnpw=" . $pwd;
 
         curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_USERAGENT,'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/32.0.1700.107 Chrome/32.0.1700.107 Safari/537.36');
+
         curl_setopt($ch, CURLOPT_URL, $url);
         //$test = '/tmp/library/' . $n_student_id . '.txt';
         //echo $test;
@@ -18,7 +20,9 @@
         curl_setopt($ch, CURLOPT_COOKIEFILE, '/tmp/library');
         $headers = array(
             "Access-Control-Allow-Origin: *",
-            "Content-Length: 0"
+            "Content-Length: 0",
+            "Connection: Keep-Alive",
+            "Content-type: application/x-www-form-urlencoded;charset=UTF-8"
         );
 
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
