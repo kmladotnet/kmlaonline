@@ -53,8 +53,7 @@
         $dom2 = new DOMDocument('1.0', 'utf-8');
         @$dom2->loadHTML($output2);
         $table = $dom2->getElementsByTagName('table');
-        var_dump($table);
-        print_r($table);
+        var_dump($table->item(1));
         //var_dump($login_box);
         //echo $encoded_output;
         /* for debug
