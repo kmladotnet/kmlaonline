@@ -94,6 +94,7 @@ app.controller("outdoorCtrl", function($http, $scope){
 
     $scope.getDay = function(month, date){
         var temp = new Date(new Date().getYear(), month, date);
+        console.log(new Date().getYear());
         console.log(temp.toString());
         console.log(temp.getDay());
         return $scope.dayArray[temp.getDay()];
