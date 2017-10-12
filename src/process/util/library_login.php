@@ -22,7 +22,7 @@
             "Access-Control-Allow-Origin: *",
             "Content-Length: 0",
             "Connection: Keep-Alive",
-            "Content-type: application/x-www-form-urlencoded;charset=UTF-8"
+            "Content-type: application/x-www-form-urlencoded;charset=EUC-kr"
         );
 
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
