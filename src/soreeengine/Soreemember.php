@@ -140,7 +140,7 @@ class Soreemember{
 	function getAdditionalData($id, $key=false){
 		if(!is_numeric($id)) return false;
 		$query="SELECT * FROM `$this->table_additional_data` WHERE n_id=$id";
-		if($key!==false) $query.=" WHERE s_name='$key'";
+		if($key!==false) $query.=" AND s_name='$key'";
 		$arr=array(); $val=null;
 		if($res=$this->mysqli->query($query)){
 			while ($row = $res->fetch_array(MYSQLI_BOTH)){
