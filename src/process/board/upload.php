@@ -10,7 +10,7 @@ $rfile=$file_path.$fn;
 //debug
 $debug = print_r($_FILES, true);
 //debug
-if(@move_uploaded_file($_FILES['Filedata']['tmp_name'], $rfile)===false){
+if(move_uploaded_file($_FILES['Filedata']['tmp_name'], $rfile)===false){
 	die(json_encode(array("error"=>"알 수 없는 오류가 발생하였습니다.", "debug_rfile"=>$rfile, "debug_tmp_name"=>$_FILES['Filedata']['tmp_name'], "debug_file"=>$debug, "mkdir"=>$mkdir)));
 }else
 	echo json_encode(array(
