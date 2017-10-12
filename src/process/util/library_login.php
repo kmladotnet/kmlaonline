@@ -27,7 +27,7 @@
 
 
         curl_setopt($ch, CURLOPT_URL, 'http://lib.minjok.hs.kr/usweb/set16/USMN000_16.asp');
-        curl_setopt($ch, CURLOPT_URL, false);
+        curl_setopt($ch, CURLOPT_POST, false);
         $output = curl_exec($ch);
 
 
