@@ -57,7 +57,7 @@
 
         var_dump($rows);
         $tmp_arr = array();
-        for($i = 0; $i < $rows->length - 1; $i++){
+        for($i = 0; $i < 3; $i++){
             $tmp = array();
             $row = $rows->item($i + 1);
             var_dump($row);
