@@ -62,6 +62,7 @@
             $row = $rows->item($i + 1);
             var_dump($row);
             $items = $row->getElementsByTagName('td');
+            var_dump($items);
             foreach($items as $item){
                 array_push($tmp, $item);
             }
