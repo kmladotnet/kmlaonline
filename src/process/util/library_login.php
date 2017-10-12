@@ -48,7 +48,8 @@
         $dom = new DOMDocument('1.0', 'utf-8');
         $dom->loadHTML($output);
         $login_box = $dom->getElementById('mbody32');
-        var_dump($login_box);
+        echo $login_box->node_value;
+        //var_dump($login_box);
         //echo $encoded_output;
         /* for debug
         $_h = curl_init();
