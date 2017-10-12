@@ -46,6 +46,7 @@
         //echo $encoded_output;
 
         $doc = new DOMDocument($encoded_output);
+        var_dump($doc);
         $login_box = $doc->getElementById('mbody32');
         var_dump($login_box);
         /* for debug
