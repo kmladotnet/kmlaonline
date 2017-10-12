@@ -64,7 +64,7 @@
             $items = $row->getElementsByTagName('td');
             var_dump($items);
             foreach($items as $item){
-                array_push($tmp, $item);
+                array_push($tmp, $item->nodeValue);
             }
             array_push($tmp_arr, $tmp);
         }
