@@ -57,6 +57,7 @@
 
         var_dump($rows);
         $tmp_arr = array();
+        $rm_chr = array("\r", "\t", "\n");
         for($i = 0; $i < 3; $i++){
             $tmp = array();
             $row = $rows->item($i + 1);
@@ -64,7 +65,7 @@
             $items = $row->getElementsByTagName('td');
             var_dump($items);
             foreach($items as $item){
-                array_push($tmp, str_replace("\r\t\n", "", $item->nodeValue));
+                array_push($tmp, str_replace($rm_chr, "", $item->nodeValue));
             }
             array_push($tmp_arr, $tmp);
         }
