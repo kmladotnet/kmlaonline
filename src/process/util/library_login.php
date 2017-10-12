@@ -54,6 +54,7 @@
         @$dom2->loadHTML($output2);
         $table = $dom2->getElementsByTagName('table');
         var_dump($table);
+        print_r($table);
         //var_dump($login_box);
         //echo $encoded_output;
         /* for debug
