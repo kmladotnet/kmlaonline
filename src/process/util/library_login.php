@@ -53,7 +53,20 @@
         $dom2 = new DOMDocument('1.0', 'utf-8');
         @$dom2->loadHTML($output2);
         $table = $dom2->getElementsByTagName('table');
-        var_dump($table->item(1));
+        $rows = $table->getElementsByTagName('tr');
+
+        $tmp_arr = array();
+        for(var $i = 0; $i < $rows->length - 1; $i++){
+            $tmp = array();
+            $row = $rows->item($i + 1);
+            $items = $row->getElementsByTagName('td');
+            for($items as $item){
+                array_push($tmp, $item);
+            }
+            array_push($tmp_arr, $tmp);
+        }
+
+        echo json_encode($tmp_arr);
         //var_dump($login_box);
         //echo $encoded_output;
         /* for debug
