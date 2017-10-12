@@ -108,7 +108,7 @@ function board_prepareSwfUploadBoardWrite(sessid){
 		button_text_style: ".theFont { font-size: 16; }",
 		button_text_left_padding: 12,
 		button_text_top_padding: 3,
-		
+
 		// The event handler functions are defined in handlers.js
 		file_queued_handler : fileQueued,
 		file_queue_error_handler : fileQueueError,
@@ -138,7 +138,7 @@ function board_addFileToWriteList(fn,fdn,comm,no_expire){
 	var cnt=parseInt($("#uploaded_files_count").html());
 	var key="_img_list_item_" + idx;
 	var fileTypes=[
-		"bmp;png;jpg;jpeg;tif;tiff;gif;svg", 
+		"bmp;png;jpg;jpeg;tif;tiff;gif;svg",
 		"mp3;wav;ogg;mp2;mpa;flac;wavpack;ape;alac;ra;mid",
 		"avi;mp4;mkv;flv;mov;mpeg;mpg;3gp;ts;wmv;asf;ogm;ogv;rm;rmvb;aac;ac3;m4a"
 	];
@@ -268,7 +268,7 @@ function FileProgress(file, targetID) {
 
 	this.opacity = 100;
 	this.height = 0;
-	
+
 
 	this.fileProgressWrapper = document.getElementById(this.fileProgressID);
 	if (!this.fileProgressWrapper) {
@@ -327,11 +327,11 @@ FileProgress.prototype.reset = function () {
 
 	this.fileProgressElement.childNodes[2].innerHTML = "&nbsp;";
 	this.fileProgressElement.childNodes[2].className = "progressBarStatus";
-	
+
 	this.fileProgressElement.childNodes[3].className = "progressBarInProgress";
 	this.fileProgressElement.childNodes[3].style.width = "0%";
-	
-	this.appear();	
+
+	this.appear();
 };
 
 FileProgress.prototype.setProgress = function (percentage) {
@@ -339,7 +339,7 @@ FileProgress.prototype.setProgress = function (percentage) {
 	this.fileProgressElement.childNodes[3].className = "progressBarInProgress";
 	this.fileProgressElement.childNodes[3].style.width = percentage + "%";
 
-	this.appear();	
+	this.appear();
 };
 FileProgress.prototype.setComplete = function () {
 	this.fileProgressElement.className = "progressContainer blue";
@@ -392,7 +392,7 @@ FileProgress.prototype.appear = function () {
 		clearTimeout(this.getTimer());
 		this.setTimer(null);
 	}
-	
+
 	if (this.fileProgressWrapper.filters) {
 		try {
 			this.fileProgressWrapper.filters.item("DXImageTransform.Microsoft.Alpha").opacity = 100;
@@ -403,13 +403,13 @@ FileProgress.prototype.appear = function () {
 	} else {
 		this.fileProgressWrapper.style.opacity = 1;
 	}
-		
+
 	this.fileProgressWrapper.style.height = "";
-	
+
 	this.height = this.fileProgressWrapper.offsetHeight;
 	this.opacity = 100;
 	this.fileProgressWrapper.style.display = "";
-	
+
 };
 
 // Fades out and clips away the FileProgress box.
@@ -474,7 +474,7 @@ function updateProgressBar(val, max){
    package.  They are part of my application.  Without these none
    of the actions SWFUpload makes will show up in my application.
    ********************** */
- 
+
 function fileQueued(file) {
 	try {
 		var progress = new FileProgress(file, this.customSettings.progressTarget);
@@ -511,7 +511,7 @@ function fileDialogComplete(numFilesSelected, numFilesQueued) {
 		if (numFilesSelected > 0) {
 			document.getElementById(this.customSettings.cancelButtonId).disabled = false;
 		}
-		
+
 		/* I want auto start the upload and I can do that here */
 		this.startUpload();
 	} catch (ex)  {
@@ -531,7 +531,7 @@ function uploadStart(file) {
 		progress.toggleCancel(true, this);
 	}
 	catch (ex) {}
-	
+
 	return true;
 }
 
@@ -627,6 +627,7 @@ function uploadError(file, errorCode, message) {
 			this.debug("Error Code: " + errorCode + ", File name: " + file.name + ", File size: " + file.size + ", Message: " + message);
 			break;
 		}
+		console.log(errorCode);
 	} catch (ex) {
         this.debug(ex);
     }
