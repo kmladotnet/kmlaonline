@@ -11,7 +11,7 @@
         curl_setopt($ch, CURLOPT_URL, $url);
         $test = '/tmp/library/' . $n_student_id . '.txt';
         echo $test;
-        file_put_contents($test, "data");
+        //file_put_contents($test, "data");
         curl_setopt($ch, CURLOPT_COOKIEJAR, '/tmp/library/' . $n_student_id . '.txt');
         $headers = array(
             "Access-Control-Allow-Origin: *",
@@ -26,6 +26,9 @@
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         $response = curl_getinfo($ch, CURLINFO_RESPONSE_CODE);
         var_dump(curl_getinfo($ch));
+        echo "\n";
+        var_dump(curl_error($ch));
+        echo "\n";
         //echo htmlspecialchars_decode($output) . "\n" . $url . "\n" . $httpCode . "\n" .  $member->getAdditionalData($me['n_id'], 'n_student_id');
         echo $output;
         /* for debug
