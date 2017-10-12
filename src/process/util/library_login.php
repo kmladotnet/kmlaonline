@@ -41,6 +41,7 @@
         var_dump(curl_getinfo($_h));
         var_dump(curl_error($_h));
         */
+        curl_close($ch);
     } else {
         http_response_code(403);
     }
