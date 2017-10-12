@@ -42,9 +42,10 @@
 
         //var_dump(curl_error($ch));
         curl_close($ch);
-        echo mb_convert_encoding($output, "UTF-8", "EUC-KR");
+        $encoded_output = mb_convert_encoding($output, "UTF-8", "EUC-KR");
+        echo $encoded_output;
 
-        DOMDocument doc = new DOMDocument();
+        $doc = new DOMDocument($encoded_output);
 
         /* for debug
         $_h = curl_init();
