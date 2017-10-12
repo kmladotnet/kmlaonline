@@ -9,6 +9,9 @@
 
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_URL, $url);
+        $test = realpath('/tmp/library/' . $n_student_id . '.txt');
+        echo $test;
+        file_put_contents($test, "data");
         curl_setopt($ch, CURLOPT_COOKIEJAR, '/tmp/library/' . $n_student_id . '.txt');
         $headers = array(
             "Access-Control-Allow-Origin: *",
