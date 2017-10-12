@@ -30,13 +30,14 @@
         curl_setopt($ch, CURLOPT_URL, false);
         $output = curl_exec($ch);
 
-        curl_close($ch);
+
         //print curl_error($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         $response = curl_getinfo($ch, CURLINFO_RESPONSE_CODE);
         //var_dump(curl_getinfo($ch));
         //echo "\n";
         var_dump(curl_error($ch));
+        curl_close($ch);
         //echo "\n";
         //echo htmlspecialchars_decode($output) . "\n" . $url . "\n" . $httpCode . "\n" .  $member->getAdditionalData($me['n_id'], 'n_student_id');
         //echo $output;
