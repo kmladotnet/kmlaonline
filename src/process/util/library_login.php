@@ -12,7 +12,9 @@
         //$test = '/tmp/library/' . $n_student_id . '.txt';
         //echo $test;
         //file_put_contents($test, "data");
+        curl_setopt($ch, CURLOPT_COOKIESESSION, true);
         curl_setopt($ch, CURLOPT_COOKIEJAR, '/tmp/library/' . $n_student_id . '.txt');
+        curl_setopt($ch, CURLOPT_COOKIEFILE, '/tmp/library/' . $n_student_id . '.txt');
         $headers = array(
             "Access-Control-Allow-Origin: *",
             "Content-Length: 0"
