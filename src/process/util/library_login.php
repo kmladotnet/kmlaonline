@@ -56,7 +56,7 @@
         $rows = $table->getElementsByTagName('tr');
 
         $tmp_arr = array();
-        for(var $i = 0; $i < $rows->length - 1; $i++){
+        for($i = 0; $i < $rows->length - 1; $i++){
             $tmp = array();
             $row = $rows->item($i + 1);
             $items = $row->getElementsByTagName('td');
