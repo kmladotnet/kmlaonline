@@ -39,7 +39,7 @@ sudo pacman -Syu
 sudo certbot renew --email kmladotnet@gmail.com --agree-tos
 ```
 
-## mysql, nginx 등의 설정을 바꾼 후 ##
+## mysql, nginx(/etc/nginx/nginx.conf) 등의 설정을 바꾼 후 ##
 
 서비스를 재시작해야지 설정이 적용됩니다
 
@@ -47,6 +47,16 @@ sudo certbot renew --email kmladotnet@gmail.com --agree-tos
 sudo systemctl restart mysqld
 sudo systemctl restart nginx
 ```
+
+## php 설정 (/etc/php/php.ini) 을 변경한 후 ##
+
+php-fpm, nginx의 서비스를 재시작해야 설정이 적용됩니다.
+
+```bash
+sudo systemctl restart nginx
+sudo systemctl restart php-fpm
+```
+
 
 ## KMLA Online 멤버 관리 ##
 
