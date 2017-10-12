@@ -12,27 +12,34 @@
         //$test = '/tmp/library/' . $n_student_id . '.txt';
         //echo $test;
         //file_put_contents($test, "data");
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_COOKIESESSION, true);
-        curl_setopt($ch, CURLOPT_COOKIEJAR, '/tmp/library/' . $n_student_id . '.txt');
-        curl_setopt($ch, CURLOPT_COOKIEFILE, '/tmp/library/' . $n_student_id . '.txt');
+        curl_setopt($ch, CURLOPT_COOKIEJAR, "$n_student_id");
+        curl_setopt($ch, CURLOPT_COOKIEFILE, '/tmp/library');
         $headers = array(
             "Access-Control-Allow-Origin: *",
             "Content-Length: 0"
         );
 
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
         $output = curl_exec($ch);
+
+
+        curl_setopt($ch, CURLOPT_URL, 'http://lib.minjok.hs.kr/usweb/set16/USMN000_16.asp');
+        curl_setopt($ch, CURLOPT_URL, false);
+        $output = curl_exec($ch);
+
+        curl_close($ch);
         //print curl_error($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         $response = curl_getinfo($ch, CURLINFO_RESPONSE_CODE);
         //var_dump(curl_getinfo($ch));
-        echo "\n";
+        //echo "\n";
         var_dump(curl_error($ch));
-        echo "\n";
+        //echo "\n";
         //echo htmlspecialchars_decode($output) . "\n" . $url . "\n" . $httpCode . "\n" .  $member->getAdditionalData($me['n_id'], 'n_student_id');
-        echo $output;
+        //echo $output;
         /* for debug
         $_h = curl_init();
         curl_setopt($_h, CURLOPT_HEADER, 1);
@@ -46,7 +53,6 @@
         var_dump(curl_getinfo($_h));
         var_dump(curl_error($_h));
         */
-        curl_close($ch);
     } else {
         http_response_code(403);
     }
