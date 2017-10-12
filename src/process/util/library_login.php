@@ -60,7 +60,7 @@
             $tmp = array();
             $row = $rows->item($i + 1);
             $items = $row->getElementsByTagName('td');
-            for($items as $item){
+            foreach($items as $item){
                 array_push($tmp, $item);
             }
             array_push($tmp_arr, $tmp);
