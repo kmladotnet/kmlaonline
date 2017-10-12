@@ -4,11 +4,12 @@
         else $query = '';
 
         $ch = curl_init();
-        $url = 'http://lib.minjok.hs.kr/usweb/set16/USMN012.asp?mnid=' . $member->getAdditionalData($me['n_id'], 'n_student_id') . "&mnpw=" . $pwd;
+        $n_student_id = $member->getAdditionalData($me['n_id'], 'n_student_id');
+        $url = 'http://lib.minjok.hs.kr/usweb/set16/USMN012.asp?mnid=' . $n_student_id . "&mnpw=" . $pwd;
 
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_URL, $url);
-
+        curl_setopt($ch, CURLOPT_COOKIEJAR, '/tmp/library/' . $n_student_id . '.txt');
         $headers = array(
             "Access-Control-Allow-Origin: *",
             "Content-Length: 0"
