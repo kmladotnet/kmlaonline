@@ -55,10 +55,12 @@
         $table = $dom2->getElementsByTagName('table');
         $rows = $table->item(1)->getElementsByTagName('tr');
 
+        var_dump($rows);
         $tmp_arr = array();
         for($i = 0; $i < $rows->length - 1; $i++){
             $tmp = array();
             $row = $rows->item($i + 1);
+            var_dump($row);
             $items = $row->getElementsByTagName('td');
             foreach($items as $item){
                 array_push($tmp, $item);
