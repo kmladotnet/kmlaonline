@@ -53,7 +53,7 @@
         $dom2 = new DOMDocument('1.0', 'utf-8');
         @$dom2->loadHTML($output2);
         $table = $dom2->getElementsByTagName('table');
-        $rows = $table->getElementsByTagName('tr');
+        $rows = $table->item(1)->getElementsByTagName('tr');
 
         $tmp_arr = array();
         for($i = 0; $i < $rows->length - 1; $i++){
