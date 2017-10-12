@@ -49,7 +49,7 @@
         $dom->loadHTML($output);
         $login_box = $dom->getElementById('mbody32');
         var_dump($login_box);
-        echo $encoded_output;
+        //echo $encoded_output;
         /* for debug
         $_h = curl_init();
         curl_setopt($_h, CURLOPT_HEADER, 1);
