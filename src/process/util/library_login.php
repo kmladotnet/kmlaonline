@@ -43,10 +43,11 @@
         //var_dump(curl_error($ch));
         curl_close($ch);
         $encoded_output = mb_convert_encoding($output, "UTF-8", "EUC-KR");
-        echo $encoded_output;
+        //echo $encoded_output;
 
         $doc = new DOMDocument($encoded_output);
-
+        $login_box = $doc->getElementById('mbody32');
+        var_dump($login_box);
         /* for debug
         $_h = curl_init();
         curl_setopt($_h, CURLOPT_HEADER, 1);
