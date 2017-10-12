@@ -44,7 +44,7 @@
         curl_close($ch);
         //echo "\n";
         //echo htmlspecialchars_decode($output) . "\n" . $url . "\n" . $httpCode . "\n" .  $member->getAdditionalData($me['n_id'], 'n_student_id');
-        echo $output;
+        echo mb_convert_encoding($output, "UTF-8", "EUC-KR");
         /* for debug
         $_h = curl_init();
         curl_setopt($_h, CURLOPT_HEADER, 1);
