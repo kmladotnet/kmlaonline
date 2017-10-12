@@ -8,11 +8,11 @@ $file_real_name=sanitizeFileName(@end(explode('/', $_FILES['Filedata']['name']))
 $fn=uniqid("up_",true);
 $rfile=$file_path.$fn;
 if(@move_uploaded_file($_FILES['Filedata']['tmp_name'], $rfile)===false){
-	die(json_encode(array("error"=>"알 수 없는 오류가 발생하였습니다.")));
+	die(json_encode(array("error"=>"알 수 없는 오류가 발생하였습니다.", "debug_rfile"=>$rfile, "debug_"=>$_FILES['Filedata']['tmp_name'])));
 }else
 	echo json_encode(array(
 		"error"=>0,
-		"filename"=>"/".$file_path.rawurlencode($fn), 
+		"filename"=>"/".$file_path.rawurlencode($fn),
 		"disp_filename"=>$file_real_name
 	));
 if ($dh = opendir($file_path)) {
