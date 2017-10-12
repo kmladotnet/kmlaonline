@@ -37,18 +37,23 @@
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         $response = curl_getinfo($ch, CURLINFO_RESPONSE_CODE);
 
-        curl_setopt($ch, CURLOPT_URL, 'http://lib.minjok.hs.kr/usweb/set16/USMN000_16.asp');
+        curl_setopt($ch, CURLOPT_URL, 'http://lib.minjok.hs.kr/usweb/set16/USMN510.asp');
         $output2 = curl_exec($ch);
 
         //var_dump(curl_error($ch));
         curl_close($ch);
         $encoded_output = mb_convert_encoding($output, "UTF-8", "EUC-KR");
-
+        mb_convert_encoding($output2, "UTF-8", "EUC-KR");
 
         $dom = new DOMDocument('1.0', 'utf-8');
         @$dom->loadHTML($output);
         $login_box = $dom->getElementById('mbody32');
         echo $login_box->nodeValue;
+
+        $dom2 = new DOMDocument('1.0', 'utf-8');
+        @$dom2->loadHTML($output2);
+        $table = $dom2->getElementsByTagName('table');
+        var_dump($table);
         //var_dump($login_box);
         //echo $encoded_output;
         /* for debug
