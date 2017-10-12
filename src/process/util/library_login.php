@@ -22,8 +22,8 @@
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         $response = curl_getinfo($ch, CURLINFO_RESPONSE_CODE);
         var_dump(curl_getinfo($ch));
-        echo htmlspecialchars_decode($output) . "\n" . $url . "\n" . $httpCode . "\n" .  $member->getAdditionalData($me['n_id'], 'n_student_id');
-
+        //echo htmlspecialchars_decode($output) . "\n" . $url . "\n" . $httpCode . "\n" .  $member->getAdditionalData($me['n_id'], 'n_student_id');
+        echo $output;
         /* for debug
         $_h = curl_init();
         curl_setopt($_h, CURLOPT_HEADER, 1);
