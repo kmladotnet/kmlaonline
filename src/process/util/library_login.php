@@ -57,7 +57,7 @@
 
         //var_dump($rows);
         $tmp_arr = array();
-        $rm_chr = array("\r", "\t", "\n");
+        $rm_chr = array("\r", "\t");
         for($i = 0; $i < 3; $i++){
             $tmp = array();
             $row = $rows->item($i + 1);
