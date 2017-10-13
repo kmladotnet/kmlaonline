@@ -49,7 +49,7 @@
         $login_box = $dom->getElementById('mbody32');
         $rm_chr = array("\n", "\r", "\t");
         $info = str_replace($rm_chr, "", $login_box->nodeValue);
-        $book_num = trim(substr($info, strpos($info, '대출권수 : ') + 7, 2));
+        $book_num = substr($info, strpos($info, '대출권수 : ') + 7, 2);
 
         $dom2 = new DOMDocument('1.0', 'utf-8');
         @$dom2->loadHTML($output2);
