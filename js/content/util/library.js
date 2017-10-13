@@ -47,8 +47,7 @@ app.controller("libCtrl", function($scope, $http){
     };
 
     $scope.refineBookInfo = function(str){
-        var tmp = str.split('|');
-        return tmp.join('<br />');
+        return str.replace("|", "<br />");
     }
 
     $scope.submenu = function(){
