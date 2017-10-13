@@ -49,11 +49,8 @@
         $login_box = $dom->getElementById('mbody32');
         $rm_chr = array("\n", "\r", "\t");
         $info = str_replace($rm_chr, "", $login_box->nodeValue);
-        echo strpos($info, '대출권수 : ');
-        $book_num = 'test';
-        print_r($info);
-        echo strlen('대출권수 : ');
-        //$book_num = substr($info, strpos($info, '대출권수 : ') + 7, 2);
+
+        $book_num = substr($info, strpos($info, '대출권수 : ') + strlen('대출권수 : '), 2);
 
         $dom2 = new DOMDocument('1.0', 'utf-8');
         @$dom2->loadHTML($output2);
