@@ -15,7 +15,7 @@
     </div>
     <form name="book_request" ng-show="isBookSelected && isAvailable(selected.book)">
         <textarea class="form-control" placeholder="도서 신청 사유를 입력해주세요.(1-3줄)" ng-model="selected.reason"></textarea>
-        <button class="btn btn-info" type="button">신청하기</button>
+        <button class="btn btn-info" type="button" ng-click="submit()">신청하기</button>
     </form>
 </div>
 <div class="col-xs-7">
