@@ -52,7 +52,7 @@
         echo strpos($info, '대출권수 : ');
         $book_num = 'test';
         print_r($info);
-        echo strlen($info);
+        echo strlen('대출권수 : ');
         //$book_num = substr($info, strpos($info, '대출권수 : ') + 7, 2);
 
         $dom2 = new DOMDocument('1.0', 'utf-8');
