@@ -89,14 +89,14 @@ app.controller("libCtrl", function($scope, $http){
 
         $http({
             method: 'POST',
-            url: '/proc/util/barbeque_submit_new',
-            data: $scope.new_bbq,
+            url: '/proc/util/library_submit_new',
+            data: $scope.selected,
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
             }
         }).then(function mySuccess(response){
             $scope.new_bbq = {};
-            $scope.changePage('my-barbeque');
+            $scope.changePage('my-page');
             console.log("submit success");
         }, function myError(response){
             $scope.status = "Request failed";
