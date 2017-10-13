@@ -34,5 +34,26 @@
     </div-->
 </div>
 <div class="col-xs-6">
-    <textarea class="form-control" placeholder="신청 사유를 입력해주세요.(1-3줄)"></textarea>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>도서명</th>
+                <th>대출일</th>
+                <th>반납일</th>
+                <th>상태</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="book in output.bookList">
+                <td>{{book.number}}</td>
+                <td>{{book.info}}</td>
+                <td>{{book.borrow_date}}</td>
+                <td>{{book.return_date}}</td>
+                <td>{{book.status}}</td>
+                <td>(unprepared)</td>
+            </tr>
+        </tbody>
+    </table>
 </div>

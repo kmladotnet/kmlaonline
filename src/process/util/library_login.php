@@ -61,18 +61,26 @@
         $bar_chr = array("\n\n\n", ' / ');
         $rm_chr_1 = array("\r", "\t");
         $rm_chr_2 = array("\n\n", "\n");
+        $name_array = array("number", "info", "borrow_date", "invalid1", "return_date", "status", "institution", "invalid2");
         for($i = 0; $i < 3; $i++){
             $tmp = array();
             $row = $rows->item($i + 1);
             //var_dump($row);
             $items = $row->getElementsByTagName('td');
             //var_dump($items);
+            for($j = 0; $j < 8; $j++){
+                if($j == 3 || $j == 7) continue;
+                $str = str_replace($rm_chr_1, "", $items->item($j)->nodeValue);
+                $str = str_replace($bar_chr, "|", $str);
+                $tmp[$name_array[$j]] = str_replace($rm_chr_2, "", $str);
+            }
+            /*
             foreach($items as $item){
                 $str = str_replace($rm_chr_1, "", $item->nodeValue);
                 $str = str_replace($bar_chr, "|", $str);
                 array_push($tmp, str_replace($rm_chr_2, "", $str));
                 //array_push($tmp, $item->nodeValue);
-            }
+            }*/
             array_push($tmp_arr, $tmp);
         }
 
