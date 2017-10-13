@@ -55,15 +55,15 @@
         $table = $dom2->getElementsByTagName('table');
         $rows = $table->item(1)->getElementsByTagName('tr');
 
-        var_dump($rows);
+        //var_dump($rows);
         $tmp_arr = array();
         $rm_chr = array("\r", "\t", "\n");
         for($i = 0; $i < 3; $i++){
             $tmp = array();
             $row = $rows->item($i + 1);
-            var_dump($row);
+            //var_dump($row);
             $items = $row->getElementsByTagName('td');
-            var_dump($items);
+            //var_dump($items);
             foreach($items as $item){
                 array_push($tmp, str_replace($rm_chr, "", $item->nodeValue));
             }
