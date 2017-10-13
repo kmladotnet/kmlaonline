@@ -66,8 +66,9 @@
             $items = $row->getElementsByTagName('td');
             //var_dump($items);
             foreach($items as $item){
-                $str = str_replace($bar_chr, "|", $item->nodeValue);
-                array_push($tmp, str_replace($rm_chr, "", $str));
+                //$str = str_replace($bar_chr, "|", $item->nodeValue);
+                //array_push($tmp, str_replace($rm_chr, "", $str));
+                array_push($tmp, $item->nodeValue);
             }
             array_push($tmp_arr, $tmp);
         }
