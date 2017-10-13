@@ -6,6 +6,7 @@ app.controller("libCtrl", function($scope, $http){
 
     $scope.init = function(){
         $scope.changePage('home');
+        $scope.isBookSelected = false;
     };
 
     $scope.bookFetch = function(query) {
@@ -28,9 +29,19 @@ app.controller("libCtrl", function($scope, $http){
                 + "<p>" + $scope.authorRefined(book.author) + " 지음 | " + book.publisher + " | " + book.pubdate.substring(0, 4) + "</p>";
     };
 
+    $scope.isAvailable = function(book){
+        if(book.price !== 'undefined') return true;
+        else return false;
+    }
+
     $scope.authorRefined = function(author) {
         var temp = author.split("|");
         return temp.join(", ");
+    };
+
+    $scope.select = function(book){
+        $scope.selected.book = book;
+        $scope.isBookSelected = true;
     };
 
     $scope.login = function(pwd){

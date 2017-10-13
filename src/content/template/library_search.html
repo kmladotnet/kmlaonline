@@ -1,4 +1,18 @@
-<div class="col-xs-6">
+<div class="col-xs-5">
+    <h3>선택한 도서 - 상세 정보</h3>
+    <div class="well">
+        <p>도서명: {{selected.book.title}}</p>
+        <p>저자: {{authorRefined(selected.book.author)}}, 출판사: {{selected.book.publisher}}</p>
+        <p>출간연도: {{selected.book.pubdate.substring(0, 4)}}년 </p>
+        <p ng-show="isAvailable(selected.book)">정가: {{selected.book.price}}원</p>
+        <p ng-show="!isAvailable(selected.book)">절판 등의 이유로 구매할 수 없는 도서입니다.</p>
+    </div>
+    <form name="book_request">
+        <textarea class="form-control" placeholder="도서 신청 사유를 입력해주세요.(1-3줄)" ng-model="selected.reason" ng-show="isBookSelected && isAvailable(selected.book)"></textarea>
+        <button class="btn btn-info" type="button">신청하기</button>
+    </form>
+</div>
+<div class="col-xs-7">
     <form>
         <div class="input-group">
             <input name="test-query" ng-model="test" id="query" class="form-control">
@@ -16,9 +30,9 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="book in bookList">
+                <tr ng-repeat="book in bookList" ng-click="select(book)">
                     <td>{{$index + 1}}</td>
-                    <td><img ng-src="{{book.image}}" style="max-height:100px"></td>
+                    <td><img ng-src="{{book.image !== 'undefined' ? book.image : '/images/book-no-img.gif'}}" style="max-height:100px"></td>
                     <td ng-bind-html="bookDesc(book)"></td>
                     <!--td ng-bind-html="book.author + "></td>
                     <td ng-bind-html="book.publisher"></td>
@@ -27,7 +41,4 @@
             </tbody>
         </table>
     </div>
-</div>
-<div class="col-xs-6">
-    <textarea class="form-control" placeholder="신청 사유를 입력해주세요.(1-3줄)"></textarea>
 </div>
