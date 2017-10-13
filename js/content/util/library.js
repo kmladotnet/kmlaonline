@@ -31,7 +31,7 @@ app.controller("libCtrl", function($scope, $http){
     };
 
     $scope.isAvailable = function(book){
-        if(book.price !== 'undefined') return true;
+        if(book.price !== 'undefined' && book.discount !== 'undefined') return true;
         else return false;
     }
 
