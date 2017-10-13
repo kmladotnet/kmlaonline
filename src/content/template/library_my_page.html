@@ -48,7 +48,7 @@
         <tbody>
             <tr ng-repeat="book in output.bookList">
                 <td>{{book.number}}</td>
-                <td><p>{{refineBookInfo(book.info)}}<p></td>
+                <td ng-bind-html="refineBookInfo(book.info)"></td>
                 <td>{{book.borrow_date}}</td>
                 <td>{{book.return_date}}</td>
                 <td>{{book.status}}</td>
