@@ -57,7 +57,7 @@
 
         //var_dump($rows);
         $tmp_arr = array();
-        $bar_chr = array("\n\n\n", "\/");
+        $bar_chr = array("\n\n\n", "/");
         $rm_chr = array("\r", "\t", "\n\n", "\n");
         for($i = 0; $i < 3; $i++){
             $tmp = array();
