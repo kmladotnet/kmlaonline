@@ -1,4 +1,4 @@
-<div class="col-xs-6">
+<div class="col-xs-3">
     <form>
         <div class="form-group">
             <input placeholder="비밀번호를 입력해주세요" class="form-control" ng-model="lib_password" type="password">
@@ -33,7 +33,7 @@
         </table>
     </div-->
 </div>
-<div class="col-xs-6">
+<div class="col-xs-9">
     <table class="table">
         <thead>
             <tr>
@@ -48,7 +48,7 @@
         <tbody>
             <tr ng-repeat="book in output.bookList">
                 <td>{{book.number}}</td>
-                <td>{{book.info}}</td>
+                <td>{{refineBookInfo(book.info)}}</td>
                 <td>{{book.borrow_date}}</td>
                 <td>{{book.return_date}}</td>
                 <td>{{book.status}}</td>
