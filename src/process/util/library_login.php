@@ -57,8 +57,9 @@
 
         //var_dump($rows);
         $tmp_arr = array();
-        $bar_chr = array("\n\n\n", "/");
-        $rm_chr = array("\r", "\t", "\n\n", "\n");
+        $bar_chr = array("\n\n\n", "\\u00a0/\\u00a0");
+        $rm_chr_1 = array("\r", "\t");
+        $rm_chr_2 = array("\n\n", "\n");
         for($i = 0; $i < 3; $i++){
             $tmp = array();
             $row = $rows->item($i + 1);
@@ -66,9 +67,10 @@
             $items = $row->getElementsByTagName('td');
             //var_dump($items);
             foreach($items as $item){
-                //$str = str_replace($bar_chr, "|", $item->nodeValue);
-                //array_push($tmp, str_replace($rm_chr, "", $str));
-                array_push($tmp, $item->nodeValue);
+                $str = str_replace($rm_chr_1, "", $item->nodeValue);
+                $str = str_replace($bar_chr, "|", $str);
+                array_push($tmp, str_replace($rm_chr_2, "", $str));
+                //array_push($tmp, $item->nodeValue);
             }
             array_push($tmp_arr, $tmp);
         }
