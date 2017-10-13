@@ -29,8 +29,7 @@
 
         $output = curl_exec($ch);
 
-
-        curl_setopt($ch, CURLOPT_URL, 'http://lib.minjok.hs.kr/usweb/set16/USMN000_16.asp');
+            curl_setopt($ch, CURLOPT_URL, 'http://lib.minjok.hs.kr/usweb/set16/USMN000_16.asp');
         curl_setopt($ch, CURLOPT_POST, false);
         $output = curl_exec($ch);
 
@@ -50,6 +49,7 @@
         $login_box = $dom->getElementById('mbody32');
         $rm_chr = array("\n", "\r", "\t");
         $info = str_replace($rm_chr, "", $login_box->nodeValue);
+        $book_num = substr($info, strpos($info, '대출권수 : '));
 
         $dom2 = new DOMDocument('1.0', 'utf-8');
         @$dom2->loadHTML($output2);
@@ -86,6 +86,7 @@
 
         $final_array = array();
         $final_array['info'] = $info;
+        $final_array['bookNum'] = $book_num;
         $final_array['bookList'] = $tmp_arr;
 
         echo json_encode($final_array);
