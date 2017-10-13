@@ -31,10 +31,10 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="book in bookList">
-                    <td ng-click="select(book)">{{$index + 1}}</td>
-                    <td ng-click="select(book)"><img ng-src="{{book.image !== 'undefined' ? book.image : '/images/book-no-img.gif'}}" style="max-height:100px"></td>
-                    <td ng-click="select(book)" ng-bind-html="bookDesc(book)"></td>
+                <tr ng-repeat="book in bookList" ng-click="select(book)">
+                    <td>{{$index + 1}}</td>
+                    <td><img ng-src="{{book.image !== 'undefined' ? book.image : '/images/book-no-img.gif'}}" style="max-height:100px"></td>
+                    <td ng-bind-html="bookDesc(book)"></td>
                     <!--td ng-bind-html="book.author + "></td>
                     <td ng-bind-html="book.publisher"></td>
                     <td>{{book.pubdate}}</td-->

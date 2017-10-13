@@ -6,6 +6,7 @@ app.controller("libCtrl", function($scope, $http){
 
     $scope.init = function(){
         $scope.changePage('home');
+        $scope.selected = {};
         $scope.isBookSelected = false;
     };
 
