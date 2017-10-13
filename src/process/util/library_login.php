@@ -63,7 +63,7 @@
         $rm_chr_1 = array("\r", "\t");
         $rm_chr_2 = array("\n\n", "\n");
         $name_array = array("number", "info", "borrow_date", "invalid1", "return_date", "status", "institution", "invalid2");
-        for($i = 0; $i < 3; $i++){
+        for($i = 0; $i < (int) $book_num; $i++){
             $tmp = array();
             $row = $rows->item($i + 1);
             //var_dump($row);
