@@ -1,4 +1,11 @@
 <div class="col-xs-5">
+    <h3>도서 검색</h3>
+    <form>
+        <div class="input-group">
+            <input name="test-query" placeholder="도서 검색" ng-model="test" id="query" class="form-control">
+            <span class="input-group-btn"><button class="btn btn-info" onclick="" type="button" ng-click="bookFetch(test)"><i class="fa fa-search"></i></button></span>
+        </div>
+    </form>
     <h3>선택한 도서 - 상세 정보</h3>
     <div class="well" ng-if="isBookSelected">
         <p>도서명: {{selected.book.title}}</p>
@@ -7,18 +14,12 @@
         <p ng-show="isAvailable(selected.book)">정가: {{selected.book.price}}원</p>
         <p ng-show="!isAvailable(selected.book)">절판 등의 이유로 구매할 수 없는 도서입니다.</p>
     </div>
-    <form name="book_request">
-        <textarea class="form-control" placeholder="도서 신청 사유를 입력해주세요.(1-3줄)" ng-model="selected.reason" ng-show="isBookSelected && isAvailable(selected.book)"></textarea>
+    <form name="book_request" ng-show="isBookSelected && isAvailable(selected.book)">
+        <textarea class="form-control" placeholder="도서 신청 사유를 입력해주세요.(1-3줄)" ng-model="selected.reason"></textarea>
         <button class="btn btn-info" type="button">신청하기</button>
     </form>
 </div>
 <div class="col-xs-7">
-    <form>
-        <div class="input-group">
-            <input name="test-query" ng-model="test" id="query" class="form-control">
-            <span class="input-group-btn"><button class="btn btn-info" onclick="" type="button" ng-click="bookFetch(test)"><i class="fa fa-search"></i></button></span>
-        </div>
-    </form>
     <p>status: {{status}}</p>
     <div style="height: 400px;overflow: auto">
         <table class="table table-striped">
