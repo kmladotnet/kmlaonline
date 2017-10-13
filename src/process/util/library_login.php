@@ -48,7 +48,7 @@
         $dom = new DOMDocument('1.0', 'utf-8');
         @$dom->loadHTML($output);
         $login_box = $dom->getElementById('mbody32');
-        echo $login_box->nodeValue;
+        $info = $login_box->nodeValue;
 
         $dom2 = new DOMDocument('1.0', 'utf-8');
         @$dom2->loadHTML($output2);
@@ -75,7 +75,11 @@
             array_push($tmp_arr, $tmp);
         }
 
-        echo json_encode($tmp_arr);
+        $final_array = array();
+        $final_array['info'] = $info;
+        $final_array['bookList'] = $tmp_arr;
+
+        echo json_encode($final_array);
         //var_dump($login_box);
         //echo $encoded_output;
         /* for debug
