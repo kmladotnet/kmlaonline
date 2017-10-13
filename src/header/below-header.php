@@ -31,9 +31,8 @@
                 <?php } ?>
                 <a id="back-to-main" href="/"></a><br />
             </div>
-        <?php } ?>
+        <?php }} ?>
 		<script type="text/javascript">prepareHeader();</script>
-	<?php } ?>
 	<div id="total-content">
         <?php if (function_exists("printContent")) { printContent(); } ?>
         <div style="clear:both"></div>
