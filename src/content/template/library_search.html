@@ -20,25 +20,23 @@
 </div>
 <div class="col-xs-7">
     <p>status: {{status}}</p>
-    <div style="height: 400px;overflow: auto">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>도서 이미지</th>
-                    <th>책 정보</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="book in bookList" ng-click="select(book)">
-                    <td>{{$index + 1}}</td>
-                    <td><img ng-src="{{book.image !== 'undefined' ? book.image : '/images/book-no-img.gif'}}" style="max-height:100px"></td>
-                    <td ng-bind-html="bookDesc(book)"></td>
-                    <!--td ng-bind-html="book.author + "></td>
-                    <td ng-bind-html="book.publisher"></td>
-                    <td>{{book.pubdate}}</td-->
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <table class="table table-striped" style="display: block;">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>도서 이미지</th>
+                <th>책 정보</th>
+            </tr>
+        </thead>
+        <tbody style="height: 380px; overflow-y: auto; display: block;">
+            <tr ng-repeat="book in bookList" ng-click="select(book)">
+                <td>{{$index + 1}}</td>
+                <td><img ng-src="{{book.image !== 'undefined' ? book.image : '/images/book-no-img.gif'}}" style="max-height:100px"></td>
+                <td ng-bind-html="bookDesc(book)"></td>
+                <!--td ng-bind-html="book.author + "></td>
+                <td ng-bind-html="book.publisher"></td>
+                <td>{{book.pubdate}}</td-->
+            </tr>
+        </tbody>
+    </table>
 </div>
