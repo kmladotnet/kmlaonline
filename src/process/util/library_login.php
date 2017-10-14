@@ -48,49 +48,53 @@
         @$dom->loadHTML($output);
         $login_box = $dom->getElementById('mbody32');
         $rm_chr = array("\n", "\r", "\t");
-        $info = str_replace($rm_chr, "", $login_box->nodeValue);
+        if($login_box){
+            $info = str_replace($rm_chr, "", $login_box->nodeValue);
 
-        $book_num = trim(substr($info, strpos($info, '대출권수 : ') + strlen('대출권수 : '), 2));
+            $book_num = trim(substr($info, strpos($info, '대출권수 : ') + strlen('대출권수 : '), 2));
 
-        $dom2 = new DOMDocument('1.0', 'utf-8');
-        @$dom2->loadHTML($output2);
-        $table = $dom2->getElementsByTagName('table');
-        $rows = $table->item(1)->getElementsByTagName('tr');
+            $dom2 = new DOMDocument('1.0', 'utf-8');
+            @$dom2->loadHTML($output2);
+            $table = $dom2->getElementsByTagName('table');
+            $rows = $table->item(1)->getElementsByTagName('tr');
 
-        //var_dump($rows);
-        $tmp_arr = array();
-        $bar_chr = array("\n\n\n", ' / ');
-        $rm_chr_1 = array("\r", "\t");
-        $rm_chr_2 = array("\n\n", "\n");
-        $name_array = array("number", "info", "borrow_date", "invalid1", "return_date", "status", "institution", "invalid2");
-        for($i = 0; $i < (int) $book_num; $i++){
-            $tmp = array();
-            $row = $rows->item($i + 1);
-            //var_dump($row);
-            $items = $row->getElementsByTagName('td');
-            //var_dump($items);
-            for($j = 0; $j < 8; $j++){
-                if($j == 3 || $j == 7) continue;
-                $str = str_replace($rm_chr_1, "", $items->item($j)->nodeValue);
-                $str = str_replace($bar_chr, "|", $str);
-                $tmp[$name_array[$j]] = str_replace($rm_chr_2, "", $str);
+            //var_dump($rows);
+            $tmp_arr = array();
+            $bar_chr = array("\n\n\n", ' / ');
+            $rm_chr_1 = array("\r", "\t");
+            $rm_chr_2 = array("\n\n", "\n");
+            $name_array = array("number", "info", "borrow_date", "invalid1", "return_date", "status", "institution", "invalid2");
+            for($i = 0; $i < (int) $book_num; $i++){
+                $tmp = array();
+                $row = $rows->item($i + 1);
+                //var_dump($row);
+                $items = $row->getElementsByTagName('td');
+                //var_dump($items);
+                for($j = 0; $j < 8; $j++){
+                    if($j == 3 || $j == 7) continue;
+                    $str = str_replace($rm_chr_1, "", $items->item($j)->nodeValue);
+                    $str = str_replace($bar_chr, "|", $str);
+                    $tmp[$name_array[$j]] = str_replace($rm_chr_2, "", $str);
+                }
+                /*
+                foreach($items as $item){
+                    $str = str_replace($rm_chr_1, "", $item->nodeValue);
+                    $str = str_replace($bar_chr, "|", $str);
+                    array_push($tmp, str_replace($rm_chr_2, "", $str));
+                    //array_push($tmp, $item->nodeValue);
+                }*/
+                array_push($tmp_arr, $tmp);
             }
-            /*
-            foreach($items as $item){
-                $str = str_replace($rm_chr_1, "", $item->nodeValue);
-                $str = str_replace($bar_chr, "|", $str);
-                array_push($tmp, str_replace($rm_chr_2, "", $str));
-                //array_push($tmp, $item->nodeValue);
-            }*/
-            array_push($tmp_arr, $tmp);
+
+            $final_array = array();
+            $final_array['info'] = $info;
+            $final_array['bookNum'] = $book_num;
+            $final_array['bookList'] = $tmp_arr;
+
+            echo json_encode($final_array);
+        } else {
+            echo $output2;
         }
-
-        $final_array = array();
-        $final_array['info'] = $info;
-        $final_array['bookNum'] = $book_num;
-        $final_array['bookList'] = $tmp_arr;
-
-        echo json_encode($final_array);
         //var_dump($login_box);
         //echo $encoded_output;
         /* for debug
