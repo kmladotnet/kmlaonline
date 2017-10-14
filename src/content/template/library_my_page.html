@@ -15,7 +15,7 @@
 
 </div>
 <div class="col-xs-9">
-    <table class="table">
+    <table class="table" style="display: block;">
         <thead>
             <tr>
                 <th>#</th>
@@ -26,7 +26,7 @@
                 <th></th>
             </tr>
         </thead>
-        <tbody>
+        <tbody style="height: 380px; overflow-y: auto; display: block;">
             <tr ng-repeat="book in output.bookList">
                 <td>{{book.number}}</td>
                 <td ng-bind-html="refineBookInfo(book.info)"></td>

@@ -8,8 +8,8 @@
     </form>
     <h3>선택한 도서 - 상세 정보</h3>
     <div class="well" ng-if="isBookSelected">
-        <p>도서명: {{selected.book.title}}</p>
-        <p>저자: {{authorRefined(selected.book.author)}}, 출판사: {{selected.book.publisher}}</p>
+        <p>도서명: {{selected.book.title | removeHTMLTags}}</p>
+        <p>저자: {{authorRefined(selected.book.author) | removeHTMLTags}}, 출판사: {{selected.book.publisher | removeHTMLTags}}</p>
         <p>출간연도: {{selected.book.pubdate.substring(0, 4)}}년 </p>
         <p>{{isAvailable(selected.book) ? '정가: ' + selected.book.price + '원' : '절판 등의 이유로 도서를 구매할 수 없습니다'}}</p>
     </div>
