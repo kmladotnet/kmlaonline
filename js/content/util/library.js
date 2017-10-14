@@ -4,11 +4,9 @@ var app = angular.module("libApp", ['ui.bootstrap', 'ngSanitize']);
 
 app.filter("removeHTMLTags", function(){
     return function(text){
-        return text ? String(text).replace(/(<([^>]+)>)/ig, "";
+        return text ? String(text).replace(/(<([^>]+)>)/ig, "");
     }
-}){
-
-}
+});
 
 app.controller("libCtrl", function($scope, $http){
 
