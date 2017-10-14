@@ -10,7 +10,8 @@
         </div-->
     </form>
     <p>status: {{status}}</p>
-    <p>대출 권수: {{output.bookNum}}권</p>
+    <p ng-hide="!login_error">대출 권수: {{output.bookNum}}권</p>
+    <p ng-show="login_error" style="color: red">로그인 에러: {{output.error_desc}}</p>
     <!--div style="height: 400px;overflow: auto">
         <table class="table table-striped">
             <thead>

@@ -8,6 +8,7 @@ app.controller("libCtrl", function($scope, $http){
         $scope.changePage('home');
         $scope.selected = {};
         $scope.isBookSelected = false;
+        $scope.login_error = false;
     };
 
     $scope.bookFetch = function(query) {
@@ -52,9 +53,11 @@ app.controller("libCtrl", function($scope, $http){
         }).then(function mySuccess(response){
             $scope.status = response.statusText;
             $scope.output = response.data;
+            $scope.login_error = false;
         }, function myError(response){
             $scope.output = response.data || 'Request failed';
             $scope.status = response.statusText;
+            $scope.login_error = true;
         });
     };
 
