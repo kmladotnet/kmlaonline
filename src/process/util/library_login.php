@@ -94,10 +94,10 @@
 
             echo json_encode($final_array);
         } else if(strpos($output_, 'USMN610')){
-            echo array("error"=>"LOGIN_ERROR", "error_desc"=>"비밀번호가 올바르지 않습니다.");
+            echo json_encode(array("error"=>"LOGIN_ERROR", "error_desc"=>"비밀번호가 올바르지 않습니다."));
             http_response_code(400);
         } else {
-            echo array("error"=>"UNKNOWN_ERROR", "error_desc"=>"예기치 않은 문제가 발생하였습니다. 관리자에게 문의 바랍니다.");
+            echo json_encode(array("error"=>"UNKNOWN_ERROR", "error_desc"=>"예기치 않은 문제가 발생하였습니다. 관리자에게 문의 바랍니다."));
             http_response_code(400);
         }
         //var_dump($login_box);
