@@ -28,6 +28,7 @@
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
         $output_ = curl_exec($ch);
+        mb_convert_encoding($output_, "UTF-8", "EUC-KR");
 
         curl_setopt($ch, CURLOPT_URL, 'http://lib.minjok.hs.kr/usweb/set16/USMN000_16.asp');
         curl_setopt($ch, CURLOPT_POST, false);
