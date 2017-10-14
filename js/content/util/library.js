@@ -8,7 +8,6 @@ app.controller("libCtrl", function($scope, $http){
         $scope.changePage('home');
         $scope.selected = {};
         $scope.isBookSelected = false;
-        $scope.login_error = false;
     };
 
     $scope.error = function(){
