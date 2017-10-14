@@ -11,6 +11,10 @@ app.controller("libCtrl", function($scope, $http){
         $scope.login_error = false;
     };
 
+    $scope.error = function(){
+        return login_error;
+    }
+
     $scope.bookFetch = function(query) {
         $http({
             method: "GET",

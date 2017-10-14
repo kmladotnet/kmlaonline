@@ -10,29 +10,9 @@
         </div-->
     </form>
     <p>status: {{status}}</p>
-    <p ng-hide="!login_error">대출 권수: {{output.bookNum}}권</p>
-    <p ng-show="login_error" style="color: red">로그인 에러: {{output.error_desc}}</p>
-    <!--div style="height: 400px;overflow: auto">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>도서 이미지</th>
-                    <th>책 정보</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="book in bookList">
-                    <td>{{$index + 1}}</td>
-                    <td><img ng-src="{{book.image}}" style="max-height:100px"></td>
-                    <td ng-bind-html="bookDesc(book)"></td>
-                    <td ng-bind-html="book.author + "></td>
-                    <td ng-bind-html="book.publisher"></td>
-                    <td>{{book.pubdate}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div-->
+    <p ng-hide="!error()">대출 권수: {{output.bookNum}}권</p>
+    <p ng-show="error()" style="color: red">로그인 에러: {{output.error_desc}}</p>
+
 </div>
 <div class="col-xs-9">
     <table class="table">
