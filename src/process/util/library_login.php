@@ -95,7 +95,7 @@
             echo json_encode($final_array);
         } else {
             echo "<!-->" . $output_ . "<-->";
-            if(strpos($output_, '아이디나')) echo "success";
+            if(strpos($output_, 'USMN610')) echo "success";
             else echo "failed";
         }
         //var_dump($login_box);
