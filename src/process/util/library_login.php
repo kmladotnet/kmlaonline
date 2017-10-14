@@ -93,7 +93,7 @@
 
             echo json_encode($final_array);
         } else {
-            echo $output2;
+            echo $output;
         }
         //var_dump($login_box);
         //echo $encoded_output;
