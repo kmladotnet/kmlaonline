@@ -27,9 +27,9 @@
 
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
-        $output = curl_exec($ch);
+        $output_ = curl_exec($ch);
 
-            curl_setopt($ch, CURLOPT_URL, 'http://lib.minjok.hs.kr/usweb/set16/USMN000_16.asp');
+        curl_setopt($ch, CURLOPT_URL, 'http://lib.minjok.hs.kr/usweb/set16/USMN000_16.asp');
         curl_setopt($ch, CURLOPT_POST, false);
         $output = curl_exec($ch);
 
@@ -93,7 +93,8 @@
 
             echo json_encode($final_array);
         } else {
-            echo $output;
+            echo htmlspecialchars($output_);
+            echo htmlspecialchars($output);
         }
         //var_dump($login_box);
         //echo $encoded_output;
