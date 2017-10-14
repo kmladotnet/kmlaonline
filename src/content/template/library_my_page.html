@@ -10,7 +10,7 @@
         </div-->
     </form>
     <p>status: {{status}}</p>
-    <p ng-hide="!error()">대출 권수: {{output.bookNum}}권</p>
+    <p ng-hide="error()">대출 권수: {{output.bookNum}}권</p>
     <p ng-show="error()" style="color: red">로그인 에러: {{output.error_desc}}</p>
 
 </div>
