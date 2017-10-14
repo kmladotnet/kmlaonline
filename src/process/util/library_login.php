@@ -93,8 +93,8 @@
 
             echo json_encode($final_array);
         } else {
-            echo htmlspecialchars($output_);
-            echo htmlspecialchars($output);
+            if(str_pos('아이디나 비밀번호 정보가 올바르지 않습니다.')) echo "success";
+            else echo "failed";
         }
         //var_dump($login_box);
         //echo $encoded_output;
