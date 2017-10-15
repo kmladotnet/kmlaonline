@@ -6,7 +6,7 @@
 
     $context = new React\ZMQ\Context($loop);
     $pull = $context->getSocket(ZMQ::SOCKET_PULL);
-    $pull->bind('tcp://localhost:5555');
+    $pull->bind('tcp://127.0.0.1:5555');
     $pull->on('message', array($pusher, 'onBlogEntry'));
 
     $websocket = new React\Socket\Server(8080, $loop);
