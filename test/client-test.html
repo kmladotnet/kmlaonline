@@ -7,12 +7,12 @@
                 conn.subscribe('kittensCategory', function(topic, data) {
                     // This is where you would add the new article to the DOM (beyond the scope of this tutorial)
                     console.log('New article published to category "' + topic + '" : ' + data.title);
-                    Document.getElementById('debug').innerHTML = 'Success';
+                    document.getElementById('debug').innerHTML = 'Success';
                 });
             },
             function() {
                 console.warn('WebSocket connection closed');
-                Document.getElementById('debug').innerHTML = 'Fail';
+                document.getElementById('debug').innerHTML = 'Fail';
             },
             {'skipSubprotocolCheck': true}
         );
