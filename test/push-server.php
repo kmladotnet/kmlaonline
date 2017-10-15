@@ -2,7 +2,7 @@
     require dirname(__DIR__) . '/vendor/autoload.php';
 
     $loop = React\EventLoop\Factory::create();
-    $pusher = new MyApp\Pusher;
+    $pusher = new MyApp\Pusher();
 
     $context = new React\ZMQ\Context($loop);
     $pull = $context->getSocket(ZMQ::SOCKET_PULL);
