@@ -1,5 +1,8 @@
 <?php
 namespace MyApp;
+
+require dirname(__DIR__) . '/vendor/autoload.php';
+
 use Ratchet\ConnectionInterface;
 use Ratchet\Wamp\WampServerInterface;
 
