@@ -4,7 +4,21 @@ use Ratchet\ConnectionInterface;
 use Ratchet\Wamp\WampServerInterface;
 
 class Pusher implements WampServerInterface {
+    protected $subscribedTopics = array();
+
     public function onSubscribe(ConnectionInterface $conn, $topic) {
+        $this->subscribedTopics[$topic->getId()] = $topic;
+    }
+
+    public function onBlogEntry($entry) {
+        $entryData = json_decode($entry, true);
+
+        if(!array_key_exists($entryData['category'], $this->subscribedTopics)) {
+            return;
+        }
+
+        $topic = $this->subscribedTopics[$entryData['category']];
+        $topic->broadcast($entryData);
     }
 
     public function onUnSubscribe(ConnectionInterface $conn, $topic) {
