@@ -9,7 +9,7 @@
     $pull->bind('tcp://127.0.0.1:5555');
     $pull->on('message', array($pusher, 'onBlogEntry'));
 
-    $websocket = new React\Socket\Server(8080, $loop);
+    $websocket = new React\Socket\Server('0.0.0.0:8080', $loop);
     //$websocket->listen(8080, '0.0.0.0');
     $webServer = new Ratchet\Server\IoServer(
         new Ratchet\Http\HttpServer(
