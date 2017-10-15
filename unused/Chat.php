@@ -2,7 +2,6 @@
 namespace MyApp;
 
 require dirname(__DIR__) . '/vendor/autoload.php';
-echo dirname(__DIR__) . '/vendor/autoload.php';
 
 use Ratchet\MessageComponentInterface;
 use Ratchet\ConnectionInterface;
