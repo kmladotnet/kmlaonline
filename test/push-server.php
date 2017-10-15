@@ -13,7 +13,7 @@
     //$websocket->listen(8080, '0.0.0.0');
     $webServer = new Ratchet\Server\IoServer(
         new Ratchet\Http\HttpServer(
-            new Ratchet\WebSocket\WebServer(
+            new Ratchet\WebSocket\WsServer(
                 new Ratchet\Wamp\WampServer(
                     $pusher
                 )
