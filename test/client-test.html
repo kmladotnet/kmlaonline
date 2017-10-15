@@ -2,20 +2,23 @@
 <head>
     <script src="https://gist.githubusercontent.com/cboden/fcae978cfc016d506639c5241f94e772/raw/e974ce895df527c83b8e010124a034cfcf6c9f4b/autobahn.js"></script>
     <script>
-        var conn = new ab.Session('wss://106.187.34.53:8080',
+        var conn = new ab.Session('wss://127.0.0.1:8080',
             function() {
                 conn.subscribe('kittensCategory', function(topic, data) {
                     // This is where you would add the new article to the DOM (beyond the scope of this tutorial)
                     console.log('New article published to category "' + topic + '" : ' + data.title);
+                    Document.getElementById('debug').innerHTML = 'Success';
                 });
             },
             function() {
                 console.warn('WebSocket connection closed');
+                Document.getElementById('debug').innerHTML = 'Fail';
             },
             {'skipSubprotocolCheck': true}
         );
     </script>
 </head>
 <body>
+    <p id="debug">test</p>
 </body>
 </html>
