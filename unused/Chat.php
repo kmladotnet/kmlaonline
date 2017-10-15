@@ -1,9 +1,9 @@
 <?php
 namespace MyApp;
-use Ratchet\MesseageComponentInterface;
+use Ratchet\MessageComponentInterface;
 use Ratchet\ConnectionInterface;
 
-class Chat implements MesseageComponentInterface {
+class Chat implements MessageComponentInterface {
     public function onOpen(ConnectionInterface $conn) {
     }
 
