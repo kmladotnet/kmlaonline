@@ -57,6 +57,15 @@ sudo systemctl restart nginx
 sudo systemctl restart php-fpm
 ```
 
+## archlinux에서 새로운 패키지를 다운로드할 때 ##
+
+pacman 명령어 사용 하기 - 아래 링크 참조
+https://wiki.archlinux.org/index.php/Pacman
+
+```bash
+sudo pacman -S pkgname
+```
+
 
 ## KMLA Online 멤버 관리 ##
 
