@@ -5,7 +5,7 @@ use MyApp\Chat;
     require dirname(__DIR__) . '/vendor/autoload.php';
 
     $server = IoServer::factory(
-        new HttpSever(
+        new HttpServer(
             new WsServer(
                 new Chat()
             )
