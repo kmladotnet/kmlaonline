@@ -3,13 +3,34 @@
 
         $n_student_id = $member->getAdditionalData($me['n_id'], 'n_student_id');
 
-        if(getLibraryUserInfo($n_student_id)) {
+        if(getLibraryUserInfo($n_student_id) && isset($_GET['request'])) {
             $pwd = getLibraryUserInfo($n_student_id);
+            $ch = signIntoLibrary($n_student_id, $pwd);
+            if($ch) {
+                $tmp = explode(",", $_GET['request']);
+                $attr = explode("/", $tmp[1]);
+                $val = explode("/", $tmp[2]);
+                $str = "";
+                for($i = 0; $i < sizeof($attr); $i++){
+                    $str .= $attr[$i] . "=" . $val[$i]
+                    if($i != sizeof($attr) - 1) $str .= "&";
+                }
+                echo $str;
+                $url = 'http://lib.minjok.hs.kr/usweb/set16/' . $tmp[0] . '?' . $str;
+                echo $url;
+            } else {
+                echo json_encode(array("error"=>"LOGIN_ERROR", "error_desc"=>"도서관 로그인 실패"));
+                http_response_code(400);
+            }
+
+            curl_setopt($ch, CURLOPT_URL, 'http://lib.minjok.hs.kr/usweb/set16/USMN510.asp');
         } else {
             echo json_encode(array("error"=>"LOGIN_ERROR", "error_desc"=>"도서관 로그인 후 이용바랍니다."));
             http_response_code(400);
         }
 
+
+        /*
         $ch = curl_init();
         $url = 'http://lib.minjok.hs.kr/usweb/set16/USMN012.asp?mnid=' . $n_student_id . "&mnpw=" . $pwd;
         echo $url;
@@ -67,7 +88,7 @@
         } else {
             echo json_encode(array("error"=>"UNKNOWN_ERROR", "error_desc"=>"예기치 않은 문제가 발생하였습니다. 관리자에게 문의 바랍니다."));
             http_response_code(400);
-        }
+        } */
         //var_dump($login_box);
         //echo $encoded_output;
         /* for debug

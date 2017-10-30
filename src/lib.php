@@ -515,7 +515,43 @@ function getLibraryUserInfo($id) {
     } else {
         return false;
     }
+}
 
+function signIntoLibrary($id, $password) {
+
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_USERAGENT,'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/32.0.1700.107 Chrome/32.0.1700.107 Safari/537.36');
+
+    $url = 'http://lib.minjok.hs.kr/usweb/set16/USMN012.asp?mnid=' . $id . "&mnpw=" . $password;
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_COOKIESESSION, true);
+    curl_setopt($ch, CURLOPT_COOKIEJAR, "/tmp/library/$n_student_id");
+    curl_setopt($ch, CURLOPT_COOKIEFILE, '/tmp/library');
+    $headers = array(
+        "Access-Control-Allow-Origin: *",
+        "Content-Length: 0",
+        "Connection: Keep-Alive",
+        "Content-type: application/x-www-form-urlencoded;charset=EUC-kr"
+    );
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+    $output_ = curl_exec($ch);
+    mb_convert_encoding($output_, "UTF-8", "EUC-KR");
+    curl_setopt($ch, CURLOPT_URL, 'http://lib.minjok.hs.kr/usweb/set16/USMN000_16.asp');
+    curl_setopt($ch, CURLOPT_POST, false);
+    $output = curl_exec($ch);
+    $encoded_output = mb_convert_encoding($output, "UTF-8", "EUC-KR");
+    $dom = new DOMDocument('1.0', 'utf-8');
+    @$dom->loadHTML($output);
+    $login_box = $dom->getElementById('mbody32');
+
+    if($login_box){
+        return $ch;
+    } else {
+        return false;
+    }
 }
 
 function convertFromBytes($value){
