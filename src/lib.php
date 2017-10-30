@@ -504,6 +504,20 @@ function linkLibraryAccount($id, $password) {
     $password = $mysqli->real_escape_string($password);
     return $mysqli->query("INSERT INTO kmlaonline_library_user_data (library_id, password) VALUES ('$id', '$password')");
 }
+
+function getLibraryUserInfo($id) {
+    global $mysqli;
+    $id = $mysqli->real_escape_string($id);
+    $res = $mysqli->query("SELECT * FROM kmlaonline_library_user_data WHERE library_id = '$id'");
+    if($res) {
+        $row = $res->fetch_array(MYSQLI_ASSOC);
+        return $row['password'];
+    } else {
+        return false;
+    }
+
+}
+
 function convertFromBytes($value){
 	if($value<1024) return $value . " B";
 	if($value/1024<1024) return round($value/1024,2) . " KB";

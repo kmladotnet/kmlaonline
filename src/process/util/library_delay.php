@@ -1,10 +1,16 @@
 <?php
     if(isset($_SESSION['user'])){
-        if(isset($_GET['pwd'])) $pwd = $_GET['pwd'];
-        else $pwd = '';
+
+        $n_student_id = $member->getAdditionalData($me['n_id'], 'n_student_id');
+
+        if(getLibraryUserInfo($n_student_id)) {
+            $pwd = getLibraryUserInfo($n_student_id);
+        } else {
+            echo json_encode(array("error"=>"LOGIN_ERROR", "error_desc"=>"도서관 로그인 후 이용바랍니다."));
+            http_response_code(400);
+        }
 
         $ch = curl_init();
-        $n_student_id = $member->getAdditionalData($me['n_id'], 'n_student_id');
         $url = 'http://lib.minjok.hs.kr/usweb/set16/USMN012.asp?mnid=' . $n_student_id . "&mnpw=" . $pwd;
         echo $url;
         curl_setopt($ch, CURLOPT_POST, true);
