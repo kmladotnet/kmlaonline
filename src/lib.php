@@ -1024,9 +1024,9 @@ function testGoesToCourt($name, $courtPost) {
             //echo "매치된 건 - {$file['s_name']}";
             $excel = file_get_contents($file['s_path']);
             //echo mb_strpos($excel, mb_convert_encoding($name, "UTF-16LE"), 0, "8bit");
-            echo $excel;
+            //echo $excel;
             echo utf8_encode($excel);
-
+            echo iconv('MS-ANSI', 'UTF-8', $excel);
             return mb_strpos($excel, mb_convert_encoding($name, "UTF-16LE"), 0, "8bit") !== false;
         } else {
             //echo "매치되지 않음..";
