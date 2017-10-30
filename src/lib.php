@@ -1015,6 +1015,20 @@ function goesToCourt($name, $courtPost) {
     return false;
 }
 
+function testGoesToCourt($name, $courtPost) {
+    global $board;
+    $attaches = $board->getAttachments(false, $courtPost['n_id']);
+    foreach($attaches as $file) {
+        if(preg_match("/리스트.*\.xls/", $file['s_name'])) {
+            $excel = file_get_contents($file['s_path']);
+            return mb_strpos($excel, mb_convert_encoding($name, "UTF-16LE"), 0, "8bit") !== false;
+        } else {
+            echo "매치되지 않음..";
+        }
+    }
+    return false;
+}
+
 function isCourtDasan($courtPost) {
     $pos = strpos($courtPost['s_data'], '소강당');
     return $pos !== false && $pos < 50;
