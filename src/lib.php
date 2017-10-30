@@ -1019,13 +1019,14 @@ function testGoesToCourt($name, $courtPost) {
     global $board;
     $attaches = $board->getAttachments(false, $courtPost['n_id']);
     foreach($attaches as $file) {
-        echo $file['s_name'];
+        //echo $file['s_name'];
         if(preg_match("/리스트.*\.xls/", $file['s_name'])) {
-            echo "매치된 건 - {$file['s_name']}";
+            //echo "매치된 건 - {$file['s_name']}";
             $excel = file_get_contents($file['s_path']);
+            echo $excel;
             return mb_strpos($excel, mb_convert_encoding($name, "UTF-16LE"), 0, "8bit") !== false;
         } else {
-            echo "매치되지 않음..";
+            //echo "매치되지 않음..";
         }
     }
     return false;
