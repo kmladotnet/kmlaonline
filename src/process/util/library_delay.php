@@ -22,11 +22,14 @@
                 $output = curl_exec($ch);
                 $output = mb_convert_encoding($output, "UTF-8", "EUC-KR");
 
-
                 $dom = new DOMDocument('1.0', 'UTF-8');
                 @$dom->loadHTML($output);
 
-                echo $output;
+                if(strpos($output, '연장횟수를')){
+                    echo "연장 횟수 초과";
+                } else {
+                    echo "연장 횟수 초과 말고 다른 케이스";
+                }
             } else {
                 echo json_encode(array("error"=>"LOGIN_ERROR", "error_desc"=>"도서관 로그인 실패"));
                 http_response_code(400);
