@@ -527,7 +527,7 @@ function signIntoLibrary($id, $password) {
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_COOKIESESSION, true);
-    curl_setopt($ch, CURLOPT_COOKIEJAR, "/tmp/library/$n_student_id");
+    curl_setopt($ch, CURLOPT_COOKIEJAR, "/tmp/library/$id");
     curl_setopt($ch, CURLOPT_COOKIEFILE, '/tmp/library');
     $headers = array(
         "Access-Control-Allow-Origin: *",
