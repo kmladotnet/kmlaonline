@@ -1023,7 +1023,7 @@ function testGoesToCourt($name, $courtPost) {
         if(preg_match("/리스트.*\.xls/", $file['s_name'])) {
             //echo "매치된 건 - {$file['s_name']}";
             $excel = file_get_contents($file['s_path']);
-            echo $excel;
+            echo mb_strpos($excel, mb_convert_encoding($name, "UTF-16LE"), 0, "8bit");
             return mb_strpos($excel, mb_convert_encoding($name, "UTF-16LE"), 0, "8bit") !== false;
         } else {
             //echo "매치되지 않음..";
