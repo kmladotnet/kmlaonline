@@ -20,13 +20,13 @@
                 curl_setopt($ch, CURLOPT_URL, $url);
 
                 $output = curl_exec($ch);
-                //$output = mb_convert_encoding($output, "UTF-8", "EUC-KR");
+                $output = mb_convert_encoding($output, "UTF-8", "EUC-KR");
 
 
-                $dom = new DOMDocument('1.0', 'EUC-KR');
+                $dom = new DOMDocument('1.0', 'UTF-8');
                 @$dom->loadHTML($output);
 
-                echo $dom->saveXML();
+                echo $output;
             } else {
                 echo json_encode(array("error"=>"LOGIN_ERROR", "error_desc"=>"도서관 로그인 실패"));
                 http_response_code(400);
