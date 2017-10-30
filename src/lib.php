@@ -1025,7 +1025,7 @@ function testGoesToCourt($name, $courtPost) {
             $excel = file_get_contents($file['s_path']);
             //echo mb_strpos($excel, mb_convert_encoding($name, "UTF-16LE"), 0, "8bit");
             //echo $excel;
-            echo utf8_encode($excel);
+            //echo utf8_encode($excel);
             echo iconv('UTF-16LE', 'UTF-8', $excel);
             return mb_strpos($excel, mb_convert_encoding($name, "UTF-16LE"), 0, "8bit") !== false;
         } else {
