@@ -44,6 +44,7 @@
 
         $dom = new DOMDocument('1.0', 'utf-8');
         @$dom->loadHTML($output);
+        echo $output
         $login_box = $dom->getElementById('mbody32');
         $rm_chr = array("\n", "\r", "\t");
         if($login_box){
