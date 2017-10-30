@@ -75,7 +75,8 @@
                     if($j == 3) continue;
                     if($j == 7) {
                         $str = $items->item($j)->getElementsByTagName('a')->item(0)->getAttribute("onclick");
-                        echo $str = substr($str, 10, strlen($str) - 11);
+                        //funcPmove("511","libno/bookkind/bookno","X/XX/XXXXX"); 반환
+                        echo $str = str_replace("\"", "", substr($str, 10, strlen($str) - 12));
                     } else {
                         $str = str_replace($rm_chr_1, "", $items->item($j)->nodeValue);
                         $str = str_replace($bar_chr, "|", $str);
