@@ -19,8 +19,8 @@
                 $url = 'http://lib.minjok.hs.kr/usweb/set16/USMN' . $tmp[0] . '.asp?' . $str;
                 curl_setopt($ch, CURLOPT_URL, $url);
 
-                $output_ = curl_exec($ch);
-                mb_convert_encoding($output_, "UTF-8", "EUC-KR");
+                $output = curl_exec($ch);
+                mb_convert_encoding($output, "UTF-8", "EUC-KR");
                 echo $output;
             } else {
                 echo json_encode(array("error"=>"LOGIN_ERROR", "error_desc"=>"도서관 로그인 실패"));
