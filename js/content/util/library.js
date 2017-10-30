@@ -8,6 +8,7 @@ app.controller("libCtrl", function($scope, $http){
         $scope.changePage('home');
         $scope.selected = {};
         $scope.isBookSelected = false;
+        $scope.lib_password = '';
     };
 
     $scope.error = function(){

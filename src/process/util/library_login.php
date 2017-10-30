@@ -1,7 +1,7 @@
 <?php
     if(isset($_SESSION['user'])){
         if(isset($_GET['pwd'])) $pwd = $_GET['pwd'];
-        else $query = '';
+        else $pwd = '';
 
         $ch = curl_init();
         $n_student_id = $member->getAdditionalData($me['n_id'], 'n_student_id');
@@ -50,6 +50,7 @@
         $login_box = $dom->getElementById('mbody32');
         $rm_chr = array("\n", "\r", "\t");
         if($login_box){
+            linkLibraryAccount($n_student_id, $pwd);
             $info = str_replace($rm_chr, "", $login_box->nodeValue);
 
             $book_num = trim(substr($info, strpos($info, '대출권수 : ') + strlen('대출권수 : '), 2));

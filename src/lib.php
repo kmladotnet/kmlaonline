@@ -498,6 +498,12 @@ function listDotnetApplicants(){
     }
     return false;
 }
+function linkLibraryAccount($id, $password) {
+    global $mysqli;
+    $id = $mysqli->real_escape_string($id);
+    $password = $mysqli->real_escape_string($password);
+    return $mysql->query("INSERT INTO kmlaonline_library_user_data (library_id, password) VALUES ('$id', '$password')");
+}
 function convertFromBytes($value){
 	if($value<1024) return $value . " B";
 	if($value/1024<1024) return round($value/1024,2) . " KB";

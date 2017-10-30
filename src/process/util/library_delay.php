@@ -1,7 +1,7 @@
 <?php
     if(isset($_SESSION['user'])){
         if(isset($_GET['pwd'])) $pwd = $_GET['pwd'];
-        else $query = '';
+        else $pwd = '';
 
         $ch = curl_init();
         $n_student_id = $member->getAdditionalData($me['n_id'], 'n_student_id');
