@@ -76,7 +76,7 @@ app.controller("libCtrl", function($scope, $http){
         $http({
             method: "GET",
             // 비밀번호 데이터 베이스에 저장해서 굳이 이렇게 안해도 되게!
-            url: "/proc/util/library_delay?pwd=" + pwd + "&request=" + book.delay_info
+            url: "/proc/util/library_delay?pwd=" + $scope.lib_password + "&request=" + book.delay_info
         }).then(function mySuccess(response){
             $scope.status2 = response.statusText;
             $scope.output2 = response.data;
