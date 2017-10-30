@@ -15,15 +15,17 @@
                     $str .= $attr[$i] . "=" . $val[$i];
                     if($i != sizeof($attr) - 1) $str .= "&";
                 }
-                echo $str;
-                $url = 'http://lib.minjok.hs.kr/usweb/set16/' . $tmp[0] . '?' . $str;
-                echo $url;
+
+                $url = 'http://lib.minjok.hs.kr/usweb/set16/USMN' . $tmp[0] . '.asp?' . $str;
+                curl_setopt($ch, CURLOPT_URL, $url);
+
+                $output_ = curl_exec($ch);
+                mb_convert_encoding($output_, "UTF-8", "EUC-KR");
+                echo $output;
             } else {
                 echo json_encode(array("error"=>"LOGIN_ERROR", "error_desc"=>"도서관 로그인 실패"));
                 http_response_code(400);
             }
-
-            curl_setopt($ch, CURLOPT_URL, 'http://lib.minjok.hs.kr/usweb/set16/USMN510.asp');
         } else {
             echo json_encode(array("error"=>"LOGIN_ERROR", "error_desc"=>"도서관 로그인 후 이용바랍니다."));
             http_response_code(400);
