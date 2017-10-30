@@ -669,15 +669,19 @@ function getNotificationCount() {
         url: "/ajax/user/getnotifications?count=yes"
     }).done(function (msg) {
         if (msg > 0) {
-            new PNotify({
+            var notice = new PNotify({
             title: '읽지 않은 알림이 있어요!',
             type: 'info',
             buttons: {
                 closer: false,
                 sticker: false
-            }
+            },
+            addclass: 'translucent'
         });
         }
+        notice.get().click(function(){
+            notice.remove();
+        });
     }).fail(function (jqXHR, textStatus) {});
 }
 
