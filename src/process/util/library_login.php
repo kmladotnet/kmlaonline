@@ -76,7 +76,9 @@
                     if($j == 7) {
                         $str = $items->item($j)->getElementsByTagName('a')->item(0)->getAttribute("onclick");
                         //funcPmove("511","libno/bookkind/bookno","X/XX/XXXXX"); 반환
-                        echo $str = str_replace("\"", "", substr($str, 10, strlen($str) - 12));
+                        $str = str_replace("\"", "", substr($str, 10, strlen($str) - 12));
+                        // 문자열 511,libno/bookkind/bookno,X/XX/XXXXX 반환
+                        $tmp[$name_array[$j]] = $str;
                     } else {
                         $str = str_replace($rm_chr_1, "", $items->item($j)->nodeValue);
                         $str = str_replace($bar_chr, "|", $str);
