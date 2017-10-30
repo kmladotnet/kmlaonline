@@ -20,7 +20,7 @@
                 curl_setopt($ch, CURLOPT_URL, $url);
 
                 $output = curl_exec($ch);
-                $ouput = mb_convert_encoding($output, "UTF-8", "EUC-KR");
+                $output = mb_convert_encoding($output, "UTF-8", "EUC-KR");
 
 
                 $dom = new DOMDocument('1.0', 'utf-8');
