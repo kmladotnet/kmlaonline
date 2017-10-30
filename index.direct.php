@@ -7,6 +7,11 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- Facebook preview 관련 -->
+    <meta property="og:site_name" content="KMLA Online" />
+    <meta property="og:description" content="민족사관고등학교 학생 커뮤니티 KMLA Online과 함께 하세요." />
+    <meta property="og:image" content="/images/logo-inverse-autumn.png" />
+
     <!-- favicons -->
     <?php //수정할 때 http://realfavicongenerator.net/ 이용할 것. ?>
     <link rel="apple-touch-icon" sizes="180x180" href="/icon/apple-touch-icon.png?v=XBrA5kwEdx">
