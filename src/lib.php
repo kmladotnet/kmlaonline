@@ -502,7 +502,7 @@ function linkLibraryAccount($id, $password) {
     global $mysqli;
     $id = $mysqli->real_escape_string($id);
     $password = $mysqli->real_escape_string($password);
-    return $mysql->query("INSERT INTO kmlaonline_library_user_data (library_id, password) VALUES ('$id', '$password')");
+    return $mysqli->query("INSERT INTO kmlaonline_library_user_data (library_id, password) VALUES ('$id', '$password')");
 }
 function convertFromBytes($value){
 	if($value<1024) return $value . " B";
