@@ -27,19 +27,19 @@
                 if(strpos($output, '연장횟수를')){
                     //메시지 내용 - 연장횟수를 초과하여 연장할 수 없습니다.
                     $error_code = 1;
-                    echo "연장 횟수 초과";
+                    //echo "연장 횟수 초과";
                 } else if(strpos($output, '로그인 후')){
                     //메시지 내용 - 로그인 후 이용하시기 바랍니다.
                     $error_code = 2;
-                    echo "로그인 되어 있지 않음";
+                    //echo "로그인 되어 있지 않음";
                 } else if(strpos($output, '대출연장이')){
                     //메시지 내용 - 대출연장이 처리되었습니다.
                     $success = true;
-                    echo "성공";
+                    //echo "성공";
                 } else {
                     //로그인 되어 있는 상태에서 엉뚱한 요청을 보낸 경우
                     $error_code = 3;
-                    echo "알 수 없는 오류가 발생";
+                    //echo "알 수 없는 오류가 발생";
                 }
 
                 if($success) {

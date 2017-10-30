@@ -502,7 +502,16 @@ function linkLibraryAccount($id, $password) {
     global $mysqli;
     $id = $mysqli->real_escape_string($id);
     $password = $mysqli->real_escape_string($password);
-    return $mysqli->query("INSERT INTO kmlaonline_library_user_data (library_id, password) VALUES ('$id', '$password')");
+    if($res = $mysqli->query("SELECT * FROM kmlaonline_library_user_data WHERE library_id = '$id'")){
+        if(mysqli_num_rows($res) === 0) {
+            $result = $mysqli->query("INSERT INTO kmlaonline_library_user_data (library_id, password) VALUES ('$id', '$password')");
+        } else {
+            $result = $mysqli->query("UPDATE kmlaonline_library_user_data SET password = '$password' WHERE library_id = '$id'");
+        }
+    } else {
+        return false;
+    }
+    return $result;
 }
 
 function getLibraryUserInfo($id) {
