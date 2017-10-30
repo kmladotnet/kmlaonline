@@ -16,7 +16,7 @@
         //file_put_contents($test, "data");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_COOKIESESSION, true);
-        curl_setopt($ch, CURLOPT_COOKIEJAR, "$n_student_id");
+        curl_setopt($ch, CURLOPT_COOKIEJAR, "/tmp/library/$n_student_id");
         curl_setopt($ch, CURLOPT_COOKIEFILE, '/tmp/library');
         $headers = array(
             "Access-Control-Allow-Origin: *",
@@ -64,7 +64,7 @@
             $bar_chr = array("\n\n\n", ' / ');
             $rm_chr_1 = array("\r", "\t");
             $rm_chr_2 = array("\n\n", "\n");
-            $name_array = array("number", "info", "borrow_date", "invalid1", "return_date", "status", "institution", "invalid2");
+            $name_array = array("number", "info", "borrow_date", "invalid1", "return_date", "status", "institution", "delay_info");
             for($i = 0; $i < (int) $book_num; $i++){
                 $tmp = array();
                 $row = $rows->item($i + 1);
@@ -72,10 +72,14 @@
                 $items = $row->getElementsByTagName('td');
                 //var_dump($items);
                 for($j = 0; $j < 8; $j++){
-                    if($j == 3 || $j == 7) continue;
-                    $str = str_replace($rm_chr_1, "", $items->item($j)->nodeValue);
-                    $str = str_replace($bar_chr, "|", $str);
-                    $tmp[$name_array[$j]] = str_replace($rm_chr_2, "", $str);
+                    if($j == 3) continue;
+                    if($j == 7) {
+                        echo $items->item($j)->getElementsByTagName('a')->item(0)->getAttribute("onclick");
+                    } else {
+                        $str = str_replace($rm_chr_1, "", $items->item($j)->nodeValue);
+                        $str = str_replace($bar_chr, "|", $str);
+                        $tmp[$name_array[$j]] = str_replace($rm_chr_2, "", $str);
+                    }
                 }
                 /*
                 foreach($items as $item){
