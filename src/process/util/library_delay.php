@@ -12,7 +12,7 @@
                 $val = explode("/", $tmp[2]);
                 $str = "";
                 for($i = 0; $i < sizeof($attr); $i++){
-                    $str .= $attr[$i] . "=" . $val[$i]
+                    $str .= $attr[$i] . "=" . $val[$i];
                     if($i != sizeof($attr) - 1) $str .= "&";
                 }
                 echo $str;
