@@ -33,7 +33,7 @@
                 <td>{{book.borrow_date}}</td>
                 <td>{{book.return_date}}</td>
                 <td>{{book.status}}</td>
-                <td><button type="button" ng-click="delay(book.delay.libno, book.delay.bookkind, book.delay.bookno)">대출 연장</button></td>
+                <td><button class="btn" type="button" ng-click="delay(book)">대출 연장</button></td>
             </tr>
         </tbody>
     </table>

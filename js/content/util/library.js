@@ -70,7 +70,25 @@ app.controller("libCtrl", function($scope, $http){
 
     $scope.refineBookInfo = function(str){
         return str.replace("|", "<br />");
-    }
+    };
+
+    $scope.delay = function (book) {
+        $http({
+            method: "GET",
+            // 비밀번호 데이터 베이스에 저장해서 굳이 이렇게 안해도 되게!
+            url: "/proc/util/library_delay?pwd=" + pwd + "&request=" + book.delay_info
+        }).then(function mySuccess(response){
+            $scope.status2 = response.statusText;
+            $scope.output2 = response.data;
+            $scope.delay_error = false;
+            console.log(response.data);
+        }, function myError(response){
+            $scope.output2 = response.data || 'Request failed';
+            $scope.status2 = response.statusText;
+            $scope.delay_error = true;
+            console.log(response.data);
+        });
+    };
 
     $scope.submenu = function(){
     };
