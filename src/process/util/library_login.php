@@ -74,7 +74,8 @@
                 for($j = 0; $j < 8; $j++){
                     if($j == 3) continue;
                     if($j == 7) {
-                        echo $items->item($j)->getElementsByTagName('a')->item(0)->getAttribute("onclick");
+                        $str = $items->item($j)->getElementsByTagName('a')->item(0)->getAttribute("onclick");
+                        echo $str = substr($str, 10, strlen($str) - 11);
                     } else {
                         $str = str_replace($rm_chr_1, "", $items->item($j)->nodeValue);
                         $str = str_replace($bar_chr, "|", $str);
