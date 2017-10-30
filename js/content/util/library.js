@@ -73,6 +73,7 @@ app.controller("libCtrl", function($scope, $http){
     };
 
     $scope.delay = function (book) {
+        console.log($scope.lib_password);
         $http({
             method: "GET",
             // 비밀번호 데이터 베이스에 저장해서 굳이 이렇게 안해도 되게!
