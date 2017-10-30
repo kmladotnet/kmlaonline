@@ -6,7 +6,7 @@
         $ch = curl_init();
         $n_student_id = $member->getAdditionalData($me['n_id'], 'n_student_id');
         $url = 'http://lib.minjok.hs.kr/usweb/set16/USMN012.asp?mnid=' . $n_student_id . "&mnpw=" . $pwd;
-
+        echo $url;
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_USERAGENT,'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/32.0.1700.107 Chrome/32.0.1700.107 Safari/537.36');
 
@@ -44,7 +44,7 @@
 
         $dom = new DOMDocument('1.0', 'utf-8');
         @$dom->loadHTML($output);
-        echo $output;
+        //echo $output;
         $login_box = $dom->getElementById('mbody32');
         $rm_chr = array("\n", "\r", "\t");
         if($login_box){
