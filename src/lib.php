@@ -573,7 +573,12 @@ function signIntoLibrary($id, $password) {
     $login_box = $dom->getElementById('mbody32');
 
     if($login_box){
-        return $ch;
+        // 로그인 성공 시 대출 권수 반환
+        $info = str_replace($rm_chr, "", $login_box->nodeValue);
+        $book_num = (int) trim(substr($info, strpos($info, '대출권수 : ') + strlen('대출권수 : '), 2));
+
+        return array("curl_obj"=>$ch, "book_num"=>$book_num);
+
     } else if(strpos($output_, 'USMN610')){
         return "login error";
     } else {
