@@ -16,7 +16,7 @@
 
                 // 로그인 성공한 경우 - 대출 정보 확인, 연체 여부 확인
                 // TODO - 나중에 사용자가 원하는 날짜 (예를 들어, 반납 데드라인 2일 전 / 3일 전) 지정하는 기능 추가
-                // 일단 반납일 하루 전 반납 알림 + 연체 알림 구현
+                // 테스트 - 일단 반납일 하루 전 반납 알림 + 연체 알림 구현
                 if($result['book_num'] > 0){
                     $temp_ch = $result['curl_obj'];
                     $user_bookList = fetchBorrowedBookList($temp_ch, $result['book_num']);
