@@ -21,7 +21,8 @@
                     $temp_ch = $result['curl_obj'];
                     $user_bookList = fetchBorrowedBookList($temp_ch, $result['book_num']);
                     for($j = 0; $j < count($user_bookList); $j++){
-                        echo $user_bookList[$j]["return_date"];
+                        $date = new DateTime("20" . $user_bookList[$j]["return_date"]);
+                        print_r($date);
                     }
                 } else {
                     // 대출한 책의 권수가 0권이면 가볍게 스킵!
