@@ -91,6 +91,17 @@ app.controller("libCtrl", function($scope, $http){
             if(response.status == 403) {
                 alert("KMLA Online에서 로그아웃되었습니다. 다시 로그인하세요.");
                 location.href="/";
+            } else if(response.status == 423) {
+                switch(parseInt(response.data.error_code)){
+                    case 1:
+                        alert("대출 기간 연장은 한 번만 가능합니다.");
+                        break;
+                    case 3:
+                        alert("알 수 없는 오류가 발생하였습니다. (ERROR CODE: LIB01)");
+                        break;
+                    default:
+                        alert("알 수 없는 오류가 발생하였습니다. (ERROR CODE: LIB02)");
+                }
             }
         });
     };
