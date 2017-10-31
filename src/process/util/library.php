@@ -52,8 +52,6 @@
                                 $late_max_bookname = explode("|", $user_bookList[$j]["info"])[0];
                             }
 
-                            $late_max_bookname = '';
-                            $late_max_date =
                             echo $diff->format("%a") . "일 연체되셨습니다.";
                         }
 
