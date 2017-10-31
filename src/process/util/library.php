@@ -36,30 +36,33 @@
                         $date = new DateTime("20" . $user_bookList[$j]["return_date"]);
                         $today = new DateTime("today");
                         $diff = $today->diff($date);
-                        $test_diff = $date->diff($today);
 
-                        if($diff->invert == 0 && $diff->d == 1) {
+                        if($diff->invert == 0 && $diff->d == 14) {
                             $urgent_count++;
                             $urgent_bookname = explode("|", $user_bookList[$j]["info"])[0];
 
                         }
 
-                        if($test_diff->invert == 1) {
+                        if($diff->invert == 1) {
                             $late_count++;
 
-                            if($test_diff->d > $late_max_date) {
-                                $late_max_date = $test_diff->d;
+                            if($diff->d > $late_max_date) {
+                                $late_max_date = $diff->d;
                                 $late_max_bookname = explode("|", $user_bookList[$j]["info"])[0];
                             }
-
-                            //echo $diff->format("%a") . "일 연체되셨습니다.";
                         }
                     }
 
-                    if($urgent_count > 0) {
-                        echo "[도서관] 내일은 $urgent_bookname 외 $urgent_count권 반납일입니다.";
-                    } else if ($late_count > 0) {
-                        echo "[도서관] {$late_max_bookname} 외 {$late_count}권이 {$late_max_date}일 연체되셨습니다.";
+                    if ($urgent_count > 1) {
+                        echo "[도서관] 내일은 {$urgent_bookname} 외 {$urgent_count - 1}권 반납일입니다.";
+                    } else if ($urgent_count == 1) {
+                        echo "[도서관] 내일은 {$urgent_bookname} 도서 반납일입니다.";
+                    }
+
+                    if ($late_count > 1) {
+                        echo "[도서관] {$late_max_bookname} 외 {$late_count - 1}권이 {$late_max_date}일 연체되셨습니다.";
+                    } else if ($late_count == 1) {
+                        echo "[도서관] {$late_max_bookname} - {$late_max_date}일 연체되셨습니다.";
                     }
 
                 } else {
