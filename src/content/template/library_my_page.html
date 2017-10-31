@@ -16,24 +16,24 @@
 </div>
 <div class="col-xs-9">
     <table class="table" style="display: block;">
-        <thead>
+        <thead style="display: table; width: 100%;">
             <tr>
-                <th>#</th>
-                <th>도서명</th>
-                <th>대출일</th>
-                <th>반납일</th>
-                <th>상태</th>
-                <th></th>
+                <th style="width: 7%">#</th>
+                <th style="width: 43%">도서명</th>
+                <th style="width: 13%">대출일</th>
+                <th style="width: 13%">반납일</th>
+                <th style="width: 9%">상태</th>
+                <th style="width: 15%">대출 연장</th>
             </tr>
         </thead>
         <tbody style="height: 380px; overflow-y: auto; display: block;">
             <tr ng-repeat="book in output.bookList">
-                <td>{{book.number}}</td>
-                <td ng-bind-html="refineBookInfo(book.info)"></td>
-                <td>{{book.borrow_date}}</td>
-                <td>{{book.return_date}}</td>
-                <td>{{book.status}}</td>
-                <td><button class="btn" type="button" ng-click="delay(book)">대출 연장</button></td>
+                <td style="width: 7%">{{book.number}}</td>
+                <td ng-bind-html="refineBookInfo(book.info)" style="width: 43%"></td>
+                <td style="width: 13%">{{book.borrow_date}}</td>
+                <td style="width: 13%">{{book.return_date}}</td>
+                <td style="width: 9%">{{book.status}}</td>
+                <td style="width: 15%"><button class="btn btn-success" type="button" ng-click="delay(book)">신청</button></td>
             </tr>
         </tbody>
     </table>
