@@ -15,7 +15,7 @@
             //curl_setopt($ch, CURLOPT_URL, 'http://lib.minjok.hs.kr/usweb/set16/USMN510.asp');
             //$output2 = curl_exec($ch);
 
-            curl_close($ch);
+
             /*
             mb_convert_encoding($output2, "UTF-8", "EUC-KR");
 
@@ -55,6 +55,7 @@
             $final_array = array();
             $final_array['bookNum'] = $book_num;
             $final_array['bookList'] = fetchBorrowedBookList($ch, $book_num);
+            curl_close($ch);
 
             echo json_encode($final_array);
 
