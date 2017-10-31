@@ -7,6 +7,8 @@
         $user_info = getAllLibraryUserInfo();
         $debug = array();
 
+        echo "TEST - " . getIDFromStudentID('141042');
+
         // 각 계정별로 로그인 후 정보 추출
         for($i = 0; $i < count($user_info); $i++){
             $user = $user_info[$i];
@@ -37,7 +39,7 @@
                         $today = new DateTime("today");
                         $diff = $today->diff($date);
 
-                        if($diff->invert == 0 && $diff->d == 14) {
+                        if($diff->invert == 0 && $diff->d == 1) {
                             $urgent_count++;
                             $urgent_bookname = explode("|", $user_bookList[$j]["info"])[0];
 
@@ -53,9 +55,12 @@
                         }
                     }
 
+
+                    // 아래의 디버깅 코드를 notification stack에 넣는 코드로 바꾸기
                     if ($urgent_count > 1) {
                         $urgent_count--;
                         echo "[도서관] 내일은 {$urgent_bookname} 외 {$urgent_count}권 반납일입니다.";
+                        // $member->addNotice($usr['n_id'], "upload:article:$article_id", "{$me['s_name']}님이 닷넷 <b>HTML/CSS</b> 그룹에 게시글을 올렸습니다.","article:".$article_id);
                     } else if ($urgent_count == 1) {
                         echo "[도서관] 내일은 {$urgent_bookname} 도서 반납일입니다.";
                     }

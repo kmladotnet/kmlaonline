@@ -498,6 +498,22 @@ function listDotnetApplicants(){
     }
     return false;
 }
+
+function addNotification($target, $kind, $msg, $url) {
+    global $member;
+
+    //예시 - $member->addNotice($usr['n_id'], "upload:article:$article_id", "{$me['s_name']}님이 닷넷 <b>HTML/CSS</b> 그룹에 게시글을 올렸습니다.","article:".$article_id);
+    // n_id 형식으로
+    $member->addNotice($target, $kind, $msg, $url);
+}
+
+// student_id -> n_id 로 바꿔줌, 오류면 false 리턴
+function getIDFromStudentID($student_id) {
+    global $member;
+
+    return $member->getIDFromStudentID($student_id);
+}
+
 function linkLibraryAccount($id, $password) {
     global $mysqli;
     $id = $mysqli->real_escape_string($id);

@@ -156,6 +156,18 @@ class Soreemember{
 		return $val;
 	}
 
+	function getIDFromStudentID($student_id) {
+		if(!is_numeric($student_id)) return false;
+		$query="SELECT n_id FROM `$this->table_additional_data` WHERE s_name = 'n_student_id' AND s_value='$student_id'";
+
+		if($res=$this->mysqli->query($query)){
+			$row = $res->fetch_array(MYSQLI_ASSOC);
+			return $row['n_id'];
+		} else {
+			return false;
+		}
+	}
+
 	//재학생 구별용 (학년 데이터를 가지고 있는지 확인)
 	function getCurrentMembers () {
 		$query = "SELECT * FROM `$this->table_additional_data` WHERE s_name = 'n_grade'";
