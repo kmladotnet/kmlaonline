@@ -1024,7 +1024,7 @@ function testGoesToCourt($name, $courtPost) {
             //echo "매치된 건 - {$file['s_name']}";
             $excel = file_get_contents($file['s_path']);
             $excel_file = fopen("{$file['s_path']}", "r") or die("Unable to open file!");
-            echo fread($excel_file, filesize("{$file['s_path']}"));
+            echo mb_convert_encoding(fread($excel_file, filesize("{$file['s_path']}")), "UTF-8", "UTF-16");
             fclose($excel_file);
             //echo mb_strpos($excel, mb_convert_encoding($name, "UTF-16LE"), 0, "8bit");
             //echo $excel;
