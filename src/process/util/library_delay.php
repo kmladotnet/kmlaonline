@@ -7,6 +7,7 @@
             $pwd = getLibraryUserInfo($n_student_id);
             $ch = signIntoLibrary($n_student_id, $pwd);
             if($ch) {
+                $ch = $ch['curl_obj'];
                 $tmp = explode(",", $_GET['request']);
                 $attr = explode("/", $tmp[1]);
                 $val = explode("/", $tmp[2]);
