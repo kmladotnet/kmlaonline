@@ -87,7 +87,11 @@ app.controller("libCtrl", function($scope, $http){
             $scope.output2 = response.data || 'Request failed';
             $scope.status2 = response.statusText;
             $scope.delay_error = true;
-            console.log(response.data);
+            console.log(response.status);
+            if(response.status == 403) {
+                alert("KMLA Online에서 로그아웃되었습니다. 다시 로그인하세요.");
+                location.href="/";
+            }
         });
     };
 
