@@ -6,6 +6,7 @@
         // 데이터베이스에 저장된 계정 정보 모두 불러오기
         $user_info = getAllLibraryUserInfo();
         $debug = array();
+
         // 각 계정별로 로그인 후 정보 추출
         for($i = 0; $i < count($user_info); $i++){
             $user = $user_info[$i];
@@ -16,9 +17,14 @@
                 // 로그인 성공한 경우 - 대출 정보 확인, 연체 여부 확인
                 // TODO - 나중에 사용자가 원하는 날짜 (예를 들어, 반납 데드라인 2일 전 / 3일 전) 지정하는 기능 추가
                 // 일단 반납일 하루 전 반납 알림 + 연체 알림 구현
-
-
-
+                if($result['book_num'] > 0){
+                    $temp_ch = $result['curl_obj'];
+                    $user_bookList = fetchBorrowedBookList($temp_ch, $result['book_num']);
+                    print_r($user_bookList);
+                } else {
+                    // 대출한 책의 권수가 0권이면 가볍게 스킵!
+                    continue;
+                }
             } else {
                 $debug[$i] = array("status"=>"login failed");
 
