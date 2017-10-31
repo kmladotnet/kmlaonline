@@ -37,7 +37,7 @@
                         $today = new DateTime("today");
                         $diff = $today->diff($date);
 
-                        if($diff->invert == 0 && $diff->d == 14) {
+                        if($diff->invert == 0 && $diff->d == 1) {
                             $urgent_count++;
                             $urgent_bookname = explode("|", $user_bookList[$j]["info"])[0];
 
@@ -58,20 +58,22 @@
                     if ($urgent_count > 1) {
                         $urgent_count--;
                         $msg = "[도서관] 내일은 {$urgent_bookname} 외 {$urgent_count}권 반납일입니다.";
-                        echo "[도서관] 내일은 {$urgent_bookname} 외 {$urgent_count}권 반납일입니다.";
+                        //echo "[도서관] 내일은 {$urgent_bookname} 외 {$urgent_count}권 반납일입니다.";
 
                         // TODO 아래 코드는 학번과 도서관 아이디가 같은 학생만 해당함 - 나중에 교사용 페이지 만들면 구별해줄 것
-                        addNotification(getIDFromStudentID($user['id']), "library:return", $msg, "/util/library");
+
                     } else if ($urgent_count == 1) {
-                        echo "[도서관] 내일은 {$urgent_bookname} 도서 반납일입니다.";
+                        $msg = "[도서관] 내일은 {$urgent_bookname} 도서 반납일입니다.";
                     }
+                    addNotification(getIDFromStudentID($user['id']), "library:return:{$user['id']}", $msg, "/util/library");
 
                     if ($late_count > 1) {
                         $late_count--;
-                        echo "[도서관] {$late_max_bookname} 외 {$late_count}권이 {$late_max_date}일 연체되셨습니다.";
+                        $msg = "[도서관] {$late_max_bookname} 외 {$late_count}권이 {$late_max_date}일 연체되셨습니다.";
                     } else if ($late_count == 1) {
-                        echo "[도서관] {$late_max_bookname} - {$late_max_date}일 연체되셨습니다.";
+                        $msg = "[도서관] {$late_max_bookname} - {$late_max_date}일 연체되셨습니다.";
                     }
+                    addNotification(getIDFromStudentID($user['id']), "library:late:{$user['id']}", $msg, "/util/library");
 
                 } else {
                     // 대출한 책의 권수가 0권이면 가볍게 스킵!
