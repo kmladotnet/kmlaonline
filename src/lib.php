@@ -539,6 +539,9 @@ function getLibraryUserInfo($id) {
     }
 }
 
+
+// 아이디와 로그인을 받아서 도서관 홈페이지에 로그인
+// return 값 - 성공시 $ch 반환, 로그인 에러시 "login error", 기타 에러 발생 시 false 반환
 function signIntoLibrary($id, $password) {
 
     $ch = curl_init();
@@ -571,6 +574,8 @@ function signIntoLibrary($id, $password) {
 
     if($login_box){
         return $ch;
+    } else if(strpos($output_, 'USMN610')){
+        return "login error";
     } else {
         return false;
     }

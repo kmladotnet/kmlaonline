@@ -3,8 +3,13 @@
         if(isset($_GET['pwd'])) $pwd = $_GET['pwd'];
         else $pwd = '';
 
-        $ch = curl_init();
+        // 아이디 추출 - 학생의 경우 학번임
         $n_student_id = $member->getAdditionalData($me['n_id'], 'n_student_id');
+        $ch = signIntoLibrary($n_student_id, $pwd);
+
+        /*
+        $ch = curl_init();
+
         $url = 'http://lib.minjok.hs.kr/usweb/set16/USMN012.asp?mnid=' . $n_student_id . "&mnpw=" . $pwd;
 
         curl_setopt($ch, CURLOPT_POST, true);
@@ -36,20 +41,19 @@
 
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         $response = curl_getinfo($ch, CURLINFO_RESPONSE_CODE);
-
+        */
         curl_setopt($ch, CURLOPT_URL, 'http://lib.minjok.hs.kr/usweb/set16/USMN510.asp');
         $output2 = curl_exec($ch);
 
         //var_dump(curl_error($ch));
         curl_close($ch);
-        $encoded_output = mb_convert_encoding($output, "UTF-8", "EUC-KR");
+
         mb_convert_encoding($output2, "UTF-8", "EUC-KR");
 
-        $dom = new DOMDocument('1.0', 'utf-8');
-        @$dom->loadHTML($output);
-        $login_box = $dom->getElementById('mbody32');
         $rm_chr = array("\n", "\r", "\t");
-        if($login_box){
+        if($ch && $ch != "login error"){
+
+
             linkLibraryAccount($n_student_id, $pwd);
             $info = str_replace($rm_chr, "", $login_box->nodeValue);
 
@@ -102,7 +106,7 @@
             $final_array['bookList'] = $tmp_arr;
 
             echo json_encode($final_array);
-        } else if(strpos($output_, 'USMN610')){
+        } else if($ch == "login error"){
             echo json_encode(array("error"=>"LOGIN_ERROR", "error_desc"=>"비밀번호가 올바르지 않습니다."));
             http_response_code(400);
         } else {
