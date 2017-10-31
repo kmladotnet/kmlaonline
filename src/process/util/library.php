@@ -65,7 +65,9 @@
                     } else if ($urgent_count == 1) {
                         $msg = "[도서관] 내일은 {$urgent_bookname} 도서 반납일입니다.";
                     }
-                    addNotification(getIDFromStudentID($user['id']), "library:return:{$user['id']}", $msg, "/util/library");
+
+                    if ($urgent_count > 0)
+                        addNotification(getIDFromStudentID($user['id']), "library:return:{$user['id']}", $msg, "/util/library");
 
                     if ($late_count > 1) {
                         $late_count--;
@@ -73,7 +75,9 @@
                     } else if ($late_count == 1) {
                         $msg = "[도서관] {$late_max_bookname} - {$late_max_date}일 연체되셨습니다.";
                     }
-                    addNotification(getIDFromStudentID($user['id']), "library:late:{$user['id']}", $msg, "/util/library");
+
+                    if ($late_count > 0)
+                        addNotification(getIDFromStudentID($user['id']), "library:late:{$user['id']}", $msg, "/util/library");
 
                 } else {
                     // 대출한 책의 권수가 0권이면 가볍게 스킵!
