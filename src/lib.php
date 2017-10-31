@@ -514,6 +514,19 @@ function linkLibraryAccount($id, $password) {
     return $result;
 }
 
+// 데이터베이스에 저장된 모든 도서관 유저 정보를 꺼내오는 함수
+function getAllLibraryUserInfo() {
+    global $mysqli;
+    $res = $mysqli->query("SELECT * FROM kmlaonline_library_user_data");
+    $arr = array();
+    while ($row = $res->fetch_array(MYSQLI_ASSOC)){
+        $temp_arr = array("n_id" => $row["n_id"], "id" => $row["library_id"], "pwd" => $row["password"]);
+        array_push($arr, $temp_arr);
+    }
+    $res->close();
+    return $arr;
+}
+
 function getLibraryUserInfo($id) {
     global $mysqli;
     $id = $mysqli->real_escape_string($id);
