@@ -23,9 +23,21 @@
                     for($j = 0; $j < count($user_bookList); $j++){
                         $date = new DateTime("20" . $user_bookList[$j]["return_date"]);
                         $today = new DateTime("today");
-                        print_r($diff = $today->diff($date));
-                        print_r($diff2 = $date->diff($today));
-                        //echo $diff->format("%d")
+                        $diff = $today->diff($date);
+                        $diff2 = $date->diff($today);
+
+                        if($diff->invert == 0){
+                            echo $diff->format("%a") . "일 남았습니다.";
+                        } else {
+                            echo $diff->format("%a") . "일 연체되셨습니다.";
+                        }
+
+                        if($diff2->invert == 0){
+                            echo $diff2->format("%a") . "일 남았습니다.";
+                        } else {
+                            echo $diff2->format("%a") . "일 연체되셨습니다.";
+                        }
+
                     }
                 } else {
                     // 대출한 책의 권수가 0권이면 가볍게 스킵!
