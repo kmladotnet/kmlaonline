@@ -510,7 +510,6 @@ function addNotification($target, $kind, $msg, $url) {
 // student_id -> n_id 로 바꿔줌, 오류면 false 리턴
 function getIDFromStudentID($student_id) {
     global $member;
-
     return $member->getIDFromStudentID($student_id);
 }
 
