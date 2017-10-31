@@ -574,7 +574,7 @@ function signIntoLibrary($id, $password) {
 
     if($login_box){
         // 로그인 성공했으니 유저 데이터 -> 데이터 베이스에 저장
-        linkLibraryAccount($id, $pwd);
+        linkLibraryAccount($id, $password);
 
         // 로그인 성공 시 대출 권수 반환
         $rm_chr = array("\n", "\r", "\t");
