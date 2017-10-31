@@ -23,18 +23,18 @@
 <div class="col-xs-7">
     <p>status: {{status}}</p>
     <table class="table table-striped" style="display: block;">
-        <thead>
+        <thead style="display:table; width:100%">
             <tr>
-                <th>#</th>
-                <th>도서 이미지</th>
-                <th>책 정보</th>
+                <th style="width: 10%">#</th>
+                <th style="width: 20%">도서 이미지</th>
+                <th style="width: 70%">책 정보</th>
             </tr>
         </thead>
         <tbody style="height: 380px; overflow-y: auto; display: block;">
             <tr ng-repeat="book in bookList" ng-click="select(book)">
-                <td>{{$index + 1}}</td>
-                <td><img ng-src="{{book.image !== 'undefined' ? book.image : '/images/book-no-img.gif'}}" style="max-height:100px"></td>
-                <td ng-bind-html="bookDesc(book)"></td>
+                <td style="width: 10%">{{$index + 1}}</td>
+                <td style="width: 20%"><img ng-src="{{book.image !== 'undefined' ? book.image : '/images/book-no-img.gif'}}" style="max-height:100px"></td>
+                <td style="width: 70%" ng-bind-html="bookDesc(book)"></td>
                 <!--td ng-bind-html="book.author + "></td>
                 <td ng-bind-html="book.publisher"></td>
                 <td>{{book.pubdate}}</td-->
