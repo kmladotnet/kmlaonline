@@ -6,4 +6,8 @@
 
         $user_info = getAllLibraryUserInfo();
         print_r($user_info);
+
+        http_response_code(200);
+    } else {
+        http_response_code(403);
     }
