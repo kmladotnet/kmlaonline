@@ -20,24 +20,21 @@
                 if($result['book_num'] > 0){
                     $temp_ch = $result['curl_obj'];
                     $user_bookList = fetchBorrowedBookList($temp_ch, $result['book_num']);
+
+                    $temp_note_arr = array();
+
                     for($j = 0; $j < count($user_bookList); $j++){
                         $date = new DateTime("20" . $user_bookList[$j]["return_date"]);
                         $today = new DateTime("today");
                         $diff = $today->diff($date);
-                        $diff2 = $date->diff($today);
 
-                        if($diff->invert == 0){
+                        if($diff->invert == 0 && $diff->d == 14) {
                             echo $diff->format("%a") . "일 남았습니다.";
-                        } else {
+                        } else if($diff->d == 0) {
+                            echo "오늘은 도서 반납일입니다.";
+                        } else if($diff->invert == 1) {
                             echo $diff->format("%a") . "일 연체되셨습니다.";
                         }
-
-                        if($diff2->invert == 0){
-                            echo $diff2->format("%a") . "일 남았습니다.";
-                        } else {
-                            echo $diff2->format("%a") . "일 연체되셨습니다.";
-                        }
-
                     }
                 } else {
                     // 대출한 책의 권수가 0권이면 가볍게 스킵!
