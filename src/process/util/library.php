@@ -54,13 +54,15 @@
                     }
 
                     if ($urgent_count > 1) {
-                        echo "[도서관] 내일은 {$urgent_bookname} 외 {$urgent_count - 1}권 반납일입니다.";
+                        $urgent_count--;
+                        echo "[도서관] 내일은 {$urgent_bookname} 외 {$urgent_count}권 반납일입니다.";
                     } else if ($urgent_count == 1) {
                         echo "[도서관] 내일은 {$urgent_bookname} 도서 반납일입니다.";
                     }
 
                     if ($late_count > 1) {
-                        echo "[도서관] {$late_max_bookname} 외 {$late_count - 1}권이 {$late_max_date}일 연체되셨습니다.";
+                        $late_count--;
+                        echo "[도서관] {$late_max_bookname} 외 {$late_count}권이 {$late_max_date}일 연체되셨습니다.";
                     } else if ($late_count == 1) {
                         echo "[도서관] {$late_max_bookname} - {$late_max_date}일 연체되셨습니다.";
                     }
