@@ -1003,6 +1003,19 @@ function getLatestCourtPost() {
     return null;
 }
 
+function testGetSecondLatestCourtPost() {
+    global $board;
+    $postList = $board->getArticleList(array(67), false, false, 0, 10, "n_id", true, 0, "법정 리스트", true, true, true, false, false, false, true);
+    foreach($postList as $post) {
+        if($post['n_parent'] || strtotime('next Thursday', $post['n_writedate'] - 60 * 60 * 188) < strtotime('next Thursday', time() - 60 * 60 * 188)) {
+            continue;
+        }
+        return $post;
+    }
+    return null;
+}
+
+
 function goesToCourt($name, $courtPost) {
     global $board;
 	$attaches = $board->getAttachments(false, $courtPost['n_id']);
@@ -1021,7 +1034,7 @@ function testGoesToCourt($name, $courtPost) {
     foreach($attaches as $file) {
         //echo $file['s_name'];
         if(preg_match("/리스트.*\.xls/", $file['s_name'])) {
-            //echo "매치된 건 - {$file['s_name']}";
+            echo "매치된 건 - {$file['s_name']}";
             $excel = file_get_contents($file['s_path']);
             $excel_file = fopen("{$file['s_path']}", "r") or die("Unable to open file!");
             echo mb_convert_encoding(fread($excel_file, filesize("{$file['s_path']}")), "UTF-8", "UTF-16LE");

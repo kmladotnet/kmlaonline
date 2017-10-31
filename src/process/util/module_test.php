@@ -1,6 +1,6 @@
 <?php
     if(isset($_SESSION['user'])){
-        $courtPost = getLatestCourtPost();
+        $courtPost = testGetSecondLatestCourtPost();
         if($courtPost !== null){
             testGoesToCourt($me['s_name'], $courtPost);
         } else {
