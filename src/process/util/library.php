@@ -23,17 +23,44 @@
 
                     $temp_note_arr = array();
 
+                    // 알림 내용 [도서관] 내일은 ---(책 제목) 외 --권 반납일입니다.
+                    $urgent_count = 0;
+                    $urgent_bookname = '';
+
+                    // 알림 내용 [도서관] ---(책 제목) 외 --권이 --일 연체되셨습니다.
+                    $late_count = 0;
+                    $late_max_bookname  = '';
+                    $late_max_date = 0;
+
                     for($j = 0; $j < count($user_bookList); $j++){
                         $date = new DateTime("20" . $user_bookList[$j]["return_date"]);
                         $today = new DateTime("today");
                         $diff = $today->diff($date);
+                        $test_diff = $date->diff($today);
 
-                        if($diff->invert == 0 && $diff->d == 14) {
-                            echo $diff->format("%a") . "일 남았습니다.";
-                        } else if($diff->d == 0) {
-                            echo "오늘은 도서 반납일입니다.";
-                        } else if($diff->invert == 1) {
+                        if($diff->invert == 0 && $diff->d == 1) {
+                            $urgent_count++;
+                            $urgent_bookname = explode("|", $user_bookList[$j]["info"])[0];
+
+                        }
+
+                        if($test_diff->invert == 1) {
+                            $late_count++;
+
+                            if($test_diff->d > $late_max_date) {
+                                $late_max_date = $test_diff->d;
+                                $late_max_bookname = explode("|", $user_bookList[$j]["info"])[0];
+                            }
+
+                            $late_max_bookname = '';
+                            $late_max_date =
                             echo $diff->format("%a") . "일 연체되셨습니다.";
+                        }
+
+                        if($urgent_count > 0) {
+                            echo "[도서관] 내일은 $urgent_bookname 외 $urgent_count권 반납일입니다.";
+                        } else if ($late_count > 0) {
+                            echo "[도서관] $late_max_bookname 외 $late_count권이 $late_max_date일 연체되셨습니다.";
                         }
                     }
                 } else {
