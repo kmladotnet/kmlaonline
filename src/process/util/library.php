@@ -52,14 +52,14 @@
                                 $late_max_bookname = explode("|", $user_bookList[$j]["info"])[0];
                             }
 
-                            echo $diff->format("%a") . "일 연체되셨습니다.";
+                            //echo $diff->format("%a") . "일 연체되셨습니다.";
                         }
                     }
 
                     if($urgent_count > 0) {
                         echo "[도서관] 내일은 $urgent_bookname 외 $urgent_count권 반납일입니다.";
                     } else if ($late_count > 0) {
-                        echo "[도서관] $late_max_bookname 외 $late_count권이 $late_max_date일 연체되셨습니다.";
+                        echo "[도서관] {$late_max_bookname} 외 {$late_count}권이 {$late_max_date}일 연체되셨습니다.";
                     }
 
                 } else {
