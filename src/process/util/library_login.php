@@ -43,8 +43,6 @@
         $response = curl_getinfo($ch, CURLINFO_RESPONSE_CODE);
         */
 
-
-        $rm_chr = array("\n", "\r", "\t");
         $login_result = signIntoLibrary($n_student_id, $pwd);
         if($login_result && $login_result != "login error"){
             $ch = $login_result['curl_obj'];

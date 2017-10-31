@@ -574,6 +574,7 @@ function signIntoLibrary($id, $password) {
 
     if($login_box){
         // 로그인 성공 시 대출 권수 반환
+        $rm_chr = array("\n", "\r", "\t");
         $info = str_replace($rm_chr, "", $login_box->nodeValue);
         $book_num = (int) trim(substr($info, strpos($info, '대출권수 : ') + strlen('대출권수 : '), 2));
 
