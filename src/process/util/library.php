@@ -22,7 +22,7 @@
                     $user_bookList = fetchBorrowedBookList($temp_ch, $result['book_num']);
                     for($j = 0; $j < count($user_bookList); $j++){
                         $date = new DateTime("20" . $user_bookList[$j]["return_date"]);
-                        $today = new Date();
+                        $today = new DateTime("today");
                         print_r($today->diff($date));
                     }
                 } else {
