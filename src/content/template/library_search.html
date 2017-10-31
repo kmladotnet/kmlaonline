@@ -33,7 +33,7 @@
         <tbody style="height: 380px; overflow-y: auto; display: block;">
             <tr ng-repeat="book in bookList" ng-click="select(book)">
                 <td style="width: 10%">{{$index + 1}}</td>
-                <td style="width: 20%"><img ng-src="{{book.image !== 'undefined' ? book.image : '/images/no-book-img.gif'}}" style="max-height:100px"></td>
+                <td style="width: 20%"><img ng-src="{{book.image !== '' ? book.image : '/images/no-book-img.gif'}}" style="max-height:100px"></td>
                 <td style="width: 70%" ng-bind-html="bookDesc(book)"></td>
                 <!--td ng-bind-html="book.author + "></td>
                 <td ng-bind-html="book.publisher"></td>
