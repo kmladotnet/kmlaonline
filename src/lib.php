@@ -573,6 +573,9 @@ function signIntoLibrary($id, $password) {
     $login_box = $dom->getElementById('mbody32');
 
     if($login_box){
+        // 로그인 성공했으니 유저 데이터 -> 데이터 베이스에 저장
+        linkLibraryAccount($id, $pwd);
+
         // 로그인 성공 시 대출 권수 반환
         $rm_chr = array("\n", "\r", "\t");
         $info = str_replace($rm_chr, "", $login_box->nodeValue);
@@ -584,6 +587,76 @@ function signIntoLibrary($id, $password) {
         return "login error";
     } else {
         return false;
+    }
+}
+
+// 이 함수 사용 전제 - 도서관 홈페이지에 로그인할 수 있는 유효한 유저 데이터를 가지고 있음.
+// 로그인한 curl을 인자로 받아 빌린 도서 수를 리턴함.
+function fetchBorrowedBookNumber($ch){
+    curl_setopt($ch, CURLOPT_URL, 'http://lib.minjok.hs.kr/usweb/set16/USMN000_16.asp');
+    $output = curl_exec($ch);
+    mb_convert_encoding($output, "UTF-8", "EUC-KR");
+
+    $dom = new DOMDocument('1.0', 'utf-8');
+    @$dom->loadHTML($output);
+    $login_box = $dom->getElementById('mbody32');
+
+    if($login_box){
+        $rm_chr = array("\n", "\r", "\t");
+        $info = str_replace($rm_chr, "", $login_box->nodeValue);
+        $book_num = (int) trim(substr($info, strpos($info, '대출권수 : ') + strlen('대출권수 : '), 2));
+
+        return $book_num;
+    } else {
+        return "ERROR OCCURED";
+    }
+}
+
+// 이 함수 사용 전제 - 도서관 홈페이지에 로그인할 수 있는 유효한 유저 데이터를 가지고 있음.
+// 로그인한 curl을 인자로 받아 빌린 도서 목록을 array()로 리턴함.
+function fetchBorrowedBookList($ch, $book_num = false){
+
+    if(!$book_num) $book_num = fetchBorrowedBookNumber($ch);
+    if($book_num != "ERROR OCCURED") {
+        curl_setopt($ch, CURLOPT_URL, 'http://lib.minjok.hs.kr/usweb/set16/USMN510.asp');
+        $output2 = curl_exec($ch);
+
+        mb_convert_encoding($output2, "UTF-8", "EUC-KR");
+
+        $dom2 = new DOMDocument('1.0', 'utf-8');
+        @$dom2->loadHTML($output2);
+        $table = $dom2->getElementsByTagName('table');
+        $rows = $table->item(1)->getElementsByTagName('tr');
+
+        $tmp_arr = array();
+        $bar_chr = array("\n\n\n", ' / ');
+        $rm_chr_1 = array("\r", "\t");
+        $rm_chr_2 = array("\n\n", "\n");
+        $name_array = array("number", "info", "borrow_date", "invalid1", "return_date", "status", "institution", "delay_info");
+        for($i = 0; $i < (int) $book_num; $i++){
+            $tmp = array();
+            $row = $rows->item($i + 1);
+            $items = $row->getElementsByTagName('td');
+
+            for($j = 0; $j < 8; $j++){
+                if($j == 3) continue;
+                if($j == 7) {
+                    $str = $items->item($j)->getElementsByTagName('a')->item(0)->getAttribute("onclick");
+                    //funcPmove("511","libno/bookkind/bookno","X/XX/XXXXX"); 반환
+                    $str = str_replace("\"", "", substr($str, 10, strlen($str) - 12));
+                    // 문자열 511,libno/bookkind/bookno,X/XX/XXXXX 반환
+                    $tmp[$name_array[$j]] = $str;
+                } else {
+                    $str = str_replace($rm_chr_1, "", $items->item($j)->nodeValue);
+                    $str = str_replace($bar_chr, "|", $str);
+                    $tmp[$name_array[$j]] = str_replace($rm_chr_2, "", $str);
+                }
+            }
+            array_push($tmp_arr, $tmp);
+        }
+        return $tmp_arr;
+    } else {
+        return "ERROR OCCURED DURING FETCHING BOOK NUMBER";
     }
 }
 
