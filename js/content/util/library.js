@@ -139,6 +139,19 @@ app.controller("libCtrl", function($scope, $http){
         }).then(function mySuccess(response){
             $scope.new_bbq = {};
             $scope.changePage('my-page');
+            //alert("성공적으로 접수되었습니다.");
+            var notice = new PNotify({
+                title: '도서관 책 신청',
+                text: '성공적으로 접수되었습니다!',
+                type: 'info',
+                buttons: {
+                    closer: false,
+                    sticker: false
+                }
+            });
+            notice.get().click(function() {
+                notice.remove();
+            });
             console.log("submit success");
         }, function myError(response){
             $scope.status = "Request failed";
