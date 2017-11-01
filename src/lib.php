@@ -513,6 +513,22 @@ function getIDFromStudentID($student_id) {
     return $member->getIDFromStudentID($student_id);
 }
 
+function addBookRequest($client_id, $book_info, $reason) {
+    global $mysqli;
+
+    $book_info = $mysqli->real_escape_string($book_info);
+    $reason = $mysqli->real_escape_string($reason);
+    $requested_time = new DateTime();
+    $requested_time_str = $requested->format('Y-m-d H:i:s');
+    $first_history = "user $client_id requested a book request ({$requested_time_str})";
+
+    if($res = $mysqli->query("INSERT INTO kmlaonline_library_bookrequest_data (client_id, book_info, reason, status, history) WHERE ($client_id, '$book_info', '$reason', 100, '$first_history')")){
+        echo "mysqli - success";
+    } else {
+        echo "mysqli - failed";
+    }
+}
+
 function linkLibraryAccount($id, $password) {
     global $mysqli;
     $id = $mysqli->real_escape_string($id);

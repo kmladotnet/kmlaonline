@@ -4,8 +4,17 @@ if(isset($_SESSION['user'])){
     print_r($result);
 
     $failed = false;
-    /*
+    $failed_reasons = array();
+
     // 1. check validity of data
+    $client_id = $me['n_id'];
+    $book_info = json_encode($result['book']);
+    $reason = $result['reason'];
+
+    addBookRequest($client_id, $book_info, $reason);
+
+    /*
+
     $date = $result->date;
     $start_hr  = $result->start_hour->value;
     $start_min = $result->start_min->value;
