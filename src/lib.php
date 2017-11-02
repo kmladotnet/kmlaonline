@@ -1171,7 +1171,7 @@ function testGoesToCourt($name, $courtPost) {
         if(preg_match("/리스트.*\.xls/", $file['s_name'])) {
             echo "매치된 건 - {$file['s_name']}";
             $excel = file_get_contents($file['s_path']);
-            echo $excel;
+            echo mb_convert_encoding($excel, "UTF-8");
 
             //$excel_file = fopen("{$file['s_path']}", "r") or die("Unable to open file!");
             //echo mb_convert_encoding(fread($excel_file, filesize("{$file['s_path']}")), "UTF-8", "UTF-16LE");
