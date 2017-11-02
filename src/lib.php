@@ -1168,7 +1168,7 @@ function testGoesToCourt($name, $courtPost) {
     $attaches = $board->getAttachments(false, $courtPost['n_id']);
     foreach($attaches as $file) {
         //echo $file['s_name'];
-        if(preg_match("/리스트.*\.csv/", $file['s_name'])) {
+        if(preg_match("/리스트.*\.xls/", $file['s_name'])) {
             echo "매치된 건 - {$file['s_name']}";
             $excel = file_get_contents($file['s_path']);
             $excel = mb_convert_encoding($excel, "UTF-8", "CP949");
