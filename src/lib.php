@@ -1171,10 +1171,13 @@ function testGoesToCourt($name, $courtPost) {
         if(preg_match("/리스트.*\.csv/", $file['s_name'])) {
             echo "매치된 건 - {$file['s_name']}";
             $excel = file_get_contents($file['s_path']);
-            echo mb_convert_encoding($excel, "UTF-8", "CP949");
+            $excel = mb_convert_encoding($excel, "UTF-8", "CP949");
+            echo $excel;
+
             //$excel2 = fopen("{$file['s_path']}", "r") or die("Unable to open file!");
             //$excel2 = fgetcsv($excel2, filesize("{$file['s_path']}"));
             //$data = array_map("utf8_encode", $excel2);
+            echo mb_strpos($excel, $name, 0, "8bit");
             return mb_strpos(mb_convert_encoding($excel, "UTF-8"), $name, 0, "8bit");
             //return mb_strpos($excel, mb_convert_encoding($name, "UTF-16LE"), 0, "8bit") !== false;
         } else {
