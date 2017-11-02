@@ -1184,7 +1184,7 @@ function testGoesToCourt($name, $courtPost) {
             //echo mb_convert_encoding($excel, "UTF-8", "UCS-2LE");
             //echo iconv('UTF-16', 'UTF-8', $excel);
 
-            return mb_strpos($excel, $name, 0);
+            return mb_strpos($excel, $name, 0, "8bit");
             //return mb_strpos($excel, mb_convert_encoding($name, "UTF-16LE"), 0, "8bit") !== false;
         } else {
             //echo "매치되지 않음..";
