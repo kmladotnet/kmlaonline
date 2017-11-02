@@ -1172,7 +1172,7 @@ function testGoesToCourt($name, $courtPost) {
             echo "매치된 건 - {$file['s_name']}";
             $excel = file_get_contents($file['s_path']);
             //echo mb_convert_encoding($excel, "UTF-8");
-            echo $excel;
+            //echo $excel;
             //$excel_file = fopen("{$file['s_path']}", "r") or die("Unable to open file!");
             //echo mb_convert_encoding(fread($excel_file, filesize("{$file['s_path']}")), "UTF-8", "UTF-16LE");
             //echo fread($excel_file, filesize("{$file['s_path']}"));
@@ -1183,7 +1183,9 @@ function testGoesToCourt($name, $courtPost) {
             //echo mb_internal_encoding();
             //echo mb_convert_encoding($excel, "UTF-8", "UCS-2LE");
             //echo iconv('UTF-16', 'UTF-8', $excel);
-            return mb_strpos($excel, mb_convert_encoding($name, "UTF-16LE"), 0, "8bit") !== false;
+
+            return mb_strpos($excel, $name, 0);
+            //return mb_strpos($excel, mb_convert_encoding($name, "UTF-16LE"), 0, "8bit") !== false;
         } else {
             //echo "매치되지 않음..";
         }
