@@ -260,7 +260,7 @@ function printContent(){
 						"justice_department"=>"법무부",
 						"student_guide_department"=>"선도부",
 						"food_and_nutrition_department"=>"식영부",
-						"dotnet"=>"닷넷 지원",
+						"dotnet"=>"닷넷",
 						"library_manager"=>"도서부"
 					);
 					?>

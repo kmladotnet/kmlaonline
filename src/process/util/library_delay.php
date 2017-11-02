@@ -3,8 +3,8 @@
 
         $n_student_id = $member->getAdditionalData($me['n_id'], 'n_student_id');
 
-        if(getLibraryUserInfo($n_student_id) && isset($_GET['request'])) {
-            $pwd = getLibraryUserInfo($n_student_id);
+        if(getLibraryUserPwd($n_student_id) && isset($_GET['request'])) {
+            $pwd = getLibraryUserPwd($n_student_id);
             $ch = signIntoLibrary($n_student_id, $pwd);
             if($ch) {
                 $ch = $ch['curl_obj'];
