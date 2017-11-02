@@ -46,7 +46,7 @@
         }
     ?>
     <?php
-        if(isUserDotnetApplicant($me['n_id'])){
+        if(isUserDotnet($me['n_id'])){
             echo '<div class="menu1">';
             echo '<div class="widthholder">';
             echo '<div class="menu1_text">닷넷</div>';

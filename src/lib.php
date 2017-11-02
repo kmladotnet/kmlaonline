@@ -470,10 +470,10 @@ function isUserJudicialMember($user){
     if(isUserPermitted($user, "judicial_council") || isUserPermitted($user, "justice_department") || isUserPermitted($user, "student_guide_department") || isUserPermitted($user, "food_and_nutrition_department")) return true;
     return false;
 }
-function isUserDotnetApplicant($user){
+function isUserDotnet($user){
     if(!is_numeric($user)) return false;
     if(doesAdminBypassEverythingAndIsAdmin()) return true;
-    if(isUserPermitted($user, "dotnet_applicant")) return true;
+    if(isUserPermitted($user, "dotnet")) return true;
     return false;
 }
 function permitUser($user, $actName, $access){
@@ -485,9 +485,9 @@ function permitUser($user, $actName, $access){
 	if($access==0) return false;
 	return (false!==$res=$mysqli->query("INSERT INTO kmlaonline_special_permissions_table (n_user, s_type, n_permission) VALUES ($user, '$actName', $access)"));
 }
-function listDotnetApplicants(){
+function listDotnet(){
     global $mysqli, $member;
-    if(false!==$res=$mysqli->query("SELECT * FROM kmlaonline_special_permissions_table WHERE s_type='dotnet_applicant'")){
+    if(false!==$res=$mysqli->query("SELECT * FROM kmlaonline_special_permissions_table WHERE s_type='dotnet'")){
         $arr=array();
         while ($row = $res->fetch_array(MYSQLI_BOTH)){
             $m=$member->getMember($row['n_user']);

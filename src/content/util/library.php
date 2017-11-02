@@ -22,6 +22,9 @@ function printContent(){
                         <li><a ng-click="changePage('search')">도서 신청하기</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
+                        <?php if(isUserPermitted($me['n_id'], 'library_manager')) { ?>
+                        <li><a ng-click="chnagePage('library-manager')">도서부 전용</a></li>
+                        <?php } ?>
                         <li><a ng-click="changePage('my-page')">My Page</a></li>
                     </ul>
                 </div>

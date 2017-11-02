@@ -131,7 +131,7 @@ if(count($errors)==0){
 		/* 닷넷 그룹 - 글 올리면 notification 뜨게 하기 */
 		if((int) $cat['n_id'] === 576){
 			$triggered=array();
-			foreach(listDotnetApplicants() as $usr){
+			foreach(listDotnet() as $usr){
 				$member->addNotice($usr['n_id'], "upload:article:$article_id", "{$me['s_name']}님이 닷넷 <b>HTML/CSS</b> 그룹에 게시글을 올렸습니다.","article:".$article_id);
 			}
 		}
