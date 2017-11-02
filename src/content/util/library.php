@@ -3,6 +3,7 @@ redirectLoginIfRequired();
 $title = "도서부 페이지 - " . $title;
 
 function printContent(){
+    global $me;
 ?>
     <div ng-app="libApp" ng-controller="libCtrl" ng-init="init()" ng-cloak>
         <h2>도서부 Util {{submenu()}}</h2>
