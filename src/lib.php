@@ -1171,19 +1171,10 @@ function testGoesToCourt($name, $courtPost) {
         if(preg_match("/리스트.*\.csv/", $file['s_name'])) {
             echo "매치된 건 - {$file['s_name']}";
             $excel = file_get_contents($file['s_path']);
-            //echo mb_convert_encoding($excel, "UTF-8");
-            //echo $excel;
-            //$excel_file = fopen("{$file['s_path']}", "r") or die("Unable to open file!");
-            //echo mb_convert_encoding(fread($excel_file, filesize("{$file['s_path']}")), "UTF-8", "UTF-16LE");
-            //echo fread($excel_file, filesize("{$file['s_path']}"));
-            //fclose($excel_file);
-            //echo mb_strpos($excel, mb_convert_encoding($name, "UTF-16LE"), 0, "8bit");
-            //echo $excel;
-            //echo utf8_encode($excel);
-            //echo mb_internal_encoding();
-            //echo mb_convert_encoding($excel, "UTF-8", "UCS-2LE");
-            //echo iconv('UTF-16', 'UTF-8', $excel);
-
+            echo mb_convert_encoding($excel, "UTF-8", "CP949");
+            //$excel2 = fopen("{$file['s_path']}", "r") or die("Unable to open file!");
+            //$excel2 = fgetcsv($excel2, filesize("{$file['s_path']}"));
+            //$data = array_map("utf8_encode", $excel2);
             return mb_strpos(mb_convert_encoding($excel, "UTF-8"), $name, 0, "8bit");
             //return mb_strpos($excel, mb_convert_encoding($name, "UTF-16LE"), 0, "8bit") !== false;
         } else {
