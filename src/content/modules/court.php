@@ -1,7 +1,7 @@
 <?php
 $courtPost = getLatestCourtPost();
 if($courtPost !== null) {
-    $guilty = goesToCourt($me['s_name'], $courtPost);
+    $guilty = goesToCourt2($me['s_name'], $courtPost);
     $isDasan = isCourtDasan($courtPost);
     ?>
     <div class="court-face <?php echo $guilty ? "guilty" : "innocent"; ?>">

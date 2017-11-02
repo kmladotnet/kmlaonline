@@ -1163,6 +1163,19 @@ function goesToCourt($name, $courtPost) {
     return false;
 }
 
+function goesToCourt2($name, $courtPost) {
+    global $board;
+    $attaches = $board->getAttachments(false, $courtPost['n_id']);
+    foreach($attaches as $file) {
+        if(preg_match("/리스트.*\.csv/", $file['s_name'])) {
+            $excel = file_get_contents($file['s_path']);
+            $excel = mb_convert_encoding($excel, "UTF-8", "CP949");
+            return mb_strpos($excel, $name, 0, "8bit") !== false;
+        }
+    }
+    return false;
+}
+
 function testGoesToCourt($name, $courtPost) {
     global $board;
     $attaches = $board->getAttachments(false, $courtPost['n_id']);
