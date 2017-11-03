@@ -54,12 +54,6 @@ foreach($notices as $v){
 					$src = "/images/no-profile.png";
 				}
 				$s.="<img alt='프로필' class='profile_pic' src='" . $src . "' style='display: block; height: 48px; width: 48px; margin-right: 12px; border-radius: 50%;'>";
-				/*
-				if($usr['s_pic'] && !$b_anonymous)
-					echo '<a href="'.htmlspecialchars(str_replace("picture/","picture_full/",$usr['s_pic'])).'" data-toggle="lightbox"><img style="float:right;width:50px;height:50px;margin-left:7px;" src="'.htmlspecialchars($usr['s_pic']).'" /></a>';
-				else
-					echo '<img src="/images/no-profile.png" style="float:right;width:50px;height:50px;margin-left:7px;" />';
-				*/
 			$s.="</div>";
 
 			$s.="<div style='text-align: left;'>";
