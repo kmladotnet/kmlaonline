@@ -107,7 +107,7 @@
     <?php } ?>
 
     <link rel="stylesheet" href="/css/font.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="/sass-compiled/new_screen.css?ver=7" type="text/css" media="screen" />
+    <link rel="stylesheet" href="/css/new_screen.css?ver=7" type="text/css" media="screen" />
 
     <?php
     if($april_fools) {
