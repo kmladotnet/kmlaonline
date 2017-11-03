@@ -99,7 +99,7 @@
     <!-- other -->
     <script src="/swfupload/swfupload.js"></script>
     <script src="/swfupload/swfupload.queue.js"></script>
-    <script src="/js/script.js?v=7.41"></script>
+    <script src="/js/script.js?v=7.42"></script>
     <?php if(getTheme($me)['pinmenu']) { ?>
         <script>
             keepMenuShown = true;
