@@ -122,9 +122,9 @@ if(count($errors)==0){
 			foreach($triggered as $usr){
 				if($article_flag & 0x4){	 // Anonymous
 					$tagby=lang("terms","anonymous");
-					$member->addNotice($usr['n_id'], "tagged:article:$article_id", "익명 사용자가 {$_POST['s_title']}으로 태그하였습니다.","article:".$article_id);
+					$member->addNotice(0, $usr['n_id'], "tagged:article:$article_id", "익명 사용자가 {$_POST['s_title']}으로 태그하였습니다.","article:".$article_id);
 				}else{
-					$member->addNotice($usr['n_id'], "tagged:article:$article_id", "{$me['s_name']}님이 {$_POST['s_title']}으로 태그하였습니다.","article:".$article_id);
+					$member->addNotice($me['n_id'], $usr['n_id'], "tagged:article:$article_id", "{$me['s_name']}님이 {$_POST['s_title']}으로 태그하였습니다.","article:".$article_id);
 				}
 			}
 		}
@@ -132,23 +132,23 @@ if(count($errors)==0){
 		if((int) $cat['n_id'] === 576){
 			$triggered=array();
 			foreach(listDotnet() as $usr){
-				$member->addNotice($usr['n_id'], "upload:article:$article_id", "{$me['s_name']}님이 닷넷 <b>HTML/CSS</b> 그룹에 게시글을 올렸습니다.","article:".$article_id);
+				$member->addNotice($me['n_id'], $usr['n_id'], "upload:article:$article_id", "{$me['s_name']}님이 닷넷 <b>HTML/CSS</b> 그룹에 게시글을 올렸습니다.","article:".$article_id);
 			}
 		}
 
 		/* Election Season - 서면 과제 게시판에 글 올리면 notification 뜨게 하기*/
 		if((int) $cat['n_id'] === 578 && isset($_POST['s_title'])){
 			foreach($member->listMembers(0,0,19) as $usr){
-				$member->addNotice($usr['n_id'], "upload:article:$article_id", "<b>{$_POST['s_title']}</b>가 업로드되었습니다.", "article:".$article_id);
+				$member->addNotice($me['n_id'], $usr['n_id'], "upload:article:$article_id", "<b>{$_POST['s_title']}</b>가 업로드되었습니다.", "article:".$article_id);
 			}
 			foreach($member->listMembers(0,0,20) as $usr){
-				$member->addNotice($usr['n_id'], "upload:article:$article_id", "<b>{$_POST['s_title']}</b>가 업로드되었습니다.", "article:".$article_id);
+				$member->addNotice($me['n_id'], $usr['n_id'], "upload:article:$article_id", "<b>{$_POST['s_title']}</b>가 업로드되었습니다.", "article:".$article_id);
 			}
 			foreach($member->listMembers(0,0,21) as $usr){
-				$member->addNotice($usr['n_id'], "upload:article:$article_id", "<b>{$_POST['s_title']}</b>가 업로드되었습니다.", "article:".$article_id);
+				$member->addNotice($me['n_id'], $usr['n_id'], "upload:article:$article_id", "<b>{$_POST['s_title']}</b>가 업로드되었습니다.", "article:".$article_id);
 			}
 			foreach($member->listMembers(0,0,22) as $usr){
-				$member->addNotice($usr['n_id'], "upload:article:$article_id", "<b>{$_POST['s_title']}</b>가 업로드되었습니다.", "article:".$article_id);
+				$member->addNotice($me['n_id'], $usr['n_id'], "upload:article:$article_id", "<b>{$_POST['s_title']}</b>가 업로드되었습니다.", "article:".$article_id);
 			}
 		}
 
@@ -156,10 +156,10 @@ if(count($errors)==0){
 			// Got Reply
 			if($article_flag & 0x4) { // Anonymous
 				$tagby=lang("terms","anonymous");
-				$member->addNotice($parent_writer['n_id'], "reply:article:$article_id:from:".$me['n_id'], "익명 사용자가 <b>".htmlspecialchars($parent_article['s_title'])."</b>에 답변을 달았습니다.","/board/{$cat['s_id']}/view/$article_id");
+				$member->addNotice(0, $parent_writer['n_id'], "reply:article:$article_id:from:".$me['n_id'], "익명 사용자가 <b>".htmlspecialchars($parent_article['s_title'])."</b>에 답변을 달았습니다.","/board/{$cat['s_id']}/view/$article_id");
 				}
 			else{
-				$member->addNotice($parent_writer['n_id'], "reply:article:$article_id:from:".$me['n_id'], putUserCard($me,0,false)."님이 <b>".htmlspecialchars($parent_article['s_title'])."</b>에 답변을 달았습니다.","/board/{$cat['s_id']}/view/$article_id");
+				$member->addNotice($me['n_id'], $parent_writer['n_id'], "reply:article:$article_id:from:".$me['n_id'], putUserCard($me,0,false)."님이 <b>".htmlspecialchars($parent_article['s_title'])."</b>에 답변을 달았습니다.","/board/{$cat['s_id']}/view/$article_id");
 			}
 		}
 		if(checkCategoryAccess($cat['n_id'], "attach upload")){

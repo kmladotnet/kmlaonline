@@ -121,9 +121,9 @@ else{
 					}
 					foreach($triggered as $usr){
 						if($article_flag & 0x4) // Anonymous
-							$member->addNotice($usr['n_id'], "tagged:article:".$_POST['n_id'], "익명 사용자가 <b>" . htmlspecialchars($_POST['s_title']) . "</b>로 태그했습니다.","article:".$_POST['n_id']);
+							$member->addNotice(0, $usr['n_id'], "tagged:article:".$_POST['n_id'], "익명 사용자가 <b>" . htmlspecialchars($_POST['s_title']) . "</b>로 태그했습니다.","article:".$_POST['n_id']);
 						else
-							$member->addNotice($usr['n_id'], "tagged:article:".$_POST['n_id'], putUserCard($me,0,false) . "님이 글 <b>" . htmlspecialchars($_POST['s_title']) . "</b>로 태그했습니다.","article:".$_POST['n_id']);
+							$member->addNotice($me['n_id'], $usr['n_id'], "tagged:article:".$_POST['n_id'], putUserCard($me,0,false) . "님이 글 <b>" . htmlspecialchars($_POST['s_title']) . "</b>로 태그했습니다.","article:".$_POST['n_id']);
 					}
 				}
 				if(checkCategoryAccess($cat['n_id'], "attach upload")){

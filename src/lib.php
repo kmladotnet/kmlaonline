@@ -499,12 +499,12 @@ function listDotnet(){
     return false;
 }
 
-function addNotification($target, $kind, $msg, $url) {
+function addNotification($from, $target, $kind, $msg, $url) {
     global $member;
 
     //예시 - $member->addNotice($usr['n_id'], "upload:article:$article_id", "{$me['s_name']}님이 닷넷 <b>HTML/CSS</b> 그룹에 게시글을 올렸습니다.","article:".$article_id);
     // n_id 형식으로
-    $member->addNotice($target, $kind, $msg, $url);
+    $member->addNotice($from, $target, $kind, $msg, $url);
 }
 
 // unix timestamp를 -분 전, -시간 전, 어제 -시 -분, -월 -일 -시 -분, -년 -월 -일 -시 -분 으로

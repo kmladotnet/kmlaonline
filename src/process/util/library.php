@@ -67,7 +67,8 @@
                     }
 
                     if ($urgent_count > 0)
-                        addNotification(getIDFromStudentID($user['id']), "library:return:{$user['id']}", $msg, "/util/library");
+                        //임시로 닷넷 장 아이디를 넣어 놓음.
+                        addNotification(1576, getIDFromStudentID($user['id']), "library:return:{$user['id']}", $msg, "/util/library");
 
                     if ($late_count > 1) {
                         $late_count--;

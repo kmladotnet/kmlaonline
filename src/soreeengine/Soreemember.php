@@ -589,8 +589,9 @@ class Soreemember{
 			return $this->mysqli->query("DELETE FROM `$this->table_notice` WHERE n_to=$member AND s_fnkey='".$this->escape($fnkey)."'")!==false;
 		}
 	}
-	function addNotice($member, $fnkey, $desc, $url){
+	function addNotice($from, $member, $fnkey, $desc, $url){
 		if(!is_numeric($member)) return false;
+		if(!is_numeric($from)) return false;
 		$desc=$this->escape($desc);
 		$fnkey=$this->escape($fnkey);
 		$url=$this->escape($url);
@@ -606,7 +607,7 @@ class Soreemember{
 		if($noAdd==true)
 			$q="UPDATE `$this->table_notice` SET n_time=".time().", s_desc='$desc', s_url='$url', n_seen=0 WHERE n_to=$member AND s_fnkey='$fnkey'";
 		else
-			$q="INSERT INTO `$this->table_notice` (n_to, n_time, s_fnkey, s_desc, s_url) VALUES ($member, ".time().", '$fnkey', '$desc', '$url')";
+			$q="INSERT INTO `$this->table_notice` (n_to, n_from, n_time, s_fnkey, s_desc, s_url) VALUES ($member, $from".time().", '$fnkey', '$desc', '$url')";
 		return $this->mysqli->query($q)===true;
 	}
 	function purgeOldNotices($member=-1, $count=100){

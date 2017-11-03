@@ -61,7 +61,7 @@ foreach($notices as $v){
 				*/
 			$s.="</div>";
 
-			$s.="<div>";
+			$s.="<div style='text-align: left;'>";
 				$s.=$v['s_desc'];
 				$s.="<br><small>" . changeToReadableTime($v['n_time']) . "</small>";
 			$s.="</div>";
