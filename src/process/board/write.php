@@ -136,19 +136,19 @@ if(count($errors)==0){
 			}
 		}
 
-		/* Election Season - 서면 과제 게시판에 글 올리면 notification 뜨게 하기*/
-		if((int) $cat['n_id'] === 578 && isset($_POST['s_title'])){
+		/* 전공 게시판에 글 올리면 notification 뜨게 하기*/
+		if((int) $cat['n_id'] === 2 && isset($_POST['s_title'])){
 			foreach($member->listMembers(0,0,19) as $usr){
-				$member->addNotice($me['n_id'], $usr['n_id'], "upload:article:$article_id", "<b>{$_POST['s_title']}</b>가 업로드되었습니다.", "article:".$article_id);
+				$member->addNotice($me['n_id'], $usr['n_id'], "upload:article:$article_id", "<b>" . putUserCard($me,0,false) . "</b>님이 <b>전체 공지사항</b> 그룹에 게시글을 올렸습니다.", "article:".$article_id);
 			}
 			foreach($member->listMembers(0,0,20) as $usr){
-				$member->addNotice($me['n_id'], $usr['n_id'], "upload:article:$article_id", "<b>{$_POST['s_title']}</b>가 업로드되었습니다.", "article:".$article_id);
+				$member->addNotice($me['n_id'], $usr['n_id'], "upload:article:$article_id", "<b>" . putUserCard($me,0,false) . "</b>님이 <b>전체 공지사항</b> 그룹에 게시글을 올렸습니다.", "article:".$article_id);
 			}
 			foreach($member->listMembers(0,0,21) as $usr){
-				$member->addNotice($me['n_id'], $usr['n_id'], "upload:article:$article_id", "<b>{$_POST['s_title']}</b>가 업로드되었습니다.", "article:".$article_id);
+				$member->addNotice($me['n_id'], $usr['n_id'], "upload:article:$article_id", "<b>" . putUserCard($me,0,false) . "</b>님이 <b>전체 공지사항</b> 그룹에 게시글을 올렸습니다.", "article:".$article_id);
 			}
 			foreach($member->listMembers(0,0,22) as $usr){
-				$member->addNotice($me['n_id'], $usr['n_id'], "upload:article:$article_id", "<b>{$_POST['s_title']}</b>가 업로드되었습니다.", "article:".$article_id);
+				$member->addNotice($me['n_id'], $usr['n_id'], "upload:article:$article_id", "<b>" . putUserCard($me,0,false) . "</b>님이 <b>전체 공지사항</b> 그룹에 게시글을 올렸습니다.", "article:".$article_id);
 			}
 		}
 
