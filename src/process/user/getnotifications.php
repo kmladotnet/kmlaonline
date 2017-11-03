@@ -45,9 +45,10 @@ foreach($notices as $v){
 		$s.="<div style='display: block;'>";
 
 			$s.="<div style='display: block; float: left;'>";
-				if(false) {
+				if($v['n_from']) {
+					$temp = $member->getMember($v['n_from'])['s_pic'];
 					// 만약 프로필 사진이 존재하면
-					$src = htmlspecialchars($usr['s_pic']);
+					$src = htmlspecialchars($temp);
 				} else {
 					// 프로필 사진이 존재하지 않을 경우
 					$src = "/images/no-profile.png";
