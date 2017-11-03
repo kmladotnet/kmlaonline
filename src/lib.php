@@ -507,6 +507,26 @@ function addNotification($target, $kind, $msg, $url) {
     $member->addNotice($target, $kind, $msg, $url);
 }
 
+// unix timestamp를 -분 전, -시간 전, 어제 -시 -분, -월 -일 -시 -분, -년 -월 -일 -시 -분 으로
+function changeToReadableTime($unix_time) {
+    $interval = time() - $unix_time;
+    if($interval < 60) {
+        return "방금 전";
+    } else if ($interval < 3600) {
+        $min = (int) ($interval / 60);
+        return $min . "분 전";
+    } else if ($interval < 3600 * 24) {
+        $hour = (int) ($interval / 3600);
+        return $hour . "시간 전";
+    } else if ($unix_time > mktime(0, 0, 0, date("m"), date("d") - 1, date("Y"))) {
+        return "어제 " .  strftime("%p %l:%M", $unix_time);
+    } else if ($unix_time > mktime(23, 59, 59, 12, 31, date("Y")-1)) {
+        return strftime("%b %e일  %p %l:%M", $unix_time);
+    } else {
+        return strftime("%Y년 %b %e일  %p %l:%M", $unix_time);
+    }
+}
+
 // student_id -> n_id 로 바꿔줌, 오류면 false 리턴
 function getIDFromStudentID($student_id) {
     global $member;

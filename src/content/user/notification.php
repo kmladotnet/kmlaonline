@@ -41,7 +41,7 @@ function printContent(){
 				echo "<li class='new'>";
 			echo "<a href='$lnk'>";
 			echo $v['s_desc'];
-			echo " <small>(" . date("Y-m-d H:i:s", $v['n_time']) . ")</small>";
+			echo "<br/><small>" . changeToReadableTime($v['n_time']) . "</small>";
 			echo "</a></li>";
 		}
 		?>
