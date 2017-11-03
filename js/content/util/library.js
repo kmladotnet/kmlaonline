@@ -62,7 +62,6 @@ app.controller("libCtrl", function($scope, $http){
             alert("[도서관] 로그인 되어 있습니다.");
         }, function myError(response){
             console.log(response.data);
-
             if(response.data.error_code == 403){
                 alert("KMLA Online에 로그인 후 이용해주세요.");
                 location.href="/";
