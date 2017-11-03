@@ -120,7 +120,7 @@ if($me['n_level']!=0){
     <div class="button slidedown_button" id="slidedown2_button" style="z-index:1;">
         <i class="fa fa-globe"></i>
         <!--TODO - notification count 추가 할 것-->
-        <!--div id="notification-count" class="style-scope ytd-notification-topbar-button-renderer" style="color: #eadfe6; background-color: #ff2626; position: absolute; top: 2px; right: 0; border-radius: 50%; width: 18px; height: 18px; line-height: 18px; font-size: 10px; text-align: center; cursor: pointer; font-weight: bold;">9</div-->
+        <div id="notification-count" class="style-scope ytd-notification-topbar-button-renderer" style="color: #eadfe6; background-color: #ff2626; position: absolute; top: 2px; right: 0; border-radius: 50%; width: 18px; height: 18px; line-height: 18px; font-size: 10px; text-align: center; cursor: pointer; font-weight: bold; display:none;"></div>
     </div>
     <div class="slidedown" id="slidedown2_sub" style="right:0px;">
         <ul style="text-align: center; padding: 0; margin: 0;" id="top_notification_list">

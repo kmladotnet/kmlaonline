@@ -498,6 +498,8 @@ function prepareHeader() {
             }
         }(k));
     }
+
+
 }
 
 function editStatusMessageShow() {
@@ -668,16 +670,20 @@ function getNotificationCount() {
         type: "GET",
         url: "/ajax/user/getnotifications?count=yes"
     }).done(function (msg) {
+        $('#notification-count').text(msg);
         if (msg > 0) {
             var notice = new PNotify({
-            title: '읽지 않은 알림이 있어요!',
-            type: 'info',
-            buttons: {
-                closer: false,
-                sticker: false
-            },
-            addclass: 'translucent'
-        });
+                title: '읽지 않은 알림이 있어요!',
+                type: 'info',
+                buttons: {
+                    closer: false,
+                    sticker: false
+                },
+                addclass: 'translucent'
+            });
+            $('#notification-count').show();
+        } else if(msg < 0){
+            $('#notification-count').hide();
         }
         notice.get().click(function(){
             notice.remove();
@@ -767,6 +773,9 @@ addLoadEvent(function () {
             opacity: 1
         });
     }
+    $("#slidedown2_button").click(function() {
+        $('#notification-count').hide();
+    });
     $('a').each(function () {
         if (this.onclick || $(this).is('.clickbound') || this.href == "" ||
             this.href.toLowerCase().indexOf("http://" + location.host.toLowerCase() + "/files/") == 0 ||
