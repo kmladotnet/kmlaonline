@@ -1,5 +1,4 @@
 nid = getId();
-original_title = document.title;
 
 String.prototype.endsWith = function (suffix) {
     return this.indexOf(suffix, this.length - suffix.length) !== -1;
@@ -867,6 +866,7 @@ addLoadEvent(function () {
     }
     getId();
     getNotificationCount();
+    original_title = document.title;
 });
 
 
