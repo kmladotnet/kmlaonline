@@ -248,68 +248,6 @@ JSON
     bindAddModuleButton();
     bindExampleLayoutButton();
     </script>
-    <!--
-    <script>
-        require(['/js/converse'], function (converse) {
-            (function () {
-                var $ = converse.env.jQuery;
-                $.extend( $.easing, {
-                    easeInOutExpo: function (x, t, b, c, d) {
-                        if (t == 0) return b;
-                        if (t == d) return b + c;
-                        if ((t /= d / 2) < 1) return c/2 * Math.pow(2, 10 * (t - 1)) + b;
-                        return c / 2 * (-Math.pow(2, -10 * --t) + 2) + b;
-                    },
-                });
-            })
-        });
-        converse.initialize({
-            bosh_service_url: 'http://kmlaonline.net/admin',
-            keepalive: true,
-            message_carbons:true,
-            play_sounds: true,
-            roster_group: true,
-            show_controlbox_by_default: true,
-        });
-    </script>
-        <a href="#" id = "toggle-controlbox" class = "toggle-controlbox hidden">
-            <span class="conn-feedback">Toggle chat</span>
-        </a>
-        <div id="controlbox" class="chatbox" style="width: 200px;">
-            <div class="flyout box-flyout" style="height: 450px; width: 200px;">
-                <div class="dragresize dragresize-top"></div>
-                <div class="dragresize dragresize-topleft"></div>
-                <div class="dragresize dragresize-left"></div>
-                <div class="chat-head controlbox-head">
-                    <ul id="controlbox-tabs">
-                        <li><a class="current" href="#login-dialog">Sign in</a></li>
-                        <li><a class="s" href="#register">Register</a></li>
-                    </ul>
-                    <a class="chatbox-btn close-chatbox-button icon-close"></a>
-                </div>
-                <div class="controlbox-panes">
-                    <div id="login-dialog" class="controlbox-pane">
-                            <form class="pure-form pure-form-stacked converse-form" id="converse-login" method="post">
-                                <label>XMPP Username:</label>
-                                <input type="text" name="jid" placeholder="user@server">
-                                <label>Password:</label>
-                                <input type="password" name="password" placeholder="password">
-                                <input class="pure-button button-primary" type="submit" value="Log In">
-                                <span class="conn-feedback"></span>
-                            </form>
-                    </div>
-                    <div id="register" class="controlbox-pane hidden"><form id="converse-register" class="pure-form converse-form">
-                            <span class="reg-feedback"></span>
-                            <label>Your XMPP provider's domain name:</label>
-                            <input type="text" name="domain" placeholder=" e.g. conversejs.org">
-                            <p class="form-help">Tip: A list of public XMPP providers is available <a href="https://xmpp.net/directory.php" class="url" target="_blank" rel="noopener">here</a>.</p>
-                            <input class="pure-button button-primary" type="submit" value="Fetch registration form">
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        -->
 	<?php
 }
 

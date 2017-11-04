@@ -38,8 +38,8 @@
             echo '<a href="board/student_legislative" class="menu2">입법</a>';
             echo '<a href="board/student_judicial" class="menu2">사법</a>';
             echo '<a href="board/student_executive" class="menu2">행정</a>';
-            echo '<a href="board/jinro" class="menu2">진로 탐색</a>';
-            echo '<a href="board/student_clubs" class="menu2">동아리</a>';
+            //echo '<a href="board/jinro" class="menu2">진로 탐색</a>';
+            //echo '<a href="board/student_clubs" class="menu2">동아리</a>';
             echo '</div>';
             echo '</div>';
             echo '</div>';
