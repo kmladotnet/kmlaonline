@@ -40,18 +40,21 @@ function printContent(){
     <script type="text/javascript" src="/js/content/util/test-notification.js"></script>
     <script src="/js/autobahn.js"></script>
     <script>
-        var conn = new ab.Session('wss://kmlaonline.net/test/',
-            function() {
-                conn.subscribe('test', function(topic, data) {
-                    getNotificationCount();
-                    console.log('New article published to category "' + topic + '" : ' + data.title);
-                });
-            },
-            function() {
-                console.warn('WebSocket connection closed');
-            },
-            {'skipSubprotocolCheck': true}
-        );
+        function setupWebSocket(){
+            this.conn = new ab.Session('wss://kmlaonline.net/test/',
+                function() {
+                    this.conn.subscribe('test', function(topic, data) {
+                        getNotificationCount();
+                        console.log('New article published to category "' + topic + '" : ' + data.title);
+                    });
+                },
+                function() {
+                    setTimeout(setuptWebSocket, 1000);
+                    console.warn('WebSocket connection closed');
+                },
+                {'skipSubprotocolCheck': true}
+            );
+        }
     </script>
 <?php }
 ?>
