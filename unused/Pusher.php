@@ -19,7 +19,7 @@ class Pusher implements WampServerInterface {
     public function onBlogEntry($entry) {
         echo "tcp connection \n";
         $entryData = json_decode($entry, true);
-
+        print_r($entryData);
         if(!array_key_exists($entryData['category'], $this->subscribedTopics)) {
             return;
         }
