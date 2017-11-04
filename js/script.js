@@ -688,7 +688,7 @@ function getNotificationCount() {
     }).done(function (msg) {
         $('#notification-count').text(msg);
         if (msg > 0) {
-            var stack_bottomright = {"dir1": "up", "dir2": "left", "firstpos1": 25, "firstpos2": 25};
+            /*var stack_bottomright = {"dir1": "up", "dir2": "left", "firstpos1": 25, "firstpos2": 25};
             (function () {
                 var opts = {
                     title: "읽지 않은 알림이 있어요!",
@@ -701,7 +701,7 @@ function getNotificationCount() {
                     }
                 };
                 notice = new PNotify(opts);
-            })();
+            })(); */
             $('#notification-count').show();
         } else if(msg < 0){
             $('#notification-count').hide();
