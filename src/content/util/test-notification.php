@@ -43,7 +43,7 @@ function printContent(){
         var conn = new ab.Session('wss://kmlaonline.net/test/',
             function() {
                 conn.subscribe('test', function(topic, data) {
-                    // This is where you would add the new article to the DOM (beyond the scope of this tutorial)
+                    getNotificationCount();
                     console.log('New article published to category "' + topic + '" : ' + data.title);
                 });
             },

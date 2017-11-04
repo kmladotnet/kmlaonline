@@ -3,6 +3,7 @@
         $result = json_decode(file_get_contents("php://input"));
         print_r($result);
 
+        addNotification(0, 1576, "test:info", "진짜 이렇게 하면 되는거야???", '/');
         $context = new ZMQContext();
         $socket = $context->getSocket(ZMQ::SOCKET_PUSH, 'my pusher');
         $socket->connect("tcp://localhost:5555");
