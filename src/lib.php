@@ -512,7 +512,7 @@ function addNotification($from, $target, $kind, $msg, $url) {
 
     $s = $msg;
     $s .= "<br><small>방금 전</small>";
-    $result['desc'] = htmlspecialchars($s);
+    $result['desc'] = $s;
     $result['category'] = 'notification';
 
     $context = new ZMQContext();
