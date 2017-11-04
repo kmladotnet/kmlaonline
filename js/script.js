@@ -190,6 +190,20 @@ function askUser(title, text, onConfirm) {
         })).get().on('pnotify.confirm', onConfirm);
 }
 
+function getId() {
+    $.ajax({
+        type: "GET",
+        url: '/proc/user/nid',
+        headers: {
+            "x-content-only": "true"
+        }
+    }).done(function (msg) {
+        return msg;
+    }).fail(function (jqXHR, textStatus) {
+        alert( "Notification 연결 실패. 관리자에게 문의하세요." );
+    });
+}
+
 function loadUpperHeader(theurl, placeTo, immediate) {
     $.ajax({
         type: "GET",

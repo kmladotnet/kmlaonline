@@ -513,7 +513,7 @@ function addNotification($from, $target, $kind, $msg, $url) {
     $s = $msg;
     $s .= "<br><small>방금 전</small>";
     $result['desc'] = $s;
-    $result['category'] = 'notification';
+    $result['category'] = 'notification-' . $target;
 
     $context = new ZMQContext();
     $socket = $context->getSocket(ZMQ::SOCKET_PUSH, 'my pusher');
