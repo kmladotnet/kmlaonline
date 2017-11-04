@@ -258,6 +258,8 @@
             conn = new ab.Session('wss://kmlaonline.net/test/',
                 function() {
                     conn.subscribe('notification', function(topic, data) {
+                        console.log("test");
+                        console.log(getNotificationCount);
                         getNotificationCount();
                         addPushNotification(data.href, data.profile_pic, data.desc);
                         console.log('New article published to category "' + topic + '" : ' + data.title);
