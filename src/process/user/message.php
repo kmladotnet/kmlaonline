@@ -15,7 +15,7 @@ if(count($errors)==0){
 		if(($nid=$member->sendNote($me['n_id'], $usr,$_POST['s_data']))===false){
 			$except_users[]=$usr;
 		}else{
-			addNotification($me['n_id'], $usr, "message:".$nid, putUserCard($me,0,false) . " 사용자가 <b>쪽지</b>를 보냈습니다.","/user/message");
+			addNotification($me['n_id'], $usr, "message:".$nid, "<b>" . putUserCard($me,0,false) . "</b>님이 메시지를 보냈습니다.","/user/message");
 		}
 	}
 }
