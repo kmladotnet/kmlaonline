@@ -40,12 +40,13 @@ function printContent(){
     <script type="text/javascript" src="/js/content/util/test-notification.js"></script>
     <script src="/js/autobahn.js"></script>
     <script>
-        var conn = new ab.Session('wss://kmlaonline.net:8080/test/',
+        var conn = new ab.Session('wss://kmlaonline.net/test/',
             function() {
                 conn.subscribe('test', function(topic, data) {
                     // This is where you would add the new article to the DOM (beyond the scope of this tutorial)
                     console.log('New article published to category "' + topic + '" : ' + data.title);
                 });
+                conn.
             },
             function() {
                 console.warn('WebSocket connection closed');
