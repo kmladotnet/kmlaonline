@@ -5,9 +5,7 @@ var app = angular.module("testApp", ['ui.bootstrap', 'ngSanitize']);
 app.controller("testCtrl", function($scope, $http){
 
     $scope.init = function(){
-        $scope.changePage('home');
-        $scope.selected = {};
-        $scope.isBookSelected = false;
+
     };
 
     $scope.bookFetch = function(query) {
