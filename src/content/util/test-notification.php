@@ -49,7 +49,7 @@ function printContent(){
                     });
                 },
                 function() {
-                    setTimeout(setuptWebSocket, 1000);
+                    setupWebSocket();
                     console.warn('WebSocket connection closed');
                 },
                 {'skipSubprotocolCheck': true}
