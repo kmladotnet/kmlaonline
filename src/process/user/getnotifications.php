@@ -51,7 +51,7 @@ foreach($notices as $v){
 					$src = htmlspecialchars($temp);
 				} else {
 					// 프로필 사진이 존재하지 않을 경우
-					$src = "/images/no-profile.png";
+					$src = htmlspecialchars("/images/no-profile.png");
 				}
 				$s.="<img alt='프로필' class='profile_pic' src='" . $src . "' style='display: block; height: 48px; width: 48px; margin-right: 12px; border-radius: 50%;'>";
 			$s.="</div>";
