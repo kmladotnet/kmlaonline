@@ -11,11 +11,13 @@ class Pusher implements WampServerInterface {
 
     public function onSubscribe(ConnectionInterface $conn, $topic) {
         $this->subscribedTopics[$topic->getId()] = $topic;
-        print_r($topic);
-        print_r($subscribedTopics);
+        echo $topic->getId() . "\n";
+        //print_r($topic);
+        //print_r($subscribedTopics);
     }
 
     public function onBlogEntry($entry) {
+        echo "tcp connection \n";
         $entryData = json_decode($entry, true);
 
         if(!array_key_exists($entryData['category'], $this->subscribedTopics)) {
