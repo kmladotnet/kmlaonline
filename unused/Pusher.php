@@ -44,5 +44,8 @@ class Pusher implements WampServerInterface {
     }
 
     public function onError(ConnectionInterface $conn, \Exception $e) {
+        echo "An error has occured: {$e->getMessage()}\n";
+
+        $conn->close();
     }
 }
