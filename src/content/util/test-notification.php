@@ -41,9 +41,9 @@ function printContent(){
     <script src="/js/autobahn.js"></script>
     <script>
         function setupWebSocket(){
-            this.conn = new ab.Session('wss://kmlaonline.net/test/',
+            conn = new ab.Session('wss://kmlaonline.net/test/',
                 function() {
-                    this.conn.subscribe('test', function(topic, data) {
+                    conn.subscribe('test', function(topic, data) {
                         getNotificationCount();
                         console.log('New article published to category "' + topic + '" : ' + data.title);
                     });
