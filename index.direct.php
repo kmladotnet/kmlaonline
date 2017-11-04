@@ -257,8 +257,7 @@
         function setupWebSocket(){
             conn = new ab.Session('wss://kmlaonline.net/test/',
                 function() {
-                    var id = getId();
-                    conn.subscribe('notification' + id, function(topic, data) {
+                    conn.subscribe('notification-' + nid, function(topic, data) {
                         getNotificationCount();
                         addPushNotification(data.href, data.profile_pic, data.desc);
                         console.log('New article published to category "' + topic + '" : ' + data.title);

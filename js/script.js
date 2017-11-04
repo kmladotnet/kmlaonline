@@ -1,3 +1,5 @@
+nid = getId();
+
 String.prototype.endsWith = function (suffix) {
     return this.indexOf(suffix, this.length - suffix.length) !== -1;
 };
@@ -198,7 +200,7 @@ function getId() {
             "x-content-only": "true"
         }
     }).done(function (msg) {
-        return msg;
+        nid = msg;
     }).fail(function (jqXHR, textStatus) {
         alert( "Notification 연결 실패. 관리자에게 문의하세요." );
     });
@@ -856,7 +858,7 @@ addLoadEvent(function () {
         scrollToMiddle(elem.offset().top);
         flashObject(elem);
     }
-
+    getId();
     getNotificationCount();
 });
 
