@@ -13,3 +13,9 @@
         $member->addNotice(769, $usr['n_id'], "admin:info:profile", "큼온이 프로필 사진을 바꿨습니다. 여러분도 프로필 사진을 설정에서 업데이트 해보세요!", "/user/settings");
     } */
     //$member->addNotice(769, $me['n_id'], "admin:info:profile", "큼온이 프로필 사진을 바꿨습니다. 여러분도 프로필 사진을 설정에서 업데이트 해보세요!", "/user/settings");
+
+    if(empty($member->getMember(2197)['s_pic'])){
+        echo "비어 있음";
+    } else {
+        echo "그렇지 않음";
+    }
