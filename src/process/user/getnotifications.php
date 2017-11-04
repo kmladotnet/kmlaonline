@@ -45,7 +45,7 @@ foreach($notices as $v){
 		$s.="<div style='display: block;'>";
 
 			$s.="<div style='display: block; float: left;'>";
-				if($v['n_from']) {
+				if($v['n_from'] && !empty($v['n_from'])) {
 					$temp = $member->getMember($v['n_from'])['s_pic'];
 					// 만약 프로필 사진이 존재하면
 					$src = htmlspecialchars($temp);
