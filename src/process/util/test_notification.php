@@ -3,6 +3,9 @@
         $result = json_decode(file_get_contents("php://input"));
         print_r($result);
 
+        $context = new ZMQContext();
+        $socket = $context->getSocket(ZMQ::SOCKET_PUSH, 'my pusher');
+        $socket->connect("tcp://localhost:5555");
         $failed = false;
         /*
         // 1. check validity of data
