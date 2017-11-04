@@ -252,9 +252,9 @@
             $(this).ekkoLightbox();
         });
     </script>
-    <?php if(isset($_SESSION['user'])) { ?>
+    <?php if(isset($_SESSION['user']) && !$is_mobile) { ?>
     <script type="text/javascript">
-        function setupWebSocket(){
+        (function setupWebSocket(){
             conn = new ab.Session('wss://kmlaonline.net/test/',
                 function() {
                     conn.subscribe('notification-' + nid, function(topic, data) {
@@ -269,7 +269,7 @@
                 },
                 {'skipSubprotocolCheck': true}
             );
-        }
+        })();
     </script>
     <?php } ?>
 </body>
