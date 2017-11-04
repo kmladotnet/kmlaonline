@@ -697,6 +697,22 @@ function getNotificationCount() {
     }).fail(function (jqXHR, textStatus) {});
 }
 
+function addPushNotification(href, profile_pic, desc) {
+    var stack_bottomleft = {"dir1": "up", "dir2": "right", "firstpos1": 25, "firstpos2": 25};
+    var push_notice = new PNotify({
+        icon: false,
+        width: '350px',
+        type: 'info',
+        text: '<a style="color: black; text-decoration: none;" href="' + href
+            + '"><div style="display: block;"><div style="display: block; float: left;"><img alt="프로필" class="profile_pic" src="'
+            + profile_pic + '" style="display: block; height: 48px; width: 48px; margin-right: 12px; border-radius: 50%;"></div><div style="text-align: left;">'
+            + desc +'</div></div></a>',
+        addclass: "stack-bottomleft translucent",
+        stack: stack_bottomleft
+    });
+    push_notice.options.delay = 3000;
+}
+
 function addLoadEvent(func) {
     var oldonload = window.onload;
     if (typeof window.onload != 'function') {

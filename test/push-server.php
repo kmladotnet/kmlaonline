@@ -10,7 +10,6 @@
     $pull->on('message', array($pusher, 'onBlogEntry'));
 
     $websocket = new React\Socket\Server('0.0.0.0:8080', $loop);
-    //$websocket->listen(8080, '0.0.0.0');
     $webServer = new Ratchet\Server\IoServer(
         new Ratchet\Http\HttpServer(
             new Ratchet\WebSocket\WsServer(

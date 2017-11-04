@@ -96,6 +96,9 @@
     <!--link rel="stylesheet" type="text/css" media = "screen" href="css/converse/converse.css"/>
     <script data-main="main" src="js/converse/requirejs/require.js"></script-->
 
+    <!-- push server -->
+    <script src="/js/autobahn.js"></script>
+
     <!-- other -->
     <script src="/swfupload/swfupload.js"></script>
     <script src="/swfupload/swfupload.queue.js"></script>
@@ -249,6 +252,26 @@
             $(this).ekkoLightbox();
         });
     </script>
+    <?php if(isset($_SESSION['user'])) { ?>
+    <script type="text/javascript">
+        function setupWebSocket(){
+            conn = new ab.Session('wss://kmlaonline.net/test/',
+                function() {
+                    conn.subscribe('notification', function(topic, data) {
+                        getNotificationCount();
+                        addPushNotification(data.href, data.profile_pic, data.desc);
+                        console.log('New article published to category "' + topic + '" : ' + data.title);
+                    });
+                },
+                function() {
+                    setupWebSocket();
+                    console.warn('WebSocket connection closed');
+                },
+                {'skipSubprotocolCheck': true}
+            );
+        }
+    </script>
+    <?php } ?>
 </body>
 
 </html>

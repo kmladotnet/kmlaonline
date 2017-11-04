@@ -505,6 +505,50 @@ function addNotification($from, $target, $kind, $msg, $url) {
     //예시 - $member->addNotice($usr['n_id'], "upload:article:$article_id", "{$me['s_name']}님이 닷넷 <b>HTML/CSS</b> 그룹에 게시글을 올렸습니다.","article:".$article_id);
     // n_id 형식으로
     $member->addNotice($from, $target, $kind, $msg, $url);
+
+    $result = array();
+    $result['href'] = notificationUrlToRealUrl($url);
+    $result['profile_pic'] = getProfilePictureUrl($from);
+
+    $s = $msg;
+    $s .= "<br><small>방금 전</small>";
+    $result['desc'] = htmlspecialchars($s);
+
+
+    $context = new ZMQContext();
+    $socket = $context->getSocket(ZMQ::SOCKET_PUSH, 'my pusher');
+    $socket->connect("tcp://localhost:5555");
+    $socket->send(json_encode($result));
+}
+
+function getProfilePictureUrl($n_id) {
+    global $member;
+    $temp = $member->getMember($n_id)['s_pic'];
+    if(!empty($temp)) {
+        // 프로필 사진이 존재할 경우
+        $src = htmlspecialchars($temp);
+    } else {
+        // 프로필 사진이 존재하지 않을 경우
+        $src = htmlspecialchars("/images/no-profile.png");
+    }
+    return $src;
+}
+
+function notificationUrlToRealUrl($url) {
+    $pass=false;
+    switch(substr($url, 0, strpos($url, ":"))){
+        case "article":
+            $aid = substr($url, strpos($url, ":") + 1);
+            $a = $board->getArticle($aid);
+            $b = $board->getCategory($a['n_cat']);
+            $bid = $b['s_id'];
+            $lnk = "/board/$bid/view/$aid";
+            break;
+        default:
+            $lnk = $url;
+    }
+    $lnk = htmlspecialchars($lnk);
+    return $lnk;
 }
 
 // unix timestamp를 -분 전, -시간 전, 어제 -시 -분, -월 -일 -시 -분, -년 -월 -일 -시 -분 으로
