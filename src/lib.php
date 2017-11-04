@@ -535,6 +535,7 @@ function getProfilePictureUrl($n_id) {
 }
 
 function notificationUrlToRealUrl($url) {
+    global $board;
     $pass=false;
     switch(substr($url, 0, strpos($url, ":"))){
         case "article":
