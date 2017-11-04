@@ -28,9 +28,11 @@ class Pusher implements WampServerInterface {
     }
 
     public function onOpen(ConnectionInterface $conn) {
+        echo "New connection!\n";
     }
 
     public function onClose(ConnectionInterface $conn) {
+        echo "Connection has disconnected\n";
     }
 
     public function onCall(ConnectionInterface $conn, $id, $topic, array $params){
