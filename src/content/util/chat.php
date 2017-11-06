@@ -10,7 +10,7 @@ function printContent() {
     <div id="wrapper">
         <div id="user-container">
             <label for="user">나의 이름은..</label>
-            <input type="text" id="user" name="user" disabled>
+            <input type="text" id="user" name="user" value="<?php putUserCard($me); ?>" disabled>
             <button class="btn btn-info" type="button" id="join-chat">Join Chat</button>
         </div>
 
