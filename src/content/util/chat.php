@@ -5,7 +5,7 @@ function printContent() {
     $date1 = new DateTime("now");
     $date2 = new DateTime("2016-03-04");
     if($date1 >= $date2) {
-        redirectTo("/");
+        @redirectAlert("/", "채팅 앱 접속시간이 아닙니다.");
     }
 ?>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.3/handlebars.min.js"></script>
