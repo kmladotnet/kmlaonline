@@ -9,7 +9,7 @@
 
     <!-- Facebook preview 관련 -->
 
-    <meta property="og:type"   content="website" />
+    <meta property="og:type" content="website" />
     <meta property="og:title" content="KMLA Online" />
     <meta property="og:url" content="https://<?php echo $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>" />
     <meta property="og:description" content="민족사관고등학교 학생 커뮤니티 KMLA Online과 함께 하세요." />
