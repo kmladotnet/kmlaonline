@@ -1,3 +1,4 @@
+conn = new WebSocket('wss://kmlaonline.net/chat/');
 (function(){
 
     (function setupWebSocket() {
