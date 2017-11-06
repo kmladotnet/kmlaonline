@@ -1,17 +1,17 @@
-conn = new WebSocket('wss://kmlaonline.net/chat/');
+conn2 = new WebSocket('wss://kmlaonline.net/chat/');
 
 (function setupWebSocket() {
-    conn = new WebSocket('wss://kmlaonline.net/chat/');
-    conn.onopen = function(e) {
+    conn2 = new WebSocket('wss://kmlaonline.net/chat/');
+    conn2.onopen = function(e) {
         console.log("Connection established!");
     };
 
-    conn.onmessage = function(e) {
+    conn2.onmessage = function(e) {
         var msg = JSON.parse(e.data);
         updateMessages(msg);
     };
 
-    conn.onclose = function(e) {
+    conn2.onclose = function(e) {
         setupWebSocket();
     }
 })();
@@ -36,7 +36,7 @@ function send (){
         'time': moment().format('hh:mm a')
     };
     updateMessages(msg);
-    conn.send(JSON.stringify(msg));
+    conn2.send(JSON.stringify(msg));
 
     $('#msg').val('');
 }
@@ -60,7 +60,7 @@ $('#join-chat').click(function(){
     };
 
     updateMessages(msg);
-    conn.send(JSON.stringify(msg));
+    conn2.send(JSON.stringify(msg));
 
     $('#user').val('');
 });
@@ -76,7 +76,7 @@ $('#leave-room').click(function(){
         'time': moment().format('hh:mm a')
     };
     updateMessages(msg);
-    conn.send(JSON.stringify(msg));
+    conn2.send(JSON.stringify(msg));
 
     $('#messages').html('');
     messages = [];
