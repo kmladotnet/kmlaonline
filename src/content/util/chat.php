@@ -2,6 +2,11 @@
 $title = "최초 채팅 앱 - $title";
 function printContent() {
     global $me;
+    $date1 = new DateTime("now");
+    $date2 = new DateTime("2016-03-04");
+    if($date1 >= $date2) {
+        redirectTo("/");
+    }
 ?>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.3/handlebars.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
