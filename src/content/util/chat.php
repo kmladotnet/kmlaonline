@@ -14,8 +14,8 @@ function printContent() {
     <link rel="stylesheet" href="css/content/util/chat.css">
     <div id="wrapper" style="margin-top: 5px;">
         <div id="user-container">
+            <label for="user">나의 이름은..</label>
             <div class="input-group">
-                <label for="user">나의 이름은..</label>
                 <input class="form-control" type="text" id="user" name="user" value="<?php putUserCard($me); ?>" disabled>
                 <span class="input-group-btn">
                     <button class="btn btn-info" type="button" id="join-chat">채팅 시작</button>
