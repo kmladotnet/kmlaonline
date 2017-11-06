@@ -12,11 +12,11 @@ function printContent() {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
 
     <link rel="stylesheet" href="css/content/util/chat.css">
-    <div id="wrapper">
+    <div id="wrapper" style="margin-top: 5px;">
         <div id="user-container">
             <label for="user">나의 이름은..</label>
-            <input type="text" id="user" name="user" value="<?php putUserCard($me); ?>" disabled>
-            <button class="btn btn-info" type="button" id="join-chat">Join Chat</button>
+            <input class="form-control" type="text" id="user" name="user" value="<?php putUserCard($me); ?>" disabled>
+            <button class="btn btn-info" type="button" id="join-chat">채팅 시작</button>
         </div>
 
         <div id="main-container" class="hidden">
