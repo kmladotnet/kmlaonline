@@ -64,8 +64,8 @@
 
 .text {
     display: block;
-    color: #4b4f56;
-    background: #f1f0f0;
+    color: #333;
+    background: #efdac7;
     max-width: 250px;
     line-height: 1.5;
     word-break: break-word;
