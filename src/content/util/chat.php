@@ -3,7 +3,7 @@ $title = "최초 채팅 앱 - $title";
 function printContent() {
     global $me;
     $date1 = new DateTime("now");
-    $date2 = new DateTime("2017-11-06 4:50:37 pm");
+    $date2 = new DateTime("2017-11-06 5:30:00 pm");
     if($date1 >= $date2) {
         @redirectAlert("/", "채팅 앱 접속시간이 아닙니다.");
     }
