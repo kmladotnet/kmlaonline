@@ -1034,7 +1034,7 @@ function testCount($id = 471297){
     echo "test1" . upvotes($id);
     echo "test2" . downvotes($id);
     $votes = upvotes($id) - downvotes($id);
-    echo "test3" $votes;
+    echo "test3" . $votes;
 }
 
 function upvote($id, $user, $down = false) {
