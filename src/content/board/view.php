@@ -56,6 +56,13 @@ function formatVotes($up, $down) {
 <?php
 }
 
+function testCount($id = 471297){
+    echo upvotes($id);
+    echo downvotes($id);
+    $votes = upvotes($id) - downvotes($id);
+    echo $votes;
+}
+
 function printUpDownVotes($id, $hide = true) {
     global $me, $member;
     $upvotes = upvotes($id);
