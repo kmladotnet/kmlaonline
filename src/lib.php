@@ -1030,31 +1030,6 @@ function downvoted($id, $user) {
         array_key_exists($user, json_decode(file_get_contents('data/board/votes/down'.$id), true));
 }
 
-function testCount($id = 471297){
-    echo _upvotes($id);
-    echo "test1" . upvotes($id);
-    echo "test2" . downvotes($id);
-    $votes = upvotes($id) - downvotes($id);
-    echo "test3" . $votes;
-}
-
-function _upvotes($id) {
-    $tmp = sys_get_temp_dir();
-    if(file_exists($tmp.'/uv.'.$id)) {
-        echo $tmp . '/uv.' . $id . '<br/>';
-        echo "already returned <br/>";
-        return file_get_contents($tmp.'/uv.'.$id);
-    }
-    echo "not returned <br/>";
-    if(file_exists('data/board/votes/up'.$id)){
-        echo "true <br/>";
-        return count(json_decode(file_get_contents('data/board/votes/up'.$id), true));
-    } else {
-        echo "false <br/>";
-        return 0;
-    }
-}
-
 function upvote($id, $user, $down = false) {
     $votes = 0;
     if($down && file_exists('data/board/votes/down'.$id)) {
