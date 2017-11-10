@@ -1041,6 +1041,7 @@ function testCount($id = 471297){
 function _upvotes($id) {
     $tmp = sys_get_temp_dir();
     if(file_exists($tmp.'/uv.'.$id)) {
+        echo $tmp . '/uv.' . $id . '<br/>';
         echo "already returned <br/>";
         return file_get_contents($tmp.'/uv.'.$id);
     }
