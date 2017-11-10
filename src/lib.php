@@ -1031,10 +1031,10 @@ function downvoted($id, $user) {
 }
 
 function testCount($id = 471297){
-    echo upvotes($id);
-    echo downvotes($id);
+    echo "test1" . upvotes($id);
+    echo "test2" . downvotes($id);
     $votes = upvotes($id) - downvotes($id);
-    echo $votes;
+    echo "test3" $votes;
 }
 
 function upvote($id, $user, $down = false) {
