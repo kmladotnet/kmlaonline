@@ -1030,6 +1030,13 @@ function downvoted($id, $user) {
         array_key_exists($user, json_decode(file_get_contents('data/board/votes/down'.$id), true));
 }
 
+function testCount($id = 471297){
+    echo upvotes($id);
+    echo downvotes($id);
+    $votes = upvotes($id) - downvotes($id);
+    echo $votes;
+}
+
 function upvote($id, $user, $down = false) {
     $votes = 0;
     if($down && file_exists('data/board/votes/down'.$id)) {
