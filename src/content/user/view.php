@@ -67,7 +67,7 @@ function printContent(){
 			<table class="userinfo_table">
 				<tr>
 					<th>생일</th>
-					<td><?php $user_to['n_birth_date_yr'] === 0 ? echo "입력되지 않음"; : echo htmlspecialchars(date("Y년 m월 d일",strtotime($user_to['n_birth_date_yr']."-".$user_to['n_birth_date_month']."-".$user_to['n_birth_date_day'])))?></td>
+					<td><?php echo ($user_to['n_birth_date_yr'] === 0 ? "입력되지 않음" : htmlspecialchars(date("Y년 m월 d일",strtotime($user_to['n_birth_date_yr']."-".$user_to['n_birth_date_month']."-".$user_to['n_birth_date_day']))))?></td>
 				</tr>
 				<tr>
 					<th>E-Mail</th>
