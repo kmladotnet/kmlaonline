@@ -4,7 +4,7 @@ include "src/soreeengine/SoreeTools.php"; // DB Manager
 include "src/range.php"; // HTTP Range Tools
 include "src/zipstream.php"; // ZIP Streaming Tools
 
-$max_level = 23; // 현재 22기까지
+$max_level = 22; // 현재 23기까지
 
 /********************** START INITIALIZATION SESSION ************************/
 if(isset($_POST["_CUSTOM_PHPSESSID"])) { // For Flash Upload Plugin
