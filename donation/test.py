@@ -17,9 +17,8 @@ def create_database(cursor):
 
 
 config = {
-    'user': 'root',
-    'password': 'pacokwon',
-    'host': '127.0.0.1',
+    'user': 'kmlaonline',
+    'password': 'n7h4eYWJ7vW59tT8'
 }
 
 DB_NAME = 'kmlaonline'
