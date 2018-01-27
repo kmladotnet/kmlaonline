@@ -17,7 +17,7 @@ def create_database(cursor):
 
 
 config = {
-    'user': 'kmlaonline',
+    'user': 'pacokwon',
     'password': 'n7h4eYWJ7vW59tT8'
 }
 
