@@ -3,9 +3,10 @@ redirectLoginIfRequired();
 $title="서적 신청 - " . $title;
 function getCurrentTable(){
 	global $mysqli;
-	$query="SELECT * FROM kmlaonline_donation_table";
-	if($res=$mysqli->query($query)){
-		$arr=array();$i=0;
+	$query = "SELECT * FROM kmlaonline_donation_table";
+    // fetch_array documentation http://php.net/manual/en/function.mysql-fetch-array.php
+	if($res = $mysqli->query($query)){
+		$arr = array();
 		while ($row = $res->fetch_array(MYSQLI_ASSOC)){
 			$arr[$row['n_category']][$row['n_num']]=array($row['s_title'], $row['s_publisher'], $row['s_author'], $row['n_status'], $row['n_height'], $row['n_size'], $row['n_who'], $row['s_status']);
 		}
@@ -205,7 +206,7 @@ function printContent(){
 								<input type="submit" class="btn btn-sm btn-default" value="신청" />
 						</form>
 					<?php }else{ ?>
-							<p style="width: 150px;">기한이 아닙니다</p>
+						<p style="width: 150px;">기한이 아닙니다</p>
 					<?php } ?>
 					</td>
 					<?php } ?>
@@ -305,7 +306,7 @@ function printContent(){
 					<?php if($currentTable[$category][$num][6]!=0){
 					$usr=$member->getMember($currentTable[$category][$num][6]);
 					?>
-					<td style='text-align:center;<?php if($usr['n_id']==$me['n_id']) echo "background:#DDF";?>'><a href="/user/view/<?php echo $usr['n_id']."/".$usr['s_id']?>"><?php putUserCard($usr); ?></a></td>
+					<td style='text-align:center;<?php if($usr['n_id']==$me['n_id']) echo "background:#D0D0F0";?>'><a href="/user/view/<?php echo $usr['n_id']."/".$usr['s_id']?>"><?php putUserCard($usr); ?></a></td>
 					<td>
 						<?php if($me['n_id']==$currentTable[$category][$num][6]){ ?>
 							<form method="post" action="/proc/util/donation" onsubmit="if(confirm('정말로 신청을 취소하겠습니까?'))return saveAjax(this,'신청 취소 중...'); return false;">
