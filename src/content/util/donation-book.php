@@ -31,6 +31,14 @@ function printContent(){
 			top: 5px;
 		}
 	</style>
+	<!-- category
+		0 : 국내 문제집
+		1 : 국제 문제집
+		2 : 서적
+		3 : empty(deprecated, originally seems to have been uniform)
+		4 : 교과서
+		5 : 생활용품
+	 -->
 	<div style="text-align:left;" id="1">
 		<font size=5><b name="1">문제집 (국내)</b></font></br>
 	</div>
@@ -40,7 +48,7 @@ function printContent(){
 		<thead style>
 			<tr>
 				<th style="width:50%; text-align:center;">책제목</th>
-				<th style="width:20%; text-align:center;">출판사</th>
+				<!-- <th style="width:20%; text-align:center;">출판사</th> -->
 				<th style="width:30%; text-align:center;">신청자</th>
 			</tr>
 		</thead>
@@ -52,7 +60,7 @@ function printContent(){
 					<td><?php echo $currentTable[$category][$num][0]; ?></td>
 
 					<!-- s_publisher(출판사) column -->
-					<td style='text-align:center'><?php echo $currentTable[$category][$num][1]; ?></td>
+					<!-- <td style='text-align:center'><?php echo $currentTable[$category][$num][1]; ?></td> -->
 
 					<!-- 신청자 column -->
 					<!-- if n_who is not 0, 신청자가 있을 때  -->
@@ -87,7 +95,6 @@ function printContent(){
 						<p style="width: 150px;">기한이 아닙니다</p>
 					<?php } ?>
 					</td>
-					</form> <!-- 이건 왜 있을까 -->
 					<?php } ?>
 				</tr>
 			<?php } ?>
@@ -143,7 +150,6 @@ function printContent(){
 						<p style="width: 150px;">기한이 아닙니다</p>
 					<?php } ?>
 					</td>
- 					</form>
 					<?php } ?>
 				</tr>
 			<?php } ?>
@@ -202,7 +208,6 @@ function printContent(){
 							<p style="width: 150px;">기한이 아닙니다</p>
 					<?php } ?>
 					</td>
- 						</form>
 					<?php } ?>
 				</tr>
 			<?php } ?>
@@ -213,6 +218,7 @@ function printContent(){
 	<div style="text-align:left;" id="4">
 		<font size=5 ><b>교과서</b></font></br>
 	</div>
+	<!-- database상에서의 교과서 category: 4 -->
 	<?php $category=4 ?>
 	<div style="clear:both;padding:5px;"></div>
 	<table id="donation_table_etc" class="table table-condensed table-striped">
@@ -260,7 +266,6 @@ function printContent(){
 						<p style="width: 150px;">기한이 아닙니다</p>
 					<?php } ?>
 					</td>
- 					</form>
 					<?php } ?>
 				</tr>
 			<?php } ?>
