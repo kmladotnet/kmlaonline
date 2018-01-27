@@ -47,9 +47,9 @@ function printContent(){
 	<table style="text-align:center;" id="donation_table_dom" class="table table-condensed table-striped">
 		<thead style>
 			<tr>
-				<th style="width:50%; text-align:center;">책제목</th>
+				<th style="text-align:center; width:70%;">책제목</th>
 				<!-- <th style="width:20%; text-align:center;">출판사</th> -->
-				<th style="width:30%; text-align:center;">신청자</th>
+				<th style="text-align:center; width:30%;">신청자</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -70,14 +70,14 @@ function printContent(){
 					<!-- 그 신청자가 본인일 때, set text color to #d0d0f0 -->
 					<td style='text-align:center;<?php if($usr['n_id']==$me['n_id']) echo "background:#DDF";?>'><a href="/user/view/<?php echo $usr['n_id']."/".$usr['s_id']?>"><?php putUserCard($usr); ?></a></td>
 					<td>
-					<?php if($me['n_id'] == $currentTable[$category][$num][6]){ ?>
-						<form method="post" action="/proc/util/donation" onsubmit="if(confirm('정말로 신청을 취소하겠습니까?'))return saveAjax(this,'신청 취소 중...'); return false;">
-							<input type="hidden" name="category" value="<?php echo $category ?>" />
-							<input type="hidden" name="num" value="<?php echo $num ?>" />
-							<input type="hidden" name="util_action" value="remove" />
-							<input type="submit" class="btn btn-default"  value="취소" />
-						</form>
-					<?php } ?>
+						<?php if($me['n_id'] == $currentTable[$category][$num][6]){ ?>
+							<form method="post" action="/proc/util/donation" onsubmit="if(confirm('정말로 신청을 취소하겠습니까?'))return saveAjax(this,'신청 취소 중...'); return false;">
+								<input type="hidden" name="category" value="<?php echo $category ?>" />
+								<input type="hidden" name="num" value="<?php echo $num ?>" />
+								<input type="hidden" name="util_action" value="remove" />
+								<input type="submit" class="btn btn-default"  value="취소" />
+							</form>
+						<?php } ?>
 					</td>
 					<?php } else { ?>
 					<!-- if n_who is 0, 신청자가 없을 때 -->
