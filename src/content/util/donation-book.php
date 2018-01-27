@@ -15,6 +15,7 @@ function getCurrentTable(){
 	}
 }
 function printContent(){
+    // $member: $me:
 	global $member, $me;
 	$currentTable=getCurrentTable();
 	?>
@@ -44,41 +45,49 @@ function printContent(){
 			</tr>
 		</thead>
 		<tbody>
+			<!-- 0: 's_title' 1: 's_publisher', 2: 's_author', 3: 'n_status', 4: 'n_height', 5: 'n_size', 6: 'n_who' 7: 's_status' -->
 			<?php for($num=1;$num<=172;$num++){ ?>
 				<tr>
-
+					<!-- s_title 책 제목-->
 					<td><?php echo $currentTable[$category][$num][0]; ?></td>
 
+					<!-- s_publisher(출판사) column -->
 					<td style='text-align:center'><?php echo $currentTable[$category][$num][1]; ?></td>
 
+					<!-- 신청자 column -->
+					<!-- if n_who is not 0, 신청자가 있을 때  -->
 					<?php if($currentTable[$category][$num][6]!=0){
-						$usr=$member->getMember($currentTable[$category][$num][6]);
-						?>
-						<td style='text-align:center;<?php if($usr['n_id']==$me['n_id']) echo "background:#DDF";?>'><a href="/user/view/<?php echo $usr['n_id']."/".$usr['s_id']?>"><?php putUserCard($usr); ?></a></td>
-						<td>
-							<?php if($me['n_id']==$currentTable[$category][$num][6]){ ?>
-								<form method="post" action="/proc/util/donation" onsubmit="if(confirm('정말로 신청을 취소하겠습니까?'))return saveAjax(this,'신청 취소 중...'); return false;">
-									<input type="hidden" name="category" value="<?php echo $category ?>" />
-									<input type="hidden" name="num" value="<?php echo $num ?>" />
-									<input type="hidden" name="util_action" value="remove" />
-									<input type="submit" class="btn btn-default"  value="취소" />
-								</form>
-							<?php } ?>
-						</td>
+					$usr=$member->getMember($currentTable[$category][$num][6]);
+					?>
+					<!-- 그 신청자가 본인일 때, set text color to #d0d0f0 -->
+					<td style='text-align:center;<?php if($usr['n_id']==$me['n_id']) echo "background:#DDF";?>'><a href="/user/view/<?php echo $usr['n_id']."/".$usr['s_id']?>"><?php putUserCard($usr); ?></a></td>
+					<td>
+					<?php if($me['n_id'] == $currentTable[$category][$num][6]){ ?>
+						<form method="post" action="/proc/util/donation" onsubmit="if(confirm('정말로 신청을 취소하겠습니까?'))return saveAjax(this,'신청 취소 중...'); return false;">
+							<input type="hidden" name="category" value="<?php echo $category ?>" />
+							<input type="hidden" name="num" value="<?php echo $num ?>" />
+							<input type="hidden" name="util_action" value="remove" />
+							<input type="submit" class="btn btn-default"  value="취소" />
+						</form>
+					<?php } ?>
+					</td>
+					<?php } else { ?>
+					<!-- if n_who is 0, 신청자가 없을 때 -->
+					<td>신청자가 없습니다</td>
+					<td>
+					<?php $date1 = new DateTime("now"); $date2 = new DateTime("2016-03-02"); // update DateTime constructor parameter
+					if($date1 >=  $date2) { ?>
+						<form method="post" action="/proc/util/donation" onsubmit="return saveAjax(this,'신청중...');">
+							<input type="hidden" name="category" value="<?php echo $category ?>" />
+							<input type="hidden" name="num" value="<?php echo $num ?>" />
+							<input type="hidden" name="util_action" value="add" />
+							<input type="submit" class="btn btn-sm btn-default" value="신청" />
+						</form>
 					<?php }else{ ?>
-						<td>신청자가 없습니다</td>
-						<td>
-		<?php 	$date1 = new DateTime("now"); $date2 = new DateTime("2016-03-02");
-			if($date1 >=  $date2) { ?>	<form method="post" action="/proc/util/donation" onsubmit="return saveAjax(this,'신청중...');">
-								<input type="hidden" name="category" value="<?php echo $category ?>" />
-								<input type="hidden" name="num" value="<?php echo $num ?>" />
-								<input type="hidden" name="util_action" value="add" />
-								<input type="submit" class="btn btn-sm btn-default" value="신청" />
-							</form>
-		<?php }else{ ?>
-							<p style="width: 150px;">기한이 아닙니다</p>
-		<?php } ?>
- 						</form>
+						<p style="width: 150px;">기한이 아닙니다</p>
+					<?php } ?>
+					</td>
+					</form> <!-- 이건 왜 있을까 -->
 					<?php } ?>
 				</tr>
 			<?php } ?>
@@ -89,6 +98,8 @@ function printContent(){
 	<div style="text-align:left;" id="2">
 		<font size=5 ><b>문제집 (국제)</b></font></br>
 	</div>
+	<!-- database상에서의 국제 category: 1 -->
+	<!-- TODO 국제 category는 제목이 s_publisher에 저장되어 있음, 다른 데는 아님. 일관성 필요-->
 	<?php $category=1 ?>
 	<div style="clear:both;padding:5px;"></div>
 	<table id="donation_table_int" style="text-align: center;" class="table table-condensed table-striped">
@@ -102,38 +113,35 @@ function printContent(){
 		<tbody>
 			<?php for($num=1;$num<=133;$num++){ ?>
 				<tr>
-
 					<td><?php echo $currentTable[$category][$num][1]; ?></td>
-
-		<!--			<td style='text-align:center'><?php switch($currentTable[$category][$num][3]){case(0): {echo "보통"; break;} case(1): {echo "양호"; break;} case(2): {echo "좋음"; break;}}?></td>	-->
-
 					<?php if($currentTable[$category][$num][6]!=0){
 						$usr=$member->getMember($currentTable[$category][$num][6]);
-						?>
-						<td style='text-align:center;<?php if($usr['n_id']==$me['n_id']) echo "background:#DDF";?>'><a href="/user/view/<?php echo $usr['n_id']."/".$usr['s_id']?>"><?php putUserCard($usr); ?></a></td>
-						<td>
-							<?php if($me['n_id']==$currentTable[$category][$num][6]){ ?>
-								<form method="post" action="/proc/util/donation" onsubmit="if(confirm('정말로 신청을 취소하겠습니까?'))return saveAjax(this,'신청 취소 중...'); return false;">
-									<input type="hidden" name="category" value="<?php echo $category ?>" />
-									<input type="hidden" name="num" value="<?php echo $num ?>" />
-									<input type="hidden" name="util_action" value="remove" />
-									<input type="submit" value="취소" />
-								</form>
-							<?php } ?>
-						</td>
-					<?php }else{ ?>
-						<td>신청자가 없습니다</td>
-						<td>
-		<?php 	$date1 = new DateTime("now"); $date2 = new DateTime("2016-03-02");
-			if($date1 >= $date2) { ?>	<form method="post" action="/proc/util/donation" onsubmit="return saveAjax(this,'신청중...');">
+					?>
+					<td style='text-align:center;<?php if($usr['n_id']==$me['n_id']) echo "background:#DDF";?>'><a href="/user/view/<?php echo $usr['n_id']."/".$usr['s_id']?>"><?php putUserCard($usr); ?></a></td>
+					<td>
+						<?php if($me['n_id']==$currentTable[$category][$num][6]){ ?>
+							<form method="post" action="/proc/util/donation" onsubmit="if(confirm('정말로 신청을 취소하겠습니까?'))return saveAjax(this,'신청 취소 중...'); return false;">
 								<input type="hidden" name="category" value="<?php echo $category ?>" />
 								<input type="hidden" name="num" value="<?php echo $num ?>" />
-								<input type="hidden" name="util_action" value="add" />
-								<input type="submit" class="btn btn-sm btn-default" value="신청" />
+								<input type="hidden" name="util_action" value="remove" />
+								<input type="submit" value="취소" />
 							</form>
-		<?php }else{ ?>
-							<p style="width: 150px;">기한이 아닙니다</p>
-		<?php } ?>
+						<?php } ?>
+					</td>
+					<?php }else{ ?>
+					<td>신청자가 없습니다</td>
+					<td>
+					<?php $date1 = new DateTime("now"); $date2 = new DateTime("2016-03-02");
+					if($date1 >= $date2) { ?>
+						<form method="post" action="/proc/util/donation" onsubmit="return saveAjax(this,'신청중...');">
+							<input type="hidden" name="category" value="<?php echo $category ?>" />
+							<input type="hidden" name="num" value="<?php echo $num ?>" />
+							<input type="hidden" name="util_action" value="add" />
+							<input type="submit" class="btn btn-sm btn-default" value="신청" />
+						</form>
+					<?php }else{ ?>
+						<p style="width: 150px;">기한이 아닙니다</p>
+					<?php } ?>
  						</form>
 					<?php } ?>
 				</tr>
@@ -145,6 +153,7 @@ function printContent(){
 	<div style="text-align:left; " id="3">
 		<font size=5><b>서적</b></font></br>
 	</div>
+	<!-- database상에서의 서적 category: 2 -->
 	<?php $category=2 ?>
 	<div style="clear:both;padding:5px;"></div>
 	<table id="donation_table_book" style="text-align: center;" class="table table-condensed table-striped">
@@ -158,7 +167,7 @@ function printContent(){
 		<tbody>
 			<?php for($num=1;$num<=37;$num++){ ?>
 				<tr>
-
+					<!-- 책 제목 -->
 					<td><?php echo $currentTable[$category][$num][0]; ?></td>
 
 				<!--	<td style='text-align:center'><?php echo $currentTable[$category][$num][2]; ?></td> 	-->
@@ -180,7 +189,7 @@ function printContent(){
 					<?php }else{ ?>
 						<td>신청자가 없습니다</td>
 						<td>
-		<?php 	$date1 = new DateTime("now"); $date2 = new DateTime("2016-03-02");
+						<?php $date1 = new DateTime("now"); $date2 = new DateTime("2016-03-02");
 			if($date1 >= $date2) { ?>	<form method="post" action="/proc/util/donation" onsubmit="return saveAjax(this,'신청중...');">
 								<input type="hidden" name="category" value="<?php echo $category ?>" />
 								<input type="hidden" name="num" value="<?php echo $num ?>" />
@@ -197,64 +206,6 @@ function printContent(){
 		</tbody>
 	</table>
 	</br>
-
-<!--	<div style="text-align:left;">
-		<font size=5><b>교복</b></font></br>
-	</div>
-	<?php $category=3 ?>
-	<div style="clear:both;padding:5px;"></div>
-	<table id="donation_table_hanbok">
-		<thead>
-			<tr style="background:#DDD">
-				<th style="width:500px;">종류 (하의색, 상의색)</th>
-				<th style="width:100px;">상태</th>
-				<th style="width:100px;">키</th>
-				<th style="width:100px;">사이즈</th>
-				<th style="width:100px">신청자</th>
-			</tr>
-		</thead>
-		<tbody>
-			<?php for($num=1;$num<=32;$num++){ ?>
-				<tr style="background:#FFF">
-
-					<td><?php echo $currentTable[$category][$num][0]; ?></td>
-
-					<td style='text-align:center'><?php switch($currentTable[$category][$num][3]){case(0): {echo "보통"; break;} case(1): {echo "양호"; break;} case(2): {echo "좋음"; break;}}?></td>
-
-					<td style='text-align:center'><?php if($currentTable[$category][$num][0]!="누비")switch($currentTable[$category][$num][4]){case(0): {echo "작음"; break;} case(1): {echo "보통"; break;} case(2): {echo "큼"; break;}}?></td>
-
-					<td style='text-align:center'><?php if($currentTable[$category][$num][0]!="누비")switch($currentTable[$category][$num][5]){case(0): {echo "작음"; break;} case(1): {echo "보통"; break;} case(2): {echo "큼"; break;} case(3): {echo "마름"; break;}}?></td>
-
-					<?php if($currentTable[$category][$num][6]!=0){
-						$usr=$member->getMember($currentTable[$category][$num][6]);
-						?>
-						<td style='text-align:center;<?php if($usr['n_id']==$me['n_id']) echo "background:#DDF";?>'><a href="/user/view/<?php echo $usr['n_id']."/".$usr['s_id']?>"><?php putUserCard($usr); ?></a></td>
-						<td>
-							<?php if($me['n_id']==$currentTable[$category][$num][6]){ ?>
-								<form method="post" action="/proc/util/donation" onsubmit="if(confirm('정말로 신청을 취소하겠습니까?'))return saveAjax(this,'신청 취소 중...'); return false;">
-									<input type="hidden" name="category" value="<?php echo $category ?>" />
-									<input type="hidden" name="num" value="<?php echo $num ?>" />
-									<input type="hidden" name="util_action" value="remove" />
-									<input type="submit" value="취소" />
-								</form>
-							<?php } ?>
-						</td>
-					<?php }else{ ?>
-						<td></td>
-						<td>
-							<form method="post" action="/proc/util/donation" onsubmit="return saveAjax(this,'신청중...');">
-								<input type="hidden" name="category" value="<?php echo $category ?>" />
-								<input type="hidden" name="num" value="<?php echo $num ?>" />
-								<input type="hidden" name="util_action" value="add" />
-								<input type="submit" value="신청" />
-							</form>
-						</form>
-					<?php } ?>
-				</tr>
-			<?php } ?>
-		</tbody>
-	</table>
-	</br>	-->
 
 	<div style="text-align:left;" id="4">
 		<font size=5 ><b>교과서</b></font></br>
