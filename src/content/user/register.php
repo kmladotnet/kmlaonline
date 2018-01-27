@@ -1,11 +1,11 @@
 <?php
-$title=lang("user","register","title") . " - " . $title;
+$title=lang("user","register","title") . " - " . $title; // function in lang/ko-kr.php
 function printContent(){ ?>
     <script src="//cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.9.0/validator.min.js"></script>
     <script src='https://www.google.com/recaptcha/api.js'></script>
 	<!--script type="text/javascript">alert("가입 기간이 아닙니다.");location.href="/";</script-->
 	<?php
-    global $max_level;
+    global $max_level;    // variable in /src/lib.php. 가장 최근 기수 저장.
 	insertOnLoadScript("putAlertOnLeave();");
 	?>
 	<form data-toggle="validator" data-delay="100" action="/ajax/user/register" method="post" enctype="multipart/form-data" onsubmit="window.onbeforeunload=null;">
