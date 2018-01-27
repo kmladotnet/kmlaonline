@@ -99,7 +99,6 @@ function printContent(){
 		<font size=5 ><b>문제집 (국제)</b></font></br>
 	</div>
 	<!-- database상에서의 국제 category: 1 -->
-	<!-- TODO 국제 category는 제목이 s_publisher에 저장되어 있음, 다른 데는 아님. 일관성 필요-->
 	<?php $category=1 ?>
 	<div style="clear:both;padding:5px;"></div>
 	<table id="donation_table_int" style="text-align: center;" class="table table-condensed table-striped">
@@ -113,6 +112,7 @@ function printContent(){
 		<tbody>
 			<?php for($num=1;$num<=133;$num++){ ?>
 				<tr>
+					<!-- TODO 국제 category는 제목이 s_publisher에 저장되어 있음, 다른 데는 아님. 일관성 필요-->
 					<td><?php echo $currentTable[$category][$num][1]; ?></td>
 					<?php if($currentTable[$category][$num][6]!=0){
 						$usr=$member->getMember($currentTable[$category][$num][6]);
@@ -142,7 +142,8 @@ function printContent(){
 					<?php }else{ ?>
 						<p style="width: 150px;">기한이 아닙니다</p>
 					<?php } ?>
- 						</form>
+					</td>
+ 					</form>
 					<?php } ?>
 				</tr>
 			<?php } ?>
@@ -173,32 +174,34 @@ function printContent(){
 				<!--	<td style='text-align:center'><?php echo $currentTable[$category][$num][2]; ?></td> 	-->
 
 					<?php if($currentTable[$category][$num][6]!=0){
-						$usr=$member->getMember($currentTable[$category][$num][6]);
-						?>
-						<td style='text-align:center;<?php if($usr['n_id']==$me['n_id']) echo "background:#DDF";?>'><a href="/user/view/<?php echo $usr['n_id']."/".$usr['s_id']?>"><?php putUserCard($usr); ?></a></td>
-						<td>
-							<?php if($me['n_id']==$currentTable[$category][$num][6]){ ?>
-								<form method="post" action="/proc/util/donation" onsubmit="if(confirm('정말로 신청을 취소하겠습니까?'))return saveAjax(this,'신청 취소 중...'); return false;">
-									<input type="hidden" name="category" value="<?php echo $category ?>" />
-									<input type="hidden" name="num" value="<?php echo $num ?>" />
-									<input type="hidden" name="util_action" value="remove" />
-									<input type="submit" value="취소" />
-								</form>
-							<?php } ?>
-						</td>
+					$usr=$member->getMember($currentTable[$category][$num][6]);
+					?>
+					<td style='text-align:center;<?php if($usr['n_id']==$me['n_id']) echo "background:#DDF";?>'><a href="/user/view/<?php echo $usr['n_id']."/".$usr['s_id']?>"><?php putUserCard($usr); ?></a></td>
+					<td>
+						<?php if($me['n_id']==$currentTable[$category][$num][6]){ ?>
+							<form method="post" action="/proc/util/donation" onsubmit="if(confirm('정말로 신청을 취소하겠습니까?'))return saveAjax(this,'신청 취소 중...'); return false;">
+								<input type="hidden" name="category" value="<?php echo $category ?>" />
+								<input type="hidden" name="num" value="<?php echo $num ?>" />
+								<input type="hidden" name="util_action" value="remove" />
+								<input type="submit" value="취소" />
+							</form>
+						<?php } ?>
+					</td>
 					<?php }else{ ?>
-						<td>신청자가 없습니다</td>
-						<td>
-						<?php $date1 = new DateTime("now"); $date2 = new DateTime("2016-03-02");
-			if($date1 >= $date2) { ?>	<form method="post" action="/proc/util/donation" onsubmit="return saveAjax(this,'신청중...');">
+					<td>신청자가 없습니다</td>
+					<td>
+					<?php $date1 = new DateTime("now"); $date2 = new DateTime("2016-03-02");
+					if($date1 >= $date2) { ?>
+						<form method="post" action="/proc/util/donation" onsubmit="return saveAjax(this,'신청중...');">
 								<input type="hidden" name="category" value="<?php echo $category ?>" />
 								<input type="hidden" name="num" value="<?php echo $num ?>" />
 								<input type="hidden" name="util_action" value="add" />
 								<input type="submit" class="btn btn-sm btn-default" value="신청" />
-							</form>
-		<?php }else{ ?>
+						</form>
+					<?php }else{ ?>
 							<p style="width: 150px;">기한이 아닙니다</p>
-		<?php } ?>
+					<?php } ?>
+					</td>
  						</form>
 					<?php } ?>
 				</tr>
@@ -229,33 +232,35 @@ function printContent(){
 				<!--	<td><?php echo $currentTable[$category][$num][7]; ?></td>	-->
 
 					<?php if($currentTable[$category][$num][6]!=0){
-						$usr=$member->getMember($currentTable[$category][$num][6]);
-						?>
-						<td style='text-align:center;<?php if($usr['n_id']==$me['n_id']) echo "background:#DDF";?>'><a href="/user/view/<?php echo $usr['n_id']."/".$usr['s_id']?>"><?php putUserCard($usr); ?></a></td>
-						<td>
-							<?php if($me['n_id']==$currentTable[$category][$num][6]){ ?>
-								<form method="post" action="/proc/util/donation" onsubmit="if(confirm('정말로 신청을 취소하겠습니까?'))return saveAjax(this,'신청 취소 중...'); return false;">
-									<input type="hidden" name="category" value="<?php echo $category ?>" />
-									<input type="hidden" name="num" value="<?php echo $num ?>" />
-									<input type="hidden" name="util_action" value="remove" />
-									<input type="submit" value="취소" />
-								</form>
-							<?php } ?>
-						</td>
-					<?php }else{ ?>
-						<td>신청자가 없습니다</td>
-						<td>
-		<?php 	$date1 = new DateTime("now"); $date2 = new DateTime("2016-03-02");
-			if($date1 >= $date2) { ?>	<form method="post" action="/proc/util/donation" onsubmit="return saveAjax(this,'신청중...');">
+					$usr=$member->getMember($currentTable[$category][$num][6]);
+					?>
+					<td style='text-align:center;<?php if($usr['n_id']==$me['n_id']) echo "background:#DDF";?>'><a href="/user/view/<?php echo $usr['n_id']."/".$usr['s_id']?>"><?php putUserCard($usr); ?></a></td>
+					<td>
+						<?php if($me['n_id']==$currentTable[$category][$num][6]){ ?>
+							<form method="post" action="/proc/util/donation" onsubmit="if(confirm('정말로 신청을 취소하겠습니까?'))return saveAjax(this,'신청 취소 중...'); return false;">
 								<input type="hidden" name="category" value="<?php echo $category ?>" />
 								<input type="hidden" name="num" value="<?php echo $num ?>" />
-								<input type="hidden" name="util_action" value="add" />
-								<input type="submit" class="btn btn-sm btn-default" value="신청" />
+								<input type="hidden" name="util_action" value="remove" />
+								<input type="submit" value="취소" />
 							</form>
-		<?php }else{ ?>
-							<p style="width: 150px;">기한이 아닙니다</p>
-		<?php } ?>
- 						</form>
+						<?php } ?>
+					</td>
+					<?php }else{ ?>
+					<td>신청자가 없습니다</td>
+					<td>
+					<?php $date1 = new DateTime("now"); $date2 = new DateTime("2016-03-02");
+					if($date1 >= $date2) { ?>
+						<form method="post" action="/proc/util/donation" onsubmit="return saveAjax(this,'신청중...');">
+							<input type="hidden" name="category" value="<?php echo $category ?>" />
+							<input type="hidden" name="num" value="<?php echo $num ?>" />
+							<input type="hidden" name="util_action" value="add" />
+							<input type="submit" class="btn btn-sm btn-default" value="신청" />
+						</form>
+					<?php }else{ ?>
+						<p style="width: 150px;">기한이 아닙니다</p>
+					<?php } ?>
+					</td>
+ 					</form>
 					<?php } ?>
 				</tr>
 			<?php } ?>
@@ -265,6 +270,7 @@ function printContent(){
 	<div style="text-align:left;" id="5">
 		<font size=5><b>생활물품</b></font></br>
 	</div>
+	<!-- database상에서의 생활용품 category: 5 -->
 	<?php $category=5 ?>
 	<div style="clear:both;padding:5px;"></div>
 	<table id="donation_table_etc" class="table table-condensed table-striped">
@@ -278,45 +284,49 @@ function printContent(){
 		<tbody style="text-align: center;">
 			<?php for($num=1;$num<=120;$num++){ ?>
 				<tr>
-
+					<!-- TODO 생활용품 category도 제목이 s_publisher에 저장되어 있음, 다른 데는 아님. 일관성 필요-->
+					<!-- 제목-->
 					<td><?php echo $currentTable[$category][$num][1]; ?></td>
-
-					<td><?php if($currentTable[$category][$num][1]==""||$currentTable[$category][$num][1]==NULL){
+					<!--  -->
+					<td>
+					<?php if($currentTable[$category][$num][1]==""||$currentTable[$category][$num][1]==NULL){
 						echo "없음";
 					} else {
 						echo $currentTable[$category][$num][0];
 					}?>
 					</td>
-			<!--Backup	<td>echo $currentTable[$category][$num][1]; ?></td>	-->
+					<!--Backup	<td>echo $currentTable[$category][$num][1]; ?></td>	-->
 
 					<?php if($currentTable[$category][$num][6]!=0){
-						$usr=$member->getMember($currentTable[$category][$num][6]);
-						?>
-						<td style='text-align:center;<?php if($usr['n_id']==$me['n_id']) echo "background:#DDF";?>'><a href="/user/view/<?php echo $usr['n_id']."/".$usr['s_id']?>"><?php putUserCard($usr); ?></a></td>
-						<td>
-							<?php if($me['n_id']==$currentTable[$category][$num][6]){ ?>
-								<form method="post" action="/proc/util/donation" onsubmit="if(confirm('정말로 신청을 취소하겠습니까?'))return saveAjax(this,'신청 취소 중...'); return false;">
-									<input type="hidden" name="category" value="<?php echo $category ?>" />
-									<input type="hidden" name="num" value="<?php echo $num ?>" />
-									<input type="hidden" name="util_action" value="remove" />
-									<input type="submit" value="취소" />
-								</form>
-							<?php } ?>
-						</td>
-					<?php }else{ ?>
-						<td>신청자가 없습니다</td>
-						<td>
-		<?php 	$date1 = new DateTime("now"); $date2 = new DateTime("2016-03-02");
-			if($date1 >= $date2) { ?>	<form method="post" action="/proc/util/donation" onsubmit="return saveAjax(this,'신청중...');">
+					$usr=$member->getMember($currentTable[$category][$num][6]);
+					?>
+					<td style='text-align:center;<?php if($usr['n_id']==$me['n_id']) echo "background:#DDF";?>'><a href="/user/view/<?php echo $usr['n_id']."/".$usr['s_id']?>"><?php putUserCard($usr); ?></a></td>
+					<td>
+						<?php if($me['n_id']==$currentTable[$category][$num][6]){ ?>
+							<form method="post" action="/proc/util/donation" onsubmit="if(confirm('정말로 신청을 취소하겠습니까?'))return saveAjax(this,'신청 취소 중...'); return false;">
 								<input type="hidden" name="category" value="<?php echo $category ?>" />
 								<input type="hidden" name="num" value="<?php echo $num ?>" />
-								<input type="hidden" name="util_action" value="add" />
-								<input type="submit" class="btn btn-sm btn-default" value="신청" />
+								<input type="hidden" name="util_action" value="remove" />
+								<input type="submit" value="취소" />
 							</form>
-		<?php }else{ ?>
-							<p style="width: 150px;">기한이 아닙니다</p>
-		<?php } ?>
- 						</form>
+						<?php } ?>
+					</td>
+					<?php }else{ ?>
+					<td>신청자가 없습니다</td>
+
+					<td>
+					<?php $date1 = new DateTime("now"); $date2 = new DateTime("2016-03-02");
+					if($date1 >= $date2) { ?>
+						<form method="post" action="/proc/util/donation" onsubmit="return saveAjax(this,'신청중...');">
+							<input type="hidden" name="category" value="<?php echo $category ?>" />
+							<input type="hidden" name="num" value="<?php echo $num ?>" />
+							<input type="hidden" name="util_action" value="add" />
+							<input type="submit" class="btn btn-sm btn-default" value="신청" />
+						</form>
+					<?php }else{ ?>
+						<p style="width: 150px;">기한이 아닙니다</p>
+					<?php } ?>
+					</td>
 					<?php } ?>
 				</tr>
 			<?php } ?>
