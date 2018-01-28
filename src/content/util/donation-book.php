@@ -163,7 +163,7 @@ function printContent(){
 		<font size=5><b>서적</b></font></br>
 	</div>
 	<!-- database상에서의 서적 category: 2 -->
-	<?php $category=3 ?>
+	<?php $category=2 ?>
 	<div style="clear:both;padding:5px;"></div>
 	<table id="donation_table_book" style="text-align: center;" class="table table-condensed table-striped">
 		<thead>
@@ -221,7 +221,7 @@ function printContent(){
 		<font size=5 ><b>교과서</b></font></br>
 	</div>
 	<!-- database상에서의 교과서 category: 4 -->
-	<?php $category=2 ?>
+	<?php $category=3 ?>
 	<div style="clear:both;padding:5px;"></div>
 	<table id="donation_table_etc" class="table table-condensed table-striped">
 		<thead>
