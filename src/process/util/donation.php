@@ -11,8 +11,8 @@ switch($_POST['util_action']){
 		$who=$me['n_id'];
 
 		//$mysqli->query("UPDATE kmlaonline_donation_table SET n_who=$who  WHERE n_category=$category AND n_num=$num");
-        $mysqli->query("UPDATE donation_test SET n_who=$who  WHERE n_category=$category AND n_num=$num");
-        print_r($mysql);
+        $res = $mysqli->query("UPDATE donation_test SET n_who=$who  WHERE n_category=$category AND n_num=$num");
+        print_r($res);
 		ajaxOk(array(), "/util/donation","신청하였습니다.");
 		break;
 	case "remove":
