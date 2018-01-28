@@ -9,7 +9,7 @@ function getCurrentTable(){
 	if($res = $mysqli->query($query)){
 		$arr = array();
 		while ($row = $res->fetch_array(MYSQLI_ASSOC)){
-			$arr[$row['n_category']][$row['n_num']]=array($row['s_title'], $row['s_publisher'], $row['s_author'], $row['n_status'], $row['n_height'], $row['n_size'], $row['n_who'], $row['s_status']);
+			$arr[$row['n_category']][$row['n_num']]=array($row['s_title'], $row['n_who'], $row['s_status'], $row['s_type'], $row['s_owner']);
 		}
 		$res->close();
 		if($mysqli->more_results())$mysqli->next_result();
