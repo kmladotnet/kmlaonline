@@ -1,4 +1,5 @@
 <?php
+// ********TESTING************
 redirectLoginIfRequired();
 $title="서적 신청 - " . $title;
 function getCurrentTable(){

@@ -1,6 +1,7 @@
 <?php
 $mysqli = new mysqli('localhost', 'kmlaonline', 'n7h4eYWJ7vW59tT8', 'kmlaonline');
 
+$mysqli -> query("DROP TABLE donation_test");
 $mysqli -> query("CREATE TABLE IF NOT EXISTS donation_test (".
               "  n_num int(11),".
               "  n_category int(11),".
