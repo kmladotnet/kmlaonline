@@ -3,7 +3,8 @@ redirectLoginIfRequired();
 $title="서적 신청 - " . $title;
 function getCurrentTable(){
 	global $mysqli;
-	$query = "SELECT * FROM kmlaonline_donation_table";
+	$query = "SELECT * FROM donation_test";
+	// $query = "SELECT * FROM kmlaonline_donation_table";
     // fetch_array documentation http://php.net/manual/en/function.mysql-fetch-array.php
 	if($res = $mysqli->query($query)){
 		$arr = array();
@@ -55,7 +56,7 @@ function printContent(){
 		</thead>
 		<tbody>
 			<!-- 0: 's_title' 1: 's_publisher', 2: 's_author', 3: 'n_status', 4: 'n_height', 5: 'n_size', 6: 'n_who' 7: 's_status' -->
-			<?php for($num=1;$num<=172;$num++){ ?>
+			<?php for($num=1;$num<=29;$num++){ ?>
 				<tr>
 					<!-- s_title 책 제목-->
 					<td><?php echo $currentTable[$category][$num][0]; ?></td>
@@ -65,13 +66,13 @@ function printContent(){
 
 					<!-- 신청자 column -->
 					<!-- if n_who is not 0, 신청자가 있을 때  -->
-					<?php if($currentTable[$category][$num][6]!=0){
-					$usr=$member->getMember($currentTable[$category][$num][6]);
+					<?php if($currentTable[$category][$num][1]!=0){
+					$usr=$member->getMember($currentTable[$category][$num][1]);
 					?>
 					<!-- 그 신청자가 본인일 때, set text color to #d0d0f0 -->
 					<td style='text-align:center;<?php if($usr['n_id']==$me['n_id']) echo "background:#DDF";?>'><a href="/user/view/<?php echo $usr['n_id']."/".$usr['s_id']?>"><?php putUserCard($usr); ?></a></td>
 					<td>
-						<?php if($me['n_id'] == $currentTable[$category][$num][6]){ ?>
+						<?php if($me['n_id'] == $currentTable[$category][$num][1]){ ?>
 							<form method="post" action="/proc/util/donation" onsubmit="if(confirm('정말로 신청을 취소하겠습니까?'))return saveAjax(this,'신청 취소 중...'); return false;">
 								<input type="hidden" name="category" value="<?php echo $category ?>" />
 								<input type="hidden" name="num" value="<?php echo $num ?>" />
@@ -118,16 +119,16 @@ function printContent(){
 			</tr>
 		</thead>
 		<tbody>
-			<?php for($num=1;$num<=133;$num++){ ?>
+			<?php for($num=1;$num<=40;$num++){ ?>
 				<tr>
 					<!-- TODO 국제 category는 제목이 s_publisher에 저장되어 있음, 다른 데는 아님. 일관성 필요-->
-					<td><?php echo $currentTable[$category][$num][1]; ?></td>
-					<?php if($currentTable[$category][$num][6]!=0){
-						$usr=$member->getMember($currentTable[$category][$num][6]);
+					<td><?php echo $currentTable[$category][$num][0]; ?></td>
+					<?php if($currentTable[$category][$num][1]!=0){
+						$usr=$member->getMember($currentTable[$category][$num][1]);
 					?>
 					<td style='text-align:center;<?php if($usr['n_id']==$me['n_id']) echo "background:#DDF";?>'><a href="/user/view/<?php echo $usr['n_id']."/".$usr['s_id']?>"><?php putUserCard($usr); ?></a></td>
 					<td>
-						<?php if($me['n_id']==$currentTable[$category][$num][6]){ ?>
+						<?php if($me['n_id']==$currentTable[$category][$num][1]){ ?>
 							<form method="post" action="/proc/util/donation" onsubmit="if(confirm('정말로 신청을 취소하겠습니까?'))return saveAjax(this,'신청 취소 중...'); return false;">
 								<input type="hidden" name="category" value="<?php echo $category ?>" />
 								<input type="hidden" name="num" value="<?php echo $num ?>" />
@@ -162,7 +163,7 @@ function printContent(){
 		<font size=5><b>서적</b></font></br>
 	</div>
 	<!-- database상에서의 서적 category: 2 -->
-	<?php $category=2 ?>
+	<?php $category=3 ?>
 	<div style="clear:both;padding:5px;"></div>
 	<table id="donation_table_book" style="text-align: center;" class="table table-condensed table-striped">
 		<thead>
@@ -173,19 +174,19 @@ function printContent(){
 			</tr>
 		</thead>
 		<tbody>
-			<?php for($num=1;$num<=37;$num++){ ?>
+			<?php for($num=1;$num<=10;$num++){ ?>
 				<tr>
 					<!-- 책 제목 -->
 					<td><?php echo $currentTable[$category][$num][0]; ?></td>
 
 				<!--	<td style='text-align:center'><?php echo $currentTable[$category][$num][2]; ?></td> 	-->
 
-					<?php if($currentTable[$category][$num][6]!=0){
-					$usr=$member->getMember($currentTable[$category][$num][6]);
+					<?php if($currentTable[$category][$num][1]!=0){
+					$usr=$member->getMember($currentTable[$category][$num][1]);
 					?>
 					<td style='text-align:center;<?php if($usr['n_id']==$me['n_id']) echo "background:#DDF";?>'><a href="/user/view/<?php echo $usr['n_id']."/".$usr['s_id']?>"><?php putUserCard($usr); ?></a></td>
 					<td>
-						<?php if($me['n_id']==$currentTable[$category][$num][6]){ ?>
+						<?php if($me['n_id']==$currentTable[$category][$num][1]){ ?>
 							<form method="post" action="/proc/util/donation" onsubmit="if(confirm('정말로 신청을 취소하겠습니까?'))return saveAjax(this,'신청 취소 중...'); return false;">
 								<input type="hidden" name="category" value="<?php echo $category ?>" />
 								<input type="hidden" name="num" value="<?php echo $num ?>" />
@@ -220,7 +221,7 @@ function printContent(){
 		<font size=5 ><b>교과서</b></font></br>
 	</div>
 	<!-- database상에서의 교과서 category: 4 -->
-	<?php $category=4 ?>
+	<?php $category=2 ?>
 	<div style="clear:both;padding:5px;"></div>
 	<table id="donation_table_etc" class="table table-condensed table-striped">
 		<thead>
@@ -231,19 +232,19 @@ function printContent(){
 			</tr>
 		</thead>
 		<tbody style="text-align: center;">
-			<?php for($num=1;$num<=61;$num++){ ?>
+			<?php for($num=1;$num<=22;$num++){ ?>
 				<tr>
 
 					<td><?php echo $currentTable[$category][$num][0]; ?></td>
 
 				<!--	<td><?php echo $currentTable[$category][$num][7]; ?></td>	-->
 
-					<?php if($currentTable[$category][$num][6]!=0){
-					$usr=$member->getMember($currentTable[$category][$num][6]);
+					<?php if($currentTable[$category][$num][1]!=0){
+					$usr=$member->getMember($currentTable[$category][$num][1]);
 					?>
 					<td style='text-align:center;<?php if($usr['n_id']==$me['n_id']) echo "background:#DDF";?>'><a href="/user/view/<?php echo $usr['n_id']."/".$usr['s_id']?>"><?php putUserCard($usr); ?></a></td>
 					<td>
-						<?php if($me['n_id']==$currentTable[$category][$num][6]){ ?>
+						<?php if($me['n_id']==$currentTable[$category][$num][1]){ ?>
 							<form method="post" action="/proc/util/donation" onsubmit="if(confirm('정말로 신청을 취소하겠습니까?'))return saveAjax(this,'신청 취소 중...'); return false;">
 								<input type="hidden" name="category" value="<?php echo $category ?>" />
 								<input type="hidden" name="num" value="<?php echo $num ?>" />
@@ -277,7 +278,7 @@ function printContent(){
 		<font size=5><b>생활물품</b></font></br>
 	</div>
 	<!-- database상에서의 생활용품 category: 5 -->
-	<?php $category=5 ?>
+	<?php $category=4 ?>
 	<div style="clear:both;padding:5px;"></div>
 	<table id="donation_table_etc" class="table table-condensed table-striped">
 		<thead>
@@ -288,27 +289,23 @@ function printContent(){
 			</tr>
 		</thead>
 		<tbody style="text-align: center;">
-			<?php for($num=1;$num<=120;$num++){ ?>
+			<?php for($num=1;$num<=60;$num++){ ?>
 				<tr>
 					<!-- TODO 생활용품 category도 제목이 s_publisher에 저장되어 있음, 다른 데는 아님. 일관성 필요-->
 					<!-- 제목-->
-					<td><?php echo $currentTable[$category][$num][1]; ?></td>
+					<td><?php echo $currentTable[$category][$num][0]; ?></td>
 					<!--  -->
 					<td>
-					<?php if($currentTable[$category][$num][1]==""||$currentTable[$category][$num][1]==NULL){
-						echo "없음";
-					} else {
-						echo $currentTable[$category][$num][0];
-					}?>
+					<?php echo $currentTable[$category][$num][2];?>
 					</td>
 					<!--Backup	<td>echo $currentTable[$category][$num][1]; ?></td>	-->
 
-					<?php if($currentTable[$category][$num][6]!=0){
-					$usr=$member->getMember($currentTable[$category][$num][6]);
+					<?php if($currentTable[$category][$num][1]!=0){
+					$usr=$member->getMember($currentTable[$category][$num][1]);
 					?>
 					<td style='text-align:center;<?php if($usr['n_id']==$me['n_id']) echo "background:#D0D0F0";?>'><a href="/user/view/<?php echo $usr['n_id']."/".$usr['s_id']?>"><?php putUserCard($usr); ?></a></td>
 					<td>
-						<?php if($me['n_id']==$currentTable[$category][$num][6]){ ?>
+						<?php if($me['n_id']==$currentTable[$category][$num][1]){ ?>
 							<form method="post" action="/proc/util/donation" onsubmit="if(confirm('정말로 신청을 취소하겠습니까?'))return saveAjax(this,'신청 취소 중...'); return false;">
 								<input type="hidden" name="category" value="<?php echo $category ?>" />
 								<input type="hidden" name="num" value="<?php echo $num ?>" />

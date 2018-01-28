@@ -14,7 +14,7 @@ $mysqli -> query("CREATE TABLE IF NOT EXISTS donation_test (".
 $myfile = fopen('donation_output.txt', 'r');
 while(!feof($myfile)) {
     $mysqli -> query(fgets($myfile));
-    // echo fgets($myfile) . "<br />";
+    // echo fgets($myfile) . "<br />";s
 }
 fclose($myfile);
 ?>
