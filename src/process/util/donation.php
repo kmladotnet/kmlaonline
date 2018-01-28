@@ -9,7 +9,9 @@ switch($_POST['util_action']){
 		if(!is_numeric($category) || !is_numeric($num))
 			ajaxDie(array(), "무언가가 잘못되었습니다.");
 		$who=$me['n_id'];
-		$mysqli->query("UPDATE kmlaonline_donation_table SET n_who=$who  WHERE n_category=$category AND n_num=$num");
+
+		//$mysqli->query("UPDATE kmlaonline_donation_table SET n_who=$who  WHERE n_category=$category AND n_num=$num");
+        $mysqli->query("UPDATE donation_table SET n_who=$who  WHERE n_category=$category AND n_num=$num");
 		ajaxOk(array(), "/util/donation","신청하였습니다.");
 		break;
 	case "remove":
