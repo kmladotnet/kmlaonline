@@ -21,7 +21,6 @@ function printContent(){
     // $member: $me:
 	global $member, $me;
 	$currentTable = getCurrentTable();
-	echo sizeof($currentTable[0]);
 	?>
 	<font size=3 color="#FFB22222">
 	</br>
@@ -58,7 +57,7 @@ function printContent(){
 			</tr>
 		</thead>
 		<tbody>
-			<?php for($num = 1; $num <= 29; $num++){ ?>
+			<?php for($num = 1; $num <= sizeof($currentTable[$category]); $num++){ ?>
 				<tr>
 					<!-- s_title 책 제목-->
 					<td><?php echo $currentTable[$category][$num][0]; ?></td>
@@ -110,7 +109,7 @@ function printContent(){
 		<font size=5 ><b>문제집 (국제)</b></font></br>
 	</div>
 	<!-- database상에서의 국제 category: 1 -->
-	<?php $category = 1 ?>
+	<?php $category++ ?>
 	<div style="clear:both;padding:5px;"></div>
 	<table id="donation_table_int" style="text-align: center;" class="table table-condensed table-striped">
 		<thead>
@@ -121,7 +120,7 @@ function printContent(){
 			</tr>
 		</thead>
 		<tbody>
-			<?php for($num = 1; $num <= 40; $num++){ ?>
+			<?php for($num = 1; $num <= sizeof($currentTable[$category]); $num++){ ?>
 				<tr>
 					<!-- TODO 국제 category는 제목이 s_publisher에 저장되어 있음, 다른 데는 아님. 일관성 필요-->
 					<td><?php echo $currentTable[$category][$num][0]; ?></td>
@@ -165,7 +164,7 @@ function printContent(){
 		<font size=5><b>서적</b></font></br>
 	</div>
 	<!-- database상에서의 서적 category: 2 -->
-	<?php $category = 2 ?>
+	<?php $category++ ?>
 	<div style="clear:both;padding:5px;"></div>
 	<table id="donation_table_book" style="text-align: center;" class="table table-condensed table-striped">
 		<thead>
@@ -176,7 +175,7 @@ function printContent(){
 			</tr>
 		</thead>
 		<tbody>
-			<?php for($num = 1; $num <= 10; $num++){ ?>
+			<?php for($num = 1; $num <= sizeof($currentTable[$category]); $num++){ ?>
 				<tr>
 					<!-- 책 제목 -->
 					<td><?php echo $currentTable[$category][$num][0]; ?></td>
@@ -223,7 +222,7 @@ function printContent(){
 		<font size=5 ><b>교과서</b></font></br>
 	</div>
 	<!-- database상에서의 교과서 category: 4 -->
-	<?php $category = 3 ?>
+	<?php $category++ ?>
 	<div style="clear:both;padding:5px;"></div>
 	<table id="donation_table_etc" class="table table-condensed table-striped">
 		<thead>
@@ -234,7 +233,7 @@ function printContent(){
 			</tr>
 		</thead>
 		<tbody style="text-align: center;">
-			<?php for($num = 1; $num <= 22; $num++){ ?>
+			<?php for($num = 1; $num <= sizeof($currentTable[$category]); $num++){ ?>
 				<tr>
 
 					<td><?php echo $currentTable[$category][$num][0]; ?></td>
@@ -279,8 +278,8 @@ function printContent(){
 	<div style="text-align:left;" id="5">
 		<font size=5><b>생활물품</b></font></br>
 	</div>
-	<!-- database상에서의 생활용품 category: 5 -->
-	<?php $category = 4 ?>
+	<!-- database상에서의 생활용품 category: 4 -->
+	<?php $category++ ?>
 	<div style="clear:both;padding:5px;"></div>
 	<table id="donation_table_etc" class="table table-condensed table-striped">
 		<thead>
@@ -291,7 +290,7 @@ function printContent(){
 			</tr>
 		</thead>
 		<tbody style="text-align: center;">
-			<?php for($num = 1; $num <= 60; $num++){ ?>
+			<?php for($num = 1; $num <= sizeof($currentTable[$category]); $num++){ ?>
 				<tr>
 					<!-- TODO 생활용품 category도 제목이 s_publisher에 저장되어 있음, 다른 데는 아님. 일관성 필요-->
 					<!-- 제목-->
