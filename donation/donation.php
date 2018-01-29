@@ -12,7 +12,7 @@ $mysqli -> query("CREATE TABLE IF NOT EXISTS donation_test (".
               "  s_owner text".
               ") ENGINE=InnoDB");
 
-$myfile = fopen('donation_output.txt', 'r');
+$myfile = fopen('../../../scripts/donation/donation_output.txt', 'r');
 while(!feof($myfile)) {
     $mysqli -> query(fgets($myfile));
     // echo fgets($myfile) . "<br />";s
