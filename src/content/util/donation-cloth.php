@@ -56,22 +56,13 @@ function printContent(){
 		<tbody style="text-align: center;">
 			<?php for($num = 1; $num <= sizeof($currentTable[$category]); $num++){ ?>
 				<tr>
-
+					<!-- 1. 종류 ex> 동복 -->
 					<td><?php echo $currentTable[$category][$num][0]; ?></td>
-
-					<!-- <td><?php if($currentTable[$category][$num][1]==""||$currentTable[$category][$num][0]==NULL){
-						echo "없음";
-					} else {
-						echo $currentTable[$category][$num][1];
-					}?> COMMENTED OUT-->
-
+					<!-- 2. 색깔 -->
 					<td><?php echo $currentTable[$category][$num][3] ?></td>
-
+					<!-- 3. owner -->
                     <td><?php echo $currentTable[$category][$num][4] ?></td>
-
-					</td>
-			<!--Backup	<td>echo $currentTable[$category][$num][1]; ?></td>	-->
-
+					<!-- 4. 신청 or empty -->
 					<?php if($currentTable[$category][$num][1] != 0){
 					$usr=$member->getMember($currentTable[$category][$num][1]);
 					?>
@@ -126,22 +117,13 @@ function printContent(){
 		<tbody style="text-align: center;">
 			<?php for($num = 1; $num <= sizeof($currentTable[$category]); $num++){ ?>
 				<tr>
-					<td><?php echo $currentTable[$category][$num][2]; ?></td>
-
-					<!-- <td><?php if($currentTable[$category][$num][1] == "" || $currentTable[$category][$num][0] == NULL){
-						echo "없음";
-					} else {
-						echo $currentTable[$category][$num][1];
-					}?> COMMENTED OUT-->
-
-					<!-- 3. owner -->
+					<!-- 1. 종류 ex> 동복 -->
+					<td><?php echo $currentTable[$category][$num][0]; ?></td>
+					<!-- 2. 색깔 -->
                     <td><?php echo $currentTable[$category][$num][3] ?></td>
-					<!-- 4. 신청 or empty -->
+					<!-- 3. owner -->
                     <td><?php echo $currentTable[$category][$num][4] ?></td>
-
-					</td>
-			<!--Backup	<td>echo $currentTable[$category][$num][1]; ?></td>	-->
-
+					<!-- 4. 신청 or empty -->
 					<?php if($currentTable[$category][$num][1] != 0){
 					$usr=$member->getMember($currentTable[$category][$num][1]);
 					?>

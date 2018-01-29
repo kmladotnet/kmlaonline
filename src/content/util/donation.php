@@ -64,12 +64,12 @@ function printContent(){
 
 					</td>
 					<!-- col 4. 신청 or Empty -->
-					<?php if($currentTable[$category][$num][6]!=0){
-						$usr=$member->getMember($currentTable[$category][$num][6]);
+					<?php if($currentTable[$category][$num][1] != 0){
+						$usr=$member->getMember($currentTable[$category][$num][1]);
 						?>
-						<td style='text-align:center;<?php if($usr['n_id']==$me['n_id']) echo "background:#DDF";?>'><a href="/user/view/<?php echo $usr['n_id']."/".$usr['s_id']?>"><?php putUserCard($usr); ?></a></td>
+						<td style='text-align:center;<?php if($usr['n_id'] == $me['n_id']) echo "background:#DDF";?>'><a href="/user/view/<?php echo $usr['n_id']."/".$usr['s_id']?>"><?php putUserCard($usr); ?></a></td>
 						<td>
-							<?php if($me['n_id']==$currentTable[$category][$num][6]){ ?>
+							<?php if($me['n_id']==$currentTable[$category][$num][1]){ ?>
 								<form method="post" action="/proc/util/donation" onsubmit="if(confirm('정말로 신청을 취소하겠습니까?'))return saveAjax(this,'신청 취소 중...'); return false;">
 									<input type="hidden" name="category" value="<?php echo $category ?>" />
 									<input type="hidden" name="num" value="<?php echo $num ?>" />
@@ -131,12 +131,12 @@ function printContent(){
 					</td>
 			<!--Backup	<td>echo $currentTable[$category][$num][1]; ?></td>	-->
 
-					<?php if($currentTable[$category][$num][6]!=0){
-						$usr=$member->getMember($currentTable[$category][$num][6]);
+					<?php if($currentTable[$category][$num][1] != 0){
+						$usr=$member->getMember($currentTable[$category][$num][1]);
 						?>
-						<td style='text-align:center;<?php if($usr['n_id']==$me['n_id']) echo "background:#DDF";?>'><a href="/user/view/<?php echo $usr['n_id']."/".$usr['s_id']?>"><?php putUserCard($usr); ?></a></td>
+						<td style='text-align:center;<?php if($usr['n_id'] == $me['n_id']) echo "background:#DDF";?>'><a href="/user/view/<?php echo $usr['n_id']."/".$usr['s_id']?>"><?php putUserCard($usr); ?></a></td>
 						<td>
-							<?php if($me['n_id']==$currentTable[$category][$num][6]){ ?>
+							<?php if($me['n_id']==$currentTable[$category][$num][1]){ ?>
 								<form method="post" action="/proc/util/donation" onsubmit="if(confirm('정말로 신청을 취소하겠습니까?'))return saveAjax(this,'신청 취소 중...'); return false;">
 									<input type="hidden" name="category" value="<?php echo $category ?>" />
 									<input type="hidden" name="num" value="<?php echo $num ?>" />
