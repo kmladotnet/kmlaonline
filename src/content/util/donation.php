@@ -50,20 +50,20 @@ function printContent(){
 		<tbody style="text-align: center;">
 			<?php for($num=1;$num<=157;$num++){ ?>
 				<tr style="background:#FFF">
-
+					<!-- col 1. 종류 ex> 동복 -->
 					<td><?php echo $currentTable[$category][$num][2]; ?></td>
-
-					<td><?php if($currentTable[$category][$num][1]==""||$currentTable[$category][$num][0]==NULL){
+					<!-- col 2. 색깔 -->
+					<td><?php if($currentTable[$category][$num][1] == "" || $currentTable[$category][$num][0] == NULL){ // 비어 있거나 NULL이라면
 						echo "없음";
 					} else {
+                        // 비어 있지 않으면
 						echo $currentTable[$category][$num][1];
 					}?>
-
+					<!-- col 3. Owner -->
                     <td><?php echo $currentTable[$category][$num][0] ?></td>
 
 					</td>
-			<!--Backup	<td>echo $currentTable[$category][$num][1]; ?></td>	-->
-
+					<!-- col 4. 신청 or Empty -->
 					<?php if($currentTable[$category][$num][6]!=0){
 						$usr=$member->getMember($currentTable[$category][$num][6]);
 						?>
