@@ -3,11 +3,11 @@ redirectLoginIfRequired();
 $title="교복 신청 - " . $title;
 function getCurrentTable(){
 	global $mysqli;
-	$query="SELECT * FROM kmlaonline_donation_table";
+	$query="SELECT * FROM donation_test";
 	if($res=$mysqli->query($query)){
-		$arr=array();$i=0;
+		$arr=array();
 		while ($row = $res->fetch_array(MYSQLI_ASSOC)){
-			$arr[$row['n_category']][$row['n_num']]=array($row['s_title'], $row['s_publisher'], $row['s_author'], $row['n_status'], $row['n_height'], $row['n_size'], $row['n_who'], $row['s_status']);
+			$arr[$row['n_category']][$row['n_num']]=array($row['s_title'], $row['n_who'], $row['s_status'], $row['s_type'], $row['s_owner']);
 		}
 		$res->close();
 		if($mysqli->more_results())$mysqli->next_result();
@@ -30,6 +30,15 @@ function printContent(){
 			top: 5px;
 		}
 	</style>
+	<!-- category
+		0 : 국내 문제집
+		1 : 국제 문제집
+		2 : 서적
+		3 : 교과서
+		4 : 생활용품
+		5 : 여자 교복
+		6 : 남자 교복
+	 -->
 	<div style="text-align:left;" id="5">
 		<font size=5><b>여자 교복</b></font></br>
 	</div>
