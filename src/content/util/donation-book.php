@@ -46,7 +46,7 @@ function printContent(){
 	<?php $category_title = array("문제집 (국내)", "문제집 (국제)", "서적", "교과서");?>
 	<?php for($i = 0; $i < 4; $i++): ?>
 		<div style="text-align:left;" id="<?php echo $i + 1 ?>">
-			<font size=5><b name="1"><?php echo $category_title($i); ?></b></font></br>
+			<font size=5><b name="1"><?php echo $category_title[$i]; ?></b></font></br>
 		</div>
 		<?php $category = $i ?>
 		<div style="clear:both;padding:5px;"></div>
