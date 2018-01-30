@@ -277,31 +277,31 @@ function filterContent($s, $print=true){
 	if(preg_match_all('/@(((찾기)\\{[^}]*\\}|[^\\s`~!@#$%^&*\\(\\)\\-=_+\\[\\]\\\\{}\\|;\':\",.\\/\\<\\>\\?]*))/i',strip_tags($s),$tagged)>0){
 		$triggered=array();
 		foreach($tagged[1] as $val){
-			if(substr($val,0,6)==="찾기"){
+			if(substr($val,0,6) === "찾기"){
 				$search=substr($val,7); $search=substr($search,0,strlen($search)-1); $search=html_entity_decode($search);
-				$triggered["@".$val]="@<a href=\"/searchall?search=".urlencode($search)."\">$val</a>";
+				$triggered["@".$val] = "@<a href=\"/searchall?search=".urlencode($search)."\">$val</a>";
 			}else{
 				if(preg_match("/([0-9]+)(.*)/i",$val,$tmp)>0){
-					if($tmp[2]==="기"){
-						$triggered["@".$val]="@<a href=\"/contacts?wave={$tmp[1]}\">{$tmp[1]}기</a>";
+					if($tmp[2] === "기"){
+						$triggered["@".$val] = "@<a href=\"/contacts?wave={$tmp[1]}\">{$tmp[1]}기</a>";
 					}else{
 						$trigger_temp=array();
 						foreach($member->listMembers(0,0,false, $tmp[2],true,true, false, true) as $usr){
-							if($usr['s_name']==$tmp[2] && $usr['n_level']==$tmp[1]){
-								$trigger_temp[]=$usr;
+							if($usr['s_name'] == $tmp[2] && $usr['n_level']==$tmp[1]){
+								$trigger_temp[] = $usr;
 							}
 						}
-						if(count($trigger_temp)==1){
+						if(count($trigger_temp) == 1){
 							$usr=$trigger_temp[0];
 							if($usr['s_icon'])
-								$triggered["@".$val]="<a href=\"/user/view/{$usr['n_id']}/{$usr['s_id']}\"><img src='".htmlspecialchars($usr['s_icon'])."' style='width:12pt;height:12pt;' alt='@' />{$usr['n_level']}{$usr['s_name']}</a>";
+								$triggered["@".$val] = "<a href=\"/user/view/{$usr['n_id']}/{$usr['s_id']}\"><img src='".htmlspecialchars($usr['s_icon'])."' style='width:12pt;height:12pt;' alt='@' />{$usr['n_level']}{$usr['s_name']}</a>";
 							else
-								$triggered["@".$val]="@<a href=\"/user/view/{$usr['n_id']}/{$usr['s_id']}\">{$usr['n_level']}{$usr['s_name']}</a>";
-						}else if(count($trigger_temp)>1){
+								$triggered["@".$val] = "@<a href=\"/user/view/{$usr['n_id']}/{$usr['s_id']}\">{$usr['n_level']}{$usr['s_name']}</a>";
+						}else if(count($trigger_temp) > 1){
 							foreach($trigger_temp as $key=>$usr){
-								$trigger_temp[$key]="<a href=\"/user/view/{$usr['n_id']}/{$usr['s_id']}\">{$usr['s_id']}</a>";
+								$trigger_temp[$key] = "<a href=\"/user/view/{$usr['n_id']}/{$usr['s_id']}\">{$usr['s_id']}</a>";
 							}
-							$triggered["@".$val]="@$val <span style='font-size:9pt;'>(".implode(", ",$trigger_temp).")</span>";
+							$triggered["@".$val] = "@$val <span style='font-size:9pt;'>(".implode(", ",$trigger_temp).")</span>";
 						}
 					}
 				}
@@ -313,9 +313,9 @@ function filterContent($s, $print=true){
 	}
 	//*
 	$dom = new DOMDocument('1.0', 'utf-8');
-	$dom->recover=true;
-	$dom->substituteEntities=false;
-	$dom->preserveWhiteSpace=false;
+	$dom->recover = true;
+	$dom->substituteEntities = false;
+	$dom->preserveWhiteSpace = false;
 	@$dom->loadHTML('<?xml encoding="UTF-8">'.$s);
 	$s=$dom->saveHTML();
 	//*/
@@ -326,8 +326,8 @@ function filterContent($s, $print=true){
 function doesAdminBypassEverythingAndIsAdmin($prev=false){
 	global $me;
 	if(!isset($_SESSION['admin_override'])) return $prev; // NO
-	if(!$prev && $me['n_admin']!=0) $overriden[]=array("?", "?");
-	return $prev || ($me['n_admin']!=0); // YES
+	if(!$prev && $me['n_admin'] != 0) $overriden[]=array("?", "?");
+	return $prev || ($me['n_admin'] != 0); // YES
 }
 function checkCategoryAccess($category, $action, $redirectIfDenied=false){
 	global $board, $me, $overriden;
