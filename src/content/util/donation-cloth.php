@@ -101,3 +101,4 @@ function printContent(){
 		</br>
 	    </br>
 	<?php endfor; ?>
+<?php } ?>
