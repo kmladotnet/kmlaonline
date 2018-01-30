@@ -19,19 +19,20 @@ function printContent(){
 	global $member, $me;
 	$currentTable=getCurrentTable();
 	?>
+
 	<style>
 	td p{
 		position: relative;
 		top: 5px;
 	}
 	a.btn {
-		background-color: #ff5757;
-		border-color: #ff5757;
+		background-color: #6395f5;
+		border-color: #6395f5;
 		margin-bottom: 10px;
 		margin-top: 10px;
 	}
 	</style>
-	<font size=3 color="#ff5757">
+	<font size=3 color="#fc6b6b">
 	</br>
 	<b>기부물품 신청 페이지입니다.</b></br> 선배님들께 기부받은 물품들을 교내외에서 돈을  받고 팔거나, 기타 수단으로 사용되는 것을 금하며, 해당 활동 등이 적발될 시에는 학생회 차원을 넘어 엄히 처벌하겠습니다. 정각에 신청 가능합니다. </br>혹 오류로 인해 자정에 신청이 안보이실 경우 10분에 신청 가능하도록 조정하도록 하겠습니다.</br>
     <a class="btn btn-info" role="button" href="/util/donation-book">서적 신청 목록</a>
