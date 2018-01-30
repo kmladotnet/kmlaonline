@@ -39,96 +39,36 @@ function printContent(){
 		5 : 여자 교복
 		6 : 남자 교복
 	 -->
-	<div style="text-align:left;" id="5">
-		<font size=5><b>여자 교복</b></font></br>
-	</div>
-	<?php $category = 5 ?>   <!--Category 5: 여자 교복 -->
-	<div style="clear:both;padding:5px;"></div>
-	<table id="donation_table_etc" style="width: 100%;" class="table table-condensed table-striped">
-		<thead>
-			<tr>
-				<th style="text-align: center; width:10%;">종류</th>
-				<th style="text-align: center; width:40%;">색(장의+치마)</th>
-				<th style="text-align: center; width:20%;">기부자</th>
-                <th style="text-align: center; width:30%;">신청자</th>
-			</tr>
-		</thead>
-		<tbody style="text-align: center;">
-			<?php for($num = 1; $num <= sizeof($currentTable[$category]); $num++){ ?>
+	 <?php for($i = 5; $i <= 6; $i++): ?>
+		<div style="text-align:left;" id="5">
+			<font size=5><b>여자 교복</b></font></br>
+		</div>
+		<?php $category = 5 ?>   <!--Category 5: 여자 교복 -->
+		<div style="clear:both;padding:5px;"></div>
+		<table id="donation_table_etc" style="width: 100%;" class="table table-condensed table-striped">
+			<thead>
 				<tr>
-					<!-- 1. 종류 ex> 동복 -->
-					<td><?php echo $currentTable[$category][$num][0]; ?></td>
-					<!-- 2. 색깔 -->
-					<td><?php echo $currentTable[$category][$num][3] ?></td>
-					<!-- 3. owner -->
-                    <td><?php echo $currentTable[$category][$num][4] ?></td>
-					<!-- 4. 신청 or empty -->
-					<?php if($currentTable[$category][$num][1] != 0){
-					$usr=$member->getMember($currentTable[$category][$num][1]);
-					?>
-					<td style='text-align:center;<?php if($usr['n_id'] == $me['n_id']) echo "background:#DDF";?>'><a href="/user/view/<?php echo $usr['n_id']."/".$usr['s_id']?>"><?php putUserCard($usr); ?></a></td>
-					<td>
-						<?php if($me['n_id']==$currentTable[$category][$num][1]){ ?>
-							<form method="post" action="/proc/util/donation" onsubmit="if(confirm('정말로 신청을 취소하겠습니까?'))return saveAjax(this,'신청 취소 중...'); return false;">
-								<input type="hidden" name="category" value="<?php echo $category ?>" />
-								<input type="hidden" name="num" value="<?php echo $num ?>" />
-								<input type="hidden" name="util_action" value="remove" />
-								<input type="submit" value="취소" />
-							</form>
-						<?php } ?>
-					</td>
-					<?php } else { ?>
-						<!-- if n_who is 0, 신청자가 없을 때 -->
-						<td>신청자가 없습니다</td>
+					<th style="text-align: center; width:10%;">종류</th>
+					<th style="text-align: center; width:40%;">색(장의+치마)</th>
+					<th style="text-align: center; width:20%;">기부자</th>
+	                <th style="text-align: center; width:30%;">신청자</th>
+				</tr>
+			</thead>
+			<tbody style="text-align: center;">
+				<?php for($num = 1; $num <= sizeof($currentTable[$category]); $num++){ ?>
+					<tr>
+						<!-- 1. 종류 ex> 동복 -->
+						<td><?php echo $currentTable[$category][$num][0]; ?></td>
+						<!-- 2. 색깔 -->
+						<td><?php echo $currentTable[$category][$num][3] ?></td>
+						<!-- 3. owner -->
+	                    <td><?php echo $currentTable[$category][$num][4] ?></td>
+						<!-- 4. 신청 or empty -->
+						<?php if($currentTable[$category][$num][1] != 0){
+						$usr=$member->getMember($currentTable[$category][$num][1]);
+						?>
+						<td style='text-align:center;<?php if($usr['n_id'] == $me['n_id']) echo "background:#DDF";?>'><a href="/user/view/<?php echo $usr['n_id']."/".$usr['s_id']?>"><?php putUserCard($usr); ?></a></td>
 						<td>
-		          		<?php $date1 = new DateTime("now"); $date2 = new DateTime("2016-03-04");
-						if($date1 >= $date2) { ?>
-							<form method="post" action="/proc/util/donation" onsubmit="return saveAjax(this,'신청중...');">
-								<input type="hidden" name="category" value="<?php echo $category ?>" />
-								<input type="hidden" name="num" value="<?php echo $num ?>" />
-								<input type="hidden" name="util_action" value="add" />
-								<input type="submit" class="btn btn-sm btn-default" value="신청" />
-							</form>
-						<?php } else { ?>
-							<p style="width: 150px;">기한이 아닙니다</p>
-						<?php } ?>
-					<?php } ?>
-				</tr>
-			<?php } ?>
-		</tbody>
-	</table
-	</br>
-    </br>
-
-	<div style="text-align:left;" id="5">
-		<font size=5><b>남자 교복</b></font></br>
-	</div>
-	<?php $category = 6 ?>   <!--Category 6: 남자 교복 -->
-	<div style="clear:both;padding:5px;"></div>
-	<table id="donation_table_etc" style="width: 100%;" class="table table-condensed table-striped">
-		<thead>
-			<tr>
-				<th style="text-align: center; width:10%;">종류</th>
-				<th style="text-align: center; width:40%;">색(장의+바지)</th>
-				<th style="text-align: center; width:20%;">기부자</th>
-                <th style="text-align: center; width:30%;">신청자</th>
-			</tr>
-		</thead>
-		<tbody style="text-align: center;">
-			<?php for($num = 1; $num <= sizeof($currentTable[$category]); $num++){ ?>
-				<tr>
-					<!-- 1. 종류 ex> 동복 -->
-					<td><?php echo $currentTable[$category][$num][0]; ?></td>
-					<!-- 2. 색깔 -->
-                    <td><?php echo $currentTable[$category][$num][3] ?></td>
-					<!-- 3. owner -->
-                    <td><?php echo $currentTable[$category][$num][4] ?></td>
-					<!-- 4. 신청 or empty -->
-					<?php if($currentTable[$category][$num][1] != 0){
-					$usr=$member->getMember($currentTable[$category][$num][1]);
-					?>
-					<td style='text-align:center;<?php if($usr['n_id'] == $me['n_id']) echo "background:#DDF";?>'><a href="/user/view/<?php echo $usr['n_id']."/".$usr['s_id']?>"><?php putUserCard($usr); ?></a></td>
-					<td>
 						<?php if($me['n_id']==$currentTable[$category][$num][1]){ ?>
 							<form method="post" action="/proc/util/donation" onsubmit="if(confirm('정말로 신청을 취소하겠습니까?'))return saveAjax(this,'신청 취소 중...'); return false;">
 								<input type="hidden" name="category" value="<?php echo $category ?>" />
@@ -137,26 +77,27 @@ function printContent(){
 								<input type="submit" value="취소" />
 							</form>
 						<?php } ?>
-					</td>
-					<?php } else { ?>
-					<td>신청자가 없습니다</td>
-					<td>
-		          	<?php $date1 = new DateTime("now"); $date2 = new DateTime("2016-03-04");
-					if($date1 >= $date2) { ?>
-						<form method="post" action="/proc/util/donation" onsubmit="return saveAjax(this,'신청중...');">
-							<input type="hidden" name="category" value="<?php echo $category ?>" />
-							<input type="hidden" name="num" value="<?php echo $num ?>" />
-							<input type="hidden" name="util_action" value="add" />
-							<input type="submit" class="btn btn-sm btn-default" value="신청" />
-						</form>
-					<?php } else { ?>
-						<p style="width: 150px;">기한이 아닙니다</p>
-					<?php } ?>
-					<?php } ?>
-				</tr>
-			<?php } ?>
-		</tbody>
-	</table
-	</br>
-    </br>
-<?php } ?>
+						</td>
+						<?php } else { ?>
+							<!-- if n_who is 0, 신청자가 없을 때 -->
+							<td>신청자가 없습니다</td>
+							<td>
+			          		<?php $date1 = new DateTime("now"); $date2 = new DateTime("2016-03-04");
+							if($date1 >= $date2) { ?>
+								<form method="post" action="/proc/util/donation" onsubmit="return saveAjax(this,'신청중...');">
+									<input type="hidden" name="category" value="<?php echo $category ?>" />
+									<input type="hidden" name="num" value="<?php echo $num ?>" />
+									<input type="hidden" name="util_action" value="add" />
+									<input type="submit" class="btn btn-sm btn-default" value="신청" />
+								</form>
+							<?php } else { ?>
+								<p style="width: 150px;">기한이 아닙니다</p>
+							<?php } ?>
+						<?php } ?>
+					</tr>
+				<?php } ?>
+			</tbody>
+		</table>
+		</br>
+	    </br>
+	<?php endfor; ?>
