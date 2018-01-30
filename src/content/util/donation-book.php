@@ -37,7 +37,7 @@ function printContent(){
 	<font size=3 color="#fc6b6b">
 	</br>
 	<b>기부물품 신청 페이지입니다.</b></br> 선배님들께 기부받은 물품들을 교내외에서 돈을  받고 팔거나, 기타 수단으로 사용되는 것을 금하며, 해당 활동 등이 적발될 시에는 학생회 차원을 넘어 엄히 처벌하겠습니다. 정각에 신청 가능합니다. </br>혹 오류로 인해 자정에 신청이 안보이실 경우 10분에 신청 가능하도록 조정하도록 하겠습니다.</br>
-    <a class="btn btn-info" role="button" href="/util/donation-book">교복 신청 목록</a>
+    <a class="btn btn-info" role="button" href="/util/donation-cloth">교복 신청 목록</a>
 	</font>
 	</br>
 	<!-- category
@@ -89,7 +89,7 @@ function printContent(){
 									<input type="hidden" name="category" value="<?php echo $category ?>" />
 									<input type="hidden" name="num" value="<?php echo $num ?>" />
 									<input type="hidden" name="util_action" value="remove" />
-									<input type="submit" class="btn btn-default"  value="취소" />
+									<input type="submit" class="btn btn-default" value="취소" />
 								</form>
 							<?php } ?>
 						</td>
@@ -116,5 +116,63 @@ function printContent(){
 		</table>
 		</br>
 	<?php endfor; ?>
+	<!-- database상에서의 생활용품 category: 4 -->
+	<?php $category = 4 ?>
+	<div style="clear:both;padding:5px;"></div>
+	<table id="donation_table_etc" class="table table-condensed table-striped">
+		<thead>
+			<tr style="background:#DDD">
+				<th style="text-align: center; width:50%;">물품명</th>
+				<th style="text-align: center; width:20%;">비고</th>
+				<th style="text-align: center; width:30%;">신청자</th>
+			</tr>
+		</thead>
+		<tbody style="text-align: center;">
+			<?php for($num = 1; $num <= sizeof($currentTable[$category]); $num++){ ?>
+				<tr>
+					<!-- TODO 생활용품 category도 제목이 s_publisher에 저장되어 있음, 다른 데는 아님. 일관성 필요-->
+					<!-- 제목-->
+					<td><?php echo $currentTable[$category][$num][0]; ?></td>
+					<!--  -->
+					<td>
+					<?php echo $currentTable[$category][$num][2];?>
+					</td>
+					<!--Backup	<td>echo $currentTable[$category][$num][1]; ?></td>	-->
 
+					<?php if($currentTable[$category][$num][1]!=0){
+					$usr=$member->getMember($currentTable[$category][$num][1]);
+					?>
+					<td style='text-align:center;<?php if($usr['n_id'] == $me['n_id']) echo "background:#D0D0F0";?>'><a href="/user/view/<?php echo $usr['n_id']."/".$usr['s_id']?>"><?php putUserCard($usr); ?></a></td>
+					<td>
+						<?php if($me['n_id'] == $currentTable[$category][$num][1]){ ?>
+							<form method="post" action="/proc/util/donation" onsubmit="if(confirm('정말로 신청을 취소하겠습니까?'))return saveAjax(this,'신청 취소 중...'); return false;">
+								<input type="hidden" name="category" value="<?php echo $category ?>" />
+								<input type="hidden" name="num" value="<?php echo $num ?>" />
+								<input type="hidden" name="util_action" value="remove" />
+								<input type="submit" value="취소" />
+							</form>
+						<?php } ?>
+					</td>
+					<?php }else{ ?>
+					<td>신청자가 없습니다</td>
+
+					<td>
+					<?php $date1 = new DateTime("now"); $date2 = new DateTime("2016-03-02");
+					if($date1 >= $date2) { ?>
+						<form method="post" action="/proc/util/donation" onsubmit="return saveAjax(this,'신청중...');">
+							<input type="hidden" name="category" value="<?php echo $category ?>" />
+							<input type="hidden" name="num" value="<?php echo $num ?>" />
+							<input type="hidden" name="util_action" value="add" />
+							<input type="submit" class="btn btn-sm btn-default" value="신청" />
+						</form>
+					<?php }else{ ?>
+						<p style="width: 150px;">기한이 아닙니다</p>
+					<?php } ?>
+					</td>
+					<?php } ?>
+				</tr>
+			<?php } ?>
+		</tbody>
+	</table>
+	</br>
 <?php } ?>

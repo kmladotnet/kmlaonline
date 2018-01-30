@@ -1,5 +1,5 @@
 <?php
-$mysqli = new mysqli('localhost', 'kmlaonline', 'n7h4eYWJ7vW59tT8', 'kmlaonline');
+require_once('test-config.php');
 
 $mysqli -> query("DROP TABLE donation_test");
 $mysqli -> query("CREATE TABLE IF NOT EXISTS donation_test (".
