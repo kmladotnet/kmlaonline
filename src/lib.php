@@ -217,10 +217,10 @@ function ajaxDie($arr=array(), $message=false){
 }
 function ajaxOk($arr=array(), $redir_to=false, $alert_message=false, $confirm_message=false){
 	global $overriden;
-	if($redir_to!==false) $arr['redirect_to']=$redir_to;
-	if($alert_message!==false) $arr["alert_message"]=$alert_message;
-	if($confirm_message!==false) $arr["confirm_message"]=$confirm_message;
-	$arr['error']=0;
+	if($redir_to !== false) $arr['redirect_to'] = $redir_to;
+	if($alert_message !== false) $arr["alert_message"] = $alert_message;
+	if($confirm_message !== false) $arr["confirm_message"] = $confirm_message;
+	$arr['error'] = 0;
 	if(isset($overriden)) $arr['__overriden']=$overriden;
 	die(json_encode($arr));
 }
