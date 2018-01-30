@@ -209,9 +209,9 @@ function isAjax(){
 }
 function ajaxDie($arr=array(), $message=false){
 	global $overriden;
-	if($message!==false)
+	if($message !== false)
 		$arr['__other']=$message;
-	$arr['error']=1;
+	$arr['error'] = 1;
 	if(isset($overriden)) $arr['__overriden']=$overriden;
 	die(json_encode($arr));
 }
@@ -228,7 +228,7 @@ function putUserCard($m,$mode=0, $putNow=true){
 	$str="";
 	if($m['s_icon']) $str.="<img src='".htmlspecialchars($m['s_icon'])."' style='width:12pt;height:12pt;vertical-align:middle;' />";
 	// else $str.="<img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' style='width:12pt;height:12pt;vertical-align:middle;' />";
-	if($m['n_level']>0 && $m['n_level']<10000){
+	if($m['n_level'] > 0 && $m['n_level'] < 10000){
 		switch($mode){
 			case 0: $str.= $m['n_level'] . "기 " . htmlspecialchars($m['s_name']); break;
 			case 1: $str.= htmlspecialchars($m['s_name']) . " (" . $m['n_level'] . "기)"; break;
@@ -248,13 +248,13 @@ function getMyBasicInfo(){
     $res['grade'] = $me['grade'];
 }
 function die404(){
-	global $fn; $fn="404"; return;
+	global $fn; $fn = "404"; return;
 	header("HTTP/1.1 404 Not Found");
 	header("Status: 404 Not Found");
 	die("<h1>404 Not Found</h1>");
 }
 function die403(){
-	global $fn; $fn="403"; return;
+	global $fn; $fn = "403"; return;
 	header("HTTP/1.1 403 Access Denied");
 	header("Status: 403 Access Denied");
 	die("<h1>403 Access Denied</h1>");
