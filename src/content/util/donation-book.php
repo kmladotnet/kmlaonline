@@ -43,6 +43,9 @@ function printContent(){
 		5 : 여자 교복
 		6 : 남자 교복
 	 -->
+	 <!--
+	 id가 각각 donation_table_dom donation_table_int, donation_table_book, donation_table_etc였음.
+	 반복문으로 고치며 모두 같은 id를 가지고 있지만, 이것이 어떤 역할을 하는지 잘 모르겠어서 안 넣었음. Paco-->
 	<?php $category_title = array("문제집 (국내)", "문제집 (국제)", "서적", "교과서");?>
 	<?php for($i = 0; $i < 4; $i++): ?>
 		<div style="text-align:left;" id="<?php echo $i + 1 ?>">

@@ -14,14 +14,18 @@ function getCurrentTable(){
 		return $arr;
 	}
 }
+
 function printContent(){
 	global $member, $me;
 	$currentTable=getCurrentTable();
 	?>
-	<font size=3 color="#FFB22222">
+	<font size=3 color="#ff5757">
 	</br>
 	<b>기부물품 신청 페이지입니다.</b></br> 선배님들께 기부받은 물품들을 교내외에서 돈을  받고 팔거나, 기타 수단으로 사용되는 것을 금하며, 해당 활동 등이 적발될 시에는 학생회 차원을 넘어 엄히 처벌하겠습니다. 정각에 신청 가능합니다. </br>혹 오류로 인해 자정에 신청이 안보이실 경우 10분에 신청 가능하도록 조정하도록 하겠습니다.</br>
     <a href="/util/donation-book">서적 신청 목록</a>
+	<form action="/util/donation-book">
+		<button type="button" class="btn btn-outline-primary">서적 신청 목록</button>
+	</form>
 	</font>
 	</br>
 	<style>
@@ -75,7 +79,7 @@ function printContent(){
 								<input type="hidden" name="category" value="<?php echo $category ?>" />
 								<input type="hidden" name="num" value="<?php echo $num ?>" />
 								<input type="hidden" name="util_action" value="remove" />
-								<input type="submit" value="취소" />
+								<input type="submit" class="btn btn-default" value="취소" />
 							</form>
 						<?php } ?>
 						</td>
