@@ -40,10 +40,10 @@ function printContent(){
 		6 : 남자 교복
 	 -->
 	 <?php for($i = 5; $i <= 6; $i++): ?>
-		<div style="text-align:left;" id="5">
+		<div style="text-align:left;" id="<?php echo $i ?>">
 			<font size=5><b>여자 교복</b></font></br>
 		</div>
-		<?php $category = 5 ?>   <!--Category 5: 여자 교복 -->
+		<?php $category = $i ?>   <!--Category 5: 여자 교복 -->
 		<div style="clear:both;padding:5px;"></div>
 		<table id="donation_table_etc" style="width: 100%;" class="table table-condensed table-striped">
 			<thead>
