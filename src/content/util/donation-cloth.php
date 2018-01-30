@@ -39,7 +39,7 @@ function printContent(){
 		5 : 여자 교복
 		6 : 남자 교복
 	 -->
-	 <?php $category_title = arr('여자 교복', '남자 교복'); ?>
+	 <?php $category_title = array('여자 교복', '남자 교복'); ?>
 	 <?php for($i = 5; $i <= 6; $i++): ?>
 		<div style="text-align:left;" id="<?php echo $i ?>">
 			<font size=5><b><?php echo $category_title[$i - 5]?></b></font></br>
