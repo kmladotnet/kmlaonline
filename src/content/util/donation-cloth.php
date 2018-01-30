@@ -58,7 +58,7 @@ function printContent(){
 			<thead>
 				<tr>
 					<th style="text-align: center; width:10%;">종류</th>
-					<th style="text-align: center; width:40%;">색(장의+치마)</th>
+					<th style="text-align: center; width:40%;">색(상의+하의)</th>
 					<th style="text-align: center; width:20%;">기부자</th>
 	                <th style="text-align: center; width:30%;">신청자</th>
 				</tr>
