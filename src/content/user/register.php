@@ -14,7 +14,7 @@ function printContent(){ ?>
 			<h1><?php echo lang("user","register","title"); ?></h1>
 			<h2><?php echo lang("generic", "tos"); ?></h2>
 			<div style="width:640px;height:240px;overflow:auto;margin:0 auto;text-align:left;border:1px solid gray;padding:5px;">
-				<p align="center"><?php echo lang("user","register","tos"); ?></p>
+				<p align="center"><?php echo nl2br(lang("user","register","tos")); ?></p>
 				<hr />
                 <div class="form-group">
                     <label for="chk_n_tos_agree">
