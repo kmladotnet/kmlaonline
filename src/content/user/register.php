@@ -73,7 +73,7 @@ function printContent(){ ?>
                                             <?php for($i = $max_level, $j = 0; $i >= 1; $i--, $j++){ ?>
                                                 <option value="<?php echo $i?>" <?php echo (isset($_POST['n_wave']) && $_POST['n_wave']==$i)?"selected='selected'":""?>><?php echo $i . "기 " . ($j>=3?"졸업생":"학생") ?></option>
                                             <?php } ?>
-                                        </select>net
+                                        </select>
                                     </div>
 								</td>
 							</tr>
