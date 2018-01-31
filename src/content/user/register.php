@@ -89,7 +89,7 @@ function printContent(){ ?>
 								<th style="width:120px;"><?php echo lang("generic","nick"); ?></th>
 								<td>
                                     <div class="form-group">
-                                        <input class="form-control" type="text" name="s_eng_name" data-minlength="3" placeholder="최소 6글자" style="width:100%" <?php echo isset($_POST['s_eng_name'])?"value='".htmlspecialchars($_POST['s_eng_name'])."'":""?> required/>
+                                        <input class="form-control" type="text" name="s_eng_name" data-minlength="3" placeholder="최소 3글자" style="width:100%" <?php echo isset($_POST['s_eng_name'])?"value='".htmlspecialchars($_POST['s_eng_name'])."'":""?> required/>
                                     </div>
                                 </td>
 							</tr>
