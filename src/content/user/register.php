@@ -73,7 +73,7 @@ function printContent(){ ?>
                                             <?php for($i = $max_level, $j = 0; $i >= 1; $i--, $j++){ ?>
                                                 <option value="<?php echo $i?>" <?php echo (isset($_POST['n_wave']) && $_POST['n_wave']==$i)?"selected='selected'":""?>><?php echo $i . "기 " . ($j>=3?"졸업생":"학생") ?></option>
                                             <?php } ?>
-                                        </select>
+                                        </select>net
                                     </div>
 								</td>
 							</tr>
@@ -89,7 +89,7 @@ function printContent(){ ?>
 								<th style="width:120px;"><?php echo lang("generic","nick"); ?></th>
 								<td>
                                     <div class="form-group">
-                                        <input class="form-control" type="text" name="s_eng_name" data-minlength="6" placeholder="최소 6글자" style="width:100%" <?php echo isset($_POST['s_eng_name'])?"value='".htmlspecialchars($_POST['s_eng_name'])."'":""?> required/>
+                                        <input class="form-control" type="text" name="s_eng_name" data-minlength="3" placeholder="최소 6글자" style="width:100%" <?php echo isset($_POST['s_eng_name'])?"value='".htmlspecialchars($_POST['s_eng_name'])."'":""?> required/>
                                     </div>
                                 </td>
 							</tr>
