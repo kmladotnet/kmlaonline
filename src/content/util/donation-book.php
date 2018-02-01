@@ -63,7 +63,6 @@ function printContent(){
 			<thead style>
 				<tr>
 					<th style="text-align:center; width:70%;">책제목</th>
-					<!-- <th style="width:20%; text-align:center;">출판사</th> -->
 					<th style="text-align:center; width:30%;">신청자</th>
 				</tr>
 			</thead>
@@ -72,9 +71,6 @@ function printContent(){
 					<tr>
 						<!-- s_title 책 제목-->
 						<td><?php echo $currentTable[$category][$num][0]; ?></td>
-
-						<!-- s_publisher(출판사) column -->
-						<!-- <td style='text-align:center'><?php echo $currentTable[$category][$num][1]; ?></td> -->
 
 						<!-- 신청자 column -->
 						<!-- if n_who is not 0, 신청자가 있을 때  -->
@@ -86,6 +82,7 @@ function printContent(){
 						<td>
 							<?php if($me['n_id'] == $currentTable[$category][$num][1]){ ?>
 								<form method="post" action="/proc/util/donation" onsubmit="if(confirm('정말로 신청을 취소하겠습니까?'))return saveAjax(this,'신청 취소 중...'); return false;">
+									<input type="hidden" name="from" value="book">
 									<input type="hidden" name="category" value="<?php echo $category ?>" />
 									<input type="hidden" name="num" value="<?php echo $num ?>" />
 									<input type="hidden" name="util_action" value="remove" />
@@ -100,6 +97,7 @@ function printContent(){
 						<?php $date1 = new DateTime("now"); $date2 = new DateTime("2016-03-02"); // update DateTime constructor parameter
 						if($date1 >=  $date2) { ?>
 							<form method="post" action="/proc/util/donation" onsubmit="return saveAjax(this,'신청중...');">
+								<input type="hidden" name="from" value="book">
 								<input type="hidden" name="category" value="<?php echo $category ?>" />
 								<input type="hidden" name="num" value="<?php echo $num ?>" />
 								<input type="hidden" name="util_action" value="add" />
@@ -146,6 +144,7 @@ function printContent(){
 					<td>
 						<?php if($me['n_id'] == $currentTable[$category][$num][1]){ ?>
 							<form method="post" action="/proc/util/donation" onsubmit="if(confirm('정말로 신청을 취소하겠습니까?'))return saveAjax(this,'신청 취소 중...'); return false;">
+								<input type="hidden" name="from" value="book">
 								<input type="hidden" name="category" value="<?php echo $category ?>" />
 								<input type="hidden" name="num" value="<?php echo $num ?>" />
 								<input type="hidden" name="util_action" value="remove" />
@@ -160,6 +159,7 @@ function printContent(){
 					<?php $date1 = new DateTime("now"); $date2 = new DateTime("2016-03-02");
 					if($date1 >= $date2) { ?>
 						<form method="post" action="/proc/util/donation" onsubmit="return saveAjax(this,'신청중...');">
+							<input type="hidden" name="from" value="book">
 							<input type="hidden" name="category" value="<?php echo $category ?>" />
 							<input type="hidden" name="num" value="<?php echo $num ?>" />
 							<input type="hidden" name="util_action" value="add" />

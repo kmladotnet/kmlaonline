@@ -12,7 +12,7 @@ switch($_POST['util_action']){
 
 		//$mysqli->query("UPDATE kmlaonline_donation_table SET n_who=$who  WHERE n_category=$category AND n_num=$num");
         $res = $mysqli->query("UPDATE donation_test SET n_who=$who  WHERE n_category=$category AND n_num=$num");
-        ajaxOk(array(), "/util/donation-book","신청하였습니다.");
+        ajaxOk(array(), "/util/donation-".$_POST['from'],"신청하였습니다.");
 		break;
 	case "remove":
 		$category=$_POST['category'];
@@ -21,7 +21,7 @@ switch($_POST['util_action']){
 			ajaxDie(array(), "무언가가 잘못되었습니다.");
 		//$mysqli->query("UPDATE kmlaonline_donation_table SET n_who=0 WHERE n_category=$category AND n_num=$num");
         $mysqli->query("UPDATE donation_test SET n_who=0 WHERE n_category=$category AND n_num=$num");
-		ajaxOk(array(), "/util/donation-book","삭제하였습니다.");
+		ajaxOk(array(), "/util/donation-".$_POST['from'],"삭제하였습니다.");
 		break;
 	default:
 		ajaxDie(array(), "잘못된 동작입니다.");

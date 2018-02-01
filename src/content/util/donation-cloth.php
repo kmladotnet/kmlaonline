@@ -80,6 +80,7 @@ function printContent(){
 						<td>
 						<?php if($me['n_id']==$currentTable[$category][$num][1]){ ?>
 							<form method="post" action="/proc/util/donation" onsubmit="if(confirm('정말로 신청을 취소하겠습니까?'))return saveAjax(this,'신청 취소 중...'); return false;">
+								<input type="hidden" name="from" value="cloth">
 								<input type="hidden" name="category" value="<?php echo $category ?>" />
 								<input type="hidden" name="num" value="<?php echo $num ?>" />
 								<input type="hidden" name="util_action" value="remove" />
@@ -94,6 +95,7 @@ function printContent(){
 			          		<?php $date1 = new DateTime("now"); $date2 = new DateTime("2016-03-04");
 							if($date1 >= $date2) { ?>
 								<form method="post" action="/proc/util/donation" onsubmit="return saveAjax(this,'신청중...');">
+									<input type="hidden" name="from" value="cloth">
 									<input type="hidden" name="category" value="<?php echo $category ?>" />
 									<input type="hidden" name="num" value="<?php echo $num ?>" />
 									<input type="hidden" name="util_action" value="add" />
