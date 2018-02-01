@@ -1,6 +1,6 @@
 <?php
-include '../src/lib.php'
-include 'test-config.php'
+include '../src/lib.php';
+include 'test-config.php';
 
 $query = "SELECT * FROM kmlaonline_member_data WHERE n_level = $max_level";
 if($res = $mysqli->query($query)) {
