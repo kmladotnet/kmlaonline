@@ -1,5 +1,5 @@
 <?php
-include 'test-config.php';
+include '../donation/test-config.php';
 
 $query = "SELECT * FROM kmlaonline_member_data WHERE n_level = 23";
 if($res = $mysqli->query($query)) {
