@@ -1,8 +1,8 @@
 <?php
 require_once('test-config.php');
 
-$mysqli -> query("DROP TABLE donation_test");
-$mysqli -> query("CREATE TABLE IF NOT EXISTS donation_test (".
+$mysqli -> query("DROP TABLE kmlaonline_donation_new");
+$mysqli -> query("CREATE TABLE IF NOT EXISTS kmlaonline_donation_new (".
               "  n_num int(11),".
               "  n_category int(11),".
               "  s_title text,".
