@@ -4,7 +4,7 @@ redirectLoginIfRequired();
 $title = "서적 신청 - " . $title;
 function getCurrentTable(){
 	global $mysqli;
-	$query = "SELECT * FROM donation_test";
+	$query = "SELECT * FROM kmlaonline_donation_new";
 	// $query = "SELECT * FROM kmlaonline_donation_table";
     // fetch_array documentation http://php.net/manual/en/function.mysql-fetch-array.php
 	if($res = $mysqli->query($query)){

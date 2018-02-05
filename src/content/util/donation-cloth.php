@@ -3,7 +3,7 @@ redirectLoginIfRequired();
 $title="교복 신청 - " . $title;
 function getCurrentTable(){
 	global $mysqli;
-	$query="SELECT * FROM donation_test";
+	$query="SELECT * FROM kmlaonline_donation_new";
 	if($res=$mysqli->query($query)){
 		$arr=array();
 		while ($row = $res->fetch_array(MYSQLI_ASSOC)){
