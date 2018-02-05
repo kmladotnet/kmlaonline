@@ -21,4 +21,7 @@ if(isset($_GET['user']) && $_GET['user'] == 'paco')
     }
     fclose($myfile);
 }
+else {
+    echo "<p> Access denied. </p>";
+}
 ?>
