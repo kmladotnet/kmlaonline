@@ -1,5 +1,20 @@
 <?php
-// ********TESTING************
+/********************************
+ * HOW TO USE
+ * donation-cloth.php와 함께 이 페이지는 기부 물품 관리 페이지입니다.
+ * 기부물품은 kmlaonline_donation_new라는 데이터베이스에 모두 저장이 되어 있습니다.
+ * 모든 물품은 7개의 category로 나누어져 있는데, 이는 밑을 참고하세요.
+ * 기부물품은 행정위원회가 정리한 excel(.xlsx) 파일을 통해 전달을 받는데, 2018년부터는
+ * excel 파일에 저장된 물품 목록을 database에 넣는 작업을 자동화하였습니다.
+ * 이는 python과 openpyxl이라는 module을 사용하였습니다.
+ * 이는 서버 상의 디렉토리 /srv/scripts/donation에 위치해 있습니다. excel 파일을 kmla/donation에
+ * donations.xlsx라는 이름으로 넣은 이후(excel 파일의 시트 형식은 엄격하게 맞추어야 합니다. 이는
+ * 전 해의 excel 파일을 참고하거나 권해찬에게 연락하세요) scripts/donation에 있는 excel.py를 실행(sudo)
+ * 하면 donation_output.txt라는 파일이 생성됩니다. 이 파일에는 query문이 들어가 있는데,
+ * https://kmlaonline.net/donation/donation.php?user=paco를 들어가면 그 query문이 실행되어 database가
+ * initialize됩니다.
+ *
+*********************************/
 redirectLoginIfRequired();
 $title = "서적 신청 - " . $title;
 function getCurrentTable(){
