@@ -3,7 +3,7 @@ require_once('test-config.php');
 
 if(isset($_GET['user']) && $_GET['user'] == 'paco')
 {
-    echo "<h1> Access Granted. </h1>"
+    echo "<h1> Access Granted. </h1>";
     $mysqli -> query("DROP TABLE kmlaonline_donation_new");
     $mysqli -> query("CREATE TABLE IF NOT EXISTS kmlaonline_donation_new (".
                   "  n_num int(11),".
