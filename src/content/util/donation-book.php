@@ -94,7 +94,7 @@ function printContent(){
 						<!-- if n_who is 0, 신청자가 없을 때 -->
 						<td>신청자가 없습니다</td>
 						<td>
-						<?php $date1 = new DateTime("now"); $date2 = new DateTime("2016-03-02"); // update DateTime constructor parameter
+						<?php $date1 = new DateTime("now"); $date2 = new DateTime("2018-02-06"); // update DateTime constructor parameter
 						if($date1 >=  $date2) { ?>
 							<form method="post" action="/proc/util/donation" onsubmit="return saveAjax(this,'신청중...');">
 								<input type="hidden" name="from" value="book">
@@ -156,7 +156,7 @@ function printContent(){
 					<td>신청자가 없습니다</td>
 
 					<td>
-					<?php $date1 = new DateTime("now"); $date2 = new DateTime("2016-03-02");
+					<?php $date1 = new DateTime("now"); $date2 = new DateTime("2018-02-06");
 					if($date1 >= $date2) { ?>
 						<form method="post" action="/proc/util/donation" onsubmit="return saveAjax(this,'신청중...');">
 							<input type="hidden" name="from" value="book">
