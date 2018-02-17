@@ -217,6 +217,7 @@
                 <a href="/" style="border-"><img id="menu-logo-image-2" src="/images/logo-inverse-s.png" alt="KMLAONLINE" style="width:20px;height:20px;margin-top:10px<?php if($april_fools) echo ';-webkit-animation:spin 1s linear infinite;-moz-animation:spin 1s linear infinite;animation:spin 1s linear infinite;'; ?>"></a>
             </div>
             <div id="total-header-menu" ondragstart="return false">
+                <!-- page 맨 위에 있는 menu -->
                 <?php include "src/header/menubar.php";?>
             </div>
         </div>

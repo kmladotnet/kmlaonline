@@ -1,3 +1,5 @@
+<!-- 페이지 맨 위에 User 정보 나타내는 카드 -->
+
 <?php if(!isset($_SESSION['user'])){  ?>
 <?php }else{ ?>
 	<table style="width:100%;height:100px">

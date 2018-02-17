@@ -1,5 +1,5 @@
 <?php
-if(isset($_SESSION['user'])) redirectTo((isset($_REQUEST['returnto']) && $_REQUEST['returnto']!="")?$_REQUEST['returnto']:"/");
+if(isset($_SESSION['user'])) redirectTo((isset($_REQUEST['returnto']) && $_REQUEST['returnto'] != "")?$_REQUEST['returnto']:"/");
 $title="로그인 - " . $title;
 function printContent(){
 	global $board, $is_morning, $is_afternoon, $is_night, $mysqli;
@@ -45,7 +45,8 @@ function printContent(){
                     <input placeholder="비밀번호" type="password" name="pwd" class="login_input form-control" onkeydown="if (event.which || event.keyCode){if ((event.which == 13) || (event.keyCode == 13)) {document.getElementById('cmdLoginPage').click();}};">
                 </div>
 				<div style="float:right"><button class="btn btn-primary" onclick="$('#downform_login_action').val('login');$('#downform_login').submit();" id="cmdLoginPage">로그인</button></div>
-				<div style="float:right"><button class="btn btn-default" style="margin-right:5px;border-radius:5px;" onclick="$('#downform_login_action').val('register');$('#downform_login').submit();">회원가입</button></div>
+				<!-- 회원가입 받을 시기에 comment out(uncomment). -->
+				<!-- <div style="float:right"><button class="btn btn-default" style="margin-right:5px;border-radius:5px;" onclick="$('#downform_login_action').val('register');$('#downform_login').submit();">회원가입</button></div> -->
 				<div style="float:right;color:white;height:32px;vertical-align:middle;line-height:32px;margin-right:10px;"><label for="chk_remember_me" style="vertical-align:middle;"><input type="checkbox" name="remember_me" id="chk_remember_me" style="vertical-align:middle;" onchange="if(this.checked) {
                         var check = this;
                         (new PNotify({

@@ -2,9 +2,9 @@
 require_once(dirname(__FILE__)."/searchlib.php");
 class Soreemember{
 	private $mysqli, $table_prefix;
-	private $attach_path="./data/member/";
+	private $attach_path = "./data/member/";
 	private $table_data, $table_additional_data, $table_note, $table_block, $table_notice;
-	private $member_cache=array();
+	private $member_cache = array();
 
 	private function escape($str){ // shortcut for Mysqli real escape string
 		return $this->mysqli->real_escape_string($str);
@@ -269,13 +269,19 @@ class Soreemember{
 		}
 		return -1; // Something went wrong
 	}
-	function getMember($member,$by=0,$withpw=false){
-		if($by==0 && !is_numeric($member)) return false;
-		else if($by==1 && strlen($member)==0) return false;
-		else if($by>2) return false;
+	/**
+	 * $by
+	 * 0 -> by n_id
+	 * 1 -> by s_id
+	 * 2 -> by email
+	*/
+	function getMember($member,$by=0,$withpw=false) {
+		if($by == 0 && !is_numeric($member)) return false;
+		else if($by == 1 && strlen($member) == 0) return false;
+		else if($by > 2) return false;
 
-		$query="SELECT * FROM `$this->table_data` WHERE ";
-		$member=$this->escape($member);
+		$query = "SELECT * FROM `$this->table_data` WHERE ";
+		$member = $this->escape($member);
 		switch($by){
 			case 0: if(isset($this->member_cache["n_id:".$member])){return $this->member_cache["n_id:".$member];} $query.="n_id=$member"; break;
 			case 1: if(isset($this->member_cache["s_id:".$member])){return $this->member_cache["s_id:".$member];} $query.="s_id='$member'"; break;
@@ -285,7 +291,7 @@ class Soreemember{
 			while ($row = $res->fetch_array(MYSQLI_ASSOC)){
 				$res->close();
 				if($this->mysqli->more_results())$this->mysqli->next_result();
-				if($withpw===false){
+				if($withpw === false){
 					unset($row['s_pw'], $row['s_pw_salt'], $row['s_pw_hash']);
 				}
 				$this->member_cache["n_id:".$row['n_id']]=$this->member_cache["s_id:".$row['s_id']]=$this->member_cache["s_email:".$row['s_email']]=$row;
@@ -296,9 +302,9 @@ class Soreemember{
 	}
 	// 중요 정보만 받음
 	function getMemberWithEssentials($member,$by=0,$withpw=false){
-		if($by==0 && !is_numeric($member)) return false;
-		else if($by==1 && strlen($member)==0) return false;
-		else if($by>2) return false;
+		if($by == 0 && !is_numeric($member)) return false;
+		else if($by == 1 && strlen($member)==0) return false;
+		else if($by > 2) return false;
 
 		$member=$this->escape($member);
 
@@ -331,7 +337,7 @@ class Soreemember{
 	function setAdminPermission($member, $permission=0){
 		if(!is_numeric($permission) || !is_numeric($member)) return false;
 		$query="UPDATE `$this->table_data` SET n_admin=$permission WHERE n_id=$member";
-		if($this->mysqli->query($query)===true){
+		if($this->mysqli->query($query) === true){
 			return true;
 		}else{
 			echo $this->mysqli->error;
@@ -340,42 +346,42 @@ class Soreemember{
 	}
 	function editMember($member, $new_id=false, $pw=false, $name=false, $email=false, $point=false, $level=false, $homepage=false, $phone=false, $selfintro=false, $pic=false, $icon=false, $s_real_name=false, $n_birth_date_yr=false, $n_birth_date_month=false, $n_birth_date_day=false, $n_gender=false, $s_status_message=false, $s_interest=false){
 		if(!is_numeric($member)) return false;
-		if($point!==false && !is_numeric($point)) return false;
-		if($level!==false && !is_numeric($level)) return false;
+		if($point !== false && !is_numeric($point)) return false;
+		if($level !== false && !is_numeric($level)) return false;
 		$a=array();
-		if($new_id!==false) $a['s_id']=$new_id;
-		if($pw!==false){
-			$pw_hash="sha512"; // ripe320 is better
-			$pw_salt="";
-			$avail='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789,./;\'[]\\`-=~!@#$%^&*()_+{}|:"<>?';
-			for($i=0;$i<768;$i++) $pw_salt.=substr($avail,rand(0,strlen($avail)-1),1);
-			$pw_encoded=hash($pw_hash, $pw_salt . "|" . hash($pw_hash, $pw) . "|" . $pw_salt);
-			$a['s_pw']=$pw_encoded;
-			$a['s_pw_salt']=$pw_salt;
-			$a['s_pw_hash']=$pw_hash;
+		if($new_id !== false) $a['s_id']=$new_id;
+		if($pw !== false){
+			$pw_hash = "sha512"; // ripe320 is better
+			$pw_salt = "";
+			$avail = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789,./;\'[]\\`-=~!@#$%^&*()_+{}|:"<>?';
+			for($i = 0; $i < 768; $i++) $pw_salt.=substr($avail,rand(0,strlen($avail)-1),1);
+			$pw_encoded = hash($pw_hash, $pw_salt . "|" . hash($pw_hash, $pw) . "|" . $pw_salt);
+			$a['s_pw'] = $pw_encoded;
+			$a['s_pw_salt'] = $pw_salt;
+			$a['s_pw_hash'] = $pw_hash;
 		}
-		if($name!==false) $a['s_name']=$name;
-		if($email!==false) $a['s_email']=$email;
-		if($point!==false) $a['n_point']=$point;
-		if($level!==false) $a['n_level']=$level;
-		if($homepage!==false) $a['s_homepage']=$homepage;
-		if($phone!==false) $a['s_phone']=$phone;
-		if($selfintro!==false) $a['s_selfintro']=$selfintro;
-		if($pic!==false) $a['s_pic']=$pic;
-		if($icon!==false) $a['s_icon']=$icon;
-		if($s_interest!==false) $a['s_interest']=$s_interest;
-		if($s_status_message!==false) $a['s_status_message']=$s_status_message;
-		if($n_birth_date_yr!==false) $a['n_birth_date_yr']=$n_birth_date_yr;
-		if($n_birth_date_month!==false) $a['n_birth_date_month']=$n_birth_date_month;
-		if($n_birth_date_day!==false) $a['n_birth_date_day']=$n_birth_date_day;
-		if(count($a)==0) return false;
+		if($name !== false) $a['s_name'] = $name;
+		if($email !== false) $a['s_email'] = $email;
+		if($point !== false) $a['n_point'] = $point;
+		if($level !== false) $a['n_level'] = $level;
+		if($homepage !== false) $a['s_homepage'] = $homepage;
+		if($phone !== false) $a['s_phone'] = $phone;
+		if($selfintro !== false) $a['s_selfintro'] = $selfintro;
+		if($pic !== false) $a['s_pic'] = $pic;
+		if($icon !== false) $a['s_icon'] = $icon;
+		if($s_interest !== false) $a['s_interest'] = $s_interest;
+		if($s_status_message !== false) $a['s_status_message'] = $s_status_message;
+		if($n_birth_date_yr !== false) $a['n_birth_date_yr'] = $n_birth_date_yr;
+		if($n_birth_date_month !== false) $a['n_birth_date_month'] = $n_birth_date_month;
+		if($n_birth_date_day !== false) $a['n_birth_date_day'] = $n_birth_date_day;
+		if(count($a) == 0) return false;
 		$b=array();
-		foreach($a as $key=>$val){
+		foreach($a as $key => $val){
 			array_push($b, $key . "='" . $this->escape($val) . "'");
 		}
 		$query="UPDATE `$this->table_data` SET " . implode(", ",$b) . " WHERE n_id=$member";
 		//echo $query;
-		if($this->mysqli->query($query)===true){
+		if($this->mysqli->query($query) === true){
 			return true;
 		}else{
 			echo $this->mysqli->error;
@@ -384,36 +390,36 @@ class Soreemember{
 	}
 	function removeMember($member){
 		if(!is_numeric($member)) return false;
-		if($member==1) return false;
+		if($member == 1) return false;
 		$usr=getMember($member);
 		// TODO remove s_pic, s_icon
 		return editMember($member, "", "", "", "", 0, 0, "", "", "", "", "");
 	}
 	function sendNote($member_from, $member_to, $data, $title=""){
 		if(!is_numeric($member_from) || !is_numeric($member_to)) return false;
-		if($data=="") return false;
-		$title=$this->escape($title); $data=$this->escape($data);
-		$date=time();
-		if($member_from!=$member_to){
+		if($data == "") return false;
+		$title = $this->escape($title); $data=$this->escape($data);
+		$date = time();
+		if($member_from != $member_to){
 			if(
-				($this->mysqli->query("INSERT INTO `$this->table_note` (n_owner, n_from, n_to, n_date, s_title, s_data) VALUES ($member_from, $member_from, $member_to, $date, '$title', '$data')")===true) &&
-				($this->mysqli->query("INSERT INTO `$this->table_note` (n_owner, n_from, n_to, n_date, s_title, s_data) VALUES ($member_to, $member_from, $member_to, $date, '$title', '$data')")===true)
+				($this->mysqli->query("INSERT INTO `$this->table_note` (n_owner, n_from, n_to, n_date, s_title, s_data) VALUES ($member_from, $member_from, $member_to, $date, '$title', '$data')")=== true) &&
+				($this->mysqli->query("INSERT INTO `$this->table_note` (n_owner, n_from, n_to, n_date, s_title, s_data) VALUES ($member_to, $member_from, $member_to, $date, '$title', '$data')")=== true)
 				)
 				return $this->mysqli->insert_id;
 			else
 				return false;
 		}else{
 			return
-				($this->mysqli->query("INSERT INTO `$this->table_note` (n_owner, n_from, n_to, n_date, s_title, s_data) VALUES ($member_from, $member_from, $member_to, $date, '$title', '$data')")===true);
+				($this->mysqli->query("INSERT INTO `$this->table_note` (n_owner, n_from, n_to, n_date, s_title, s_data) VALUES ($member_from, $member_from, $member_to, $date, '$title', '$data')") === true);
 		}
 	}
 	function removeNote($idx){
 		if(!is_numeric($idx)) return false;
-		return $this->mysqli->query("DELETE FROM `$this->table_note` WHERE n_id=$idx")===true;
+		return $this->mysqli->query("DELETE FROM `$this->table_note` WHERE n_id=$idx") === true;
 	}
 	function removeNoteOfUser($owner){
 		if(!is_numeric($owner)) return false;
-		return $this->mysqli->query("DELETE FROM `$this->table_note` WHERE n_owner=$owner")===true;
+		return $this->mysqli->query("DELETE FROM `$this->table_note` WHERE n_owner=$owner") === true;
 	}
 	function readNote($idx){
 		if(!is_numeric($idx)) return false;
@@ -433,25 +439,25 @@ class Soreemember{
 		return $this->mysqli->query($query)===true;
 	}
 	function getNotesCount($owner=false, $to_member=false, $from_member=false, $search=false, $search_mode_and=true, $search_submode_and=true, $search_title=false,$search_data=false){
-		if($owner!==false && !is_numeric($owner)) return false;
-		if($to_member!==false && $to_member!==true && !is_numeric($to_member)) return false;
-		if($from_member!==false && $from_member!==true && !is_numeric($from_member)) return false;
+		if($owner !== false && !is_numeric($owner)) return false;
+		if($to_member !== false && $to_member !== true && !is_numeric($to_member)) return false;
+		if($from_member !== false && $from_member !== true && !is_numeric($from_member)) return false;
 		$wheres=array();
-		if($owner!==false) $wheres[] = "n_owner=$owner";
-		if($to_member!==false) $wheres[] = "n_to=$to_member";
-		if($from_member!==false) $wheres[] = "n_from=$from_member";
+		if($owner !== false) $wheres[] = "n_owner=$owner";
+		if($to_member !== false) $wheres[] = "n_to=$to_member";
+		if($from_member !== false) $wheres[] = "n_from=$from_member";
 		if($search){
 			$where=array();
-			if($search_title) $where[]="s_title";
-			if($search_data) $where[]="s_data";
+			if($search_title) $where[] = "s_title";
+			if($search_data) $where[] = "s_data";
 			$wheres[]=search_wherequery($search,$where,$search_mode_and?"AND":"OR",$search_submode_and?"AND":"OR");
 		}
 		$whereq=implode(" AND ",$wheres);
 		if($whereq) $whereq="WHERE $whereq";
 		$what="*";
-		if($to_member===true)
+		if($to_member === true)
 			$what="DISTINCT n_to";
-		else if($from_member===true)
+		else if($from_member === true)
 			$what="DISTINCT n_from";
 		$query="SELECT count($what) FROM `$this->table_note` $whereq";
 		if($res=$this->mysqli->query($query)){
@@ -465,17 +471,17 @@ class Soreemember{
 		return false;
 	}
 	function getNotesList($owner=false, $to_member=false, $from_member=false, $pagenumber=0, $pagecount=20, $search=false, $search_mode_and=true, $search_submode_and=true, $search_title=false,$search_data=false){
-		if($owner!==false && !is_numeric($owner)) return false;
-		if($to_member!==false && $to_member!==true && !is_numeric($to_member)) return false;
-		if($from_member!==false && $from_member!==true && !is_numeric($from_member)) return false;
+		if($owner !== false && !is_numeric($owner)) return false;
+		if($to_member !== false && $to_member !== true && !is_numeric($to_member)) return false;
+		if($from_member !== false && $from_member !== true && !is_numeric($from_member)) return false;
 		$wheres=array();
-		if($owner!==false) $wheres[] = "n_owner=$owner";
-		if($to_member!==false) $wheres[] = "n_to=$to_member";
-		if($from_member!==false) $wheres[] = "n_from=$from_member";
+		if($owner !== false) $wheres[] = "n_owner=$owner";
+		if($to_member !== false) $wheres[] = "n_to=$to_member";
+		if($from_member !== false) $wheres[] = "n_from=$from_member";
 		if($search){
 			$where=array();
-			if($search_title) $where[]="s_title";
-			if($search_data) $where[]="s_data";
+			if($search_title) $where[] = "s_title";
+			if($search_data) $where[] = "s_data";
 			$wheres[]=search_wherequery($search,$where,$search_mode_and?"AND":"OR",$search_submode_and?"AND":"OR");
 		}
 		$whereq=implode(" AND ",$wheres);

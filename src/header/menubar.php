@@ -1,3 +1,5 @@
+<!-- 페이지 맨 위 메뉴 -->
+
 <?php if(!isset($_SESSION['user'])) return; ?>
 <div id="total-header-menu-menus" style="position: absolute; left: -40px">
 
