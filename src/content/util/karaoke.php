@@ -1,10 +1,12 @@
 <?php
 redirectLoginIfRequired();
 $title="노래방 이용 신청 - " . $title;
+
 function x_week_range($ts) {
     $start = (date('w', $ts) == 1) ? $ts : strtotime('last monday', $ts);
     return array($start, strtotime('next sunday', $start));
 }
+
 function getCurrentTable(){
     global $mysqli;
     $week_range = x_week_range(time());
@@ -20,6 +22,7 @@ function getCurrentTable(){
         return $arr;
     }
 }
+
 function printContent(){
     global $member, $me;
     $week_range = x_week_range(time());
@@ -79,12 +82,14 @@ function printContent(){
                             <td><?php echo htmlspecialchars($currentTable[$wk][$tm][0]); ?></td>
                             <td style='text-align:center;<?php if($usr['n_id'] == $me['n_id']) echo "background:#DDF";?>'><a href="/user/view/<?php echo $usr['n_id']."/".$usr['s_id']?>"><?php putUserCard($usr); ?></a></td>
                             <td>
+                                <?php if($me['n_id'] == $currentTable[$wk][$tm][1] || isUserPermitted($me['n_id'], "karaoke_manager")){ ?>
                                 <form method="post" action="/proc/util/karaoke" onsubmit="if(confirm('정말로 신청을 취소하겠습니까?'))return saveAjax(this,'신청 취소 중...'); return false;">
                                     <input type="hidden" name="day" value="<?php echo $wk?>" />
                                     <input type="hidden" name="period" value="<?php echo $tm?>" />
                                     <input type="hidden" name="util_action" value="remove" />
                                     <input type="submit" value="취소" />
                                 </form>
+                                <?php } ?>
                             </td>
                         <?php }else{ ?>
                             <form method="post" action="/proc/util/karaoke" onsubmit="return saveAjax(this,'신청 중...');">
