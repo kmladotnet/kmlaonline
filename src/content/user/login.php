@@ -1,22 +1,22 @@
 <?php
-if(isset($_SESSION['user'])) redirectTo((isset($_REQUEST['returnto']) && $_REQUEST['returnto'] != "")?$_REQUEST['returnto']:"/");
-$title="로그인 - " . $title;
+if(isset($_SESSION['user'])) redirectTo((isset($_REQUEST['returnto']) && $_REQUEST['returnto'] != "") ? $_REQUEST['returnto'] : "/");
+$title = "로그인 - " . $title;
 function printContent(){
 	global $board, $is_morning, $is_afternoon, $is_night, $mysqli;
 
-	$att=array();
-	$cat=$board->getCategory(false,"login_approved");
+	$att = array();
+	$cat = $board->getCategory(false,"login_approved");
 	foreach($board->getArticleList(array($cat['n_id'])) as $ar){
 		foreach($board->getAttachments(false, $ar['n_id']) as $a){
-			$att[]=$a;
+			$att[] = $a;
 		}
 	}
     $weather = getWeather();
-	if(count($att)>0){
-		$v=$att[array_rand($att)];
-		$i=getimagesize($v['s_path']);
-		$width=$i[0];
-		$height=$i[1];
+	if(count($att) > 0){
+		$v = $att[array_rand($att)];
+		$i = getimagesize($v['s_path']);
+		$width = $i[0];
+		$height = $i[1];
 		insertOnLoadScript("initializeLoginBackgroundImage(\"".addslashes("/files/bbs/{$cat['n_id']}/{$v['n_parent']}/{$v['n_id']}/{$v['s_key']}/{$v['s_name']}")."\", $width, $height);".( (200 <= $weather->weather->id && $weather->weather->id < 600) ? '$("#no-login-bg").load(function() {var rain = new RainyDay({image: document.getElementById("no-login-bg")});rain.rain([[0, 2, 20], [4, 3, 1]], 30);$("canvas").css("z-index", 999999999);});' : ""));
 	}
 
@@ -83,9 +83,9 @@ function printContent(){
 			</div>
             <div style="text-align:center; background: rgba(255, 255, 255, 0.9); border-radius: 5px; padding: 5px; margin: 5px;">
                 <?php
-                $curYear=date("Y");
-                $curMonth=date("n");
-                $curDay=date("j");
+                $curYear = date("Y");
+                $curMonth = date("n");
+                $curDay = date("j");
                 $curWeekDay = strftime("%a");
                 if ($is_morning && date("H")>=22) {
                     $curYear = date("Y", strtotime("+1 day"));
@@ -131,7 +131,7 @@ function printContent(){
 							} ?>
 						</ul>
 					<?php }
-					echo isset($scheduleData['food:0'])?nl2br($scheduleData['food:0']):"<span style='color:#DDD'>(입력되지 않음)</span>"; ?>
+					echo isset($scheduleData['food:0']) ? nl2br($scheduleData['food:0']) : "<span style='color:#DDD'>(입력되지 않음)</span>"; ?>
                 </div>
                 <div id="food-lunch" class="afternoon">
                     <?php

@@ -41,9 +41,16 @@ if(!isset($type) && $april_fools && !$is_mobile) {
     }
 }
 
-if(!isset($_SESSION['user']) && !isset($_SESSION['teacher_user'])) { // 학생 교직원 둘 다 아닌 경우
+if(!isset($_SESSION['user']) && !isset($_SESSION['teacher_user'])) {
+/** 학생 교직원 둘 다 아닌 경우. 로그인을 안한 상태!
+ * 	'user'은 학생, 'teacher_user'은 선생님
+ * 	이 경우에 해당하지 않는다면, $_SESSION['user'] $_SESSION['teacher_user']
+ * 	둘 중 적어도 하나는 initialize되어 있다는 뜻이다.
+ */
 	if(isset($_GET['sub']) && $_GET['action'] == 'user') {
+	// 참고: $_GET['sub']가 있을 수 있는 경우: user, util, intranet일 때
 		switch($_GET['sub']) {
+        // $_GET['sub']가 register, lost, resetpwd가 아닌 경우에는 모두 $_GET['sub']를 login으로 만들어 준다.
 			case 'register':
 			case 'lost':
             case 'resetpwd':
@@ -57,12 +64,13 @@ if(!isset($_SESSION['user']) && !isset($_SESSION['teacher_user'])) { // 학생 �
     } else if(isset($type) && $type === "teacher"){
         redirectLoginIfRequired();
     } else {
+    // Action을 모두 user로 바꾸어 준다.
 		$_REQUEST['returnto'] = $_SERVER["REQUEST_URI"];
 		$fn = $_GET['action'] = "user";
 		$_GET['sub'] = "login";
 	}
 } else if(!isset($_SESSION['teacher_user']) && isset($_GET['action']) && $_GET['action'] === "teacher") {
-     // 학생 유저가 교직원 페이지에 접근하려고 하는 경우
+// 학생 유저가 교직원 페이지에 접근하려고 하는 경우
     ?>
     <script type="text/javascript">
         alert("학생 유저는 교직원 페이지에 접근할 수 없습니다.");
@@ -70,7 +78,7 @@ if(!isset($_SESSION['user']) && !isset($_SESSION['teacher_user'])) { // 학생 �
     </script>
     <?php
 } else if(!isset($_SESSION['user']) && (!isset($_GET['action']) || isset($_GET['action']) && $_GET['action'] !== "teacher")){
-    // 교직원 유저가 학생 페이지에 접근하려고 하는 경우
+// 교직원 유저가 학생 페이지에 접근하려고 하는 경우
     if(isset($_GET['sub']) && $_GET['action'] == 'user') {
         if($_GET['sub'] !== 'logout') {
         ?>
@@ -92,7 +100,10 @@ if(!isset($_SESSION['user']) && !isset($_SESSION['teacher_user'])) { // 학생 �
 }
 
 if(isset($type) && $type === "judicial" && !(isUserPermitted($me['n_id'], "judicial_council") || isUserPermitted($me['n_id'], "justice_department") || isUserPermitted($me['n_id'], "student_guide_department") || isUserPermitted($me['n_id'], "food_and_nutrition_department"))) {?>
-<script type="text/javascript">alert("현재 개발 중으로 허가 받은 사람만 접근 가능합니다.");location.href="/";</script>
+	<script type="text/javascript">
+		alert("현재 개발 중으로 허가 받은 사람만 접근 가능합니다.");
+		location.href="/";
+	</script>
 <?php
 }
 

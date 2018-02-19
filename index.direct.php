@@ -162,13 +162,13 @@
 	if(file_exists("js/content/$fn.js")) echo "<script src='/js/content/$fn.js?v=2'></script>";
     if(isset($includes)) {
 		foreach($includes as $val) {
-			if(substr($val,-4,4)==".css") echo "<link class='page-specific-css' rel='stylesheet' href='$val' />";
+			if(substr($val, -4, 4) == ".css") echo "<link class='page-specific-css' rel='stylesheet' href='$val' />";
 		}
 	}
 	?>
     <style type="text/css">
         <?php
-        if($me['n_level']==0) echo ".login-only{display:none}";
+        if($me['n_level'] == 0) echo ".login-only{display:none}";
         if(!$is_morning) echo ".morning{display:none}";
         if(!$is_afternoon) echo ".afternoon{display:none}";
         if(!$is_night) echo ".night{display:none}";

@@ -7,12 +7,13 @@ function x_week_range($ts) {
 }
 function getCurrentTable(){
     global $mysqli;
-    $week_range=x_week_range(time());
-    $query="SELECT * FROM kmlaonline_karaoke_table";
-    if($res=$mysqli->query($query)){
-        $arr=array();$i=0;
+    $week_range = x_week_range(time());
+    $query = "SELECT * FROM kmlaonline_karaoke_table";
+    if($res = $mysqli->query($query)){
+        $arr = array();
+        $i = 0;
         while ($row = $res->fetch_array(MYSQLI_ASSOC)){
-            $arr[$row['n_date']][$row['n_period']]=array($row['s_objective'], $row['n_who']);
+            $arr[$row['n_date']][$row['n_period']] = array($row['s_objective'], $row['n_who']);
         }
         $res->close();
         if($mysqli->more_results())$mysqli->next_result();
@@ -21,11 +22,11 @@ function getCurrentTable(){
 }
 function printContent(){
     global $member, $me;
-    $week_range=x_week_range(time());
-    $day=$week_range[0];
-    $dayNames=array("일","월","화","수","목","금","토");
-    $periodNames=array("점심", "저녁", "오전 08시 - 오전 09시", "오전 09시 - 오전 10시", "오전 10시 - 오전 11시", "오전 11시 - 오후 12시", "오후 12시 - 오후 01시", "오후 01시 - 오후 02시", "오후 02시 - 오후 03시", "오후 03시 - 오후 04시", "오후 04시 - 오후 05시", "오후 05시 - 오후 06시", "오후 06시 - 오후 07시");
-    $currentTable=getCurrentTable();
+    $week_range = x_week_range(time());
+    $day = $week_range[0];
+    $dayNames = array("일", "월", "화", "수", "목", "금", "토");
+    $periodNames = array("점심", "저녁", "오전 08시 - 오전 09시", "오전 09시 - 오전 10시", "오전 10시 - 오전 11시", "오전 11시 - 오후 12시", "오후 12시 - 오후 01시", "오후 01시 - 오후 02시", "오후 02시 - 오후 03시", "오후 03시 - 오후 04시", "오후 04시 - 오후 05시", "오후 05시 - 오후 06시", "오후 06시 - 오후 07시");
+    $currentTable = getCurrentTable();
     ?>
     <h1 style="padding:9px;text-align:center;"><!--img alt="노래방 이용 신청" src="/data/boardimg/karaoke.png" /--></h1>
     <div style="float:left">
@@ -65,27 +66,27 @@ function printContent(){
             </tr>
         </thead>
         <tbody>
-            <?php for($wk=0;$wk<5;$wk++){ ?>
-                <?php for($tm=0;$tm<2;$tm++){ ?>
-                    <tr style="background:#<?php echo $tm%2==0?"FFF":"F8F8F8" ?>;">
-                        <?php if($tm==0){ ?>
-                            <td rowspan="2" style="text-align:center;padding:3px;background:<?php echo date("Y-m-d",$day)==date("Y-m-d")?"gold":($wk%2==0?"#FFF":"#F8F8F8") ?>;text-align:right;"><?php echo date("Y-m-d",$day) . "<br /><span style='text-align:center;font-size:12pt;font-weight:bold'>" . $dayNames[date("w",$day)] . "</span>"; ?></td>
+            <?php for($wk = 0; $wk < 5; $wk++){ ?>
+                <?php for($tm = 0; $tm < 2; $tm++){ ?>
+                    <tr style="background:#<?php echo $tm % 2 == 0? "FFF" : "F8F8F8" ?>;">
+                        <?php if($tm == 0){ ?>
+                            <td rowspan="2" style="text-align:center;padding:3px;background:<?php echo date("Y-m-d",$day) == date("Y-m-d") ? "gold" : ($wk % 2 == 0 ? "#FFF" : "#F8F8F8") ?>;text-align:right;"><?php echo date("Y-m-d",$day) . "<br /><span style='text-align:center;font-size:12pt;font-weight:bold'>" . $dayNames[date("w",$day)] . "</span>"; ?></td>
                         <?php } ?>
-                        <td rowspan="1" style="padding:3px;text-align:center;background:#<?php echo $tm%2==0?"FFF":"F8F8F8" ?>"><?php echo $tm == 0 ? "점심 시간" : "저녁 시간"; ?></td>
+                        <td rowspan="1" style="padding:3px;text-align:center;background:#<?php echo $tm % 2 == 0 ? "FFF" : "F8F8F8" ?>"><?php echo $tm == 0 ? "점심 시간" : "저녁 시간"; ?></td>
                         <?php if(isset($currentTable[$wk][$tm])){
-                            $usr=$member->getMember($currentTable[$wk][$tm][1]);
+                            $usr = $member->getMember($currentTable[$wk][$tm][1]);
                             ?>
                             <td><?php echo htmlspecialchars($currentTable[$wk][$tm][0]); ?></td>
-                            <td style='text-align:center;<?php if($usr['n_id']==$me['n_id']) echo "background:#DDF";?>'><a href="/user/view/<?php echo $usr['n_id']."/".$usr['s_id']?>"><?php putUserCard($usr); ?></a></td>
+                            <td style='text-align:center;<?php if($usr['n_id'] == $me['n_id']) echo "background:#DDF";?>'><a href="/user/view/<?php echo $usr['n_id']."/".$usr['s_id']?>"><?php putUserCard($usr); ?></a></td>
                             <td>
-                                <?php if($me['n_id']==$currentTable[$wk][$tm][1] || isUserPermitted($me['n_id'], "karaoke_manager")){ ?>
+                                <!-- <?php if($me['n_id'] == $currentTable[$wk][$tm][1] || isUserPermitted($me['n_id'], "karaoke_manager")){ ?> -->
                                     <form method="post" action="/proc/util/karaoke" onsubmit="if(confirm('정말로 신청을 취소하겠습니까?'))return saveAjax(this,'신청 취소 중...'); return false;">
                                         <input type="hidden" name="day" value="<?php echo $wk?>" />
                                         <input type="hidden" name="period" value="<?php echo $tm?>" />
                                         <input type="hidden" name="util_action" value="remove" />
                                         <input type="submit" value="취소" />
                                     </form>
-                                <?php } ?>
+                                <!-- <?php } ?> -->
                             </td>
                         <?php }else{ ?>
                             <form method="post" action="/proc/util/karaoke" onsubmit="return saveAjax(this,'신청 중...');">
@@ -103,11 +104,11 @@ function printContent(){
                         <?php } ?>
                     </tr>
                 <?php } ?>
-            <?php $day=strtotime("next day",$day); } ?>
-            <?php for($wk=5;$wk<7;$wk++){ ?>
-                <?php for($tm=2;$tm<13;$tm++){ ?>
-                    <tr style="background:#<?php echo $tm%2==0?"FFF":"F8F8F8" ?>;">
-                        <?php if($tm==2){ ?>
+            <?php $day = strtotime("next day", $day); } ?>
+            <?php for($wk = 5; $wk < 7; $wk++){ ?>
+                <?php for($tm = 2; $tm < 13; $tm++){ ?>
+                    <tr style="background:#<?php echo $tm % 2 == 0 ? "FFF" : "F8F8F8" ?>;">
+                        <?php if($tm == 2){ ?>
                             <td rowspan="11" style="text-align:center;padding:3px;background:<?php echo date("Y-m-d",$day)==date("Y-m-d")?"gold":($wk % 2 == 0?"#FFF":"#F8F8F8") ?>;text-align:right;"><?php echo date("Y-m-d",$day) . "<br /><span style='text-align:center;font-size:12pt;font-weight:bold'>" . $dayNames[date("w",$day)] . "</span>"; ?></td>
                         <?php } ?>
                         <td rowspan="1" style="padding:3px;text-align:center;background:#<?php echo ($tm + $wk + 1)%2==0?"FFF":"F8F8F8" ?>"><?php echo $periodNames[$tm]; ?></td>
@@ -142,7 +143,7 @@ function printContent(){
                         <?php } ?>
                     </tr>
                 <?php } ?>
-            <?php $day=strtotime("next day",$day); } ?>
+            <?php $day = strtotime("next day", $day); } ?>
         </tbody>
     </table>
     <?php
