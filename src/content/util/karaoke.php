@@ -13,12 +13,13 @@ function getCurrentTable(){
     $query = "SELECT * FROM kmlaonline_karaoke_table";
     if($res = $mysqli->query($query)){
         $arr = array();
-        $i = 0;
         while ($row = $res->fetch_array(MYSQLI_ASSOC)){
             $arr[$row['n_date']][$row['n_period']] = array($row['s_objective'], $row['n_who']);
         }
         $res->close();
-        if($mysqli->more_results())$mysqli->next_result();
+        if($mysqli->more_results()){
+            $mysqli->next_result();
+        }
         return $arr;
     }
 }
