@@ -10,6 +10,7 @@ function printContent(){ ?>
 	?>
 	<form data-toggle="validator" data-delay="100" action="/ajax/user/register" method="post" enctype="multipart/form-data" onsubmit="window.onbeforeunload=null;">
 		<input type="hidden" name="prev_url" value="<?php echo htmlspecialchars($_SERVER['REQUEST_URI'])?>" />
+		<?php echo $_SERVER['REQUEST_URI'] ?>
 		<div style="text-align:center;width:100%">
 			<h1><?php echo lang("user","register","title"); ?></h1>
 			<h2><?php echo lang("generic", "tos"); ?></h2>
