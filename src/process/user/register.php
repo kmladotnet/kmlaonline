@@ -12,7 +12,10 @@ function redirWithBody($failReason){
 		<input type="hidden" name="error_occured" value="<?php echo htmlspecialchars(json_encode($failReason)) ?>" />
 		<input type="submit" id="submitter" value="Click here if the page doesn't continue" />
 	</form>
-	<script type="text/javascript">$('#poster').submit();$('#submitter').css("visibility", "hidden");</script>
+	<script type="text/javascript">
+		$('#poster').submit();
+		// $('#submitter').css("visibility", "hidden");
+	</script>
 	<?php
 }
 function checkEmail( $email ){
