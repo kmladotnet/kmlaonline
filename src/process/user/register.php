@@ -3,6 +3,7 @@ function redirWithBody($failReason){
 	?>
 	<form method="post" action="<?php echo htmlspecialchars($_POST['prev_url'])?>" id="poster">
 		<?php
+		echo $_POST['prev_url'];
 		foreach($_POST as $key=>$val){
 			if($key=="s_pw" || $key=="s_pw_check") continue;
 			$val=htmlspecialchars($val);
@@ -13,8 +14,8 @@ function redirWithBody($failReason){
 		<input type="submit" id="submitter" value="Click here if the page doesn't continue" />
 	</form>
 	<script type="text/javascript">
-		// $('#poster').submit();
-		// $('#submitter').css("visibility", "hidden");
+		$('#poster').submit();
+		$('#submitter').css("visibility", "hidden");
 	</script>
 	<?php
 }
