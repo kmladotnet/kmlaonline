@@ -13,7 +13,7 @@ function redirWithBody($failReason){
 		<input type="submit" id="submitter" value="Click here if the page doesn't continue" />
 	</form>
 	<script type="text/javascript">
-		$('#poster').submit();
+		// $('#poster').submit();
 		// $('#submitter').css("visibility", "hidden");
 	</script>
 	<?php
