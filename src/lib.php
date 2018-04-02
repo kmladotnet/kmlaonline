@@ -68,7 +68,7 @@ session_write_close();
 include 'db-test.php';
 
 setlocale(LC_TIME, 'ko_KR.UTF-8');
-$april_main = true; // 4월 1일에 이 변수만 바꾸기 바람
+$april_main = false; // 4월 1일에 이 변수만 바꾸기 바람
 $april_fools = $april_main;
 $april_fools_2 = false;
 if($april_fools) {
