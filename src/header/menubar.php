@@ -113,10 +113,6 @@ if($me['n_level']!=0){
                         <a class="menu2" id="upper-header-menu-close" style="width:0;opacity:0.7;cursor:pointer">닫기</a>
                     </div>
                 </div>
-            </div>
-            <div class="menu1">
-                <div class="menu1_text"><a href="https://goo.gl/forms/PE7uoXFqkVocZhBA3" class="menu2">건의사항</a></div>
-            </div>
             <div class="menu1">
                 <div class="menu1_text"><a href="http://kmlapetition.com" class="menu2">학생청원</a></div>
             </div>
