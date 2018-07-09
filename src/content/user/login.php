@@ -3,14 +3,13 @@ if(isset($_SESSION['user'])) redirectTo((isset($_REQUEST['returnto']) && $_REQUE
 $title = "로그인 - " . $title;
 
 function printFood($jsonData, $month, $day, $whichMeal) {
-    echo $jsonData != NULL;
     if ($jsonData != NULL && array_key_exists($month, $jsonData) && array_key_exists($day, $jsonData)) {
         print("HERE!");
         foreach($jsonData[$month][$day][$whichMeal] as $key => $value) {
             echo "$value <br />";
         }
     } else {
-        print("HERE@");
+        echo "HERE@";
         echo "<span style='color:#a2a2a2'>(입력되지 않음) <br> kmlaonline 관리자에게 연락해주세요!</span>";
     }
 }
