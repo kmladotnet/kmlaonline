@@ -3,8 +3,12 @@ if(isset($_SESSION['user'])) redirectTo((isset($_REQUEST['returnto']) && $_REQUE
 $title = "로그인 - " . $title;
 
 function printFood($jsonData, $month, $day, $whichMeal) {
-    foreach($jsonData[$month][$day][$whichMeal] as $key => $value) {
-        echo "$value <br />";
+    if ($jsonData != "" && array_key_exists($month, $jsonData) && array_key_exists($day, $jsonData)) {
+        foreach($jsonData[$month][$day][$whichMeal] as $key => $value) {
+            echo "$value <br />";
+        }
+    } else {
+        echo "<span style='color:#DDD'>(입력되지 않음)</span>";
     }
 }
 
@@ -90,7 +94,10 @@ function printContent(){
 			</div>
             <div style="text-align:center; background: rgba(255, 255, 255, 0.9); border-radius: 5px; padding: 5px; margin: 5px;">
                 <?php
-                $jsonData = json_decode(file_get_contents("/srv/scripts/data.json"), true);
+                $jsonData = "";
+                if (file_exists("/srv/scripts/data.json")) {
+                    $jsonData = json_decode(file_get_contents("/srv/scripts/data.json"), true);
+                }
                 $curYear = date("Y"); // 2003, 1999..
                 $curMonth = date("n"); // 1 ~ 12
                 $curDay = date("j"); // 1 ~ 31
