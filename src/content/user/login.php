@@ -97,6 +97,7 @@ function printContent(){
                 $jsonData = NULL;
                 echo file_exists("/srv/scripts/data.json");
                 if (file_exists("/srv/scripts/data.json")) {
+                    print("HERE");
                     $jsonData = json_decode(file_get_contents("/srv/scripts/data.json"), true);
                 }
                 $curYear = date("Y"); // 2003, 1999..
