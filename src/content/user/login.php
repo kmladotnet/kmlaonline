@@ -3,7 +3,7 @@ if(isset($_SESSION['user'])) redirectTo((isset($_REQUEST['returnto']) && $_REQUE
 $title = "로그인 - " . $title;
 
 function printFood($jsonData, $month, $day, $whichMeal) {
-    if ($jsonData != "" && array_key_exists($month, $jsonData) && array_key_exists($day, $jsonData)) {
+    if ($jsonData != NULL && array_key_exists($month, $jsonData) && array_key_exists($day, $jsonData)) {
         foreach($jsonData[$month][$day][$whichMeal] as $key => $value) {
             echo "$value <br />";
         }
@@ -94,7 +94,7 @@ function printContent(){
 			</div>
             <div style="text-align:center; background: rgba(255, 255, 255, 0.9); border-radius: 5px; padding: 5px; margin: 5px;">
                 <?php
-                $jsonData = "";
+                $jsonData = NULL;
                 if (file_exists("/srv/scripts/data.json")) {
                     $jsonData = json_decode(file_get_contents("/srv/scripts/data.json"), true);
                 }
