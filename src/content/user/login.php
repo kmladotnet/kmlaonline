@@ -140,8 +140,8 @@ function printContent(){
 							} ?>
 						</ul>
 					<?php }
-					// echo isset($scheduleData['food:0']) ? nl2br($scheduleData['food:0']) : "<span style='color:#DDD'>(입력되지 않음)</span>"; ?>
                     printFood($jsonData, $curMonth, $curDay, "breakfast");
+					// echo isset($scheduleData['food:0']) ? nl2br($scheduleData['food:0']) : "<span style='color:#DDD'>(입력되지 않음)</span>"; ?>
                 </div>
                 <div id="food-lunch" class="afternoon">
                     <?php
