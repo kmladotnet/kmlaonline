@@ -89,11 +89,6 @@ function printContent(){
                 $curDay = date("j");
                 $curWeekDay = strftime("%a");
 
-                echo $curYear;
-                echo $curMonth;
-                echo $curDay;
-                echo $curWeekDay;
-                
                 if ($is_morning && date("H")>=22) {
                     $curYear = date("Y", strtotime("+1 day"));
                     $curMonth = date("n", strtotime("+1 day"));
@@ -130,6 +125,12 @@ function printContent(){
                         <?php } ?>
                     </div>
                     로그인해서 평점을 매기세요.
+                    <?php
+                    echo $curYear;
+                    echo $curMonth;
+                    echo $curDay;
+                    echo $curWeekDay;
+                    ?>
                     <hr style="margin-top: 5px;margin-bottom: 5px;">
 					<?php if($voteData['count'] > 0) { ?>
 						<ul class="food-chart" style="display:block">
