@@ -3,6 +3,7 @@ if(isset($_SESSION['user'])) redirectTo((isset($_REQUEST['returnto']) && $_REQUE
 $title = "로그인 - " . $title;
 
 function printFood($jsonData, $month, $day, $whichMeal) {
+    print_r($jsonData[$month][$day][$whichMeal]);
     if ($jsonData != NULL && array_key_exists($month, $jsonData) && array_key_exists($day, $jsonData)) {
         print("HERE!");
         foreach($jsonData[$month][$day][$whichMeal] as $key => $value) {
