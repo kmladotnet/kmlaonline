@@ -1,6 +1,13 @@
 <?php
 if(isset($_SESSION['user'])) redirectTo((isset($_REQUEST['returnto']) && $_REQUEST['returnto'] != "") ? $_REQUEST['returnto'] : "/");
 $title = "로그인 - " . $title;
+
+function printFood($jsonData, $month, $day, $whichMeal) {
+    foreach($jsonData[$month][$day][$whichMeal] as $key => $value) {
+        echo "$value <br />";
+    }
+}
+
 function printContent(){
 	global $board, $is_morning, $is_afternoon, $is_night, $mysqli;
 
@@ -84,10 +91,10 @@ function printContent(){
             <div style="text-align:center; background: rgba(255, 255, 255, 0.9); border-radius: 5px; padding: 5px; margin: 5px;">
                 <?php
                 $jsonData = json_decode(file_get_contents("/srv/scripts/data.json"), true);
-                $curYear = date("Y");
-                $curMonth = date("n");
-                $curDay = date("j");
-                $curWeekDay = strftime("%a");
+                $curYear = date("Y"); // 2003, 1999..
+                $curMonth = date("n"); // 1 ~ 12
+                $curDay = date("j"); // 1 ~ 31
+                $curWeekDay = strftime("%a"); // Sat ~ Sun
 
                 if ($is_morning && date("H")>=22) {
                     $curYear = date("Y", strtotime("+1 day"));
@@ -125,12 +132,6 @@ function printContent(){
                         <?php } ?>
                     </div>
                     로그인해서 평점을 매기세요.
-                    <?php
-                    echo $curYear;
-                    echo $curMonth;
-                    echo $curDay;
-                    echo $curWeekDay;
-                    ?>
                     <hr style="margin-top: 5px;margin-bottom: 5px;">
 					<?php if($voteData['count'] > 0) { ?>
 						<ul class="food-chart" style="display:block">
@@ -139,7 +140,8 @@ function printContent(){
 							} ?>
 						</ul>
 					<?php }
-					echo isset($scheduleData['food:0']) ? nl2br($scheduleData['food:0']) : "<span style='color:#DDD'>(입력되지 않음)</span>"; ?>
+					// echo isset($scheduleData['food:0']) ? nl2br($scheduleData['food:0']) : "<span style='color:#DDD'>(입력되지 않음)</span>"; ?>
+                    printFood($jsonData, $curMonth, $curDay, "breakfast");
                 </div>
                 <div id="food-lunch" class="afternoon">
                     <?php
