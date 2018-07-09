@@ -458,7 +458,7 @@ function isUserPermitted($user, $actName){
 	$actName=$mysqli->real_escape_string($actName);
 	if(!is_numeric($user)) return false;
 	if(doesAdminBypassEverythingAndIsAdmin()) return true;
-	if(false!==$res=$mysqli->query("SELECT n_permission FROM kmlaonline_special_permissions_table WHERE n_user=$user AND s_type='$actName'"))
+	if(false !== $res=$mysqli->query("SELECT n_permission FROM kmlaonline_special_permissions_table WHERE n_user=$user AND s_type='$actName'"))
 		while ($row = $res->fetch_array(MYSQLI_ASSOC)){
 			return $row['n_permission'];
 		}

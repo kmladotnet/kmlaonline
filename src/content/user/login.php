@@ -83,10 +83,17 @@ function printContent(){
 			</div>
             <div style="text-align:center; background: rgba(255, 255, 255, 0.9); border-radius: 5px; padding: 5px; margin: 5px;">
                 <?php
+                $jsonData = json_decode(file_get_contents("/srv/scripts/data.json"), true);
                 $curYear = date("Y");
                 $curMonth = date("n");
                 $curDay = date("j");
                 $curWeekDay = strftime("%a");
+
+                echo $curYear;
+                echo $curMonth;
+                echo $curDay;
+                echo $curWeekDay;
+                
                 if ($is_morning && date("H")>=22) {
                     $curYear = date("Y", strtotime("+1 day"));
                     $curMonth = date("n", strtotime("+1 day"));
