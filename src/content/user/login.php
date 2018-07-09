@@ -95,11 +95,11 @@ function printContent(){
             <div style="text-align:center; background: rgba(255, 255, 255, 0.9); border-radius: 5px; padding: 5px; margin: 5px;">
                 <?php
                 $jsonData = NULL;
-                echo file_exists("/srv/scripts/data.json");
                 if (file_exists("/srv/scripts/data.json")) {
-                    print("HERE");
                     $jsonData = json_decode(file_get_contents("/srv/scripts/data.json"), true);
                 }
+
+                print_r($jsonData);
                 $curYear = date("Y"); // 2003, 1999..
                 $curMonth = date("n"); // 1 ~ 12
                 $curDay = date("j"); // 1 ~ 31
