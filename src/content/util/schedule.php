@@ -1,7 +1,7 @@
 <?php
 $title="일정표 - $title";
 function printContent(){
-	global $member, $mysqli, $me, $is_android, $foodJSON, $curDay;
+	global $member, $mysqli, $me, $is_android, $foodJSON;
 	$curYear = isset($_GET['year'])?$_GET['year']:date("Y");
 	$curMonth = isset($_GET['month'])?$_GET['month']:date("n");
 	$mode="normal";
@@ -23,7 +23,8 @@ function printContent(){
 	for($i =- $firstWeekDayOfMonth, $j = 0; $i < $daysOfMonth; $i++, $j++){
 		if(!isset($calender[$j / 7])) $calender[$j / 7] = array();
 		if($i >= 0) $calender[$j / 7][$j % 7] = $i + 1;
-	}
+    }
+    print_r($calender);
 	$scheduleData = array();
 	$query="SELECT n_day, s_data FROM kmlaonline_schedule_table WHERE n_year=$curYear AND n_month=$curMonth AND s_mode='$mode'";
 	if($res = $mysqli->query($query)){
