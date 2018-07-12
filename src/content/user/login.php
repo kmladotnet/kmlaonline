@@ -2,9 +2,9 @@
 if(isset($_SESSION['user'])) redirectTo((isset($_REQUEST['returnto']) && $_REQUEST['returnto'] != "") ? $_REQUEST['returnto'] : "/");
 $title = "로그인 - " . $title;
 
-function printFood($jsonData, $month, $day, $whichMeal) {
-    if ($jsonData != NULL && array_key_exists($month, $jsonData) && array_key_exists($day, $jsonData[$month])) {
-        foreach($jsonData[$month][$day][$whichMeal] as $key => $value) {
+function printFood($foodJSON, $month, $day, $whichMeal) {
+    if ($foodJSON != NULL && array_key_exists($month, $foodJSON) && array_key_exists($day, $foodJSON[$month])) {
+        foreach($foodJSON[$month][$day][$whichMeal] as $key => $value) {
             echo "$value <br />";
         }
     } else {
@@ -94,10 +94,6 @@ function printContent(){
 			</div>
             <div style="text-align:center; background: rgba(255, 255, 255, 0.9); border-radius: 5px; padding: 5px; margin: 5px;">
                 <?php
-                $jsonData = NULL;
-                if (file_exists("/srv/scripts/data.json")) {
-                    $jsonData = json_decode(file_get_contents("/srv/scripts/data.json"), true);
-                }
 
                 $curYear = date("Y"); // 2003, 1999..
                 $curMonth = date("n"); // 1 ~ 12
@@ -148,7 +144,7 @@ function printContent(){
 							} ?>
 						</ul>
 					<?php }
-                    printFood($jsonData, $curMonth, $curDay, "breakfast");
+                    printFood($foodJSON, $curMonth, $curDay, "breakfast");
                     // echo isset($scheduleData['food:0']) ? nl2br($scheduleData['food:0']) : "<span style='color:#DDD'>(입력되지 않음)</span>";
                     ?>
                 </div>
@@ -174,7 +170,7 @@ function printContent(){
 							} ?>
 						</ul>
                     <?php }
-                    printFood($jsonData, $curMonth, $curDay, "lunch");
+                    printFood($foodJSON, $curMonth, $curDay, "lunch");
                     // echo isset($scheduleData['food:1'])?nl2br($scheduleData['food:1']):"<span style='color:#DDD'>(입력되지 않음)</span>"; 
                     ?>
                 </div>
@@ -200,7 +196,7 @@ function printContent(){
 							} ?>
 						</ul>
                     <?php }
-                    printFood($jsonData, $curMonth, $curDay, "dinner");
+                    printFood($foodJSON, $curMonth, $curDay, "dinner");
                     // echo isset($scheduleData['food:2'])?nl2br($scheduleData['food:2']):"<span style='color:#DDD'>(입력되지 않음)</span>"; 
                     ?>
                 </div>
