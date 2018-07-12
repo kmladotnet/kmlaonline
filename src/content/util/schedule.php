@@ -2,8 +2,8 @@
 $title="일정표 - $title";
 function printContent(){
 	global $member, $mysqli, $me, $is_android, $foodJSON;
-	$curYear = isset($_GET['year'])?$_GET['year']:date("Y");
-	$curMonth = isset($_GET['month'])?$_GET['month']:date("n");
+	$curYear = isset($_GET['year']) ? $_GET['year'] : date("Y");
+	$curMonth = isset($_GET['month']) ? $_GET['month'] : date("n");
 	$mode="normal";
 	if(isset($_GET['mode'])){
 		switch($_GET['mode']){
@@ -23,8 +23,7 @@ function printContent(){
 	for($i =- $firstWeekDayOfMonth, $j = 0; $i < $daysOfMonth; $i++, $j++){
 		if(!isset($calender[$j / 7])) $calender[$j / 7] = array();
 		if($i >= 0) $calender[$j / 7][$j % 7] = $i + 1;
-    }
-    print_r($calender);
+	}
 	$scheduleData = array();
 	$query="SELECT n_day, s_data FROM kmlaonline_schedule_table WHERE n_year=$curYear AND n_month=$curMonth AND s_mode='$mode'";
 	if($res = $mysqli->query($query)){
@@ -115,7 +114,6 @@ function printContent(){
 						else
 							echo "<td style='border-right:1px solid #ccc;border-top:1px solid #ccc;'>";
 						if(!isset($calender[$i][$j])){
-                            echo "NOTSET";
 							echo "</td>";
 							continue;
 						}
@@ -144,9 +142,7 @@ function printContent(){
 							}
 						}
                         $curData = isset($scheduleData[$datename]) ? $scheduleData[$datename] : "";
-                        $mealArray = array("food:0"=>"breakfast", "food:1"=>"lunch", "food:2"=>"dinner", "normal"=>"");
-                        $curMeal = $mealArray[$mode];
-                        
+                        $mealArray = array("food:0"=>"breakfast", "food:1"=>"lunch", "food:2"=>"dinner");
 						?>
 						<form method='post' action='/ajax/util/schedule' onsubmit='return saveAjax(this,"저장 중...",null);' style='display:none'>
 							<input type='hidden' name='util_action' value='editDate' />
@@ -154,28 +150,25 @@ function printContent(){
 							<input type="hidden" name="n_year" value="<?php echo $curYear?>" />
 							<input type="hidden" name="n_month" value="<?php echo $curMonth?>" />
 							<input type="hidden" name="n_day" value="<?php echo $datename?>" />
-							<textarea name='s_data' class="form-control" style='resize:vertical;' > 
-                            <?php 
-                            // if ($curmeal != "") {
-                            //     echo "DDDD";
-                            //     printFood($foodJSON, $curMonth, $calender[$i][$j], $mode); 
-                            // } else {
-                            //     echo "DSDFSDF";
-                            // }
-                            ?> 
-                            </textarea>
+							<textarea name='s_data' class="form-control" style='resize:vertical;' > <?php echo htmlspecialchars($curData); ?> </textarea>
 							<div style='text-align:right'>
 								<input type='button' style="margin: 3px" class="btn btn-default" value='취소' onclick='return util_schedule_cancelEdit(this);' />
 								<input type='submit' style="margin: 3px" class="btn btn-default" value='저장' />
 							</div>
                         </form>
                         <div style='width:100%;padding:3px;margin:0;border:0;text-align:center;'><?php
-                            if(strlen($curData) > 0)
-                                echo nl2br($curData);
-                            else if($mode == "normal")
-                                echo "<span style='color:#DDD'>(지정되지 않음)</span>";
-                            else
-                                echo "<span style='color:#DDD'>(입력되지 않음)</span>";
+                            if ($mode == "normal") {
+                                if (strlen($curData) > 0) echo nl2br($curData);
+                                else echo "<span style='color:#DDD'>(지정되지 않음)</span>";
+                            } else {
+                                printFood($foodJSON, $curMonth, $calender[$i][$j], $mealArray($mode));
+                            }
+                            // if(strlen($curData) > 0)
+                            //     echo nl2br($curData);
+                            // else if($mode == "normal")
+                            //     echo "<span style='color:#DDD'>(지정되지 않음)</span>";
+                            // else
+                            //     echo "<span style='color:#DDD'>(입력되지 않음)</span>";
                         ?></div>
 						</td>
 						<?php
