@@ -24,7 +24,6 @@ function printContent(){
 		if(!isset($calender[$j / 7])) $calender[$j / 7] = array();
 		if($i >= 0) $calender[$j / 7][$j % 7] = $i + 1;
     }
-    print_r($calender);
 	$scheduleData = array();
 	$query="SELECT n_day, s_data FROM kmlaonline_schedule_table WHERE n_year=$curYear AND n_month=$curMonth AND s_mode='$mode'";
 	if($res = $mysqli->query($query)){
@@ -153,7 +152,7 @@ function printContent(){
 							<input type="hidden" name="n_year" value="<?php echo $curYear?>" />
 							<input type="hidden" name="n_month" value="<?php echo $curMonth?>" />
 							<input type="hidden" name="n_day" value="<?php echo $datename?>" />
-							<textarea name='s_data' class="form-control" style='resize:vertical;' > <?php if ($curmeal != "") printFood($foodJSON, $curMonth, $curDay, $mode); ?> </textarea>
+							<textarea name='s_data' class="form-control" style='resize:vertical;' > <?php if ($curmeal != "") printFood($foodJSON, $curMonth, $calender[$i][$j], $mode); ?> </textarea>
 							<div style='text-align:right'>
 								<input type='button' style="margin: 3px" class="btn btn-default" value='취소' onclick='return util_schedule_cancelEdit(this);' />
 								<input type='submit' style="margin: 3px" class="btn btn-default" value='저장' />
