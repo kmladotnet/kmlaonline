@@ -115,6 +115,7 @@ function printContent(){
 						else
 							echo "<td style='border-right:1px solid #ccc;border-top:1px solid #ccc;'>";
 						if(!isset($calender[$i][$j])){
+                            echo "NOTSET";
 							echo "</td>";
 							continue;
 						}
