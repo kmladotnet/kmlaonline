@@ -112,8 +112,9 @@ function printMenu($allDay = false) {
 							echo '<li class="food-chart-item food-'.$i.'" style="width: '.intval(100 * $voteCount[$i] / $voteData['count']).'%"></li>';
 						} ?>
 					</ul>
-				<?php }
-                echo isset($scheduleData['food:1'])?nl2br($scheduleData['food:1']):"<span style='color:#DDD'>(입력되지 않음)</span>";
+                <?php }
+                printFood($foodJSON, $curMonth, $curDay, "lunch");
+                // echo isset($scheduleData['food:1'])?nl2br($scheduleData['food:1']):"<span style='color:#DDD'>(입력되지 않음)</span>";
             ?>
         </div>
         <div <?php if(!$allDay) echo 'id="food-dinner" class="night"'; else echo 'class="food"';?>>
@@ -145,8 +146,9 @@ function printMenu($allDay = false) {
 							echo '<li class="food-chart-item food-'.$i.'" style="width: '.intval(100 * $voteCount[$i] / $voteData['count']).'%"></li>';
 						} ?>
 					</ul>
-				<?php }
-                echo isset($scheduleData['food:2'])?nl2br($scheduleData['food:2']):"<span style='color:#DDD'>(입력되지 않음)</span>";
+                <?php }
+                printFood($foodJSON, $curMonth, $curDay, "dinner");
+                // echo isset($scheduleData['food:2'])?nl2br($scheduleData['food:2']):"<span style='color:#DDD'>(입력되지 않음)</span>";
             ?>
         </div>
     </div>
