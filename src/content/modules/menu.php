@@ -1,17 +1,7 @@
 <?php
-function printFood($foodJSON, $month, $day, $whichMeal) {
-    if ($foodJSON != NULL && array_key_exists($month, $foodJSON) && array_key_exists($day, $foodJSON[$month])) {
-        foreach($foodJSON[$month][$day][$whichMeal] as $key => $value) {
-            echo "$value <br />";
-        }
-    } else {
-        echo "DDDDDDD";
-        echo "<span style='color:#a2a2a2'>(입력되지 않음) <br> kmlaonline 관리자에게 연락해주세요!</span>";
-    }
-}
 
 function printMenu($allDay = false) {
-	global $member, $me, $is_morning, $is_afternoon, $is_night, $mysqli, $curYear, $curMonth, $curDay, $foodJSON;
+	global $member, $me, $is_morning, $is_afternoon, $is_night, $mysqli, $curYear, $curMonth, $curDay;
 ?>
     <div style="text-align:center">
         <?php
@@ -37,7 +27,7 @@ function printMenu($allDay = false) {
 			    border: none;
 			    color: transparent!important;
 			    background: transparent!important;
-			">분포</a>
+			">분포!!!</a>
         	<?php echo " {$curMonth}월 {$curDay}일 "; ?>
 			<a class="btn btn-default btn-xs" onclick="
 				if($(this).text().indexOf('분') != -1) {
@@ -46,7 +36,7 @@ function printMenu($allDay = false) {
 				} else {
 				    $('ul.food-chart').velocity('slideUp', {duration: 200, easing: 'ease'});
 				    $(this).html('분포');
-				}">분포
+				}">분포!!!
 			</a>
 		</div>
         <div <?php if(!$allDay) echo 'id="food-breakfast" class="morning"'; else echo 'class="food"';?>>
@@ -78,7 +68,7 @@ function printMenu($allDay = false) {
 							echo '<li class="food-chart-item food-'.$i.'" style="width: '.intval(100 * $voteCount[$i] / $voteData['count']).'%"></li>';
 						} ?>
 					</ul>
-                <?php }
+				<?php }
                 echo isset($scheduleData['food:0'])?nl2br($scheduleData['food:0']):"<span style='color:#DDD'>(입력되지 않음)</span>";
             ?>
         </div>
@@ -98,7 +88,7 @@ function printMenu($allDay = false) {
                     <?php if($voteData['count'] > 0) { ?>
                         <span style="font-size: 1.15em"><?php echo(round($voteData['sum'] / $voteData['count'], 1));?>점</span>
                         (<?php echo $voteData['count']; ?>명)
-                    <?php } else { echo $foodJSON;?>
+                    <?php } else { ?>
                         평점 없음
                     <?php } ?>
                 </div>
