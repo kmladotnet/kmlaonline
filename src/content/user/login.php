@@ -13,7 +13,7 @@ function printFood($foodJSON, $month, $day, $whichMeal) {
 }
 
 function printContent(){
-	global $board, $is_morning, $is_afternoon, $is_night, $mysqli;
+	global $board, $is_morning, $is_afternoon, $is_night, $mysqli, $foodJSON;
 
 	$att = array();
 	$cat = $board->getCategory(false,"login_approved");
