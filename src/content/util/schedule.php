@@ -154,12 +154,12 @@ function printContent(){
 							<input type="hidden" name="n_day" value="<?php echo $datename?>" />
 							<textarea name='s_data' class="form-control" style='resize:vertical;' > 
                             <?php 
-                            if ($curmeal != "") {
-                                echo "DDDD";
-                                printFood($foodJSON, $curMonth, $calender[$i][$j], $mode); 
-                            } else {
-                                echo "DSDFSDF";
-                            }
+                            // if ($curmeal != "") {
+                            //     echo "DDDD";
+                            //     printFood($foodJSON, $curMonth, $calender[$i][$j], $mode); 
+                            // } else {
+                            //     echo "DSDFSDF";
+                            // }
                             ?> 
                             </textarea>
 							<div style='text-align:right'>
