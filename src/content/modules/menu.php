@@ -79,14 +79,12 @@ function printMenu($allDay = false) {
 						} ?>
 					</ul>
                 <?php }
-                printFood($foodJSON, $curMonth, $curDay, "breakfast");
-                // echo isset($scheduleData['food:0'])?nl2br($scheduleData['food:0']):"<span style='color:#DDD'>(입력되지 않음)</span>";
+                echo isset($scheduleData['food:0'])?nl2br($scheduleData['food:0']):"<span style='color:#DDD'>(입력되지 않음)</span>";
             ?>
         </div>
         <div <?php if(!$allDay) echo 'id="food-lunch" class="afternoon"'; else echo 'class="food"';?>>
             <?php
                 if($allDay) {
-                    echo $foodJSON;
                     ?>
                     <div class="food-header">
                         점심
@@ -100,7 +98,7 @@ function printMenu($allDay = false) {
                     <?php if($voteData['count'] > 0) { ?>
                         <span style="font-size: 1.15em"><?php echo(round($voteData['sum'] / $voteData['count'], 1));?>점</span>
                         (<?php echo $voteData['count']; ?>명)
-                    <?php } else { ?>
+                    <?php } else { echo $foodJSON;?>
                         평점 없음
                     <?php } ?>
                 </div>
