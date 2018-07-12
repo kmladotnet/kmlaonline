@@ -24,6 +24,7 @@ function printContent(){
 		if(!isset($calender[$j / 7])) $calender[$j / 7] = array();
 		if($i >= 0) $calender[$j / 7][$j % 7] = $i + 1;
     }
+    print_r($calender);
 	$scheduleData = array();
 	$query="SELECT n_day, s_data FROM kmlaonline_schedule_table WHERE n_year=$curYear AND n_month=$curMonth AND s_mode='$mode'";
 	if($res = $mysqli->query($query)){
