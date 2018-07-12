@@ -86,6 +86,7 @@ function printMenu($allDay = false) {
         <div <?php if(!$allDay) echo 'id="food-lunch" class="afternoon"'; else echo 'class="food"';?>>
             <?php
                 if($allDay) {
+                    echo $foodJSON;
                     ?>
                     <div class="food-header">
                         점심
