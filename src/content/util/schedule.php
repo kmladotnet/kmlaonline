@@ -161,7 +161,7 @@ function printContent(){
                                 if (strlen($curData) > 0) echo nl2br($curData);
                                 else echo "<span style='color:#DDD'>(지정되지 않음)</span>";
                             } else {
-                                printFood($foodJSON, $curMonth, $calender[$i][$j], $mealArray($mode));
+                                printFood($foodJSON, $curMonth, $calender[$i][$j], $mealArray[$mode]);
                             }
                             // if(strlen($curData) > 0)
                             //     echo nl2br($curData);
