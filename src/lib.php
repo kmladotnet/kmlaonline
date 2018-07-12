@@ -1319,10 +1319,6 @@ $maxUploadFileSize = convertToBytes( ini_get( 'upload_max_filesize' ) );
 
 // 식단 출력용 함수 by paco
 function printFood($foodJSON, $month, $day, $whichMeal) {
-    print_r($foodJSON);
-    echo $month . "<br>";
-    echo $day . "<br>";
-    echo $whichMeal . "<br>";
     if ($foodJSON != NULL && array_key_exists($month, $foodJSON) && array_key_exists($day, $foodJSON[$month])) {
         foreach($foodJSON[$month][$day][$whichMeal] as $key => $value) {
             echo "$value <br />";
