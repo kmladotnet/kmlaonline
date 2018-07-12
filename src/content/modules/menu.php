@@ -11,7 +11,7 @@ function printFood($foodJSON, $month, $day, $whichMeal) {
 }
 
 function printMenu($allDay = false) {
-	global $member, $me, $is_morning, $is_afternoon, $is_night, $mysqli, $curYear, $curMonth, $curDay;
+	global $member, $me, $is_morning, $is_afternoon, $is_night, $mysqli, $curYear, $curMonth, $curDay, $foodJSON;
 ?>
     <div style="text-align:center">
         <?php
