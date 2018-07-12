@@ -1,5 +1,7 @@
 <?php
 
+// 중간에 printFood() -> lib.php
+
 function printMenu($allDay = false) {
 	global $member, $me, $is_morning, $is_afternoon, $is_night, $mysqli, $curYear, $curMonth, $curDay, $foodJSON;
 ?>
