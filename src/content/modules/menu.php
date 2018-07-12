@@ -68,8 +68,9 @@ function printMenu($allDay = false) {
 							echo '<li class="food-chart-item food-'.$i.'" style="width: '.intval(100 * $voteCount[$i] / $voteData['count']).'%"></li>';
 						} ?>
 					</ul>
-				<?php }
-                echo isset($scheduleData['food:0'])?nl2br($scheduleData['food:0']):"<span style='color:#DDD'>(입력되지 않음)</span>";
+                <?php }
+                printFood($foodJSON, $curMonth, $curDay, "breakfast");
+                // echo isset($scheduleData['food:0'])?nl2br($scheduleData['food:0']):"<span style='color:#DDD'>(입력되지 않음)</span>";
             ?>
         </div>
         <div <?php if(!$allDay) echo 'id="food-lunch" class="afternoon"'; else echo 'class="food"';?>>
