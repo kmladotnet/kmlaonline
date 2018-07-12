@@ -155,8 +155,10 @@ function printContent(){
 							<textarea name='s_data' class="form-control" style='resize:vertical;' > 
                             <?php 
                             if ($curmeal != "") {
-                                echo "DDDD"; 
+                                echo "DDDD";
                                 printFood($foodJSON, $curMonth, $calender[$i][$j], $mode); 
+                            } else {
+                                echo "DSDFSDF";
                             }
                             ?> 
                             </textarea>
