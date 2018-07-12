@@ -2,15 +2,15 @@
 if(isset($_SESSION['user'])) redirectTo((isset($_REQUEST['returnto']) && $_REQUEST['returnto'] != "") ? $_REQUEST['returnto'] : "/");
 $title = "로그인 - " . $title;
 
-function printFood($foodJSON, $month, $day, $whichMeal) {
-    if ($foodJSON != NULL && array_key_exists($month, $foodJSON) && array_key_exists($day, $foodJSON[$month])) {
-        foreach($foodJSON[$month][$day][$whichMeal] as $key => $value) {
-            echo "$value <br />";
-        }
-    } else {
-        echo "<span style='color:#a2a2a2'>(입력되지 않음) <br> kmlaonline 관리자에게 연락해주세요!</span>";
-    }
-}
+// function printFood($foodJSON, $month, $day, $whichMeal) {
+//     if ($foodJSON != NULL && array_key_exists($month, $foodJSON) && array_key_exists($day, $foodJSON[$month])) {
+//         foreach($foodJSON[$month][$day][$whichMeal] as $key => $value) {
+//             echo "$value <br />";
+//         }
+//     } else {
+//         echo "<span style='color:#a2a2a2'>(입력되지 않음) <br> kmlaonline 관리자에게 연락해주세요!</span>";
+//     }
+// }
 
 function printContent(){
 	global $board, $is_morning, $is_afternoon, $is_night, $mysqli, $foodJSON;
