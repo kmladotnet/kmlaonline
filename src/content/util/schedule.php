@@ -152,7 +152,14 @@ function printContent(){
 							<input type="hidden" name="n_year" value="<?php echo $curYear?>" />
 							<input type="hidden" name="n_month" value="<?php echo $curMonth?>" />
 							<input type="hidden" name="n_day" value="<?php echo $datename?>" />
-							<textarea name='s_data' class="form-control" style='resize:vertical;' > <?php if ($curmeal != "") printFood($foodJSON, $curMonth, $calender[$i][$j], $mode); ?> </textarea>
+							<textarea name='s_data' class="form-control" style='resize:vertical;' > 
+                            <?php 
+                            if ($curmeal != "") {
+                                echo "DDDD"; 
+                                printFood($foodJSON, $curMonth, $calender[$i][$j], $mode); 
+                            }
+                            ?> 
+                            </textarea>
 							<div style='text-align:right'>
 								<input type='button' style="margin: 3px" class="btn btn-default" value='취소' onclick='return util_schedule_cancelEdit(this);' />
 								<input type='submit' style="margin: 3px" class="btn btn-default" value='저장' />
