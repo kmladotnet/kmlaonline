@@ -5,6 +5,7 @@ function printFood($foodJSON, $month, $day, $whichMeal) {
             echo "$value <br />";
         }
     } else {
+        echo "DDDDDDD";
         echo "<span style='color:#a2a2a2'>(입력되지 않음) <br> kmlaonline 관리자에게 연락해주세요!</span>";
     }
 }
