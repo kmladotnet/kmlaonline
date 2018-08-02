@@ -81,7 +81,8 @@ function printContent(){ ?>
 								<th style="width:120px;"><?php echo lang("generic","name"); ?></th>
 								<td>
                                     <div class="form-group">
-                                        <input class="form-control" type="text" name="s_kor_name" style="width:100%" <?php echo isset($_POST['s_kor_name'])?"value='".htmlspecialchars($_POST['s_kor_name'])."'":""?> required/>
+                                        <input class="form-control" type="text" name="s_kor_name" style="width:100%" <?php 
+                                        echo isset($_POST['s_kor_name'])?"value='".trim(htmlspecialchars($_POST['s_kor_name']))."'":""?> required/>
                                     </div>
                                 </td>
 							</tr>
