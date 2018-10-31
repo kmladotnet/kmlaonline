@@ -514,15 +514,15 @@ function addNotification($from, $target, $kind, $msg, $url) {
     $result['href'] = notificationUrlToRealUrl($url);
     $result['profile_pic'] = getProfilePictureUrl($from);
 
-    $context = new ZMQContext();
-    $s = $msg;
-    $s .= "<br><small>방금 전</small>";
-    $result['desc'] = $s;
-    $result['category'] = 'notification-' . $target;
+    //$context = new ZMQContext();
+    //$s = $msg;
+    //$s .= "<br><small>방금 전</small>";
+    //$result['desc'] = $s;
+    //$result['category'] = 'notification-' . $target;
 
-    $socket = $context->getSocket(ZMQ::SOCKET_PUSH, 'my pusher');
-    $socket->connect("tcp://localhost:5555");
-    $socket->send(json_encode($result));
+    //$socket = $context->getSocket(ZMQ::SOCKET_PUSH, 'my pusher');
+    //$socket->connect("tcp://localhost:5555");
+    //$socket->send(json_encode($result));
 }
 
 function getProfilePictureUrl($n_id) {
