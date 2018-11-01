@@ -96,9 +96,8 @@ if($is_morning && date("H") >= 22) {
 }
 $foodJSON = NULL;
 if (file_exists("/srv/scripts/food/data.json")) {
-    exec("rm /srv/scripts/food/data.json");
+    $foodJSON = json_decode(file_get_contents("/srv/scripts/food/data.json"), true);
 }
-$foodJSON = json_decode(file_get_contents("/srv/scripts/food/data.json"), true);
 
 function redirectAlert($lnk = false, $alert = false) {
 	?>
