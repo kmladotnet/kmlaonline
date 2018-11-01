@@ -291,7 +291,7 @@ class Soreemember{
 			while ($row = $res->fetch_array(MYSQLI_ASSOC)){
 				$res->close();
 				if($this->mysqli->more_results())$this->mysqli->next_result();
-				if($withpw === false){
+				if($withpw === false) {
 					unset($row['s_pw'], $row['s_pw_salt'], $row['s_pw_hash']);
 				}
 				$this->member_cache["n_id:".$row['n_id']]=$this->member_cache["s_id:".$row['s_id']]=$this->member_cache["s_email:".$row['s_email']]=$row;

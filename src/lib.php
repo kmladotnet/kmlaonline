@@ -95,8 +95,8 @@ if($is_morning && date("H") >= 22) {
     $curDay = date("j", strtotime("+1 day"));
 }
 $foodJSON = NULL;
-if (file_exists("/srv/scripts/data.json")) {
-    $foodJSON = json_decode(file_get_contents("/srv/scripts/data.json"), true);
+if (file_exists("/srv/scripts/food/data.json")) {
+    $foodJSON = json_decode(file_get_contents("/srv/scripts/food/data.json"), true);
 }
 
 function redirectAlert($lnk = false, $alert = false) {

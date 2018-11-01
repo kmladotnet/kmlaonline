@@ -7,14 +7,14 @@
 			<td style="width:100px;">
 				<?php if($me['s_pic']){ ?>
 					<a target="_blank" href="<?php echo htmlspecialchars(str_replace("picture/","picture_full/",$me['s_pic']))?>" data-toggle="lightbox"><img src="<?php echo htmlspecialchars($me['s_pic'])?>" class="userarea-image" /></a>
-				<?php }else{ ?>
+				<?php } else { ?>
 					<img class="userarea-image" src="/images/no-profile.png" />
 				<?php } ?>
 			</td>
 			<td style="text-align:center" id="profile_nav">
 				<form method="post" action="/user/logout" id="logout_form" onsubmit="return true;">
 					<input type="hidden" name="returnto" value="/" />
-					<div><?php putUserCard($me); ?></div>
+					<div><?php putUserCard($me); // lib.php ?></div>
 					<div><a href="<?php echo "/user/view/{$me['n_id']}/{$me['s_id']}"?>"><?php echo lang("generic","information"); ?></a> | <a href="/user/message"><?php echo lang("generic","message"); ?></a></div>
 					<div><a href="/user/settings"><?php echo lang("generic","setting"); ?></a> | <a href="/user/manage"><?php echo lang("generic","manage"); ?></a></div>
 					<div><a href="/board/special:list-all">모든글</a><?php if($me['n_admin']>0){ ?> | <a href="/admin"><?php echo lang("generic","admin"); ?></a><?php } ?></div>
