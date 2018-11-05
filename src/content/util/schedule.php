@@ -77,7 +77,7 @@ function printContent(){
             <?php echo $mode == 'food:0' ? '아침식단' : ($mode == "food:1" ? '점심식단' : ($mode == "food:2" ? '저녁식단' : '일정')); ?>
         </h2>
 		<div style="float:right">
-            <a href="http://hes.kwe.go.kr/sts_sci_md00_001.do?schulCode=K100000414&amp;schulCrseScCode=4&amp;schulKndScCode=04"> 나이스에서 식단 보기 </a> |
+            <a href="https://stu.kwe.go.kr/edusys.jsp?page=sts_m42310"> 나이스에서 식단 보기 </a> |
 			<a style='font-weight:bold;<?php if($mode=="food:0") echo "color:black;"; ?>' href="/util/schedule?mode=food:0&amp;year=<?php echo $curYear?>&amp;month=<?php echo $curMonth?>">아침식단</a> | 
 			<a style='font-weight:bold;<?php if($mode=="food:1") echo "color:black;"; ?>' href="/util/schedule?mode=food:1&amp;year=<?php echo $curYear?>&amp;month=<?php echo $curMonth?>">점심식단</a> | 
 			<a style='font-weight:bold;<?php if($mode=="food:2") echo "color:black;"; ?>' href="/util/schedule?mode=food:2&amp;year=<?php echo $curYear?>&amp;month=<?php echo $curMonth?>">저녁식단</a>
