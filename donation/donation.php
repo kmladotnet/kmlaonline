@@ -1,5 +1,4 @@
 <?php
-
 echo "hello";
 
 // require_once('test-config.php');
