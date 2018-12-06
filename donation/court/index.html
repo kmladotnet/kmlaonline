@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>KMLAONLINE</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <script src="script.js"></script>
+    <script src="lib.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row" id="top">
+            <h1>KMLA COURT LIST</h1>
+        </div>
+        <div class="search row" id="search" style="display:flex">
+            <!-- 이름 학년 입력하면 좌석 나오는 폼 -->
+            <div style="width: 25%"></div>
+            <div id="searchBox">
+                <form class="form-horizontal">
+                    <label for="searchName">Name</label>
+                    <input class="radius" id="searchName" type="search" placeholder=" Your Name" />
+                    <br />
+                    <label>Grade</label>
+                    <div class="grade"><label for="ten">10</label> <input style="margin-left:2px" id="ten" type="radio"
+                            name="searchGrade" value="10" /></div>
+                    <div class="grade"><label for="ele">11</label><input style="margin-left:2px" id="ele" type="radio"
+                            name="searchGrade" value="11" /></div>
+                    <div class="grade"><label for="twe">12</label><input style="margin-left:2px" id="twe" type="radio"
+                            name="searchGrade" value="12" /></div>
+                </form>
+            </div>
+            <div style="width:25%">
+                <div>
+                    <form onsubmit="return false">
+                        <button class="btn btn-default btn-sm" id="searchbtn" type="button" onclick="getAttendance()"><span
+                                class="glyphicon glyphicon-search"></span>SEARCH</button>
+                    </form>
+                </div>
+                <div id="displayText">
+
+                </div>
+            </div>
+        </div>
+        <!-- Accusation Box -->
+        <div class="accuse row" id="accuse">
+            <!-- Box No.1 -->
+            <div class="col-md-4" id="box1" style="display:inline-block">
+                <form class="form-horizontal" onsubmit="return false">
+                    <!-- Name -->
+                    <div style="margin-bottom:10px">
+                        <label for="name">Name</label>
+                        <input class="radius" id="name" type="text" placeholder=" Name" onkeydown="if (event.keyCode == 13) document.getElementById('button').click()" />
+                    </div>
+                    <!-- Grade -->
+                    <div style="margin-bottom:10px">
+                        <label>Grade</label>
+                        <div class="grade"><label for="one">10</label> <input style="margin-left:2px" id="one" type="radio"
+                                name="grade" value="10" /></div>
+                        <div class="grade"><label for="two">11</label><input style="margin-left:2px" id="two" type="radio"
+                                name="grade" value="11" /></div>
+                        <div class="grade"><label for="three">12</label><input style="margin-left:2px" id="three" type="radio"
+                                name="grade" value="12" /></div>
+                    </div>
+                    <!-- Date -->
+                    <div style="margin-bottom:10px">
+                        <label for="date">Date</label>
+                        <input class="radius" id="date" type="date" name="date" />
+                    </div>
+                </form>
+            </div>
+            <!-- Box No.2 -->
+            <div class="col-md-4" id="box2" style="display:inline-block">
+                <form class="form-horizontal" onsubmit="return false">
+                    <!-- Article with + - glyphicons -->
+                    <div style="margin-bottom: 4px">
+                        <label for="article">Violated Article</label>
+                        <button type="button" class="btn btn-default btn-xs" onclick="addArticleBox()">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </button>
+                        <button type="button" class="btn btn-default btn-xs" onclick="removeArticleBox()">
+                            <span class="glyphicon glyphicon-minus"></span>
+                        </button>
+                    </div>
+
+                    <div id="articleBox" style="margin-bottom: 10px">
+                        <div style="display:inline">
+                            <input class="radius" id="article" list="articlelist" placeholder=" Select Violation" />
+                            <datalist id="articlelist"></datalist>
+                        </div>
+                    </div>
+                    <!-- Accuser -->
+                    <div>
+                        <label for="accuser">Accused by</label>
+                        <input class="radius" id="accuser" type="text" placeholder=" Accuser" onkeydown="if (event.keyCode == 13) document.getElementById('button').click()" />
+                    </div>
+                </form>
+            </div>
+            <!-- Box 3 -->
+            <div class="col-md-1" id="submit" style="display:inline-block">
+                <form class="form-horizontal">
+                    <div style="margin-bottom: 5px">
+                        <button class="btn btn-default" id="button" type="button" style="border-color:rgb(150, 150, 150)"
+                            onclick="appendData()">
+                            <span class="glyphicon glyphicon-send"></span> SUBMIT</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Court List -->
+        <div>
+            <table class="row table table-striped" id="list">
+                <thead>
+                    <tr style="background-color:rgba(102, 178, 244, 0.4)">
+                        <td>No</td>
+                        <td>Grade</td>
+                        <td>Name</td>
+                        <td>Date</td>
+                        <td>Accused by</td>
+                        <td>Violated Article</td>
+                        <td>Points</td>
+                        <td>Sum</td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    <script>
+        function addOptions() {
+            console.log("function called");
+            let list = document.getElementById('articlelist');
+            let len = articles[0].length;
+
+            for (let i = 0; i < len; i++) {
+                let ele = document.createElement('option');
+                ele.value = articles[0][i];
+                list.appendChild(ele);
+            }
+        }
+        addOptions();
+    </script>
+</body>
+
+</html>
