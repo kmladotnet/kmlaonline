@@ -114,9 +114,6 @@ if($me['n_level']!=0){
                     </div>
                 </div>
             </div>
-            <div class="menu1">
-                <div class="menu1_text"><a href="http://kmlapetition.com" class="menu2">학생청원</a></div>
-            </div>
 </div>
 <div id="slidedown2" class="slidedown_holder">
     <div class="button slidedown_button" id="slidedown2_button" style="z-index:1;">
