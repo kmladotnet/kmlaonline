@@ -17,7 +17,7 @@
 					<div><?php putUserCard($me); // lib.php ?></div>
 					<div><a href="<?php echo "/user/view/{$me['n_id']}/{$me['s_id']}"?>"><?php echo lang("generic","information"); ?></a> | <a href="/user/message"><?php echo lang("generic","message"); ?></a></div>
 					<div><a href="/user/settings"><?php echo lang("generic","setting"); ?></a> | <a href="/user/manage"><?php echo lang("generic","manage"); ?></a></div>
-					<div><a href="/board/special:list-all">모든글</a><?php if($me['n_admin']>0){ ?> | <a href="/admin"><?php echo lang("generic","admin"); ?></a><?php } ?></div>
+					<div><a href="/board/special:list-all">모든글</a><?php if($me['n_admin'] > 0){ ?> | <a href="/admin"><?php echo lang("generic","admin"); ?></a><?php } ?></div>
 					<a href="/user/logout" onclick="$('#logout_form').submit(); return false;"><?php echo lang("generic","logout"); ?></a>
 				</form>
 			</td>

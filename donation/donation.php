@@ -1,5 +1,5 @@
 <?php
-require_once('test-config.php');
+require_once('/srv/http/kmla/src/db-config.php');
 
 if(isset($_GET['user']) && $_GET['user'] == 'paco')
 {

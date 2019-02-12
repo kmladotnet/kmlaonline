@@ -13,7 +13,7 @@ class Soreemember{
 	public function getTableData(){ return $this->table_data; }
 
 	function prepareFirstUse(){
-		$query=array();
+		$query = array();
 		array_push($query,"CREATE TABLE IF NOT EXISTS `$this->table_data` (".
 								"n_id BIGINT NOT NULL AUTO_INCREMENT,".
 
