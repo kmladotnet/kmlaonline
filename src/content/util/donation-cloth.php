@@ -21,7 +21,7 @@ function printContent(){
 	?>
 
 	<style>
-	td p{
+	td p {
 		position: relative;
 		top: 5px;
 	}
