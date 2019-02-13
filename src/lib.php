@@ -94,9 +94,12 @@ if($is_morning && date("H") >= 22) {
     $curMonth = date("n", strtotime("+1 day"));
     $curDay = date("j", strtotime("+1 day"));
 }
+
 $foodJSON = NULL;
-if (file_exists("/srv/scripts/food/data.json")) {
-    $foodJSON = json_decode(file_get_contents("/srv/scripts/food/data.json"), true);
+$food_path = "/scripts/food/data.json"; // data.json의 위치
+
+if (file_exists($food_path)) {
+    $foodJSON = json_decode(file_get_contents($food_path), true);
 }
 
 function redirectAlert($lnk = false, $alert = false) {
