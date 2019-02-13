@@ -27,7 +27,7 @@ function getCurrentTable(){
 			$arr[$row['n_category']][$row['n_num']] = array($row['s_title'], $row['n_who'], $row['s_status'], $row['s_type'], $row['s_owner']);
 		}
 		$res->close();
-		if($mysqli->more_results())$mysqli->next_result();
+		if($mysqli->more_results()) $mysqli->next_result();
 		return $arr;
 	}
 }
@@ -88,7 +88,7 @@ function printContent(){
 						<!-- 신청자 column -->
 						<!-- if n_who is not 0, 신청자가 있을 때  -->
 						<?php if($currentTable[$category][$num][1] != 0){
-						$usr=$member->getMember($currentTable[$category][$num][1]);
+						$usr = $member->getMember($currentTable[$category][$num][1]);
 						?>
 						<!-- 그 신청자가 본인일 때, set text color to #d0d0f0 -->
 						<td style='text-align:center;<?php if($usr['n_id'] == $me['n_id']) echo "background:#DDF";?>'><a href="/user/view/<?php echo $usr['n_id']."/".$usr['s_id']?>"><?php putUserCard($usr); ?></a></td>
@@ -116,7 +116,7 @@ function printContent(){
 								<input type="hidden" name="util_action" value="add" />
 								<input type="submit" class="btn btn-sm btn-default" value="신청" />
 							</form>
-						<?php }else{ ?>
+						<?php } else { ?>
 							<p style="width: 150px;">기한이 아닙니다</p>
 						<?php } ?>
 						</td>
