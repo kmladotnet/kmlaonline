@@ -70,3 +70,13 @@ sudo pacman -S pkgname
 ## KMLA Online 멤버 관리 ##
 
 자퇴생의 경우 로그인시 대기 알림이 뜨게 함. (/srv/http/kmla/board/user_pending_list 에서 'n_id.txt' 형태의 파일을 만들어 저장.)
+
+## 급식 자동화 ##
+
+급식 정보는 /scripts/food/data.json에서 가져옵니다. 이 정보는 cron에 의해 열흘에 한 번씩 갱신되며,
+data.json 파일은 /scripts/food 디렉토리에 있는 python, java 파일들에 의해 생성됩니다.
+만약 급식이 갱신되지 않아 웹에서 보이지 않는다면 /scripts/food/update.sh 를 실행.
+```bash
+/scripts/food/update.sh
+```
+자세한 정보는 /scripts/food/README.txt 참조!
