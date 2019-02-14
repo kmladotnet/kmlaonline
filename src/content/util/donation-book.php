@@ -9,7 +9,7 @@
  * 이는 python과 openpyxl이라는 module을 사용하였습니다.
  * 이는 서버 상의 디렉토리 /srv/scripts/donation에 위치해 있습니다. excel 파일을 kmla/donation에
  * donations.xlsx라는 이름으로 넣은 이후(excel 파일의 시트 형식은 엄격하게 맞추어야 합니다. 이는
- * 전 해의 excel 파일을 참고하거나 권해찬에게 연락하세요) scripts/donation에 있는 excel.py를 실행(sudo)
+ * 전 해의 excel 파일을 참고하거나 21기 권해찬에게 연락하세요) scripts/donation에 있는 excel.py를 실행(with root privelage)
  * 하면 donation_output.txt라는 파일이 생성됩니다. 이 파일에는 query문이 들어가 있는데,
  * https://kmlaonline.net/donation/donation.php?user=paco를 들어가면 그 query문이 실행되어 database가
  * initialize됩니다.
@@ -20,7 +20,6 @@ $title = "서적 신청 - " . $title;
 function getCurrentTable(){
 	global $mysqli;
 	$query = "SELECT * FROM kmlaonline_donation_new";
-	// $query = "SELECT * FROM kmlaonline_donation_table";
     // fetch_array documentation http://php.net/manual/en/function.mysql-fetch-array.php
 	if($res = $mysqli->query($query)){
 		$arr = array();
@@ -28,12 +27,11 @@ function getCurrentTable(){
 			$arr[$row['n_category']][$row['n_num']] = array($row['s_title'], $row['n_who'], $row['s_status'], $row['s_type'], $row['s_owner']);
 		}
 		$res->close();
-		if($mysqli->more_results())$mysqli->next_result();
+		if($mysqli->more_results()) $mysqli->next_result();
 		return $arr;
 	}
 }
 function printContent(){
-    // $member: $me:
 	global $member, $me;
 	$currentTable = getCurrentTable();
 	?>
@@ -90,7 +88,7 @@ function printContent(){
 						<!-- 신청자 column -->
 						<!-- if n_who is not 0, 신청자가 있을 때  -->
 						<?php if($currentTable[$category][$num][1] != 0){
-						$usr=$member->getMember($currentTable[$category][$num][1]);
+						$usr = $member->getMember($currentTable[$category][$num][1]);
 						?>
 						<!-- 그 신청자가 본인일 때, set text color to #d0d0f0 -->
 						<td style='text-align:center;<?php if($usr['n_id'] == $me['n_id']) echo "background:#DDF";?>'><a href="/user/view/<?php echo $usr['n_id']."/".$usr['s_id']?>"><?php putUserCard($usr); ?></a></td>
@@ -118,7 +116,7 @@ function printContent(){
 								<input type="hidden" name="util_action" value="add" />
 								<input type="submit" class="btn btn-sm btn-default" value="신청" />
 							</form>
-						<?php }else{ ?>
+						<?php } else { ?>
 							<p style="width: 150px;">기한이 아닙니다</p>
 						<?php } ?>
 						</td>

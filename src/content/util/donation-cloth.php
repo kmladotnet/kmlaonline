@@ -5,7 +5,7 @@ function getCurrentTable(){
 	global $mysqli;
 	$query="SELECT * FROM kmlaonline_donation_new";
 	if($res=$mysqli->query($query)){
-		$arr=array();
+		$arr = array();
 		while ($row = $res->fetch_array(MYSQLI_ASSOC)){
 			$arr[$row['n_category']][$row['n_num']] = array($row['s_title'], $row['n_who'], $row['s_status'], $row['s_type'], $row['s_owner']);
 		}
@@ -21,7 +21,7 @@ function printContent(){
 	?>
 
 	<style>
-	td p{
+	td p {
 		position: relative;
 		top: 5px;
 	}
