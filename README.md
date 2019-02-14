@@ -79,4 +79,8 @@ data.json 파일은 /scripts/food 디렉토리에 있는 python, java 파일들�
 ```bash
 /scripts/food/update.sh
 ```
+cron 수정하기
+```bash
+crontab -e
+```
 자세한 정보는 /scripts/food/README.txt 참조!
