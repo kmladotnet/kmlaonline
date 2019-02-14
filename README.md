@@ -84,3 +84,10 @@ cron 수정하기
 crontab -e
 ```
 자세한 정보는 /scripts/food/README.txt 참조!
+
+## 기부물품 페이지 ##
+기부물품 자동화 이후 기부물품과 관련된 데이터는 kmlaonline_donation_new 테이블에 저장됩니다.
+페이지는 kmlaonline.net/util/donation-cloth, /util/donation-book 두 개로 나뉘어져 있습니다.
+자동화 관련 파일들은 /scripts/donation/ 디렉토리에 있으며, 기부물품을 /scripts/donation/sample.xlsx에 나와있는 형식 그대로(엄격히!)
+엑셀 파일에 입력해 /scripts/donation/ 디렉토리 안에 넣습니다. 그 뒤 /scripts/donation/insert.py 를 실행하면 데이터베이스에 자동으로 입력이 됩니다.
+
