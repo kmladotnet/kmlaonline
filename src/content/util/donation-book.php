@@ -9,7 +9,7 @@
  * 이는 python과 openpyxl이라는 module을 사용하였습니다.
  * 이는 서버 상의 디렉토리 /srv/scripts/donation에 위치해 있습니다. excel 파일을 kmla/donation에
  * donations.xlsx라는 이름으로 넣은 이후(excel 파일의 시트 형식은 엄격하게 맞추어야 합니다. 이는
- * 전 해의 excel 파일을 참고하거나 21기 권해찬에게 연락하세요) scripts/donation에 있는 excel.py를 실행(with root privelage)
+ * 전 해의 excel 파일을 참고하거나 22기 안주언에게 연락하세요) scripts/donation에 있는 excel.py를 실행(with root privelage)
  * 하면 donation_output.txt라는 파일이 생성됩니다. 이 파일에는 query문이 들어가 있는데,
  * https://kmlaonline.net/donation/donation.php?user=paco를 들어가면 그 query문이 실행되어 database가
  * initialize됩니다.
@@ -169,7 +169,7 @@ function printContent(){
 					<td>신청자가 없습니다</td>
 
 					<td>
-					<?php $date1 = new DateTime("now"); $date2 = new DateTime("2018-02-05");
+					<?php $date1 = new DateTime("now"); $date2 = new DateTime("2019-02-20");
 					if($date1 >= $date2) { ?>
 						<form method="post" action="/proc/util/donation" onsubmit="return saveAjax(this,'신청중...');">
 							<input type="hidden" name="from" value="book">
