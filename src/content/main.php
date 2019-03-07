@@ -255,6 +255,7 @@ function printEverydayLinks(){
 	global $board;
     ?>
     <div class="everyday-links">
+         <button type="button" id="main-theme-button" class="btn btn-default" onclick="location = '/util/barbeque'">바베큐 신청</button>
         <button type="button" id="main-theme-button" class="btn btn-default" onclick="location = '/util/outdoor'">외출외박 신청</button>
         <select id="everyday-other" class="selectpicker" data-style="btn-default" title="바로가기" data-width="180px" onchange="location = this.options[this.selectedIndex].value;">
             <?php
@@ -279,6 +280,16 @@ function printEverydayLinks(){
             <option value="/util/karaoke">노래방 신청</option>
 			<!-- 기부 시즌 아닐 때는 comment out -->
 			<option value="/util/donation-cloth">기부물품 신청</option>
+        </select>
+        <select id="everyday-other" class="selectpicker" data-style="btn-default" title="통합정보망" data-width="180px" onchange="location = this.options[this.selectedIndex].value;">
+            <option data-divider="true"></option>
+            <option value="/board/department_environment">수업반</option>
+            <option value="/board/student_mpt">행정반</option>
+            <option value="/board/student_ambassador">생일</option>
+            <option value="/util/lectureroom">전화번호</option>
+            <option value="/util/karaoke">기숙사 방</option>
+			<!-- 기부 시즌 아닐 때는 comment out -->
+			<option value="/util/donation-cloth">등급표</option>
         </select>
     </div>
     <?php
