@@ -298,8 +298,14 @@ function printEverydayLinks(){
         <script language="javascript">
             function dataclick() {
                 var selectedValue = datasheet.options[datasheet.selectedIndex].value;
-                alert(selectedValue);
-                window.open("https://view.officeapps.live.com/op/view.aspx?src=./KMLA-통합정보-2019-1.xlsx0", "다운로드", "width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes");
+                switch(selectedValue){
+                    case 1:
+                    alert(selectedValue);
+                    break;
+                    default:
+                    alert("error");
+                }
+                //window.open("https://view.officeapps.live.com/op/view.aspx?src=./KMLA-통합정보-2019-1.xlsx0", "다운로드", "width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes");
             }
             </script>
     </div>
