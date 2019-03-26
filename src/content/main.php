@@ -256,7 +256,7 @@ function printEverydayLinks(){
     ?>
     <div class="everyday-links">
         <!--button type="button" id="main-theme-button" class="btn btn-default" onclick="location = '/util/barbeque'">바베큐 신청</button>-->
-        <button> 
+        <button id="main-theme-button" class="btn btn-default"> 
             <a href="KMLA-통합정보-2019-1.xlsx" download> 통합정보망 다운로드 </a>
         </button>   
         <button type="button" id="main-theme-button" class="btn btn-default" onclick="location = '/util/outdoor'">외출외박 신청</button>
