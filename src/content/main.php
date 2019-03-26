@@ -278,7 +278,7 @@ function printEverydayLinks(){
             <option value="/board/student_ambassador">대외홍보단</option>
             <option value="/util/lectureroom">공강 신청</option>
             <option value="/util/karaoke">노래방 신청</option>
-            <option href='https://view.officeapps.live.com/op/view.aspx?src=./KMLA-통합정보-2019-1.xlsx' target='_blank' onclick='window.open(this.href); return false;'>통합정보망</option>
+            <option target='_blank' onclick='window.open("https://view.officeapps.live.com/op/view.aspx?src=./KMLA-통합정보-2019-1.xlsx"); return false;'>통합정보망</option>
             <?php
 			if(date(n)==2 )
                echo  "<option value='/util/donation-cloth'>기부물품 신청</option>";
