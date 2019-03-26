@@ -272,13 +272,19 @@ function printEverydayLinks(){
                     echo "<option value='/board/student_judicial/view/{$courtPost['n_id']}' data-content='법정리스트 <span>(".date("n월 j일", $courtPost['n_writedate']).")</span>'>법정리스트</option>";
                 }
             ?>
+
             <option data-divider="true"></option>
             <option value="/board/department_environment">환경부</option>
             <option value="/board/student_mpt">MPT</option>
             <option value="/board/student_ambassador">대외홍보단</option>
             <option value="/util/lectureroom">공강 신청</option>
             <option value="/util/karaoke">노래방 신청</option>
-            <option onclick='window.open("https://view.officeapps.live.com/op/view.aspx?src=./KMLA-통합정보-2019-1.xlsx")'>통합정보망</option>
+            <option onclick="dataclick();">통합정보망</option>
+            <script>
+            function dataclick() {
+                window.open("https://view.officeapps.live.com/op/view.aspx?src=./KMLA-통합정보-2019-1.xlsx");
+                return false;
+            }
             <?php
 			if(date(n)==2 )
                echo  "<option value='/util/donation-cloth'>기부물품 신청</option>";
