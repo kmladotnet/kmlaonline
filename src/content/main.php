@@ -283,7 +283,6 @@ function printEverydayLinks(){
             <script>
             function dataclick() {
                 window.open("https://view.officeapps.live.com/op/view.aspx?src=./KMLA-통합정보-2019-1.xlsx");
-                return false;
             }
             <?php
 			if(date(n)==2 )
