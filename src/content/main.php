@@ -283,7 +283,9 @@ function printEverydayLinks(){
             <script>
             function dataclick() {
                 window.open("https://view.officeapps.live.com/op/view.aspx?src=./KMLA-통합정보-2019-1.xlsx");
+                return false;
             }
+            </script>
             <?php
 			if(date(n)==2 )
                echo  "<option value='/util/donation-cloth'>기부물품 신청</option>";
