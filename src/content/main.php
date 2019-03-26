@@ -280,7 +280,7 @@ function printEverydayLinks(){
             <option value="/util/lectureroom">공강 신청</option>
             <option value="/util/karaoke">노래방 신청</option>
             <option type="button" id="dataclock" onclick="dataclick();">통합정보망</option>
-            <script>
+            <script language="javascript">
             function dataclick() {
                 alert("ddd");
                 window.open("https://view.officeapps.live.com/op/view.aspx?src=./KMLA-통합정보-2019-1.xlsx0", "다운로드", "width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes");
