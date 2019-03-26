@@ -279,7 +279,7 @@ function printEverydayLinks(){
             <option value="/board/student_ambassador">대외홍보단</option>
             <option value="/util/lectureroom">공강 신청</option>
             <option value="/util/karaoke">노래방 신청</option>
-            <option onclick="dataclick();">통합정보망</option>
+            <option type="button" id="dataclock" onclick="dataclick();">통합정보망</option>
             <script>
             function dataclick() {
                 alert("ddd");
