@@ -257,6 +257,7 @@ function printEverydayLinks(){
     <div class="everyday-links">
         <!--button type="button" id="main-theme-button" class="btn btn-default" onclick="location = '/util/barbeque'">바베큐 신청</button>-->
         <button type="button" id="main-theme-button" class="btn btn-default" onclick="location = '/util/outdoor'">외출외박 신청</button>
+        <button type="button" id="main-theme-button" class="btn btn-default" onclick="dataclick();">통합정보망</button>
         <select id="everyday-other" class="selectpicker" data-style="btn-default" title="바로가기" data-width="180px" onchange="location = this.options[this.selectedIndex].value;">
             <?php
                 foreach(array("everyday_parcel" => "택배", "everyday_guidance" => "선도", "leftover" => "잔반") as $k => $v) {
