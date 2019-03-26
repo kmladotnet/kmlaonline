@@ -299,7 +299,7 @@ function printEverydayLinks(){
             function dataclick() {
                 var selectedValue = datasheet.options[datasheet.selectedIndex].value;
                 switch(selectedValue){
-                    case 1:
+                    case "1":
                     alert(selectedValue);
                     break;
                     default:
