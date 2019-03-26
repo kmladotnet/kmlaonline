@@ -282,8 +282,7 @@ function printEverydayLinks(){
             <option onclick="dataclick();">통합정보망</option>
             <script>
             function dataclick() {
-                window.open("https://view.officeapps.live.com/op/view.aspx?src=./KMLA-통합정보-2019-1.xlsx");
-                return false;
+                window.open("https://view.officeapps.live.com/op/view.aspx?src=./KMLA-통합정보-2019-1.xlsx0", "다운로드", "width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes");
             }
             </script>
             <?php
