@@ -289,8 +289,8 @@ function printEverydayLinks(){
             <option value = "2"> 23기 행정/수업반 </option>
             <option value = "3"> 22기 행정/수업반 </option>
             <option value = "4"> 교직원 연락망 </option>
-            <option value = "5"> 남학생 방배정 </option>
-            <option value = "6"> 여학생 방배정 </option>
+            <option value = "5"> 여학생 방배정 </option>
+            <option value = "6"> 남학생 방배정 </option>
             <option value = "7"> 등급 조건표</option>
             <option data-divider="true"></option>
             <option value = "8"> 등급 계산기 </option>
