@@ -97,10 +97,9 @@ function printArticleListTypeForum($board_data, $additional_query_string){
 						if($b_anonymous)
 							echo '익명';
 						else{
-							echo '익명';
-							//echo "<a href=\"".htmlspecialchars(addslashes("/user/view/" . $memb2['n_id'] . "/" . $memb2['s_id']))."\">";
-							//putUserCard($memb2);
-							//echo "</a>";
+							echo "<a href=\"".htmlspecialchars(addslashes("/user/view/" . $memb2['n_id'] . "/" . $memb2['s_id']))."\">";
+							putUserCard($memb2);
+							echo "</a>";
 						}
 						$pagenumber=$board->getPageNumber($item['n_id'], 20, "n_id", false, false, false, $rep['n_id'])+1;
 						echo "<br /><a href=\"/board/$board_id/view/{$item['n_id']}/$pagenumber$additional_query_string#article_comment_sub_".$rep['n_id']."\">";

@@ -63,7 +63,11 @@ if($board_id=="special:list-all"){
 				if($board->setViewFlag($article['n_id'], session_id())===true)
 					$article=$board->getArticle($board_item);
 			}
-			$flag=$article['n_flag']; $b_public_article=$flag&0x1; $b_no_comment=$flag&0x2; $b_anonymous=$flag&0x4; $b_bold_title=$flag&0x8;
+			$flag=$article['n_flag']; 
+			$b_public_article=$flag&0x1; 
+			$b_no_comment=$flag&0x2; 
+			$b_anonymous=$flag&0x4; 
+			$b_bold_title=$flag&0x8;
 			$b_public_article=$b_public_article && checkCategoryAccess($board_cat['n_id'], "flag public");
 			$b_no_comment=$b_no_comment && checkCategoryAccess($board_cat['n_id'], "flag no comment");
 			$b_anonymous=$b_anonymous && checkCategoryAccess($board_cat['n_id'], "flag anonymous");
