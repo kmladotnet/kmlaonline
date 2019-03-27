@@ -303,28 +303,28 @@ function printEverydayLinks(){
                 var selectedValue = datasheet.options[datasheet.selectedIndex].value;
                 switch(selectedValue){
                     case "1":
-                    window.open("https://view.officeapps.live.com/op/view.aspx?src=https://kmlaonline.net/data/datasheet/1.xlsx");
+                    window.open("https://view.officeapps.live.com/op/view.aspx?src=https://kmlaonline.net/data/datasheet/24기.xlsx");
                     break;
                     case "2":
-                    window.open("https://view.officeapps.live.com/op/view.aspx?src=https://kmlaonline.net/data/datasheet/2.xlsx");
+                    window.open("https://view.officeapps.live.com/op/view.aspx?src=https://kmlaonline.net/data/datasheet/23기.xlsx");
                     break;
                     case "3":
-                    window.open("https://view.officeapps.live.com/op/view.aspx?src=https://kmlaonline.net/data/datasheet/3.xlsx");
+                    window.open("https://view.officeapps.live.com/op/view.aspx?src=https://kmlaonline.net/data/datasheet/22기.xlsx");
                     break;
                     case "4":
-                    window.open("https://view.officeapps.live.com/op/view.aspx?src=https://kmlaonline.net/data/datasheet/4.xlsx");
+                    window.open("https://view.officeapps.live.com/op/view.aspx?src=https://kmlaonline.net/data/datasheet/교직원연락망.xlsx");
                     break;
                     case "5":
-                    window.open("https://view.officeapps.live.com/op/view.aspx?src=https://kmlaonline.net/data/datasheet/5.xlsx");
+                    window.open("https://view.officeapps.live.com/op/view.aspx?src=https://kmlaonline.net/data/datasheet/여학생방배정.xlsx");
                     break;
                     case "6":
-                    window.open("https://view.officeapps.live.com/op/view.aspx?src=https://kmlaonline.net/data/datasheet/6.xlsx");
+                    window.open("https://view.officeapps.live.com/op/view.aspx?src=https://kmlaonline.net/data/datasheet/남학생방배정.xlsx");
                     break;
                     case "7":
-                    window.open("https://view.officeapps.live.com/op/view.aspx?src=https://kmlaonline.net/data/datasheet/7.xlsx");
+                    window.open("https://view.officeapps.live.com/op/view.aspx?src=https://kmlaonline.net/data/datasheet/등급표.xlsx");
                     break;
                     case "8":
-                    
+
                     break;
                     case "9":
                     alert(selectedValue);
