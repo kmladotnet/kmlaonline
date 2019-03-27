@@ -65,7 +65,7 @@ function printArticleListTypeForum($board_data, $additional_query_string){
 			<tr style="height:32px;">
 				<th class="no-mobile"  style="text-align:center;">번호</th>
 				<th>주제</th>
-				<th  style="text-align:center;">마지막 댓글</th>
+				<th  style="text-align:center;">마지막 참여자</th>
 				<th  style="text-align:center;">상태</th>
 			</tr>
 		</thead>
@@ -94,7 +94,9 @@ function printArticleListTypeForum($board_data, $additional_query_string){
 						else
 							$rep=$item;
 						$memb2=$member->getMember($rep['n_writer']);
-						if($b_anonymous)
+						$lastflag=$rep['n_flag'];
+						$last_anonymous = $lastflag&0x04;
+						if($last_anonymous)
 							echo '익명';
 						else{
 							echo "<a href=\"".htmlspecialchars(addslashes("/user/view/" . $memb2['n_id'] . "/" . $memb2['s_id']))."\">";
