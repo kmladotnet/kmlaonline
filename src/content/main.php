@@ -256,7 +256,7 @@ function printEverydayLinks(){
     ?>
     <div class="everyday-links">
         <!--button type="button" id="main-theme-button" class="btn btn-default" onclick="location = '/util/barbeque'">바베큐 신청</button>-->
-        <button type="button" id="main-theme-button" class="btn btn-default" onclick="location = '/util/outdoor'">외출외박 신청</button>
+        <!--button type="button" id="main-theme-button" class="btn btn-default" onclick="location = '/util/outdoor'">외출외박 신청</button-->
         <select id="everyday-other" class="selectpicker" data-style="btn-default" title="바로가기" data-width="180px" onchange="location = this.options[this.selectedIndex].value;">
             <?php
                 foreach(array("everyday_parcel" => "택배", "everyday_guidance" => "선도", "leftover" => "잔반") as $k => $v) {
@@ -292,20 +292,52 @@ function printEverydayLinks(){
             <option value = "5"> 남학생 방배정 </option>
             <option value = "6"> 여학생 방배정 </option>
             <option value = "7"> 등급 조건표</option>
+            <option data-divider="true"></option>
             <option value = "8"> 등급 계산기 </option>
             <option value = "9"> GPA 계산기 </option>
+            <option value = "10"> 바베큐 신청 </option>
+            <option value = "11"> 외출외박 신청 </option>
         </select>
         <script language="javascript">
             function dataclick() {
                 var selectedValue = datasheet.options[datasheet.selectedIndex].value;
                 switch(selectedValue){
                     case "1":
+                    window.open("https://view.officeapps.live.com/op/view.aspx?src=https://kmlaonline.net/data/datasheet/1.xlsx");
+                    break;
+                    case "2":
+                    alert(selectedValue);
+                    break;
+                    case "3":
+                    alert(selectedValue);
+                    break;
+                    case "4":
+                    alert(selectedValue);
+                    break;
+                    case "5":
+                    alert(selectedValue);
+                    break;
+                    case "6":
+                    alert(selectedValue);
+                    break;
+                    case "7":
+                    alert(selectedValue);
+                    break;
+                    case "8":
+                    alert(selectedValue);
+                    break;
+                    case "9":
+                    alert(selectedValue);
+                    break;
+                    case "10":
+                    alert(selectedValue);
+                    break;
+                    case "11":
                     alert(selectedValue);
                     break;
                     default:
                     alert("error");
                 }
-                //window.open("https://view.officeapps.live.com/op/view.aspx?src=./KMLA-통합정보-2019-1.xlsx0", "다운로드", "width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes");
             }
             </script>
     </div>
