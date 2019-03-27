@@ -306,25 +306,25 @@ function printEverydayLinks(){
                     window.open("https://view.officeapps.live.com/op/view.aspx?src=https://kmlaonline.net/data/datasheet/1.xlsx");
                     break;
                     case "2":
-                    alert(selectedValue);
+                    window.open("https://view.officeapps.live.com/op/view.aspx?src=https://kmlaonline.net/data/datasheet/2.xlsx");
                     break;
                     case "3":
-                    alert(selectedValue);
+                    window.open("https://view.officeapps.live.com/op/view.aspx?src=https://kmlaonline.net/data/datasheet/3.xlsx");
                     break;
                     case "4":
-                    alert(selectedValue);
+                    window.open("https://view.officeapps.live.com/op/view.aspx?src=https://kmlaonline.net/data/datasheet/4.xlsx");
                     break;
                     case "5":
-                    alert(selectedValue);
+                    window.open("https://view.officeapps.live.com/op/view.aspx?src=https://kmlaonline.net/data/datasheet/5.xlsx");
                     break;
                     case "6":
-                    alert(selectedValue);
+                    window.open("https://view.officeapps.live.com/op/view.aspx?src=https://kmlaonline.net/data/datasheet/6.xlsx");
                     break;
                     case "7":
-                    alert(selectedValue);
+                    window.open("https://view.officeapps.live.com/op/view.aspx?src=https://kmlaonline.net/data/datasheet/7.xlsx");
                     break;
                     case "8":
-                    alert(selectedValue);
+                    
                     break;
                     case "9":
                     alert(selectedValue);
@@ -338,7 +338,6 @@ function printEverydayLinks(){
                     default:
                     alert("error");
                 }
-                window.location.reload();
             }
             </script>
     </div>
