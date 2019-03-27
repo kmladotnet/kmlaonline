@@ -65,7 +65,7 @@ function printArticleListTypeForum($board_data, $additional_query_string){
 			<tr style="height:32px;">
 				<th class="no-mobile">번호</th>
 				<th>주제</th>
-				<th>마지막 글</th>
+				<th>마지막 댓글</th>
 				<th>상태</th>
 			</tr>
 		</thead>
