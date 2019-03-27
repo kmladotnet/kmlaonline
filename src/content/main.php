@@ -338,6 +338,7 @@ function printEverydayLinks(){
                     default:
                     alert("error");
                 }
+                window.location.reload();
             }
             </script>
     </div>
