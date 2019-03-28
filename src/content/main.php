@@ -324,16 +324,16 @@ function printEverydayLinks(){
                     window.open("https://view.officeapps.live.com/op/view.aspx?src=https://kmlaonline.net/data/datasheet/등급표.xlsx");
                     break;
                     case "8":
-
+                    location.href="https://kmlaonline.net/util/calculator.php";
                     break;
                     case "9":
-                    alert(selectedValue);
+                    location.href="https://kmlaonline.net/util/gpa.php";
                     break;
                     case "10":
-                    alert(selectedValue);
+                    location.href="https://kmlaonline.net/util/barbeque.php";
                     break;
                     case "11":
-                    alert(selectedValue);
+                    location.href="https://kmlaonline.net/util/outdoor.php";
                     break;
                     default:
                     alert("error");

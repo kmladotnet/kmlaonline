@@ -3,7 +3,7 @@ $title="환영합니다! - " . $title;
 function printContent(){
 	?>
 	<div style="padding:5px;">
-		<h1>큼라온라인에 가입하신 것을 환영합니다.</h1>
+		<h1>KMLA online에 가입하신 것을 환영합니다.</h1>
 		
 		<br />
 		<br />
