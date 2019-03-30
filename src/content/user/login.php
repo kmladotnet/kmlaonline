@@ -79,7 +79,7 @@ function printContent(){
                                 document.getElementById('return_loc').value = '/teacher/main';
                             } else {
                                 document.getElementById('return_loc').value = '/';
-                            }" > 교직원
+                            }" disabled> 교직원
                     </label>
                     </div>
                     <div style="clear:both;"></div>
