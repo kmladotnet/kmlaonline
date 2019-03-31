@@ -60,7 +60,7 @@ function printUpDownVotes($id, $hide = true) {
     global $me, $member;
     $upvotes = upvotes($id);
     $downvotes = downvotes($id);
-    $votes = upvotes($id) - downvotes($id);
+    $votes = ((int)upvotes($id) - (int)downvotes($id));
     $upvoted = upvoted($id, $me['n_id']);
     $downvoted = downvoted($id, $me['n_id']);
     if($upvoted) {
