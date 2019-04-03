@@ -293,9 +293,9 @@ function printEverydayLinks(){
             <option value = "6"> 남학생 방배정 </option>
             <option value = "7"> 등급 조건표</option>
             <option data-divider="true"></option>
-            <option value = "8"> 등급 계산기 </option>
-            <option value = "9"> GPA 계산기 </option>
-            <option value = "10"> 바베큐 신청 </option>
+            <option value = "8" disabled> 등급 계산기 </option>
+            <option value = "9" disabled > GPA 계산기 </option>
+            <option value = "10" disabled> 바베큐 신청 </option>
             <option value = "11"> 외출외박 신청 </option>
         </select>
         <script language="javascript">
