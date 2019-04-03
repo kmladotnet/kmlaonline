@@ -11,7 +11,7 @@ app.controller("outdoorCtrl", function($http, $scope){
     $scope.subjectArray = [{ name: "국어과", value: 0}, { name: "외국어과", value: 1},
         { name: "수학과", value: 2},{ name: "과학과", value: 3}, { name: "사회과", value: 4},
         { name: "예체능과", value: 5}];
-    $scope.subjectHeadArray = ["권택일 tr.", "엄세용 tr.", "이준석 tr.", "박홍제 tr.", "김태완 tr.", "곽노재 tr."];
+    $scope.subjectHeadArray = ["송원호 tr.", "엄세용 tr.", "반창수 tr.", "신승근 tr.", "이두현 tr.", "곽노재 tr."];
 
     $scope.annDefaultGroup = [
         {number: 0, text: "학생이 직접 작성해서 1일 전까지 제출 완료합니다. (원본을 교육정보실에 사본은 사감실에 제출)"},
@@ -85,7 +85,7 @@ app.controller("outdoorCtrl", function($http, $scope){
                 break;
         }
 
-        temp += "김명순 tr.";
+        temp += "정미라 tr.";
 
         if($scope.info.absent == "yes") temp += " -> 김인석 tr.";
 
