@@ -184,7 +184,10 @@ $_LANGUAGE=array(
 				"remove"=>"숨기기"
 			)
 		),
-		"footer"=>'<div style="display: table;/* width: 100%; */margin: auto;width: calc(100% - 320px);"><div style="display: table-cell;text-align: right;"><img src="/images/kmlaonline-p-resize.png" style="/* display: block; *//* margin: auto; */height: 24px;display: inline-block;/* float: right; */"></div>'
+		"footer"=>'<div style="display: table;/* width: 100%; */margin: auto;width: calc(100% - 320px);"><div style="display: table-cell;text-align: right;">
+		<img src="/images/kmlaonline-p-resize.png" style="/* display: block; *//* margin: auto; */height: 24px;display: inline-block;/* float: right; */">
+		<br><div style="display: table-cell;text-align: right;">Copyright '.date("Y").'. DOTNET. all rights reserved.</div>
+		</div>'
 	),
     "weather"=>array(
         200 => '뇌우',
