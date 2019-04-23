@@ -184,7 +184,7 @@ $_LANGUAGE=array(
 				"remove"=>"숨기기"
 			)
 		),
-		"footer"=>'<div style="display: table;/* width: 100%; */margin: auto;width: calc(80%);"><div style="display: table-cell;text-align: right;">dd</div><div style="display: table-cell;text-align: right;"><img src="/images/kmlaonline-p-resize.png" style="/* display: block; *//* margin: auto; */height: 24px;display: inline-block;/* float: right; */">
+		"footer"=>'<div style="display: table;/* width: 100%; */margin: auto;width: calc(100% - 320px);"><div style="display: table-cell;text-align: right;"><img src="/images/kmlaonline-p-resize.png" style="/* display: block; *//* margin: auto; */height: 24px;display: inline-block;/* float: right; */">
 		닷넷 2007 - '.date("Y").'</div></div>'
 	),
     "weather"=>array(
