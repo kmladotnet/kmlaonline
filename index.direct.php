@@ -185,8 +185,8 @@
         <div class="total-header-menu-extend" style="position:absolute;left:0;width:100%;right:0;display:block;height:40px;"></div>
     </div>
     <?php if(!(!!$me && getTheme($me)['hidedasan'])) { ?>
-        <div class="hide-on-upper-panel" style="position:absolute;background:#074275;left:0;width:100%;right:0;display:block;height:40px;z-index:-5;">
-            <div class="total-header-extend-1" style="position:absolute;background:#074275;left:0;width:100%;right:0;display:block;height:40px;"></div>
+        <div class="hide-on-upper-panel" style="position:absolute;background:#946181;left:0;width:100%;right:0;display:block;height:40px;z-index:-5;">
+            <div class="total-header-extend-1" style="position:absolute;background:#946181;left:0;width:100%;right:0;display:block;height:40px;"></div>
         </div>
         <?php if($_SERVER["REQUEST_URI"] !== '/util/library') { ?>
         <div class="hide-on-upper-panel" style="position:absolute;left:0;width:100%;right:0;display:block;height:160px;top:40px;z-index:-5;">
