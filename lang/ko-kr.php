@@ -189,7 +189,7 @@ $_LANGUAGE=array(
 		<img src="/images/kmlaonline-p-resize.png" style="/* display: block; *//* margin: auto; */height: 24px;display: inline-block;/* float: right; */">
 		</p>
 		<p style="display: table-cell;text-align: right;">	
-		Copyright '.date("Y").'. DOTNET. all rights reserved.
+		닷넷 2007-'.date("Y").'
 		</p>
 		</div>'
 	),
