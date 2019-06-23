@@ -16,7 +16,11 @@ function printContentPartially($res){
 				$prc++;
 				$article=$board->getArticle($row['n_article']);
 				$cat=$board->getCategory($article['n_cat']);
-				$writer=$member->getMember($article['n_writer']);
+				$b_anonymous=$article['n_flag']&0x4;
+				if($b)
+					$writer = "익명";
+				else
+					$writer=$member->getMember($article['n_writer']);
 				$requester=$member->getMember($row['n_user']);
 				?>
 				<tr style="height:32px;border-top:1px solid gray;" class="real-item">
