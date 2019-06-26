@@ -17,10 +17,7 @@ function printContentPartially($res){
 				$article=$board->getArticle($row['n_article']);
 				$cat=$board->getCategory($article['n_cat']);
 				$b_anonymous=$article['n_flag']&0x4;
-				if($b)
-					$writer = "익명";
-				else
-					$writer=$member->getMember($article['n_writer']);
+				$writer=$member->getMember($article['n_writer']);
 				$requester=$member->getMember($row['n_user']);
 				?>
 				<tr style="height:32px;border-top:1px solid gray;" class="real-item">
@@ -36,7 +33,7 @@ function printContentPartially($res){
 					</td>
 					<td style="cursor:pointer;text-align:center;" onclick="smoothToggleVisibility($(this).parent().next());"><?php echo htmlspecialchars($cat['s_name']); ?></td>
 					<td style="cursor:pointer" onclick="changeLinkTo('/board/<?php echo $cat['s_id']?>/view/<?php echo $article['n_id']?>');"><a href="/board/<?php echo $cat['s_id']?>/view/<?php echo $article['n_id']?>"><?php echo formatTitle($article['s_title']); ?></a></td>
-					<td style="cursor:pointer" onclick="changeLinkTo('/user/view/<?php echo $writer['n_id']."/".rawurlencode($writer['s_id']); ?>');"><?php putUserCard($writer); ?></td>
+					<td style="cursor:pointer" ><?php if(!$b_anonymous) {putUserCard($writer);} else {echo "익명";}?></td>
 					<td style="cursor:pointer" onclick="smoothToggleVisibility($(this).parent().next());"><?php if(time()-$article['n_writedate']<86400)
 						echo htmlspecialchars(date("H:i:s",$article['n_writedate']));
 					else
