@@ -25,11 +25,12 @@
 		</div>
 	<?php } else if($_SERVER["REQUEST_URI"] !== '/util/library' && $_SERVER["REQUEST_URI"] !== '/util/chat'){
         if(!(!!$me && getTheme($me)['hidedasan'])) { ?>
-            <div id="total-header" style="background: url('/images/Apply2019.png') no-repeat; background-size: contain;" <?php if($april_fools_2) echo 'style="height:311px; background: url(/images/bamboozle.png) no-repeat;"'; ?>>
+            <div id="total-header" style="background: url('https://raw.githubusercontent.com/kmladotnet/doodles/master/current-banner.png') no-repeat; background-size: contain;"
+						<?php if($april_fools_2) echo 'style="height:311px; background: url(/images/bamboozle.png) no-repeat;"'; ?>>
                 <?php if (isset($_SESSION['user'])) { ?>
                     <div class="userarea"><?php include "src/header/userarea.php"; ?></div>
                 <?php } ?>
-                <a id="back-to-main" href="https://kmlaonline.net/board/all_announce/view/481435"></a><br />
+                <a id="kmla-doodles" href="https://github.com/kmladotnet/doodles"></a><br />
             </div>
         <?php }} ?>
 		<script type="text/javascript">prepareHeader();</script>
