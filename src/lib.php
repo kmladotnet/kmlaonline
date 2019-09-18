@@ -1279,6 +1279,19 @@ function isCourtDasan($courtPost) {
     return $pos !== false && $pos < 50;
 }
 
+function parcelNum($name, $parcelPost)
+{
+    global $board;
+	$attaches = $board->getAttachments(false, $parcelPost['n_id']);
+    foreach($attaches as $file) {
+        if(preg_match("/택배.*\.xls/", $file['s_name'])) {
+            $excel = file_get_contents($file['s_path']);
+            return mb_substr_count($excel, mb_convert_encoding($name, "UTF-16LE"), "8bit");
+        }
+    }
+    return false;
+}
+
 function report($post) {
 	global $me;
 	if($me === null || $me['n_id'] <= 1) { //prevent bogus users
