@@ -4,7 +4,7 @@ include "src/soreeengine/SoreeTools.php"; // DB Manager
 include "src/range.php"; // HTTP Range Tools
 include "src/zipstream.php"; // ZIP Streaming Tools
 
-$max_level = 24; // 현재 24기까지
+$max_level = date("Y")-1995; // 현재 24기까지
 
 /********************** START INITIALIZATION SESSION ************************/
 if(isset($_POST["_CUSTOM_PHPSESSID"])) { // For Flash Upload Plugin
@@ -68,7 +68,9 @@ session_write_close();
 include 'db-test.php';
 
 setlocale(LC_TIME, 'ko_KR.UTF-8');
-$april_main = false; // 4월 1일에 이 변수만 바꾸기 바람
+$april_main = false; // 4월 1일에 이 변수만 바꾸기 바람 => 자동화됨
+if(strcmp(date("m-d"), "04-01"))
+    $april_main = true;
 $april_fools = $april_main;
 $april_fools_2 = false;
 if($april_fools) {
