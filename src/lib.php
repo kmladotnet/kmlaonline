@@ -1247,12 +1247,10 @@ function parcelNum($name, $parcelPost)
 {
     global $board;
 	$attaches = $board->getAttachments(false, $parcelPost['n_id']);
-    foreach($attaches as $file) {
-        if(preg_match("/택배.*\.xlsx/", $file['s_name'])) {
-            $excel = file_get_contents($file['s_path']);
-            return $name;
-            //return mb_substr_count($excel, $name);
-        }
+    $file = $attaches[0];
+    $excel = file_get_contents($file['s_path']);
+
+    return mb_substr_count($excel, $name, "utf-8");
     }
     return false;
 }
