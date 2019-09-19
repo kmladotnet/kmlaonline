@@ -1233,7 +1233,7 @@ function getTodayParcel() {
         {
             continue;
         }
-        return $post;
+        return $name."".$post;
     }
     return null;
 }
