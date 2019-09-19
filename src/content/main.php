@@ -157,6 +157,7 @@ function printContentPc(){
                         <option value="weather">날씨</option>
                         <option value="minjok-news">인트라넷 공지</option>
                         <option value="court">법정</option>
+                        <option value="parcel">택배</option>
                     </select>
                 </div>
                 <div style="float: right;">
