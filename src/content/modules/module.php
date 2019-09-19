@@ -78,6 +78,11 @@ function moduleTitle($module_name, $options) {
             <i class="fa fa-gavel" aria-hidden="true"></i> 법정
             <?php
             break;
+        case 'parcel':
+            ?>
+            <i class="fas fa-box" aria-hidden="true"></i> 택배
+            <?php
+            break;
     }
 }
 
@@ -110,6 +115,7 @@ function moduleContent($module_name, $options, $light = false) {
         case 'weather':
         case 'minjok-news':
         case 'court':
+        case 'parcel':
             include($module_name.'.php');
             break;
     }
