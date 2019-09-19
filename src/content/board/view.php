@@ -164,23 +164,23 @@ function printAttachList($article, $cat, $mode=0){
 								"bmp;png;jpg;jpeg;tif;tiff;gif;svg;"=>
 									"<a data-toggle=\"lightbox\" href=\"".htmlspecialchars($path)."\" title=\"".htmlspecialchars($v['s_name']).(htmlspecialchars($v['s_comment'])?": ".$v['s_comment']:"")."\"><img style=\"display:block;margin:0 auto;max-width:100%;\" src=\"".htmlspecialchars($path_thumb)."\" /></a>",
 								"mp3;wav;ogg;mp2;mpa;flac;wavpack;ape;alac;ra;mid;"=>
-									"+<i class='fa fa-file-audio-o fa-2x' style='margin-top:48px;'></i>",
+									"+<i class='fas fa-music fa-2x' style='margin-top:48px;'></i>",
 								"ppt;pptx;xls;xlsx;doc;docx;docm;dotm;xlsb;xlsm;ppsx;pps;pptm;potm;ppam;potx;ppsm;"=> // MS Office
 									"<a class='block' style='min-height:126px;border:1px solid #DDD;display:block;' ".
 												"href='https://view.officeapps.live.com/op/view.aspx?src=".htmlspecialchars($path_force)."' target='_blank' ".
 												"onclick='window.open(this.href); return false;'>".
-										"<i class='fa fa-file-text-o fa-2x' style='margin-top:40px;'></i><br />".
+										"<i class='far fa-file fa-2x' style='margin-top:40px;'></i><br />".
 										"미리보기".
 									"</a>",
 								"txt;pdf;"=> // Non-MS Office files
 									"<a class='block' style='min-height:126px;border:1px solid #DDD;display:block;' ".
 												"href='".htmlspecialchars($path)."' target='_blank' ".
 												"onclick='window.open(this.href); return false;'>".
-										"<i class='fa fa-file-text-o fa-2x' style='margin-top:40px;'></i><br />".
+										"<i class='far fa-eye fa-2x' style='margin-top:40px;'></i><br />".
 										"바로 보기".
 									"</a>",
 								"avi;mp4;mkv;flv;mov;mpeg;mpg;3gp;ts;wmv;asf;ogm;ogv;rm;rmvb;aac;ac3;m4a;"=>
-									"+<i class='fa fa-film fa-2x' style='margin-top:48px;'></i>",
+									"+<i class='fas fa-video fa-2x' style='margin-top:48px;'></i>",
 							);
 							$fext=strtolower(@end(@explode('.', $path)));
 							$temp="<div style='width:126px;min-height:126px;display:block;background:white;border:1px solid #DDD;margin:0 auto;text-align:center;'><!----></div>";
