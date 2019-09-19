@@ -69,7 +69,7 @@ include 'db-test.php';
 
 setlocale(LC_TIME, 'ko_KR.UTF-8');
 $april_main = false; // 4월 1일에 이 변수만 바꾸기 바람 => 자동화됨
-if(strcmp(date("m-d"), "04-01"))
+if(strcmp(date("m-d"), "04-01") == 0)
     $april_main = true;
 $april_fools = $april_main;
 $april_fools_2 = false;
