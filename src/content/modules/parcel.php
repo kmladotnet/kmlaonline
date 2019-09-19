@@ -11,8 +11,8 @@
     if($parcel !== null)
     {
         $numParcel = parcelNum($me['s_name'], $parcel);
-        if($numParcel)
-            echo "택배옴";
+        
+            echo $numParcel;
 
     }
     else
