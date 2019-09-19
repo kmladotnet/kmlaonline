@@ -11,7 +11,7 @@
     if($parcel !== null)
     {
         $numParcel = parcelNum($me['s_name'], $parcel);
-        echo $numparcel;
+        echo $numParcel;
     }
     else
     { 
