@@ -1212,19 +1212,6 @@ function getLatestCourtPost() {
     return null;
 }
 
-function testGetSecondLatestCourtPost() {
-    global $board;
-    $postList = $board->getArticleList(array(67), false, false, 0, 10, "n_id", true, 0, "법정 리스트", true, true, true, false, false, false, true);
-    foreach($postList as $post) {
-        if($post['n_parent'] || strtotime('next Thursday', $post['n_writedate'] - 60 * 60 * 20) < strtotime('next Thursday', time() - 60 * 60 * 188)) {
-            continue;
-        }
-        return $post;
-    }
-    return null;
-}
-
-
 function goesToCourt($name, $courtPost) {
     global $board;
 	$attaches = $board->getAttachments(false, $courtPost['n_id']);
@@ -1232,43 +1219,6 @@ function goesToCourt($name, $courtPost) {
         if(preg_match("/리스트.*\.xls/", $file['s_name'])) {
             $excel = file_get_contents($file['s_path']);
             return mb_strpos($excel, mb_convert_encoding($name, "UTF-16LE"), 0, "8bit") !== false;
-        }
-    }
-    return false;
-}
-
-function goesToCourt2($name, $courtPost) {
-    global $board;
-    $attaches = $board->getAttachments(false, $courtPost['n_id']);
-    foreach($attaches as $file) {
-        if(preg_match("/리스트.*\.csv/", $file['s_name'])) {
-            $excel = file_get_contents($file['s_path']);
-            $excel = mb_convert_encoding($excel, "UTF-8", "CP949");
-            return mb_strpos($excel, $name, 0, "8bit") !== false;
-        }
-    }
-    return false;
-}
-
-function testGoesToCourt($name, $courtPost) {
-    global $board;
-    $attaches = $board->getAttachments(false, $courtPost['n_id']);
-    foreach($attaches as $file) {
-        //echo $file['s_name'];
-        if(preg_match("/리스트.*\.csv/", $file['s_name'])) {
-            echo "매치된 건 - {$file['s_name']}";
-            $excel = file_get_contents($file['s_path']);
-            $excel = mb_convert_encoding($excel, "UTF-8", "CP949");
-            echo $excel;
-
-            //$excel2 = fopen("{$file['s_path']}", "r") or die("Unable to open file!");
-            //$excel2 = fgetcsv($excel2, filesize("{$file['s_path']}"));
-            //$data = array_map("utf8_encode", $excel2);
-            echo mb_strpos($excel, $name, 0, "8bit");
-            return mb_strpos(mb_convert_encoding($excel, "UTF-8"), $name, 0, "8bit");
-            //return mb_strpos($excel, mb_convert_encoding($name, "UTF-16LE"), 0, "8bit") !== false;
-        } else {
-            //echo "매치되지 않음..";
         }
     }
     return false;
