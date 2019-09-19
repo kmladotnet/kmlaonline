@@ -1250,7 +1250,8 @@ function parcelNum($name, $parcelPost)
     foreach($attaches as $file) {
         if(preg_match("/택배.*\.xlsx/", $file['s_name'])) {
             $excel = file_get_contents($file['s_path']);
-            return mb_substr_count($excel, mb_convert_encoding($name, "UTF-16LE"), "8bit");
+            return $excel;
+            //return mb_substr_count($excel, $name);
         }
     }
     return false;

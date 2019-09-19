@@ -12,6 +12,7 @@
     {
         $numParcel = parcelNum($me['s_name'], $parcel);
         echo $numParcel;
+        
     }
     else
     { 
