@@ -1229,7 +1229,8 @@ function getTodayParcel() {
     $postList = $board->getArticleList(array(71), false, false, 0, 10, "n_id", true, 0, "택배", true, true, true, false, false, false, true);
     foreach($postList as $post) {
         // 댓글이면 continue, 글을 쓴 날이 어제 이하면 continue (오늘 쓴 글을 찾을 때까지)
-        if($post['n_parent'] || $post['n_writedate']< date() ){
+        if($post['n_parent'] || date("ymd", $post['n_writedate'])< date("ymd") )
+        {
             continue;
         }
         return $post;
