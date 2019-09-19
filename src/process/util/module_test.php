@@ -1,10 +1,10 @@
 <?php
     if(isset($_SESSION['user'])){
-        $courtPost = getLatestCourtPost();
-        if($courtPost !== null){
-            testGoesToCourt($me['s_name'], $courtPost);
-        } else {
-           echo "null인데..";
-        }
+        $parcel = getTodayParcel();
+        if($parcel)
+            echo '오늘택배올라옴';
+        else
+            echo '아님';
 
     }
+?>
