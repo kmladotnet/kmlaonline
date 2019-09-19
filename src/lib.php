@@ -1250,14 +1250,14 @@ function parcelNum($name, $parcelPost)
     foreach($attaches as $file) {
         if(preg_match("/리스트.*\.xls/", $file['s_name'])) {
             $excel = file_get_contents($file['s_path']);
-            echo $excel;
-            return mb_substr_count($excel, $name, "8bit");
+            return mb_substr_count($excel, mb_convert_encoding($name, "UTF-16LE"), "8bit");
+            //echo mb_convert_encoding($excel,);
         }
     }
     return false;
+    return mb_substr_count($excel, $name, "8bit");
     $file = $attaches[0];
     $excel = file_get_contents($file['s_path']);
-    return mb_strpos($excel, mb_convert_encoding($name, "UTF-16LE"), 0, "8bit") !== false;
     //$excel = mb_convert_encoding($excel, 'HTML-ENTITIES', "UTF-8");
     //return $excel;
     //return mb_substr_count($excel, $name, "utf-8");
