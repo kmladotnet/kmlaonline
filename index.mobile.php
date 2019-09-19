@@ -1,10 +1,13 @@
-<!doctype html><html><head>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta charset="utf-8" />
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
+<!doctype html>
+<html>
 
-    <!-- favicons -->
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
+
+    <!-- favicons -->ß
     <link rel="apple-touch-icon" sizes="57x57" href="/icon/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/icon/apple-touch-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/icon/apple-touch-icon-72x72.png">
@@ -27,13 +30,27 @@
     <meta name="msapplication-config" content="/icon/browserconfig.xml">
     <meta name="theme-color" content="#074275">
 
-	<base href="https://<?php echo $_SERVER['HTTP_HOST'] ?>/" />
+    <base href="https://<?php echo $_SERVER['HTTP_HOST'] ?>/" />
     <!-- gridstack -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.4/gridstack.css" />
 
     <!-- jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127955862-6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-127955862-6');
+    </script>
+
 
     <!-- velocity -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
@@ -52,19 +69,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 
     <!-- lightbox -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/4.0.1/ekko-lightbox.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/4.0.1/ekko-lightbox.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/4.0.1/ekko-lightbox.min.js"></script>
 
     <!-- rateYo -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.1.1/jquery.rateyo.min.css">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.1.1/jquery.rateyo.min.js"></script>
 
-	<script type="text/javascript" src="/js/script.js?v=6.2" charset="utf-8"></script>
-	<link rel="stylesheet" href="/css/font.css" charset="utf-8" type="text/css" media="screen" />
-	<title><?php echo htmlspecialchars($title); ?></title>
-	<?php head_theme();
-    if($april_fools) {
-        switch(mt_rand(1, 77)) {
+    <script type="text/javascript" src="/js/script.js?v=6.2" charset="utf-8"></script>
+    <link rel="stylesheet" href="/css/font.css" charset="utf-8" type="text/css" media="screen" />
+    <title>
+        <?php echo htmlspecialchars($title); ?></title>
+    <?php head_theme();
+    if ($april_fools) {
+        switch (mt_rand(1, 77)) {
             case 1:
                 echo '<link rel="stylesheet" href="/css/april-fools/blur.css" type="text/css" media="screen" />';
                 break;
@@ -79,61 +97,69 @@
                 break;
         }
     }
-	if(function_exists("printHead")) printHead();
-	if(file_exists("css/content/$fn.mobile.css")) echo "<link class='page-specific-css' rel='stylesheet' href='/css/content/$fn.mobile.css?v=4' />";
-	else if(file_exists("css/content/$fn.css")) echo "<link class='page-specific-css' rel='stylesheet' href='/css/content/$fn.css?v=4' />";
-	if(file_exists("js/content/$fn.js")) echo "<script src='/js/content/$fn.js?v=2'></script>";
-	if(isset($includes)){
-		foreach($includes as $val){
-			if(substr($val,-4,4)==".css") echo "<link class='page-specific-css' rel='stylesheet' href='$val' />";
-		}
-	}
-	?>
-	<style type="text/css"><?php
-		if($me['n_level']==0) echo ".login-only{display:none}";
-		if(!$is_morning) echo ".morning{display:none}";
-		if(!$is_afternoon) echo ".afternoon{display:none}";
-		if(!$is_night) echo ".night{display:none}";
-	?></style>
-</head><body>
-	<img id="no-login-bg" style="position:fixed;left:0;top:0;display:none;z-index:-50;" />
-	<div id="divSavingIndicatorFiller"></div>
-	<div style="" id="divSavingIndicator">
-		<div id="divSavingIndicatorInformation">
-			<img src="/images/loading.gif" /> <span id="spnWhatAmIDoing">작업 중...</span><br />
-			<button id="cancelAjax" onclick="return cancelAjaxSave();" style="width:120px;height:32px;">취소</button>
-		</div>
-		<div id="debug" style="background:white;margin:0 auto;width:800px;display:none;margin-top:100px;"></div>
-	</div>
-	<div id="total-wrap">
-		<div id="upper-header-menu"><?php include "src/header/upper-header.php"; ?></div>
-		<div id="total-header-menu"></div>
-		<div style="clear:both"></div>
-		<div id="below-header-menu"><?php include "src/header/below-header.php"; ?></div>
-	</div>
-	<div id="total-footer" class="hide-on-upper-panel">
-		<?php
-		$puri=strtok($_SERVER["REQUEST_URI"],'?');
-		unset($_GET['force_mobile'], $_GET['force_desktop']);
-		$_GET['force_desktop']=1;
-		$i=0;
-		foreach($_GET as $k=>$v) $puri.=($i++==0?"?":"&").urlencode($k)."=".urlencode($v);
-		?>
-		<a href="<?php echo htmlspecialchars($puri) ?>">PC판으로 보기</a><br />
-		<?php
-		echo langraw("layout","footer"); ?>
-	</div>
-	<script type="text/javascript">/*<!--*/
-		<?php
-			if(isset($_scripts)) echo $_scripts;
-			if(isset($_POST['error_occured'])) echo "checkAjaxReturnedData(JSON.parse(\"".str_replace("</", "<\" + \"/",addslashes($_POST['error_occured']))."\"));";
-		?>
-	/*-->*/</script>
-	<script id="onload-scripts" type="text/text">
-		<?php
-		if(isset($_scripts)) echo $_scripts;
-		if(isset($_POST['error_occured'])) echo "checkAjaxReturnedData(JSON.parse(\"".str_replace("</", "<\" + \"/",addslashes($_POST['error_occured']))."\"));";
-		?>
+    if (function_exists("printHead")) printHead();
+    if (file_exists("css/content/$fn.mobile.css")) echo "<link class='page-specific-css' rel='stylesheet' href='/css/content/$fn.mobile.css?v=4' />";
+    else if (file_exists("css/content/$fn.css")) echo "<link class='page-specific-css' rel='stylesheet' href='/css/content/$fn.css?v=4' />";
+    if (file_exists("js/content/$fn.js")) echo "<script src='/js/content/$fn.js?v=2'></script>";
+    if (isset($includes)) {
+        foreach ($includes as $val) {
+            if (substr($val, -4, 4) == ".css") echo "<link class='page-specific-css' rel='stylesheet' href='$val' />";
+        }
+    }
+    ?>
+        <style type="text/css">
+            <?php
+            if ($me['n_level'] == 0) echo ".login-only{display:none}";
+            if (!$is_morning) echo ".morning{display:none}";
+            if (!$is_afternoon) echo ".afternoon{display:none}";
+            if (!$is_night) echo ".night{display:none}";
+            ?>
+        </style>
+</head>
+
+<body>
+    <img id="no-login-bg" style="position:fixed;left:0;top:0;display:none;z-index:-50;" />
+    <div id="divSavingIndicatorFiller"></div>
+    <div style="" id="divSavingIndicator">
+        <div id="divSavingIndicatorInformation">
+            <img src="/images/loading.gif" /> <span id="spnWhatAmIDoing">작업 중...</span><br />
+            <button id="cancelAjax" onclick="return cancelAjaxSave();" style="width:120px;height:32px;">취소</button>
+        </div>
+        <div id="debug" style="background:white;margin:0 auto;width:800px;display:none;margin-top:100px;"></div>
+    </div>
+    <div id="total-wrap">
+        <div id="upper-header-menu">
+            <?php include "src/header/upper-header.php"; ?></div>
+        <div id="total-header-menu"></div>
+        <div style="clear:both"></div>
+        <div id="below-header-menu">
+            <?php include "src/header/below-header.php"; ?></div>
+    </div>
+    <div id="total-footer" class="hide-on-upper-panel">
+        <?php
+        $puri = strtok($_SERVER["REQUEST_URI"], '?');
+        unset($_GET['force_mobile'], $_GET['force_desktop']);
+        $_GET['force_desktop'] = 1;
+        $i = 0;
+        foreach ($_GET as $k => $v) $puri .= ($i++ == 0 ? "?" : "&") . urlencode($k) . "=" . urlencode($v);
+        ?>
+        <a href="<?php echo htmlspecialchars($puri) ?>">PC판으로 보기</a><br />
+        <?php
+        echo langraw("layout", "footer"); ?>
+    </div>
+    <script type="text/javascript">
+        /*<!--*/
+        <?php
+        if (isset($_scripts)) echo $_scripts;
+        if (isset($_POST['error_occured'])) echo "checkAjaxReturnedData(JSON.parse(\"" . str_replace("</", "<\" + \"/", addslashes($_POST['error_occured'])) . "\"));";
+        ?>
+        /*-->*/
+    </script>
+    <script id="onload-scripts" type="text/text">
+        <?php
+        if (isset($_scripts)) echo $_scripts;
+        if (isset($_POST['error_occured'])) echo "checkAjaxReturnedData(JSON.parse(\"" . str_replace("</", "<\" + \"/", addslashes($_POST['error_occured'])) . "\"));";
+        ?>
 	</script>
     <script>
         $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
@@ -141,4 +167,6 @@
             $(this).ekkoLightbox();
         });
     </script>
-</body></html>
+</body>
+
+</html>

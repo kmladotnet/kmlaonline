@@ -45,10 +45,12 @@ function printArticleListTypeBoard($board_data, $additional_query_string){
 						</td>
 					<?php }else{ ?>
 						<td style="text-align:center;" onclick="return changeLinkTo('<?php echo htmlspecialchars(addslashes("/user/view/" . $memb['n_id'] . "/" . $memb['s_id']))?>');">
-							<a href="<?php echo htmlspecialchars("/user/view/" . $memb['n_id'] . "/" . $memb['s_id'])?>" style="color:black"><?php putUserCard($memb); ?></a>
+							<a href="<?php echo htmlspecialchars("/user/view/" . $memb['n_id'] . "/" . $memb['s_id'])?>" style="color:black">
+<?php putUserCard($memb); ?></a>
 						</td>
 					<?php } ?>
-					<td style="text-align:center;" onclick="return changeLinkTo('<?php echo htmlspecialchars(addslashes("/board/$board_id/view/{$item['n_id']}$additional_query_string"))?>');"><?php
+					<td style="text-align:center;" onclick="return changeLinkTo('<?php echo htmlspecialchars(addslashes("/board/$board_id/view/{$item['n_id']}$additional_query_string"))?>');">
+<?php
 						if(time()-$item['n_writedate']<86400)
 							echo htmlspecialchars(date("H:i:s",$item['n_writedate']));
 						else
@@ -96,7 +98,8 @@ function printArticleList(){
 	$additional_query_string=implode("&",$additional_query_string);
 	if($additional_query_string)$additional_query_string="?$additional_query_string";
 	?>
-	<h1 style="padding:9px;text-align:left;"><?php echo $title;?></h1>
+	<h1 style="padding:9px;text-align:left;">
+<?php echo $title;?></h1>
 	<?php
 	printArticleListTypeBoard($board_data, $additional_query_string);
 	?>

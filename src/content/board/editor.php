@@ -48,16 +48,23 @@ function putEditorForm($form_action, $prev_info, $comment_mode=false){
 			<input type="hidden" name="n_top_parent" value="<?php echo $parent_top['n_id']?>" />
 			<input type="hidden" name="s_cat" value="<?php echo $cat['s_id']?>" />
 		<?php } ?>
-		<?php if(isset($prev_info["n_id"])){ ?><input type="hidden" name="n_id" value="<?php echo $prev_info['n_id']; ?>" /><?php } ?>
+		<?php if(isset($prev_info["n_id"])){ ?><input type="hidden" name="n_id" value="<?php echo $prev_info['n_id']; ?>" />
+<?php } ?>
 		<div style="padding:10px;">
-			<h1><?php echo ($comment_mode?"댓글 ":"글").($_GET['bact']=="edit"?"수정":"쓰기") ?></h1>
+			<h1>
+<?php echo ($comment_mode?"댓글 ":"글").($_GET['bact']=="edit"?"수정":"쓰기") ?></h1>
 			<?php if($comment_mode){ 
 				$b_anonymous=$article['n_flag']&0x4;?>
 				<div style="border:1px solid gray;margin:5px;padding:5px;">
 					<div id="article_comment_sub_<?php echo $dp['n_id']?>" class="acomment">
-						<div><?php if($b_anonymous){ ?>익명<?php }else{ ?><a href="<?php echo "/user/view/{$m['n_id']}/".htmlspecialchars($m['s_id'])?>"><?php putUserCard($m)?></a><?php } ?></div>
-						<div style="margin-top:14px;margin-bottom:6px;"><?php echo filterContent($dp['s_data']); ?></div>
-						<div style="font-size:8pt;color:gray;float:left;"><?php echo date("Y-m-d H:i:s", $dp['n_writedate'])?></div>
+						<div>
+<?php if($b_anonymous){ ?>익명<?php }else{ ?><a href="<?php echo "/user/view/{$m['n_id']}/".htmlspecialchars($m['s_id'])?>">
+<?php putUserCard($m)?></a>
+<?php } ?></div>
+						<div style="margin-top:14px;margin-bottom:6px;">
+<?php echo filterContent($dp['s_data']); ?></div>
+						<div style="font-size:8pt;color:gray;float:left;">
+<?php echo date("Y-m-d H:i:s", $dp['n_writedate'])?></div>
 						<div style="clear:both"></div>
 					</div>
 				</div>
@@ -67,7 +74,8 @@ function putEditorForm($form_action, $prev_info, $comment_mode=false){
 					<?php if(!$is_mobile){ ?>
 						<table style="width:100%">
 							<tr style="height:42px;">
-								<th style="width:80px;"><?php if(!$comment_mode){ ?>게시판<?php } ?></th>
+								<th style="width:80px;">
+<?php if(!$comment_mode){ ?>게시판<?php } ?></th>
 								<td>
 									<?php if(!$comment_mode){ ?>
 										<div style="float:left">
@@ -78,7 +86,8 @@ function putEditorForm($form_action, $prev_info, $comment_mode=false){
 													if($val['n_id']==1) continue;
 													if(false===checkCategoryAccess($val['n_id'],"write")) continue;
 													?>
-													<option value="<?php echo htmlspecialchars($val['s_id'])?>" <?php if($val['s_id']==$board_id) echo "selected='selected'";?>><?php echo htmlspecialchars($val['s_name'])?></option>
+													<option value="<?php echo htmlspecialchars($val['s_id'])?>" <?php if($val['s_id']==$board_id) echo "selected='selected'";?>>
+<?php echo htmlspecialchars($val['s_name'])?></option>
 													<?php
 												}
 												?>
@@ -125,7 +134,8 @@ function putEditorForm($form_action, $prev_info, $comment_mode=false){
 										if($val['n_id']==1) continue;
 										if(false===checkCategoryAccess($val['n_id'],"write")) continue;
 										?>
-										<option value="<?php echo htmlspecialchars($val['s_id'])?>" <?php if($val['s_id']==$board_id) echo "selected='selected'";?>><?php echo htmlspecialchars($val['s_name'])?></option>
+										<option value="<?php echo htmlspecialchars($val['s_id'])?>" <?php if($val['s_id']==$board_id) echo "selected='selected'";?>>
+<?php echo htmlspecialchars($val['s_name'])?></option>
 										<?php
 									}
 									?>
@@ -156,7 +166,8 @@ function putEditorForm($form_action, $prev_info, $comment_mode=false){
 					<?php } ?>
 				</div>
 				<div style="margin-bottom:20px;">
-					<textarea name="s_data" id="s_data_ckeditor" style="width:100%;height:480px;"><?php echo isset($prev_info['s_data'])?htmlspecialchars($prev_info['s_data']):""?></textarea>
+					<textarea name="s_data" id="s_data_ckeditor" style="width:100%;height:480px;">
+<?php echo isset($prev_info['s_data'])?htmlspecialchars($prev_info['s_data']):""?></textarea>
 				</div>
 			</div>
 			<?php if(checkCategoryAccess($board_cat['n_id'], "attach upload")){

@@ -121,7 +121,8 @@ function printContent(){
                     ?>
                     <div class="food-votes">
                         <?php if($voteData['count'] > 0) { ?>
-                            <span style="font-size: 1.2em"><?php echo(round($voteData['sum'] / $voteData['count'], 1));?>점</span>
+                            <span style="font-size: 1.2em">
+<?php echo(round($voteData['sum'] / $voteData['count'], 1));?>점</span>
                             (<?php echo $voteData['count']; ?>명)
                         <?php } else { ?>
                             평점 없음
@@ -147,7 +148,8 @@ function printContent(){
                     ?>
                     <div class="food-votes">
                         <?php if($voteData['count'] > 0) { ?>
-                            <span style="font-size: 1.2em"><?php echo(round($voteData['sum'] / $voteData['count'], 1));?>점</span>
+                            <span style="font-size: 1.2em">
+<?php echo(round($voteData['sum'] / $voteData['count'], 1));?>점</span>
                             (<?php echo $voteData['count']; ?>명)
                         <?php } else { ?>
                             평점 없음
@@ -173,7 +175,8 @@ function printContent(){
                     ?>
                     <div class="food-votes">
                         <?php if($voteData['count'] > 0) { ?>
-                            <span style="font-size: 1.2em"><?php echo(round($voteData['sum'] / $voteData['count'], 1));?>점</span>
+                            <span style="font-size: 1.2em">
+<?php echo(round($voteData['sum'] / $voteData['count'], 1));?>점</span>
                             (<?php echo $voteData['count']; ?>명)
                         <?php } else { ?>
                             평점 없음

@@ -44,10 +44,12 @@ function printArticleListTypeBoard($board_data, $additional_query_string){
 						</td>
 					<?php }else{ ?>
 						<td style="text-align:center;" onclick="return changeLinkTo('<?php echo htmlspecialchars(addslashes("/user/view/" . $memb['n_id'] . "/" . $memb['s_id']))?>');">
-							<a href="<?php echo htmlspecialchars("/user/view/" . $memb['n_id'] . "/" . $memb['s_id'])?>" style="color:black"><?php putUserCard($memb); ?></a>
+							<a href="<?php echo htmlspecialchars("/user/view/" . $memb['n_id'] . "/" . $memb['s_id'])?>" style="color:black">
+<?php putUserCard($memb); ?></a>
 						</td>
 					<?php } ?>
-					<td style="text-align:center;" onclick="return changeLinkTo('<?php echo htmlspecialchars(addslashes("/board/$board_id/view/{$item['n_id']}$additional_query_string"))?>');"><?php
+					<td style="text-align:center;" onclick="return changeLinkTo('<?php echo htmlspecialchars(addslashes("/board/$board_id/view/{$item['n_id']}$additional_query_string"))?>');">
+<?php
 						if(time()-$item['n_writedate']<86400)
 							echo htmlspecialchars(date("H:i:s",$item['n_writedate']));
 						else
@@ -121,7 +123,8 @@ function printArticleList(){
 			<a href="<?php echo "/board/$board_id/page/$i$additional_query_string" ;?>" <?php if($pagenumber==$i) echo "style='color:black'" ?>>[<?php echo $i; $disp[$i]=true;?>]</a> 
 		<?php } ?>
 		<?php if($i<$page_count && $i!=max(2,$pagenumber-10)) echo "..."; ?>
-		<?php if(!isset($disp[$page_count]) && $page_count>1){ ?><a href="<?php echo "/board/$board_id/page/$page_count$additional_query_string" ;?>" <?php if($pagenumber==$page_count) echo "style='color:black'" ?>>[<?php echo $page_count?>]</a><?php } ?>
+		<?php if(!isset($disp[$page_count]) && $page_count>1){ ?><a href="<?php echo "/board/$board_id/page/$page_count$additional_query_string" ;?>" <?php if($pagenumber==$page_count) echo "style='color:black'" ?>>[<?php echo $page_count?>]</a>
+<?php } ?>
 	</div>
 	<div style="margin:0 auto;width:120px;text-align:center;">총 <?php echo $article_count?>개</div>
 	<?php if($is_mobile){ ?>

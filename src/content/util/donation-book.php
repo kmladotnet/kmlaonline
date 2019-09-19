@@ -68,7 +68,8 @@ function printContent(){
 	<?php $category_title = array("문제집 (국내)", "문제집 (국제)", "서적", "교과서");?>
 	<?php for($i = 0; $i < 4; $i++): ?>
 		<div style="text-align:left;" id="<?php echo $i + 1 ?>">
-			<font size=5><b name="1"><?php echo $category_title[$i]; ?></b></font></br>
+			<font size=5><b name="1">
+<?php echo $category_title[$i]; ?></b></font></br>
 		</div>
 		<?php $category = $i ?>
 		<div style="clear:both;padding:5px;"></div>
@@ -83,7 +84,8 @@ function printContent(){
 				<?php for($num = 1; $num <= sizeof($currentTable[$category]); $num++){ ?>
 					<tr>
 						<!-- s_title 책 제목-->
-						<td><?php echo $currentTable[$category][$num][0]; ?></td>
+						<td>
+<?php echo $currentTable[$category][$num][0]; ?></td>
 
 						<!-- 신청자 column -->
 						<!-- if n_who is not 0, 신청자가 있을 때  -->
@@ -91,7 +93,8 @@ function printContent(){
 						$usr = $member->getMember($currentTable[$category][$num][1]);
 						?>
 						<!-- 그 신청자가 본인일 때, set text color to #d0d0f0 -->
-						<td style='text-align:center;<?php if($usr['n_id'] == $me['n_id']) echo "background:#DDF";?>'><a href="/user/view/<?php echo $usr['n_id']."/".$usr['s_id']?>"><?php putUserCard($usr); ?></a></td>
+						<td style='text-align:center;<?php if($usr['n_id'] == $me['n_id']) echo "background:#DDF";?>'><a href="/user/view/<?php echo $usr['n_id']."/".$usr['s_id']?>">
+<?php putUserCard($usr); ?></a></td>
 						<td>
 							<?php if($me['n_id'] == $currentTable[$category][$num][1]){ ?>
 								<form method="post" action="/proc/util/donation" onsubmit="if(confirm('정말로 신청을 취소하겠습니까?'))return saveAjax(this,'신청 취소 중...'); return false;">
@@ -143,7 +146,8 @@ function printContent(){
 				<tr>
 					<!-- TODO 생활용품 category도 제목이 s_publisher에 저장되어 있음, 다른 데는 아님. 일관성 필요-->
 					<!-- 제목-->
-					<td><?php echo $currentTable[$category][$num][0]; ?></td>
+					<td>
+<?php echo $currentTable[$category][$num][0]; ?></td>
 					<!--  -->
 					<td>
 					<?php echo $currentTable[$category][$num][2];?>
@@ -153,7 +157,8 @@ function printContent(){
 					<?php if($currentTable[$category][$num][1]!=0){
 					$usr=$member->getMember($currentTable[$category][$num][1]);
 					?>
-					<td style='text-align:center;<?php if($usr['n_id'] == $me['n_id']) echo "background:#D0D0F0";?>'><a href="/user/view/<?php echo $usr['n_id']."/".$usr['s_id']?>"><?php putUserCard($usr); ?></a></td>
+					<td style='text-align:center;<?php if($usr['n_id'] == $me['n_id']) echo "background:#D0D0F0";?>'><a href="/user/view/<?php echo $usr['n_id']."/".$usr['s_id']?>">
+<?php putUserCard($usr); ?></a></td>
 					<td>
 						<?php if($me['n_id'] == $currentTable[$category][$num][1]){ ?>
 							<form method="post" action="/proc/util/donation" onsubmit="if(confirm('정말로 신청을 취소하겠습니까?'))return saveAjax(this,'신청 취소 중...'); return false;">

@@ -1,6 +1,6 @@
 <?php
-define('HOST_NAME',"106.187.34.53");
-define('PORT',"8090");
+define('HOST_NAME', "106.187.34.53");
+define('PORT', "8090");
 $null = NULL;
 
 require_once("class.chathandler.php");
@@ -33,7 +33,7 @@ while (true) {
 	}
 
 	foreach ($newSocketArray as $newSocketArrayResource) {
-		while(socket_recv($newSocketArrayResource, $socketData, 1024, 0) >= 1){
+		while (socket_recv($newSocketArrayResource, $socketData, 1024, 0) >= 1) {
 			$socketMessage = $chatHandler->unseal($socketData);
 			$messageObj = json_decode($socketMessage);
 

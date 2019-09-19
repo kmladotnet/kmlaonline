@@ -11,14 +11,19 @@ function printContent(){
 	?>
 	<div class="tab_global_wrap" style="min-height:240px;">
 		<div class="what_to_do">
-			<div style="padding-bottom:12px;"><?php echo lang("admin","only")?></div>
-			<div><input type="checkbox" name="admin_override" id="chk_admin_override" onchange="setAdminOverride($(this));" <?php if(isset($_SESSION['admin_override'])) echo "checked='checked'" ?> /> <label for="chk_admin_override"><?php echo lang("admin","override")?></label></div>
+			<div style="padding-bottom:12px;">
+<?php echo lang("admin","only")?></div>
+			<div><input type="checkbox" name="admin_override" id="chk_admin_override" onchange="setAdminOverride($(this));" <?php if(isset($_SESSION['admin_override'])) echo "checked='checked'" ?> /> <label for="chk_admin_override">
+<?php echo lang("admin","override")?></label></div>
 		</div>
 		<div class="tab_menu">
 			<ul>
-				<li><a id="tab_menu_switch_0" href="#" onclick="return changeTab(0);"<?php if(!isset($_GET['display']) || $_GET['display']==0) echo ' class="tab_menu_selected"';?>><?php echo lang("admin","manage","user");?></a></li>
-				<li><a id="tab_menu_switch_1" href="#" onclick="return changeTab(1);"<?php if(isset($_GET['display']) && $_GET['display']==1) echo ' class="tab_menu_selected"';?>><?php echo lang("admin","manage","category");?></a></li>
-				<li><a id="tab_menu_switch_2" href="#" onclick="return changeTab(2);"<?php if(isset($_GET['display']) && $_GET['display']==2) echo ' class="tab_menu_selected"';?>><?php echo lang("admin","manage","misc");?></a></li>
+				<li><a id="tab_menu_switch_0" href="#" onclick="return changeTab(0);"<?php if(!isset($_GET['display']) || $_GET['display']==0) echo ' class="tab_menu_selected"';?>>
+<?php echo lang("admin","manage","user");?></a></li>
+				<li><a id="tab_menu_switch_1" href="#" onclick="return changeTab(1);"<?php if(isset($_GET['display']) && $_GET['display']==1) echo ' class="tab_menu_selected"';?>>
+<?php echo lang("admin","manage","category");?></a></li>
+				<li><a id="tab_menu_switch_2" href="#" onclick="return changeTab(2);"<?php if(isset($_GET['display']) && $_GET['display']==2) echo ' class="tab_menu_selected"';?>>
+<?php echo lang("admin","manage","misc");?></a></li>
 				<!--
 				<li><a id="tab_menu_switch_2" href="#" onclick="return changeTab(2);"<?php if(isset($_GET['display']) && $_GET['display']==2) echo ' class="tab_menu_selected"';?>>부서 관리</a></li>
 				<li><a id="tab_menu_switch_3" href="#" onclick="return changeTab(3);"<?php if(isset($_GET['display']) && $_GET['display']==3) echo ' class="tab_menu_selected"';?>>동아리 관리</a></li>
@@ -30,17 +35,23 @@ function printContent(){
 				<div id="tab_menu_0" class="tab_menu_items"<?php if(!isset($_GET['display']) || $_GET['display']==0) echo ' style="display:block"';?>>
 					<table class="table_info_view">
 						<tr>
-							<th><?php elang("generic","list")?></th>
+							<th>
+<?php elang("generic","list")?></th>
 							<td>
 								<table class="table_info_view">
 									<thead>
 										<tr>
 											<th style="width:16px;text-align:left"></th>
-											<th style="width:36px;text-align:left"><?php echo lang("generic","index")?></th>
-											<th style="width:80px;text-align:left"><?php echo lang("generic","id")?></th>
-											<th style="width:36px;text-align:left"><?php echo lang("generic","level")?></th>
-											<th style="width:80px;text-align:left"><?php echo lang("generic","name")?></th>
-											<th style="text-align:left"><?php echo lang("generic","student_id")?></th>
+											<th style="width:36px;text-align:left">
+<?php echo lang("generic","index")?></th>
+											<th style="width:80px;text-align:left">
+<?php echo lang("generic","id")?></th>
+											<th style="width:36px;text-align:left">
+<?php echo lang("generic","level")?></th>
+											<th style="width:80px;text-align:left">
+<?php echo lang("generic","name")?></th>
+											<th style="text-align:left">
+<?php echo lang("generic","student_id")?></th>
 										</tr>
 									</thead>
 									<tbody id="search_results">
@@ -51,11 +62,16 @@ function printContent(){
 											?>
 											<tr>
 												<td><input type="radio" name="user_selection" id="user_selection_<?php echo $usr['n_id']?>" /></td>
-												<td><?php echo $usr['n_id']?></td>
-												<td><?php echo htmlspecialchars($usr['s_id'])?></td>
-												<td><?php echo $usr['n_level']?></td>
-												<td><?php echo $usr['s_name']?></td>
-												<td><?php echo $usr['s_email']?></td>
+												<td>
+<?php echo $usr['n_id']?></td>
+												<td>
+<?php echo htmlspecialchars($usr['s_id'])?></td>
+												<td>
+<?php echo $usr['n_level']?></td>
+												<td>
+<?php echo $usr['s_name']?></td>
+												<td>
+<?php echo $usr['s_email']?></td>
 											</tr>
 											<?php
 										}
@@ -65,7 +81,8 @@ function printContent(){
 							</td>
 						</tr>
 						<tr>
-							<th><?php echo lang("generic","find")?></th>
+							<th>
+<?php echo lang("generic","find")?></th>
 							<td>
 								<input type="hidden" id="n_user_find_page" value="0" />
 								<input type="text" id="s_user_to_find" onkeydown="if (event.which || event.keyCode){if ((event.which == 13) || (event.keyCode == 13)) {document.getElementById('cmd_search_for_user').click();return false;}};" />
@@ -74,7 +91,8 @@ function printContent(){
 							</td>
 						</tr>
 						<tr>
-							<th><?php echo lang("generic","misc")?></th>
+							<th>
+<?php echo lang("generic","misc")?></th>
 							<td>
 								<?php echo lang("admin","user","select first")?><br />
 								<form method="post" action="/proc/admin/user" id="user_action" style="display:none" onsubmit="return saveAjax(this,'유저 작업 중...');">
@@ -90,7 +108,8 @@ function printContent(){
 				<div id="tab_menu_1" class="tab_menu_items"<?php if(isset($_GET['display']) && $_GET['display']==1) echo ' style="display:block"';?>>
 					<table class="table_info_view">
 						<tr>
-							<th><?php echo lang("generic","add")?></th>
+							<th>
+<?php echo lang("generic","add")?></th>
 							<td>
 								<form method="post" action="/check" onsubmit="return saveAjax(this,'카테고리 추가 중...');">
 									<input type="hidden" name="action" value="admin" />
@@ -105,7 +124,8 @@ function printContent(){
 							</td>
 						</tr>
 						<tr>
-							<th><?php echo lang("generic","edit")?></th>
+							<th>
+<?php echo lang("generic","edit")?></th>
 							<td>
 								<form method="post" action="/check" onsubmit="return saveAjax(this,'카테고리 수정 중...');">
 									<input type="hidden" name="action" value="admin" />
@@ -142,7 +162,8 @@ function printContent(){
 												<td><a onclick="return prepareCategoryPermission(<?php echo $val['n_id']?>, '<?php echo addslashes($val['s_name'])?>');">[<?php echo $val['n_id']?>]</a></td>
 												<td><input type='text' style='width:98%' name='cat_edit_<?php echo $val['n_id']?>_s_id' value='<?php echo $val['s_id']?>' /></td>
 												<td><input type='text' style='width:98%' name='cat_edit_<?php echo $val['n_id']?>_s_name' value='<?php echo $val['s_name']?>' /></td>
-												<td><?php echo $val['n_count']?></td>
+												<td>
+<?php echo $val['n_count']?></td>
 											</tr>
 											<tr class="cat_edit_form_<?php echo $val['n_id']?>" style="display:none">
 												<td></td>
@@ -155,7 +176,8 @@ function printContent(){
 														<option value="2" <?php echo($val['n_viewmode']==2)?"selected='selected'":""?>>포럼</option>
 													</select>
 													<div style="clear:both"></div>
-													<textarea style="width:100%;height:120px;" name="cat_edit_<?php echo $val['n_id']?>_s_desc"><?php echo htmlspecialchars($val['s_desc'])?></textarea>
+													<textarea style="width:100%;height:120px;" name="cat_edit_<?php echo $val['n_id']?>_s_desc">
+<?php echo htmlspecialchars($val['s_desc'])?></textarea>
 												</td>
 											</tr>
 											<tr class="cat_edit_form_<?php echo $val['n_id']?>" style="height:16px;display:none"><td colspan='5'></td></tr>
@@ -201,7 +223,8 @@ function printContent(){
 												<select name="n_level" id="n_level_select" onchange="fetchCategoryPermission();">
 													<option value="all" selected="selected">기본값/외부인</option>
 													<?php for($i=intval(date("Y"))-1995,$j=0;$i>=1;$i--,$j++){ ?>
-														<option value="<?php echo $i?>"><?php echo $i?></option>
+														<option value="<?php echo $i?>">
+<?php echo $i?></option>
 													<?php } ?>
 												</select>
 											</div>
@@ -213,7 +236,8 @@ function printContent(){
 													foreach($usrs as $usr){
 														if($usr['n_id']==1) continue;
 														?>
-														<option value="<?php echo $usr['n_id']?>"><?php echo $usr['n_level'] . " " . $usr['s_name'] . " (" . $usr['s_id'] . ")"; ?></option>
+														<option value="<?php echo $usr['n_id']?>">
+<?php echo $usr['n_level'] . " " . $usr['s_name'] . " (" . $usr['s_id'] . ")"; ?></option>
 														<?php
 													}
 													?>
@@ -273,7 +297,8 @@ function printContent(){
 								<td>
 									<?php $sel=""; $a=false; foreach($possible_permissions as $k=>$v){ ?>
 										<input onclick="fetchSpecialPermissioners('<?php echo $k?>');" type="radio" name="permission_type" id="permission_type_<?php echo $k?>" value="<?php echo $k?>" <?php if(!$a){$a=true; echo "checked=\"checked\""; $sel=$k;}?> />
-										<label for="permission_type_<?php echo $k?>"><?php echo $v?></label>
+										<label for="permission_type_<?php echo $k?>">
+<?php echo $v?></label>
 									<?php } ?>
 								</td>
 							</tr>
@@ -288,7 +313,8 @@ function printContent(){
 												$m=$member->getMember($row['n_user']);
 												?>
 												<input type="checkbox" name="revoke_permission[]" id="revoke_permission_<?php echo $m['n_id']?>" value="<?php echo $m['n_id']?>" />
-												<label for="revoke_permission_<?php echo $m['n_id']?>"><?php putUserCard($m);?></label>
+												<label for="revoke_permission_<?php echo $m['n_id']?>">
+<?php putUserCard($m);?></label>
 												<br />
 												<?php
 											}
@@ -309,7 +335,8 @@ function printContent(){
 											if(isUserPermitted($usr['n_id'], $sel)) continue;
 											?>
 											<input type="checkbox" id="grant_permission_<?php echo $m['n_id']?>" name="grant_permission[]" value="<?php echo $usr['n_id']?>" />
-											<label for="grant_permission_<?php echo $m['n_id']?>"><?php putUserCard($usr);?></label><br />
+											<label for="grant_permission_<?php echo $m['n_id']?>">
+<?php putUserCard($usr);?></label><br />
 											<?php
 										}
 										?>

@@ -88,4 +88,3 @@ class ChatHandler {
         return $chatMessage;
     }
 }
-?>

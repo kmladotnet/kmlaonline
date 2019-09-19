@@ -71,9 +71,11 @@ function printContent(){
 												<tr>
 													<td><input type='hidden' id='searchby_<?php echo $val['s_id']?>' value='<?php echo ($i-($i%$cpp))/$cpp?>' /><input type='checkbox' name='cat_edit_<?php echo $val['n_id']?>' value='yes' onchange="smoothToggleVisibility('.cat_edit_form_<?php echo $val['n_id']?>',$(this).is(':checked')?2:1);" /></td>
 													<td><a onclick="return user_manage_prepareCategoryPermission(<?php echo $val['n_id']?>, '<?php echo addslashes($val['s_name'])?>');">[<?php echo $val['n_id']?>]</a></td>
-													<td><?php echo $val['s_id']?></td>
+													<td>
+<?php echo $val['s_id']?></td>
 													<td><input type='text' style='width:98%' name='cat_edit_<?php echo $val['n_id']?>_s_name' value='<?php echo $val['s_name']?>' /></td>
-													<td><?php echo $val['n_count']?></td>
+													<td>
+<?php echo $val['n_count']?></td>
 												</tr>
 												<tr class="cat_edit_form_<?php echo $val['n_id']?>" style="display:none">
 													<td></td>
@@ -86,7 +88,8 @@ function printContent(){
 															<option value="2" <?php echo($val['n_viewmode']==2)?"selected='selected'":""?>>포럼</option>
 														</select>
 														<div style="clear:both"></div>
-														<textarea style="width:100%;height:120px;" name="cat_edit_<?php echo $val['n_id']?>_s_desc"><?php echo htmlspecialchars($val['s_desc'])?></textarea>
+														<textarea style="width:100%;height:120px;" name="cat_edit_<?php echo $val['n_id']?>_s_desc">
+<?php echo htmlspecialchars($val['s_desc'])?></textarea>
 													</td>
 												</tr>
 												<tr class="cat_edit_form_<?php echo $val['n_id']?>" style="height:16px;display:none"><td colspan='5'></td></tr>
@@ -120,7 +123,8 @@ function printContent(){
 													<select name="n_level" id="n_level_select" onchange="user_manage_fetchCategoryPermission();">
 														<option value="all" selected="selected">기본값/외부인</option>
 														<?php for($i=intval(date("Y"))-1995,$j=0;$i>=1;$i--,$j++){ ?>
-															<option value="<?php echo $i?>"><?php echo $i?></option>
+															<option value="<?php echo $i?>">
+<?php echo $i?></option>
 														<?php } ?>
 													</select>
 												</div>
@@ -132,7 +136,8 @@ function printContent(){
 														foreach($usrs as $usr){
 															if($usr['n_id']==1) continue;
 															?>
-															<option value="<?php echo $usr['n_id']?>"><?php echo $usr['n_level'] . " " . $usr['s_name'] . " (" . $usr['s_id'] . ")"; ?></option>
+															<option value="<?php echo $usr['n_id']?>">
+<?php echo $usr['n_level'] . " " . $usr['s_name'] . " (" . $usr['s_id'] . ")"; ?></option>
 															<?php
 														}
 														?>

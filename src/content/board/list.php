@@ -39,10 +39,12 @@ function printArticleListTypeBoard($board_data, $additional_query_string){
 						</td>
 					<?php }else{ ?>
 						<td style="text-align:center;" onclick="return changeLinkTo('<?php echo htmlspecialchars(addslashes("/user/view/" . $memb['n_id'] . "/" . $memb['s_id']))?>');">
-							<a href="<?php echo htmlspecialchars("/user/view/" . $memb['n_id'] . "/" . $memb['s_id'])?>" style="color:black"><?php putUserCard($memb); ?></a>
+							<a href="<?php echo htmlspecialchars("/user/view/" . $memb['n_id'] . "/" . $memb['s_id'])?>" style="color:black">
+<?php putUserCard($memb); ?></a>
 						</td>
 					<?php } ?>
-					<td style="text-align:center;" onclick="return changeLinkTo('<?php echo htmlspecialchars(addslashes("/board/$board_id/view/{$item['n_id']}$additional_query_string"))?>');"><?php
+					<td style="text-align:center;" onclick="return changeLinkTo('<?php echo htmlspecialchars(addslashes("/board/$board_id/view/{$item['n_id']}$additional_query_string"))?>');">
+<?php
 						if(time()-$item['n_writedate']<86400)
 							echo htmlspecialchars(date("H:i:s",$item['n_writedate']));
 						else
@@ -83,11 +85,15 @@ function printArticleListTypeForum($board_data, $additional_query_string){
 						<?php echo htmlspecialchars($item['n_id']); ?>
 					</td>
 					<td>
-						<a href="<?php echo htmlspecialchars("/board/$board_id/view/" . $item['n_id'])?>" style="<?php echo $b_bold_title?"font-weight:bold;":"";?>"><?php echo formatTitle($item['s_title']); ?></a><br />
-						<div style="display:inline-block">글쓴이: <?php if($b_anonymous){ echo '익명'; }else{ ?><a href="<?php echo htmlspecialchars(addslashes("/user/view/" . $memb['n_id'] . "/" . $memb['s_id']))?>"><?php putUserCard($memb); ?></a><?php } ?></div>
+						<a href="<?php echo htmlspecialchars("/board/$board_id/view/" . $item['n_id'])?>" style="<?php echo $b_bold_title?"font-weight:bold;":"";?>">
+<?php echo formatTitle($item['s_title']); ?></a><br />
+						<div style="display:inline-block">글쓴이: <?php if($b_anonymous){ echo '익명'; }else{ ?><a href="<?php echo htmlspecialchars(addslashes("/user/view/" . $memb['n_id'] . "/" . $memb['s_id']))?>">
+<?php putUserCard($memb); ?></a>
+<?php } ?></div>
 						<div style="display:inline-block">글쓴때: <?php echo htmlspecialchars(date((time()-$item['n_writedate']<86400)?"H:i:s":"y-m-d",$item['n_writedate'])); ?></div>
 					</td>
-					<td style="text-align:center;"><?php
+					<td style="text-align:center;">
+<?php
 						$rep=$board->getArticleList(false, false, $item['n_id'], 0, 1);
 						if($rep!==false && count($rep)>0)
 							$rep=$rep[0];
@@ -121,7 +127,8 @@ function printArticleListTypeForum($board_data, $additional_query_string){
 }
 function printArticleListTypeGallery($board_data, $additional_query_string){
 	global $board, $member, $board_cat, $board_id;
-	?><div style="max-width:980px;margin:0 auto;display:block"><?php
+	?><div style="max-width:980px;margin:0 auto;display:block">
+<?php
 		foreach($board_data as $item){
 			$memb=$member->getMember($item['n_writer']);
 			$flag=$item['n_flag']; $b_public_article=$flag&0x1; $b_no_comment=$flag&0x2; $b_anonymous=$flag&0x4; $b_bold_title=$flag&0x8;
@@ -153,7 +160,8 @@ function printArticleListTypeGallery($board_data, $additional_query_string){
 					<?php if($b_anonymous){ ?>
 						익명<br />
 					<?php }else{ ?>
-						<a href="<?php echo htmlspecialchars("/user/view/" . $memb['n_id'] . "/" . $memb['s_id'])?>" style="color:black"><?php putUserCard($memb); ?></a><br />
+						<a href="<?php echo htmlspecialchars("/user/view/" . $memb['n_id'] . "/" . $memb['s_id'])?>" style="color:black">
+<?php putUserCard($memb); ?></a><br />
 					<?php } ?>
 					<?php echo htmlspecialchars(date((time()-$item['n_writedate']<86400)?"H:i:s":"y-m-d",$item['n_writedate']));?>
 				</div>
@@ -213,7 +221,9 @@ function printArticleList(){
 			echo htmlspecialchars($board_cat['s_name']);
 		?>
 	</h1>
-	<?php if($board_cat['s_desc']){ ?><div style="padding:9px;text-align:left"><?php echo $board_cat['s_desc'] ?></div><?php } ?>
+	<?php if($board_cat['s_desc']){ ?><div style="padding:9px;text-align:left">
+<?php echo $board_cat['s_desc'] ?></div>
+<?php } ?>
 	<?php
 	switch($board_cat['n_viewmode']) {
 		case 0: printArticleListTypeBoard($board_data, $additional_query_string); break;

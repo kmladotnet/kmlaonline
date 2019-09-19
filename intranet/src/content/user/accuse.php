@@ -37,8 +37,10 @@ function printContent(){ ?>
     <form data-toggle="validator" data-delay="100" action="../ajax/user/accuse" method="post" enctype="multipart/form-data" onsubmit="window.onbeforeunload=null;">
         <input type="hidden" name="prev_url" value="<?php echo htmlspecialchars($_SERVER['REQUEST_URI']) ?>" />
         <div style="text-align:center; width:100%">
-            <h1><?php echo "새로운 기소 신청"; ?></h1>
-            <h2><?php echo "기소 항목" ?></h2>
+            <h1>
+<?php echo "새로운 기소 신청"; ?></h1>
+            <h2>
+<?php echo "기소 항목" ?></h2>
             <table style="margin:50px auto; width:1000px;" id="article_table">
                 <tbody id="article_table_body">
                     <tr>

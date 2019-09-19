@@ -150,13 +150,15 @@ function printContent(){
 							<input type="hidden" name="n_year" value="<?php echo $curYear?>" />
 							<input type="hidden" name="n_month" value="<?php echo $curMonth?>" />
 							<input type="hidden" name="n_day" value="<?php echo $datename?>" />
-							<textarea name='s_data' class="form-control" style='resize:vertical;' > <?php echo htmlspecialchars($curData); ?> </textarea>
+							<textarea name='s_data' class="form-control" style='resize:vertical;' >
+<?php echo htmlspecialchars($curData); ?> </textarea>
 							<div style='text-align:right'>
 								<input type='button' style="margin: 3px" class="btn btn-default" value='취소' onclick='return util_schedule_cancelEdit(this);' />
 								<input type='submit' style="margin: 3px" class="btn btn-default" value='저장' />
 							</div>
                         </form>
-                        <div style='width:100%;padding:3px;margin:0;border:0;text-align:center;'><?php
+                        <div style='width:100%;padding:3px;margin:0;border:0;text-align:center;'>
+<?php
                             if ($mode == "normal") {
                                 if (strlen($curData) > 0) echo nl2br($curData);
                                 else echo "<span style='color:#DDD'>(지정되지 않음)</span>";

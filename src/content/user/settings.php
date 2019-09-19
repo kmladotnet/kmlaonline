@@ -10,7 +10,8 @@ function printContent(){
 		<div class="tab_global_wrap">
 			<div class="what_to_do">
 				<?php if(!isset($_SESSION["setting_change_no_pw_needed"])){ ?>
-					<div><?php elang("user","settings","password prev")?></div>
+					<div>
+<?php elang("user","settings","password prev")?></div>
 					<div><input class="form-control" type="password" name="s_pw_prev" style="width:100%;box-sizing:border-box" required/></div>
 				<?php } ?>
 				<div>
@@ -20,8 +21,10 @@ function printContent(){
 			</div>
 			<div class="tab_menu">
 				<ul>
-					<li><a id="tab_menu_switch_0" href="#" onclick="return changeTab(0);"><?php elang("user","settings","myinfo","")?></a></li>
-					<li><a id="tab_menu_switch_1" href="#" onclick="return changeTab(1);"><?php elang("user","settings","menu","")?></a></li>
+					<li><a id="tab_menu_switch_0" href="#" onclick="return changeTab(0);">
+<?php elang("user","settings","myinfo","")?></a></li>
+					<li><a id="tab_menu_switch_1" href="#" onclick="return changeTab(1);">
+<?php elang("user","settings","menu","")?></a></li>
 				</ul>
 			</div>
 			<div class="tab_wrap" style="min-height:320px;">
@@ -138,7 +141,8 @@ function printContent(){
 													<div class="assigned-2">
 														<b>하위 항목</b>
 														<input type="text" class="menu_titles" name="menu_titles[]" value="<?php echo htmlspecialchars($menu_info[2]);?>" style="width:64px;" />
-														<span class="desc"><?php
+														<span class="desc">
+<?php
 															switch($menu_info[0]){
 																case "url":  echo getLinkDescription($menu_info[1]); break;
 															}
@@ -146,7 +150,8 @@ function printContent(){
 													</div>
 													<div class="remove" onclick="settings_menu_removeSelf(this);">X</div>
 													<input type="hidden" class="menu_data" name="menu_data[]" value="<?php echo htmlspecialchars($menu_info[0].":".$menu_info[1]);?>" />
-												</li><?php
+												</li>
+<?php
 											}
 										}
 										?>

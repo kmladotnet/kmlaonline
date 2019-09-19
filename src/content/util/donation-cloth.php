@@ -50,7 +50,8 @@ function printContent(){
 	 <?php $category_title = array('여자 교복', '남자 교복'); ?>
 	 <?php for($i = 5; $i <= 6; $i++): ?>
 		<div style="text-align:left;" id="<?php echo $i ?>">
-			<font size=5><b><?php echo $category_title[$i - 5]?></b></font></br>
+			<font size=5><b>
+<?php echo $category_title[$i - 5]?></b></font></br>
 		</div>
 		<?php $category = $i ?>   <!--Category 5: 여자 교복 -->
 		<div style="clear:both;padding:5px;"></div>
@@ -67,16 +68,20 @@ function printContent(){
 				<?php for($num = 1; $num <= sizeof($currentTable[$category]); $num++){ ?>
 					<tr>
 						<!-- 1. 종류 ex> 동복 -->
-						<td><?php echo $currentTable[$category][$num][0]; ?></td>
+						<td>
+<?php echo $currentTable[$category][$num][0]; ?></td>
 						<!-- 2. 색깔 -->
-						<td><?php echo $currentTable[$category][$num][3] ?></td>
+						<td>
+<?php echo $currentTable[$category][$num][3] ?></td>
 						<!-- 3. owner -->
-	                    <td><?php echo $currentTable[$category][$num][4] ?></td>
+	                    <td>
+<?php echo $currentTable[$category][$num][4] ?></td>
 						<!-- 4. 신청 or empty -->
 						<?php if($currentTable[$category][$num][1] != 0){
 						$usr=$member->getMember($currentTable[$category][$num][1]);
 						?>
-						<td style='text-align:center;<?php if($usr['n_id'] == $me['n_id']) echo "background:#DDF";?>'><a href="/user/view/<?php echo $usr['n_id']."/".$usr['s_id']?>"><?php putUserCard($usr); ?></a></td>
+						<td style='text-align:center;<?php if($usr['n_id'] == $me['n_id']) echo "background:#DDF";?>'><a href="/user/view/<?php echo $usr['n_id']."/".$usr['s_id']?>">
+<?php putUserCard($usr); ?></a></td>
 						<td>
 						<?php if($me['n_id']==$currentTable[$category][$num][1]){ ?>
 							<form method="post" action="/proc/util/donation" onsubmit="if(confirm('정말로 신청을 취소하겠습니까?'))return saveAjax(this,'신청 취소 중...'); return false;">

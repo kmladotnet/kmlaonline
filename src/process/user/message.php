@@ -2,7 +2,9 @@
 redirectLoginIfRequired();
 $errors=array();
 function redirWithBody($failReason){
-	?><form method="post" action="/user/message" id="poster"><?php foreach($_POST as $key=>$val){if(is_array($val)){foreach($val as $val2){$val2=htmlspecialchars($val2);echo "<input type='hidden' name='{$key}[]' value='$val2' />";}}else{$val=htmlspecialchars($val);echo "<input type='hidden' name='$key' value='$val' />";}} ?><input type="hidden" name="error_occured" value="<?php echo htmlspecialchars(json_encode($failReason)) ?>" /><input type="submit" id="submitter" value="Click here if the page doesn't continue" /></form><script type="text/javascript">$('#poster').submit();$('#submitter').css("visibility", "hidden");</script><?php
+	?><form method="post" action="/user/message" id="poster">
+<?php foreach($_POST as $key=>$val){if(is_array($val)){foreach($val as $val2){$val2=htmlspecialchars($val2);echo "<input type='hidden' name='{$key}[]' value='$val2' />";}}else{$val=htmlspecialchars($val);echo "<input type='hidden' name='$key' value='$val' />";}} ?><input type="hidden" name="error_occured" value="<?php echo htmlspecialchars(json_encode($failReason)) ?>" /><input type="submit" id="submitter" value="Click here if the page doesn't continue" /></form><script type="text/javascript">$('#poster').submit();$('#submitter').css("visibility", "hidden");</script>
+<?php
 }
 if(!isset($_POST['user_to']))
 	$errors['__error']="보낼 사용자를 적어도 한 명 이상 지정해야 합니다.";

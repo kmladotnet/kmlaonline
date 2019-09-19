@@ -45,7 +45,8 @@ function printContent(){
 			echo "</a></li>";
 		}
 		?>
-		<li style="background:white;padding:30px;cursor:auto;text-align:center;font-weight:bold;font-size:12pt;"><?php if($cnt==0) echo "알림이 없습니다."; else echo "이하 {$cnt}개"; ?></li>
+		<li style="background:white;padding:30px;cursor:auto;text-align:center;font-weight:bold;font-size:12pt;">
+<?php if($cnt==0) echo "알림이 없습니다."; else echo "이하 {$cnt}개"; ?></li>
 	</ul>
 	<?php
 }

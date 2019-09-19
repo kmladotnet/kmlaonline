@@ -87,9 +87,12 @@ function printContent(){
 				$m=$member->getMember($val['n_from']);
 				?>
 				<li class="message_item" id="message_list_item_<?php echo $val['n_id']?>" onclick="user_message_loadMessage(<?php echo $val['n_id']?>);">
-					<?php if($m['s_pic']){ ?><img class="image" src="<?php echo htmlspecialchars($m['s_pic'])?>" /><?php } ?>
-					<div class="writer"><?php putUserCard($m); ?></div>
-					<div class="when"><?php echo date("Y-m-d H:i:s",$val['n_date']) ?></div>
+					<?php if($m['s_pic']){ ?><img class="image" src="<?php echo htmlspecialchars($m['s_pic'])?>" />
+<?php } ?>
+					<div class="writer">
+<?php putUserCard($m); ?></div>
+					<div class="when">
+<?php echo date("Y-m-d H:i:s",$val['n_date']) ?></div>
 					<div class="preview">
 						<?php
 						if(mb_strlen($val['s_data'])>24)
@@ -119,7 +122,8 @@ function printContent(){
 					<a href="<?php echo "/user/message/".($sent?"sent/":"")."$i" ;?>" <?php if($pagenumber==$i) echo "style='color:black'" ?>>[<?php echo $i; $disp[$i]=true;?>]</a> 
 				<?php } ?>
 				<?php if($i<$page_count && $i!=max(2,$pagenumber-4)) echo "..."; ?>
-				<?php if(!isset($disp[$page_count]) && $page_count>1){ ?><a href="<?php echo "/user/message/".($sent?"sent/":"")."$i" ;?>" <?php if($pagenumber==$page_count) echo "style='color:black'" ?>>[<?php echo $page_count?>]</a><?php } ?>
+				<?php if(!isset($disp[$page_count]) && $page_count>1){ ?><a href="<?php echo "/user/message/".($sent?"sent/":"")."$i" ;?>" <?php if($pagenumber==$page_count) echo "style='color:black'" ?>>[<?php echo $page_count?>]</a>
+<?php } ?>
 			</div>
 			<div style="padding:10px;">
 				<form method="get" action="/user/message<?php echo ($sent?"/sent":"")?>">

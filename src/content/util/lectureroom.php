@@ -75,17 +75,22 @@ function printContent(){
 					<?php for($floor=0;$floor<4;$floor++){ ?>
 						<tr style="background:#<?php echo $floor%2==0?"FFF":"F8F8F8" ?>;">
 							<?php if($tm==0 && $floor==0){ ?>
-								<td rowspan="8" style="padding:3px;background:<?php echo date("Y-m-d",$day)==date("Y-m-d")?"gold":($wk%2==0?"#FFF":"#F8F8F8") ?>;text-align:right;"><?php echo date("Y-m-d",$day) . "<br /><span style='font-size:12pt;font-weight:bold'>" . $dayNames[date("w",$day)] . "</span>"; ?></td>
+								<td rowspan="8" style="padding:3px;background:<?php echo date("Y-m-d",$day)==date("Y-m-d")?"gold":($wk%2==0?"#FFF":"#F8F8F8") ?>;text-align:right;">
+<?php echo date("Y-m-d",$day) . "<br /><span style='font-size:12pt;font-weight:bold'>" . $dayNames[date("w",$day)] . "</span>"; ?></td>
 							<?php } ?>
 							<?php if($floor==0){ ?>
-								<td rowspan="4" style="padding:3px;background:#<?php echo $tm%2==0?"FFF":"F8F8F8" ?>"><?php echo ($tm+1)."자습"; ?></td>
+								<td rowspan="4" style="padding:3px;background:#<?php echo $tm%2==0?"FFF":"F8F8F8" ?>">
+<?php echo ($tm+1)."자습"; ?></td>
 							<?php } ?>
-							<td style="padding:3px;"><?php echo $floorNames[$floor]; ?></td>
+							<td style="padding:3px;">
+<?php echo $floorNames[$floor]; ?></td>
 							<?php if(isset($currentTable[$wk][$tm][$floor])){
 								$usr=$member->getMember($currentTable[$wk][$tm][$floor][1]);
 								?>
-								<td><?php echo htmlspecialchars($currentTable[$wk][$tm][$floor][0]); if($currentTable[$wk][$tm][$floor][2]) echo " <span style='color:gray'>(장기)</span>"; ?></td>
-								<td style='text-align:center;<?php if($usr['n_id']==$me['n_id']) echo "background:#DDF";?>'><a href="/user/view/<?php echo $usr['n_id']."/".$usr['s_id']?>"><?php putUserCard($usr); ?></a></td>
+								<td>
+<?php echo htmlspecialchars($currentTable[$wk][$tm][$floor][0]); if($currentTable[$wk][$tm][$floor][2]) echo " <span style='color:gray'>(장기)</span>"; ?></td>
+								<td style='text-align:center;<?php if($usr['n_id']==$me['n_id']) echo "background:#DDF";?>'><a href="/user/view/<?php echo $usr['n_id']."/".$usr['s_id']?>">
+<?php putUserCard($usr); ?></a></td>
 								<td>
 									<?php if($me['n_id']==$currentTable[$wk][$tm][$floor][1] || isUserPermitted($me['n_id'], "lectureroom_manager")){ ?>
 										<form method="post" action="/proc/util/lectureroom" onsubmit="if(confirm('정말로 신청을 취소하겠습니까?'))return saveAjax(this,'신청 취소 중...'); return false;">

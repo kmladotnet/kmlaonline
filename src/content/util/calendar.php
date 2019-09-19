@@ -43,26 +43,40 @@ function printContent(){
 	<div class="side-navigation">
 		<div style="float:left;width:38px;margin-right:4px;">
 			<div style="padding:3px;font-size:12pt;text-align:center;">년</div>
-			<?php $prtc=12; for($i=$curYear-9;$i<$curYear;$i++){ if($i<1997) continue; $prtc--; ?><a class="nav-year" href="/util/schedule?mode=<?php echo $mode?>&amp;year=<?php echo $i?>&amp;month=<?php echo $curMonth?>"><?php echo $i?></a><?php } ?>
-			<a class="nav-year" style="color:black;background:white;" href="/util/schedule?mode=<?php echo $mode?>&amp;year=<?php echo $curYear?>&amp;month=<?php echo $curMonth?>"><?php echo $curYear?></a>
-			<?php for($i=$curYear+1;--$prtc>0;$i++){ ?><a class="nav-year" href="/util/schedule?mode=<?php echo $mode?>&amp;year=<?php echo $i?>&amp;month=<?php echo $curMonth?>"><?php echo $i?></a><?php } ?>
+			<?php $prtc=12; for($i=$curYear-9;$i<$curYear;$i++){ if($i<1997) continue; $prtc--; ?><a class="nav-year" href="/util/schedule?mode=<?php echo $mode?>&amp;year=<?php echo $i?>&amp;month=<?php echo $curMonth?>">
+<?php echo $i?></a>
+<?php } ?>
+			<a class="nav-year" style="color:black;background:white;" href="/util/schedule?mode=<?php echo $mode?>&amp;year=<?php echo $curYear?>&amp;month=<?php echo $curMonth?>">
+<?php echo $curYear?></a>
+			<?php for($i=$curYear+1;--$prtc>0;$i++){ ?><a class="nav-year" href="/util/schedule?mode=<?php echo $mode?>&amp;year=<?php echo $i?>&amp;month=<?php echo $curMonth?>">
+<?php echo $i?></a>
+<?php } ?>
 		</div>
 		<div style="float:left;width:38px;">
 			<div style="padding:3px;font-size:12pt;text-align:center;">월</div>
-			<?php for($i=1;$i<$curMonth;$i++){ ?><a class="nav-month" href="/util/schedule?mode=<?php echo $mode?>&amp;year=<?php echo $curYear?>&amp;month=<?php echo $i?>"><?php echo $i?></a><?php } ?>
-			<a class="nav-month" style="color:black;background:white;" href="/util/schedule?mode=<?php echo $mode?>&amp;year=<?php echo $curYear?>&amp;month=<?php echo $curMonth?>"><?php echo $curMonth?></a>
-			<?php for($i=$curMonth+1;$i<=12;$i++){ ?><a class="nav-month" href="/util/schedule?mode=<?php echo $mode?>&amp;year=<?php echo $curYear?>&amp;month=<?php echo $i?>"><?php echo $i?></a><?php } ?>
+			<?php for($i=1;$i<$curMonth;$i++){ ?><a class="nav-month" href="/util/schedule?mode=<?php echo $mode?>&amp;year=<?php echo $curYear?>&amp;month=<?php echo $i?>">
+<?php echo $i?></a>
+<?php } ?>
+			<a class="nav-month" style="color:black;background:white;" href="/util/schedule?mode=<?php echo $mode?>&amp;year=<?php echo $curYear?>&amp;month=<?php echo $curMonth?>">
+<?php echo $curMonth?></a>
+			<?php for($i=$curMonth+1;$i<=12;$i++){ ?><a class="nav-month" href="/util/schedule?mode=<?php echo $mode?>&amp;year=<?php echo $curYear?>&amp;month=<?php echo $i?>">
+<?php echo $i?></a>
+<?php } ?>
 		</div>
 	</div>
 	<div class="schedule-content">
 		<?php if($mode=='food:0'){ ?>
-			<h1 style="text-align:center;"><img src="/images/food.png" style="width:64px;vertical-align:bottom;" /> <?php echo "{$curYear}년 {$curMonth}월 아침식단" ?></h1>
+			<h1 style="text-align:center;"><img src="/images/food.png" style="width:64px;vertical-align:bottom;" />
+<?php echo "{$curYear}년 {$curMonth}월 아침식단" ?></h1>
 		<?php }else if($mode=="food:1"){ ?>
-			<h1 style="text-align:center;"><img src="/images/food.png" style="width:64px;vertical-align:bottom;" /> <?php echo "{$curYear}년 {$curMonth}월 점심식단" ?></h1>
+			<h1 style="text-align:center;"><img src="/images/food.png" style="width:64px;vertical-align:bottom;" />
+<?php echo "{$curYear}년 {$curMonth}월 점심식단" ?></h1>
 		<?php }else if($mode=="food:2"){ ?>
-			<h1 style="text-align:center;"><img src="/images/food.png" style="width:64px;vertical-align:bottom;" /> <?php echo "{$curYear}년 {$curMonth}월 저녁식단" ?></h1>
+			<h1 style="text-align:center;"><img src="/images/food.png" style="width:64px;vertical-align:bottom;" />
+<?php echo "{$curYear}년 {$curMonth}월 저녁식단" ?></h1>
 		<?php }else{ ?>
-			<h1 style="text-align:center"><?php echo "{$curYear}년 {$curMonth}월 일정" ?></h1>
+			<h1 style="text-align:center">
+<?php echo "{$curYear}년 {$curMonth}월 일정" ?></h1>
 		<?php } ?>
 		<div style="float:right">
             <?php if($mode!="normal") echo('<a href="http://hes.kwe.go.kr/sts_sci_md00_001.do?schulCode=K100000414&amp;schulCrseScCode=4&amp;schulKndScCode=04"> 나이스에서 식단 보기 </a>');?> |
@@ -138,13 +152,15 @@ function printContent(){
 							<input type="hidden" name="n_year" value="<?php echo $curYear?>" />
 							<input type="hidden" name="n_month" value="<?php echo $curMonth?>" />
 							<input type="hidden" name="n_day" value="<?php echo $datename?>" />
-							<textarea name='s_data' style='width:100%;height:100%;box-sizing:border-box;resize:none;' class='textareaautoresize'><?php echo htmlspecialchars($curData); ?></textarea>
+							<textarea name='s_data' style='width:100%;height:100%;box-sizing:border-box;resize:none;' class='textareaautoresize'>
+<?php echo htmlspecialchars($curData); ?></textarea>
 							<div style='text-align:right'>
 								<input type='button' value='취소' onclick='return util_schedule_cancelEdit(this);' />
 								<input type='submit' value='저장' />
 							</div>
 							</form>
-							<div style='width:100%;padding:0;margin:0;border:0;text-align:center;'><?php
+							<div style='width:100%;padding:0;margin:0;border:0;text-align:center;'>
+<?php
 								if(strlen($curData)>0)
 									echo nl2br($curData);
 								else if($mode=="normal")

@@ -1,4 +1,4 @@
-# KMLAOnline git repository #
+# KMLA Online git repository #
 
 큼온 git 저장소
 

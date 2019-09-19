@@ -8,11 +8,10 @@
             <a href="board/student_executive" class="menu2">행정</a>
 
             <?php
-                if($me['n_level'] >= 19){
-                    echo '<a href="board/student_discuss" class="menu2">학급회의</a>';
-                    echo '<a href="board/student_clubs" class="menu2">동아리</a>';
-
-                }
+            if ($me['n_level'] >= 19) {
+                echo '<a href="board/student_discuss" class="menu2">학급회의</a>';
+                echo '<a href="board/student_clubs" class="menu2">동아리</a>';
+            }
             ?>
         </div>
     </div>

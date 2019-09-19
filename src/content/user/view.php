@@ -45,7 +45,8 @@ function printContent(){
 			<?php if($is_self){ ?>
 				<a href="/user/settings">정보 수정</a> |
 				<a href="/user/message">쪽지</a> |
-				<a href="/user/logout" onclick="return true; $('#logout_form').submit(); return false;"><?php echo lang("generic","logout"); ?></a>
+				<a href="/user/logout" onclick="return true; $('#logout_form').submit(); return false;">
+<?php echo lang("generic","logout"); ?></a>
 				<form method="post" action="/user/logout" id="logout_form" onsubmit="return true;"><input type="hidden" name="returnto" value="/" /></form>
 			<?php }else{ ?>
 				<a href="/user/message?compose_to=<?php echo $user_to['n_id'] ?>">쪽지 보내기</a>
@@ -54,9 +55,12 @@ function printContent(){
 		</div>
 		<div class="user_basics">
 			<div>
-				<?php if($user_to['s_icon']){ ?><img src="<?php echo htmlspecialchars($user_to['s_icon']) ?>" style="width:18pt;height:18pt;" /> <?php } ?>
-				<span style="font-weight:bold;font-size:18pt;"><?php echo htmlspecialchars($user_to['s_name']); ?></span>
-				<span style="font-size:12pt;color:gray;"><?php echo htmlspecialchars($user_to['s_real_name']); ?></span>
+				<?php if($user_to['s_icon']){ ?><img src="<?php echo htmlspecialchars($user_to['s_icon']) ?>" style="width:18pt;height:18pt;" />
+<?php } ?>
+				<span style="font-weight:bold;font-size:18pt;">
+<?php echo htmlspecialchars($user_to['s_name']); ?></span>
+				<span style="font-size:12pt;color:gray;">
+<?php echo htmlspecialchars($user_to['s_real_name']); ?></span>
 				<span style="font-size:12pt;color:gray;">(<?php echo htmlspecialchars($user_to['n_level']."기".($user_to['n_gender']==1?" 남자":($user_to['n_gender']==2?" 여자":" 기타"))); ?>)</span>
 			</div>
 			<div style="margin-top:5px;margin-bottom:5px;">
@@ -67,49 +71,59 @@ function printContent(){
 			<table class="userinfo_table">
 				<tr>
 					<th>생일</th>
-					<td><?php echo ($user_to['n_birth_date_yr'] == 0 ? "입력되지 않음" : htmlspecialchars(date("Y년 m월 d일",strtotime($user_to['n_birth_date_yr']."-".$user_to['n_birth_date_month']."-".$user_to['n_birth_date_day']))))?></td>
+					<td>
+<?php echo ($user_to['n_birth_date_yr'] == 0 ? "입력되지 않음" : htmlspecialchars(date("Y년 m월 d일",strtotime($user_to['n_birth_date_yr']."-".$user_to['n_birth_date_month']."-".$user_to['n_birth_date_day']))))?></td>
 				</tr>
 				<tr>
 					<th>E-Mail</th>
-					<td><a href="mailto:<?php echo htmlspecialchars($user_to['s_email'])?>"><?php echo htmlspecialchars($user_to['s_email'])?></a></td>
+					<td><a href="mailto:<?php echo htmlspecialchars($user_to['s_email'])?>">
+<?php echo htmlspecialchars($user_to['s_email'])?></a></td>
 				</tr>
 				<?php if($user_to['s_phone']){ ?>
 					<tr>
 						<th>전화번호</th>
-						<td><a href="tel:<?php echo htmlspecialchars($user_to['s_phone'])?>"><?php echo htmlspecialchars($user_to['s_phone'])?></a></td>
+						<td><a href="tel:<?php echo htmlspecialchars($user_to['s_phone'])?>">
+<?php echo htmlspecialchars($user_to['s_phone'])?></a></td>
 					</tr>
 				<?php } ?>
 				<?php if($user_to['s_homepage']){ ?>
 					<tr>
 						<th>홈페이지</th>
-						<td><a target="_blank" href="<?php echo htmlspecialchars($user_to['s_homepage'])?>"><?php echo htmlspecialchars($user_to['s_homepage'])?></a></td>
+						<td><a target="_blank" href="<?php echo htmlspecialchars($user_to['s_homepage'])?>">
+<?php echo htmlspecialchars($user_to['s_homepage'])?></a></td>
 					</tr>
 				<?php } ?>
 				<?php if($user_to['s_interest']){ ?>
 					<tr>
 						<th>관심사</th>
-						<td><?php echo htmlspecialchars($user_to['s_interest'])?></td>
+						<td>
+<?php echo htmlspecialchars($user_to['s_interest'])?></td>
 					</tr>
 				<?php } ?>
 				<tr>
 					<th>방</th>
-					<td><?php echo htmlspecialchars($user_to['s_room'])?></td>
+					<td>
+<?php echo htmlspecialchars($user_to['s_room'])?></td>
 				</tr>
 				<tr>
 					<th>학년 반</th>
-					<td><?php echo htmlspecialchars($user_to['n_grade'])?>학년 <?php echo htmlspecialchars($user_to['s_class'])?>반</td>
+					<td>
+<?php echo htmlspecialchars($user_to['n_grade'])?>학년 <?php echo htmlspecialchars($user_to['s_class'])?>반</td>
 				</tr>
 				<tr>
 					<th>학번</th>
-					<td><?php echo htmlspecialchars($user_to['n_student_id'])?></td>
+					<td>
+<?php echo htmlspecialchars($user_to['n_student_id'])?></td>
 				</tr>
 				<tr>
 					<th>글 수</th>
-					<td><?php echo htmlspecialchars($user_to['n_posts_started'])?>개</td>
+					<td>
+<?php echo htmlspecialchars($user_to['n_posts_started'])?>개</td>
 				</tr>
 				<tr>
 					<th>댓글 수</th>
-					<td><?php echo htmlspecialchars($user_to['n_posts_participated'])?>개</td>
+					<td>
+<?php echo htmlspecialchars($user_to['n_posts_participated'])?>개</td>
 				</tr>
 			</table>
 		</div>

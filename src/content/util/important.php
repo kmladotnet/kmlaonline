@@ -31,16 +31,22 @@ function printContentPartially($res){
 						}
 						?>
 					</td>
-					<td style="cursor:pointer;text-align:center;" onclick="smoothToggleVisibility($(this).parent().next());"><?php echo htmlspecialchars($cat['s_name']); ?></td>
-					<td style="cursor:pointer" onclick="changeLinkTo('/board/<?php echo $cat['s_id']?>/view/<?php echo $article['n_id']?>');"><a href="/board/<?php echo $cat['s_id']?>/view/<?php echo $article['n_id']?>"><?php echo formatTitle($article['s_title']); ?></a></td>
-					<td style="cursor:pointer" ><?php if(!$b_anonymous) {putUserCard($writer);} else {echo "익명";}?></td>
-					<td style="cursor:pointer" onclick="smoothToggleVisibility($(this).parent().next());"><?php if(time()-$article['n_writedate']<86400)
+					<td style="cursor:pointer;text-align:center;" onclick="smoothToggleVisibility($(this).parent().next());">
+<?php echo htmlspecialchars($cat['s_name']); ?></td>
+					<td style="cursor:pointer" onclick="changeLinkTo('/board/<?php echo $cat['s_id']?>/view/<?php echo $article['n_id']?>');"><a href="/board/<?php echo $cat['s_id']?>/view/<?php echo $article['n_id']?>">
+<?php echo formatTitle($article['s_title']); ?></a></td>
+					<td style="cursor:pointer" >
+<?php if(!$b_anonymous) {putUserCard($writer);} else {echo "익명";}?></td>
+					<td style="cursor:pointer" onclick="smoothToggleVisibility($(this).parent().next());">
+<?php if(time()-$article['n_writedate']<86400)
 						echo htmlspecialchars(date("H:i:s",$article['n_writedate']));
 					else
 						echo htmlspecialchars(date("y-m-d",$article['n_writedate']));
 					?></td>
-					<td style="cursor:pointer" onclick="changeLinkTo('/user/view/<?php echo $requester['n_id']."/".rawurlencode($requester['s_id']); ?>');"><?php putUserCard($requester); ?></td>
-					<td style="cursor:pointer" onclick="smoothToggleVisibility($(this).parent().next());"><?php if(time()-$row['n_date']<86400)
+					<td style="cursor:pointer" onclick="changeLinkTo('/user/view/<?php echo $requester['n_id']."/".rawurlencode($requester['s_id']); ?>');">
+<?php putUserCard($requester); ?></td>
+					<td style="cursor:pointer" onclick="smoothToggleVisibility($(this).parent().next());">
+<?php if(time()-$row['n_date']<86400)
 						echo htmlspecialchars(date("H:i:s",$row['n_date']));
 					else
 						echo htmlspecialchars(date("y-m-d",$row['n_date']));
@@ -58,7 +64,8 @@ function printContentPartially($res){
 									<input type="button" value="만료" style="width:80px;height:32px;" onclick="$('#important_util_action_<?php echo $row['n_id']?>').val('expire');$('#important_form_<?php echo $row['n_id']?>').submit();return false;" />
 									<input type="button" value="삭제" style="width:80px;height:32px;" onclick="$('#important_util_action_<?php echo $row['n_id']?>').val('delete');$('#important_form_<?php echo $row['n_id']?>').submit();return false;" />
 								</div>
-								<p><b>요청 이유:</b> <?php echo htmlspecialchars($row['s_reason']); ?></p>
+								<p><b>요청 이유:</b>
+<?php echo htmlspecialchars($row['s_reason']); ?></p>
 								<p><b>처리 이유:</b> <input type="text" name="s_process_reason" style="width:800px;" onkeydown="if (event.which || event.keyCode){if ((event.which == 13) || (event.keyCode == 13)) {return false;}};" /></p>
 								<div style="clear:both"></div>
 							</form>
@@ -70,9 +77,11 @@ function printContentPartially($res){
 	</table>
 	<?php
 	if($prc==0){
-		?><div style="padding:10px;text-align:center;font-size:15pt;">등록된 항목이 없습니다.</div><?php
+		?><div style="padding:10px;text-align:center;font-size:15pt;">등록된 항목이 없습니다.</div>
+<?php
 	}
-	?><div style="display:block;height:1px;overflow:hidden;width:100%;background:gray"></div><?php
+	?><div style="display:block;height:1px;overflow:hidden;width:100%;background:gray"></div>
+<?php
 }
 function printContent(){
 	global $mysqli,$board, $member;

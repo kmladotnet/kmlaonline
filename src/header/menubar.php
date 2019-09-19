@@ -1,6 +1,6 @@
 <!-- 페이지 맨 위 메뉴 -->
 
-<?php if(!isset($_SESSION['user'])) return; ?>
+<?php if (!isset($_SESSION['user'])) return; ?>
 <div id="total-header-menu-menus" style="position: absolute; left: -40px">
 
     <div class="menu1 menu1-logo" style="width:40px;padding-left:10px">
@@ -18,102 +18,102 @@
         </div>
     </div>
     <?php
-        if($me['n_level'] <= 19){
-            echo '<div class="menu1">';
-            echo '<div class="widthholder">';
-            echo '<div class="menu1_text">졸업생</div>';
-            echo '<div class="menu1_sub">';
-            echo '<a href="board/noticeallS" class="menu2">공지</a>';
-            echo '<a href="board/boardallS" class="menu2">게시판</a>';
-            echo '</div>';
-            echo '</div>';
-            echo '</div>';
-        }
+    if ($me['n_level'] <= 19) {
+        echo '<div class="menu1">';
+        echo '<div class="widthholder">';
+        echo '<div class="menu1_text">졸업생</div>';
+        echo '<div class="menu1_sub">';
+        echo '<a href="board/noticeallS" class="menu2">공지</a>';
+        echo '<a href="board/boardallS" class="menu2">게시판</a>';
+        echo '</div>';
+        echo '</div>';
+        echo '</div>';
+    }
     ?>
     <?php
-        if($me['n_level'] >= 19) {
-            echo '<div class="menu1">';
-            echo '<div class="widthholder">';
-            echo '<div class="menu1_text">교내</div>';
-            echo '<div class="menu1_sub">';
-            echo '<a href="board/student_council" class="menu2">학생회</a>';
-            echo '<a href="board/student_legislative" class="menu2">입법</a>';
-            echo '<a href="board/student_judicial" class="menu2">사법</a>';
-            echo '<a href="board/student_executive" class="menu2">행정</a>';
-            //echo '<a href="board/jinro" class="menu2">진로 탐색</a>';
-            //echo '<a href="board/student_clubs" class="menu2">동아리</a>';
-            echo '</div>';
-            echo '</div>';
-            echo '</div>';
-        }
+    if ($me['n_level'] >= 19) {
+        echo '<div class="menu1">';
+        echo '<div class="widthholder">';
+        echo '<div class="menu1_text">교내</div>';
+        echo '<div class="menu1_sub">';
+        echo '<a href="board/student_council" class="menu2">학생회</a>';
+        echo '<a href="board/student_legislative" class="menu2">입법</a>';
+        echo '<a href="board/student_judicial" class="menu2">사법</a>';
+        echo '<a href="board/student_executive" class="menu2">행정</a>';
+        //echo '<a href="board/jinro" class="menu2">진로 탐색</a>';
+        //echo '<a href="board/student_clubs" class="menu2">동아리</a>';
+        echo '</div>';
+        echo '</div>';
+        echo '</div>';
+    }
     ?>
     <?php
-        if(isUserDotnet($me['n_id'])){
-            echo '<div class="menu1">';
-            echo '<div class="widthholder">';
-            echo '<div class="menu1_text">닷넷</div>';
-            echo '<div class="menu1_sub">';
-            echo '<a href="board/kmladotnet" class="menu2">HTML/CSS</a>';
-            echo '</div>';
-            echo '</div>';
-            echo '</div>';
-        }
+    if (isUserDotnet($me['n_id'])) {
+        echo '<div class="menu1">';
+        echo '<div class="widthholder">';
+        echo '<div class="menu1_text">닷넷</div>';
+        echo '<div class="menu1_sub">';
+        echo '<a href="board/kmladotnet" class="menu2">HTML/CSS</a>';
+        echo '</div>';
+        echo '</div>';
+        echo '</div>';
+    }
     ?>
     <div class="menu1">
         <div class="widthholder">
             <div class="menu1_text">
-                <?php echo $me['n_level']?>기</div>
+                <?php echo $me['n_level'] ?>기</div>
             <div class="menu1_sub">
-                <a href="board/wave<?php echo $me['n_level']?>_announce" class="menu2">공지</a>
-                <a href="board/wave<?php echo $me['n_level']?>_free" class="menu2">자유</a>
-                <a href="board/wave<?php echo $me['n_level']?>_pds" class="menu2">자료실</a>
+                <a href="board/wave<?php echo $me['n_level'] ?>_announce" class="menu2">공지</a>
+                <a href="board/wave<?php echo $me['n_level'] ?>_free" class="menu2">자유</a>
+                <a href="board/wave<?php echo $me['n_level'] ?>_pds" class="menu2">자료실</a>
             </div>
         </div>
     </div>
     <?php
-if($me['n_level']!=0){
-    $menu_list=getUserMenuBar($me);
-    foreach($menu_list as $key=>$key2){
-        ?>
-        <div class="menu1">
-            <div class="widthholder">
-                <div class="menu1_text">
-                    <?php echo $key?>
-                </div>
-                <div class="menu1_sub">
-                    <?php foreach($key2 as $value){
-                        switch($value[0]){
-                            case "url": ?>
-                        <a class="menu2" href="<?php echo htmlspecialchars($value[1]); ?>">
-                            <?php echo htmlspecialchars($value[2]); ?>
-                        </a>
-                        <?php break;
-                            case "action":
-                                ?>
-                            <a class="menu2" href="<?php echo htmlspecialchars($value[1]); ?>">
-                                <?php echo htmlspecialchars($value[2]); ?>
-                            </a>
-                            <?php
-                                break;
-                        }
-                    } ?>
-                </div>
-            </div>
-        </div>
-        <?php
-    }
-}
-?>
-            <div class="menu1" id="upper-header-menu-kept-visible">
+    if ($me['n_level'] != 0) {
+        $menu_list = getUserMenuBar($me);
+        foreach ($menu_list as $key => $key2) {
+            ?>
+            <div class="menu1">
                 <div class="widthholder">
-                    <div class="menu1_text" id="upper-header-holder">둘러보기</div>
+                    <div class="menu1_text">
+                        <?php echo $key ?>
+                    </div>
                     <div class="menu1_sub">
-                        <a class="menu2" id="upper-header-menu-show-sitemap" href="/sitemap">사이트맵</a>
-                        <a class="menu2" id="upper-header-menu-show-contacts" href="/contacts">연락망</a>
-                        <a class="menu2" id="upper-header-menu-close" style="width:0;opacity:0.7;cursor:pointer">닫기</a>
+                        <?php foreach ($key2 as $value) {
+                                    switch ($value[0]) {
+                                        case "url": ?>
+                                    <a class="menu2" href="<?php echo htmlspecialchars($value[1]); ?>">
+                                        <?php echo htmlspecialchars($value[2]); ?>
+                                    </a>
+                                <?php break;
+                                            case "action":
+                                                ?>
+                                    <a class="menu2" href="<?php echo htmlspecialchars($value[1]); ?>">
+                                        <?php echo htmlspecialchars($value[2]); ?>
+                                    </a>
+                            <?php
+                                            break;
+                                    }
+                                } ?>
                     </div>
                 </div>
             </div>
+    <?php
+        }
+    }
+    ?>
+    <div class="menu1" id="upper-header-menu-kept-visible">
+        <div class="widthholder">
+            <div class="menu1_text" id="upper-header-holder">둘러보기</div>
+            <div class="menu1_sub">
+                <a class="menu2" id="upper-header-menu-show-sitemap" href="/sitemap">사이트맵</a>
+                <a class="menu2" id="upper-header-menu-show-contacts" href="/contacts">연락망</a>
+                <a class="menu2" id="upper-header-menu-close" style="width:0;opacity:0.7;cursor:pointer">닫기</a>
+            </div>
+        </div>
+    </div>
 </div>
 <div id="slidedown2" class="slidedown_holder">
     <div class="button slidedown_button" id="slidedown2_button" style="z-index:1;">
@@ -125,7 +125,9 @@ if($me['n_level']!=0){
         <ul style="text-align: center; padding: 0; margin: 0;" id="top_notification_list">
             <li id="notification_item_loading">불러오는 중....</li>
         </ul>
-        <a href="/user/notification"><div class="notification_more"> 모두 보기</div></a>
+        <a href="/user/notification">
+            <div class="notification_more"> 모두 보기</div>
+        </a>
     </div>
 </div>
 <div id="slidedown1" class="slidedown_holder">

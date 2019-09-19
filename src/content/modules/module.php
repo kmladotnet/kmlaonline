@@ -26,7 +26,8 @@ function moduleTitle($module_name, $options) {
                         break;
                     }
                 }
-                ?></a><?php
+                ?></a>
+<?php
             break;
         case 'menu':
             ?>
@@ -55,7 +56,8 @@ function moduleTitle($module_name, $options) {
                 }
             }
             ?>
-            <a href="<?php echo '/board/'.($one_cat ? $cat['s_id'] : urlencode(json_encode(array('cat'=>$options['cat'], 'title'=>$options['title']))));?>"><?php echo htmlspecialchars($options['title']);?></a>
+            <a href="<?php echo '/board/'.($one_cat ? $cat['s_id'] : urlencode(json_encode(array('cat'=>$options['cat'], 'title'=>$options['title']))));?>">
+<?php echo htmlspecialchars($options['title']);?></a>
             <?php
             break;
         case 'gallery':

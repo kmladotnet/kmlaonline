@@ -11,7 +11,8 @@
             $msg=str_replace('&amp;nbsp;', '', htmlspecialchars(trim(strip_tags($each[3])), ENT_IGNORE));
             echo "<b>[$date] $type</b>";
             ?>
-            <a href="http://www.minjok.hs.kr/members/" target="_new" style="color: black; white-space: nowrap;"><?php echo $msg;?></a>
+            <a href="http://www.minjok.hs.kr/members/" target="_new" style="color: black; white-space: nowrap;">
+<?php echo $msg;?></a>
             <br>
             <?php
         }

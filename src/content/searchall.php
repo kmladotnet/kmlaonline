@@ -61,11 +61,13 @@ function printSearchResult($search){
 			foreach($result as $itm){
                 ?>
                 <tr>
-                    <td><?php echo $itm['found']; ?></td>
+                    <td>
+<?php echo $itm['found']; ?></td>
                     <td>
                         <a href="<?php echo htmlspecialchars(addslashes($itm['link']))?>">
                             <?php echo $itm['desc'];?>
-                            <span style='color:gray;font-size:8pt'><?php
+                            <span style='color:gray;font-size:8pt'>
+<?php
                                 echo ($itm['time']==0 ? "(지정되지 않음)" : date("(y-m-d H:i:s)",$itm['time']));
                                 ?>
                             </span>

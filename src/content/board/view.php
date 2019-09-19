@@ -32,7 +32,8 @@ function printVotes($id, $hide = true) {
     </div>
     <a onclick='$("#likers-<?php echo $id;?>").css("display",$("#likers-<?php echo $id;?>").css("display")==="none"?"inline-block":"none");' style='font-size: 0.9em'>(명단)</a>
     <span id='likers-<?php echo $id;?>' style="display:none; vertical-align: top; font-size: 0.9em;">
-        <div style='color: forestgreen'> <strong>좋아요:</strong> <?php $uv = upvoters($id); if(empty($uv)) echo '-'; else foreach($uv as $p => $v) echo $member->getMember($p)['s_name'].' ';?> </div>
+        <div style='color: forestgreen'> <strong>좋아요:</strong>
+<?php $uv = upvoters($id); if(empty($uv)) echo '-'; else foreach($uv as $p => $v) echo $member->getMember($p)['s_name'].' ';?> </div>
     </span>
     <?php
 }
@@ -50,9 +51,11 @@ function votes($votes) {
 
 function formatVotes($up, $down) {
     ?>
-    <span style="color: forestgreen;"><?php echo votes($up);?></span>
+    <span style="color: forestgreen;">
+<?php echo votes($up);?></span>
     <span>|</span>
-    <span style="color: crimson;"><?php echo votes(-$down);?></span>
+    <span style="color: crimson;">
+<?php echo votes(-$down);?></span>
 <?php
 }
 
@@ -116,8 +119,10 @@ function printUpDownVotes($id, $hide = true) {
     </div>
     <a onclick='$("#likers-<?php echo $id;?>").css("display",$("#likers-<?php echo $id;?>").css("display")==="none"?"inline-block":"none");' style='font-size: 0.9em'>(명단)</a>
     <span id='likers-<?php echo $id;?>' style="display:none; vertical-align: top; font-size: 0.9em">
-        <div style='color: forestgreen'> <strong>좋아요:</strong> <?php $uv = upvoters($id); if(empty($uv)) echo '-'; else foreach($uv as $p => $v) echo $member->getMember($p)['s_name'].' ';?> </div>
-        <div style='color: crimson'> <strong>싫어요:</strong> <?php $dv = downvoters($id); if(empty($dv)) echo '-'; else foreach($dv as $p => $v) echo $member->getMember($p)['s_name'].' ';?> </div>
+        <div style='color: forestgreen'> <strong>좋아요:</strong>
+<?php $uv = upvoters($id); if(empty($uv)) echo '-'; else foreach($uv as $p => $v) echo $member->getMember($p)['s_name'].' ';?> </div>
+        <div style='color: crimson'> <strong>싫어요:</strong>
+<?php $dv = downvoters($id); if(empty($dv)) echo '-'; else foreach($dv as $p => $v) echo $member->getMember($p)['s_name'].' ';?> </div>
     </span>
     <?php if(reportable($upvotes, $downvotes)) { ?>
         <a href='ajax/board/reporters?id=<?php echo $id;?>' data-toggle='lightbox' style='font-size: 0.9em; color:orangered'>신고자(<?php echo reportNum($id); ?>)</a>
@@ -150,7 +155,8 @@ function printAttachList($article, $cat, $mode=0){
 					<?php
 					$c_cnt=0;
 					foreach($attaches as $v){
-						?><div class="<?php echo $classname?>"><?php
+						?><div class="<?php echo $classname?>">
+<?php
 							$path="https://kmlaonline.net/files/bbs/{$cat['n_id']}/{$article['n_id']}/{$v['n_id']}/{$v['s_key']}/".rawurlencode($v['s_name']);
 							$path_thumb="https://kmlaonline.net/files/bbs/{$cat['n_id']}/{$article['n_id']}/{$v['n_id']}/{$v['s_key']}/$thumbmode/".rawurlencode($v['s_name']);
 							$path_force="https://kmlaonline.net/files/bbs/{$cat['n_id']}/{$article['n_id']}/{$v['n_id']}/{$v['s_key']}/force/".rawurlencode($v['s_name']);
@@ -190,7 +196,8 @@ function printAttachList($article, $cat, $mode=0){
 							if($mode==1){ // gallery
 								echo '<div style="margin:10px;">'.htmlspecialchars($v['s_comment']).'</div>';
 							}
-						?></div><?php
+						?></div>
+<?php
 					}
 					?>
 					<div style="clear:both"></div>
@@ -210,9 +217,14 @@ function printDeletePage(){
 		<h1>삭제</h1>
 		<div style="border:1px solid #DDD;margin:5px;padding:5px;">
 			<div id="article_comment_sub_<?php echo $article['n_id']?>" class="acomment">
-				<div><?php if($b_anonymous) echo "익명"; else{ ?><a href="<?php echo "/user/view/{$m['n_id']}/".htmlspecialchars($m['s_id'])?>"><?php putUserCard($m)?></a><?php } ?></div>
-				<div style="margin-top:14px;margin-bottom:6px;"><?php filterContent($article['s_data']); ?></div>
-				<div style="font-size:8pt;color:#DDD;float:left;"><?php echo date("Y-m-d H:i:s", $article['n_writedate'])?></div>
+				<div>
+<?php if($b_anonymous) echo "익명"; else{ ?><a href="<?php echo "/user/view/{$m['n_id']}/".htmlspecialchars($m['s_id'])?>">
+<?php putUserCard($m)?></a>
+<?php } ?></div>
+				<div style="margin-top:14px;margin-bottom:6px;">
+<?php filterContent($article['s_data']); ?></div>
+				<div style="font-size:8pt;color:#DDD;float:left;">
+<?php echo date("Y-m-d H:i:s", $article['n_writedate'])?></div>
 				<div style="clear:both"></div>
 			</div>
 		</div>
@@ -247,10 +259,12 @@ function putCommentTree($parent,$root){
                                     echo '익명';
                                 }
                             } ?>
-                        </span> <?php
+                        </span>
+<?php
                     }
                     else { ?>
-                        <span style="font-weight:bold;vertical-align:middle"><a style="color:black!important" href="<?php echo "/user/view/{$m['n_id']}/".htmlspecialchars($m['s_id'])?>"><?php putUserCard($m)?></a></span>
+                        <span style="font-weight:bold;vertical-align:middle"><a style="color:black!important" href="<?php echo "/user/view/{$m['n_id']}/".htmlspecialchars($m['s_id'])?>">
+<?php putUserCard($m)?></a></span>
                     <?php }
                     if($b_comment_anonymous) {
                         printUpDownVotes($comment['n_id']);
@@ -258,7 +272,8 @@ function putCommentTree($parent,$root){
                         printVotes($comment['n_id']);
                     }
                     ?>
-                    <span style="font-size:8pt;color:gray;"><?php echo date("Y-m-d H:i:s", $comment['n_writedate'])?></span>
+                    <span style="font-size:8pt;color:gray;">
+<?php echo date("Y-m-d H:i:s", $comment['n_writedate'])?></span>
                     <?php if($board_id!='picexhibit') { ?>
                         <div id="item_contents_<?php echo $comment['n_id'];?>" style="margin-top: 6px">
                             <?php
@@ -289,9 +304,11 @@ function putCommentTree($parent,$root){
                     <div style="clear:both"></div>
                 </div>
 			</div>
-			<div style="margin-left: 20px; margin-bottom: 18px; padding-left: 8px; border-left: 1px dotted #CDE;"><?php putCommentTree($comment['n_id'],$root); ?></div>
+			<div style="margin-left: 20px; margin-bottom: 18px; padding-left: 8px; border-left: 1px dotted #CDE;">
+<?php putCommentTree($comment['n_id'],$root); ?></div>
 		<?php } ?>
-	</div><?php
+	</div>
+<?php
 }
 
 function printTagSplitted($tags, $board_id){
@@ -310,8 +327,11 @@ function printViewPageHeader($usr, $cat){
 	<div class="article_header">
 		<div style="width:100%;height:100px;position:relative;">
 			<div style="float:left;width:750px;">
-				<span style="font-weight:bold"><?php echo formatTitle($article["s_title"]); ?></span> <span style="color:gray">| <a style="color:gray" href="/board/<?php echo $cat['s_id']?>"><?php echo $cat['s_name']?></a></span>
-				<div style="margin-top:5px;color:#DDD"><?php printTagSplitted($article["s_tag"], $board_id); ?></div>
+				<span style="font-weight:bold">
+<?php echo formatTitle($article["s_title"]); ?></span> <span style="color:gray">| <a style="color:gray" href="/board/<?php echo $cat['s_id']?>">
+<?php echo $cat['s_name']?></a></span>
+				<div style="margin-top:5px;color:#DDD">
+<?php printTagSplitted($article["s_tag"], $board_id); ?></div>
                 <?php
                     if($b_anonymous) {
                         printUpDownVotes($article['n_id'], false);
@@ -348,7 +368,8 @@ function printViewPageHeader($usr, $cat){
 				while($row=$res->fetch_array())
 					echo "<a href='".dirname($row['s_dat'])."/".htmlspecialchars(basename($row['s_dat']))."' style='font-weight:bold'>임시 파일 받기: ".htmlspecialchars(basename($row['s_dat']))."</a><br />";
 				?>
-				<div style="position:absolute;bottom:0;right:0;"><?php echo $b_anonymous?"":htmlspecialchars($usr['s_status_message'])?> - </div>
+				<div style="position:absolute;bottom:0;right:0;">
+<?php echo $b_anonymous?"":htmlspecialchars($usr['s_status_message'])?> - </div>
 			</div>
             <div style='position:absolute;left:0;bottom:0'>
                 <?php
@@ -428,15 +449,19 @@ function printViewPageModeBoard($usr, $cat){
 	global $b_public_article, $b_no_comment, $b_anonymous, $b_bold_title;
 	printViewPageHeader($usr, $cat);
 	?>
-	<div class="article_data"><?php filterContent($article['s_data']); ?></div>
+	<div class="article_data">
+<?php filterContent($article['s_data']); ?></div>
 	<?php printAttachList($article, $cat, 0); ?>
 	<?php if(doesAdminBypassEverythingAndIsAdmin(!$b_no_comment && checkCategoryAccess($board_cat['n_id'], "comment view"))){ ?>
 		<div class="comment_area_info">
-			<div style="float:left;font-size:15pt;font-weight:bold"><?php echo $article['n_comments']?>개의 댓글이 있습니다.</div>
-			<?php if(checkCategoryAccess($board_cat['n_id'], "comment write")){ ?><div style="float:right;"><a onclick='return board_putCommentForm(<?php echo $article['n_id']?>);' class='btn btn-default'>댓글 달기</a></div><?php } ?>
+			<div style="float:left;font-size:15pt;font-weight:bold">
+<?php echo $article['n_comments']?>개의 댓글이 있습니다.</div>
+			<?php if(checkCategoryAccess($board_cat['n_id'], "comment write")){ ?><div style="float:right;"><a onclick='return board_putCommentForm(<?php echo $article['n_id']?>);' class='btn btn-default'>댓글 달기</a></div>
+<?php } ?>
 			<div style="clear:both"></div>
 		</div>
-		<div class="comment_area"><?php putCommentTree($article['n_id'],$article['n_id']); ?></div>
+		<div class="comment_area">
+<?php putCommentTree($article['n_id'],$article['n_id']); ?></div>
 	<?php }
 }
 function printViewPageModeGallery($usr, $cat){
@@ -446,14 +471,18 @@ function printViewPageModeGallery($usr, $cat){
 	printViewPageHeader($usr, $cat);
 	?>
 	<?php printAttachList($article, $cat, 1); ?>
-	<div class="article_data"><?php filterContent($article['s_data']); ?></div>
+	<div class="article_data">
+<?php filterContent($article['s_data']); ?></div>
 	<?php if(doesAdminBypassEverythingAndIsAdmin(!$b_no_comment && checkCategoryAccess($board_cat['n_id'], "comment view"))){ ?>
 		<div class="comment_area_info">
-			<div style="float:left;font-size:15pt;font-weight:bold"><?php echo $article['n_comments']?>개의 댓글이 있습니다.</div>
-			<?php if(checkCategoryAccess($board_cat['n_id'], "comment write")){ ?><div style="float:right;"><a onclick='return board_putCommentForm(<?php echo $article['n_id']?>);' class='btn btn-default'>댓글 달기</a></div><?php } ?>
+			<div style="float:left;font-size:15pt;font-weight:bold">
+<?php echo $article['n_comments']?>개의 댓글이 있습니다.</div>
+			<?php if(checkCategoryAccess($board_cat['n_id'], "comment write")){ ?><div style="float:right;"><a onclick='return board_putCommentForm(<?php echo $article['n_id']?>);' class='btn btn-default'>댓글 달기</a></div>
+<?php } ?>
 			<div style="clear:both"></div>
 		</div>
-		<div class="comment_area"><?php putCommentTree($article['n_id'],$article['n_id']); ?></div>
+		<div class="comment_area">
+<?php putCommentTree($article['n_id'],$article['n_id']); ?></div>
 	<?php }
 }
 function printOneForumItem($article,$root,$suppress_comments=false) {
@@ -479,11 +508,13 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
                                 echo '익명';
                             }
                         } ?>
-                    </span> <?php
+                    </span>
+<?php
 				} else {
                     ?>
                     <span style="font-weight:bold">
-                        <a style="color:black!important;vertical-align:middle" href="<?php echo "/user/view/{$m['n_id']}/{$m['s_id']}" ?>"><?php putUserCard($m); ?></a>
+                        <a style="color:black!important;vertical-align:middle" href="<?php echo "/user/view/{$m['n_id']}/{$m['s_id']}" ?>">
+<?php putUserCard($m); ?></a>
                     </span>
                 <?php }
 
@@ -515,7 +546,8 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
 				?>
 			</div>
             <div class="item_contents" style="padding:10px;padding-bottom:7px;overflow:auto">
-                <div id="item_contents_<?php echo $article['n_id'];?>"><?php
+                <div id="item_contents_<?php echo $article['n_id'];?>">
+<?php
                     if(reportNum($article['n_id']) >= 10) {
                         ?> 신고가 10개 이상 접수되어서 삭제되었습니다. <?php
                     } else {
@@ -545,10 +577,12 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
                                 echo '익명';
                             }
                         } ?>
-                    </span> <?php
+                    </span>
+<?php
 				} else { ?>
                     <span style="font-weight:bold">
-                        <a style="color:black!important;vertical-align:middle" href="<?php echo "/user/view/{$m['n_id']}/{$m['s_id']}" ?>"><?php putUserCard($m); ?></a>
+                        <a style="color:black!important;vertical-align:middle" href="<?php echo "/user/view/{$m['n_id']}/{$m['s_id']}" ?>">
+<?php putUserCard($m); ?></a>
                     </span>
                 <?php }
 
@@ -563,7 +597,8 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
                     echo date("Y년 m월 d일 H시 i분 s초", $article['n_writedate']);
                     if($article['n_writedate']!=$article['n_editdate'])
                         echo " (".date("Y년 m월 d일 H시 i분 s초", $article['n_editdate'])."에 수정함)";
-                ?></span><?php
+                ?></span>
+<?php
                 $boardbilities=array();
                 if(doesAdminBypassEverythingAndIsAdmin($me['n_id']==$article['n_writer'])){
                     if(checkCategoryAccess($board_cat['n_id'], "edit")&&!$b_anonymous)
@@ -577,7 +612,8 @@ function printOneForumItem($article,$root,$suppress_comments=false) {
                 ?>
             </div>
             <div class="item_contents" style="padding:10px;padding-bottom:7px;overflow:auto">
-                <div id="item_contents_<?php echo $article['n_id'];?>"><?php
+                <div id="item_contents_<?php echo $article['n_id'];?>">
+<?php
                     if(reportNum($article['n_id']) >= 10) {
                         ?> 신고가 10개 이상 접수되어서 삭제되었습니다. <?php
                     } else {
@@ -629,7 +665,8 @@ function printViewPageModeForum($usr, $cat){
 		<ul style="padding: 0">
 			<li class="head">
 				<div class="total_title">
-					<?php echo formatTitle($article['s_title']); ?><span style="color:#DDD"> | <a style="color:#DDD" href="/board/<?php echo $cat['s_id']?>"><?php echo $cat['s_name']?></a>
+					<?php echo formatTitle($article['s_title']); ?><span style="color:#DDD"> | <a style="color:#DDD" href="/board/<?php echo $cat['s_id']?>">
+<?php echo $cat['s_name']?></a>
 					<?php
 					if(doesAdminBypassEverythingAndIsAdmin($me['n_id']==$article['n_writer']) || checkCategoryAccess($board_cat['n_id'], "manage modify")){
 						$boardbilities=array();
@@ -665,7 +702,8 @@ function printViewPageModeForum($usr, $cat){
 			<a href="<?php echo "/board/$board_id/view/{$article['n_id']}/$i$additional_query_string" ;?>" <?php if($pagenumber==$i) echo "style='color:black'" ?>>[<?php echo $i; $disp[$i]=true;?>]</a>
 		<?php } ?>
 		<?php if($i<$page_count && $i!=max(2,$pagenumber-10)) echo "..."; ?>
-		<?php if(!isset($disp[$page_count]) && $page_count>1){ ?><a href="<?php echo "/board/$board_id/view/{$article['n_id']}/$page_count$additional_query_string" ;?>" <?php if($pagenumber==$page_count) echo "style='color:black'" ?>>[<?php echo $page_count?>]</a><?php } ?>
+		<?php if(!isset($disp[$page_count]) && $page_count>1){ ?><a href="<?php echo "/board/$board_id/view/{$article['n_id']}/$page_count$additional_query_string" ;?>" <?php if($pagenumber==$page_count) echo "style='color:black'" ?>>[<?php echo $page_count?>]</a>
+<?php } ?>
 	</div>
 	<div style="margin:0 auto;width:120px;text-align:center;">총 <?php echo $article_count+1?>개</div>
 	<?php if(checkCategoryAccess($board_cat['n_id'], "search")){ ?>
