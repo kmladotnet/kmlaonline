@@ -1229,7 +1229,7 @@ function getTodayParcel() {
     $postList = $board->getArticleList(array(71), false, false, 0, 10, "n_id", true, 0, "택배", true, true, true, false, false, false, true);
     foreach($postList as $post) {
         // 댓글이면 continue, 
-        if($post['n_parent'] || $post['n_writedate']< date() {
+        if($post['n_parent'] || $post['n_writedate']< date() ){
             continue;
         }
         return $post;
