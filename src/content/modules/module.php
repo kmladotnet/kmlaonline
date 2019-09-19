@@ -30,7 +30,7 @@ function moduleTitle($module_name, $options) {
             break;
         case 'menu':
             ?>
-            <i class="fa fa-cutlery" aria-hidden="true"></i>
+            <i class="fas fa-utensils" aria-hidden="true"></i>
             <a href="/util/schedule?<?php echo "year=$curYear&amp;month=$curMonth&amp;mode=food:0"?>">식단</a>
             <?php
             break;
