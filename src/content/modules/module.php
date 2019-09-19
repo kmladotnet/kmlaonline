@@ -80,7 +80,7 @@ function moduleTitle($module_name, $options) {
             break;
         case 'parcel':
             ?>
-            <i class="fas fa-box" aria-hidden="true"></i> 택배
+            <i class="fa fa-box" aria-hidden="true"></i> 택배
             <?php
             break;
     }
