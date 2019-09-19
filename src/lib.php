@@ -456,8 +456,7 @@ function getCategoriesWithFixes($prefix="", $postfix=""){
 	return $accessible_categories;
 }
 function putAlert($s){
-	?><script type="text/javascript">alert("<?php echo str_replace("<", "\"+\"<", addslashes($s)) ?>");</script>
-<?php
+	?><script type="text/javascript">alert("<?php echo str_replace("<", "\"+\"<", addslashes($s)) ?>");</script><?php
 }
 function insertOnLoadScript($sc){
 	global $_scripts;
@@ -1229,7 +1228,7 @@ function getTodayParcel() {
     global $board;
     $postList = $board->getArticleList(array(71), false, false, 0, 10, "n_id", true, 0, "택배", true, true, true, false, false, false, true);
     foreach($postList as $post) {
-        // 댓글이면 continue, 
+        // 댓글이면 continue, 글을 쓴 날이 어제 이하면 continue (오늘 쓴 글을 찾을 때까지)
         if($post['n_parent'] || $post['n_writedate']< date() ){
             continue;
         }
@@ -1278,14 +1277,11 @@ function reporters($post) {
 	if(file_exists("data/board/report/{$post}")) {
 		$arr = json_decode(file_get_contents("data/board/report/{$post}"), true);
 	} ?>
-	<table class='table table-hover'>
-<?php
+	<table class='table table-hover'> <?php
 		foreach($arr as $n => $t) { ?>
-			<tr>
-<?php echo "<td>{$n}</td><td>".date("Y-m-d H:i:s", $t).'</td>'; ?> </tr>
+			<tr> <?php echo "<td>{$n}</td><td>".date("Y-m-d H:i:s", $t).'</td>'; ?> </tr>
 		<?php } ?>
-	</table>
-<?php
+	</table> <?php
 }
 
 function reportNum($post) {
