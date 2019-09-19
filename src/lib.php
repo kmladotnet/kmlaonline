@@ -1233,7 +1233,7 @@ function getTodayParcel() {
         {
             continue;
         }
-        return $name."".$post;
+        return $post;
     }
     return null;
 }
@@ -1250,7 +1250,7 @@ function parcelNum($name, $parcelPost)
     foreach($attaches as $file) {
         if(preg_match("/택배.*\.xlsx/", $file['s_name'])) {
             $excel = file_get_contents($file['s_path']);
-            return $excel;
+            return $name;
             //return mb_substr_count($excel, $name);
         }
     }
