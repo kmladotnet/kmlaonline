@@ -1250,11 +1250,12 @@ function parcelNum($name, $parcelPost)
     $file = $attaches[0];
     $excel = file_get_contents($file['s_path']);
 
-    $excel = mb_convert_encoding($excel, 'HTML-ENTITIES', "UTF-8");
-    return $excel;
+    return mb_strpos($excel, mb_convert_encoding($name, "UTF-16LE"), 0, "8bit") !== false;
+    //$excel = mb_convert_encoding($excel, 'HTML-ENTITIES', "UTF-8");
+    //return $excel;
     //return mb_substr_count($excel, $name, "utf-8");
     
-    return false;
+    //return false;
 }
 
 function report($post) {
