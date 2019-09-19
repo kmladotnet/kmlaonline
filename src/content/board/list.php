@@ -272,7 +272,7 @@ function printArticleList(){
 		<div style="float:left">
 			<form method="get" action="/board/<?php echo htmlspecialchars($board_id)?>/write">
 				<button type="submit" class="btn btn-default">
-                   <i class="fa fa-pencil" aria-hidden="true"></i> 글쓰기
+                   <i class="fas fa-pencil-alt" aria-hidden="true"></i> 글쓰기
                 </button>
 				<?php if($search!==false){ ?>
                     <button class="btn btn-default" type="button" onclick="return changeLinkTo('/board/<?php echo htmlspecialchars($board_id)?>');">
