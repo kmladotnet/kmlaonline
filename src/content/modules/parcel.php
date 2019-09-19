@@ -1,3 +1,3 @@
 <?php
-    echo parcelNum();
+    echo "테스트";
 ?>
