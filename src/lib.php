@@ -1255,6 +1255,8 @@ function parcelNum($name, $parcelPost)
             $excel = file_get_contents($file['s_path']);
             $encode = array('ASCII','UTF-8','EUC-KR');
             echo mb_detect_encoding($excel, $encode);
+            $newstr = iconv("EUC-KR", "UTF-8", $excel);
+            echo $newstr;
            
             //return mb_substr_count($excel, mb_convert_encoding($name, "UTF-16LE"), "8bit");
             //echo mb_convert_encoding($excel,);
