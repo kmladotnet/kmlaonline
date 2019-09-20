@@ -1246,7 +1246,8 @@ function isCourtDasan($courtPost) {
 function parcelNum($name, $parcelPost)
 {
     global $board;
-	$attaches = $board->getAttachments(false, $parcelPost['n_id']);
+    $attaches = $board->getAttachments(false, $parcelPost['n_id']);
+    echo "debug<br>";
     foreach($attaches as $file) {
         if(preg_match("/리스트.*\.xls/", $file['s_name'])) {
             $excel = file_get_contents($file['s_path']);
