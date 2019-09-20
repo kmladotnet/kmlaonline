@@ -1250,7 +1250,21 @@ function parcelNum($name, $parcelPost)
     foreach($attaches as $file) {
         if(preg_match("/리스트.*\.xls/", $file['s_name'])) {
             $excel = file_get_contents($file['s_path']);
-            return mb_substr_count($excel, mb_convert_encoding($name, "UTF-16LE"), "8bit");
+            $encode = array('ASCII','UTF-8','EUC-KR');
+            $str_encode = mb_detect_encoding($excel, $encode);
+            if(strtoupper($str_encode) == 'UTF-8') {
+               echo 'UTF-8 입니다';
+            }
+            else if(strtoupper($str_encode) == 'ASCII') {
+                echo '아스키 입니다';
+             }
+            }
+            else if(strtoupper($str_encode) == 'EUC-KR') {
+                echo 'euc-kr 입니다';
+             }
+             else
+                echo "not detected";
+            //return mb_substr_count($excel, mb_convert_encoding($name, "UTF-16LE"), "8bit");
             //echo mb_convert_encoding($excel,);
         }
     }
