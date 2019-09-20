@@ -1249,7 +1249,9 @@ function parcelNum($name, $parcelPost)
     $attaches = $board->getAttachments(false, $parcelPost['n_id']);
     echo "debug<br>";
     foreach($attaches as $file) {
-        if(preg_match("/리스트.*\.xls/", $file['s_name'])) {
+        if(preg_match("/리스트.*\.xls/", $file['s_name']))
+        {
+            echo "file matched<br>";
             $excel = file_get_contents($file['s_path']);
             $encode = array('ASCII','UTF-8','EUC-KR');
             $str_encode = mb_detect_encoding($excel, $encode);
