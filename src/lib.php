@@ -1246,14 +1246,24 @@ function isCourtDasan($courtPost) {
 function parcelNum($name, $parcelPost)
 {
     global $board;
-	$attaches = $board->getAttachments(false, $parcelPost['n_id']);
+    $attaches = $board->getAttachments(false, $parcelPost['n_id']);
+    echo "debug<br>";
     foreach($attaches as $file) {
-        if(preg_match("/리스트.*\.xls/", $file['s_name'])) {
+        if(preg_match("/리스트.*\.xls/", $file['s_name']))
+        {
+            echo "file matched<br>";
             $excel = file_get_contents($file['s_path']);
-            return mb_substr_count($excel, mb_convert_encoding($name, "UTF-16LE"), "8bit");
+            $encode = array('ASCII','UTF-8','EUC-KR');
+            echo mb_detect_encoding($excel, $encode);
+            $newstr = iconv("EUC-KR", "UTF-8//IGNORE", $excel);
+            echo $newstr;
+           
+            //return mb_substr_count($excel, mb_convert_encoding($name, "UTF-16LE"), "8bit");
             //echo mb_convert_encoding($excel,);
         }
     }
+}
+/*
     return false;
     return mb_substr_count($excel, $name, "8bit");
     $file = $attaches[0];
@@ -1263,7 +1273,8 @@ function parcelNum($name, $parcelPost)
     //return mb_substr_count($excel, $name, "utf-8");
     
     //return false;
-}
+    */
+
 
 function report($post) {
 	global $me;

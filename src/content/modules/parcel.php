@@ -11,7 +11,7 @@
     if($parcel !== null)
     {
         //$numParcel = parcelNum($me['s_name'], $parcel);
-        $numParcel = parcelNum("강은빈", $parcel);
+        $numParcel = parcelNum($me['s_name'], $parcel);
         
             echo $numParcel;
 
