@@ -1254,19 +1254,8 @@ function parcelNum($name, $parcelPost)
             echo "file matched<br>";
             $excel = file_get_contents($file['s_path']);
             $encode = array('ASCII','UTF-8','EUC-KR');
-            $str_encode = mb_detect_encoding($excel, $encode);
-            if(strtoupper($str_encode) == 'UTF-8') {
-               echo 'UTF-8 입니다';
-            }
-            else if(strtoupper($str_encode) == 'ASCII') {
-                echo '아스키 입니다';
-             }
-            }
-            else if(strtoupper($str_encode) == 'EUC-KR') {
-                echo 'euc-kr 입니다';
-             }
-             else
-                echo "not detected";
+            echo mb_detect_encoding($excel, $encode);
+           
             //return mb_substr_count($excel, mb_convert_encoding($name, "UTF-16LE"), "8bit");
             //echo mb_convert_encoding($excel,);
         }
