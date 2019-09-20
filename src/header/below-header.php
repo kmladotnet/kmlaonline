@@ -38,7 +38,7 @@
 					<div class="userarea">
 						<?php include "src/header/userarea.php"; ?></div>
 				<?php } ?>
-				<a id="back-to-main" href="https://github.com/kmladotnet/doodles"></a><br />
+				<a id="back-to-main" href="https://kmladotnet.github.io/doodles/"></a><br />
 			</div>
 	<?php }
 	} ?>
