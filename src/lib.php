@@ -1267,7 +1267,8 @@ function parcelNum($name, $parcelPost)
             //return mb_substr_count($excel, mb_convert_encoding($name, "UTF-16LE"), "8bit");
             //echo mb_convert_encoding($excel,);
         }
-    }
+}
+/*
     return false;
     return mb_substr_count($excel, $name, "8bit");
     $file = $attaches[0];
@@ -1277,7 +1278,8 @@ function parcelNum($name, $parcelPost)
     //return mb_substr_count($excel, $name, "utf-8");
     
     //return false;
-}
+    */
+
 
 function report($post) {
 	global $me;
