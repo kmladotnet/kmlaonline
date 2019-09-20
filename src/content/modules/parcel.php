@@ -19,7 +19,7 @@
     else
     { 
         ?>
-    <div style="line-height: 1em;" class="parcel-text">
+    <div style="line-height: 1em;" class="parcel-icon">
         ?
     </div>
     <div style="text-align: center; font-size: 13pt;">
