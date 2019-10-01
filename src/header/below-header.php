@@ -33,12 +33,12 @@
 		</div>
 		<?php } else if ($_SERVER["REQUEST_URI"] !== '/util/library' && $_SERVER["REQUEST_URI"] !== '/util/chat') {
 			if (!(!!$me && getTheme($me)['hidedasan'])) { ?>
-			<div id="total-header" style="background: url('https://raw.githubusercontent.com/kmladotnet/doodles/master/current-banner.png') no-repeat; background-size: contain;" <?php if ($april_fools_2) echo 'style="height:311px; background: url(/images/bamboozle.png) no-repeat;"'; ?>>
+			<div id="total-header" style="background: url('/images/check-penalty-of-council.png') no-repeat; background-size: contain;" <?php if ($april_fools_2) echo 'style="height:311px; background: url(/images/bamboozle.png) no-repeat;"'; ?>>
 				<?php if (isset($_SESSION['user'])) { ?>
 					<div class="userarea">
 						<?php include "src/header/userarea.php"; ?></div>
 				<?php } ?>
-				<a id="back-to-main" href="https://kmladotnet.github.io/doodles/"></a><br />
+				<a id="back-to-main" href='https://bit.ly/2n5ArDt'></a><br />
 			</div>
 	<?php }
 	} ?>
