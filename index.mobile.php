@@ -7,7 +7,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
 
-    <!-- favicons -->ß
+    <!-- favicons -->
     <link rel="apple-touch-icon" sizes="57x57" href="/icon/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/icon/apple-touch-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/icon/apple-touch-icon-72x72.png">
