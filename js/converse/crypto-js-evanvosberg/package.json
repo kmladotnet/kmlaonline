@@ -24,7 +24,7 @@
 	},
 	"devDependencies": {
 		"underscore": "~1.4.4",
-		"handlebars": "~1.0.10",
+		"handlebars": "~4.5.3",
 		"uglify-js": "~3.6.9",
 		"js-yaml": "~3.13.1",
 		"fs.extra": "~1.2.0",
