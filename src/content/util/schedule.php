@@ -136,7 +136,7 @@ function printContent(){
 							}
 							if(count($births)){
 								echo "<div style='padding:3px;'>";
-								echo "<b>생일: </b>".implode(",",$births) . "<br />";
+								echo "<b>생일: </b>".implode(", ",$births) . "<br />";
 								echo "</div>";
 								echo "<div class='divider'></div>";
 							}
