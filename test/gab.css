@@ -1,90 +1,90 @@
 body {
-    font-family: Helvetica;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
 }
 
 h1 {
-    text-align:center;
+  text-align: center;
 }
 
 .hidden {
-    display:none;
+  display: none;
 }
 
 .button {
-    padding: 10px;
-    background-color: #ddd;
-    border: solid 1px #666;
-    font-weight: bold;
+  padding: 10px;
+  background-color: #ddd;
+  border: solid 1px #666;
+  font-weight: bold;
 }
 
 .button:hover {
-    background-color: #ddf;
+  background-color: #ddf;
 }
 
 #toolbar {
-    text-align:center;
-    margin-bottom: 15px;
+  text-align: center;
+  margin-bottom: 15px;
 }
 
 #chat-area {
-    float:left;
-    width:600px;
-    height:300px;
+  float: left;
+  width: 600px;
+  height: 300px;
 }
 
 .chat-message {
-    height:180px;
-    border-bottom: solid 2px #ddd;
-    overflow: auto;
+  height: 180px;
+  border-bottom: solid 2px #ddd;
+  overflow: auto;
 }
 
 #chat-area input {
-    margin-top: 10px;
-    width: 95%;
+  margin-top: 10px;
+  width: 95%;
 }
 
 #roster-area {
-    float: right;
-    border-left: 10px;
-    padding: 10px;
-    width: 250px;
-    height: 30px;
+  float: right;
+  border-left: 10px;
+  padding: 10px;
+  width: 250px;
+  height: 30px;
 }
 
 .chat-name {
-    color: #c33;
+  color: #c33;
 }
 
 .chat-message .me {
-    color: #33c;
+  color: #33c;
 }
 
 .chat-event {
-    font-style: italic;
-    font-size: 75%;
+  font-style: italic;
+  font-size: 75%;
 }
 
 .roster-contact {
-    padding: 3px;
+  padding: 3px;
 }
 
 .roster-contact:hover {
-    background-color: #aaa;
-    color: white;
+  background-color: #aaa;
+  color: white;
 }
 
 .roster-name {
-    font-size: 150%;
+  font-size: 150%;
 }
 
 .online {
-    color: #3c3;
+  color: #3c3;
 }
 
 .away {
-    color: #c33;
+  color: #c33;
 }
 
 .offline {
-    color: #ccc;
+  color: #ccc;
 }

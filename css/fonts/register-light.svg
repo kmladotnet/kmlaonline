@@ -4,7 +4,7 @@
 <defs>
 <font id="Register-Light" horiz-adv-x="643" >
   <font-face 
-    font-family="Register Light"
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
     font-weight="400"
     font-stretch="normal"
     units-per-em="1000"

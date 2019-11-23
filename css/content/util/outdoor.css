@@ -1,45 +1,44 @@
 @charset "utf-8";
-
 @print {
-    margin-top: 2cm;
-    margin-left: 1cm;
-    margin-right: 1cm;
+  margin-top: 2cm;
+  margin-left: 1cm;
+  margin-right: 1cm;
 }
 
 @media print {
-    body {
-        margin-top : 2cm;
-    }
+  body {
+    margin-top: 2cm;
+  }
 }
 
 #bootstrap-overrides tbody {
-    font-family: "굴림";
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
 }
 
 #bootstrap-overrides td.sign {
-    font-size: 0.8em;
+  font-size: 0.8em;
 }
 
 #bootstrap-overrides td.bold {
-    font-weight: bold !important;
-    font-size: 1.1em !important;
+  font-weight: bold !important;
+  font-size: 1.1em !important;
 }
 
-#bootstrap-overrides td.print{
-    border-color: black !important;
-    border-width: 0.5px !important;
+#bootstrap-overrides td.print {
+  border-color: black !important;
+  border-width: 0.5px !important;
 }
 
 #bootstrap-overrides td.important {
-    border-width: 2px !important;
+  border-width: 2px !important;
 }
 
 #boostrap-overrides td.notouch {
-    font-size: 0.8em !important;
-    font-weight: bold !important;
-    text-decoration: underline;
+  font-size: 0.8em !important;
+  font-weight: bold !important;
+  text-decoration: underline;
 }
 
 td.hide {
-    color: white;
+  color: white;
 }
