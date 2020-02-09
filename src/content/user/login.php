@@ -73,14 +73,14 @@ function printContent(){
                         });
                     }" /> 기억하기</label></div>
                     <div style="float:right;color:white;height:32px;vertical-align:middle;line-height:32px;margin-right:10px;">
-                    <label for="chk_teacher" style="vertical-align:middle;">
+                    <!-- <label for="chk_teacher" style="vertical-align:middle;">
                         <input type="checkbox" name="teacher" id="chk_teacher_me" style="vertical-align:middle;" onchange="
                             if(this.checked) {
                                 document.getElementById('return_loc').value = '/teacher/main';
                             } else {
                                 document.getElementById('return_loc').value = '/';
                             }" disabled> 교직원
-                    </label>
+                    </label> -->
                     </div>
                     <div style="clear:both;"></div>
 			</div>
