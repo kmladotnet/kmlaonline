@@ -16,8 +16,7 @@
     <meta property="og:image" content="https://kmlaonline.net/images/logo-inverse-autumn.png" />
 
     <!-- favicons -->
-    <?php //수정할 때 http://realfavicongenerator.net/ 이용할 것. 
-    ?>
+    <?php //수정할 때 http://realfavicongenerator.net/ 이용할 것.?>
     <link rel="apple-touch-icon" sizes="180x180" href="/icon/apple-touch-icon.png?v=XBrA5kwEdx">
     <link rel="icon" type="image/png" href="/icon/favicon-32x32.png?v=XBrA5kwEdx" sizes="32x32">
     <link rel="icon" type="image/png" href="/icon/favicon-16x16.png?v=XBrA5kwEdx" sizes="16x16">
