@@ -15,10 +15,9 @@ if(!file_exists("src/content/$fn.php")) {
 include "src/lib.php";
 
 if(!isset($_SESSION['user'])) {
-/** 학생 교직원 둘 다 아닌 경우. 로그인을 안한 상태!
- * 	'user'은 학생, 'teacher_user'은 선생님
- * 	이 경우에 해당하지 않는다면, $_SESSION['user'] $_SESSION['teacher_user']
- * 	둘 중 적어도 하나는 initialize되어 있다는 뜻이다.
+/** 세션이 없는 경우. 로그인을 안한 상태!
+ * 	'user'은 학생
+ * 	이 경우에 해당하지 않는다면, $_SESSION['user']는 initialize되어 있다는 뜻이다.
  */
 	if(isset($_GET['sub']) && $_GET['action'] == 'user') {
 	// 참고: $_GET['sub']가 있을 수 있는 경우: user, util, intranet일 때
@@ -46,6 +45,7 @@ do {
 } while($_fn != $fn);
 
 session_write_close();
+
 if(!isset($type)){
     if(isAjax()) {
     	require("index.ajax.php");
