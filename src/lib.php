@@ -4,7 +4,7 @@ include "src/soreeengine/SoreeTools.php"; // DB Manager
 include "src/range.php"; // HTTP Range Tools
 include "src/zipstream.php"; // ZIP Streaming Tools
 
-$max_level = date("Y")-1995; // 현재 24기까지
+$max_level = date("Y")-1995; // 현재 25기까지
 
 /********************** START INITIALIZATION SESSION ************************/
 if(isset($_POST["_CUSTOM_PHPSESSID"])) { // For Flash Upload Plugin
@@ -65,19 +65,9 @@ if(!isset($_SESSION['tmp_password']) || !file_exists('/tmp/passwords/'.$me['s_id
 */
 session_write_close();
 /********************** END INITIALIZATION SESSION ************************/
-include 'db-test.php';
 
 setlocale(LC_TIME, 'ko_KR.UTF-8');
-$april_main = false; // 4월 1일에 이 변수만 바꾸기 바람 => 자동화됨
-if(strcmp(date("m-d"), "04-01") == 0)
-    $april_main = true;
-$april_fools = $april_main;
-$april_fools_2 = false;
-if($april_fools) {
-	if(mt_rand(1, 12) == 4) {
-		$april_fools_2 = true;
-	}
-}
+
 if(!function_exists("header_remove")) {
 	function header_remove($header){
         header($header.':');
@@ -955,7 +945,6 @@ function getWeather() {
 }
 
 function getTheme($user) {
-    global $april_fools;
     if(!isset($_SESSION['theme']) || $user['n_id'] == 1) {
         if(!file_exists("data/user/theme")) {
             mkdir("data/user/theme");
@@ -968,9 +957,6 @@ function getTheme($user) {
                 if(!array_key_exists($item, $_SESSION['theme'])) {
                     $_SESSION['theme'][$item] = in_array($item, $on_items);
                 }
-            }
-            if(!$april_fools) {
-                $_SESSION['theme']['nojam'] = false;
             }
         } else {
             $_SESSION['theme'] = array();
@@ -993,9 +979,6 @@ function setTheme($theme, $user) {
 
 if(getTheme($me)['beta']) {
     $title .= ' beta!';
-}
-if(getTheme($me)['nojam']) {
-    $april_fools = false;
 }
 
 function getVotes($id) {

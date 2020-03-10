@@ -161,7 +161,7 @@
     </div>
     <?php if ($_SERVER["REQUEST_URI"] !== '/util/library') { ?>
     <div class="hide-on-upper-panel" style="position:absolute;left:0;width:100%;right:0;display:block;height:160px;top:40px;z-index:-5;">
-        <div class="total-header-extend-1" style="position:absolute;left:0;width:100%;right:0;display:block;height:160px; <?php if ($april_fools_2) echo 'height:311px; background: url(/images/bamboozle-bg.png) repeat-x center bottom;'; ?>">
+        <div class="total-header-extend-1" style="position:absolute;left:0;width:100%;right:0;display:block;height:160px;>
         </div>
         <div class="total-header-extend-2" style="position:absolute;left:0;width:100%;right:0;display:block;height:160px;"></div>
     </div>
@@ -186,10 +186,10 @@
             <?php //TODO: 스타일 밖으로 뺄 것 ?>
             <div id="menu-logo"
                 style="width:40px;padding-left:10px;left:-40px;float:left;position:absolute;z-index:9999999">
-                <a href="/" style="border-"><img id="menu-logo-image" src="/images/logo-s.png" alt="KMLAONLINE" style="width:20px;height:20px;margin-top:10px<?php if ($april_fools) echo ';-webkit-animation:spin 1s linear infinite;-moz-animation:spin 1s linear infinite;animation:spin 1s linear infinite;'; ?>"></a>
+                <a href="/" style="border-"><img id="menu-logo-image" src="/images/logo-s.png" alt="KMLAONLINE" style="width:20px;height:20px;margin-top:10px"></a>
             </div>
             <div id="menu-logo-2" style="width:40px;padding-left:10px;left:-40px;float:left;position:absolute;opacity:0;z-index:9999999">
-                <a href="/" style="border-"><img id="menu-logo-image-2" src="/images/logo-inverse-s.png" alt="KMLAONLINE" style="width:20px;height:20px;margin-top:10px<?php if ($april_fools) echo ';-webkit-animation:spin 1s linear infinite;-moz-animation:spin 1s linear infinite;animation:spin 1s linear infinite;'; ?>"></a>
+                <a href="/" style="border-"><img id="menu-logo-image-2" src="/images/logo-inverse-s.png" alt="KMLAONLINE" style="width:20px;height:20px;margin-top:10px"></a>
             </div>
             <div id="total-header-menu" ondragstart="return false">
                 <!-- page 맨 위에 있는 menu -->
@@ -209,6 +209,7 @@
         unset($_GET['force_mobile'], $_GET['force_desktop']);
         $_GET['force_mobile'] = 1;
         $i = 0;
+
         foreach ($_GET as $k => $v)
             $puri .= ($i++ == 0 ? "?" : "&") . urlencode($k) . "=" . urlencode($v);
         ?><a style="display:block;width:100%;font-size:64pt;text-align:center;padding: 64px 0;background:#EEE" href="<?php echo htmlspecialchars($puri) ?>">
@@ -227,27 +228,6 @@
             $(this).ekkoLightbox();
         });
     </script>
-    <?php if (isset($_SESSION['user']) && !$is_mobile) { ?>
-    <script type="text/javascript">
-        (function setupWebSocket() {
-            conn = new ab.Session('wss://kmlaonline.net/test/',
-                function () {
-                    conn.subscribe('notification-' + nid, function (topic, data) {
-                        getNotificationCount();
-                        addPushNotification(data.href, data.profile_pic, data.desc);
-                        console.log('New article published to category "' + topic + '" : ' + data.title);
-                    });
-                },
-                function () {
-                    setupWebSocket();
-                    console.warn('WebSocket connection closed');
-                }, {
-                    'skipSubprotocolCheck': true
-                }
-            );
-        })();
-    </script>
-    <?php } ?>
 </body>
 
 </html>
