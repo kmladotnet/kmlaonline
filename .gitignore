@@ -2,8 +2,7 @@
 data/
 
 # configuration files
-src/db-config.php
-teacher/hjTool/config.php
+config/
 
 # i dont know what is this..
 /images/gongmo/
