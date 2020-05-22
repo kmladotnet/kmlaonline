@@ -182,6 +182,7 @@ function printUpDownVotes($id, $hide = true)
     <?php if (reportable($upvotes, $downvotes)) {?>
         <a href='ajax/board/reporters?id=<?php echo $id; ?>' data-toggle='lightbox' style='font-size: 0.9em; color:orangered'>신고자(<?php echo reportNum($id); ?>)</a>
         <a onclick='$.post("ajax/board/report", {"id" : <?php echo $id; ?>, "ajax": 1})' style='font-size: 0.9em; color:crimson'>신고하기</a>
+
     <?php }
 }
 
