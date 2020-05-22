@@ -39,7 +39,7 @@ include "theme/theme.php"; // Theme Definition
 include "lang/ko-kr.php"; // Language Definition
 $title = "KMLA Online"; // Page Title
 $bDoInit = false; /* DO NOT INITIALIZE - YOU'VE BEEN WARNED */
-require "../config/db-config.php"; /* LOAD DATABASE - DO NOT REMOVE */
+require "db-config.php"; /* LOAD DATABASE - DO NOT REMOVE */
 
 if (isset($_COOKIE['remember_user'])) { // 자동 로그인
     $rem = preg_replace('[^A-Za-z0-9]', '', $_COOKIE['remember_user']);
