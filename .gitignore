@@ -1,6 +1,6 @@
 # System files.
 
-data*
+data/
 db-config.php
 db-test.php
 /images/gongmo/
