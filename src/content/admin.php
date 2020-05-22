@@ -1,6 +1,7 @@
 <?php
 if(!isset($me) || $me['n_admin']==0) redirectAlert(false,lang("user","permission","error","admin"));
 $title="Admin - " . $title;
+
 function printContent(){
 	/*
 	Manage Users
@@ -12,18 +13,18 @@ function printContent(){
 	<div class="tab_global_wrap" style="min-height:240px;">
 		<div class="what_to_do">
 			<div style="padding-bottom:12px;">
-<?php echo lang("admin","only")?></div>
+            <?php echo lang("admin","only")?></div>
 			<div><input type="checkbox" name="admin_override" id="chk_admin_override" onchange="setAdminOverride($(this));" <?php if(isset($_SESSION['admin_override'])) echo "checked='checked'" ?> /> <label for="chk_admin_override">
-<?php echo lang("admin","override")?></label></div>
+            <?php echo lang("admin","override")?></label></div>
 		</div>
 		<div class="tab_menu">
 			<ul>
 				<li><a id="tab_menu_switch_0" href="#" onclick="return changeTab(0);"<?php if(!isset($_GET['display']) || $_GET['display']==0) echo ' class="tab_menu_selected"';?>>
-<?php echo lang("admin","manage","user");?></a></li>
+                <?php echo lang("admin","manage","user");?></a></li>
 				<li><a id="tab_menu_switch_1" href="#" onclick="return changeTab(1);"<?php if(isset($_GET['display']) && $_GET['display']==1) echo ' class="tab_menu_selected"';?>>
-<?php echo lang("admin","manage","category");?></a></li>
+                <?php echo lang("admin","manage","category");?></a></li>
 				<li><a id="tab_menu_switch_2" href="#" onclick="return changeTab(2);"<?php if(isset($_GET['display']) && $_GET['display']==2) echo ' class="tab_menu_selected"';?>>
-<?php echo lang("admin","manage","misc");?></a></li>
+                <?php echo lang("admin","manage","misc");?></a></li>
 				<!--
 				<li><a id="tab_menu_switch_2" href="#" onclick="return changeTab(2);"<?php if(isset($_GET['display']) && $_GET['display']==2) echo ' class="tab_menu_selected"';?>>부서 관리</a></li>
 				<li><a id="tab_menu_switch_3" href="#" onclick="return changeTab(3);"<?php if(isset($_GET['display']) && $_GET['display']==3) echo ' class="tab_menu_selected"';?>>동아리 관리</a></li>
@@ -36,7 +37,7 @@ function printContent(){
 					<table class="table_info_view">
 						<tr>
 							<th>
-<?php elang("generic","list")?></th>
+                            <?php elang("generic","list")?></th>
 							<td>
 								<table class="table_info_view">
 									<thead>

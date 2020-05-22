@@ -6,13 +6,13 @@ function printContent(){
 	else printContentPc();
 }
 function printContentPc(){
-	global $member, $me, $is_morning, $is_afternoon, $is_night, $mysqli, $board, $user, $april_fools, $april_main;
+	global $member, $me, $is_morning, $is_afternoon, $is_night, $mysqli, $board, $user;
 	?>
 
 	<div style="min-height: 400px">
         <div style="padding: 3px; padding-bottom: 6px; padding-top: 6px">
             <button type="button" id="main-edit-button" class="btn btn-default" onclick="toggleLayoutEditing();"><i class="fas fa-edit" aria-hidden="true"></i> 편집 모드 시작</button>
-            <button type="button" id="main-theme-button" class="btn btn-default" onclick="toggleThemeEditing();"><i class='fa fa-wrench' aria-hidden='true'></i> 큼온 설정<?php if($april_fools) echo ' (만우절 장난을 보기 싫다면 누르세요!)'; ?></button>
+            <button type="button" id="main-theme-button" class="btn btn-default" onclick="toggleThemeEditing();"><i class='fa fa-wrench' aria-hidden='true'></i> 큼온 설정</button>
             <?php printEverydayLinks(); ?>
             <div id="main-theme-pane" style="margin-top: 6px; display:none">
                 <form id="theme-form">
@@ -127,21 +127,6 @@ function printContentPc(){
                                 </label>
                             </div>
                         </div>
-                        <?php if ($april_main) { ?>
-                            <div class="form-group">
-                                노잼 모드 (만우절 장난 해제):
-                                <div class="btn-group" data-toggle="buttons">
-                                    <label class="btn btn-default <?php if(getTheme($me)['nojam']) echo "active"; ?>">
-                                        <input type="radio" name="nojam" id="nojam-option" autocomplete="off"
-                                               <?php if(getTheme($me)['nojam']) echo "checked"; ?>> 활성화
-                                    </label>
-                                    <label class="btn btn-default <?php if(!getTheme($me)['nojam']) echo "active"; ?>">
-                                        <input type="radio" name="jam" id="jam-option" autocomplete="off"
-                                               <?php if(!getTheme($me)['nojam']) echo "checked"; ?>> 비활성화
-                                    </label>
-                                </div>
-                            </div>
-                        <?php } ?>
                     </div>
                 </form>
             </div>
@@ -193,7 +178,96 @@ function printContentPc(){
                 if(file_exists("data/user/main_layout/{$me['n_id']}.txt")) {
                     $modules = json_decode(file_get_contents("data/user/main_layout/{$me['n_id']}.txt"), true);
                 } else {
-                    $layout = '[{"name":"weather","options":{"x":8,"y":2,"w":2,"h":4,"options":{"color":"default"}}},{"name":"birthday","options":{"x":8,"y":0,"w":2,"h":2,"options":{"color":"default"}}},{"name":"menu","options":{"x":10,"y":0,"w":2,"h":6,"options":{"color":"default","all-day":false}}},{"name":"important","options":{"x":0,"y":0,"w":8,"h":6,"options":{"color":"default","show-cat":true,"show-title":true,"show-name":true,"show-date":true}}},{"name":"kmlaboard","options":{"x":0,"y":6,"w":12,"h":6,"options":{"color":"default"}}},{"name":"minjok-news","options":{"x":0,"y":12,"w":5,"h":4,"options":{"color":"default"}}},{"name":"article-list","options":{"x":0,"y":16,"w":5,"h":4,"options":{"color":"default","cat":["77"],"num":"6","show-cat":false,"show-title":true,"show-name":true,"show-date":true,"title":"큼라 카페"}}}]';
+                    $layout = '[{
+                        "name": "weather",
+                        "options": {
+                            "x": 8,
+                            "y": 2,
+                            "w": 2,
+                            "h": 4,
+                            "options": {
+                                "color": "default"
+                            }
+                        }
+                    }, {
+                        "name": "birthday",
+                        "options": {
+                            "x": 8,
+                            "y": 0,
+                            "w": 2,
+                            "h": 2,
+                            "options": {
+                                "color": "default"
+                            }
+                        }
+                    }, {
+                        "name": "menu",
+                        "options": {
+                            "x": 10,
+                            "y": 0,
+                            "w": 2,
+                            "h": 6,
+                            "options": {
+                                "color": "default",
+                                "all-day": false
+                            }
+                        }
+                    }, {
+                        "name": "important",
+                        "options": {
+                            "x": 0,
+                            "y": 0,
+                            "w": 8,
+                            "h": 6,
+                            "options": {
+                                "color": "default",
+                                "show-cat": true,
+                                "show-title": true,
+                                "show-name": true,
+                                "show-date": true
+                            }
+                        }
+                    }, {
+                        "name": "kmlaboard",
+                        "options": {
+                            "x": 0,
+                            "y": 6,
+                            "w": 12,
+                            "h": 6,
+                            "options": {
+                                "color": "default"
+                            }
+                        }
+                    }, {
+                        "name": "minjok-news",
+                        "options": {
+                            "x": 0,
+                            "y": 12,
+                            "w": 5,
+                            "h": 4,
+                            "options": {
+                                "color": "default"
+                            }
+                        }
+                    }, {
+                        "name": "article-list",
+                        "options": {
+                            "x": 0,
+                            "y": 16,
+                            "w": 5,
+                            "h": 4,
+                            "options": {
+                                "color": "default",
+                                "cat": ["77"],
+                                "num": "6",
+                                "show-cat": false,
+                                "show-title": true,
+                                "show-name": true,
+                                "show-date": true,
+                                "title": "큼라 카페"
+                            }
+                        }
+                    }]';
 
                     $modules = json_decode($layout, true);
                     $my_articles = json_decode( <<<JSON
@@ -210,8 +284,7 @@ function printContentPc(){
                          }
                       }
                     }
-JSON
-                               , true);
+                    JSON, true);
                     $my_articles['options']['options']['cat'] = array_values(getUserMainBoards($me));
                     $modules[] = $my_articles;
                     $layout = json_encode($modules);
@@ -285,31 +358,28 @@ function printEverydayLinks(){
             ?>
         </select>
         <select id="datasheet" class="selectpicker" data-style="btn-default" title="통합정보망" data-width="180px" onchange="dataclick();">
-            <option value = "1"> 24기 행정/수업반 </option>
-            <option value = "2"> 23기 행정/수업반 </option>
-            <option value = "3"> 22기 행정/수업반 </option>
+            <option value = "1"> 25기 행정/수업반 </option>
+            <option value = "2"> 24기 행정/수업반 </option>
+            <option value = "3"> 23기 행정/수업반 </option>
             <option value = "4"> 교직원 연락망 </option>
             <option value = "5"> 여학생 방배정 </option>
             <option value = "6"> 남학생 방배정 </option>
             <option value = "7"> 등급 조건표</option>
             <option data-divider="true"></option>
-            <option value = "8" disabled> 등급 계산기 </option>
-            <option value = "9" disabled > GPA 계산기 </option>
-            <option value = "10" disabled> 바베큐 신청 </option>
-            <option value = "11"> 외출외박 신청 </option>
+            <option value = "8"> 외출외박 신청 </option>
         </select>
         <script language="javascript">
             function dataclick() {
                 var selectedValue = datasheet.options[datasheet.selectedIndex].value;
                 switch(selectedValue){
                     case "1":
-                    window.open("https://view.officeapps.live.com/op/view.aspx?src=https://kmlaonline.net/data/datasheet/24기.xlsx");
+                    window.open("https://view.officeapps.live.com/op/view.aspx?src=https://kmlaonline.net/data/datasheet/25기.xlsx");
                     break;
                     case "2":
-                    window.open("https://view.officeapps.live.com/op/view.aspx?src=https://kmlaonline.net/data/datasheet/23기.xlsx");
+                    window.open("https://view.officeapps.live.com/op/view.aspx?src=https://kmlaonline.net/data/datasheet/24기.xlsx");
                     break;
                     case "3":
-                    window.open("https://view.officeapps.live.com/op/view.aspx?src=https://kmlaonline.net/data/datasheet/22기.xlsx");
+                    window.open("https://view.officeapps.live.com/op/view.aspx?src=https://kmlaonline.net/data/datasheet/23기.xlsx");
                     break;
                     case "4":
                     window.open("https://view.officeapps.live.com/op/view.aspx?src=https://kmlaonline.net/data/datasheet/교직원연락망.xlsx");
@@ -324,15 +394,6 @@ function printEverydayLinks(){
                     window.open("https://view.officeapps.live.com/op/view.aspx?src=https://kmlaonline.net/data/datasheet/등급표.xlsx");
                     break;
                     case "8":
-                    location.href="https://kmlaonline.net/util/calculator";
-                    break;
-                    case "9":
-                    location.href="https://kmlaonline.net/util/gpa";
-                    break;
-                    case "10":
-                    location.href="https://kmlaonline.net/util/barbeque";
-                    break;
-                    case "11":
                     location.href="https://kmlaonline.net/util/outdoor";
                     break;
                     default:
@@ -358,7 +419,97 @@ function printContentMobile(){
                 if(file_exists("data/user/main_layout/{$me['n_id']}.txt")) {
                     $modules = json_decode(file_get_contents("data/user/main_layout/{$me['n_id']}.txt"), true);
                 } else {
-                    $layout = '[{"name":"weather","options":{"x":8,"y":2,"w":2,"h":4,"options":{"color":"default"}}},{"name":"birthday","options":{"x":8,"y":0,"w":2,"h":2,"options":{"color":"default"}}},{"name":"menu","options":{"x":10,"y":0,"w":2,"h":6,"options":{"color":"default","all-day":false}}},{"name":"important","options":{"x":0,"y":0,"w":8,"h":6,"options":{"color":"default","show-cat":true,"show-title":true,"show-name":true,"show-date":true}}},{"name":"kmlaboard","options":{"x":0,"y":6,"w":12,"h":6,"options":{"color":"default"}}},{"name":"minjok-news","options":{"x":0,"y":12,"w":5,"h":4,"options":{"color":"default"}}},{"name":"article-list","options":{"x":0,"y":16,"w":5,"h":4,"options":{"color":"default","cat":["77"],"num":"6","show-cat":false,"show-title":true,"show-name":true,"show-date":true,"title":"큼라 카페"}}}]';
+                    $layout = '[
+                        {
+                            "name": "weather",
+                            "options": {
+                                "x": 8,
+                                "y": 2,
+                                "w": 2,
+                                "h": 4,
+                                "options": {
+                                    "color": "default"
+                                }
+                            }
+                        }, {
+                            "name": "birthday",
+                            "options": {
+                                "x": 8,
+                                "y": 0,
+                                "w": 2,
+                                "h": 2,
+                                "options": {
+                                    "color": "default"
+                                }
+                            }
+                        }, {
+                            "name": "menu",
+                            "options": {
+                                "x": 10,
+                                "y": 0,
+                                "w": 2,
+                                "h": 6,
+                                "options": {
+                                    "color": "default",
+                                    "all-day": false
+                                }
+                            }
+                        }, {
+                            "name": "important",
+                            "options": {
+                                "x": 0,
+                                "y": 0,
+                                "w": 8,
+                                "h": 6,
+                                "options": {
+                                    "color": "default",
+                                    "show-cat": true,
+                                    "show-title": true,
+                                    "show-name": true,
+                                    "show-date": true
+                                }
+                            }
+                        }, {
+                            "name": "kmlaboard",
+                            "options": {
+                                "x": 0,
+                                "y": 6,
+                                "w": 12,
+                                "h": 6,
+                                "options": {
+                                    "color": "default"
+                                }
+                            }
+                        }, {
+                            "name": "minjok-news",
+                            "options": {
+                                "x": 0,
+                                "y": 12,
+                                "w": 5,
+                                "h": 4,
+                                "options": {
+                                    "color": "default"
+                                }
+                            }
+                        }, {
+                            "name": "article-list",
+                            "options": {
+                                "x": 0,
+                                "y": 16,
+                                "w": 5,
+                                "h": 4,
+                                "options": {
+                                    "color": "default",
+                                    "cat": ["77"],
+                                    "num": "6",
+                                    "show-cat": false,
+                                    "show-title": true,
+                                    "show-name": true,
+                                    "show-date": true,
+                                    "title": "큼라 카페"
+                                }
+                            }
+                        }]';
 
                     $modules = json_decode($layout, true);
                     $my_articles = json_decode( <<<JSON
