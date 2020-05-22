@@ -1,32 +1,34 @@
 <?php
 date_default_timezone_set("Asia/Seoul");
 include "hjTool/HJTools.php";
-//include "../src/soreeengine/SoreeTools.php";
-require(__DIR__ . "/hjTool/dbHandler.php");
+require __DIR__ . "/hjTool/dbHandler.php";
 
-if(isset($_SESSION['teacher_user'])){
+if (isset($_SESSION['teacher_user'])) {
     $me = $teacher->getTeacher($_SESSION['teacher_user']);
-    if($me === false) {
+    if ($me === false) {
         session_destroy();
         session_start();
     } else {
-        if($me['n_access_date'] + 60 <= time())
+        if ($me['n_access_date'] + 60 <= time()) {
             $teacher->recordTeacherAccess($me['n_id']);
+        }
+
     }
 }
 
 //학생 전용
-function getMyProcessedBarbequeList($id, $rep=false){
+function getMyProcessedBarbequeList($id, $rep = false)
+{
     global $barbeque, $teacher, $member;
 
     $my_bbq_list = $barbeque->getMyRawBarbequeList($id, $rep);
     $arr = array();
-    while($row = $my_bbq_list->fetch_assoc()){
+    while ($row = $my_bbq_list->fetch_assoc()) {
         $row['teacher_name'] = $teacher->getTeacherNameById((int) $row['teacher_id']);
 
         $temp = explode("|", $row['student_list']);
         $st_name_arr = array();
-        for($i = 0; $i < count($temp); $i++){
+        for ($i = 0; $i < count($temp); $i++) {
             array_push($st_name_arr, $member->getMemberNameById((int) $temp[$i]));
         }
         $row['student_name_list'] = implode("|", $st_name_arr);
@@ -38,15 +40,16 @@ function getMyProcessedBarbequeList($id, $rep=false){
     return $arr;
 }
 
-function getMyRequestedList($id, $type) {
+function getMyRequestedList($id, $type)
+{
     global $barbeque, $teacher, $member;
 
     $list = $barbeque->getBarbequeList_Teacher($id, $type);
 
-    for($i = 0; $i < count($list); $i++){
+    for ($i = 0; $i < count($list); $i++) {
         $temp = explode("|", $list[$i]['student_list']);
         $name_arr = array();
-        for($j = 0; $j < count($temp); $j++){
+        for ($j = 0; $j < count($temp); $j++) {
             array_push($name_arr, $member->getMemberNameById((int) $temp[$j]));
         }
         $list[$i]['student_list'] = implode("|", $name_arr);
@@ -66,4 +69,3 @@ function getMyRequestedList($id, $type) {
 //echo print_r($barbeque->getBarbequeList());
 //echo print_r($barbeque->getBarbequeList(1));
 //echo print_r($barbeque->getBarbequeList(0 , "2017-09-23"));
-?>
