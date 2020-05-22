@@ -1,18 +1,15 @@
-# System files.
-
+# data file
 data/
-db-config.php
-db-test.php
+
+# configuration files
+src/db-config.php
 /images/gongmo/
+
+# sass files
 .sass-cache
 .sass-cache/*
 sass-compiled
 sass-compiled/*
-/intranet/lib.php
-/intranet/db-config.php
-/court/api/config.php
-/judicial/presenTool/config.php
-/teacher/hjTool/config.php
 
 # Created by https://www.gitignore.io/api/linux,macos,windows
 # Edit at https://www.gitignore.io/?templates=linux,macos,windows
