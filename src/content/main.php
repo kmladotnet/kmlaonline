@@ -366,10 +366,7 @@ function printEverydayLinks(){
             <option value = "6"> 남학생 방배정 </option>
             <option value = "7"> 등급 조건표</option>
             <option data-divider="true"></option>
-            <option value = "8" disabled> 등급 계산기 </option>
-            <option value = "9" disabled > GPA 계산기 </option>
-            <option value = "10" disabled> 바베큐 신청 </option>
-            <option value = "11"> 외출외박 신청 </option>
+            <option value = "8"> 외출외박 신청 </option>
         </select>
         <script language="javascript">
             function dataclick() {
@@ -397,15 +394,6 @@ function printEverydayLinks(){
                     window.open("https://view.officeapps.live.com/op/view.aspx?src=https://kmlaonline.net/data/datasheet/등급표.xlsx");
                     break;
                     case "8":
-                    location.href="https://kmlaonline.net/util/calculator";
-                    break;
-                    case "9":
-                    location.href="https://kmlaonline.net/util/gpa";
-                    break;
-                    case "10":
-                    location.href="https://kmlaonline.net/util/barbeque";
-                    break;
-                    case "11":
                     location.href="https://kmlaonline.net/util/outdoor";
                     break;
                     default:

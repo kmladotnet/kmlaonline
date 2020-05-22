@@ -33,12 +33,11 @@
 		</div>
 		<?php } else if ($_SERVER["REQUEST_URI"] !== '/util/library' && $_SERVER["REQUEST_URI"] !== '/util/chat') {
 			if (!(!!$me && getTheme($me)['hidedasan'])) { ?>
-			<div id="total-header" style="background: url('https://raw.githubusercontent.com/kmladotnet/doodles/master/current-banner.png') no-repeat; background-size: contain;">
+			<div id="total-header" style="background: url('https://raw.githubusercontent.com/kmladotnet/doodles/master/kmlaonline-old.png') no-repeat; background-size: contain;">
 				<?php if (isset($_SESSION['user'])) { ?>
 					<div class="userarea">
 						<?php include "src/header/userarea.php"; ?></div>
 				<?php } ?>
-				<a id="back-to-main" href='https://kmladotnet.github.io/doodles'></a><br />
 			</div>
 	<?php }
 	} ?>

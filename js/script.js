@@ -171,6 +171,7 @@ function showSlidedown(i, visib) {
         $("#slidedown" + i + "_sub").velocity("finish", true).velocity("slideUp", {duration: 200, easing: "ease"});
     }
 }
+
 var upperHeaderVisible = false;
 
 function askUser(title, text, onConfirm) {

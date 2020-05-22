@@ -9,8 +9,8 @@
         <div class="widthholder">
             <div class="menu1_text">전체</div>
             <div class="menu1_sub">
-                <a href="board/forum" class="menu2">포럼</a>
                 <a href="board/all_announce" class="menu2">공지</a>
+                <a href="board/forum" class="menu2">포럼</a>
                 <a href="board/all_pds" class="menu2">자료실</a>
                 <a href="board/all_gallery" class="menu2">갤러리</a>
                 <a href="https://docs.google.com/spreadsheets/d/1VZ5F17bSimEeEAHaZV6WJYI7kbp5mlx9mcJKk_2eAOo/edit#gid=0" class="menu2">ARCHIVE</a>
@@ -59,17 +59,6 @@
         echo '</div>';
     }
     ?>
-    <div class="menu1">
-        <div class="widthholder">
-            <div class="menu1_text">
-                <?php echo $me['n_level'] ?>기</div>
-            <div class="menu1_sub">
-                <a href="board/wave<?php echo $me['n_level'] ?>_announce" class="menu2">공지</a>
-                <a href="board/wave<?php echo $me['n_level'] ?>_free" class="menu2">자유</a>
-                <a href="board/wave<?php echo $me['n_level'] ?>_pds" class="menu2">자료실</a>
-            </div>
-        </div>
-    </div>
     <?php
     if ($me['n_level'] != 0) {
         $menu_list = getUserMenuBar($me);
@@ -81,9 +70,10 @@
                         <?php echo $key ?>
                     </div>
                     <div class="menu1_sub">
-                        <?php foreach ($key2 as $value) {
-                                    switch ($value[0]) {
-                                        case "url": ?>
+                        <?php 
+                        foreach ($key2 as $value) {  
+                            switch ($value[0]) {
+                                case "url": ?>
                                     <a class="menu2" href="<?php echo htmlspecialchars($value[1]); ?>">
                                         <?php echo htmlspecialchars($value[2]); ?>
                                     </a>
