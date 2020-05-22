@@ -101,7 +101,7 @@ function printArticleListTypeForum($board_data, $additional_query_string)
 					<td>
 						<a href="<?php echo htmlspecialchars("/board/$board_id/view/" . $item['n_id']) ?>" style="<?php echo $b_bold_title ? "font-weight:bold;" : ""; ?>">
 <?php echo formatTitle($item['s_title']); ?></a><br />
-						<div style="display:inline-block">글쓴이: <?php if (!$b_anonymous) {echo '익명';} else {?><a href="<?php echo htmlspecialchars(addslashes("/user/view/" . $memb['n_id'] . "/" . $memb['s_id'])) ?>">
+						<div style="display:inline-block">글쓴이: <?php if ($b_anonymous) {echo '익명';} else {?><a href="<?php echo htmlspecialchars(addslashes("/user/view/" . $memb['n_id'] . "/" . $memb['s_id'])) ?>">
 <?php putUserCard($memb);?></a>
 <?php }?></div>
 						<div style="display:inline-block">글쓴때: <?php echo htmlspecialchars(date((time() - $item['n_writedate'] < 86400) ? "H:i:s" : "y-m-d", $item['n_writedate'])); ?></div>
