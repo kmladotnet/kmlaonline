@@ -324,11 +324,7 @@ $votes = getVotes($comment['n_id']);
                             <?php if ($comment['n_writer'] == 1) {
             echo '진짜 익명';
         } else {
-            if (reportNum($comment['n_id']) >= 10) {
-                putUserCard($m);
-            } else {
-                echo '익명';
-            }
+            echo '익명';
         }?>
                         </span>
 <?php
@@ -347,8 +343,8 @@ $votes = getVotes($comment['n_id']);
                     <?php if ($board_id != 'picexhibit') {?>
                         <div id="item_contents_<?php echo $comment['n_id']; ?>" style="margin-top: 6px">
                             <?php
-if (reportNum($comment['n_id']) >= 10) {
-            ?> 신고가 10개 이상 접수되어서 삭제되었습니다. <?php
+if (reportNum($comment['n_id']) >= 100) {
+            ?> 신고가 100개 이상 접수되어서 삭제되었습니다. <?php
 } else {
             filterContent($comment['s_data']);
         }
@@ -590,11 +586,7 @@ $votes = getVotes($article['n_id']);
                         <?php if ($article['n_writer'] == 1) {
             echo '진짜 익명';
         } else {
-            if (reportNum($article['n_id']) >= 10) {
-                putUserCard($m);
-            } else {
-                echo '익명';
-            }
+            echo '익명';
         }?>
                     </span>
 <?php
@@ -644,8 +636,8 @@ $boardbilities = array();
             <div class="item_contents" style="padding:10px;padding-bottom:7px;overflow:auto">
                 <div id="item_contents_<?php echo $article['n_id']; ?>">
 <?php
-if (reportNum($article['n_id']) >= 10) {
-            ?> 신고가 10개 이상 접수되어서 삭제되었습니다. <?php
+if (reportNum($article['n_id']) >= 100) {
+            ?> 신고가 100개 이상 접수되어서 삭제되었습니다. <?php
 } else {
             filterContent($article['s_data']);
         }
@@ -668,11 +660,7 @@ $votes = getVotes($article['n_id']);
                         <?php if ($article['n_writer'] == 1) {
             echo '진짜 익명';
         } else {
-            if (reportNum($article['n_id']) >= 10) {
-                putUserCard($m);
-            } else {
-                echo '익명';
-            }
+            echo '익명';
         }?>
                     </span>
 <?php
@@ -719,8 +707,8 @@ $boardbilities = array();
             <div class="item_contents" style="padding:10px;padding-bottom:7px;overflow:auto">
                 <div id="item_contents_<?php echo $article['n_id']; ?>">
 <?php
-if (reportNum($article['n_id']) >= 10) {
-            ?> 신고가 10개 이상 접수되어서 삭제되었습니다. <?php
+if (reportNum($article['n_id']) >= 100) {
+            ?> 신고가 100개 이상 접수되어서 삭제되었습니다. <?php
 } else {
             filterContent($article['s_data']);
         }
