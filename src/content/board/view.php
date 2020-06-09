@@ -181,8 +181,6 @@ function printUpDownVotes($id, $hide = true)
     </span>
     <?php if (reportable($upvotes, $downvotes)) {?>
         <a href='ajax/board/reporters?id=<?php echo $id; ?>' data-toggle='lightbox' style='font-size: 0.9em; color:orangered'>신고자(<?php echo reportNum($id); ?>)</a>
-        
-
     <?php }
 }
 
@@ -196,7 +194,7 @@ function printAttachList($article, $cat, $mode = 0)
     $attaches = $board->getAttachments(false, $article['n_id']);
     $classname = "each_attachment_$mode";
     $thumbmode = "sizemode_$mode";
-    $defaultshow = 1; //$mode==1;
+    $defaultshow = 1; // $mode==1;
     if ($attaches !== false && count($attaches) > 0) {
         if ($mode == 2) {
             echo "<hr />";

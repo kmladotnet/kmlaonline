@@ -197,7 +197,7 @@ if (!$is_night) {
     </div>
     <div id="behind-total-wrap" style="position:fixed;left:0;top:0;height:100%;width:100%;display:none;background:#333">
     </div>
-    <div id="total-wrap">
+    <div id="total-wrap" style="background:#faeac0;">
         <div id="upper-header-menu">
             <?php include "src/header/upper-header.php";?>
         </div>
