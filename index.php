@@ -58,6 +58,5 @@ if (!isset($type)) {
         } else {
             require "index.direct.php";
         }
-
     }
 }

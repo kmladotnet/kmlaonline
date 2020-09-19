@@ -1,6 +1,5 @@
 <?php
 // http://www.iamcal.com/publish/articles/php/search/
-// 2004년에 작성된 글이다.. 무섭다. - 김정웅이 작성함
 
 function search_split_terms($terms){
 

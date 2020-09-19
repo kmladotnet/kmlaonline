@@ -11,13 +11,15 @@ if (isset($_POST["_CUSTOM_PHPSESSID"])) { // For Flash Upload Plugin
     if (strlen($_POST["_CUSTOM_PHPSESSID"]) < 64) {
         session_id($_POST["_CUSTOM_PHPSESSID"]);
     }
-
 }
+
 session_save_path('/tmp');
 session_start();
+
 $ua_mobile = preg_match('/Mobile|Android|BlackBerry/', $_SERVER['HTTP_USER_AGENT']);
 $is_android = preg_match('/Android/', $_SERVER['HTTP_USER_AGENT']);
 $is_mobile = isset($_SESSION['forceMode']) ? $_SESSION['forceMode'] : $ua_mobile;
+
 if (isset($_GET['force_mobile'])) {
     if ($ua_mobile) {
         unset($_SESSION['forceMode']);
@@ -35,10 +37,13 @@ if (isset($_GET['force_mobile'])) {
 
     $is_mobile = false;
 }
+
 include "theme/theme.php"; // Theme Definition
 include "lang/ko-kr.php"; // Language Definition
+
 $title = "KMLA Online"; // Page Title
 $bDoInit = false; /* DO NOT INITIALIZE - YOU'VE BEEN WARNED */
+
 require "db-config.php"; /* LOAD DATABASE - DO NOT REMOVE */
 
 if (isset($_COOKIE['remember_user'])) { // 자동 로그인
@@ -63,18 +68,18 @@ if (isset($_SESSION['user'])) {
         if ($me['n_access_date'] + 60 <= time()) {
             $member->recordMemberAccess($me['n_id']);
         }
-
     }
 } else {
     $me = $member->getMember(1);
 }
 /*
 if(!isset($_SESSION['tmp_password']) || !file_exists('/tmp/passwords/'.$me['s_id'])) {
-$_SESSION['tmp_password'] = base64_encode(mt_rand());
-file_put_contents('/tmp/passwords/'.$me['s_id'], $_SESSION['tmp_password']);
+    $_SESSION['tmp_password'] = base64_encode(mt_rand());
+    file_put_contents('/tmp/passwords/'.$me['s_id'], $_SESSION['tmp_password']);
 }
- */
+s*/
 session_write_close();
+
 /********************** END INITIALIZATION SESSION ************************/
 
 setlocale(LC_TIME, 'ko_KR.UTF-8');
@@ -148,6 +153,7 @@ if ($alert !== false) {
     <?php
 die();
 }
+
 function redirectTo($link)
 {
     if (isAjax()) {
@@ -172,6 +178,7 @@ function redirectTo($link)
         <?php
 die();
 }
+
 function redirectWith($str, $dat = "")
 {
     ?>
@@ -195,6 +202,7 @@ call_user_func($str, $dat);
         <?php
 die();
 }
+
 function redirectLoginIfRequired()
 {
     if (isset($_SESSION['user'])) {
@@ -237,6 +245,7 @@ function isAjax()
 {
     return isset($_POST['ajax']) || (isset($_SERVER['HTTP_X_CONTENT_ONLY']) && $_SERVER['HTTP_X_CONTENT_ONLY']);
 }
+
 function ajaxDie($arr = array(), $message = false)
 {
     global $overriden;
