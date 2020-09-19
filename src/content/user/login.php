@@ -110,15 +110,17 @@ function printContent(){
                 ?>
 
                 <div style="font-size:10pt;height:15pt;margin:5px;">
-                        <a <?php if($is_morning) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-breakfast');">아침</a> |
-                        <a <?php if($is_afternoon) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-lunch');">점심</a> |
-                        <a <?php if($is_night) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-dinner');">저녁</a>
+                    <a <?php if($is_morning) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-breakfast');">아침</a> |
+                    <a <?php if($is_afternoon) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-lunch');">점심</a> |
+                    <a <?php if($is_night) echo 'style="color:black"'; ?> onclick="main_changeFood(this, 'food-dinner');">저녁</a>
                 </div>
+
                 <div id="food-breakfast" class="morning">
                     <?php
                         $voteData = getFoodVoteData($curYear, $curMonth, $curDay, 1);
 						$voteCount = getFoodVoteCount($curYear, $curMonth, $curDay, 1);
                     ?>
+                    
                     <div class="food-votes">
                         <?php if($voteData['count'] > 0) { ?>
                             <span style="font-size: 1.2em">

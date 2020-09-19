@@ -195,8 +195,8 @@ function redirectWith($str, $dat = "")
 
         <body>
             <?php
-call_user_func($str, $dat);
-    ?>
+                call_user_func($str, $dat);
+            ?>
         </body>
         </html>
         <?php
