@@ -82,56 +82,55 @@
         <?php echo htmlspecialchars($title); ?>
     </title>
     <?php
-head_theme();
-if (function_exists("printHead")) {
-    printHead();
-}
+    head_theme();
+    if (function_exists("printHead")) {
+        printHead();
+    }
 
-if (file_exists("css/content/$fn.mobile.css")) {
-    echo "<link class='page-specific-css' rel='stylesheet' href='/css/content/$fn.mobile.css?v=4' />";
-} else if (file_exists("css/content/$fn.css")) {
-    echo "<link class='page-specific-css' rel='stylesheet' href='/css/content/$fn.css?v=4' />";
-}
+    if (file_exists("css/content/$fn.mobile.css")) {
+        echo "<link class='page-specific-css' rel='stylesheet' href='/css/content/$fn.mobile.css?v=4' />";
+    } else if (file_exists("css/content/$fn.css")) {
+        echo "<link class='page-specific-css' rel='stylesheet' href='/css/content/$fn.css?v=4' />";
+    }
 
-if (file_exists("js/content/$fn.js")) {
-    echo "<script src='/js/content/$fn.js?v=2'></script>";
-}
+    if (file_exists("js/content/$fn.js")) {
+        echo "<script src='/js/content/$fn.js?v=2'></script>";
+    }
 
-if (isset($includes)) {
-    foreach ($includes as $val) {
-        if (substr($val, -4, 4) == ".css") {
-            echo "<link class='page-specific-css' rel='stylesheet' href='$val' />";
+    if (isset($includes)) {
+        foreach ($includes as $val) {
+            if (substr($val, -4, 4) == ".css") {
+                echo "<link class='page-specific-css' rel='stylesheet' href='$val' />";
+            }
+        }
+    }
+    ?>
+    <style type="text/css">
+        <?php
+        if ($me['n_level'] == 0) {
+            echo ".login-only{display:none}";
         }
 
-    }
-}
-?>
-        <style type="text/css">
-            <?php
-if ($me['n_level'] == 0) {
-    echo ".login-only{display:none}";
-}
+        if (!$is_morning) {
+            echo ".morning{display:none}";
+        }
 
-if (!$is_morning) {
-    echo ".morning{display:none}";
-}
+        if (!$is_afternoon) {
+            echo ".afternoon{display:none}";
+        }
 
-if (!$is_afternoon) {
-    echo ".afternoon{display:none}";
-}
+        if (!$is_night) {
+            echo ".night{display:none}";
+        }
 
-if (!$is_night) {
-    echo ".night{display:none}";
-}
-
-?>
-        </style>
+        ?>
+    </style>
 </head>
 
 <body>
     <img id="no-login-bg" style="position:fixed;left:0;top:0;display:none;z-index:-50;" />
     <div id="divSavingIndicatorFiller"></div>
-    <div style="" id="divSavingIndicator">
+    <div id="divSavingIndicator">
         <div id="divSavingIndicatorInformation">
             <img src="/images/loading.gif" /> <span id="spnWhatAmIDoing">작업 중...</span><br />
             <button id="cancelAjax" onclick="return cancelAjaxSave();" style="width:120px;height:32px;">취소</button>
@@ -140,52 +139,52 @@ if (!$is_night) {
     </div>
     <div id="total-wrap">
         <div id="upper-header-menu">
-            <?php include "src/header/upper-header.php";?></div>
+            <?php include "src/header/upper-header.php"; ?></div>
         <div id="total-header-menu"></div>
         <div style="clear:both"></div>
         <div id="below-header-menu">
-            <?php include "src/header/below-header.php";?></div>
+            <?php include "src/header/below-header.php"; ?></div>
     </div>
     <div id="total-footer" class="hide-on-upper-panel">
         <?php
-$puri = strtok($_SERVER["REQUEST_URI"], '?');
-unset($_GET['force_mobile'], $_GET['force_desktop']);
-$_GET['force_desktop'] = 1;
-$i = 0;
-foreach ($_GET as $k => $v) {
-    $puri .= ($i++ == 0 ? "?" : "&") . urlencode($k) . "=" . urlencode($v);
-}
+        $puri = strtok($_SERVER["REQUEST_URI"], '?');
+        unset($_GET['force_mobile'], $_GET['force_desktop']);
+        $_GET['force_desktop'] = 1;
+        $i = 0;
+        foreach ($_GET as $k => $v) {
+            $puri .= ($i++ == 0 ? "?" : "&") . urlencode($k) . "=" . urlencode($v);
+        }
 
-?>
+        ?>
         <a href="<?php echo htmlspecialchars($puri) ?>">PC판으로 보기</a><br />
         <?php
-echo langraw("layout", "footer"); ?>
+        echo langraw("layout", "footer"); ?>
     </div>
     <script type="text/javascript">
         /*<!--*/
         <?php
-if (isset($_scripts)) {
-    echo $_scripts;
-}
+        if (isset($_scripts)) {
+            echo $_scripts;
+        }
 
-if (isset($_POST['error_occured'])) {
-    echo "checkAjaxReturnedData(JSON.parse(\"" . str_replace("</", "<\" + \"/", addslashes($_POST['error_occured'])) . "\"));";
-}
+        if (isset($_POST['error_occured'])) {
+            echo "checkAjaxReturnedData(JSON.parse(\"" . str_replace("</", "<\" + \"/", addslashes($_POST['error_occured'])) . "\"));";
+        }
 
-?>
+        ?>
         /*-->*/
     </script>
     <script id="onload-scripts" type="text/text">
         <?php
-if (isset($_scripts)) {
-    echo $_scripts;
-}
+        if (isset($_scripts)) {
+            echo $_scripts;
+        }
 
-if (isset($_POST['error_occured'])) {
-    echo "checkAjaxReturnedData(JSON.parse(\"" . str_replace("</", "<\" + \"/", addslashes($_POST['error_occured'])) . "\"));";
-}
+        if (isset($_POST['error_occured'])) {
+            echo "checkAjaxReturnedData(JSON.parse(\"" . str_replace("</", "<\" + \"/", addslashes($_POST['error_occured'])) . "\"));";
+        }
 
-?>
+        ?>
 	</script>
     <script>
         $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {

@@ -2,7 +2,7 @@
 header("Content-Type: text/html; charset=utf-8");
 $f = file_get_contents("http://www.minjok.hs.kr/app/kumla_notice/kumla_all.html");
 if (preg_match_all('/<li>\[([^\]]+):([^\]]+)\](.*?)<br>/sim', $f, $m, PREG_SET_ORDER)) {
-    ?>
+?>
 	<!doctype html>
 	<html>
 
@@ -40,17 +40,17 @@ if (preg_match_all('/<li>\[([^\]]+):([^\]]+)\](.*?)<br>/sim', $f, $m, PREG_SET_O
 		<div id="ticker">
 			<ul id="js-news" class="js-hidden">
 				<?php
-foreach ($m as $each) {
-        $type = trim($each[1]);
-        $date = trim($each[2]);
-        $msg = trim(strip_tags($each[3]));
-        ?>
-                <li class="news-item"><span style="font-size:8pt;color:orange;font-weight:bold;">&gt;</span>
-                    <a href="http://www.minjok.hs.kr/members/" target="_new" style="color:black">
-                        <?php echo "<b>[$date] $type</b>: $msg" ?>
-                    </a>
-                </li>
-				<?php }?>
+				foreach ($m as $each) {
+					$type = trim($each[1]);
+					$date = trim($each[2]);
+					$msg = trim(strip_tags($each[3]));
+				?>
+					<li class="news-item"><span style="font-size:8pt;color:orange;font-weight:bold;">&gt;</span>
+						<a href="http://www.minjok.hs.kr/members/" target="_new" style="color:black">
+							<?php echo "<b>[$date] $type</b>: $msg" ?>
+						</a>
+					</li>
+				<?php } ?>
 			</ul>
 		</div>
 		<script type="text/javascript">
@@ -69,6 +69,6 @@ foreach ($m as $each) {
 	</html>
 <?php
 } else {
-    $f = str_replace("<head>", "<head><meta charset=\"utf-8\" /><base href=\"http://www.minjok.hs.kr/app/kumla_notice/\" /><meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\" />", $f);
-    echo $f;
+	$f = str_replace("<head>", "<head><meta charset=\"utf-8\" /><base href=\"http://www.minjok.hs.kr/app/kumla_notice/\" /><meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\" />", $f);
+	echo $f;
 }
