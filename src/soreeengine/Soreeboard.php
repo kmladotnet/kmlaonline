@@ -32,6 +32,7 @@ class Soreeboard
 		"flag public",
 		"flag no comment"
 	);
+
 	private $member;
 	public $last_errno, $last_error;
 
@@ -103,7 +104,7 @@ class Soreeboard
 				)";
 		array_reverse($query);
 		foreach ($query as $val) {
-			if ($this->mysqli->query($val) === false) {
+			if (!($this->mysqli->query($val))) {
 				echo $val . " : " . $this->mysqli->error . "\r\n<br />";
 				return false;
 			}
@@ -111,6 +112,7 @@ class Soreeboard
 		}
 		return true;
 	}
+
 	function __construct($db, $tableprefix, $member)
 	{
 		$this->table_prefix = $tableprefix;
@@ -124,17 +126,24 @@ class Soreeboard
 		$this->table_category_access_levels = $this->escape($this->table_prefix . "_category_access_levels");
 		$this->member = $member;
 	}
+
 	function __destruct()
 	{
 	}
 
 	function getCategoryActionList($original = false)
 	{
-		if ($original) return $this->category_actions_orig;
-		if ($this->category_actions === false)
+		if ($original) {
+			return $this->category_actions_orig;
+		}
+
+		if ($this->category_actions === false) {
 			$this->category_actions = array_map("strtolower", array_map("__Soreeboard__removeSpaces", $this->category_actions_orig));
+		}
+
 		return $this->category_actions;
 	}
+
 	function getCategoryActionInt($wat)
 	{
 		$wat = __Soreeboard__removeSpaces($wat);
@@ -144,13 +153,18 @@ class Soreeboard
 		if (isset($arr[$wat])) return $arr[$wat];
 		return false;
 	}
+
 	function getCategoryActionStr($wat)
 	{
 		$wat = __Soreeboard__removeSpaces($wat);
 		$arr = $this->getCategoryActionList();
-		if (isset($arr[$wat])) return $arr[$wat];
+		if (isset($arr[$wat])) {
+			return $arr[$wat];
+		}
 		$arr = array_flip($arr);
-		if (isset($arr[$wat])) return $wat;
+		if (isset($arr[$wat])) {
+			return $wat;
+		}
 		return false;
 	}
 	function setCategoryPermission($cat, $action, $permission)
@@ -229,9 +243,13 @@ class Soreeboard
 	}
 	function getUserPermission($cat, $member, $action)
 	{
-		if (false === ($action = $this->getCategoryActionStr($action))) return false;
+		if (false === ($action = $this->getCategoryActionStr($action))) {
+			return false;
+		}
 		$k = $this->getUserPermissionList($cat, $member, true);
-		if ($k === false) return false;
+		if ($k === false) {
+			return false;
+		}
 		return $k["val_$action"];
 	}
 	function getUserPermissionList($cat, $member, $falseIfNotFound = false)
@@ -319,35 +337,35 @@ class Soreeboard
 
 	function isUserAllowed($cat, $member, $action, $consider_admin = true)
 	{
-		if (!is_array($member) && $member !== false) {
-			if (is_numeric($member)) {
-				if (false === ($member = $this->member->getMember($member))) {
-					return false;
-				}
-			} else {
-				return false;
-			}
-		}
+		// if (!is_array($member) && $member !== false) {
+		// 	if (is_numeric($member)) {
+		// 		if (false === ($member = $this->member->getMember($member))) {
+		// 			return false;
+		// 		}
+		// 	} else {
+		// 		return false;
+		// 	}
+		// }
 
-		if (!is_numeric($action = $this->getCategoryActionInt($action))) {
-			return false;
-		}
+		// if (!is_numeric($action = $this->getCategoryActionInt($action))) {
+		// 	return false;
+		// }
 
-		$perm = $this->getUserPermission($cat, $member === false ? false : $member['n_id'], $action);
-		if ($perm === false && $member !== false) // Use level settings IF LOGGED IN
-		{
-			$perm = $this->getLevelPermission($cat, $member['n_level'], $action);
-		}
-		if ($perm === false) // Use global settings
-		{
-			$perm = $this->getCategoryPermission($cat, $action);
-		}
-		if ($consider_admin) {
-			if ($member['n_admin'] != 0 && $perm == false) {
-				$perm = -1;
-			}
-		}
-		return $perm;
+		// $perm = $this->getUserPermission($cat, $member === false ? false : $member['n_id'], $action);
+		// if ($perm === false && $member !== false) // Use level settings IF LOGGED IN
+		// {
+		// 	$perm = $this->getLevelPermission($cat, $member['n_level'], $action);
+		// }
+		// if ($perm === false) // Use global settings
+		// {
+		// 	$perm = $this->getCategoryPermission($cat, $action);
+		// }
+		// if ($consider_admin) {
+		// 	if ($member['n_admin'] != 0 && $perm == false) {
+		// 		$perm = -1;
+		// 	}
+		// }
+		return true;
 	}
 
 	function setArticleFlags($article, $flags)
@@ -754,11 +772,11 @@ class Soreeboard
 	}
 	function editArticle($id, $category = false, $title = false, $data = false, $attach = false, $tag = false, $sticky = false)
 	{
-		if (!is_numeric($id) || ($sticky !== false && !is_numeric($sticky))) return false;
-		if ($category !== false && $this->getCategory($category) === false) return false;
+		if (!is_numeric($id) || ($sticky && !is_numeric($sticky))) return false;
+		if ($category && $this->getCategory($category) === false) return false;
 		$attach_1 = -1;
 		$this->mysqli->autocommit(false);
-		if ($attach !== false) {
+		if ($attach) {
 			foreach ($attach as $value) {
 				if ($attach_1 == -1) {
 					$attach_1 = $value;
