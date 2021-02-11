@@ -1,5 +1,6 @@
 <?php
 redirectLoginIfRequired();
+
 $title="노래방 이용 신청 - " . $title;
 
 function x_week_range($ts) {

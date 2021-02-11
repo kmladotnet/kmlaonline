@@ -262,9 +262,13 @@ $_LANGUAGE = array(
     ),
 );
 function elang($key1, $key2, $key3 = null, $key4 = null)
-{echo lang($key1, $key2, $key3, $key4);}
+{
+    echo lang($key1, $key2, $key3, $key4);
+}
 function elangraw($key1, $key2, $key3 = null, $key4 = null)
-{echo langraw($key1, $key2, $key3, $key4);}
+{
+    echo langraw($key1, $key2, $key3, $key4);
+}
 function lang($key1, $key2, $key3 = null, $key4 = null)
 {
     global $_LANGUAGE;

@@ -18,7 +18,7 @@
         </div>
     </div>
     <?php
-    if ($me['n_level'] <= 19) {
+    if ($me['n_level'] <= 23) {
         echo '<div class="menu1">';
         echo '<div class="widthholder">';
         echo '<div class="menu1_text">졸업생</div>';
@@ -31,7 +31,7 @@
     }
     ?>
     <?php
-    if ($me['n_level'] >= 19) {
+    if ($me['n_level'] > 23) {
         echo '<div class="menu1">';
         echo '<div class="widthholder">';
         echo '<div class="menu1_text">교내</div>';
@@ -63,30 +63,30 @@
     if ($me['n_level'] != 0) {
         $menu_list = getUserMenuBar($me);
         foreach ($menu_list as $key => $key2) {
-            ?>
+    ?>
             <div class="menu1">
                 <div class="widthholder">
                     <div class="menu1_text">
                         <?php echo $key ?>
                     </div>
                     <div class="menu1_sub">
-                        <?php 
-                        foreach ($key2 as $value) {  
+                        <?php
+                        foreach ($key2 as $value) {
                             switch ($value[0]) {
                                 case "url": ?>
                                     <a class="menu2" href="<?php echo htmlspecialchars($value[1]); ?>">
                                         <?php echo htmlspecialchars($value[2]); ?>
                                     </a>
                                 <?php break;
-                                            case "action":
-                                                ?>
+                                case "action":
+                                ?>
                                     <a class="menu2" href="<?php echo htmlspecialchars($value[1]); ?>">
                                         <?php echo htmlspecialchars($value[2]); ?>
                                     </a>
-                            <?php
-                                            break;
-                                    }
-                                } ?>
+                        <?php
+                                    break;
+                            }
+                        } ?>
                     </div>
                 </div>
             </div>

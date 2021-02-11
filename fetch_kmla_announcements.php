@@ -1,6 +1,7 @@
 <?php
 header("Content-Type: text/html; charset=utf-8");
 $f = file_get_contents("http://www.minjok.hs.kr/app/kumla_notice/kumla_all.html");
+
 if (preg_match_all('/<li>\[([^\]]+):([^\]]+)\](.*?)<br>/sim', $f, $m, PREG_SET_ORDER)) {
 ?>
 	<!doctype html>
