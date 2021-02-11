@@ -337,35 +337,35 @@ class Soreeboard
 
 	function isUserAllowed($cat, $member, $action, $consider_admin = true)
 	{
-		// if (!is_array($member) && $member !== false) {
-		// 	if (is_numeric($member)) {
-		// 		if (false === ($member = $this->member->getMember($member))) {
-		// 			return false;
-		// 		}
-		// 	} else {
-		// 		return false;
-		// 	}
-		// }
+		if (!is_array($member) && $member !== false) {
+			if (is_numeric($member)) {
+				if (false === ($member = $this->member->getMember($member))) {
+					return false;
+				}
+			} else {
+				return false;
+			}
+		}
 
-		// if (!is_numeric($action = $this->getCategoryActionInt($action))) {
-		// 	return false;
-		// }
+		if (!is_numeric($action = $this->getCategoryActionInt($action))) {
+			return false;
+		}
 
-		// $perm = $this->getUserPermission($cat, $member === false ? false : $member['n_id'], $action);
-		// if ($perm === false && $member !== false) // Use level settings IF LOGGED IN
-		// {
-		// 	$perm = $this->getLevelPermission($cat, $member['n_level'], $action);
-		// }
-		// if ($perm === false) // Use global settings
-		// {
-		// 	$perm = $this->getCategoryPermission($cat, $action);
-		// }
-		// if ($consider_admin) {
-		// 	if ($member['n_admin'] != 0 && $perm == false) {
-		// 		$perm = -1;
-		// 	}
-		// }
-		return true;
+		$perm = $this->getUserPermission($cat, $member === false ? false : $member['n_id'], $action);
+		if ($perm === false && $member !== false) // Use level settings IF LOGGED IN
+		{
+			$perm = $this->getLevelPermission($cat, $member['n_level'], $action);
+		}
+		if ($perm === false) // Use global settings
+		{
+			$perm = $this->getCategoryPermission($cat, $action);
+		}
+		if ($consider_admin) {
+			if ($member['n_admin'] != 0 && $perm == false) {
+				$perm = -1;
+			}
+		}
+		return $perm;
 	}
 
 	function setArticleFlags($article, $flags)
