@@ -355,8 +355,8 @@ class Soreeboard
 			return false;
 		}
 
-		$perm = $this->getUserPermission($cat, $member ? $member['n_id'] : false, $action);
-		if ($perm && $member) // Use level settings IF LOGGED IN
+		$perm = $this->getUserPermission($cat, $member === false ? false : $member['n_id'], $action);
+		if ($perm === false && $member !== false) // Use level settings IF LOGGED IN
 		{
 			$perm = $this->getLevelPermission($cat, $member['n_level'], $action);
 		}
@@ -365,8 +365,8 @@ class Soreeboard
 			$perm = $this->getCategoryPermission($cat, $action);
 		}
 		if ($consider_admin) {
-			if ($member['n_admin'] != 0 && !$perm) {
-				$perm = true;
+			if ($member['n_admin'] != 0 && $perm == false) {
+				$perm = -1;
 			}
 		}
 		return $perm;
@@ -1030,7 +1030,9 @@ class Soreeboard
 	}
 	function getPageNumber($id, $pagecount = 20, $orderby_name = "n_id", $orderby_desc = true, $category = null, $sticky = 0, $parent = 0, $search = false, $search_mode_and = true, $search_submode_and = true, $search_title = false, $search_data = false, $search_tag = false, $search_writer = false)
 	{
-		if (!is_numeric($parent) || !is_numeric($id)) return false;
+		if (!is_numeric($parent) || !is_numeric($id)) {
+			return false;
+		}
 		if ($category) {
 			foreach ($category as $value) {
 				if (!is_numeric($value)) {
