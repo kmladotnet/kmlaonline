@@ -334,10 +334,10 @@ function putCommentTree($parent, $root)
                             <?php
                             if (reportNum($comment['n_id']) >= 100) {
                             ?> 신고가 100개 이상 접수되어서 삭제되었습니다. <?php
-                                        } else {
-                                            filterContent($comment['s_data']);
-                                        }
-                                            ?>
+                                                        } else {
+                                                            filterContent($comment['s_data']);
+                                                        }
+                                                            ?>
                         </div>
                         <div style="display:none" class="item_hidden" id="item_hidden_<?php echo $comment['n_id']; ?>">(숨김) - 좌측 상단의 '+' 버튼을 눌러서 표시할 수 있습니다.</div>
                     <?php } ?>
@@ -625,10 +625,10 @@ function printOneForumItem($article, $root, $suppress_comments = false)
                     <?php
                     if (reportNum($article['n_id']) >= 100) {
                     ?> 신고가 100개 이상 접수되어서 삭제되었습니다. <?php
-                                        } else {
-                                            filterContent($article['s_data']);
-                                        }
-                                            ?></div>
+                                                } else {
+                                                    filterContent($article['s_data']);
+                                                }
+                                                    ?></div>
                 <div style="display:none" class="item_hidden" id="item_hidden_<?php echo $article['n_id']; ?>">(숨김) - 좌측 상단의 '+' 버튼을 눌러서 표시할 수 있습니다.</div>
                 <?php
                 printAttachList($article, $board_cat, 0);
@@ -697,10 +697,10 @@ function printOneForumItem($article, $root, $suppress_comments = false)
                     <?php
                     if (reportNum($article['n_id']) >= 100) {
                     ?> 신고가 100개 이상 접수되어서 삭제되었습니다. <?php
-                                        } else {
-                                            filterContent($article['s_data']);
-                                        }
-                                            ?></div>
+                                                } else {
+                                                    filterContent($article['s_data']);
+                                                }
+                                                    ?></div>
                 <div style="display:none" class="item_hidden" id="item_hidden_<?php echo $article['n_id']; ?>">(숨김) - 좌측 상단의 '+' 버튼을 눌러서 표시할 수 있습니다.</div>
                 <?php
                 printAttachList($article, $board_cat, 0);
@@ -814,16 +814,16 @@ function printViewPageModeForum($usr, $cat)
                                                                                                                 echo "style='color:black'";
                                                                                                             }
                                                                                                             ?>>[<?php echo $i;
-            $disp[$i] = true; ?>]</a>
+                                                                                                                $disp[$i] = true; ?>]</a>
         <?php } ?>
         <?php if ($i < $page_count && $i != max(2, $pagenumber - 10)) {
             echo "...";
         }
         ?>
         <?php if (!isset($disp[$page_count]) && $page_count > 1) { ?><a href="<?php echo "/board/$board_id/view/{$article['n_id']}/$page_count$additional_query_string"; ?>" <?php if ($pagenumber == $page_count) {
-                                                                                                                                                                                echo "style='color:black'";
-                                                                                                                                                                            }
-                                                                                                                                                                            ?>>[<?php echo $page_count ?>]</a>
+                                                                                                                                                                                    echo "style='color:black'";
+                                                                                                                                                                                }
+                                                                                                                                                                                ?>>[<?php echo $page_count ?>]</a>
         <?php } ?>
     </div>
     <div style="margin:0 auto;width:120px;text-align:center;">총 <?php echo $article_count + 1 ?>개</div>

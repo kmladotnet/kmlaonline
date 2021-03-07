@@ -312,9 +312,13 @@ class Soreeboard
 	}
 	function getLevelPermissionList($cat, $level, $falseIfNotFound = false)
 	{
-		if (!is_numeric($level) || !is_numeric($cat)) return false;
+		if (!is_numeric($level) || !is_numeric($cat)) {
+			return false;
+		}
 		$query = "SELECT * FROM `$this->table_category_access_levels` WHERE n_cat=$cat AND n_level=$level";
-		if (isset($this->category_default_action_cache["$cat\nl$level"])) return $this->category_default_action_cache["$cat\nl$level"];
+		if (isset($this->category_default_action_cache["$cat\nl$level"])) {
+			return $this->category_default_action_cache["$cat\nl$level"];
+		}
 		if ($res = $this->mysqli->query($query)) {
 			$arr = false;
 			while ($row = $res->fetch_array(MYSQLI_ASSOC)) {
@@ -770,7 +774,7 @@ class Soreeboard
 		$this->mysqli->autocommit(true);
 		return false;
 	}
-	function editArticle($id, $category = false, $title = false, $data = false, $attach = false, $tag = false, $sticky = false)
+	function editArticle($id, $category = false, $title = false, $data = false, $attach = null, $tag = false, $sticky = false)
 	{
 		if (!is_numeric($id) || ($sticky && !is_numeric($sticky))) return false;
 		if ($category && $this->getCategory($category) === false) return false;
@@ -888,15 +892,33 @@ class Soreeboard
 		$this->mysqli->autocommit(true);
 		return false;
 	}
-	function getArticleList($category = false, $sticky = false, $parent = false, $pagenumber = 0, $pagecount = 20, $orderby_name = "n_id", $orderby_desc = true, $incl_text = 0, $search = false, $search_mode_and = true, $search_submode_and = true, $search_title = false, $search_data = false, $search_tag = false, $search_writer = false, $with_data = false)
+	function getArticleList($category = null, $sticky = false, $parent = false, $pagenumber = 0, $pagecount = 20, $orderby_name = "n_id", $orderby_desc = true, $incl_text = 0, $search = false, $search_mode_and = true, $search_submode_and = true, $search_title = false, $search_data = false, $search_tag = false, $search_writer = false, $with_data = false)
 	{
-		if (!is_numeric($parent) && $parent !== false) return false;
-		if ($category) foreach ($category as $value) if (!is_numeric($value)) return false;
+		if (!is_numeric($parent) && $parent !== false) {
+			return false;
+		}
+		if ($category) {
+			foreach ($category as $value) {
+				if (!is_numeric($value)) {
+					return false;
+				}
+			}
+		}
+
 		$whereq = $this->genWhereQuery($category, $sticky, $parent, $search, $search_mode_and, $search_submode_and, $search_title, $search_data, $search_tag, $search_writer);
-		if ($orderby_desc) $orderby = "$orderby_name DESC";
-		else $orderby = "$orderby_name ASC";
-		if ($pagecount == 0) $limits = "";
-		else $limits = "LIMIT " . ($pagenumber * $pagecount) . ", " . $pagecount;
+
+		if ($orderby_desc) {
+			$orderby = "$orderby_name DESC";
+		} else {
+			$orderby = "$orderby_name ASC";
+		}
+
+		if ($pagecount == 0) {
+			$limits = "";
+		} else {
+			$limits = "LIMIT " . ($pagenumber * $pagecount) . ", " . $pagecount;
+		}
+
 		$incl_data = ($incl_text > 0 ? (", LEFT(s_data, " . $incl_text . ")") : ($incl_text < 0 ? ", s_data" : ""));
 		$select_what = "n_id, n_parent, n_sticky, n_cat, n_writedate, n_editdate, n_total_views, n_views, n_out_views, n_comments, s_title, n_attach1, s_tag, s_writer, n_writer, n_flag" . ($with_data ? ", s_data" : "");
 		$query = "SELECT $select_what $incl_data FROM `$this->table_data` $whereq ORDER BY $orderby $limits";
@@ -918,24 +940,36 @@ class Soreeboard
 		//echo $this->last_error;
 		return false;
 	}
-	private function genWhereQuery($category = false, $sticky = false, $parent = false, $search = false, $search_mode_and = true, $search_submode_and = true, $search_title = false, $search_data = false, $search_tag = false, $search_writer = false)
+
+	private function genWhereQuery($category = null, $sticky = false, $parent = false, $search = false, $search_mode_and = true, $search_submode_and = true, $search_title = false, $search_data = false, $search_tag = false, $search_writer = false)
 	{
 		$wheres = array();
-		if ($parent !== false)
-			if ($parent == 0)
+		if ($parent !== false) {
+			if ($parent == 0) {
 				$parr = "n_parent IS NULL AND ";
-			else
+			} else {
 				$parr = "n_parent=$parent AND ";
-		else
+			}
+		} else {
 			$parr = "";
-		if ($sticky !== false)
+		}
+		if ($sticky !== false) {
 			$wheres[] = "n_sticky=" . ($sticky ? 1 : 0);
+		}
 		if ($search_title || $search_data || $search_tag || $search_writer) {
 			$where = array();
-			if ($search_title) array_push($where, "s_title");
-			if ($search_data) array_push($where, "s_data");
-			if ($search_tag) array_push($where, "s_tag");
-			if ($search_writer) array_push($where, "s_writer");
+			if ($search_title) {
+				array_push($where, "s_title");
+			}
+			if ($search_data) {
+				array_push($where, "s_data");
+			}
+			if ($search_tag) {
+				array_push($where, "s_tag");
+			}
+			if ($search_writer) {
+				array_push($where, "s_writer");
+			}
 			$wheres[] = "(" . search_wherequery($search, $where, $search_mode_and ? "AND" : "OR", $search_submode_and ? "AND" : "OR") . ")";
 		}
 		if ($category) {
@@ -949,9 +983,15 @@ class Soreeboard
 		$q = "WHERE " . $parr . "(" . implode(" AND ", $wheres) . ")";
 		return $q;
 	}
-	function getArticleCount($category = false, $sticky = false, $parent = false, $search = false, $search_mode_and = true, $search_submode_and = true, $search_title = false, $search_data = false, $search_tag = false, $search_writer = false)
+	function getArticleCount($category = null, $sticky = false, $parent = false, $search = false, $search_mode_and = true, $search_submode_and = true, $search_title = false, $search_data = false, $search_tag = false, $search_writer = false)
 	{
-		if ($category) foreach ($category as $value) if (!is_numeric($value)) return false;
+		if ($category) {
+			foreach ($category as $value) {
+				if (!is_numeric($value)) {
+					return false;
+				}
+			}
+		}
 		if ($search !== false || $parent !== false) {
 			$whereq = $this->genWhereQuery($category, $sticky, $parent, $search, $search_mode_and, $search_submode_and, $search_title, $search_data, $search_tag, $search_writer);
 			$query = "SELECT count(*) FROM `$this->table_data` " . $whereq;
@@ -988,10 +1028,18 @@ class Soreeboard
 			return false;
 		}
 	}
-	function getPageNumber($id, $pagecount = 20, $orderby_name = "n_id", $orderby_desc = true, $category = false, $sticky = 0, $parent = 0, $search = false, $search_mode_and = true, $search_submode_and = true, $search_title = false, $search_data = false, $search_tag = false, $search_writer = false)
+	function getPageNumber($id, $pagecount = 20, $orderby_name = "n_id", $orderby_desc = true, $category = null, $sticky = 0, $parent = 0, $search = false, $search_mode_and = true, $search_submode_and = true, $search_title = false, $search_data = false, $search_tag = false, $search_writer = false)
 	{
-		if (!is_numeric($parent) || !is_numeric($id)) return false;
-		if ($category) foreach ($category as $value) if (!is_numeric($value)) return false;
+		if (!is_numeric($parent) || !is_numeric($id)) {
+			return false;
+		}
+		if ($category) {
+			foreach ($category as $value) {
+				if (!is_numeric($value)) {
+					return false;
+				}
+			}
+		}
 		$whereq = $this->genWhereQuery($category, $sticky, $parent, $search, $search_mode_and, $search_submode_and, $search_title, $search_data, $search_tag, $search_writer);
 		$query = "SELECT count(*) FROM `$this->table_data` $whereq AND $orderby_name " . ($orderby_desc ? ">" : "<") . " (SELECT $orderby_name FROM `$this->table_data` WHERE n_id=$id) ORDER BY $orderby_name " . ($orderby_desc ? "DESC" : "ASC");
 		if ($res = $this->mysqli->query($query)) {
