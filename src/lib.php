@@ -1113,7 +1113,7 @@ function putAlert($s)
             use Cmfcmf\OpenWeatherMap;
             use Cmfcmf\OpenWeatherMap\AbstractCache;
 
-            function __autoload($className)
+            function spl_autoload_register($className)
             {
                 $className = substr($className, strrpos($className, '\\') + 1);
                 if (file_exists('src/lib/OpenWeatherMap/' . $className . '.php')) {
