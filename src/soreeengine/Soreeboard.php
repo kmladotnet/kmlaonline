@@ -801,8 +801,10 @@ class Soreeboard
 		if ($this->mysqli->query($query) === true) {
 			$query = array();
 			if ($attach !== false) {
-				foreach ($attach as $value) {
-					$query[] = "UPDATE `" . $this->table_attach . "` SET n_parent=$id WHERE n_id=$value";
+				if (is_array($attach) || is_object($attach)){
+					foreach ($attach as $value) {
+						$query[] = "UPDATE `" . $this->table_attach . "` SET n_parent=$id WHERE n_id=$value";
+					}
 				}
 			}
 			$suc = true;
