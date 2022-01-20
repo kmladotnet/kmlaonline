@@ -96,45 +96,51 @@ function printSearchResult($search){
 function searchAttachments($search, $articleperpage, $pagenumber){
 	global $board, $member;
 	$ret=array();
-	foreach($board->getAttachments(false,false,false,$search,false, $pagenumber, $articleperpage, "n_created", false) as $val){
-		$article=$board->getArticle($val['n_parent']);
-		$category=$board->getCategory($article['n_cat']);
-		if(!checkCategoryAccess($category['n_id'], "view")) continue;
-		$b_anonymous=($article['n_flag']&0x4) && checkCategoryAccess($category['n_id'], "flag anonymous");
-		$val['link']="/board/{$category['s_id']}/view/{$article['n_id']}#__button__open";
-		$val['desc']=htmlspecialchars($val['s_name']);
-		$val['found']="첨부 파일";
-		$val['writer']=$b_anonymous?"익명":putUserCard($member->getMember($article['n_writer']),0,false);
-		$val['time']=$val['n_created'];
-		$ret[]=$val;
+	if (is_array($board) || is_object($board)){
+		foreach($board->getAttachments(false,false,false,$search,false, $pagenumber, $articleperpage, "n_created", false) as $val){
+			$article=$board->getArticle($val['n_parent']);
+			$category=$board->getCategory($article['n_cat']);
+			if(!checkCategoryAccess($category['n_id'], "view")) continue;
+			$b_anonymous=($article['n_flag']&0x4) && checkCategoryAccess($category['n_id'], "flag anonymous");
+			$val['link']="/board/{$category['s_id']}/view/{$article['n_id']}#__button__open";
+			$val['desc']=htmlspecialchars($val['s_name']);
+			$val['found']="첨부 파일";
+			$val['writer']=$b_anonymous?"익명":putUserCard($member->getMember($article['n_writer']),0,false);
+			$val['time']=$val['n_created'];
+			$ret[]=$val;
+		}
 	}
 	return search_saveequivalence($search, $ret, array("s_name"));
 }
 function searchCategories($search, $articleperpage, $pagenumber){
 	global $board;
 	$ret=array();
-	foreach($board->getCategoryList($pagenumber,$articleperpage,$search, true,true) as $val){
-		if(false===checkCategoryAccess($val['n_id'],"list")) continue;
-		$val['link']="/board/".$val['s_id'];
-		$val['desc']=htmlspecialchars($val['s_name']);
-		$val['found']="전체 카테고리";
-		$val['writer']="(관리자)";
-		$val['time']=0;
-		$ret[]=$val;
+	if (is_array($board) || is_object($board)){
+		foreach($board->getCategoryList($pagenumber,$articleperpage,$search, true,true) as $val){
+			if(false===checkCategoryAccess($val['n_id'],"list")) continue;
+			$val['link']="/board/".$val['s_id'];
+			$val['desc']=htmlspecialchars($val['s_name']);
+			$val['found']="전체 카테고리";
+			$val['writer']="(관리자)";
+			$val['time']=0;
+			$ret[]=$val;
+		}
 	}
 	return search_saveequivalence($search, $ret, array("s_id", "s_name"));
 }
 function searchMember($search, $articleperpage, $pagenumber){
 	global $member;
 	$ret=array();
-	foreach($member->listMembers($pagenumber,$articleperpage,false,$search, false,false,true,true,true,true,true,true,true,true) as $val){
-		if($val['n_id']==1) continue;
-		$val['link']="/user/view/".$val['n_id']."/".$val['s_id'];
-		$val['desc']=$val['n_level'] . "기 " . htmlspecialchars($val['s_name']);
-		$val['found']="전체 사용자";
-		$val['writer']="(각각)";
-		$val['time']=$val['n_reg_date'];
-		$ret[]=$val;
+	if (is_array($member) || is_object($member)){
+		foreach($member->listMembers($pagenumber,$articleperpage,false,$search, false,false,true,true,true,true,true,true,true,true) as $val){
+			if($val['n_id']==1) continue;
+			$val['link']="/user/view/".$val['n_id']."/".$val['s_id'];
+			$val['desc']=$val['n_level'] . "기 " . htmlspecialchars($val['s_name']);
+			$val['found']="전체 사용자";
+			$val['writer']="(각각)";
+			$val['time']=$val['n_reg_date'];
+			$ret[]=$val;
+		}
 	}
 	$ret=search_saveequivalence($search, $ret, array("s_id", "s_name", "s_homepage", "s_email", "s_phone", "s_real_name", "s_interest", "s_status_message"));
 	foreach($ret as $key=>$val){
@@ -154,21 +160,23 @@ function searchBoard($search, $articleperpage, $pagenumber){
 		}
 	}
 	$ret=array();
-	foreach($board->getArticleList($categories_to_search, false, false, $pagenumber, $articleperpage, "n_id", true, 0, $search, false,false,true,true,true,true, true) as $val){
-		$b_no_comment=($val['n_flag']&0x2);
-		$b_anonymous=($val['n_flag']&0x4);
-		if($b_anonymous && (strpos($member->getMember($val['n_writer'])['s_name'], $search) !== false)) continue;
-		$val['link']="/board/{$val['cat']['s_id']}/view/{$val['n_id']}";
-		$val['desc']=htmlspecialchars(strip_tags($val['s_title']));
-		if($val['n_comments']!=0 && doesAdminBypassEverythingAndIsAdmin(!$b_no_comment))
-			$val['desc'].= " <span class='comment-num'>[{$val['n_comments']}]</span>";
-		if(isset($val['n_parent']))
-			$val['found']="댓글 - " . $val['cat']['s_name'];
-		else
-			$val['found']="게시판 - " . $val['cat']['s_name'];
-		$val['writer']=$b_anonymous?"익명":putUserCard($member->getMember($val['n_writer']),0,false);
-		$val['time']=$val['n_writedate'];
-		$ret[]=$val;
+	if (is_array($board) || is_object($board)){
+		foreach($board->getArticleList($categories_to_search, false, false, $pagenumber, $articleperpage, "n_id", true, 0, $search, false,false,true,true,true,true, true) as $val){
+			$b_no_comment=($val['n_flag']&0x2);
+			$b_anonymous=($val['n_flag']&0x4);
+			if($b_anonymous && (strpos($member->getMember($val['n_writer'])['s_name'], $search) !== false)) continue;
+			$val['link']="/board/{$val['cat']['s_id']}/view/{$val['n_id']}";
+			$val['desc']=htmlspecialchars(strip_tags($val['s_title']));
+			if($val['n_comments']!=0 && doesAdminBypassEverythingAndIsAdmin(!$b_no_comment))
+				$val['desc'].= " <span class='comment-num'>[{$val['n_comments']}]</span>";
+			if(isset($val['n_parent']))
+				$val['found']="댓글 - " . $val['cat']['s_name'];
+			else
+				$val['found']="게시판 - " . $val['cat']['s_name'];
+			$val['writer']=$b_anonymous?"익명":putUserCard($member->getMember($val['n_writer']),0,false);
+			$val['time']=$val['n_writedate'];
+			$ret[]=$val;
+		}
 	}
 	return search_saveequivalence($search, $ret, array("s_data", "s_title", "s_tag", "s_writer"));
 }
