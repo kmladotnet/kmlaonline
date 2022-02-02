@@ -345,9 +345,9 @@ function printEverydayLinks()
             ?>
         </select>
         <select id="datasheet" class="selectpicker" data-style="btn-default" title="통합정보망" data-width="180px" onchange="dataclick();">
-            <option value="1"> 25기 행정/수업반 </option>
-            <option value="2"> 24기 행정/수업반 </option>
-            <option value="3"> 23기 행정/수업반 </option>
+            <option value="1"> 27기 행정/수업반 </option>
+            <option value="2"> 26기 행정/수업반 </option>
+            <option value="3"> 25기 행정/수업반 </option>
             <option value="4"> 교직원 연락망 </option>
             <option value="5"> 여학생 방배정 </option>
             <option value="6"> 남학생 방배정 </option>
@@ -363,10 +363,10 @@ function printEverydayLinks()
                         window.open("https://view.officeapps.live.com/op/view.aspx?src=https://kmlaonline.net/data/datasheet/25기.xlsx");
                         break;
                     case "2":
-                        window.open("https://view.officeapps.live.com/op/view.aspx?src=https://kmlaonline.net/data/datasheet/24기.xlsx");
+                        window.open("https://docs.google.com/spreadsheets/d/1vsE9Zmx4VuXRrdi8NBCKzDuQy-KKQAv0LWJcefEoeNo/edit?usp=sharing");
                         break;
                     case "3":
-                        window.open("https://view.officeapps.live.com/op/view.aspx?src=https://kmlaonline.net/data/datasheet/23기.xlsx");
+                        window.open("https://docs.google.com/spreadsheets/d/14K_rbL3UV_cIpKgF2YC951XP3oBrGl6DLx5Bm6Wi4-U/edit?usp=sharing");
                         break;
                     case "4":
                         window.open("https://view.officeapps.live.com/op/view.aspx?src=https://kmlaonline.net/data/datasheet/교직원연락망.xlsx");
