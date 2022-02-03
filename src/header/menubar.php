@@ -7,7 +7,7 @@
     </div>
     <div class="menu1">
         <div class="widthholder">
-            <div class="menu1_text">전</div>
+            <div class="menu1_text">전체</div>
             <div class="menu1_sub">
                 <a href="board/all_announce" class="menu2">공지</a>
                 <a href="board/forum" class="menu2">포럼</a>
