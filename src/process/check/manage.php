@@ -8,7 +8,7 @@ if(isset($_GET['fetch'])){
 		case 'category':
 			switch($_GET['sub']){
 				case 'permissions':
-					if(false===checkCategoryAccess($_GET['cat'],"manage permission")) continue;
+					if(false===checkCategoryAccess($_GET['cat'],"manage permission")) continue 2;
 					$perms=array_flip($board->getCategoryActionList());
 					foreach($perms as $key=>$val){ $perms[$key]=0; }
 					do{
