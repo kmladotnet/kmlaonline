@@ -50,7 +50,7 @@ function printContent(){
 				<form method="post" action="/user/logout" id="logout_form" onsubmit="return true;"><input type="hidden" name="returnto" value="/" /></form>
 			<?php }else{ ?>
 				<a href="/user/message?compose_to=<?php echo $user_to['n_id'] ?>">쪽지 보내기</a>
-				 | <a href="/user/block/<?php echo $user_to['n_id'] ?>">차단</a>
+				<!-- | <a href="/user/block/<?php echo $user_to['n_id'] ?>">차단</a> -->
 			 <?php } ?>
 		</div>
 		<div class="user_basics">
