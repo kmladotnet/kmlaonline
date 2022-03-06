@@ -110,7 +110,7 @@ function printContent(){
 						<!-- if n_who is 0, 신청자가 없을 때 -->
 						<td>신청자가 없습니다</td>
 						<td>
-						<?php $date1 = new DateTime("now"); $date2 = new DateTime("2022-03-06"); // update DateTime constructor parameter
+						<?php $date1 = new DateTime("now"); $date2 = new DateTime("2022-03-07"); // update DateTime constructor parameter
 						if($date1 >=  $date2) { ?>
 							<form method="post" action="/proc/util/donation" onsubmit="return saveAjax(this,'신청중...');">
 								<input type="hidden" name="from" value="book">
