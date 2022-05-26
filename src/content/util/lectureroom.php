@@ -24,7 +24,7 @@ function printContent(){
 	$week_range=x_week_range(time());
 	$day=$week_range[0];
 	$dayNames=array("일","월","화","수","목","금","토");
-	$floorNames=array("지하 1층", "2층", "4층", "10층");
+	$floorNames=array("지하 1층", "2층", "4층", "10층", "충3");
 	$currentTable=getCurrentTable();
 	?>
 	<h1 style="padding:9px;text-align:center;"><img alt="공동강의실 이용 신청" src="/data/boardimg/lectureroom.png" style="height: 100px"/></h1>
@@ -72,7 +72,7 @@ function printContent(){
 		<tbody>
 			<?php for($wk=0;$wk<7;$wk++){ ?>
 				<?php for($tm=0;$tm<2;$tm++){ ?>
-					<?php for($floor=0;$floor<4;$floor++){ ?>
+					<?php for($floor=0;$floor<5;$floor++){ ?>
 						<tr style="background:#<?php echo $floor%2==0?"FFF":"F8F8F8" ?>;">
 							<?php if($tm==0 && $floor==0){ ?>
 								<td rowspan="8" style="padding:3px;background:<?php echo date("Y-m-d",$day)==date("Y-m-d")?"gold":($wk%2==0?"#FFF":"#F8F8F8") ?>;text-align:right;">
