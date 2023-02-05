@@ -21,7 +21,7 @@ function printContent(){ ?>
 				<hr />
                 <div class="form-group">
                     <label for="chk_n_tos_agree">
-required/>
+                        <input type="checkbox" id="chk_n_tos_agree" name="n_tos_agree" value="yes" <?php echo (isset($_POST['n_tos_agree']) && $_POST['n_tos_agree']=="yes")?"checked='checked'":""?> data-error="동의해주세요." required/>
 <?php echo lang("user","register","accept tos"); ?>
                     </label>
                     <div class="help-block with-errors"></div>
