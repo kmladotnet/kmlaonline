@@ -21,7 +21,7 @@ function printContent(){ ?>
 				<hr />
                 <div class="form-group">
                     <label for="chk_n_tos_agree">
-                        <input type="checkbox" id="chk_n_tos_agree" name="n_tos_agree" value="yes" <?php echo (isset($_POST['n_tos_agree']) && $_POST['n_tos_agree']=="yes")?"checked='checked'":""?> data-error="동의해주세요." required/>
+required/>
 <?php echo lang("user","register","accept tos"); ?>
                     </label>
                     <div class="help-block with-errors"></div>
@@ -167,7 +167,7 @@ function printContent(){ ?>
 							<tr>
 								<th style="width:120px;">학번 방</th>
 								<td style="text-align:left">
-									학번: <input class="form-control" type="text" name="n_student_id" style="width:80px; display:inline-block" <?php echo isset($_POST['n_student_id'])?"value='".htmlspecialchars($_POST['n_student_id'])."'":""?> />
+									학번: <input class="form-control" required type="text" name="n_student_id" style="width:80px; display:inline-block" <?php echo isset($_POST['n_student_id'])?"value='".htmlspecialchars($_POST['n_student_id'])."'":""?> />
 									방: <input class="form-control" type="text" name="s_room" style="width:80px; display:inline-block" <?php echo isset($_POST['s_room'])?"value='".htmlspecialchars($_POST['s_room'])."'":""?> />
 								</td>
 							</tr>
@@ -202,7 +202,7 @@ function printContent(){ ?>
 							<tr>
 								<th style="width:120px;">
 <?php echo lang("generic","phone")?></th>
-								<td><input class="form-control" type="text" name="s_phone" placeholder="e.g. 010-1234-5678" style="width:100%" <?php echo isset($_POST['s_phone'])?"value='".htmlspecialchars($_POST['s_phone'])."'":""?> /></td>
+								<td><input class="form-control" type="text" required name="s_phone" placeholder="e.g. 010-1234-5678" style="width:100%" <?php echo isset($_POST['s_phone'])?"value='".htmlspecialchars($_POST['s_phone'])."'":""?> /></td>
 							</tr>
 							<tr>
 								<th style="width:120px;">
