@@ -1559,7 +1559,7 @@ function putAlert($s)
             // 식단 출력용 함수 by paco
             function printFood($foodJSON, $month, $day, $whichMeal)
             {
-                if ($foodJSON != null && array_key_exists($month, $foodJSON) && array_key_exists($day, $foodJSON[$month]) && array_key_exists($whichMeal, $foodJSON[$month][$day])) {
+                if ($foodJSON != null && array_key_exists($month, $foodJSON) && array_key_exists($day, $foodJSON[$month])) {
                     foreach ($foodJSON[$month][$day][$whichMeal] as $value) {
                         echo "$value <br />";
                     }
