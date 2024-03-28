@@ -1560,7 +1560,7 @@ function putAlert($s)
             function printFood($foodJSON, $month, $day, $whichMeal)
             {
                 if ($foodJSON != null && array_key_exists($month, $foodJSON) && array_key_exists($day, $foodJSON[$month])) {
-                    foreach ($foodJSON[$month][$day][$whichMeal] as $key => $value) {
+                    foreach ($foodJSON[$month][$day][$whichMeal] as $value) {
                         echo "$value <br />";
                     }
                 } else {
