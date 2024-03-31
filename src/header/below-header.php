@@ -35,7 +35,7 @@ if ($me['s_pic']) {
 		</div>
 		<?php } else if ($_SERVER["REQUEST_URI"] !== '/util/library' && $_SERVER["REQUEST_URI"] !== '/util/chat') {
     if (!($me && getTheme($me)['hidedasan'])) {?>
-			<div id="total-header" style="background: url('https://github.com/kmladotnet/doodles/raw/master/banners/relax.png') no-repeat; background-size: contain;">
+			<div id="total-header" style="background: url('https://github.com/kmladotnet/doodles/raw/master/banners/kmlaonline-old.png') no-repeat; background-size: contain;">
 				<?php if (isset($_SESSION['user'])) {?>
 					<div class="userarea">
 						<?php include "src/header/userarea.php";?></div>
