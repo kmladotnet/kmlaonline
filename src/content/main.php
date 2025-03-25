@@ -316,7 +316,7 @@ function printEverydayLinks()
     global $board;
 ?>
     <div class="everyday-links">
-        <button type="button" id="main-theme-button" class="btn btn-default" onclick="location = 'https://bit.ly/2n5ArDt'">학생회 상벌점 확인</button>
+        <button type="button" id="main-theme-button" class="btn btn-default" onclick="location = 'https://docs.google.com/spreadsheets/d/165mM75gJkalE1geuobB60YWLSvPzzIe-ssecshSnwKk/edit?gid=1272025224#gid=1272025224'">학생회 상벌점 확인</button>
         <button type="button" id="main-theme-button" class="btn btn-default" onclick="location = '/util/lectureroom'">공강 신청</button>
         <button type="button" id="main-theme-button" class="btn btn-default" onclick="location = '/util/karaoke'">노래방 신청</button>
         <select id="everyday-other" class="selectpicker" data-style="btn-default" title="바로가기" data-width="180px" onchange="location = this.options[this.selectedIndex].value;">
